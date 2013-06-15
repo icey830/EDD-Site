@@ -4,7 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="main">
  *
- * @package _s
+ * @package EDD
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -28,8 +28,8 @@
 		</div>
 
 		<nav id="site-navigation" class="navigation-main" role="navigation">
-			<h1 class="menu-toggle"><?php _e( 'Menu', '_s' ); ?></h1>
-			<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', '_s' ); ?>"><?php _e( 'Skip to content', '_s' ); ?></a></div>
+			<h1 class="menu-toggle"><?php _e( 'Menu', 'edd' ); ?></h1>
+			<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'edd' ); ?>"><?php _e( 'Skip to content', 'edd' ); ?></a></div>
 
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
