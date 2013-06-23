@@ -8,19 +8,32 @@
  */
 ?>
 
-	</div><!-- #main -->
-
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<?php do_action( 'edd_credits' ); ?>
-			<a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'edd' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', 'edd' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'edd' ), 'edd', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
-		</div><!-- .site-info -->
+		<div class="container">
+			<img src="<?php echo get_template_directory_uri(); ?>/images/edd-sitting.png" />
+			<div class="colums-clearfix">
+				<?php edd_s_get_latest_post(); ?>
+
+				<div class="forum col">
+					<h4>Need help?</h4>
+					<p>If you ever need help with EDD, there is a complete <a href="">Support Forum</a> available where you can get your support questions answered. If you'd like to report a bug or have ideas for how to improve the plugin, please post it to our <a href="">GitHub Issue Tracker</a>.</p>
+				</div>
+
+				<div class="consultants col">
+					<h4>Trusted Consultants</h4>
+					<p>We maintain a list of consultants that we recommend working with when it comes to managed support, customization, and setup help. </p>
+					<p><a href="">View Consultants...</a></p>
+				</div>
+			</div>
+
+			<?php
+			edd_s_get_social_options();
+			edd_s_get_footer_nav();
+			?>
+			<p class="copyright">Copyright &copy; 2013, Easy Digital Downloads. A project by <a href="<?php echo esc_url( '/team/' ); ?>">Pippin Williamson and Friends</a>.</p>
+		</div><!-- .container -->
 	</footer><!-- #colophon -->
-</div><!-- #page -->
 
-<?php wp_footer(); ?>
-
+	<?php wp_footer(); ?>
 </body>
 </html>
