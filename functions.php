@@ -12,23 +12,19 @@
  * Set the content width.
  */
 if ( ! isset( $content_width ) )
-	$content_width = 640; /* pixels */
+	$content_width = 680;
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */
 function edd_theme_setup() {
-	load_theme_textdomain( 'edd', get_template_directory() . '/languages' );
-
 	add_theme_support( 'automatic-feed-links' );
-
 	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'edd' ),
 	) );
-
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 }
 add_action( 'after_setup_theme', 'edd_theme_setup' );
 
