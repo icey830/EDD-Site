@@ -6,33 +6,51 @@
  *
  * @package EDD
  */
-?><!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+?>
+<!DOCTYPE html>
+<!--[if IE 8 ]><html id="ie8" <?php language_attributes(); ?>><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html <?php language_attributes(); ?>><!--<![endif]-->
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
-<meta name="viewport" content="width=device-width" />
-<title><?php wp_title( '|', true, 'right' ); ?></title>
-<link rel="profile" href="http://gmpg.org/xfn/11" />
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+	<meta charset="<?php bloginfo( 'charset' ); ?>" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<?php wp_head(); ?>
+	<title><?php wp_title( '|', true, 'right' ); ?></title>
+
+	<link rel="profile" href="http://gmpg.org/xfn/11" />
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+
+	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="hfeed site">
-	<?php do_action( 'before' ); ?>
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-		</div>
 
-		<nav id="site-navigation" class="navigation-main" role="navigation">
-			<h1 class="menu-toggle"><?php _e( 'Menu', 'edd' ); ?></h1>
-			<div class="screen-reader-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'edd' ); ?>"><?php _e( 'Skip to content', 'edd' ); ?></a></div>
+	<div class="header-outer">
+		<header class="header clearfix">
+			<div id="logo">
+				<a href="<?php echo esc_url( '/' ); ?>" class="logo-image"><img src="images/logo.png" alt="Easy Digital Downloads" /></a>
+			</div><!-- #logo -->
 
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+			<nav id="primary" class="navigation-main" role="navigation">
+				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+			</nav><!-- /#primary -->
 
-	<div id="main" class="site-main">
+			<div id="sign-in-form" class="clearfix">
+				<div class="tooltip-arrow"></div>
+				<h3>Sign In</h3>
+				<form action="" method="post">
+					<p class="login-username">
+						<label for="user-login">Username</label>
+						<input type="text" name="user-login" id="user-login" class="input" size="20" />
+					</p>
+					<p class="login-password">
+						<label for="user-pass">Password</label>
+						<input type="text" name="user-pass" id="user-pass" class="input" size="20" />
+					</p>
+					<p class="login-submit clearfix">
+						<input type="submit" value="Sign In" />
+						<a class="forgot-password" href="">Forgot your password?</a>
+					</p>
+				</form>
+			</div><!-- /#sign-in-form -->
+		</header><!-- /.header -->
+	</div><!-- /.header-outer -->
