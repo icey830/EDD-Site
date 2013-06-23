@@ -31,7 +31,7 @@ add_action( 'after_setup_theme', 'edd_theme_setup' );
 /**
  * Register widgetized area and update sidebar with default widgets
  */
-function edd_register_theme_widgets() {
+function edd_register_theme_sidebars() {
 	register_sidebar( array(
 		'name'          => __( 'Blog Sidebar', 'edd' ),
 		'id'            => 'blog-sidebar',
@@ -59,7 +59,7 @@ function edd_register_theme_widgets() {
 		'after_title'   => '</h1>',
 	) );
 }
-add_action( 'widgets_init', 'edd_register_theme_widgets' );
+add_action( 'widgets_init', 'edd_register_theme_sidebars' );
 
 /**
  * Enqueue scripts and styles
