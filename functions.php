@@ -99,7 +99,7 @@ function edd_wp_title( $title, $sep ) {
 	} elseif ( is_page() ) {
 		$title = strip_tags( htmlspecialchars_decode( get_the_title( $post->ID ) ) ) . ' | ' . get_bloginfo( 'name' );
 	} elseif ( is_404() ) {
-		$title = __( '404 - Nothing Found', 'edd' ) . ' | ' . get_bloginfo( 'name' ); 
+		$title = __( '404 - Nothing Found', 'edd' ) . ' | ' . get_bloginfo( 'name' );
 	} elseif ( is_author() ) {
 		$title = get_userdata( get_query_var( 'author' ) )->display_name . ' | ' . __( 'Author Archive', 'edd' )  . ' | ' . get_bloginfo( 'name' );
 	} elseif ( is_category() ) {
@@ -127,3 +127,9 @@ function edd_wp_title( $title, $sep ) {
 	return $title;
 }
 add_filter( 'wp_title', 'edd_wp_title', 10, 2 );
+
+function edd_image_full_quality( $quality ) {
+    return 100;
+}
+add_filter( 'jpeg_quality', 'edd_image_full_quality' );
+add_filter( 'wp_editor_set_quality', 'edd_image_full_quality' );
