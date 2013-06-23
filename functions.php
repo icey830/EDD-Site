@@ -111,18 +111,18 @@ function edd_wp_title( $title, $sep ) {
 
 		if ( ! empty( $post_title ) ) {
 			$title = $post_title . ' | ' . get_bloginfo( 'name' );
-		} // end if
-	} // end if
+		}
+	}
 
 	// Return the default title if browsing the feed
 	if ( is_feed() ) {
 		return $title;
-	} // end if
+	}
 
 	// Add a page number if necessary.
 	if ( $paged >= 2 || $page >= 2 ) {
 		$title = "$title $sep " . sprintf( __( 'Page %s', 'flat' ), max( $paged, $page ) );
-	} // end if
+	}
 
 	return $title;
 }
