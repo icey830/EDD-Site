@@ -2,95 +2,40 @@
 /**
  * EDD functions and definitions
  *
- * @package EDD
+ * @package   EasyDigitalDownloads_v2
+ * @category  Core
+ * @author    Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 
 /**
- * Set the content width based on the theme's design and stylesheet.
+ * Set the content width.
  */
 if ( ! isset( $content_width ) )
 	$content_width = 640; /* pixels */
 
-if ( ! function_exists( 'edd_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
- *
- * Note that this function is hooked into the after_setup_theme hook, which runs
- * before the init hook. The init hook is too late for some features, such as indicating
- * support post thumbnails.
  */
-function edd_setup() {
-
-	/**
-	 * Make theme available for translation
-	 * Translations can be filed in the /languages/ directory
-	 * If you're building a theme based on EDD, use a find and replace
-	 * to change 'edd' to the name of your theme in all the template files
-	 */
+function edd_theme_setup() {
 	load_theme_textdomain( 'edd', get_template_directory() . '/languages' );
 
-	/**
-	 * Add default posts and comments RSS feed links to head
-	 */
 	add_theme_support( 'automatic-feed-links' );
 
-	/**
-	 * Enable support for Post Thumbnails on posts and pages
-	 *
-	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
-	 */
-	//add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );
 
-	/**
-	 * This theme uses wp_nav_menu() in one location.
-	 */
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'edd' ),
 	) );
 
-	/**
-	 * Enable support for Post Formats
-	 */
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 }
-endif; // edd_setup
-add_action( 'after_setup_theme', 'edd_setup' );
-
-/**
- * Setup the WordPress core custom background feature.
- *
- * Use add_theme_support to register support for WordPress 3.4+
- * as well as provide backward compatibility for WordPress 3.3
- * using feature detection of wp_get_theme() which was introduced
- * in WordPress 3.4.
- *
- * @todo Remove the 3.3 support when WordPress 3.6 is released.
- *
- * Hooks into the after_setup_theme action.
- */
-function edd_register_custom_background() {
-	$args = array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	);
-
-	$args = apply_filters( 'edd_custom_background_args', $args );
-
-	if ( function_exists( 'wp_get_theme' ) ) {
-		add_theme_support( 'custom-background', $args );
-	} else {
-		define( 'BACKGROUND_COLOR', $args['default-color'] );
-		if ( ! empty( $args['default-image'] ) )
-			define( 'BACKGROUND_IMAGE', $args['default-image'] );
-		add_custom_background();
-	}
-}
-add_action( 'after_setup_theme', 'edd_register_custom_background' );
+add_action( 'after_setup_theme', 'edd_theme_setup' );
 
 /**
  * Register widgetized area and update sidebar with default widgets
  */
-function edd_widgets_init() {
+function edd_register_theme_widgets() {
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'edd' ),
 		'id'            => 'sidebar-1',
@@ -100,34 +45,21 @@ function edd_widgets_init() {
 		'after_title'   => '</h1>',
 	) );
 }
-add_action( 'widgets_init', 'edd_widgets_init' );
+add_action( 'widgets_init', 'edd_register_theme_widgets' );
 
 /**
  * Enqueue scripts and styles
  */
-function edd_scripts() {
-	wp_enqueue_style( 'edd-style', get_stylesheet_uri() );
+function edd_register_theme_scripts() {
+	wp_register_style( 'theme', get_stylesheet_directory_uri() . '/style.css' );
+	wp_enqueue_style( 'theme' );
 
-	wp_enqueue_script( 'edd-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( 'jquery' );
 
-	wp_enqueue_script( 'edd-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+	if ( is_singular() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
-	}
 
-	if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( 'edd-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20120202' );
-	}
+	wp_register_script( 'theme', get_template_directory_uri() . '/js/theme.js' );
+	wp_enqueue_script( 'theme' );
 }
-add_action( 'wp_enqueue_scripts', 'edd_scripts' );
-
-/**
- * Custom template tags for this theme.
- */
-require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
-require get_template_directory() . '/inc/extras.php';
+add_action( 'wp_enqueue_scripts', 'edd_register_theme_scripts' );
