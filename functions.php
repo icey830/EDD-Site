@@ -77,9 +77,11 @@ function edd_register_theme_scripts() {
 	wp_enqueue_style( 'edd-style' );
 
 	wp_register_script( 'edd-js', get_template_directory_uri() . '/js/theme.js', array( 'jquery' ) );
+	wp_register_script( 'modernizr-js', get_template_directory_uri() . '/js/lib/modernizr.min.js' );
 
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'edd-js' );
+	wp_enqueue_script( 'moderizr-js' );
 
 	if ( is_singular() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
