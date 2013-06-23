@@ -55,7 +55,47 @@ function edd_register_theme_scripts() {
 	if ( is_singular() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
 
-	wp_register_script( 'theme', get_template_directory_uri() . '/js/theme.js' );
+	wp_register_script( 'theme', get_template_directory_uri() . '/js/theme.js', array( 'jquery' ) );
 	wp_enqueue_script( 'theme' );
 }
 add_action( 'wp_enqueue_scripts', 'edd_register_theme_scripts' );
+
+/**
+ * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
+ */
+function edd_enhanced_image_navigation( $url, $id ) {
+	if ( ! is_attachment() && ! wp_attachment_is_image( $id ) )
+		return $url;
+
+	$image = get_post( $id );
+	if ( ! empty( $image->post_parent ) && $image->post_parent != $id )
+		$url .= '#main';
+
+	return $url;
+}
+add_filter( 'attachment_link', 'edd_enhanced_image_navigation', 10, 2 );
+
+/**
+ * Filters wp_title to print a neat <title> tag based on what is being viewed.
+ */
+function edd_wp_title( $title, $sep ) {
+	global $page, $paged;
+
+	if ( is_feed() )
+		return $title;
+
+	// Add the blog name
+	$title .= get_bloginfo( 'name' );
+
+	// Add the blog description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	if ( $site_description && ( is_home() || is_front_page() ) )
+		$title .= " $sep $site_description";
+
+	// Add a page number if necessary:
+	if ( $paged >= 2 || $page >= 2 )
+		$title .= " $sep " . sprintf( __( 'Page %s', 'edd' ), max( $paged, $page ) );
+
+	return $title;
+}
+add_filter( 'wp_title', 'edd_wp_title', 10, 2 );
