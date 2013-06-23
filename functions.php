@@ -68,16 +68,21 @@ add_action( 'widgets_init', 'edd_register_theme_sidebars' );
  * Enqueue scripts and styles
  */
 function edd_register_theme_scripts() {
-	wp_register_style( 'theme', get_stylesheet_directory_uri() . '/style.css' );
-	wp_enqueue_style( 'theme' );
+	wp_register_style( 'roboto-font', 'http://fonts.googleapis.com/css?family=Roboto:400,300,500' );
+	wp_register_style( 'edd-style', get_stylesheet_directory_uri() . '/style.css', array( 'roboto-font' ) );
+	wp_register_style( 'font-awesome', get_template_directory_uri() . '/css/lib/font-awesome.css', array( 'edd-style' ) );
+
+	wp_enqueue_style( 'roboto-font' );
+	wp_enqueue_style( 'font-awesome' );
+	wp_enqueue_style( 'edd-style' );
+
+	wp_register_script( 'edd-js', get_template_directory_uri() . '/js/theme.js', array( 'jquery' ) );
 
 	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'edd-js' );
 
 	if ( is_singular() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
-
-	wp_register_script( 'theme', get_template_directory_uri() . '/js/theme.js', array( 'jquery' ) );
-	wp_enqueue_script( 'theme' );
 }
 add_action( 'wp_enqueue_scripts', 'edd_register_theme_scripts' );
 
