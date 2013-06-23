@@ -20,7 +20,10 @@ if ( ! isset( $content_width ) )
 function edd_theme_setup() {
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'post-thumbnails' );
+	/** @TODO: Add post thumbnail sizes */
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+
+	add_editor_style( 'css/editor-style.css' );
 
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'edd' ),
@@ -79,40 +82,47 @@ function edd_register_theme_scripts() {
 add_action( 'wp_enqueue_scripts', 'edd_register_theme_scripts' );
 
 /**
- * Filter in a link to a content ID attribute for the next/previous image links on image attachment pages
- */
-function edd_enhanced_image_navigation( $url, $id ) {
-	if ( ! is_attachment() && ! wp_attachment_is_image( $id ) )
-		return $url;
-
-	$image = get_post( $id );
-	if ( ! empty( $image->post_parent ) && $image->post_parent != $id )
-		$url .= '#main';
-
-	return $url;
-}
-add_filter( 'attachment_link', 'edd_enhanced_image_navigation', 10, 2 );
-
-/**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
  */
 function edd_wp_title( $title, $sep ) {
-	global $page, $paged;
+	global $paged, $page, $post;
 
-	if ( is_feed() )
+	// Default title displayed on all pages unless overridden below
+	$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
+
+	if ( is_search() ) {
+		$search_term = get_query_var( 's' );
+
+		$search = new WP_Query( 's=' . $search_term . '&posts_per_page=-1' );
+
+		$title = __( 'Search Results For' , 'flat' ) . ' ' . $search_term . ' | ' . get_bloginfo( 'name' );
+	} elseif ( is_page() ) {
+		$title = strip_tags( htmlspecialchars_decode( get_the_title( $post->ID ) ) ) . ' | ' . get_bloginfo( 'name' );
+	} elseif ( is_404() ) {
+		$title = __( '404 - Nothing Found', 'flat' ) . ' | ' . get_bloginfo( 'name' ); 
+	} elseif ( is_author() ) {
+		$title = get_userdata( get_query_var( 'author' ) )->display_name . ' | ' . __( 'Author Archive', 'flat' )  . ' | ' . get_bloginfo( 'name' );
+	} elseif ( is_category() ) {
+		$title = single_cat_title( '', false ) . ' | ' . __( 'Category Archive', 'flat' ) . ' | ' . get_bloginfo( 'name' );
+	} elseif ( is_tag() ) {
+		$title = single_tag_title( '', false ) . ' | ' . __( 'Tag Archive', 'flat' ) . ' | ' . get_bloginfo( 'name' );
+	} elseif ( is_single() ) {
+		$post_title = the_title_attribute( 'echo=0' );
+
+		if ( ! empty( $post_title ) ) {
+			$title = $post_title . ' | ' . get_bloginfo( 'name' );
+		} // end if
+	} // end if
+
+	// Return the default title if browsing the feed
+	if ( is_feed() ) {
 		return $title;
+	} // end if
 
-	// Add the blog name
-	$title .= get_bloginfo( 'name' );
-
-	// Add the blog description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) )
-		$title .= " $sep $site_description";
-
-	// Add a page number if necessary:
-	if ( $paged >= 2 || $page >= 2 )
-		$title .= " $sep " . sprintf( __( 'Page %s', 'edd' ), max( $paged, $page ) );
+	// Add a page number if necessary.
+	if ( $paged >= 2 || $page >= 2 ) {
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'flat' ), max( $paged, $page ) );
+	} // end if
 
 	return $title;
 }
