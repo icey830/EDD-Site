@@ -95,17 +95,17 @@ function edd_wp_title( $title, $sep ) {
 
 		$search = new WP_Query( 's=' . $search_term . '&posts_per_page=-1' );
 
-		$title = __( 'Search Results For' , 'flat' ) . ' ' . $search_term . ' | ' . get_bloginfo( 'name' );
+		$title = __( 'Search Results For' , 'edd' ) . ' ' . $search_term . ' | ' . get_bloginfo( 'name' );
 	} elseif ( is_page() ) {
 		$title = strip_tags( htmlspecialchars_decode( get_the_title( $post->ID ) ) ) . ' | ' . get_bloginfo( 'name' );
 	} elseif ( is_404() ) {
-		$title = __( '404 - Nothing Found', 'flat' ) . ' | ' . get_bloginfo( 'name' ); 
+		$title = __( '404 - Nothing Found', 'edd' ) . ' | ' . get_bloginfo( 'name' ); 
 	} elseif ( is_author() ) {
-		$title = get_userdata( get_query_var( 'author' ) )->display_name . ' | ' . __( 'Author Archive', 'flat' )  . ' | ' . get_bloginfo( 'name' );
+		$title = get_userdata( get_query_var( 'author' ) )->display_name . ' | ' . __( 'Author Archive', 'edd' )  . ' | ' . get_bloginfo( 'name' );
 	} elseif ( is_category() ) {
-		$title = single_cat_title( '', false ) . ' | ' . __( 'Category Archive', 'flat' ) . ' | ' . get_bloginfo( 'name' );
+		$title = single_cat_title( '', false ) . ' | ' . __( 'Category Archive', 'edd' ) . ' | ' . get_bloginfo( 'name' );
 	} elseif ( is_tag() ) {
-		$title = single_tag_title( '', false ) . ' | ' . __( 'Tag Archive', 'flat' ) . ' | ' . get_bloginfo( 'name' );
+		$title = single_tag_title( '', false ) . ' | ' . __( 'Tag Archive', 'edd' ) . ' | ' . get_bloginfo( 'name' );
 	} elseif ( is_single() ) {
 		$post_title = the_title_attribute( 'echo=0' );
 
@@ -121,7 +121,7 @@ function edd_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary.
 	if ( $paged >= 2 || $page >= 2 ) {
-		$title = "$title $sep " . sprintf( __( 'Page %s', 'flat' ), max( $paged, $page ) );
+		$title = "$title $sep " . sprintf( __( 'Page %s', 'edd' ), max( $paged, $page ) );
 	}
 
 	return $title;
