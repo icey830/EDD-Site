@@ -1,0 +1,32 @@
+/*
+ * Mixins
+ * Copyright (c) 2013, Sunny Ratilal.
+ */
+
+.box_sizing() {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.no_border_radius() {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+}
+
+.input_text_field() {
+	margin: 0;
+	vertical-align: top;
+	-webkit-appearance: textfield;
+	-webkit-backface-visibility: hidden;
+	outline: none;
+}
+
+.all_transition() {
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
