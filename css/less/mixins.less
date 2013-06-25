@@ -30,3 +30,88 @@
 	-ms-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
 }
+
+@-webkit-keyframes pulse {
+	0% {
+		background: rgba(255,255,255,0.15);
+	}
+	50% {
+		background: rgba(255,255,255,0.4);
+	}
+	100% {
+		background: rgba(255,255,255,0.15);
+	}
+}
+
+@-webkit-keyframes header {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes intro-text {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(50px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0);
+	}
+}
+
+@-webkit-keyframes video-thumbnail {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale(.3);
+	}
+
+	50% {
+		opacity: 1;
+		-webkit-transform: scale(1.05);
+	}
+
+	70% {
+		-webkit-transform: scale(.9);
+	}
+
+	100% {
+		-webkit-transform: scale(1);
+	}
+}
+
+@-webkit-keyframes ios-feature {
+	0% {
+		background: transparent;
+	}
+
+	50% {
+		background: #f7f7f7;
+		box-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
+	}
+
+	100% {
+		background: transparent;
+	}
+}
+
+@-webkit-keyframes iphone-entrance {
+	0% {
+		opacity: 0;
+		top: 50px;
+	}
+	100% {
+		opacity: 1;
+		top: 0;
+	}
+}
+
+@-webkit-keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
