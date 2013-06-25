@@ -98,4 +98,119 @@
 		</div><!-- /.app-store-button -->
 	</div><!-- /.feature -->
 </section><!-- /.feature-ios -->
+
+<?php
+/* ----------------------------- *
+ * Support
+ * ----------------------------- */
+?>
+<section class="featureset clearfix feature-support">
+	<div class="feature">
+		<div class="feature-content">
+			<h2>Best support in the industry...</h2>
+			<p>At Easy Digital Downloads, we love our customers and we're always glad to help you out if you have any problems with the plugin.</p>
+			<p>We provide exceptional support and in-depth documentation to alleviate your issues as soon as possible.</p>
+			<p>Our Support Team will always do their absolute best to help you with your debug and you'll be on your way in no time. Our Support Team comprises of people who work with and understand Easy Digital Downloads; who can serve you better?</p>
+		</div>
+		<i class="icon-group"></i>
+	</div>
+</section>
+
+<?php
+/* ----------------------------- *
+ * Reporting
+ * ----------------------------- */
+?>
+<section class="featureset clearfix feature-taxes">
+	<div class="feature">
+		<h2>Clean, beautiful and elegant reporting...</h2>
+		<div class="feature-content">
+			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+		</div>
+		<!-- <img src="images/taxes.png" /> -->
+	</div>
+</section>
+
+<?php
+/* ----------------------------- *
+ * >100k downloads
+ * ----------------------------- */
+?>
+<section class="featureset clearfix feature-customers">
+	<div class="feature">
+		<h2>With over 100,000 downloads, we got your back...</h2>
+		<p>We have <del>some</del> <ins>a lot</ins> of happy customers and here's what some are saying:</p>
+
+		<div class="testimonials">
+			<div class="testimonial">
+				<blockquote>
+					<p>Been searching for years to not have a paid service to do this for me and finally found it. Don't know why it took so long, but everything works great for what I need in a small business. Thank you and for your support.</p>
+					<cite>cmadden<br /><a>http://wordpress.org/support/topic/thank-you-24</a></cite>
+				</blockquote>
+			</div>
+
+			<div class="testimonial">
+				<blockquote>
+					<p>Been searching for years to not have a paid service to do this for me and finally found it. Don't know why it took so long, but everything works great for what I need in a small business. Thank you and for your support.</p>
+					<cite>cmadden<br /><a>http://wordpress.org/support/topic/thank-you-24</a></cite>
+				</blockquote>
+			</div>
+
+			<div class="testimonial">
+				<blockquote>
+					<p>Been searching for years to not have a paid service to do this for me and finally found it. Don't know why it took so long, but everything works great for what I need in a small business. Thank you and for your support.</p>
+					<cite>cmadden<br /><a>http://wordpress.org/support/topic/thank-you-24</a></cite>
+				</blockquote>
+			</div>
+
+			<div class="testimonial">
+				<blockquote>
+					<p>Been searching for years to not have a paid service to do this for me and finally found it. Don't know why it took so long, but everything works great for what I need in a small business. Thank you and for your support.</p>
+					<cite>cmadden<br /><a>http://wordpress.org/support/topic/thank-you-24</a></cite>
+				</blockquote>
+			</div>
+
+			<div class="testimonial">
+				<blockquote>
+					<p>Been searching for years to not have a paid service to do this for me and finally found it. Don't know why it took so long, but everything works great for what I need in a small business. Thank you and for your support.</p>
+					<cite>cmadden<br /><a>http://wordpress.org/support/topic/thank-you-24</a></cite>
+				</blockquote>
+			</div>
+
+			<div class="testimonial">
+				<blockquote>
+					<p>Been searching for years to not have a paid service to do this for me and finally found it. Don't know why it took so long, but everything works great for what I need in a small business. Thank you and for your support.</p>
+					<cite>cmadden<br /><a>http://wordpress.org/support/topic/thank-you-24</a></cite>
+				</blockquote>
+			</div>
+		</div>
+	</div>
+</section>
+
+<?php
+/* ----------------------------- *
+ * Newsletter
+ * ----------------------------- */
+?>
+<section class="featureset clearfix feature-newsletter">
+	<div class="feature">
+		<h2>Sign up for our newsletter now.</h2>
+		<h3>Be amongst the first to know about important news and upcoming features.</h3>
+		<form id="pmc_mailchimp" action="" method="post">
+			<div class="names clearfix">
+				<input name="pmc_fname" id="pmc_fname" type="text" placeholder="Enter your first name">
+				<input name="pmc_lname" id="pmc_lname" type="text" placeholder="Enter your last name">
+			</div>
+			<div>
+				<input name="pmc_email" id="pmc_email" type="email" placeholder="Enter your email address">
+				<input type="submit" value="Subscribe">
+			</div>
+			<input type="hidden" name="redirect" value="https://easydigitaldownloads.com/">
+			<input type="hidden" name="action" value="pmc_signup">
+			<input type="hidden" name="pmc_list_id" value="be2b495923">
+		</form>
+	</div>
+</section>
+
 <?php get_footer(); ?>
