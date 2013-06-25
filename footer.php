@@ -11,7 +11,7 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="container">
 			<img src="<?php echo get_template_directory_uri(); ?>/images/edd-sitting.png" />
-			<div class="colums-clearfix">
+			<div class="columns clearfix">
 				<div class="dev-blog col">
 					<?php eddwp_get_latest_post(); ?>
 				</div>
