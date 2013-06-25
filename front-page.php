@@ -141,6 +141,30 @@
 	<div class="feature">
 		<h2>With over 100,000 downloads, we got your back...</h2>
 		<p>We have <del>some</del> <ins>a lot</ins> of happy customers and here's what some are saying:</p>
+		
+		<?php
+		
+		$testimonials = new WP_Query(
+			array(
+				'posts_per_page' => 6,
+				'post_type' => 'testimonials',
+				'orderby' => 'rand'
+			)
+		);
+		
+		while ( $testimonials->have_posts() ) {
+			$testimonials->the_post();
+			?>
+			<div class="testimonial">
+				<blockquote>
+					<p><?php the_content(); ?></p>
+					<cite><?php echo get_post_meta( get_the_ID(), 'ecpt_author', true ); ?><br /><?php echo make_clickable( get_post_meta( get_the_ID(), 'ecpt_url', true ) ); ?></cite>
+				</blockquote>
+			</div>
+			<?php
+		}
+		
+		?>
 
 		<div class="testimonials">
 			<div class="testimonial">
