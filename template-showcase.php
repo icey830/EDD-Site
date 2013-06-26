@@ -1,6 +1,7 @@
 <?php
 /* Template Name: Showcase */
 get_header();
+the_post();
 ?>
 	<section class="main clearfix">
 		<section class="content clearfix">
