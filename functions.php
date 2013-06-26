@@ -70,7 +70,7 @@ add_action( 'widgets_init', 'edd_register_theme_sidebars' );
  */
 function edd_register_theme_scripts() {
 	wp_register_style( 'roboto-font', 'http://fonts.googleapis.com/css?family=Roboto:400,300,500' );
-	wp_register_style( 'edd-style', get_stylesheet_directory_uri() . '/style.css', array( 'roboto-font' ) );
+	wp_register_style( 'edd-style', get_stylesheet_directory_uri() . '/style.css', array( 'roboto-font' ), '1.0' );
 	wp_register_style( 'font-awesome', get_template_directory_uri() . '/css/lib/font-awesome.css', array( 'edd-style' ) );
 	wp_register_style( 'normalize', get_template_directory_uri() . '/css/lib/normalize.css' );
 
@@ -109,6 +109,8 @@ function edd_wp_title( $title, $sep ) {
 		$search = new WP_Query( 's=' . $search_term . '&posts_per_page=-1' );
 
 		$title = __( 'Search Results For' , 'edd' ) . ' ' . $search_term . ' | ' . get_bloginfo( 'name' );
+	} elseif ( is_home() || is_front_page() ) {
+		$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
 	} elseif ( is_page() ) {
 		$title = strip_tags( htmlspecialchars_decode( get_the_title( $post->ID ) ) ) . ' | ' . get_bloginfo( 'name' );
 	} elseif ( is_404() ) {
