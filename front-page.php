@@ -156,7 +156,7 @@
 			<div class="testimonial">
 				<blockquote>
 					<p><?php the_content(); ?></p>
-					<cite><?php echo get_post_meta( get_the_ID(), 'ecpt_author', true ); ?><br /><?php echo make_clickable( get_post_meta( get_the_ID(), 'ecpt_url', true ) ); ?></cite>
+					<cite><a href="<?php get_post_meta( get_the_ID(), 'ecpt_url', true ); ?>"><?php echo get_post_meta( get_the_ID(), 'ecpt_author', true ); ?></a></cite>
 				</blockquote>
 			</div>
 		<?php } ?>
