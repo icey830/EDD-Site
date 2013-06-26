@@ -113,8 +113,8 @@
 			<p>Our Support Team will always do their absolute best to help you with your debug and you'll be on your way in no time. Our Support Team comprises of people who work with and understand Easy Digital Downloads; who can serve you better?</p>
 		</div>
 		<i class="icon-group"></i>
-	</div>
-</section>
+	</div><!-- /.feature -->
+</section><!-- /.feature-support -->
 
 <?php
 /* ----------------------------- *
@@ -128,9 +128,8 @@
 			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
 			<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 		</div>
-		<!-- <img src="images/taxes.png" /> -->
-	</div>
-</section>
+	</div><!-- /.feature -->
+</section><!-- /.feature-taxes -->
 
 <?php
 /* ----------------------------- *
@@ -141,9 +140,9 @@
 	<div class="feature">
 		<h2>With over 100,000 downloads, we got your back...</h2>
 		<p>We have <del>some</del> <ins>a lot</ins> of happy customers and here's what some are saying:</p>
-		
-		<?php
-		
+
+		<div class="testimonials">
+		<?php		
 		$testimonials = new WP_Query(
 			array(
 				'posts_per_page' => 6,
@@ -151,66 +150,19 @@
 				'orderby' => 'rand'
 			)
 		);
-		
+
 		while ( $testimonials->have_posts() ) {
-			$testimonials->the_post();
-			?>
+			$testimonials->the_post(); ?>
 			<div class="testimonial">
 				<blockquote>
 					<p><?php the_content(); ?></p>
 					<cite><?php echo get_post_meta( get_the_ID(), 'ecpt_author', true ); ?><br /><?php echo make_clickable( get_post_meta( get_the_ID(), 'ecpt_url', true ) ); ?></cite>
 				</blockquote>
 			</div>
-			<?php
-		}
-		
-		?>
-
-		<div class="testimonials">
-			<div class="testimonial">
-				<blockquote>
-					<p>Been searching for years to not have a paid service to do this for me and finally found it. Don't know why it took so long, but everything works great for what I need in a small business. Thank you and for your support.</p>
-					<cite>cmadden<br /><a>http://wordpress.org/support/topic/thank-you-24</a></cite>
-				</blockquote>
-			</div>
-
-			<div class="testimonial">
-				<blockquote>
-					<p>Been searching for years to not have a paid service to do this for me and finally found it. Don't know why it took so long, but everything works great for what I need in a small business. Thank you and for your support.</p>
-					<cite>cmadden<br /><a>http://wordpress.org/support/topic/thank-you-24</a></cite>
-				</blockquote>
-			</div>
-
-			<div class="testimonial">
-				<blockquote>
-					<p>Been searching for years to not have a paid service to do this for me and finally found it. Don't know why it took so long, but everything works great for what I need in a small business. Thank you and for your support.</p>
-					<cite>cmadden<br /><a>http://wordpress.org/support/topic/thank-you-24</a></cite>
-				</blockquote>
-			</div>
-
-			<div class="testimonial">
-				<blockquote>
-					<p>Been searching for years to not have a paid service to do this for me and finally found it. Don't know why it took so long, but everything works great for what I need in a small business. Thank you and for your support.</p>
-					<cite>cmadden<br /><a>http://wordpress.org/support/topic/thank-you-24</a></cite>
-				</blockquote>
-			</div>
-
-			<div class="testimonial">
-				<blockquote>
-					<p>Been searching for years to not have a paid service to do this for me and finally found it. Don't know why it took so long, but everything works great for what I need in a small business. Thank you and for your support.</p>
-					<cite>cmadden<br /><a>http://wordpress.org/support/topic/thank-you-24</a></cite>
-				</blockquote>
-			</div>
-
-			<div class="testimonial">
-				<blockquote>
-					<p>Been searching for years to not have a paid service to do this for me and finally found it. Don't know why it took so long, but everything works great for what I need in a small business. Thank you and for your support.</p>
-					<cite>cmadden<br /><a>http://wordpress.org/support/topic/thank-you-24</a></cite>
-				</blockquote>
-			</div>
-		</div>
-	</div>
-</section>
+		<?php } ?>
+		</div><!-- /.testimonials -->
+	</div><!-- /.feature -->
+</section><!-- /.feature-customers -->
 
 <?php
 /* ----------------------------- *
@@ -234,7 +186,7 @@
 			<input type="hidden" name="action" value="pmc_signup">
 			<input type="hidden" name="pmc_list_id" value="be2b495923">
 		</form>
-	</div>
-</section>
+	</div><!-- /.feature -->
+</section><!-- /.feature-newsletter -->
 
 <?php get_footer(); ?>
