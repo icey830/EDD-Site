@@ -20,10 +20,11 @@ if ( ! isset( $content_width ) )
 function edd_theme_setup() {
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'post-thumbnails' );
-	/** @TODO: Add post thumbnail sizes */
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 
 	add_editor_style( 'css/editor-style.css' );
+	
+	add_image_size( 'showcase', 320, 200, true );
 
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'edd' ),
