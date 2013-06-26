@@ -1,3 +1,9 @@
+/*
+ * Pages
+ * Copyright (c) 2013, Sunny Ratilal.
+ */
+
+
 /* ----------------------------- *
  * Global
  * ----------------------------- */
@@ -43,61 +49,147 @@
 .showcase {
 	width: 940px;
 	margin: 0 auto 20px;
-}
 
-.showcase .site {
-	background: #fff;
-	float: left;
-	padding: 10px;
-	position: relative;
-	width: 300px;
-	margin-right: 20px;
-	margin-bottom: 20px;
+	& .site {
+		background: #fff;
+		float: left;
+		padding: 10px;
+		position: relative;
+		width: 300px;
+		margin-right: 20px;
+		margin-bottom: 20px;
+
+		& img {
+			width: 280px;
+			height: auto;
+		}
+
+		& .text-overlay {
+			background: rgba(34,36,38,0.9);
+			width: 300px;
+			height: 204px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			font-size: 18px;
+			font-weight: 400;
+			text-align: center;
+			line-height: 165px;
+			margin: 0;
+			padding: 0;
+			color: #fff;
+			opacity: 0;
+			-webkit-transition: opacity .18s ease-in-out;
+
+			& span {
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: 10px;
+				margin-left: -63px;
+				line-height: 24px;
+				font-size: 14px;
+				font-weight: 300;
+				padding: 6px 14px;
+				background: #2794da;
+				color: #fff;
+				box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
+				cursor: pointer;
+				border-radius: 3px;
+				-webkit-transition: all .2s ease-in-out;
+				-webkit-user-select: none;
+			}
+		}
+
+		&:hover .text-overlay { opacity: 1; }
+	}
 }
 
 .showcase .site:nth-child(3n+3) { margin-right: 0; }
 
-.showcase .site img {
-	width: 280px;
-	height: auto;
-}
-
-.showcase .site .text-overlay {
-	background: rgba(34,36,38,0.9);
-	width: 300px;
-	height: 204px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	font-size: 18px;
-	font-weight: 400;
-	text-align: center;
-	line-height: 165px;
-	margin: 0;
-	padding: 0;
+/* ----------------------------- *
+ * Features
+ * ----------------------------- */
+.headline {
+	padding: 40px 0;
+	background: #75c1fa;
 	color: #fff;
-	opacity: 0;
-	-webkit-transition: opacity .18s ease-in-out;
+	font-size: 32px;
+	border-bottom: 1px solid #3e81b3;
+
+	& h1 {
+		margin: 0 auto;
+		width: 940px;
+		font-size: 32px;
+		text-align: center;
+		line-height: 52px;
+
+		& span {
+			background: rgba(255,255,255,0.15);
+			padding: 2px 4px;
+			-webkit-animation: pulse 3s;
+			-moz-animation: pulse 3s;
+			-ms-animation: pulse 3s;
+			-o-animation: pulse 3s;
+			animation: pulse 3s;
+		}
+	}
 }
 
-.showcase .site:hover .text-overlay { opacity: 1; }
+.feature-area {
+	width: 100%;
+	border-bottom: 1px solid #eee;
+	display: inline-block;
+	padding: 80px 0 0;
 
-.showcase .site .text-overlay span {
-	display: block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: 10px;
-	margin-left: -63px;
-	line-height: 24px;
-	font-size: 14px;
-	font-weight: 300;
-	padding: 6px 14px;
-	background: #2794da;
-	color: #fff;
-	box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
-	cursor: pointer;
-	border-radius: 3px;
-	-webkit-transition: all .2s ease-in-out;
-	-webkit-user-select: none;
+	&.feature-pad { padding-bottom: 80px; }
 }
+
+
+.feature-area .feature-text {
+	width: 940px;
+	margin: 0 auto;
+
+	& h3 { font-weight: 400; }
+
+	& p {
+		font-size: 18px;
+		font-weight: 300;
+		line-height: 30px;
+	}
+
+	&  .feature-text-inner {
+		float: left;
+		width: 46%;
+	}
+}
+
+.feature-right .feature-text .feature-text-inner { float: right; }
+
+.feature-left img { float: right; }
+
+.feature-center .feature-text {
+ 	& .feature-text-inner {
+		float: none;
+		width: 100%;
+		text-align: center;
+
+		& p {
+			margin-bottom: 25px;
+		}
+	}
+
+	& .feature-text .wp-post-image {
+		left: 50%;
+		position: relative;
+		margin-left: -400px;
+	}
+}
+
+.feature-66146 img { margin-left: 15%; }
+
+.feature-66151 img,
+.feature-66157 img { margin-right: 20%; }
+
+.feature-66166 img { margin-top: 50px; }
