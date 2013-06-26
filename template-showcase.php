@@ -11,8 +11,6 @@ get_header();
 
 		<section class="showcase clearfix">
 			<?php
-	
-			// Load showcases
 			$showcases = new WP_Query( array( 'post_type' => 'showcase' ) );
 			
 			while ( $showcases->have_posts() ) {
