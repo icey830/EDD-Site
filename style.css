@@ -260,7 +260,7 @@ html.cssanimations.csstransitions #primary ul li:hover ul{opacity:1;top:100%;vis
 .extension h2,.extension p{margin:0;padding:10px;}
 .extension h2{font-size:18px;font-weight:normal;}
 .extension p{padding-top:0;color:#555;}
-.extension .overlay{background:rgba(0, 0, 0, 0.75) url(../images/icon-direction.png) no-repeat 50% 50%;cursor:pointer;position:absolute;top:0;left:0;width:278px;height:174px;display:block;opacity:0;transition:opacity 0.2s ease-in-out;}
+.extension .overlay{background:rgba(0, 0, 0, 0.75) url(images/icon-direction.png) no-repeat 50% 50%;cursor:pointer;position:absolute;top:0;left:0;width:278px;height:174px;display:block;opacity:0;transition:opacity 0.2s ease-in-out;}
 .extension:hover .overlay{opacity:1;}
 .extensions-grid{margin:0;padding:0;}
 .extensions-grid ul{list-style:none;margin:10px 0 0 0;padding:0;}
