@@ -18,10 +18,11 @@ the_post();
 			<div class="extensions clearfix">
 				<?php
 				$extensions =  new WP_Query( array( 'post_type' => 'extension', 'posts_per_page' => 21, 'paged' => get_query_var( 'paged' ) ) );
-				while ( $extensions ->have_posts() ) {
+				$c = 0; while ( $extensions ->have_posts() ) {
 					$extensions->the_post();
+					$c++;
 					?>
-					<div class="extension">
+					<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?>">
 						<?php if ( has_category( '3rd Party' ) ) { ?>
 						<span class="third-party-overlay"></span>
 						<?php } ?>
