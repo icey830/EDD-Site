@@ -103,10 +103,10 @@ function edd_wp_title( $title, $sep ) {
 
 	$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
 
-	if ( is_search() ) {
-		$search_term = get_query_var( 's' );
-
-		$search = new WP_Query( 's=' . $search_term . '&posts_per_page=-1' );
+	if ( is_search() || isset( $_GET['extension_s'] ) ) {
+		if ( is_search() ) $search_term = get_query_var( 's' );
+		
+		if ( isset( $_GET['extension_s'] ) ) $search_term = $_GET['extension_s'];
 
 		$title = __( 'Search Results For' , 'edd' ) . ' ' . $search_term . ' | ' . get_bloginfo( 'name' );
 	} elseif ( is_home() || is_front_page() ) {
