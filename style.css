@@ -256,7 +256,7 @@ html.cssanimations.csstransitions #primary ul li:hover ul{opacity:1;top:100%;vis
 .filter a:hover{background:#2794da;color:#fff;border:1px solid #25597a;}
 .extension{border:1px solid #aaa;float:left;width:280px;margin-top:10px;margin-bottom:20px;margin-right:29px;position:relative;}
 .extension img{width:100%;height:100%;}
-.extension:nth-child(3n+3){margin-right:0;}
+.extension.extension-clear{margin-right:0;}
 .extension h2,.extension p{margin:0;padding:10px;}
 .extension h2{font-size:18px;font-weight:normal;}
 .extension p{padding-top:0;color:#555;}
@@ -276,6 +276,7 @@ html.cssanimations.csstransitions #primary ul li:hover ul{opacity:1;top:100%;vis
 .thumbnail-holder{width:278px;height:174px;margin:0 auto;vertical-align:middle;}
 .extensions .pagination{display:block;padding-top:30px;border-top:1px solid #efefef;}.extensions .pagination .current,.extensions .pagination .page-numbers{background:#fff;color:#232527;border-radius:3px;padding:1px 8px;font-weight:normal;border:1px solid #ccc;margin-right:5px;float:left;display:block;-webkit-transition:none;}
 .extensions .pagination .current,.extensions .pagination .page-numbers:hover{background:#2794da;border:1px solid #25597a;color:#fff;-webkit-transition:none;}
+.extension-search .main .content h1{float:left;margin:0;width:550px;}
 footer{background:#f9f9f9 url(images/edd-footer.png) no-repeat center bottom;box-shadow:inset 0 2px 0 rgba(0, 0, 0, 0.02);padding-top:35px;padding-bottom:70px;position:relative;}
 footer .container{width:940px;margin:0 auto;position:relative;}
 footer .container img{position:absolute;top:-172px;right:-150px;}
