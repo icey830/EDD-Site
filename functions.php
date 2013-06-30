@@ -2,9 +2,9 @@
 /**
  * EDD functions and definitions
  *
- * @package   EasyDigitalDownloads_v2
+ * @package	  EasyDigitalDownloads_v2
  * @category  Core
- * @author    Sunny Ratilal
+ * @author	  Sunny Ratilal
  * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 
@@ -37,30 +37,30 @@ add_action( 'after_setup_theme', 'edd_theme_setup' );
  */
 function edd_register_theme_sidebars() {
 	register_sidebar( array(
-		'name'          => __( 'Blog Sidebar', 'edd' ),
-		'id'            => 'blog-sidebar',
+		'name'		  => __( 'Blog Sidebar', 'edd' ),
+		'id'			  => 'blog-sidebar',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'	  => '</h3>'
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Forums Sidebar', 'edd' ),
-		'id'            => 'forum-sidebar',
+		'name'		  => __( 'Forums Sidebar', 'edd' ),
+		'id'			  => 'forum-sidebar',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'after_title'	  => '</h1>',
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Documentation Sidebar', 'edd' ),
-		'id'            => 'documentation-sidebar',
+		'name'		  => __( 'Documentation Sidebar', 'edd' ),
+		'id'			  => 'documentation-sidebar',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'after_title'	  => '</h1>',
 	) );
 }
 add_action( 'widgets_init', 'edd_register_theme_sidebars' );
@@ -116,7 +116,7 @@ function edd_wp_title( $title, $sep ) {
 	} elseif ( is_404() ) {
 		$title = __( '404 - Nothing Found', 'edd' ) . ' | ' . get_bloginfo( 'name' );
 	} elseif ( is_author() ) {
-		$title = get_userdata( get_query_var( 'author' ) )->display_name . ' | ' . __( 'Author Archive', 'edd' )  . ' | ' . get_bloginfo( 'name' );
+		$title = get_userdata( get_query_var( 'author' ) )->display_name . ' | ' . __( 'Author Archive', 'edd' )	. ' | ' . get_bloginfo( 'name' );
 	} elseif ( is_category() ) {
 		$title = single_cat_title( '', false ) . ' | ' . __( 'Category Archive', 'edd' ) . ' | ' . get_bloginfo( 'name' );
 	} elseif ( is_tag() ) {
@@ -139,7 +139,7 @@ function edd_wp_title( $title, $sep ) {
 add_filter( 'wp_title', 'edd_wp_title', 10, 2 );
 
 function edd_image_full_quality( $quality ) {
-    return 100;
+	return 100;
 }
 add_filter( 'jpeg_quality', 'edd_image_full_quality' );
 add_filter( 'wp_editor_set_quality', 'edd_image_full_quality' );
@@ -156,3 +156,104 @@ function eddwp_get_latest_post() {
 }
 
 function eddwp_get_footer_nav() {  }
+
+function eddwp_extensions_cb() {
+	echo '<div class="extensions clearfix">';
+	$extensions =	new WP_Query( array( 'post_type' => 'extension', 'nopaging' => true, 'orderby' => 'rand' ) );
+	while ( $extensions ->have_posts() ) {
+		$extensions->the_post();
+		?>
+		<div class="extension">
+			<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
+				<?php the_post_thumbnail( 'showcase' ); ?>
+				<h2><?php the_title(); ?></h2>
+				<?php the_excerpt(); ?>
+			</a>
+		</div>
+		<?php
+	}
+	?>
+	
+	<?php
+	echo '</div>';
+}
+add_shortcode( 'extensions', 'eddwp_extensions_cb' );
+
+function eddwp_add_rewrite_tags() {
+	add_rewrite_tag( '%extension_s%', '([^/]+)' );
+}
+add_action( 'init', 'eddwp_add_rewrite_tags' );
+
+function eddwp_process_rewrites() {
+	if ( isset( $_GET[ 'extension_s' ] ) && ! empty ( $_GET['extension_s'] ) && isset( $_GET['action'] ) && $_GET['action'] == 'extension_search' ) {
+		load_template( dirname( __FILE__ ) . '/search-extensions.php' );
+		die();
+	}
+}
+add_action( 'init', 'eddwp_process_rewrites' );
+
+class SR_Newsletter_Signup_Form extends WP_Widget {
+	public function __construct() {
+		parent::WP_Widget( false, __('MailChimp Sign Up Form (Sidebar)', 'edd' ) );
+	}
+	
+		 /** @see WP_Widget::widget */
+	public function widget($args, $instance) {	
+		extract( $args );
+		$title = apply_filters('widget_title', $instance['title']);
+		$list_id = strip_tags($instance['list_id']);
+		$message = esc_attr($instance['message']);
+		
+			global $post;		 
+		
+		echo $before_widget;
+		if ( $title ) {
+			echo $before_title . $title . $after_title;
+		}
+		echo sr_mc_form('', $list_id, $message);
+		echo $after_widget;
+	}
+
+	/** @see WP_Widget::update */
+	public function update($new_instance, $old_instance) {		
+		$instance = $old_instance;
+		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['list_id'] = strip_tags($new_instance['list_id']);
+		$instance['message'] = esc_attr($new_instance['message']);
+	  return $instance;
+	}
+
+	/** @see WP_Widget::form */
+	public function form($instance) {	
+		$title = isset($instance['title']) ? esc_attr($instance['title']) : '';
+		$description = isset($instance['description']) ? esc_attr($instance['description']) : '';
+		$list_id = isset($instance['list_id']) ? esc_attr($instance['list_id']) : '';
+		$message = isset($instance['message']) ? esc_attr($instance['message']) : '';
+		?>
+			<p>
+				<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Widget Title:', 'pmc'); ?></label> 
+				<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
+			</p>
+			<p>
+				<label for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Description:', 'pmc'); ?></label> <br />
+				<textarea class="widefat" id="<?php echo $this->get_field_id('description'); ?>" name="<?php echo $this->get_field_name('description'); ?>"><?php echo $description; ?></textarea>
+			</p>
+			<p>
+				<label for="<?php echo $this->get_field_id('list_id'); ?>"><?php _e('Choose a List', 'pmc'); ?></label> 
+				<select name="<?php echo $this->get_field_name('list_id'); ?>" id="<?php echo $this->get_field_id('list_id'); ?>" class="widefat">
+				<?php
+					$lists = pmc_get_lists();
+					foreach ($lists as $id => $list) {
+						echo '<option value="' . $id . '"' . selected($list_id, $id, false) . '>' . $list . '</option>';
+					}
+				?>
+				</select>
+			</p>
+			<p>
+				<label for="<?php echo $this->get_field_id('message'); ?>"><?php _e('Success Message:', 'pmc'); ?></label> 
+				<input class="widefat" id="<?php echo $this->get_field_id('message'); ?>" name="<?php echo $this->get_field_name('message'); ?>" type="text" value="<?php echo $message; ?>" />
+			</p>
+
+		<?php 
+	}
+}
