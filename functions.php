@@ -257,3 +257,11 @@ class SR_Newsletter_Signup_Form extends WP_Widget {
 		<?php 
 	}
 }
+
+function eddwp_body_class( $classes ) {
+	if ( isset( $_GET['extension_s'] ) ) {
+		$classes[] = 'extension-search';
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'eddwp_body_class' );
