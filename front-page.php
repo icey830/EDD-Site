@@ -39,7 +39,40 @@
 			</div><!-- /#extensions-intro-box -->
 			<div class="extensions-grid">
 				<ul>
+				<?php
+				$extensions = new WP_Query(
+					array(
+						'post_type' => 'extension',
+						'posts_per_page' => 6,
+						'orderby' => 'menu_order',
+						'order' => 'ASC',
+						'tax_query' => array(
+							array(
+								'taxonomy' => 'extension_tag',
+								'field' => 'slug',
+								'terms' => 'featured'
+							)
+						)
+					)
+				);
 				
+				while ( $extensions->have_posts() ) {
+					$extensions->the_post();
+					?>
+					<li>
+						<a href="<?php get_permalink(); ?>">
+							<div class="preview-image">
+								<?php the_post_thumbnail( 'showcase' ); ?>
+							</div>
+							<?php
+							the_title();
+							echo apply_filters( 'the_excerpt', get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ) );
+							?>
+						</a>
+					</li>
+					<?php
+				}
+				?>
 				</ul>
 			</div><!-- /.extensions-grid -->
 		</div><!-- /.clearfix -->

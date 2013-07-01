@@ -42,14 +42,14 @@
 			}
 			?>
 			<div class="extensions clearfix">
-				<?php				
-				
+				<?php
+
 				$query = array(
 					's' => $q['s'],
 					'post_type' => 'extension',
 					'posts_per_page' => 21,
 					$tax_query,
-					'paged' => get_query_var( 'paged' )
+					'paged' => isset( $_GET['paged'] ) ? (int) $_GET['paged'] : 1
 				);
 				
 				$tax_query = array(
@@ -86,7 +86,7 @@
 				$links = paginate_links( array(
 					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 					'format' => '?paged=%#%',
-					'current' => max( 1, get_query_var('paged') ),
+					'current' => max( 1, isset( $_GET['paged'] ) ? (int) $_GET['paged'] : 1 ),
 					'total' => $query->max_num_pages
 				));
 				?>
