@@ -50,8 +50,8 @@ function edd_register_theme_sidebars() {
 		'id'			  => 'forum-sidebar',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'	  => '</h1>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'	  => '</h3>',
 	) );
 
 	register_sidebar( array(
@@ -59,8 +59,8 @@ function edd_register_theme_sidebars() {
 		'id'			  => 'documentation-sidebar',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'	  => '</h1>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'	  => '</h3>',
 	) );
 }
 add_action( 'widgets_init', 'edd_register_theme_sidebars' );
@@ -262,6 +262,167 @@ function eddwp_body_class( $classes ) {
 	if ( isset( $_GET['extension_s'] ) ) {
 		$classes[] = 'extension-search';
 	}
+
+	if ( is_page( 'support' ) ) {
+		$classes[] = 'bbpress';
+	}
+	
+	if ( is_single() ) {
+		$classes[] = 'blog';
+	}
+	
 	return $classes;
 }
 add_filter( 'body_class', 'eddwp_body_class' );
+
+function eddwp_bbp_get_forum_freshness_link( $anchor, $forum_id, $time_since, $link_url, $title, $active_id ) {
+	if ( ! empty( $time_since ) && ! empty( $link_url ) )
+		$anchor = '<a href="' . $link_url . '" title="' . esc_attr( $title ) . '">' . 'Last response ' . $time_since . '</a>';
+	else
+		$anchor = __( 'No Topics', 'edd' );
+	
+	return $anchor;
+}
+add_filter( 'bbp_get_forum_freshness_link', 'eddwp_bbp_get_forum_freshness_link', 10, 6 );
+
+class EDDWP_Support_Admin_Bar {
+	final public static function add_menus() {
+		EDDWP_Support_Admin_Bar::hooks();
+	}
+	
+	final public static function hooks() {
+		add_action( 'admin_bar_menu', array( __CLASS__, 'add_menu' ), 40 );
+	}
+	
+	final private static function _assigned_ticket_query() {
+		global $user_ID;
+
+		$args = array(
+			'post_type'  => 'topic',
+			'meta_query' => array(
+				'relation' => 'AND',
+				array(
+					'key'   => '_bbps_topic_status',
+					'value' => '1',
+				),
+				array(
+					'key'   => 'bbps_topic_assigned',
+					'value' => $user_ID,
+				)
+			),
+			'posts_per_page' => -1
+		);
+		
+		return new WP_Query( $args );
+	}
+	
+	final private static function _unresolved_ticket_query() {
+		$args = array(
+			'post_type'  => 'topic',
+			'meta_key'   => '_bbps_topic_status',
+			'meta_value' => '1',
+			'posts_per_page' => -1,
+			'post_status' => 'publish'
+		);
+		
+		return new WP_Query( $args );
+	}
+	
+	final private static function _get_assigned_ticket_count() {
+		$assigned_tickets = self::_assigned_ticket_query();
+		
+		return $assigned_tickets->post_count;
+	}
+	
+	final private static function _get_unresolved_ticket_count() {
+		$tickets = self::_unresolved_ticket_query();
+		
+		return $tickets->post_count;
+	}
+	
+	final public static function add_menu( $wp_admin_bar ) {		
+		$wp_admin_bar->add_node(
+			array(
+				'id'	=>	'assigned_tickets',
+				'title'	=>	__( 'Assigned Tickets (' . self::_get_assigned_ticket_count() . ')' ),
+				'href'	=>	'/support/dashboard/#your_tickets'
+			)
+		);
+		
+		$assigned_tickets = self::_assigned_ticket_query();
+		
+		while ( $assigned_tickets->have_posts() ) {
+			$assigned_tickets->the_post();
+			
+			$wp_admin_bar->add_node(
+				array(
+					'id' => 'support_ticket_' . get_the_ID(),
+					'title' => get_the_title(),
+					'href' => get_permalink(),
+					'parent' => 'assigned_tickets'
+				)
+			);
+		}
+		
+		wp_reset_postdata();
+
+		$wp_admin_bar->add_node(
+			array(
+				'id'	=>	'unresolved_tickets',
+				'title'	=>	__( 'Unresolved Tickets (' . self::_get_unresolved_ticket_count() . ')' ),
+				'href'	=>	'/support/dashboard/'
+			)
+		);
+	}
+}
+
+EDDWP_Support_Admin_Bar::add_menus();
+
+/**
+ * Template for comments and pingbacks.
+ *
+ * Used as a callback by wp_list_comments() for displaying the comments.
+ */
+function edd_comment( $comment, $args, $depth ) {
+	$GLOBALS['comment'] = $comment; ?>
+
+	<li <?php comment_class( 'clearfix' ); ?> id="comment-<?php comment_ID(); ?>">
+		<div id="div-comment-<?php the_ID(); ?>" class="comment-body">
+			<div class="comment-author vcard">
+				<?php echo get_avatar( $comment, $args['avatar_size'] );?>
+				<cite class="fn"><?php echo get_comment_author_link(); ?></cite>
+		 	</div><!-- /.comment-author -->
+
+		 	<div class="comment-meta commentmetadata">
+				<a class="comment-date" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php printf( __( '%1$s at %2$s' ), get_comment_date(), get_comment_time() ); ?></a>
+				<?php edit_comment_link( __( '(Edit)' ), '' ); ?>
+		 	</div>
+	
+			<?php if ( '0' == $comment->comment_approved ) : ?>
+				<p class="alert"><?php echo apply_filters( 'eddwp_comment_awaiting_moderation', __( 'Your comment is awaiting moderation.', 'edd' ) ); ?></p>
+			<?php endif; ?>
+
+			<?php
+			
+			comment_text();
+			
+			comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => '<p>Reply</p>' ) ) );
+			
+			?>
+		</div>
+<?php
+}
+
+function eddwp_comment_form() {
+	$commenter = wp_get_current_commenter();
+	$req = get_option( 'require_name_email' );
+	$aria_req = ( $req ? " aria-required='true'" : '' );
+
+	$fields =  array(
+		'author' => '<p class="comment-form-author"><label for="author">' . __( 'Name', 'flat' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
+		'email'  => '<p class="comment-form-email"><label for="email">' . __( 'Email', 'flat' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
+		'url'    => '<p class="comment-form-url"><label for="url">' . __( 'Website', 'flat' ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
+	);
+
+	comment_form( array( 'fields' => apply_filters( 'comment_form_default_fields', $fields ) ) );
+}
