@@ -343,9 +343,18 @@ class EDDWP_Support_Admin_Bar {
 	final public static function add_menu( $wp_admin_bar ) {		
 		$wp_admin_bar->add_node(
 			array(
-				'id'	=>	'assigned_tickets',
-				'title'	=>	__( 'Assigned Tickets (' . self::_get_assigned_ticket_count() . ')' ),
-				'href'	=>	'/support/dashboard/#your_tickets'
+				'id'	 =>	'eddwp_support',
+				'title'	 =>	__( 'Support Tickets' ),
+				'href'	 =>	'/support/dashboard/'
+			)
+		);
+
+		$wp_admin_bar->add_node(
+			array(
+				'id'	 =>	'assigned_tickets',
+				'parent' => 'eddwp_support',
+				'title'	 =>	__( 'Assigned Tickets (' . self::_get_assigned_ticket_count() . ')' ),
+				'href'	 =>	'/support/dashboard/#your_tickets'
 			)
 		);
 		
@@ -368,9 +377,10 @@ class EDDWP_Support_Admin_Bar {
 
 		$wp_admin_bar->add_node(
 			array(
-				'id'	=>	'unresolved_tickets',
-				'title'	=>	__( 'Unresolved Tickets (' . self::_get_unresolved_ticket_count() . ')' ),
-				'href'	=>	'/support/dashboard/'
+				'id'	 =>	'unresolved_tickets',
+				'parent' => 'eddwp_support',
+				'title'	 =>	__( 'Unresolved Tickets (' . self::_get_unresolved_ticket_count() . ')' ),
+				'href'	 =>	'/support/dashboard/'
 			)
 		);
 	}
