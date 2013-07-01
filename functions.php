@@ -285,108 +285,77 @@ function eddwp_bbp_get_forum_freshness_link( $anchor, $forum_id, $time_since, $l
 }
 add_filter( 'bbp_get_forum_freshness_link', 'eddwp_bbp_get_forum_freshness_link', 10, 6 );
 
-class EDDWP_Support_Admin_Bar {
-	final public static function add_menus() {
-		EDDWP_Support_Admin_Bar::hooks();
-	}
-	
-	final public static function hooks() {
-		add_action( 'admin_bar_menu', array( __CLASS__, 'add_menu' ), 40 );
-	}
-	
-	final private static function _assigned_ticket_query() {
-		global $user_ID;
+function eddwp_support_admin_bar( $wp_admin_bar ) {
+	global $user_ID;
 
-		$args = array(
-			'post_type'  => 'topic',
-			'meta_query' => array(
-				'relation' => 'AND',
-				array(
-					'key'   => '_bbps_topic_status',
-					'value' => '1',
-				),
-				array(
-					'key'   => 'bbps_topic_assigned',
-					'value' => $user_ID,
-				)
+	$wp_admin_bar->add_node(
+		array(
+			'id'	 =>	'eddwp_support',
+			'title'	 =>	__( 'Support Tickets' ),
+			'href'	 =>	'/support/dashboard/'
+		)
+	);
+
+	$args = array(
+		'post_type'  => 'topic',
+		'meta_query' => array(
+			'relation' => 'AND',
+			array(
+				'key'   => '_bbps_topic_status',
+				'value' => '1',
 			),
-			'posts_per_page' => -1
-		);
-		
-		return new WP_Query( $args );
-	}
-	
-	final private static function _unresolved_ticket_query() {
-		$args = array(
-			'post_type'  => 'topic',
-			'meta_key'   => '_bbps_topic_status',
-			'meta_value' => '1',
-			'posts_per_page' => -1,
-			'post_status' => 'publish'
-		);
-		
-		return new WP_Query( $args );
-	}
-	
-	final private static function _get_assigned_ticket_count() {
-		$assigned_tickets = self::_assigned_ticket_query();
-		
-		return $assigned_tickets->post_count;
-	}
-	
-	final private static function _get_unresolved_ticket_count() {
-		$tickets = self::_unresolved_ticket_query();
-		
-		return $tickets->post_count;
-	}
-	
-	final public static function add_menu( $wp_admin_bar ) {		
-		$wp_admin_bar->add_node(
 			array(
-				'id'	 =>	'eddwp_support',
-				'title'	 =>	__( 'Support Tickets' ),
-				'href'	 =>	'/support/dashboard/'
+				'key'   => 'bbps_topic_assigned',
+				'value' => $user_ID,
 			)
-		);
+		),
+		'posts_per_page' => -1
+	);
+	
+	$assigned_tickets = new WP_Query( $args );
 
+	$wp_admin_bar->add_node(
+		array(
+			'id'	 =>	'assigned_tickets',
+			'parent' => 'eddwp_support',
+			'title'	 =>	__( 'Assigned Tickets (' . $assigned_tickets->post_count . ')' ),
+			'href'	 =>	'/support/dashboard/#your_tickets'
+		)
+	);
+	
+	while ( $assigned_tickets->have_posts() ) {
+		$assigned_tickets->the_post();
+		
 		$wp_admin_bar->add_node(
 			array(
-				'id'	 =>	'assigned_tickets',
-				'parent' => 'eddwp_support',
-				'title'	 =>	__( 'Assigned Tickets (' . self::_get_assigned_ticket_count() . ')' ),
-				'href'	 =>	'/support/dashboard/#your_tickets'
-			)
-		);
-		
-		$assigned_tickets = self::_assigned_ticket_query();
-		
-		while ( $assigned_tickets->have_posts() ) {
-			$assigned_tickets->the_post();
-			
-			$wp_admin_bar->add_node(
-				array(
-					'id' => 'support_ticket_' . get_the_ID(),
-					'title' => get_the_title(),
-					'href' => get_permalink(),
-					'parent' => 'assigned_tickets'
-				)
-			);
-		}
-		
-		wp_reset_postdata();
-
-		$wp_admin_bar->add_node(
-			array(
-				'id'	 =>	'unresolved_tickets',
-				'parent' => 'eddwp_support',
-				'title'	 =>	__( 'Unresolved Tickets (' . self::_get_unresolved_ticket_count() . ')' ),
-				'href'	 =>	'/support/dashboard/'
+				'id' => 'support_ticket_' . get_the_ID(),
+				'title' => get_the_title(),
+				'href' => get_permalink(),
+				'parent' => 'assigned_tickets'
 			)
 		);
 	}
+
+	$args = array(
+		'post_type'  => 'topic',
+		'meta_key'   => '_bbps_topic_status',
+		'meta_value' => '1',
+		'posts_per_page' => -1,
+		'post_status' => 'publish'
+	);
+
+	$o = new WP_Query( $args );
+
+	$wp_admin_bar->add_node(
+		array(
+			'id'	 =>	'unresolved_tickets',
+			'parent' => 'eddwp_support',
+			'title'	 =>	__( 'Unresolved Tickets (' . $o->post_count . ')' ),
+			'href'	 =>	'/support/dashboard/'
+		)
+	);
 }
-
-EDDWP_Support_Admin_Bar::add_menus();
+add_action( 'admin_bar_menu', 'eddwp_support_admin_bar', 999 );
 
 /**
  * Template for comments and pingbacks.
