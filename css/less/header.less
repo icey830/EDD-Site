@@ -7,21 +7,21 @@
 	position: relative;
 	background: @darkBgColor;
 	padding: 40px 0;
-}
-
-.header {
-	position: relative;
-	margin: 0 auto;
-	width: 940px;
-}
-
-.home .header {
-	-webkit-animation-name: header;
-	-webkit-animation-delay: 1s;
-	-webkit-animation-duration: 1s;
-	-webkit-animation-fill-mode: both;
-}
-
-#logo {
-	float: left;
+	
+	& .header {
+		position: relative;
+		margin: 0 auto;
+		width: 940px;
+		
+		& #logo {
+			float: left;
+		}
+	}
+	
+	& .home .header {
+		-webkit-animation-name: header;
+		-webkit-animation-delay: 1s;
+		-webkit-animation-duration: 1s;
+		-webkit-animation-fill-mode: both;
+	}
 }

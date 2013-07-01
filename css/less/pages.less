@@ -194,6 +194,77 @@
 
 .feature-66166 img { margin-top: 50px; }
 
+.headline {
+	padding: 40px 0;
+	background: #75c1fa;
+	color: #fff;
+	font-size: 32px;
+	border-bottom: 1px solid #3e81b3;
+	
+	& h1 {
+		margin: 0 auto;
+		width: 940px;
+		font-size: 32px;
+		text-align: center;
+		line-height: 52px;
+		
+		& span {
+			background: rgba(255,255,255,0.15);
+			padding: 2px 4px;
+			-webkit-animation: pulse 3s;
+			-moz-animation: pulse 3s;
+			-ms-animation: pulse 3s;
+			-o-animation: pulse 3s;
+			animation: pulse 3s;
+		}
+	}
+}
+
+#feature-edd {
+	padding: 0;
+	position: relative;
+	top: -1px;
+	background: #fff;
+	
+	& .feature-text-inner {
+		background: url(images/edd-standing.png) no-repeat center right;
+		padding: 80px 0;
+		width: 100%;
+		float: none;
+		display: block;
+		position: relative;
+		
+		& h3 {
+			width: 500px;
+			position: relative;
+			left: 25%;
+			top: -55px;
+			background: #eee;
+			padding: 20px;
+			-webkit-border-radius: 12px;
+			-moz-border-radius: 12px;
+			border-radius: 12px;
+			
+			&:after {
+				content: "";
+				position: absolute;
+				display: block;
+				width: 0;
+				top: 40px;
+				right: -20px;
+				border-width: 20px 0 0 30px;
+				border-style: solid;
+				border-color: transparent #eee;
+			}
+		}
+	}
+}
+
+.feature-center .feature-text .feature-text-inner {
+	float: none;
+	width: 100%;
+	text-align: center;
+}
 
 /* ----------------------------- *
  * Extensions
@@ -271,14 +342,14 @@
 	font-weight: normal;
 	margin-top: 10px;
 	padding: 3px 8px;
-	-webkit-transition: all .2s ease-in-out;
+	.all_transition();
 	border: 1px solid #ccc;
-}
-
-.filter a:hover {
-	background: #2794da;
-	color: #fff;
-	border: 1px solid #25597a;
+	
+	&:hover {
+		background: #2794da;
+		color: #fff;
+		border: 1px solid #25597a;
+	}
 }
 
 .extension {
@@ -337,14 +408,14 @@
 	list-style: none;
 	margin: 10px 0 0 0;
 	padding: 0;
-}
-
-.extensions-grid ul li {
-	width: 33%;
-	margin-right: 1%;
-	float: left;
-	margin-bottom: 1%;
-	height: 430px;
+	
+	& li {
+		width: 33%;
+		margin-right: 1%;
+		float: left;
+		margin-bottom: 1%;
+		height: 430px;
+	}
 }
 
 .extensions-grid ul li:nth-child(3n+3) {

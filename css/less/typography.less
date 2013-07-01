@@ -3,9 +3,17 @@
  * Copyright (c) 2013, Sunny Ratilal.
  */
 
+html {
+	font-size: 62.5%;
+}
+
 body {
-	font: 14px/24px Roboto, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-size: 1.4rem;
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	line-height: 25px;
 	color: #555;
+	background-color: #fff;
 }
 
 h1,
@@ -16,6 +24,7 @@ h5,
 h6 {
 	padding: 0;
 	margin: 25px 0 10px 0;
+	margin: 2.5rem 0 1rem 0;
 	font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
 	font-weight: 300;
 	line-height: 1.2;
@@ -30,32 +39,32 @@ h6 {
 
 h1 {
 	font-size: 36px;
-	font-size: 2.25rem;
+	font-size: 3.6rem;
 }
 
 h2 {
 	font-size: 30px;
-	font-size: 1.875rem;
+	font-size: 3rem;
 }
 
 h3 {
 	font-size: 24px;
-	font-size: 1.5rem;
+	font-size: 2.4rem;
 }
 
 h4 {
 	font-size: 20px;
-	font-size: 1.25rem;
+	font-size: 2rem;
 }
 
 h5 {
 	font-size: 18px;
-	font-size: 1.125rem;
+	font-size: 1.8rem;
 }
 
 h6 {
 	font-size: 16px;
-	font-size: 1rem;
+	font-size: 1.6rem;
 }
 
 a {
@@ -78,22 +87,28 @@ input[type="submit"] {
 	transition: color 0.2s ease-in-out;
 }
 
-a img {
-	border: none;
-}
+a img { border: none; }
 
-abbr, acronym {
-	cursor: help;
+abbr,
+tla,
+acronym {
 	text-decoration: underline;
+	cursor: help;
 }
 
-cite, q {
-	font-style: italic;
+cite,
+q { font-style: italic; }
+
+ins {
+	background-color: rgba(254, 255, 0, 0.68);
+	text-decoration: none;
 }
 
-pre {
-	margin-bottom: 20px;
-}
+pre { margin-bottom: 25px; }
+
+::-moz-placeholder { color: #999; }
+
+::-webkit-input-placeholder { color: #999; }
 
 ::-moz-selection {
 	background-color: #333;
