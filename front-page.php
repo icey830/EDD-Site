@@ -72,6 +72,8 @@
 					</li>
 					<?php
 				}
+				
+				wp_reset_postdata();
 				?>
 				</ul>
 			</div><!-- /.extensions-grid -->
@@ -192,7 +194,11 @@
 					<cite><a href="<?php get_post_meta( get_the_ID(), 'ecpt_url', true ); ?>"><?php echo get_post_meta( get_the_ID(), 'ecpt_author', true ); ?></a></cite>
 				</blockquote>
 			</div>
-		<?php } ?>
+		<?php
+		}
+		
+		wp_reset_postdata();
+		?>
 		</div><!-- /.testimonials -->
 	</div><!-- /.feature -->
 </section><!-- /.feature-customers -->
