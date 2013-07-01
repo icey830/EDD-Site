@@ -17,7 +17,7 @@ the_post();
 			<?php echo eddwp_extenstion_cats_shortcode(); ?>
 			<div class="extensions clearfix">
 				<?php
-				$extensions =  new WP_Query( array( 'post_type' => 'extension', 'posts_per_page' => 21, 'paged' => get_query_var( 'paged' ) ) );
+				$extensions =  new WP_Query( array( 'post_type' => 'extension', 'posts_per_page' => 30, 'paged' => get_query_var( 'paged' ) ) );
 				$c = 0; while ( $extensions ->have_posts() ) {
 					$extensions->the_post();
 					$c++;
