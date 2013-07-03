@@ -69,8 +69,14 @@ add_action( 'widgets_init', 'edd_register_theme_sidebars' );
  * Enqueue scripts and styles
  */
 function edd_register_theme_scripts() {
+	$deps = array( 'roboto-font' );
+	
+	if ( is_bbpress() || is_page( 'support' ) ) {
+		$deps[] = 'bbp-default-bbpress';
+	}
+
 	wp_register_style( 'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:400,300,500' );
-	wp_register_style( 'edd-style', get_stylesheet_directory_uri() . '/style.css', array( 'roboto-font' ), '1.0' );
+	wp_register_style( 'edd-style', get_stylesheet_directory_uri() . '/style.css', $deps, '1.0' );
 	wp_register_style( 'font-awesome', get_template_directory_uri() . '/css/lib/font-awesome.css', array( 'edd-style' ) );
 	wp_register_style( 'normalize', get_template_directory_uri() . '/css/lib/normalize.css' );
 
@@ -92,6 +98,17 @@ function edd_register_theme_scripts() {
 
 	if ( is_singular() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
+		
+	wp_dequeue_style( 'bbp-default-bbpress' );
+	wp_dequeue_style( 'bbp_private_replies_style' );
+	wp_dequeue_style( 'staff-list-custom-css' );
+	wp_dequeue_style( 'notifications' );
+	wp_dequeue_style( 'sharedaddy' );
+	wp_dequeue_style( 'edd-styles' );
+
+	if ( is_bbpress() || is_page( 'support' ) ) {
+		wp_enqueue_style( 'bbp-default-bbpress', trailingslashit( bbPress()->themes_url . 'default' ) . 'css/bbpress.css', array(), bbp_get_version(), 'screen' );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'edd_register_theme_scripts' );
 
@@ -259,6 +276,8 @@ class SR_Newsletter_Signup_Form extends WP_Widget {
 }
 
 function eddwp_body_class( $classes ) {
+	global $post;
+
 	if ( isset( $_GET['extension_s'] ) ) {
 		$classes[] = 'extension-search';
 	}
@@ -267,7 +286,7 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'bbpress';
 	}
 	
-	if ( is_single() ) {
+	if ( is_single() && 'post' == get_post_type( $post->ID ) ) {
 		$classes[] = 'blog';
 	}
 	
@@ -322,19 +341,8 @@ function eddwp_support_admin_bar( $wp_admin_bar ) {
 			'href'	 =>	'/support/dashboard/#your_tickets'
 		)
 	);
-	
-	while ( $assigned_tickets->have_posts() ) {
-		$assigned_tickets->the_post();
-		
-		$wp_admin_bar->add_node(
-			array(
-				'id' => 'support_ticket_' . get_the_ID(),
-				'title' => get_the_title(),
-				'href' => get_permalink(),
-				'parent' => 'assigned_tickets'
-			)
-		);
-	}
+
+	wp_reset_postdata();
 
 	$args = array(
 		'post_type'  => 'topic',
@@ -354,6 +362,8 @@ function eddwp_support_admin_bar( $wp_admin_bar ) {
 			'href'	 =>	'/support/dashboard/'
 		)
 	);
+	
+	wp_reset_postdata();
 }
 add_action( 'admin_bar_menu', 'eddwp_support_admin_bar', 999 );
 
@@ -398,9 +408,9 @@ function eddwp_comment_form() {
 	$aria_req = ( $req ? " aria-required='true'" : '' );
 
 	$fields =  array(
-		'author' => '<p class="comment-form-author"><label for="author">' . __( 'Name', 'flat' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
-		'email'  => '<p class="comment-form-email"><label for="email">' . __( 'Email', 'flat' ) . '</label> ' . ( $req ? '<span class="required">*</span>' : '' ) . '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
-		'url'    => '<p class="comment-form-url"><label for="url">' . __( 'Website', 'flat' ) . '</label>' . '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
+		'author' => '<p class="comment-form-author"><input id="author" name="author" type="text" placeholder="Name*" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
+		'email'  => '<p class="comment-form-email"><input id="email" name="email" type="text" placeholder="Email*" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
+		'url'    => '<p class="comment-form-url">' . '<input id="url" placeholder="Website" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
 	);
 
 	comment_form( array( 'fields' => apply_filters( 'comment_form_default_fields', $fields ) ) );
