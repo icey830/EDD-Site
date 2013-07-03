@@ -181,6 +181,12 @@ function eddwp_extensions_cb() {
 		$extensions->the_post();
 		?>
 		<div class="extension">
+			<?php
+			if ( has_category( '3rd Party' ) )
+				echo '<i class="icon-third-party"></i>';
+			elseif ( has_category( 'Free' ) )
+				echo '<i class="icon-free"></i>';
+			?>
 			<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
 				<?php the_post_thumbnail( 'showcase' ); ?>
 				<h2><?php the_title(); ?></h2>
