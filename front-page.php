@@ -34,7 +34,7 @@
 	<div class="feature clearfix">
 		<div class="clearfix">
 			<div id="extensions-intro-box">
-				<h2>Dozens of Extensions <a href="#">See All Extensions</a></h2>
+				<h2>Dozens of Extensions <a href="<?php echo home_url( '/extensions' ); ?>">See All Extensions</a></h2>
 				<p>With over 100 extensions, customizing your store is super easy. From disabling admin notifications all the way to creating your own marketplace, as well as everything in between!</p>
 			</div><!-- /#extensions-intro-box -->
 			<div class="extensions-grid">
