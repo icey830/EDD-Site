@@ -2,8 +2,8 @@
 /**
  * Archive Forum Content Part
  *
- * @package bbPress
- * @subpackage Theme
+ * @author    Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 ?>
 
