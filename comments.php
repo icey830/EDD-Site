@@ -3,20 +3,29 @@
  * The template for displaying comments.
  *
  * @package EDD
+ * @version 1.0
+ * @since   1.0
  */
-
-/*
- * If the current post is protected by a password and
- * the visitor has not yet entered the password we will
- * return early without loading the comments.
- */
-if ( post_password_required() )
-	return;
 ?>
 
-	<div id="comments" class="clearfix">
-		<?php if ( have_comments() ) : ?>
+<?php
+	if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
+		die ( __( 'This file cannot be loaded directly.', 'edd' ) );
+	} // end if
+?>
 
+<?php if ( post_password_required() ) { ?>
+	<div id="comments">
+		<h3 class="nopassword"><?php _e( 'This post is password protected. Enter the password to view comments.', 'edd' ); ?></h3>
+	</div><!-- #comments -->
+	<?php return; ?>
+<?php } // end if	?>
+
+
+<?php if ( have_comments() ) { ?>
+	<div id="comments" class="clearfix">
+
+		<?php if ( ! empty( $comments_by_type['comment'] ) ) { ?>
 		<h3>Comments</h3>
 		<div id="comments-list">
 			<ol class="comment-list">
@@ -31,25 +40,29 @@ if ( post_password_required() )
 				?>
 			</ol><!-- /.comment-list -->
 		</div><!-- /#comments-list -->
-		
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
+		<?php } // end if ?>
+
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { ?>
+
 		<div id="comment-navigation">
 			<nav class="navigation comment-nav" role="navigation">
-				<?php previous_comments_link( '<i class="icon-chevron-left"></i>' . __( 'Previous Comments', 'flat' ) ); ?>
-				<?php next_comments_link( __( 'Newer Comments', 'flat' ) . '<i class="icon-chevron-right"></i>'); ?>
+				<?php previous_comments_link( '<i class="icon-chevron-left"></i>' . __( 'Previous Comments', 'edd' ) ); ?>
+				<?php next_comments_link( __( 'Newer Comments', 'edd' ) . '<i class="icon-chevron-right"></i>'); ?>
 			</nav><!-- /.comment-nav -->
 		</div><!-- /#comment-naviation -->
-		<?php endif; ?>
-		
-		<?php
-		endif; // have_comments()
-		
-		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) {
-		?>
-		<p class="no-comments">Comments are closed.</p>
-		<?php
-		}
-		?>
+
+		<?php } // end if ?>
 	</div><!-- /#comments -->
 
-	<?php eddwp_comment_form(); ?>
+<?php } else { ?>
+
+	<?php if ( comments_open() ) { ?>
+		<div id="no-comments" class="clearfix">
+			<p class="title"><?php _e( 'No Comments', 'edd' ); ?></p>
+			<p><?php _e( 'Be the first to start the conversation.', 'edd' ); ?></p>
+		</div><!-- /#no-comments -->
+	<?php } // end if ?>
+
+<?php } // end if ?>
+
+<?php eddwp_comment_form(); ?>
