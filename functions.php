@@ -1,12 +1,28 @@
 <?php
 /**
- * EDD functions and definitions
+ * Easy Digital Downloads
  *
- * @package	  EasyDigitalDownloads_v2
- * @category  Core
+ * This file adds all the core features of the Easy Digital Downloads theme.
+ *
+ * /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ CONTENTS /\/\/\/\/\/\/\/\/\/\/\/\/\/\//\/\/\/\
+ * 
+ * 1. Theme Setup
+ * 2. Stylesheets and JavaScript Files
+ * 3. Comments Template
+ * 4. Features
+ * 5. Custom Actions/Filters
+ * 6. Widgets
+ *
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
  * @author	  Sunny Ratilal
  * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
+
+/* ----------------------------------------------------------- *
+ * 1. Theme Setup
+ * ----------------------------------------------------------- */
 
 /**
  * Set the content width.
@@ -32,38 +48,9 @@ function edd_theme_setup() {
 }
 add_action( 'after_setup_theme', 'edd_theme_setup' );
 
-/**
- * Register widgetized area and update sidebar with default widgets
- */
-function edd_register_theme_sidebars() {
-	register_sidebar( array(
-		'name'		  => __( 'Blog Sidebar', 'edd' ),
-		'id'			  => 'blog-sidebar',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'	  => '</h3>'
-	) );
-
-	register_sidebar( array(
-		'name'		  => __( 'Forums Sidebar', 'edd' ),
-		'id'			  => 'forum-sidebar',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'	  => '</h3>',
-	) );
-
-	register_sidebar( array(
-		'name'		  => __( 'Documentation Sidebar', 'edd' ),
-		'id'			  => 'documentation-sidebar',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'	  => '</h3>',
-	) );
-}
-add_action( 'widgets_init', 'edd_register_theme_sidebars' );
+/* ----------------------------------------------------------- *
+ * 2. Stylesheets and JavaScript Files
+ * ----------------------------------------------------------- */
 
 /**
  * Enqueue scripts and styles
@@ -112,6 +99,100 @@ function edd_register_theme_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'edd_register_theme_scripts' );
 
+/* ----------------------------------------------------------- *
+ * 3. Comments Template
+ * ----------------------------------------------------------- */
+
+/**
+ * Template for comments and pingbacks.
+ *
+ * Used as a callback by wp_list_comments() for displaying the comments.
+ */
+function edd_comment( $comment, $args, $depth ) {
+	$GLOBALS['comment'] = $comment; ?>
+
+	<li <?php comment_class( 'clearfix' ); ?> id="comment-<?php comment_ID(); ?>">
+		<div id="div-comment-<?php the_ID(); ?>" class="comment-body">
+			<div class="comment-author vcard">
+				<?php echo get_avatar( $comment, $args['avatar_size'] );?>
+				<cite class="fn"><?php echo get_comment_author_link(); ?></cite>
+		 	</div><!-- /.comment-author -->
+
+		 	<div class="comment-meta commentmetadata">
+				<a class="comment-date" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php printf( __( '%1$s at %2$s' ), get_comment_date(), get_comment_time() ); ?></a>
+				<?php edit_comment_link( __( '(Edit)' ), '' ); ?>
+		 	</div>
+	
+			<?php if ( '0' == $comment->comment_approved ) : ?>
+				<p class="alert"><?php echo apply_filters( 'eddwp_comment_awaiting_moderation', __( 'Your comment is awaiting moderation.', 'edd' ) ); ?></p>
+			<?php endif; ?>
+
+			<?php
+			
+			comment_text();
+			
+			comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => '<p>Reply</p>' ) ) );
+			
+			?>
+		</div>
+<?php
+}
+
+function eddwp_comment_form() {
+	$commenter = wp_get_current_commenter();
+	$req = get_option( 'require_name_email' );
+	$aria_req = ( $req ? " aria-required='true'" : '' );
+
+	$fields =  array(
+		'author' => '<p class="comment-form-author"><input id="author" name="author" type="text" placeholder="Name*" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
+		'email'  => '<p class="comment-form-email"><input id="email" name="email" type="text" placeholder="Email*" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
+		'url'    => '<p class="comment-form-url">' . '<input id="url" placeholder="Website" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
+	);
+
+	comment_form( array( 'fields' => apply_filters( 'comment_form_default_fields', $fields ) ) );
+}
+
+/* ----------------------------------------------------------- *
+ * 4. Features
+ * ----------------------------------------------------------- */
+
+/**
+ * Register widgetized area and update sidebar with default widgets
+ */
+function edd_register_theme_sidebars() {
+	register_sidebar( array(
+		'name'		  => __( 'Blog Sidebar', 'edd' ),
+		'id'			  => 'blog-sidebar',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'	  => '</h3>'
+	) );
+
+	register_sidebar( array(
+		'name'		  => __( 'Forums Sidebar', 'edd' ),
+		'id'			  => 'forum-sidebar',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'	  => '</h3>',
+	) );
+
+	register_sidebar( array(
+		'name'		  => __( 'Documentation Sidebar', 'edd' ),
+		'id'			  => 'documentation-sidebar',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'	  => '</h3>',
+	) );
+}
+add_action( 'widgets_init', 'edd_register_theme_sidebars' );
+
+/* ----------------------------------------------------------- *
+ * 5. Custom Actions/Filters
+ * ----------------------------------------------------------- */
+
 /**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
  */
@@ -155,12 +236,19 @@ function edd_wp_title( $title, $sep ) {
 }
 add_filter( 'wp_title', 'edd_wp_title', 10, 2 );
 
+/**
+ * Override the default image quality and make sure when images are uploaded that
+ * the quality doesn't get degraded.
+ */
 function edd_image_full_quality( $quality ) {
 	return 100;
 }
 add_filter( 'jpeg_quality', 'edd_image_full_quality' );
 add_filter( 'wp_editor_set_quality', 'edd_image_full_quality' );
 
+/**
+ * This function is used in the footer template to get the latest blog post.
+ */
 function eddwp_get_latest_post() {
 	$query = new WP_Query( array( 'posts_per_page' => 1 ) );
 
@@ -174,6 +262,9 @@ function eddwp_get_latest_post() {
 
 function eddwp_get_footer_nav() {  }
 
+/**
+ * Extensions shortcode callback function
+ */
 function eddwp_extensions_cb() {
 	echo '<div class="extensions clearfix">';
 	$extensions =	new WP_Query( array( 'post_type' => 'extension', 'nopaging' => true, 'orderby' => 'rand' ) );
@@ -202,11 +293,18 @@ function eddwp_extensions_cb() {
 }
 add_shortcode( 'extensions', 'eddwp_extensions_cb' );
 
+/**
+ * Add the rewrite tag for the extensions search
+ */
 function eddwp_add_rewrite_tags() {
 	add_rewrite_tag( '%extension_s%', '([^/]+)' );
 }
 add_action( 'init', 'eddwp_add_rewrite_tags' );
 
+/**
+ * Process the rewrite rules added for the extension search and make sure that the
+ * correct template is loaded when the extension search is initiated.
+ */
 function eddwp_process_rewrites() {
 	if ( isset( $_GET[ 'extension_s' ] ) && ! empty ( $_GET['extension_s'] ) && isset( $_GET['action'] ) && $_GET['action'] == 'extension_search' ) {
 		load_template( dirname( __FILE__ ) . '/search-extensions.php' );
@@ -215,72 +313,9 @@ function eddwp_process_rewrites() {
 }
 add_action( 'init', 'eddwp_process_rewrites' );
 
-class SR_Newsletter_Signup_Form extends WP_Widget {
-	public function __construct() {
-		parent::WP_Widget( false, __('MailChimp Sign Up Form (Sidebar)', 'edd' ) );
-	}
-	
-		 /** @see WP_Widget::widget */
-	public function widget($args, $instance) {	
-		extract( $args );
-		$title = apply_filters('widget_title', $instance['title']);
-		$list_id = strip_tags($instance['list_id']);
-		$message = esc_attr($instance['message']);
-		
-			global $post;		 
-		
-		echo $before_widget;
-		if ( $title ) {
-			echo $before_title . $title . $after_title;
-		}
-		echo sr_mc_form('', $list_id, $message);
-		echo $after_widget;
-	}
-
-	/** @see WP_Widget::update */
-	public function update($new_instance, $old_instance) {		
-		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
-		$instance['list_id'] = strip_tags($new_instance['list_id']);
-		$instance['message'] = esc_attr($new_instance['message']);
-	  return $instance;
-	}
-
-	/** @see WP_Widget::form */
-	public function form($instance) {	
-		$title = isset($instance['title']) ? esc_attr($instance['title']) : '';
-		$description = isset($instance['description']) ? esc_attr($instance['description']) : '';
-		$list_id = isset($instance['list_id']) ? esc_attr($instance['list_id']) : '';
-		$message = isset($instance['message']) ? esc_attr($instance['message']) : '';
-		?>
-			<p>
-				<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Widget Title:', 'pmc'); ?></label> 
-				<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
-			</p>
-			<p>
-				<label for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Description:', 'pmc'); ?></label> <br />
-				<textarea class="widefat" id="<?php echo $this->get_field_id('description'); ?>" name="<?php echo $this->get_field_name('description'); ?>"><?php echo $description; ?></textarea>
-			</p>
-			<p>
-				<label for="<?php echo $this->get_field_id('list_id'); ?>"><?php _e('Choose a List', 'pmc'); ?></label> 
-				<select name="<?php echo $this->get_field_name('list_id'); ?>" id="<?php echo $this->get_field_id('list_id'); ?>" class="widefat">
-				<?php
-					$lists = pmc_get_lists();
-					foreach ($lists as $id => $list) {
-						echo '<option value="' . $id . '"' . selected($list_id, $id, false) . '>' . $list . '</option>';
-					}
-				?>
-				</select>
-			</p>
-			<p>
-				<label for="<?php echo $this->get_field_id('message'); ?>"><?php _e('Success Message:', 'pmc'); ?></label> 
-				<input class="widefat" id="<?php echo $this->get_field_id('message'); ?>" name="<?php echo $this->get_field_name('message'); ?>" type="text" value="<?php echo $message; ?>" />
-			</p>
-
-		<?php 
-	}
-}
-
+/**
+ * Adds custom body classes based on the page the user is browsing.
+ */
 function eddwp_body_class( $classes ) {
 	global $post;
 
@@ -300,6 +335,10 @@ function eddwp_body_class( $classes ) {
 }
 add_filter( 'body_class', 'eddwp_body_class' );
 
+/**
+ * Override the default forum freshness link that bbPress provides.
+ *
+ */
 function eddwp_bbp_get_forum_freshness_link( $anchor, $forum_id, $time_since, $link_url, $title, $active_id ) {
 	if ( ! empty( $time_since ) && ! empty( $link_url ) )
 		$anchor = '<a href="' . $link_url . '" title="' . esc_attr( $title ) . '">' . 'Last response ' . $time_since . '</a>';
@@ -310,6 +349,9 @@ function eddwp_bbp_get_forum_freshness_link( $anchor, $forum_id, $time_since, $l
 }
 add_filter( 'bbp_get_forum_freshness_link', 'eddwp_bbp_get_forum_freshness_link', 10, 6 );
 
+/**
+ * Add the custom admin bar menu for the support moderators.
+ */
 function eddwp_support_admin_bar( $wp_admin_bar ) {
 	global $user_ID;
 
@@ -373,51 +415,78 @@ function eddwp_support_admin_bar( $wp_admin_bar ) {
 }
 add_action( 'admin_bar_menu', 'eddwp_support_admin_bar', 999 );
 
+/* ----------------------------------------------------------- *
+ * 6. Widgets
+ * ----------------------------------------------------------- */
+
 /**
- * Template for comments and pingbacks.
- *
- * Used as a callback by wp_list_comments() for displaying the comments.
+ * This class registers and handles the display of the newsletter signup form
+ * widget in the sidebar.
  */
-function edd_comment( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment; ?>
-
-	<li <?php comment_class( 'clearfix' ); ?> id="comment-<?php comment_ID(); ?>">
-		<div id="div-comment-<?php the_ID(); ?>" class="comment-body">
-			<div class="comment-author vcard">
-				<?php echo get_avatar( $comment, $args['avatar_size'] );?>
-				<cite class="fn"><?php echo get_comment_author_link(); ?></cite>
-		 	</div><!-- /.comment-author -->
-
-		 	<div class="comment-meta commentmetadata">
-				<a class="comment-date" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php printf( __( '%1$s at %2$s' ), get_comment_date(), get_comment_time() ); ?></a>
-				<?php edit_comment_link( __( '(Edit)' ), '' ); ?>
-		 	</div>
+class SR_Newsletter_Signup_Form extends WP_Widget {
+	public function __construct() {
+		parent::WP_Widget( false, __( 'MailChimp Signup Form (Customized for EDD)', 'edd' ) );
+	}
 	
-			<?php if ( '0' == $comment->comment_approved ) : ?>
-				<p class="alert"><?php echo apply_filters( 'eddwp_comment_awaiting_moderation', __( 'Your comment is awaiting moderation.', 'edd' ) ); ?></p>
-			<?php endif; ?>
+	public function widget($args, $instance) {	
+		extract( $args, EXTR_SKIP );
 
-			<?php
-			
-			comment_text();
-			
-			comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => '<p>Reply</p>' ) ) );
-			
-			?>
-		</div>
-<?php
-}
+		$title = apply_filters( 'widget_title', $instance['title'] );
+		$list_id = strip_tags( $instance['list_id'] );
+		$message = esc_attr( $instance['message'] );
+		
+		global $post;
+		
+		echo $before_widget;
 
-function eddwp_comment_form() {
-	$commenter = wp_get_current_commenter();
-	$req = get_option( 'require_name_email' );
-	$aria_req = ( $req ? " aria-required='true'" : '' );
+		if ( $title ) {
+			echo $before_title . $title . $after_title;
+		}
 
-	$fields =  array(
-		'author' => '<p class="comment-form-author"><input id="author" name="author" type="text" placeholder="Name*" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></p>',
-		'email'  => '<p class="comment-form-email"><input id="email" name="email" type="text" placeholder="Email*" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>',
-		'url'    => '<p class="comment-form-url">' . '<input id="url" placeholder="Website" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></p>',
-	);
+		echo sr_mc_form('', $list_id, $message);
 
-	comment_form( array( 'fields' => apply_filters( 'comment_form_default_fields', $fields ) ) );
+		echo $after_widget;
+	}
+
+	public function update($new_instance, $old_instance) {		
+		$instance = $old_instance;
+
+		$instance['title']   = strip_tags( $new_instance['title'] );
+		$instance['list_id'] = strip_tags( $new_instance['list_id'] );
+		$instance['message'] = esc_attr( $new_instance['message'] );
+
+		return $instance;
+	}
+
+	public function form( $instance ) {	
+		$title       = isset( $instance['title']       ) ? esc_attr( $instance['title']       ) : '';
+		$description = isset( $instance['description'] ) ? esc_attr( $instance['description'] ) : '';
+		$list_id     = isset( $instance['list_id']     ) ? esc_attr( $instance['list_id']     ) : '';
+		$message     = isset( $instance['message']     ) ? esc_attr( $instance['message']     ) : '';
+		?>
+			<p>
+				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Widget Title:', 'edd' ); ?></label> 
+				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+			</p>
+			<p>
+				<label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Description:', 'edd' ); ?></label> <br />
+				<textarea class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>"><?php echo $description; ?></textarea>
+			</p>
+			<p>
+				<label for="<?php echo $this->get_field_id( 'list_id' ); ?>"><?php _e( 'Choose a List', 'edd' ); ?></label> 
+				<select name="<?php echo $this->get_field_name( 'list_id' ); ?>" id="<?php echo $this->get_field_id( 'list_id' ); ?>" class="widefat">
+				<?php
+					$lists = pmc_get_lists();
+					foreach ( $lists as $id => $list ) {
+						echo '<option value="' . $id . '"' . selected( $list_id, $id, false ) . '>' . $list . '</option>';
+					}
+				?>
+				</select>
+			</p>
+			<p>
+				<label for="<?php echo $this->get_field_id( 'message' ); ?>"><?php _e( 'Success Message:', 'edd' ); ?></label> 
+				<input class="widefat" id="<?php echo $this->get_field_id( 'message' ); ?>" name="<?php echo $this->get_field_name( 'message' ); ?>" type="text" value="<?php echo $message; ?>" />
+			</p>
+		<?php 
+	}
 }
