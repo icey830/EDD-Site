@@ -3,10 +3,12 @@
  * The template for displaying image attachments.
  *
  * @package EDD
+ * @version 1.0
+ * @since   1.0
  */
-
-get_header();
 ?>
+
+<?php get_header(); ?>
 
 	<div id="primary" class="content-area image-attachment">
 		<div id="content" class="site-content" role="main">

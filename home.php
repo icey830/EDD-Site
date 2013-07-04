@@ -3,9 +3,11 @@
  * The template for displaying the blog index page.
  *
  * @package EDD
+ * @version 1.0
+ * @since   1.0
  */
-
-get_header(); ?>
+?>
+<?php get_header(); ?>
 
 	<section class="main clearfix">
 		<div class="container clearfix">
@@ -28,8 +30,8 @@ get_header(); ?>
 							<?php } ?>
 							<li><i class="icon-comments-alt"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), __( '% Comments', 'edd' ), '', ''); ?></span></li>
 						</ul>
-					</div>
-				</article>
+					</div><!-- /.post-meta-->
+				</article><!-- /#post-<?php echo get_the_ID(); ?> -->
 				<?php } ?>
 				
 				<?php
@@ -69,12 +71,11 @@ get_header(); ?>
 							<input type="hidden" name="pmc_list_id" value="<?php echo $list_id; ?>"/>
 							<input type="submit" value="<?php _e( 'Sign Up' ); ?>"/>
 						</div>
-					</form>
-				</div>
+					</form><!-- /#pmc_mailchimp -->
+				</div><!-- /.newsletter -->
 				<?php dynamic_sidebar( 'blog-sidebar' ); ?>
 			</aside><!-- /.sidebar -->
 		</div><!-- /.container -->
 	</section><!-- /.main -->
-<?php
-get_footer();
-?>
+
+<?php get_footer(); ?>

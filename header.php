@@ -1,10 +1,10 @@
 <?php
 /**
- * The Header for our theme.
- *
- * Displays all of the <head> section and everything up till <div id="main">
+ * The template for displaying the header.
  *
  * @package EDD
+ * @version 1.0
+ * @since   1.0
  */
 ?>
 <!DOCTYPE html>
