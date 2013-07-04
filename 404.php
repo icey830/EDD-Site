@@ -1,8 +1,10 @@
 <?php
 /**
- * The template for displaying 404 pages (Not Found).
+ * The template for displaying 404 pages.
  *
  * @package EDD
+ * @version 1.0
+ * @since   1.0
  */
 
 get_header(); ?>

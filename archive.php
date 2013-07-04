@@ -2,9 +2,9 @@
 /**
  * The template for displaying Archive pages.
  *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
  * @package EDD
+ * @version 1.0
+ * @since   1.0
  */
 
 get_header(); ?>

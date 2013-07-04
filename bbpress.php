@@ -3,6 +3,8 @@
  * The template for displaying bbPress pages.
  *
  * @package EDD
+ * @version 1.0
+ * @since   1.0
  */
 
 get_header(); ?>
