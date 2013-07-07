@@ -65,10 +65,12 @@ the_post();
 					<div class="price clearfix">
 						<p><span>Price:</span> <span><?php echo get_post_meta( get_the_ID(), 'ecpt_price', true ); ?></span></p>
 					</div>
+					<?php if ( eddwp_is_extension_third_party() ) { ?>
 					<div class="pricing">
 						<h4>Pricing</h4>
 						<?php echo edd_get_purchase_link( array( 'download_id' => get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ) ); ?>
 					</div>
+					<?php } // end if ?>
 				</div>
 			</aside><!-- /.sidebar -->
 		</div><!-- /.container -->

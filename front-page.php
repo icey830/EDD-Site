@@ -20,7 +20,7 @@
 			<div class="hero-text">
 				<h1>Say hello to the world's easiest way to sell digital downloads through WordPress</h1>
 				<h2>for free</h2>
-				<p><a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip" class="download-button"><i class="icon-cloud-download"></i> Download</a> <a href="https://easydigitaldownloads.com/demo/" class="download-button"><i class="icon-eye-open"></i> Demo</a></p>
+				<p><a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip" class="download-button"><i class="icon-cloud-download"></i> Download</a> <a href="https://easydigitaldownloads.com/demo/" target="_blank" class="download-button"><i class="icon-eye-open"></i> Demo</a></p>
 			</div><!-- /.hero-text -->
 			<img src="<?php echo get_template_directory_uri(); ?>/images/edd-standing.png" />
 		</div><!-- .hero-inside -->
@@ -43,23 +43,41 @@
 	<div class="feature">
 		<h2>Features overview...</h2>
 		<div class="feature-content">
-			<div class="inner-feature inner-feature-left">
-				<h3>Quick Setup</h3>
+			<div class="inner-feature inner-feature-left clearfix">
+				<div class="inside">
+					<h3>Quick Setup</h3>
+					<p>We've built Easy Digital Downloads to be really quick and simple to setup. On installation, you're practically ready to go!  All you need to do is add in your payment gateway credentials, add your products and the rest is all a dream...</p>
+				</div>
 			</div>
-			<div class="inner-feature inner-feature-right">
-				<h3>Elegant Reporting</h3>
+			<div class="inner-feature inner-feature-right clearfix">
+				<div class="inside">
+					<h3>Elegant Reporting</h3>
+					<p>We understand that you want to be able to see all of your data presented neatly in a way that makes it easy for you analyze and interpret.</p>
+				</div>
 			</div>
-			<div class="inner-feature inner-feature-left">
-				<h3>Developer Friendly</h3>
+			<div class="inner-feature inner-feature-left clearfix">
+				<div class="inside">
+					<h3>Developer Friendly</h3>
+					<p>At Easy Digital Downloads, we closely follow the WordPress Coding Standards and provide a myriad of hooks and filters so that when it comes to making changes to the codebase, it's really easy.</p>
+				</div>
 			</div>
-			<div class="inner-feature inner-feature-right">
-				<h3>Discount Codes</h3>
+			<div class="inner-feature inner-feature-right clearfix">
+				<div class="inside">
+					<h3>Discount Codes</h3>
+					<p>Celebrating something? Or maybe you just woke up in a good mood! Whatever it is, we have a gorgeous discount system built in so that when you want to provide an offer, it won't even take a minute.</p>
+				</div>
 			</div>
-			<div class="inner-feature inner-feature-left">
-				<h3>Payment Gateways</h3>
+			<div class="inner-feature inner-feature-left clearfix">
+				<div class="inside">
+					<h3>Payment Gateways</h3>
+					<p>Accept payments through a variety of payment gateways, including Stripe and PayPal. Add-on gateways are being constantly developed to make it easy for everyone to get paid.</p>
+				</div>
 			</div>
-			<div class="inner-feature inner-feature-right">
-				<h3>Data Export</h3>
+			<div class="inner-feature inner-feature-right clearfix">
+				<div class="inside">
+					<h3>Data Export</h3>
+					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+				</div>
 			</div>
 		</div>
 	</div><!-- /.feature -->

@@ -9,38 +9,66 @@
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
  * @package EDD
+ * @version 1.0
+ * @since   1.0
  */
+?>
+<?php get_header(); ?>
 
-get_header(); ?>
-
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
-
-		<?php if ( have_posts() ) : ?>
-
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-
+	<section class="main clearfix">
+		<div class="container clearfix">
+			<section class="content">
+				<?php while ( have_posts() ) { the_post(); ?>
+				<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
+					<p class="entry-date"><span><?php the_date(); ?></span></p>
+					<h2><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
+					<?php the_excerpt(); ?>
+					<p><a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'edd' ); ?></a></p>
+				</article><!-- /#post-<?php echo get_the_ID(); ?> -->
+				<?php } ?>
+				
 				<?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to overload this in a child theme then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
-				?>
+				global $wp_query;
+				if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) { ?>
+					<div id="page-nav">
+						<ul class="paged">
+							<?php if( get_next_posts_link() ) { ?>
+								<li class="previous">
+									<?php next_posts_link( __( '<span class="nav-previous meta-nav"><i class="icon-chevron-left"></i> Older</span>', 'edd' ) ); ?>
+								</li>			
+							<?php
+							} if( get_previous_posts_link() ) { ?>
+								<li class="next">
+									<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer <i class="icon-chevron-right"></i></span>', 'edd' ) ); ?>
+								</li>
+							<?php } ?>
+						</ul><!-- /.paged -->
+					</div><!-- /#page-nav -->
+				<?php } ?>
+			</section><!-- /.content -->
+			
+			<aside class="sidebar">
+				<div class="newsletter">
+					<h3>Email Newsletter</h3>
+					<p>Sign up to receive regular updates from Easy Digital Downloads.</p>
+					<form id="pmc_mailchimp" action="" method="post">
+						<div>
+							<input name="pmc_fname" id="pmc_fname" type="text" placeholder="<?php _e('Name'); ?>"/>
+						</div>
+						<div>
+							<input name="pmc_email" id="pmc_email" type="text" placeholder="<?php _e('Enter your email address'); ?>"/>
+						</div>
+						<div>
+							<input type="hidden" name="redirect" value="<?php echo 'https://' . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>"/>
+							<input type="hidden" name="action" value="pmc_signup"/>
+							<input type="hidden" name="pmc_list_id" value="<?php echo $list_id; ?>"/>
+							<input type="submit" value="<?php _e( 'Sign Up' ); ?>"/>
+						</div>
+					</form><!-- /#pmc_mailchimp -->
+				</div><!-- /.newsletter -->
+				<?php dynamic_sidebar( 'blog-sidebar' ); ?>
+			</aside><!-- /.sidebar -->
+		</div><!-- /.container -->
+	</section><!-- /.main -->
 
-			<?php endwhile; ?>
-
-			<?php edd_content_nav( 'nav-below' ); ?>
-
-		<?php else : ?>
-
-			<?php get_template_part( 'no-results', 'index' ); ?>
-
-		<?php endif; ?>
-
-		</div><!-- #content -->
-	</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

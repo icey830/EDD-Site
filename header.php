@@ -33,24 +33,5 @@
 			<nav id="primary" class="navigation-main" role="navigation">
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 			</nav><!-- /#primary -->
-
-			<div id="sign-in-form" class="clearfix">
-				<div class="tooltip-arrow"></div>
-				<h3>Sign In</h3>
-				<form action="" method="post">
-					<p class="login-username">
-						<label for="user-login">Username</label>
-						<input type="text" name="user-login" id="user-login" class="input" size="20" />
-					</p>
-					<p class="login-password">
-						<label for="user-pass">Password</label>
-						<input type="text" name="user-pass" id="user-pass" class="input" size="20" />
-					</p>
-					<p class="login-submit clearfix">
-						<input type="submit" value="Sign In" />
-						<a class="forgot-password" href="">Forgot your password?</a>
-					</p>
-				</form>
-			</div><!-- /#sign-in-form -->
 		</header><!-- /.header -->
 	</div><!-- /.header-outer -->

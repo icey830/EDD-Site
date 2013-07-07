@@ -104,6 +104,65 @@
 
 		&:hover .text-overlay { opacity: 1; }
 	}
+
+	& .featured-site {
+		background: #fff;
+		float: left;
+		padding: 10px;
+		position: relative;
+		width: 460px;
+		margin-right: 20px;
+		margin-bottom: 20px;
+		
+		&:nth-child(2n+2) {
+			margin-right: 0;
+		}
+
+		& img {
+			width: 440px;
+			height: 325px;
+		}
+
+		& .text-overlay {
+			background: rgba(34,36,38,0.9);
+			width: 460px;
+			height: 353px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			font-size: 18px;
+			font-weight: 400;
+			text-align: center;
+			line-height: 320px;
+			margin: 0;
+			padding: 0;
+			color: #fff;
+			opacity: 0;
+			-webkit-transition: opacity .18s ease-in-out;
+
+			& span {
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: 10px;
+				margin-left: -63px;
+				line-height: 24px;
+				font-size: 14px;
+				font-weight: 300;
+				padding: 6px 14px;
+				background: #2794da;
+				color: #fff;
+				box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
+				cursor: pointer;
+				border-radius: 3px;
+				-webkit-transition: all .2s ease-in-out;
+				-webkit-user-select: none;
+			}
+		}
+
+		&:hover .text-overlay { opacity: 1; }
+	}
 }
 
 .showcase .site:nth-child(3n+3) { margin-right: 0; }
@@ -267,8 +326,9 @@
 }
 
 /* ----------------------------- *
- * Extensions
+ * Extensions and Themes
  * ----------------------------- */
+
 .page-id-13 h1 { float: left; }
 
 #extensions_searchform { float: right; }
@@ -352,7 +412,8 @@
 	}
 }
 
-.extension {
+.extension,
+.theme {
 	border: 1px solid #eee;
 	float: left;
 	width: 280px;
@@ -362,32 +423,46 @@
 	position: relative;
 	height: 325px;
 }
-/*
 
-.extension img {
-	width: 100%;
-	height: 100%;
+.changelog-content {
+	& strong {
+		font-size: 18px;
+		font-weight: 400;
+	}
+	
+	& p {
+		border-bottom: 1px solid #eee;
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+	}
 }
-*/
 
-.extension.extension-clear {
+.theme { height: 235px; }
+
+.extension.extension-clear,
+.theme.theme-clear {
 	margin-right: 0;
 }
 
 .extension h2,
-.extension p {
+.theme h2,
+.extension p,
+.theme p {
 	margin: 0;
 	padding: 10px;
 }
 
-.extension h2 { font-size: 18px; font-weight: normal; }
+.extension h2,
+.theme h2 { font-size: 18px; font-weight: normal; }
 
-.extension p {
+.extension p,
+.theme p {
 	padding-top: 0;
 	color: #555;
 }
 
-.extension .overlay {
+.extension .overlay,
+.theme .overlay {
 	background: rgba(0,0,0,0.75) url(images/icon-direction.png) no-repeat 50% 50%;
 	cursor: pointer;
 	position: absolute;
@@ -400,7 +475,8 @@
 	transition: opacity .2s ease-in-out;
 }
 
-.extension:hover .overlay { opacity: 1; }
+.extension:hover .overlay,
+.theme:hover .overlay { opacity: 1; }
 
 .extensions-grid {
 	margin: 0;
@@ -666,4 +742,667 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	text-shadow: none;
 	border-radius: 6px;
 	color: #34495e;
+}
+
+.single-theme .main .content {
+	background: white;
+	padding: 20px;
+} 
+
+/* ----------------------------- *
+ * My Account
+ * ----------------------------- */
+
+.nav-tabs:before, .nav-pills:before, .nav-tabs:after, .nav-pills:after {
+	display: table;
+	line-height: 0;
+	content: "";
+}
+
+.nav-tabs:after, .nav-pills:after { clear: both; }
+
+.nav-tabs {
+	border-bottom: 1px solid #ddd;
+}
+
+.nav-tabs {
+	border-bottom-width: 2px;
+	border-bottom-color: #e1e4e7;
+}
+
+.nav-tabs.nav-append-content {
+	border-bottom: none;
+	padding: 0;
+	margin-bottom: 0;
+}
+
+.nav {
+	list-style: none;
+}
+
+.nav-tabs.nav-append-content > li.active:first-child:before {
+	background-color: #fff;
+	border-left: 2px solid #e1e4e7;
+	content: "";
+	height: 6px;
+	left: 0;
+	position: absolute;
+	bottom: -4px;
+	width: 6px;
+	z-index: 2;
+}
+
+.nav-tabs > li {
+	float: left;
+	margin-bottom: 1px;
+}
+
+.nav-tabs > li {
+	margin-bottom: -2px !important;
+	position: relative;
+}
+
+.nav-tabs > li.active { z-index: 2; }
+
+.nav > li > a { display: block; }
+
+.nav-tabs > li > a {
+	margin-right: 2px;
+}
+
+.nav-tabs > li > a {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	line-height: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px 4px 0 0;
+}
+
+.nav-tabs > li > a {
+	border-width: 2px;
+	padding: 7px 21px 8px;
+	border-radius: 6px 6px 0 0;
+}
+
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus {
+	cursor: default;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-bottom-color: transparent;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+	border-color: #e1e4e7;
+	border-bottom-color: #fff;
+	border-width: 2px;
+}
+
+.tab-content {
+	overflow: auto;
+	border: 2px solid #ddd;
+	border-radius: 6px;
+	margin-bottom: 20px;
+	padding: 20px;
+	position: relative;
+	z-index: 1;
+	background: #fff;
+}
+
+#edd_user_history {
+	max-width: 100%;
+	background-color: transparent;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+}
+
+#edd_user_history thead th {
+	vertical-align: bottom;
+	padding: 8px 25px;
+	padding-bottom: 14px;
+	line-height: 20px;
+	text-align: left;
+}
+
+#edd_user_history tbody > tr:nth-child(odd) > td, #edd_user_history tbody > tr:nth-child(odd) > th {
+	background-color: transparent;
+}
+
+#edd_user_history td {
+	padding: 8px 25px;
+	border-top: 2px solid #eef0f0;
+	line-height: 20px;
+	text-align: left;
+	vertical-align: top;
+}
+
+#edd_user_history tbody > tr:nth-child(even) > td, #edd_user_history tbody > tr.selected-row > td, #edd_user_history tbody > tr:nth-child(even) > th, #edd_user_history tbody > tr.selected-row > th {
+	background: #f9fafb;
+}
+
+.login h1,
+.login h3 {
+	text-align: center;
+}
+
+.login h3 {
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+#loginform,
+#passwordreset {
+	width: 380px;
+	margin: 0 auto;
+	padding: 40px 0;
+}
+
+#passwordreset { border-bottom: none; }
+
+#loginform fieldset,
+#passwordreset fieldset {
+	width: 100%;
+	border: 1px solid #ccc;
+	box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+	border-radius: 3px;
+	padding: 0;
+}
+
+#loginform fieldset input[type="text"],
+#passwordreset fieldset input[type="text"],
+#loginform fieldset input[type="password"] {
+	font-weight: 300;
+	background: #fff;
+	padding: 10px;
+	outline: none;
+	margin: 0;
+	border-radius: 3px 3px 0 0;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	width: 100%;
+}
+
+#loginform fieldset input[type="password"],
+#passwordreset fieldset input[type="password"] {
+	border-radius: 0px 0px 3px 3px;
+}
+
+#loginform input[type="checkbox"],
+#loginform input[type="checkbox"] + label {
+	margin-top: 35px;
+}
+
+#loginform input[type="submit"],
+#passwordreset input[type="submit"] {
+	padding: 8px 16px;
+	float: right;
+	transition: all .2s ease-in-out;
+	background: #fff;
+	color: #232527;
+	border-radius: 3px;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: 23px;
+	-webkit-transition: all .2s ease-in-out;
+	border: 1px solid #ccc;
+	
+	&:hover {
+		background: #2794da;
+		color: #fff;
+		border: 1px solid #2c67b0;
+	}
+}
+
+#edd_profile_editor_form {
+	& fieldset {
+		border: none;
+		padding: 0;
+		margin: 0;
+		
+		& legend {
+			display: none;
+		}
+		
+		& label {
+			width: 150px;
+			display: inline-block;
+			margin-bottom: 30px;
+		}
+		
+		& input[type="text"], input[type="email"], input[type="password"] {
+			font-weight: 300;
+			background: #fff;
+			padding: 10px;
+			width: 300px;
+			outline: none;
+			margin: 0;
+			border: 1px solid #ccc;
+			box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+			border-radius: 3px;
+		}
+		
+		& input[type="submit"] {
+			padding: 8px 16px;
+			transition: all .2s ease-in-out;
+			background: #fff;
+			color: #232527;
+			border-radius: 3px;
+			display: inline-block;
+			font-size: 14px;
+			font-weight: bold;
+			margin-top: 23px;
+			-webkit-transition: all .2s ease-in-out;
+			border: 1px solid #ccc;
+			
+			&:hover {
+				background: #2794da;
+				color: #fff;
+				border: 1px solid #2c67b0;
+			}
+		}
+	}
+}
+
+#edd_user_commissions_unpaid {
+	& h3 {
+		margin-top: 0;
+	}
+}
+
+.edd_user_commissions {
+	width: 100%;
+	max-width: 100%;
+	border-collapse: collapse;
+	background: transparent;
+	border-spacing: 0;
+	text-align: left;
+	
+	& thead {
+		text-align: left;
+
+		& th {
+			text-align: left;
+			vertical-align: bottom;
+			padding: 8px 25px;
+			padding-bottom: 14px;
+			line-height: 20px;
+		}
+	}
+	
+	& tbody {
+		& td {
+			padding: 8px 25px;
+			border-top: 2px solid #eef0f0;
+			line-height: 20px;
+			text-align: left;
+			vertical-align: top;
+		}
+	}
+}
+
+#edd_user_commissions_unpaid_total,
+#edd_user_commissions_paid_total {
+	font-weight: 400;
+	margin: 20px 0;
+	padding: 20px 0;
+	text-align: center;
+	border-top: double #232527;
+	border-bottom: double #232527;
+}
+
+#edd_commissions_paid_pagination {
+	display: block;
+	padding-top: 30px;
+	border-top: 1px solid #efefef;
+	
+	& .current, .page-numbers {
+		background: #fff;
+		color: #232527;
+		border-radius: 3px;
+		padding: 1px 8px;
+		font-weight: normal;
+		border: 1px solid #ccc;
+		margin-right: 5px;
+		float: left;
+		display: block;
+		-webkit-transition: none;
+	}
+	
+	& .current, .page-numbers:hover {
+		background: #2794da;
+		border: 1px solid #25597a;
+		color: #fff;
+		-webkit-transition: none;
+	}
+}
+
+/* ----------------------------- *
+ * Checkout
+ * ----------------------------- */
+
+#edd_checkout_cart {
+	background: #fff;
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+#edd_checkout_cart tbody tr:first-child {
+	border-top: 1px solid #eee;
+}
+
+#edd_checkout_cart tbody tr {
+	border-bottom: 1px solid #eee;
+	background: #fff;
+	display: block;
+	width: 100%;
+}
+
+#edd_checkout_cart tbody tr td {
+	padding: 15px 12px;
+}
+
+#edd_checkout_cart .edd_cart_item_name {
+	width: 85%;
+}
+
+#edd_checkout_cart .edd_cart_footer_row {
+	text-align: right;
+	display: block;
+}
+
+#edd_checkout_cart .edd_cart_item_price {
+	border-left: 1px dashed #eee;
+	border-right: 1px dashed #eee;
+	padding: 0 20px;
+}
+
+#edd_checkout_cart tfoot {
+	padding: 12px;
+	display: block;
+}
+
+#edd_checkout_cart tfoot th {
+	text-align: right;
+	display: block;
+}
+
+#edd_checkout_cart .edd_cart_discount {
+	font-size: 16px;
+}
+
+#edd_checkout_cart .edd_cart_total {
+	font-size: 18px;
+}
+
+#edd_checkout_cart .edd_cart_footer_row:last-child {
+	border-top: 1px solid #eee;
+	margin-top: 20px;
+	margin-left: -20px;
+	margin-right: -20px;
+	padding: 20px;
+}
+
+#checkout_signin {
+	margin: 10px 0 20px;
+	padding-top: 20px;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 20px;
+}
+
+#checkout_signin .form {
+	width: 450px;
+	float: left;
+}
+
+#checkout_signin .form h2 {
+	font-weight: 400;
+	margin-top: 0;
+	font-size: 20px;
+}
+
+#checkout_signin .sign-in-form {
+	border-right: 1px solid #eee;
+}
+
+#checkout_signin .form {
+	padding: 20px;
+}
+
+#checkout_signin .form input[type="text"] {
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 6px 8px;
+	margin-top: 10px;
+	width: 390px;
+}
+
+#checkout_signin .form input[type="text"]:focus {
+	border: 1px solid #2794da;
+	outline: none;
+	box-shadow: 0px 0px 3px rgba(40,149,217,0.4);
+}
+
+#checkout_signin #forgot-link {
+	float: left;
+	width: 40%;
+	margin-bottom: 0;
+}
+
+#checkout_signin #forgot-link + .submit-button {
+	float: right;
+	margin-right: 20px;
+}
+
+#checkout_signin .submit-button {
+	position: relative;
+	background: #fff;
+	color: #232527;
+	border-radius: 3px;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: normal;
+	margin-top: 10px;
+	padding: 6px 10px;
+	-webkit-transition: all .2s ease-in-out;
+	border: 1px solid #ccc;
+}
+
+#checkout_signin .sign-up-form .submit-button {
+	margin-top: 65px;
+	padding: 2px 8px;
+}
+
+#edd_sl_renewal_form {
+	border-bottom: 1px solid #eee;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+#edd_sl_renewal_form fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+#edd_sl_renewal_form legend {
+	font-weight: 400;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+#edd_sl_renewal_form label {
+	display: block;
+}
+
+#edd-license-key-wrap { margin-bottom: 0; }
+
+#edd_sl_renewal_form input[type="text"] {
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 6px 8px;
+	margin-top: 10px;
+	width: 350px;
+}
+
+#edd_sl_renewal_form input[type="text"]:focus {
+	border: 1px solid #2794da;
+	outline: none;
+	box-shadow: 0px 0px 3px rgba(40,149,217,0.4);
+}
+
+#edd_sl_renewal_form input[type="submit"] {
+	position: relative;
+	background: #fff;
+	color: #232527;
+	border-radius: 3px;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: normal;
+	margin-top: 10px;
+	padding: 8px 10px;
+	-webkit-transition: all .2s ease-in-out;
+	border: 1px solid #ccc;
+}
+
+#edd_sl_renewal_form input[type="submit"]:hover {
+	background: #2794da;
+	color: #fff;
+	border: 1px solid #25597a;
+}
+
+.checkout h4 {
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.payment-methods { padding-bottom: 20px; }
+
+.payment-methods .method {
+	float: left;
+	margin: 0 20px;
+	width: 260px;
+	color: #666;
+	text-align: center;
+}
+
+.payment-methods .method.selected .icon {
+	border: 2px solid #2794da;
+	box-shadow: 0px 0px 5px rgba(40,149,217,0.76);
+}
+
+.payment-methods .method.paypal .icon {
+	background: url(../images/checkout-paypal.png) no-repeat;
+}
+
+.payment-methods .method.twoco .icon {
+	background: url(../images/checkout-2co.png) no-repeat;
+}
+
+.payment-methods .method.cc .icon {
+	background: url(../images/checkout-cc.png) no-repeat;
+}
+
+.payment-methods .method .icon {
+	background: #fafafa;
+	border: 2px solid #fff;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+	height: 130px;
+}
+
+.payment-methods .method .caption {
+	margin-top: 15px;
+	display: block;
+}
+
+#purchase-form {
+	border-top: 1px solid #eee;
+	padding-top: 20px;
+}
+
+#purchase-form fieldset {
+	border: none;
+	padding: 0 0 20px 0;
+	margin: 0 0 20px 0;
+	border-bottom: 1px solid #eee;
+	position: relative;
+}
+
+#purchase-form fieldset legend {
+	font-size: 20px;
+	font-weight: 400;
+	margin-bottom: 10px;
+	margin-top: 0;
+}
+
+#purchase-form label {
+	display: block;
+	font-weight: 400;
+	font-size: 17px;
+}
+
+#purchase-form .edd-description {
+	display: block;
+	font-weight: 300;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+#purchase-form .edd-description + input {
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 6px 8px;
+	margin-top: 10px;
+	width: 350px;
+}
+
+#purchase-form .edd-description + input:focus {
+	border: 1px solid #2794da;
+	outline: none;
+	box-shadow: 0px 0px 3px rgba(40,149,217,0.4);
+}
+
+#edd_secure_site_wrapper {
+	position: absolute;
+	width: 200px;
+	top: 20px;
+	right: 20px;
+	border: 1px solid #eee;
+	text-align: center;
+	padding: 10px;
+	background: #f9f9f9;
+	font-weight: 300;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+}
+
+#ssl-seal {
+	position: absolute;
+	right: 50px;
+	top: 120px;
+	font-weight: 300 !important;
+	font-size: 14px !important;
+	font-family: Roboto !important;
+}
+
+#ssl-seal img {
+	margin: 0 0 0 28px;
+}
+
+#edd_payment_mode {
+	& fieldset {
+		border: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	& .edd-payment-mode-label {
+		font-size: 20px;
+		font-weight: 400;
+		margin: 25px 0 10px 0;
+		padding: 0;
+		font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+		line-height: 1.4;
+	}
 }

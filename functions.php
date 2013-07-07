@@ -41,6 +41,7 @@ function edd_theme_setup() {
 	add_editor_style( 'css/editor-style.css' );
 	
 	add_image_size( 'showcase', 320, 200, true );
+	add_image_size( 'featured-showcase', 460, 330, true );
 
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'edd' ),
@@ -57,8 +58,8 @@ add_action( 'after_setup_theme', 'edd_theme_setup' );
  */
 function edd_register_theme_scripts() {
 	$deps = array( 'roboto-font' );
-	
-	if ( is_bbpress() || is_page( 'support' ) ) {
+
+	if ( function_exists( 'is_bbpress' ) && is_bbpress() || is_page( 'support' ) ) {
 		$deps[] = 'bbp-default-bbpress';
 	}
 
@@ -93,8 +94,13 @@ function edd_register_theme_scripts() {
 	wp_dequeue_style( 'sharedaddy' );
 	wp_dequeue_style( 'edd-styles' );
 
-	if ( is_bbpress() || is_page( 'support' ) ) {
+	if ( function_exists( 'is_bbpress' ) && is_bbpress() || is_page( 'support' ) ) {
 		wp_enqueue_style( 'bbp-default-bbpress', trailingslashit( bbPress()->themes_url . 'default' ) . 'css/bbpress.css', array(), bbp_get_version(), 'screen' );
+	}
+	
+	if ( is_page( 'your-account' ) ) {
+		wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/lib/bootstrap.min.css', array( ), '1.0', false );
+		wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/lib/bootstrap.min.js', array( 'jquery' ), '1.0', false );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'edd_register_theme_scripts' );
@@ -254,9 +260,11 @@ function eddwp_get_latest_post() {
 
 	while ( $query->have_posts() ) {
 		$query->the_post();
+		remove_filter( 'the_excerpt', 'sharing_display', 19 );
 		printf( '<h4>%s</h4>', get_the_title() );
 		the_excerpt();
 		printf( '<a href="%1$s">%2$s</a>', get_permalink(), __( 'Read More...', 'edd' ) );
+		add_filter( 'the_excerpt', 'sharing_display', 19 );
 	}
 }
 
@@ -329,6 +337,10 @@ function eddwp_body_class( $classes ) {
 	
 	if ( is_single() && 'post' == get_post_type( $post->ID ) ) {
 		$classes[] = 'blog';
+	}
+	
+	if ( is_page( 'your-account' ) && ! is_user_logged_in() ) {
+		$classes[] = 'login';
 	}
 	
 	return $classes;
@@ -490,3 +502,59 @@ class SR_Newsletter_Signup_Form extends WP_Widget {
 		<?php 
 	}
 }
+
+function eddwp_is_extension_third_party() {
+	global $post;
+	
+	$terms = get_the_terms( $post->ID, 'extension_category' );
+
+	if ( has_term( '3rd Party', 'extension_category', $post->ID ) ) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+/**
+ * Info Boxes
+ */
+
+function eddwp_shortcode_box( $atts, $content = null ) {
+	$output = '';
+
+	$default = array(
+        'style' => 'alert'
+    );
+ 
+    extract( shortcode_atts( $default, $atts ) );
+
+    $output = '<div class="info-box info-box-'.$style.'"><div class="icon">'.do_shortcode( $content ).'</div></div>';
+
+    return $output;
+}
+add_shortcode( 'box', 'eddwp_shortcode_box' );
+
+/**
+ * Toggles
+ */
+function eddwp_shortcode_toggle( $atts, $content = null ) {		
+	$last = '';
+
+	if ( isset( $atts[0] ) && trim( $atts[0] ) == 'last') $last = ' changelog-last';
+
+	$default = array(
+        'title' => ''
+    );
+
+    extract( shortcode_atts( $default, $atts ) );
+
+    $content = wpautop( do_shortcode( stripslashes( $content ) ) );
+
+	$output  = '<div class="changelog' . $last . '">';
+	$output .= sprintf( '<h2>%s</h2>', $title );
+	$output .= '<div class="changelog-content">' . $content . '</div>';
+	$output .= '</div>';
+
+    return $output;
+}
+add_shortcode( 'toggle', 'eddwp_shortcode_toggle' );

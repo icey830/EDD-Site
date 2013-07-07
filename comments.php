@@ -25,7 +25,6 @@
 <?php if ( have_comments() ) { ?>
 	<div id="comments" class="clearfix">
 
-		<?php if ( ! empty( $comments_by_type['comment'] ) ) { ?>
 		<h3>Comments</h3>
 		<div id="comments-list">
 			<ol class="comment-list">
@@ -40,7 +39,6 @@
 				?>
 			</ol><!-- /.comment-list -->
 		</div><!-- /#comments-list -->
-		<?php } // end if ?>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { ?>
 

@@ -13,7 +13,56 @@ the_post();
 		<section class="showcase clearfix">
 			<div class="sites clearfix">
 				<?php
-				$showcases = new WP_Query( array( 'post_type' => 'showcase', 'nopaging' => true ) );
+				$featured_showcases = new WP_Query(
+					array(
+						'post_type'      => 'showcase',
+						'posts_per_page' => 2,
+						'tax_query'      => array(
+							array(
+								'taxonomy' => 'showcase_category',
+								'field'    => 'slug',
+								'terms'    => 'featured',
+								'operator' => 'IN'
+							)
+						)
+					)
+				);
+				
+				while ( $featured_showcases->have_posts() ) {
+					$featured_showcases->the_post();
+				?>
+				<div class="featured-site">
+						<a href="<?php $array = shortcode_parse_atts( get_the_content() ); echo $array['link']; ?>">
+							<?php the_post_thumbnail( 'featured-showcase' ); ?>
+						</a>
+						<a class="text-overlay" href="<?php echo $array['link'] ?>">
+							<?php the_title(); ?>
+							<span class="button">Launch Website</span>
+						</a><!-- /.text-overlay -->
+					</div><!-- /.featured-site -->
+				<?php
+				}
+				
+				wp_reset_postdata();
+				?>
+				
+				<div class="clearfix"></div>
+			
+				<?php
+				$showcases = new WP_Query(
+					array(
+						'post_type' => 'showcase',
+						'nopaging' => true,
+						'tax_query' => array(
+							array(
+								'taxonomy' => 'showcase_category',
+								'field'    => 'slug',
+								'terms'    => 'featured',
+								'operator' => 'NOT IN'
+							)
+						)
+					)
+				);
 				
 				while ( $showcases->have_posts() ) {
 					$showcases->the_post();
