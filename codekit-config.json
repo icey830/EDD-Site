@@ -73,6 +73,15 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
+    "\/template-support-pricing.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/template-support-pricing.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/images\/feature-2.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -92,15 +101,6 @@
       "inputAbbreviatedPath" : "\/css\/lib\/bootstrap.min.css",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
-    },
-    "\/template-support-pricing.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/template-support-pricing.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
     },
     "\/style.css" : {
       "ignoreWasSetByUser" : 0,
@@ -721,15 +721,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
-    "\/loop.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/loop.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/images\/checkout-2co.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -740,6 +731,15 @@
       "outputAbbreviatedPath" : "\/images\/checkout-2co.png",
       "initialSize" : 12762,
       "fileType" : 8192
+    },
+    "\/loop.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/loop.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/images\/payment-history-admin.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -770,6 +770,17 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
+    "\/images\/bullets.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/bullets.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/bullets.png",
+      "initialSize" : 1577,
+      "fileType" : 8192
+    },
     "\/images\/cart-system.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -791,17 +802,6 @@
       "outputAbbreviatedPath" : "\/images\/payment-gateways.jpg",
       "initialSize" : 16598,
       "fileType" : 4096
-    },
-    "\/images\/bullets.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/bullets.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/bullets.png",
-      "initialSize" : 1577,
-      "fileType" : 8192
     },
     "\/js\/lib\/modernizr.min.js" : {
       "ignoreWasSetByUser" : 0,
@@ -884,17 +884,6 @@
       "fileType" : 1,
       "debugStyle" : 0
     },
-    "\/js\/dev\/admin.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/dev\/admin.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 2,
-      "outputAbbreviatedPath" : "\/js\/dev\/admin.min.js",
-      "fileType" : 64
-    },
     "\/css\/less\/footer.less" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -907,6 +896,17 @@
       "strictImports" : 1,
       "fileType" : 1,
       "debugStyle" : 0
+    },
+    "\/js\/dev\/admin.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/dev\/admin.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 2,
+      "outputAbbreviatedPath" : "\/js\/dev\/admin.min.js",
+      "fileType" : 64
     },
     "\/images\/edd-ios-4.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -952,18 +952,16 @@
       "initialSize" : 73466,
       "fileType" : 4096
     },
-    "\/css\/less\/homepage.less" : {
+    "\/images\/customer-area.jpg" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
+      "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/css\/less\/homepage.less",
-      "outputStyle" : 1,
-      "shouldRunBless" : 1,
-      "outputAbbreviatedPath" : "\/homepage.css",
-      "strictImports" : 1,
-      "fileType" : 1,
-      "debugStyle" : 0
+      "inputAbbreviatedPath" : "\/images\/customer-area.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/customer-area.jpg",
+      "initialSize" : 82863,
+      "fileType" : 4096
     },
     "\/css\/less\/pages.less" : {
       "ignoreWasSetByUser" : 0,
@@ -989,16 +987,18 @@
       "initialSize" : 36209,
       "fileType" : 8192
     },
-    "\/images\/customer-area.jpg" : {
+    "\/css\/less\/homepage.less" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/customer-area.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/customer-area.jpg",
-      "initialSize" : 82863,
-      "fileType" : 4096
+      "inputAbbreviatedPath" : "\/css\/less\/homepage.less",
+      "outputStyle" : 1,
+      "shouldRunBless" : 1,
+      "outputAbbreviatedPath" : "\/homepage.css",
+      "strictImports" : 1,
+      "fileType" : 1,
+      "debugStyle" : 0
     },
     "\/images\/logo.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1183,6 +1183,17 @@
       "initialSize" : 14445,
       "fileType" : 8192
     },
+    "\/images\/edd-ios-3.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/edd-ios-3.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/edd-ios-3.jpg",
+      "initialSize" : 20430,
+      "fileType" : 4096
+    },
     "\/css\/less\/widgets.less" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -1195,17 +1206,6 @@
       "strictImports" : 1,
       "fileType" : 1,
       "debugStyle" : 0
-    },
-    "\/images\/edd-ios-3.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/edd-ios-3.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/edd-ios-3.jpg",
-      "initialSize" : 20430,
-      "fileType" : 4096
     },
     "\/images\/checkout-paypal.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1227,15 +1227,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/footer.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/footer.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/single.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1245,16 +1236,14 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/images\/mbp.png" : {
+    "\/footer.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/mbp.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/mbp.png",
-      "initialSize" : 233637,
-      "fileType" : 8192
+      "inputAbbreviatedPath" : "\/footer.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/images\/touch-icon-ipad-retina.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1265,6 +1254,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/images\/touch-icon-ipad-retina.png",
       "initialSize" : 17406,
+      "fileType" : 8192
+    },
+    "\/images\/mbp.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/mbp.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/mbp.png",
+      "initialSize" : 233637,
       "fileType" : 8192
     },
     "\/images\/discount.png" : {
@@ -1340,17 +1340,6 @@
       "initialSize" : 5096,
       "fileType" : 8192
     },
-    "\/images\/download-small.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/download-small.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/download-small.jpg",
-      "initialSize" : 19589,
-      "fileType" : 4096
-    },
     "\/bbpress\/loop-single-topic.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1372,6 +1361,17 @@
       "strictImports" : 1,
       "fileType" : 1,
       "debugStyle" : 0
+    },
+    "\/images\/download-small.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/download-small.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/download-small.jpg",
+      "initialSize" : 19589,
+      "fileType" : 4096
     },
     "\/images\/social-fb.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1404,17 +1404,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/images\/edd-standing.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/edd-standing.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/edd-standing.png",
-      "initialSize" : 35667,
-      "fileType" : 8192
-    },
     "\/js\/dev\/theme.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1425,17 +1414,6 @@
       "syntaxCheckerStyle" : 2,
       "outputAbbreviatedPath" : "\/js\/theme.min.js",
       "fileType" : 64
-    },
-    "\/images\/edd-ios-2.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/edd-ios-2.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/edd-ios-2.jpg",
-      "initialSize" : 21878,
-      "fileType" : 4096
     },
     "\/css\/less\/bbpress.less" : {
       "ignoreWasSetByUser" : 0,
@@ -1462,6 +1440,28 @@
       "strictImports" : 1,
       "fileType" : 1,
       "debugStyle" : 0
+    },
+    "\/images\/edd-ios-2.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/edd-ios-2.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/edd-ios-2.jpg",
+      "initialSize" : 21878,
+      "fileType" : 4096
+    },
+    "\/images\/edd-standing.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/edd-standing.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/edd-standing.png",
+      "initialSize" : 35667,
+      "fileType" : 8192
     },
     "\/js\/dev\/theme.main.js" : {
       "ignoreWasSetByUser" : 0,

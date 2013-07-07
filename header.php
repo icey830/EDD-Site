@@ -18,6 +18,16 @@
 
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+	
+	<link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri() ?>/images/favicon.png" />
+	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri() ?>/images/touch-icon-iphone.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri() ?>/images/touch-icon-ipad.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_template_directory_uri() ?>/images/touch-icon-iphone-retina.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_template_directory_uri() ?>/images/touch-icon-ipad-retina.png" />
+	
+	<?php if ( is_front_page() ) { ?>
+	<meta name="apple-itunes-app" content="app-id=625303275">
+	<?php } // end if ?>
 
 	<?php wp_head(); ?>
 </head>
