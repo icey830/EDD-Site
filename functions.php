@@ -343,6 +343,10 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'login';
 	}
 	
+	if ( is_category() || is_tag() || is_author() || is_day() || is_month() || is_year() ) {
+		$classes[] = 'blog';
+	}
+	
 	return $classes;
 }
 add_filter( 'body_class', 'eddwp_body_class' );
