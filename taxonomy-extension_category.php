@@ -5,7 +5,7 @@ the_post();
 ?>
 	<section class="main clearfix">
 		<section class="content clearfix">
-			<h1><?php the_title(); ?></h1>
+			<h1><?php echo ucwords( strip_tags( $_GET['extension_category'] ) ) ?></h1>
 			<form id="extensions_searchform" class="clearfix" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="get">
 				<fieldset>
 					<input type="search" name="extension_s" value="" />
@@ -16,16 +16,8 @@ the_post();
 			<div class="clearfix"></div>
 			<?php echo eddwp_extenstion_cats_shortcode(); ?>
 			<div class="extensions clearfix">
-				<?php
-				$extensions =  new WP_Query( array( 'post_type' => 'extension', 'posts_per_page' => 30, 'paged' => get_query_var( 'paged' ) ) );
-				$c = 0; while ( $extensions ->have_posts() ) {
-					$extensions->the_post();
-					$c++;
-					?>
+				<?php while ( have_posts() ) { the_post(); ?>
 					<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?>">
-					<?php
-					
-					?>
 						<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
 							<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
 							<h2><?php the_title(); ?></h2>
@@ -35,6 +27,10 @@ the_post();
 						<?php
 						if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) ) {
 							echo '<i class="third-party"></i>';
+						}
+						
+						if ( has_term( 'Free', 'extension_category', get_the_ID() ) ) {
+							echo '<i class="free"></i>';
 						}
 						?>
 					</div>
@@ -54,7 +50,6 @@ the_post();
 				<div class="pagination">
 					<?php echo $links; ?>
 				</div>
-				<?php wp_reset_postdata(); ?>
 			</div>
 		</section><!-- /.content -->
 	</section><!-- /.main -->

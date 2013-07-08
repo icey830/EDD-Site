@@ -475,6 +475,26 @@
 	transition: opacity .2s ease-in-out;
 }
 
+.extension i.third-party {
+	display: block;
+	background: url(images/ribbon-3rd-party.png) no-repeat;
+	width: 99px;
+	height: 99px;
+	position: absolute;
+	top: -4px;
+	right: -6px;
+}
+
+.extension i.free {
+	display: block;
+	background: url(images/ribbon-free.png) no-repeat;
+	width: 99px;
+	height: 99px;
+	position: absolute;
+	top: -4px;
+	right: -6px;
+}
+
 .extension:hover .overlay,
 .theme:hover .overlay { opacity: 1; }
 
@@ -1483,4 +1503,167 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 .doc-section h2 {
 	font-weight: 400;
 	font-size: 24px;
+}
+
+/* ----------------------------- *
+ * Support Pricing
+ * ----------------------------- */
+
+.support-pricing .main {
+	padding: 20px 0;
+}
+
+.support-pricing .main .content {
+	margin: 0 auto;
+	position: relative;
+}
+
+.support-pricing .main .content h2 {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.support-pricing .why {
+	padding: 30px 0;
+	font-size: 18px;
+	font-weight: 300;
+	float: left;
+	width: 490px;
+}
+
+.support-pricing .main .content:hover #support-people {
+	background-position: 0px -401px;
+}
+
+#support-people {
+	background: url(images/icon-support.png) no-repeat;
+	width: 366px;
+	height: 300px;
+	position: absolute;
+	bottom: 0;
+	right: 30px;
+}
+
+.pricing-container {
+	width: 760px;
+	margin: 35px auto 0;
+}
+
+.pricing-container .support-box {
+	width: 350px;
+	float: left;
+	background: #fff;
+	background: -webkit-linear-gradient(#ffffff 0%, #eaeaea 100%);
+	border-radius: 3px;
+	color: #555;
+	border: 1px solid #3f7197;
+	box-shadow: 0 2px 6px rgba(29,58,82,0.4);
+	margin-right: 50px;
+}
+
+.pricing-container .priority-support {
+	border: 2px solid #2a9132;
+	position: relative;
+	z-index: 2;
+	top: -13px;
+	box-shadow: 20px 20px 20px -10px rgba(0, 0, 0, .15), -20px 20px 20px -10px rgba(0, 0, 0, .15);
+	padding: 30px 20px;
+	border-top-width: 3px;
+}
+
+.pricing-container .priority-support .label {
+	position: absolute;
+	background: #2a9132;
+	font-size: 14px;
+	color: #fff;
+	padding: 0 10px;
+	top: -25px;
+	right: 10px;
+}
+
+.pricing-container .support-box h2 {
+	font-weight: 300;
+	font-size: 28px;
+	text-align: center;
+	padding: 30px 0;
+	border-bottom: 1px solid #ddd;
+	margin: 0;
+}
+
+.pricing-container .support-box:nth-child(2n) { margin-right: 0; }
+
+.pricing-container .support-box .price {
+	font-weight: 300;
+	padding: 40px 0;
+	text-align: center;
+	background: #eee;
+	border-bottom: 1px solid #ddd;
+	height: 140px;
+}
+
+.pricing-container .support-box .price-free p {
+	line-height: 50px;
+	margin: 0;
+	padding: 0;
+}
+
+.pricing-container .support-box .price p {
+	font-size: 52px;
+}
+
+.pricing-container .support-box .per-month,
+.pricing-container .support-box .per-year {
+	float: left;
+	width: 50%;
+}
+
+.pricing-container .support-box .price .symbol {
+	-webkit-backface-visibility: hidden;
+	font-size: 28px;
+	vertical-align: super;
+	position: relative;
+	top: 4px;
+	padding: 0;
+}
+
+.pricing-container .support-box .price .per {
+	letter-spacing: 0;
+	position: relative;
+	font-size: 20px;
+	display: block;
+	top: 10px;
+}
+
+.pricing-container .support-box .pricing-features {
+	font-size: 18px;
+	font-weight: 300;
+	padding: 20px;
+	text-align: center;
+	line-height: 30px;
+}
+
+.pricing-container .support-box .pricing-features span {
+	background: rgba(222,222,222,0.5);
+	padding: 3px 6px;
+}
+
+.pricing-container .support-box .sign-up-buttons p {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.pricing-container .support-box .sign-up-buttons p:last-child {
+	margin-bottom: 20px;
+}
+
+.pricing-container .support-box .sign-up-buttons a {
+	display: inline-block;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 300;
+	text-align: center;
+	background: #fff;
+	padding: 4px 8px;
+	border-radius: 2px;
 }
