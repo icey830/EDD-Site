@@ -93,7 +93,7 @@
 		<div class="clearfix">
 			<div id="extensions-intro-box">
 				<h2>Dozens of Extensions <a href="<?php echo home_url( '/extensions' ); ?>">See All Extensions</a></h2>
-				<p>With over 100 extensions, customizing your store is super easy. From disabling admin notifications all the way to creating your own marketplace, as well as everything in between!</p>
+				<p>With over 100 extensions, Easy Digital Downloads can be tailored to your exact needs. From payment processors to newsletter signup forms, EDD has extensions to fill the needs of almost every user.</p>
 			</div><!-- /#extensions-intro-box -->
 			<div class="extensions-grid">
 				<ul>
