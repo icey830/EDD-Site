@@ -150,15 +150,15 @@
 		<div class="left">
 			<div class="slide-1-text">
 				<h4>Simple Setup</h4>
-				<p>Setting up your site couldn't be easier, with only a few details to enter, you're ready to go. Furthermore, we provide support for multiple sites so it's not a problem if you more than one store.</p>
+				<p>Setting up your site couldn't be easier, with only a few details to enter, you're ready to go in minutes.</p>
 			</div><!-- /.slide-1-text -->
 			<div class="slide-2-text">
 				<h4>Beautiful User Interface</h4>
-				<p>Easily see how your store is doing by the clean user interface provided. You can even view your earning for multiple websites.</p>
+				<p>Easily see how your store is doing with the clean user interface. With just a few clicks, see the earnings, sales, and customer stats from any of your websites.</p>
 			</div><!-- /.slide-2-text -->
 			<div class="slide-3-text">
 				<h4>Earnings Tracker</h4>
-				<p>Everyone loves seeing how much money they are making, with the built-in earnings filters, you can see how much money was made for certain periods.</p>
+				<p>Quickly view earnings for the current month, today, yesterday, last month, last year, or any custom time period in just a few clicks.</p>
 			</div><!-- /.slide-3-text -->
 		</div><!-- /.left -->
 		<div class="iphone">
@@ -179,7 +179,7 @@
 			</div><!-- /.slide-4-text -->
 			<div class="slide-5-text">
 				<h4>Priceless Products</h4>
-				<p>View one touch, you can get access to all the products you sell as well the number of sales and the earnings of each product. Neat, huh?</p>
+				<p>With one touch, you can get access to all of your products including sales/earnings stats and even monthly averages for each product. Neat, huh?</p>
 			</div><!-- /.slide-5-text -->
 			<div class="slide-6-text">
 				<h4>Multi-site Support</h4>
