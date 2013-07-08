@@ -335,7 +335,7 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'bbpress';
 	}
 	
-	if ( is_single() && 'post' == get_post_type( $post->ID ) ) {
+	if ( ( is_single() && 'post' == get_post_type( $post->ID ) ) || is_search() ) {
 		$classes[] = 'blog';
 	}
 	

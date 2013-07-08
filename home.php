@@ -21,8 +21,15 @@
 					<div class="post-meta">
 						<ul>
 							<li><i class="icon-user"></i> <?php the_author(); ?></li>
-							<li><i class="icon-list-ul"></i> <?php echo get_the_category_list( __( ', ', 'edd' ) ); ?></li>
 							<?php
+							$categories = get_the_category_list( __( ', ', 'edd' ) );
+							
+							if ( $categories ) {
+							?>
+							<li><i class="icon-list-ul"></i> <?php echo $categories; ?></li>
+							<?php
+							} // end if 
+
 							$tags = get_the_tag_list( '', __( ', ', 'edd' ) );
 							if ( $tags ) {
 							?>
