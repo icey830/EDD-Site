@@ -1337,12 +1337,12 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	display: block;
 }
 
-#purchase-form {
+#edd_purchase_form_wrap {
 	border-top: 1px solid #eee;
 	padding-top: 20px;
 }
 
-#purchase-form fieldset {
+#edd_purchase_form_wrap fieldset {
 	border: none;
 	padding: 0 0 20px 0;
 	margin: 0 0 20px 0;
@@ -1350,27 +1350,27 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	position: relative;
 }
 
-#purchase-form fieldset legend {
+#edd_purchase_form_wrap fieldset legend {
 	font-size: 20px;
 	font-weight: 400;
 	margin-bottom: 10px;
 	margin-top: 0;
 }
 
-#purchase-form label {
+#edd_purchase_form_wrap label {
 	display: block;
 	font-weight: 400;
 	font-size: 17px;
 }
 
-#purchase-form .edd-description {
+#edd_purchase_form_wrap .edd-description {
 	display: block;
 	font-weight: 300;
 	font-size: 14px;
 	margin-bottom: 10px;
 }
 
-#purchase-form .edd-description + input {
+#edd_purchase_form_wrap .edd-description + input {
 	background: #fff;
 	border: 1px solid #ccc;
 	padding: 6px 8px;
@@ -1378,7 +1378,7 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	width: 350px;
 }
 
-#purchase-form .edd-description + input:focus {
+#edd_purchase_form_wrap .edd-description + input:focus {
 	border: 1px solid #2794da;
 	outline: none;
 	box-shadow: 0px 0px 3px rgba(40,149,217,0.4);
@@ -1667,3 +1667,48 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	padding: 4px 8px;
 	border-radius: 2px;
 }
+
+/* ----------------------------- *
+ * Team
+ * ----------------------------- */
+ 
+.contributors img {
+	border-radius: 50%;
+	width: 90px;
+	height: 90px;
+	padding: 5px;
+	background: #fff;
+	border: 1px solid #ddd;
+	float: left;
+	margin-right: 20px;
+}
+
+.contributors h3 {
+	height: 90px;
+	line-height: 90px;
+	margin: 0 0 20px 0;
+	padding: 0;
+}
+
+.contributors .contributor {
+	float: left;
+	width: 49%;
+	margin-right: 2%;
+}
+
+.contributors h2 {
+	font-size: 25px;
+}
+
+.contributors .contributor:nth-child(2n+2) { margin-right: 0; }
+
+.contributor.contrib h3 {
+	line-height: 55px;
+	margin: 0;
+	padding: 0;
+	height: 55px;
+}
+
+.contributor.contrib { margin-bottom: 20px; } 
+
+.contributors br { display: none; }
