@@ -16,7 +16,7 @@ the_post();
 			<div class="clearfix"></div>
 			<?php echo eddwp_extenstion_cats_shortcode(); ?>
 			<div class="extensions clearfix">
-				<?php while ( have_posts() ) { the_post(); ?>
+				<?php $c = 0; while ( have_posts() ) { the_post(); $c++; ?>
 					<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?>">
 						<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
 							<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
