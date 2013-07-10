@@ -34,7 +34,7 @@ get_header(); ?>
 			
 			if ( ! current_user_can( 'moderate' ) ) {
 				get_sidebar( 'forums' );
-			} else {
+			} elseif ( current_user_can( 'moderate' ) && bbp_is_single_topic() ) {
 				echo '<aside class="sidebar">';
 				edd_bbp_d_sidebar();
 				echo '</aside><!-- /.sidebar -->';

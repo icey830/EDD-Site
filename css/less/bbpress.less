@@ -156,6 +156,17 @@ div.bbp-breadcrumb {
 	float: none;
 	font-size: 14px;
 	line-height: 24px;
+	*display: inline-block;
+	height: 1%;
+	
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+		visibility: hidden;
+		font-size: 0;
+		height: 0;
+	}
 }
 
 #bbpress-forums div.bbp-breadcrumb p, #bbpress-forums div.bbp-topic-tags p { margin-bottom: 0; }
