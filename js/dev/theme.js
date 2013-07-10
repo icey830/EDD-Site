@@ -56,6 +56,8 @@
             });
         }
 
+		// Pricing Options Radio Buttons
+
         $('.edd_price_options label').unwrap();
 
         $('.edd_price_options label').each(function () {
@@ -69,15 +71,32 @@
             });
             $(this).addClass('selected');
         });
+        
+        if ($('.edd_price_options input').prop('checked')) {
+            $('.edd_price_options input:checked').parent().addClass('selected');
+        }   
+
+		// Payment Method Radio Buttons
+		$('#edd-payment-mode-wrap label').each(function () {
+            $(this).removeClass('selected');
+            $(this).prepend('<div class="icon" />');
+        });
+
+        $('#edd-payment-mode-wrap label').on('click', function () {
+            $('#edd-payment-mode-wrap label').each(function () {
+                $(this).removeClass('selected');
+            });
+            $(this).addClass('selected');
+        });
+        
+        if ($('#edd-payment-mode-wrap input').prop('checked')) {
+            $('#edd-payment-mode-wrap input:checked').parent().addClass('selected');
+        }
 
         $('.bbp-action-links-dropdown-toggle').on('click', function() {
             var container = $(this).parent();
             $('.icon-caret-up, .bbp-action-links-dropdown', container).slideToggle();
         });
-
-        if ($('.edd_price_options input').prop('checked')) {
-            $('.edd_price_options input:checked').parent().addClass('selected');
-        }
 
         // Load the video
         function eddVideo() {

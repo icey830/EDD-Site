@@ -571,4 +571,65 @@ function eddwp_add_security_info() {
 	<a href="https://www.PositiveSSL.com" id="ssl-seal" title="SSL Certificate Authority" style="font-family: arial; font-size: 10px; text-decoration: none;"><img src="https://www.positivessl.com/images/seals/PositiveSSL_tl_trans.gif" alt="SSL Certificate Authority" title="SSL Certificate Authority" border="0"><br>SSL Certificate Authority</a>
 	<?php
 }
-add_action( 'edd_cc_form', 'eddwp_add_security_info' );
+add_action( 'edd_after_cc_expiration', 'eddwp_add_security_info' );
+
+/**
+ * Remove the default position of the payment icons	
+ */
+remove_action( 'edd_checkout_form_top', 'edd_show_payment_icons' );
+
+/**
+ * Remove the default credit card form.
+ */
+remove_action( 'edd_cc_form', 'edd_get_cc_form' );
+
+function eddwp_get_cc_form() {
+		ob_start(); ?>
+
+	<?php do_action( 'edd_before_cc_fields' ); ?>
+
+	<fieldset id="edd_cc_fields" class="edd-do-validate">
+		<legend><?php _e( 'Credit Card Info', 'edd' ); ?></legend>
+		<?php if( is_ssl() ) : ?>
+			<div id="edd_secure_site_wrapper">
+				<span class="padlock"></span>
+				<span><?php _e( 'This is a secure SSL encrypted payment.', 'edd' ); ?></span>
+			</div>
+		<?php endif; ?>
+		<p id="edd-card-number-wrap">
+			<label class="edd-label"><?php _e( 'Card Number', 'edd' ); ?><span class="card-type"></span></label>
+			<span class="edd-description"><?php _e( 'The (typically) 16 digits on the front of your credit card.', 'edd' ); ?></span>
+			<input type="text" autocomplete="off" name="card_number" class="card-number edd-input required" placeholder="<?php _e( 'Card number', 'edd' ); ?>" />
+		</p>
+		<?php edd_show_payment_icons(); ?>
+		<p id="edd-card-cvc-wrap">
+			<label class="edd-label"><?php _e( 'CVC', 'edd' ); ?></label>
+			<span class="edd-description"><?php _e( 'The 3 digit (back) or 4 digit (front) value on your card.', 'edd' ); ?></span>
+			<input type="text" size="4" autocomplete="off" name="card_cvc" class="card-cvc edd-input required" placeholder="<?php _e( 'Security code', 'edd' ); ?>" />
+		</p>
+		<p id="edd-card-name-wrap">
+			<label class="edd-label"><?php _e( 'Name on the Card', 'edd' ); ?></label>
+			<span class="edd-description"><?php _e( 'The name printed on the front of your credit card.', 'edd' ); ?></span>
+			<input type="text" autocomplete="off" name="card_name" class="card-name edd-input required" placeholder="<?php _e( 'Card name', 'edd' ); ?>" />
+		</p>
+		<?php do_action( 'edd_before_cc_expiration' ); ?>
+		<p class="card-expiration">
+			<label class="edd-label"><?php _e( 'Expiration (MM/YY)', 'edd' ); ?></label>
+			<span class="edd-description"><?php _e( 'The date your credit card expires, typically on the front of the card.', 'edd' ); ?></span>
+			<select name="card_exp_month" class="card-expiry-month edd-select edd-select-small required">
+				<?php for( $i = 1; $i <= 12; $i++ ) { echo '<option value="' . $i . '">' . sprintf ('%02d', $i ) . '</option>'; } ?>
+			</select>
+			<span class="exp-divider"> / </span>
+			<select name="card_exp_year" class="card-expiry-year edd-select edd-select-small required">
+				<?php for( $i = date('Y'); $i <= date('Y') + 10; $i++ ) { echo '<option value="' . $i . '">' . substr( $i, 2 ) . '</option>'; } ?>
+			</select>
+		</p>
+		<?php do_action( 'edd_after_cc_expiration' ); ?>
+
+	</fieldset>
+	<?php
+	do_action( 'edd_after_cc_fields' );
+
+	echo ob_get_clean();
+}
+add_action( 'edd_cc_form', 'eddwp_get_cc_form' );

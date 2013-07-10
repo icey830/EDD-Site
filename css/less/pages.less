@@ -1253,45 +1253,6 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	font-weight: 400;
 }
 
-.payment-methods { padding-bottom: 20px; }
-
-.payment-methods .method {
-	float: left;
-	margin: 0 20px;
-	width: 260px;
-	color: #666;
-	text-align: center;
-}
-
-.payment-methods .method.selected .icon {
-	border: 2px solid #2794da;
-	box-shadow: 0px 0px 5px rgba(40,149,217,0.76);
-}
-
-.payment-methods .method.paypal .icon {
-	background: url(../images/checkout-paypal.png) no-repeat;
-}
-
-.payment-methods .method.twoco .icon {
-	background: url(../images/checkout-2co.png) no-repeat;
-}
-
-.payment-methods .method.cc .icon {
-	background: url(../images/checkout-cc.png) no-repeat;
-}
-
-.payment-methods .method .icon {
-	background: #fafafa;
-	border: 2px solid #fff;
-	box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-	height: 130px;
-}
-
-.payment-methods .method .caption {
-	margin-top: 15px;
-	display: block;
-}
-
 #edd_purchase_form_wrap {
 	border-top: 1px solid #eee;
 	padding-top: 20px;
@@ -1339,6 +1300,10 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	box-shadow: 0px 0px 3px rgba(40,149,217,0.4);
 }
 
+#edd_cc_fields {
+	position: relative;
+}
+
 #edd_secure_site_wrapper {
 	position: absolute;
 	width: 200px;
@@ -1379,6 +1344,31 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 		padding: 0;
 		font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
 		line-height: 1.4;
+	}
+}
+
+#edd-payment-mode-wrap { margin-bottom: 20px; }
+
+#edd-payment-mode-wrap label {
+	margin-right: 20px;
+	
+	& input {
+		margin-right: 5px;
+	}
+}
+
+#edd-card-number-wrap {
+	margin-bottom: 10px;
+}
+
+.edd-payment-icons {
+	overflow: hidden;
+
+	& img {
+		margin-right: 5px;
+		display: inline;
+		float: left;
+		margin-bottom: 25px;
 	}
 }
 
