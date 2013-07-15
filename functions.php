@@ -633,3 +633,8 @@ function eddwp_get_cc_form() {
 	echo ob_get_clean();
 }
 add_action( 'edd_cc_form', 'eddwp_get_cc_form' );
+
+/**
+ * Remove the default purchase link that's appended after `the_content`
+ */
+remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
