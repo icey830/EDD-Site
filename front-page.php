@@ -57,7 +57,7 @@
 				</div>
 			</div>
 			<div class="inner-feature inner-feature-left clearfix">
-				<img src="<?php echo get_template_directory_uri() ?>/images/developer-friendly.png" alt="Developer Friendly" />
+				<img style="position: relative; top: 25px;" src="<?php echo get_template_directory_uri() ?>/images/developer-friendly.png" alt="Developer Friendly" />
 				<div class="inside">
 					<h3>Developer Friendly</h3>
 					<p>At Easy Digital Downloads, we closely follow the WordPress Coding Standards and provide a myriad of hooks and filters so that when it comes to making changes to the codebase, it's really easy.</p>
