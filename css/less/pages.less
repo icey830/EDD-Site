@@ -1675,3 +1675,51 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 .contributors br { display: none; }
 
 .gallery { clear: both; }
+
+/* ----------------------------- *
+ * Purchase Confirmation
+ * ----------------------------- */
+#edd_purchase_receipt {
+	width: 100%;
+	border: none;
+	border-spacing: none;
+	border: 1px solid #eee;
+	border-bottom: none;
+	
+	& td {
+		padding: 10px;
+		border-bottom: 1px solid #eee;
+		width: 100px;
+	}
+	
+	& .edd_license_key td {
+		padding: 6px 35px;
+	}
+	
+	& .edd_sl_license_key {
+		margin-left: -26px;
+	}
+}
+
+#edd_purchase_receipt_products {
+	width: 100%;
+	border: none;
+	border-spacing: none;
+	border: 1px solid #eee;
+	border-bottom: none;
+	
+	& td, th {
+		padding: 10px;
+		border-bottom: 1px solid #eee;
+		width: 100px;
+	}
+	
+	& th {
+		text-align: left;
+	}
+	
+	& ul {
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+}
