@@ -37,7 +37,6 @@
 				</ul>
 			</div><!-- /.social -->
 
-			<?php eddwp_get_footer_nav(); ?>
 			<p class="copyright">Copyright &copy; 2013, Easy Digital Downloads. A project by <a href="<?php echo esc_url( '/team/' ); ?>">Pippin Williamson and Friends</a>.</p>
 		</div><!-- .container -->
 	</footer><!-- #colophon -->

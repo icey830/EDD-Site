@@ -6,8 +6,9 @@
  * @version 1.0
  * @since   1.0
  */
+?>
 
-get_header(); ?>
+<?php get_header(); ?>
 
 	<section class="main clearfix">
 		<div class="container clearfix">
@@ -15,13 +16,11 @@ get_header(); ?>
 				<article class="post" id="post-0">
 					<h1>Oops! That page can&rsquo;t be found.</h1>
 					<p>It looks like nothing was found at this location. Maybe try one of the links below or a search?</p>
-					
 					<?php get_search_form(); ?>
-					
 					<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
 				</article>
 			</section><!-- /.content -->
-			
+
 			<aside class="sidebar">
 				<div class="newsletter">
 					<h3>Email Newsletter</h3>
@@ -39,8 +38,8 @@ get_header(); ?>
 							<input type="hidden" name="pmc_list_id" value="<?php echo $list_id; ?>"/>
 							<input type="submit" value="<?php _e( 'Sign Up' ); ?>"/>
 						</div>
-					</form>
-				</div>
+					</form><!-- /#pmc_mailchimp -->
+				</div><!-- /.newsletter -->
 				<?php dynamic_sidebar( 'blog-sidebar' ); ?>
 			</aside><!-- /.sidebar -->
 		</div><!-- /.container -->

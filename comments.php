@@ -9,22 +9,20 @@
 ?>
 
 <?php
-	if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
-		die ( __( 'This file cannot be loaded directly.', 'edd' ) );
-	} // end if
+if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) :
+	die ( __( 'This file cannot be loaded directly.', 'edd' ) );
+endif;
 ?>
 
-<?php if ( post_password_required() ) { ?>
+<?php if ( post_password_required() ) : ?>
 	<div id="comments">
 		<h3 class="nopassword"><?php _e( 'This post is password protected. Enter the password to view comments.', 'edd' ); ?></h3>
 	</div><!-- #comments -->
 	<?php return; ?>
-<?php } // end if	?>
+<?php endif; ?>
 
-
-<?php if ( have_comments() ) { ?>
+<?php if ( have_comments() ) : ?>
 	<div id="comments" class="clearfix">
-
 		<h3>Comments</h3>
 		<div id="comments-list">
 			<ol class="comment-list">
@@ -40,27 +38,25 @@
 			</ol><!-- /.comment-list -->
 		</div><!-- /#comments-list -->
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) { ?>
-
+		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 		<div id="comment-navigation">
 			<nav class="navigation comment-nav" role="navigation">
 				<?php previous_comments_link( '<i class="icon-chevron-left"></i>' . __( 'Previous Comments', 'edd' ) ); ?>
 				<?php next_comments_link( __( 'Newer Comments', 'edd' ) . '<i class="icon-chevron-right"></i>'); ?>
 			</nav><!-- /.comment-nav -->
 		</div><!-- /#comment-naviation -->
-
-		<?php } // end if ?>
+		<?php endif; ?>
 	</div><!-- /#comments -->
 
-<?php } else { ?>
+<?php else : ?>
 
-	<?php if ( comments_open() ) { ?>
+	<?php if ( comments_open() ) : ?>
 		<div id="no-comments" class="clearfix">
 			<p class="title"><?php _e( 'No Comments', 'edd' ); ?></p>
 			<p><?php _e( 'Be the first to start the conversation.', 'edd' ); ?></p>
 		</div><!-- /#no-comments -->
-	<?php } // end if ?>
+	<?php endif; // end comments_open() ?>
 
-<?php } // end if ?>
+<?php endif; // end have_comments() ?>
 
 <?php eddwp_comment_form(); ?>

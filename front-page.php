@@ -7,6 +7,7 @@
  * @since   1.0
  */
 ?>
+
 <?php get_header(); ?>
 
 <?php
@@ -121,26 +122,21 @@
 						)
 					)
 				);
+				?>
 				
-				while ( $extensions->have_posts() ) {
-					$extensions->the_post();
-					?>
+				<?php while ( $extensions->have_posts() ) : $extensions->the_post(); ?>
 					<li>
 						<a href="<?php get_permalink(); ?>">
-							<div class="preview-image">
-								<?php the_post_thumbnail( 'showcase' ); ?>
-							</div>
+							<div class="preview-image"><?php the_post_thumbnail( 'showcase' ); ?></div><!-- /.preview-image -->
 							<?php
 							the_title();
 							echo apply_filters( 'the_excerpt', get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ) );
 							?>
 						</a>
 					</li>
-					<?php
-				}
-				
-				wp_reset_postdata();
-				?>
+				<?php endwhile; ?>
+
+				<?php wp_reset_postdata(); ?>
 				</ul>
 			</div><!-- /.extensions-grid -->
 		</div><!-- /.clearfix -->
@@ -212,14 +208,14 @@
 			<p>At Easy Digital Downloads, we love our customers and we're always glad to help you out if you have any problems with the plugin.</p>
 			<p>We provide exceptional support and in-depth documentation to alleviate your issues as soon as possible.</p>
 			<p>Our Support Team will always do their absolute best to help you with your debug and you'll be on your way in no time. Our Support Team comprises of people who work with and understand Easy Digital Downloads; who can serve you better?</p>
-		</div>
+		</div><!-- /.feature-content -->
 		<i class="icon-group"></i>
 	</div><!-- /.feature -->
 </section><!-- /.feature-support -->
 
 <?php
 /* ----------------------------- *
- * >100k downloads
+ * Over 100k downloads
  * ----------------------------- */
 ?>
 <section class="featureset clearfix feature-customers">
@@ -236,8 +232,9 @@
 				'orderby' => 'rand'
 			)
 		);
+		?>
 
-		while ( $testimonials->have_posts() ) {
+		<?php while ( $testimonials->have_posts() ) : ?>
 			$testimonials->the_post(); ?>
 			<div class="testimonial">
 				<blockquote>
@@ -245,11 +242,9 @@
 					<cite><a href="<?php get_post_meta( get_the_ID(), 'ecpt_url', true ); ?>"><?php echo get_post_meta( get_the_ID(), 'ecpt_author', true ); ?></a></cite>
 				</blockquote>
 			</div>
-		<?php
-		}
+		<?php endwhile; ?>
 		
-		wp_reset_postdata();
-		?>
+		<?php wp_reset_postdata(); ?>
 		</div><!-- /.testimonials -->
 	</div><!-- /.feature -->
 </section><!-- /.feature-customers -->

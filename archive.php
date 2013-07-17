@@ -6,65 +6,47 @@
  * @version 1.0
  * @since   1.0
  */
+?>
 
-get_header(); ?>
+<?php get_header(); ?>
 
 	<section class="main clearfix">
 		<div class="container clearfix">
 			<section class="content">
-				<?php if ( have_posts() ) { ?>
+				<?php if ( have_posts() ) : ?>
 				<h1 class="page-title">
 					<?php
-						if ( is_category() ) :
-							single_cat_title();
-
-						elseif ( is_tag() ) :
-							single_tag_title();
-
-						elseif ( is_author() ) :
-							/* Queue the first post, that way we know
-							 * what author we're dealing with (if that is the case).
-							*/
-							the_post();
-							printf( __( 'Author: %s', 'edd' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' );
-							/* Since we called the_post() above, we need to
-							 * rewind the loop back to the beginning that way
-							 * we can run the loop properly, in full.
-							 */
-							rewind_posts();
-
-						elseif ( is_day() ) :
-							printf( __( 'Day: %s', 'edd' ), '<span>' . get_the_date() . '</span>' );
-
-						elseif ( is_month() ) :
-							printf( __( 'Month: %s', 'edd' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
-
-						elseif ( is_year() ) :
-							printf( __( 'Year: %s', 'edd' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
-
-						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-							_e( 'Asides', 'edd' );
-
-						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-								_e( 'Images', 'edd');
-
-						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-							_e( 'Videos', 'edd' );
-
-						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-							_e( 'Quotes', 'edd' );
-
-						elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-							_e( 'Links', 'edd' );
-
-						else :
-							_e( 'Archives', 'edd' );
-
-						endif;
+					if ( is_category() ) :
+						single_cat_title();
+					elseif ( is_tag() ) :
+						single_tag_title();
+					elseif ( is_author() ) :
+						the_post();
+						printf( __( 'Author: %s', 'edd' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' );
+						rewind_posts();
+					elseif ( is_day() ) :
+						printf( __( 'Day: %s', 'edd' ), '<span>' . get_the_date() . '</span>' );
+					elseif ( is_month() ) :
+						printf( __( 'Month: %s', 'edd' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
+					elseif ( is_year() ) :
+						printf( __( 'Year: %s', 'edd' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
+					elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
+						_e( 'Asides', 'edd' );
+					elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
+							_e( 'Images', 'edd');
+					elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
+						_e( 'Videos', 'edd' );
+					elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
+						_e( 'Quotes', 'edd' );
+					elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
+						_e( 'Links', 'edd' );
+					else :
+						_e( 'Archives', 'edd' );
+					endif;
 					?>
 				</h1>
-				<?php while ( have_posts() ) : the_post(); ?>
 
+				<?php while ( have_posts() ) : the_post(); ?>
 					<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
 						<p class="entry-date"><span><?php the_date(); ?></span></p>
 						<h1><?php the_title(); ?></h2>
@@ -81,14 +63,13 @@ get_header(); ?>
 								<?php } // end if ?>
 								<li><i class="icon-comments-alt"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), __( '% Comments', 'edd' ), '', ''); ?></span></li>
 							</ul>
-						</div>
-					</article>
-				
+						</div><!-- /.post-meta -->
+					</article><!-- /#post-<?php echo get_the_ID(); ?>-->
 				<?php endwhile; ?>
 				
 				<?php
 				global $wp_query;
-				if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) { ?>
+				if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : ?>
 					<div id="page-nav">
 						<ul class="paged">
 							<?php if( get_next_posts_link() ) { ?>
@@ -103,11 +84,11 @@ get_header(); ?>
 							<?php } ?>
 						</ul><!-- /.paged -->
 					</div><!-- /#page-nav -->
-				<?php } ?>
+				<?php endif; ?>
 
-				<?php } // end if ?>
+				<?php endif; // end have_posts() ?>
 			</section><!-- /.content -->
-			
+
 			<aside class="sidebar">
 				<div class="newsletter">
 					<h3>Email Newsletter</h3>
