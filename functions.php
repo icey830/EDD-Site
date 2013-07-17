@@ -347,6 +347,10 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'blog';
 	}
 	
+	if ( bbp_is_single_user() ) {
+		$classes[] = 'full-width no-sidebar';
+	}
+	
 	return $classes;
 }
 add_filter( 'body_class', 'eddwp_body_class' );
