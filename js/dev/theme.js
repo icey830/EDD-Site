@@ -191,5 +191,10 @@
         // Initialize animations
         $(document).scroll(function() { initAnimations(); });
         $(document).resize(function() { initAnimations(); });
+        
+        // Load the mobile nav menu
+        $('.header i').on('click', function() {
+	       $('#primary').slideToggle(); 
+        });
     });
 }(jQuery));
