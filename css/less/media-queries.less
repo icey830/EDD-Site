@@ -1,31 +1,221 @@
+// IE10 Metro responsive
+// Required for Windows 8 Metro split-screen snapping with IE10
+// Source: http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+@-ms-viewport {
+	width: device-width;
+}
+
 /* ----------------------------- *
- * Smartphones
+ * Large Desktops
  * ----------------------------- */
+
+@media (min-width: 1200px) {
+	
+}
+
+/* ----------------------------- *
+ * Tablets to regular desktops
+ * ----------------------------- */
+
+@media (min-width: 768px) and (max-width: 979px) {
+	
+}
+
+/* ----------------------------- *
+ * Phones to portrait tablets and narrow desktops
+ * ----------------------------- */
+
+@media (max-width: 767px) {
+
+}
 
 @media (max-width: 480px) {
+	.header-outer {
+		padding: 20px 0;
+	}
+
+	.header-outer .header {
+		width: 100%;
+	}
+
+	.header-outer .header #logo {
+		float: none;
+		margin: 0 auto;
+		
+		& a {
+			display: block;
+			padding-left: 20px;
+			margin: 0 auto;
+			width: 100%;
+			
+			& img {
+				max-width: 250px;
+			}
+		}
+	}
 	
-}
+	.header i {
+		display: block;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		cursor: pointer;
+		font-size: 20px;
+		color: #fff;
+	}
 
-/* ----------------------------- *
- * Tablets and Mobile
- * ----------------------------- */
-
-@media (max-width: 979px) {
+	#primary {
+		float: none;
+		height: auto;
+		overflow: hidden;
+		display: none;
+		
+		& ul li {
+			float: none;
+		}
+	}
 	
-}
-
-/* ----------------------------- *
- * Mobile to Tablet
- * ----------------------------- */
-
-@media only screen and (max-width: 767px) {
+	html.cssanimations.csstransitions #primary ul ul,
+	#primary ul ul {
+		opacity: 1;
+		top: 100%;
+		visibility: visible;
+		display: block;
+		background: transparent;
+		border: none;
+		box-shadow: none;
+		width: 100%;
+		position: relative;
+	}
 	
-}
-
-/* ----------------------------- *
- * Default Desktop
- * ----------------------------- */
- 
-@media (min-width: 980px) {
+	#primary ul ul:before {
+		display: none;
+	}
 	
+	#primary ul a {
+		height: auto;
+	}
+	
+	#primary ul ul li a {
+		color: #999;
+		
+		&:hover {
+			color: #fff !important;
+		}
+	}
+	
+	#menu-item-67990 {
+		display: none;
+	}
+	
+	.hero {
+		background-size: contain;
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+	}
+	
+	.hero .hero-inside {
+		width: 100%;
+	}
+	
+	.hero .hero-text {
+		padding: 0;
+		margin-top: 200px;
+	}
+	
+	.download-button {
+		display: none;
+	}
+	
+	.demo-button {
+		display: block;
+	}
+	
+	.hero h1,
+	.hero h2 {
+		font-size: 2.4rem;
+	}
+	
+	.hero .hero-text p {
+		top: -62px;
+		margin-left: -55px;
+	}
+	
+	.hero .hero-inside img {
+		display: none;
+	}
+	
+	.feature,
+	.featureset.feature-support .feature-content {
+		width: 100%;
+	}
+	
+	.featureset.feature-overview .inner-feature-right img,
+	.featureset.feature-overview .inner-feature-left img {
+		display: none;
+	}
+	
+	.featureset.feature-overview .inside {
+		float: none;
+		width: 100%;
+	}
+	
+	#extensions-intro-box {
+		margin-bottom: 30px;
+	}
+	
+	#extensions-intro-box a {
+		margin-left: 0;
+	}
+	
+	.extensions-grid ul li,
+	.extensions-grid ul li:nth-child(3n+3) {
+		width: 100%;
+		float: none;
+		margin-bottom: 30px;
+	}
+	
+	.extensions-grid ul li a img {
+		margin-left: 3px;
+		margin-top: 3px;
+	}
+	
+	.featureset.feature-support i {
+		display: none;
+	}
+	
+	.featureset.feature-customers .testimonial,
+	.featureset.feature-customers .testimonial:nth-child(2n+2) {
+		width: 100%;
+		float: none;
+		height: auto;
+		margin: 0 auto;
+	}
+	
+	.feature-newsletter .feature form .names {
+		padding: 0;
+		margin: 0;
+	}
+	
+	.feature-newsletter .feature form input[type="text"], .feature-newsletter .feature form input[type="email"] {
+		width: 340px;
+	}
+	
+	.feature-newsletter .feature form input[type="email"] {
+		width: 340px;
+		margin: 0 0 20px;
+	}
+	
+	footer .container {
+		width: 100%;
+	}
+	
+	footer .container img {
+		display: none;
+	}
+	
+	footer .container .columns {
+		padding: 0 20px 20px 20px;
+	}
 }
