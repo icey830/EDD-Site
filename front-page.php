@@ -85,6 +85,8 @@
 					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 				</div>
 			</div>
+			
+			<p><a class="button" href="<?php echo home_url( '/features' ); ?>">View All Features</a></p>
 		</div>
 	</div><!-- /.feature -->
 </section><!-- /.feature-taxes -->
