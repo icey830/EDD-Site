@@ -32,9 +32,9 @@ get_header(); ?>
 			</section><!-- /.content -->
 			<?php
 			
-			if ( ! current_user_can( 'moderate' ) ) {
+			if ( ! current_user_can( 'moderate' ) && ! bbp_is_single_user() ) {
 				get_sidebar( 'forums' );
-			} elseif ( current_user_can( 'moderate' ) && bbp_is_single_topic() ) {
+			} elseif ( current_user_can( 'moderate' ) && bbp_is_single_topic() && ! bbp_is_single_user() ) {
 				echo '<aside class="sidebar">';
 				edd_bbp_d_sidebar();
 				echo '</aside><!-- /.sidebar -->';
