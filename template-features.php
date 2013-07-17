@@ -20,7 +20,7 @@ the_post();
 					<h3><?php the_title(); ?></h3>
 					<?php the_content(); ?>
 				</div><!-- /.feature-text-inner -->
-				<?php the_post_thumbnail(); ?>
+				<img src="<?php echo get_post_meta( get_the_ID(), 'ecpt_featureimageurl', true ); ?>" />
 			</section><!-- /.feature-text -->
 		</section><!-- /.feature-area -->
 		<?php
