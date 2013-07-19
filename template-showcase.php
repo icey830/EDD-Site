@@ -82,7 +82,7 @@ the_post();
 				wp_reset_postdata();
 				?>
 			</div><!-- /.sites -->
-			<div class="clearfix">
+			<div class="the-content clearfix">
 				<?php the_content(); ?>
 			</div>
 		</section><!-- /.showcase -->

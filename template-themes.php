@@ -6,7 +6,10 @@ the_post();
 	<section class="main clearfix">
 		<section class="content clearfix">
 			<h1><?php the_title(); ?></h1>
-			<div class="extensions clearfix">
+		</section><!-- /.content -->
+		
+		<section class="themes-container">
+			<div class="themes clearfix">
 				<?php
 				$themes =  new WP_Query( array( 'post_type' => 'theme', 'posts_per_page' => 30, 'paged' => get_query_var( 'paged' ) ) );
 				$c = 0; while ( $themes->have_posts() ) {
@@ -40,7 +43,7 @@ the_post();
 					<?php echo $links; ?>
 				</div>
 				<?php wp_reset_postdata(); ?>
-			</div>
-		</section><!-- /.content -->
+			</div><!-- /.themes -->
+		</section><!-- /.theme-container -->
 	</section><!-- /.main -->
 <?php get_footer(); ?>

@@ -290,6 +290,12 @@
  * Extensions and Themes
  * ----------------------------- */
 
+.extensions-container,
+.themes-container {
+	width: 940px;
+	margin: 0 auto 20px;
+}
+
 .page-id-13 h1 { float: left; }
 
 #extensions_searchform { float: right; }
@@ -375,18 +381,16 @@
 
 .extension,
 .theme {
-	border: 1px solid #888;
 	float: left;
-	width: 280px;
+	width: 300px;
 	margin-top: 10px;
 	margin-bottom: 20px;
-	margin-right: 29px;
+	margin-right: 20px;
 	position: relative;
-	height: 325px;
-	box-shadow: 0 0 3px #999;
+	height: 300px;
+	padding-top: 10px;
+	background: #fff;
 }
-
-.extension { height: auto; }
 
 .changelog-content {
 	& strong {
@@ -401,7 +405,10 @@
 	}
 }
 
-.theme { height: 235px; }
+.theme {
+	height: 250px;
+	padding-bottom: 10px;
+}
 
 .extension.extension-clear,
 .theme.theme-clear {
@@ -432,8 +439,8 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 278px;
-	height: 174px;
+	width: 300px;
+	height: 184px;
 	display: block;
 	opacity: 0;
 	transition: opacity .2s ease-in-out;
@@ -536,6 +543,7 @@
 	height: 174px;
 	margin: 0 auto;
 	vertical-align: middle;
+	overflow: hidden;
 }
 
 .extensions .pagination {
@@ -1127,11 +1135,10 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 }
 
 #edd_checkout_cart .edd_cart_footer_row:last-child {
-	border-top: 1px solid #eee;
 	margin-top: 20px;
 	margin-left: -20px;
 	margin-right: -20px;
-	padding: 20px;
+	padding: 0 20px 20px;
 }
 
 #checkout_signin {
@@ -1385,6 +1392,24 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 		float: left;
 		margin-bottom: 25px;
 	}
+}
+
+#eddmc_mailchimp_signup + label,
+#edd_purchase_form_wrap label[for="edd_agree_to_terms"] {
+	display: inline;
+}
+
+#edd_final_total_wrap {
+	font-size: 17px;
+	padding: 20px;
+	background: #f7f9fa;
+	border-top: 2px solid #e9ecef;
+	border-bottom: 2px solid #e9ecef;
+}
+
+#edd_purchase_form_wrap #edd_purchase_submit,
+#edd_purchase_form_wrap #edd_terms_agreement {
+	border-bottom: none;
 }
 
 /* ----------------------------- *
