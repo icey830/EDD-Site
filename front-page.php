@@ -47,14 +47,14 @@
 			<div class="inner-feature clearfix">
 				<div class="inside">
 					<h3>Quick Setup</h3>
-					<p>We've built Easy Digital Downloads to be really quick and simple to setup. On installation, you're practically ready to go!  All you need to do is add in your payment gateway credentials, add your products and the rest is all a dream...</p>
+					<p>Easy Digital Downloads is built to be quick and simple to setup. After installation, you're ready to go in just a couple of minutes! Simply enter your payment information, add your products and the rest is all a dream... </p>
 				</div>
 			</div>
 			<div class="inner-feature inner-feature-right clearfix">
 				<img src="<?php echo get_template_directory_uri() ?>/images/elegant-reporting.png" alt="Elegant Reporting" />
 				<div class="inside">
 					<h3>Elegant Reporting</h3>
-					<p>We understand that you want to be able to see all of your data presented neatly in a way that makes it easy for you analyze and interpret.</p>
+					<p>You want to be able to see all of your sales and earnings presented neatly and in a way that is easy to analyse. We have done exactly that with beautiful graphs and simple data tables.</p>
 				</div>
 			</div>
 			<div class="inner-feature inner-feature-left clearfix">
@@ -68,21 +68,21 @@
 				<img src="<?php echo get_template_directory_uri() ?>/images/discount-codes.png" alt="Discount Codes" />
 				<div class="inside">
 					<h3>Discount Codes</h3>
-					<p>Celebrating something? Or maybe you just woke up in a good mood! Whatever it is, we have a gorgeous discount system built in so that when you want to provide an offer, it won't even take a minute.</p>
+					<p>Celebrating something? Or maybe you just woke up in a good mood! Whatever it is, we have a complete discount system built in, so when you want to provide an offer, it won't even take a minute.</p>
 				</div>
 			</div>
 			<div class="inner-feature inner-feature-left clearfix">
 				<img src="<?php echo get_template_directory_uri() ?>/images/paypal-stripe.png" alt="Payment Gateways" />
 				<div class="inside">
 					<h3>Payment Gateways</h3>
-					<p>Accept payments through a variety of payment gateways, including Stripe and PayPal. Add-on gateways are being constantly developed to make it easy for everyone to get paid.</p>
+					<p>Accept payments through a huge number of different payment processors, including Stripe and PayPal. Add-on gateways are being constantly developed to make it easy for everyone to get paid.</p>
 				</div>
 			</div>
 			<div class="inner-feature inner-feature-right clearfix">
 				<img src="<?php echo get_template_directory_uri() ?>/images/data-export.png" alt="Data Export" />
 				<div class="inside">
 					<h3>Data Export</h3>
-					<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+					<p>Easy Digital Downloads will never lock your data in. With our simple export options, you can easily send all sales, earnings, and customer data to Excell, Google Docs, or any other reporting system of your choice. </p>
 				</div>
 			</div>
 		</div>
