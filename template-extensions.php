@@ -29,7 +29,10 @@ the_post();
 							<h2><?php the_title(); ?></h2>
 							<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
 						</a>
-						<a class="overlay" href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>"></a>
+						<div class="overlay">
+							<a href="<?php the_permalink(); ?>" class="overlay-view-details button">View Details</span>
+							<a href="<?php echo home_url( '/edd-add/' . get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
+						</div>
 						<?php
 						if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) ) {
 							echo '<i class="third-party"></i>';

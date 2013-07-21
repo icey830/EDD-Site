@@ -24,7 +24,9 @@ the_post();
 							<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
 							<h2><?php the_title(); ?></h2>
 						</a>
-						<a class="overlay" href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>"></a>
+						<a class="overlay" href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
+							<span class="button">View Details</span>
+						</a>
 					</div>
 					<?php
 				}
