@@ -6,18 +6,26 @@
 }
 
 /* ----------------------------- *
- * Large Desktops
+ * iPad (Landscape)
  * ----------------------------- */
 
-@media (min-width: 1200px) {
-	
+@media (max-width: 1024px) {
+	.hero .hero-inside img {
+		top: 475px;
+		right: 20px;
+		width: 198px;
+	}
+
+	footer .container img {
+		right: -25px;
+	}
 }
 
 /* ----------------------------- *
  * Tablets to regular desktops
  * ----------------------------- */
 
-@media (min-width: 768px) and (max-width: 979px) {
+@media (min-width: 941px) and (max-width: 979px) {
 	.header-outer {
 		padding: 20px 0;
 	}
@@ -75,9 +83,319 @@
  * Phones to portrait tablets and narrow desktops
  * ----------------------------- */
 
-@media (max-width: 767px) {
+@media (max-width: 940px) {
+	.header-outer {
+		padding: 20px 0;
+	}
 
+	.header-outer .header {
+		width: 100%;
+	}
+
+	.header-outer .header #logo {
+		float: none;
+		margin: 0 auto;
+		
+		& a {
+			display: block;
+			padding-left: 20px;
+			margin: 0;
+			width: 250px;
+			
+			& img {
+				max-width: 250px;
+			}
+		}
+	}
+	
+	.header i {
+		display: block;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		cursor: pointer;
+		font-size: 20px;
+		color: #fff;
+	}
+
+	#primary {
+		float: none;
+		height: auto;
+		overflow: hidden;
+		display: none;
+		
+		& ul li {
+			float: none;
+		}
+	}
+	
+	html.cssanimations.csstransitions #primary ul ul,
+	#primary ul ul {
+		opacity: 1;
+		top: 100%;
+		visibility: visible;
+		display: block;
+		background: transparent;
+		border: none;
+		box-shadow: none;
+		width: 100%;
+		position: relative;
+	}
+	
+	#primary ul ul:before {
+		display: none;
+	}
+	
+	#primary ul a {
+		height: auto;
+	}
+	
+	#primary ul ul li a {
+		color: #999;
+		
+		&:hover {
+			color: #fff !important;
+		}
+	}
+	
+	#menu-item-67990 {
+		display: none;
+	}
+	
+	.hero {
+		background-size: contain;
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+		padding-bottom: 25px;
+	}
+	
+	.hero .hero-inside {
+		width: 100%;
+	}
+	
+	.hero .hero-text {
+		padding: 0;
+		margin-top: 480px;
+	}
+	
+	.hero .hero-inside img {
+		right: -5px;
+	}
+	
+	.hero .hero-text h1,
+	.hero .hero-text h2 {
+		font-size: 2.4rem;
+		width: 590px;
+		margin: 0 auto;
+	}
+	
+	.hero .hero-text p {
+		top: -78px;
+	}
+	
+	.featureset.feature-overview .inner-feature-left img,
+	.featureset.feature-overview .inner-feature-right img {
+		max-width: 380px;
+	}
+	
+	.feature,
+	.featureset.feature-support .feature-content {
+		width: 100%;
+	}
+
+	.featureset.feature-support i {
+		display: none;
+	}
+
+	.featureset.feature-customers .testimonial,
+	.featureset.feature-customers .testimonial:nth-child(2n+2) {
+		width: 100%;
+		float: none;
+		height: auto;
+		margin: 0 auto;
+	}
+
+	.feature-newsletter .feature form {
+		margin-top: 20px;
+	}
+
+	.feature-newsletter .feature form .names {
+		padding: 0;
+		margin: 0;
+	}
+
+	.feature-newsletter .feature form input[type="text"], .feature-newsletter .feature form input[type="email"] {
+		width: 340px;
+	}
+
+	.feature-newsletter .feature form input[type="email"] {
+		width: 340px;
+		margin: 0 0 20px;
+	}
+
+	footer .container {
+		width: 100%;
+	}
+
+	footer .container img {
+		display: none;
+	}
+
+	footer .container .columns {
+		padding: 0 20px 20px 20px;
+	}
+
+	.main .content {
+		width: 100%;
+		margin: 0 auto 15px;
+	}
+
+	.showcase {
+		width: 100%;
+	}
+
+	.showcase .featured-site,
+	.showcase .site {
+		width: 100%;
+		float: none;
+	}
+
+	.showcase .featured-site .text-overlay,
+	.showcase .site .text-overlay {
+		width: 100%;
+		height: 100%;
+	}
+
+	.showcase .site img {
+		max-width: 320px;
+		height: auto;
+		margin: 0 auto;
+		text-align: center;
+		display: block;
+	}
+
+	.showcase .gform_wrapper {
+		max-width: 100%;
+		padding: 0 20px;
+		width: 100%;
+	}
+
+	.showcase .the-content p {
+		padding: 0 20px;
+	}
+
+	.gform_wrapper .top_label input.medium,
+	.gform_wrapper .top_label select.medium {
+		width: 98% !important;
+	}
+
+	.extension, .theme {
+		float: none;
+		margin: 0 auto 40px !important;
+	}
+
+	.main .container {
+		width: 100%;
+	}
+
+	.single-extension .main .content {
+		width: 100%;
+	}
+
+	.single-extension .main .sidebar,
+	.blog .sidebar, .single-theme .sidebar {
+		width: 100%;
+		margin-left: 0;
+	}
+
+	.blog .sidebar, .single-theme .sidebar {
+		margin-top: 25px;
+	}
+
+	.blog .main .content, .single-theme .main .content {
+		width: 100%;
+	}
+
+	.bbpress .main .content {
+		width: 100%;
+	}
+
+	.bbpress .sidebar {
+		width: 100%;
+		margin-left: 0;
+	}
+
+	#bbpress-forums div.bbp-search-form #bbp_search {
+		width: 98%;
+		margin-bottom: 10px;
+	}
+
+	#bbpress-forums div.bbp-reply-content {
+		margin-left: 105px;
+	}
+
+	#bbpress-forums div.bbp-breadcrumb p {
+		float: none;
+		width: 100%;
+	}
+
+	.documentation .sidebar {
+		float: left;
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 30px;
+	}
+
+	.documentation .main .content {
+		width: 100%;
+	}
+
+	.headline h1,
+	.pricing-container {
+		width: 100%;
+		padding: 0 20px;
+	}
+
+	.pricing-container .support-box {
+		margin-bottom: 60px;
+	}
+
+	#support-people {
+		display: none;
+	}
+	
+	footer .container img {
+		right: -25px;
+	}
 }
+
+/* ----------------------------- *
+ * iPad (Portrait)
+ * ----------------------------- */
+
+@media (max-width: 768px) {
+	.hero .hero-text {
+		margin-top: 400px;
+	}
+	
+	.hero .hero-text p {
+		top: -72px;
+	}
+
+	.hero .hero-inside img {
+		top: 505px;
+		width: 164px;
+	}
+
+	footer .container img {
+		right: -25px;
+	}
+}
+
+/* ----------------------------- *
+ * iPhone (Landscape)
+ * ----------------------------- */
 
 @media (max-width: 480px) {
 	.header-outer {
@@ -185,6 +503,7 @@
 	.hero .hero-text h1,
 	.hero .hero-text h2 {
 		font-size: 2.4rem;
+		width: 100%;
 	}
 	
 	.hero .hero-text p {
@@ -209,6 +528,16 @@
 	.featureset.feature-overview .inside {
 		float: none;
 		width: 100%;
+	}
+	
+	.featureset.feature-ios .left, .featureset.feature-ios .right {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	
+	.featureset.feature-ios .iphone {
+		margin-left: -30px;
 	}
 	
 	#extensions-intro-box {
