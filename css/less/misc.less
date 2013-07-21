@@ -144,7 +144,8 @@ img {
 	margin-left: 1px;
 }
 
-.button, .edd-submit {
+.button, .edd-submit, .edd-submit.button,
+.edd-submit.button.blue {
 	margin-top: 2px;
 	padding: 4px 14px;
 	background: #2794da;
@@ -166,5 +167,9 @@ img {
 
 	&:active {
 		box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+	}
+	
+	span {
+		color: #fff !important;
 	}
 }
