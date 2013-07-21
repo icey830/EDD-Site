@@ -160,37 +160,41 @@
                 player.seekTo(0);
                 player.pauseVideo();
             });
-        } ;
+        };
 
         // Intialise and carry out the transitions
         function initAnimations() {
-            // Extensions
-            if ($(document).scrollTop() >= $('.feature-extensions').offset().top - $(window).height() + 400) {
-                $('.extensions-grid li').each(function(id) {
-                    var delay = 150 * parseInt(id);
-
-                    $(this).delay(delay).animate({opacity: 1}, 300);
-                });
-            }
-
-            // iPhone
-            if ($(document).scrollTop() >= $('.feature-ios').offset().top - $(window).height() + 500) {
-                $('.featureset.feature-ios .iphone').addClass('iphone-animation');
-            };
-
-            // Testimonials
-            if ($(document).scrollTop() >= $('.feature-customers').offset().top - $(window).height() + 100) {
-                $('.feature-customers .testimonial').each(function(id) {
-                    var delay = 200 * parseInt(id);
-
-                    $(this).delay(delay).animate({opacity: 1}, 300);
-                });
+        	if ( $('body').hasClass('home') ) {
+	            // Extensions
+	            if ($(document).scrollTop() >= $('.feature-extensions').offset().top - $(window).height() + 400) {
+	                $('.extensions-grid li').each(function(id) {
+	                    var delay = 150 * parseInt(id);
+	
+	                    $(this).delay(delay).animate({opacity: 1}, 300);
+	                });
+	            }
+	
+	            // iPhone
+	            if ($(document).scrollTop() >= $('.feature-ios').offset().top - $(window).height() + 500) {
+	                $('.featureset.feature-ios .iphone').addClass('iphone-animation');
+	            };
+	
+	            // Testimonials
+	            if ($(document).scrollTop() >= $('.feature-customers').offset().top - $(window).height() + 100) {
+	                $('.feature-customers .testimonial').each(function(id) {
+	                    var delay = 200 * parseInt(id);
+	
+	                    $(this).delay(delay).animate({opacity: 1}, 300);
+	                });
+	            }
             }
         }
 
         // Initialize animations
-        $(document).scroll(function() { initAnimations(); });
-        $(document).resize(function() { initAnimations(); });
+        if ($('body').hasClass('home')) {
+	        $(document).scroll(function() { initAnimations(); });
+	        $(document).resize(function() { initAnimations(); });
+        }
         
         // Load the mobile nav menu
         $('.header i').on('click', function() {
