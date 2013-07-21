@@ -82,7 +82,7 @@
 				<img src="<?php echo get_template_directory_uri() ?>/images/data-export.png" alt="Data Export" />
 				<div class="inside">
 					<h3>Data Export</h3>
-					<p>Easy Digital Downloads will never lock your data in. With our simple export options, you can easily send all sales, earnings, and customer data to Excell, Google Docs, or any other reporting system of your choice. </p>
+					<p>Easy Digital Downloads will never lock your data in. With our simple export options, you can easily send all sales, earnings, and customer data to Excell, Google Docs, or any other reporting system of your choice.</p>
 				</div>
 			</div>
 		</div>
