@@ -66,6 +66,8 @@ function edd_register_theme_scripts() {
 
 	if ( is_bbpress() || is_page( 'support' ) ) {
 		$deps[] = 'bbp-default-bbpress';
+	} elseif ( is_page( 'your-account' ) ) {
+		$deps[] = 'bootstrap';
 	}
 
 	wp_register_style(  'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:400,300,500' );
@@ -77,7 +79,6 @@ function edd_register_theme_scripts() {
 	wp_enqueue_style(   'normalize'    );
 	wp_enqueue_style(   'roboto-font'  );
 	wp_enqueue_style(   'font-awesome' );
-	wp_enqueue_style(   'edd-style'    );
 
 	wp_register_script( 'edd-js',         get_template_directory_uri() . '/js/theme.min.js',          array( 'jquery' ), '1.0',   false );
 	wp_register_script( 'modernizr-js',   get_template_directory_uri() . '/js/lib/modernizr.min.js',  array( 'jquery' ), '2.6.2', false );
@@ -109,6 +110,12 @@ function edd_register_theme_scripts() {
 		wp_enqueue_style( 'bootstrap' );
 		wp_enqueue_script( 'bootstrap-js' );
 	}
+
+	global $wp_styles;
+	array_unshift( $wp_styles->queue, 'edd-styles' );
+
+	// Load the main stylesheet at the end so overrides are easier	
+	wp_enqueue_style( 'edd-style' );
 }
 add_action( 'wp_enqueue_scripts', 'edd_register_theme_scripts' );
 
@@ -476,67 +483,6 @@ function eddwp_add_security_info() {
 	<?php
 }
 add_action( 'edd_after_cc_expiration', 'eddwp_add_security_info' );
-
-/**
- * Remove the default position of the payment icons	
- */
-remove_action( 'edd_checkout_form_top', 'edd_show_payment_icons' );
-
-/**
- * Remove the default credit card form.
- */
-remove_action( 'edd_cc_form', 'edd_get_cc_form' );
-
-function eddwp_get_cc_form() {
-		ob_start(); ?>
-
-	<?php do_action( 'edd_before_cc_fields' ); ?>
-
-	<fieldset id="edd_cc_fields" class="edd-do-validate">
-		<legend><?php _e( 'Credit Card Info', 'edd' ); ?></legend>
-		<?php if( is_ssl() ) : ?>
-			<div id="edd_secure_site_wrapper">
-				<span class="padlock"></span>
-				<span><?php _e( 'This is a secure SSL encrypted payment.', 'edd' ); ?></span>
-			</div>
-		<?php endif; ?>
-		<p id="edd-card-number-wrap">
-			<label class="edd-label"><?php _e( 'Card Number', 'edd' ); ?><span class="card-type"></span></label>
-			<span class="edd-description"><?php _e( 'The (typically) 16 digits on the front of your credit card.', 'edd' ); ?></span>
-			<input type="text" autocomplete="off" name="card_number" class="card-number edd-input required" placeholder="<?php _e( 'Card number', 'edd' ); ?>" />
-		</p>
-		<?php edd_show_payment_icons(); ?>
-		<p id="edd-card-cvc-wrap">
-			<label class="edd-label"><?php _e( 'CVC', 'edd' ); ?></label>
-			<span class="edd-description"><?php _e( 'The 3 digit (back) or 4 digit (front) value on your card.', 'edd' ); ?></span>
-			<input type="text" size="4" autocomplete="off" name="card_cvc" class="card-cvc edd-input required" placeholder="<?php _e( 'Security code', 'edd' ); ?>" />
-		</p>
-		<p id="edd-card-name-wrap">
-			<label class="edd-label"><?php _e( 'Name on the Card', 'edd' ); ?></label>
-			<span class="edd-description"><?php _e( 'The name printed on the front of your credit card.', 'edd' ); ?></span>
-			<input type="text" autocomplete="off" name="card_name" class="card-name edd-input required" placeholder="<?php _e( 'Card name', 'edd' ); ?>" />
-		</p>
-		<?php do_action( 'edd_before_cc_expiration' ); ?>
-		<p class="card-expiration">
-			<label class="edd-label"><?php _e( 'Expiration (MM/YY)', 'edd' ); ?></label>
-			<span class="edd-description"><?php _e( 'The date your credit card expires, typically on the front of the card.', 'edd' ); ?></span>
-			<select name="card_exp_month" class="card-expiry-month edd-select edd-select-small required">
-				<?php for( $i = 1; $i <= 12; $i++ ) { echo '<option value="' . $i . '">' . sprintf ('%02d', $i ) . '</option>'; } ?>
-			</select>
-			<span class="exp-divider"> / </span>
-			<select name="card_exp_year" class="card-expiry-year edd-select edd-select-small required">
-				<?php for( $i = date('Y'); $i <= date('Y') + 10; $i++ ) { echo '<option value="' . $i . '">' . substr( $i, 2 ) . '</option>'; } ?>
-			</select>
-		</p>
-		<?php do_action( 'edd_after_cc_expiration' ); ?>
-
-	</fieldset>
-	<?php
-	do_action( 'edd_after_cc_fields' );
-
-	echo ob_get_clean();
-}
-add_action( 'edd_cc_form', 'eddwp_get_cc_form' );
 
 /**
  * Remove the default purchase link that's appended after `the_content`
