@@ -15,6 +15,9 @@ the_post();
 			</form><!-- /#extensions_searchform -->
 			<div class="clearfix"></div>
 			<?php echo eddwp_extenstion_cats_shortcode(); ?>
+		</section><!-- /.content -->
+		
+		<section class="extensions-container">
 			<div class="extensions clearfix">
 				<?php $c = 0; while ( have_posts() ) { the_post(); $c++; ?>
 					<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?>">
@@ -23,14 +26,13 @@ the_post();
 							<h2><?php the_title(); ?></h2>
 							<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
 						</a>
-						<a class="overlay" href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>"></a>
+						<div class="overlay">
+							<a href="<?php the_permalink(); ?>" class="overlay-view-details button">View Details</span>
+							<a href="<?php echo home_url( '/edd-add/' . get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
+						</div>
 						<?php
 						if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) ) {
 							echo '<i class="third-party"></i>';
-						}
-						
-						if ( has_term( 'Free', 'extension_category', get_the_ID() ) ) {
-							echo '<i class="free"></i>';
 						}
 						?>
 					</div>
@@ -51,6 +53,6 @@ the_post();
 					<?php echo $links; ?>
 				</div>
 			</div>
-		</section><!-- /.content -->
+		</section><!-- /.extensions-container -->
 	</section><!-- /.main -->
 <?php get_footer(); ?>

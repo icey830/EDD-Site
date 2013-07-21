@@ -30,7 +30,6 @@
 			if ( $c ) {
 				?>
 				<div class="filter clearfix">
-					<span class="filter-title">Filter Extensions</span>
 					<ul class="extension-categories clearfix">
 						<li><a href="<?php echo add_query_arg( 'category', 'all' ); ?>">All</a></li>
 						<?php foreach ( $c as $o )  { ?>
@@ -41,6 +40,9 @@
 			<?php	
 			}
 			?>
+		</section><!-- /.content -->
+		
+		<section class="extensions-container">
 			<div class="extensions clearfix">
 				<?php
 
@@ -68,15 +70,20 @@
 				
 				$c = 0; while ( $query->have_posts() ) { $query->the_post(); $c++; ?>
 					<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?>">
-						<?php if ( has_category( '3rd Party' ) ) { ?>
-						<span class="third-party-overlay"></span>
-						<?php } ?>
 						<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
 							<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
 							<h2><?php the_title(); ?></h2>
 							<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
 						</a>
-						<a class="overlay" href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>"></a>
+						<div class="overlay">
+							<a href="<?php the_permalink(); ?>" class="overlay-view-details button">View Details</span>
+							<a href="<?php echo home_url( '/edd-add/' . get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
+						</div>
+						<?php
+						if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) ) {
+							echo '<i class="third-party"></i>';
+						}
+						?>
 					</div>
 				<?php
 				}
@@ -96,7 +103,7 @@
 				</div>
 				<?php wp_reset_postdata(); ?>
 			</div><!-- /.extensions -->
-		</section><!-- /.content -->
+		</section><!-- /.extensions-container -->
 	</section><!-- /.main -->
 
 
