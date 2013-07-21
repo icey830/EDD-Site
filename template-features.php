@@ -31,7 +31,7 @@ the_post();
 	<section class="feature-area" id="feature-edd">
 		<section class="feature-text">
 			<div class="feature-text-inner">
-				<h3>Not sure yet? Come by <a href="support.html">Support</a> and ask anything you want!</h3>
+				<h3>Not sure yet? Come by <a href="<?php echo home_url( '/support/' ); ?>">Support</a> and ask anything you want!</h3>
 			</div><!-- /.feature-text-inner -->
 		</section><!-- /.feature-text -->
 	</section><!-- /.feature-area -->
