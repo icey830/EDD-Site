@@ -31,7 +31,7 @@
 			</ul><!-- /.nav-tabs -->
 			
 			<div class="tab-content">
-				<div class="tab-pane active" id="tab1">
+				<div class="tab-pane active purchases-tab-pane" id="tab1">
 					<?php edd_get_template_part( 'history', 'purchases' ); ?>
 				</div><!-- /.tab-pane -->
 				

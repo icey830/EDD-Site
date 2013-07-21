@@ -23,7 +23,7 @@ the_post();
 				$extensions =  new WP_Query( array( 'post_type' => 'extension', 'posts_per_page' => 30, 'paged' => get_query_var( 'paged' ) ) );
 				$c = 0; while ( $extensions ->have_posts() ) : $extensions->the_post(); $c++;
 				?>
-					<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?>">
+					<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?> <?php if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) ) echo ' third-party-extension'; ?>">
 						<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
 							<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
 							<h2><?php the_title(); ?></h2>
@@ -34,9 +34,8 @@ the_post();
 							<a href="<?php echo home_url( '/edd-add/' . get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
 						</div>
 						<?php
-						if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) ) {
+						if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) )
 							echo '<i class="third-party"></i>';
-						}
 						?>
 					</div>
 					<?php
