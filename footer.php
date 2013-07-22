@@ -2,9 +2,11 @@
 /**
  * The template for displaying the footer.
  *
- * @package EDD
- * @version 1.0
- * @since   1.0
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 ?>
 
@@ -18,13 +20,13 @@
 
 				<div class="forum col">
 					<h4>Need help?</h4>
-					<p>If you ever need help with EDD, there is a complete <a href="">Support Forum</a> available where you can get your support questions answered. If you'd like to report a bug or have ideas for how to improve the plugin, please post it to our <a href="">GitHub Issue Tracker</a>.</p>
+					<p>If you ever need help with EDD, there is a complete <a href="<?php echo home_url( '/support/' ); ?> ">Support Forum</a> available where you can get your support questions answered. If you'd like to report a bug or have ideas for how to improve the plugin, please post it to our <a href="">GitHub Issue Tracker</a>.</p>
 				</div><!-- /.forum -->
 
 				<div class="consultants col">
 					<h4>Trusted Consultants</h4>
 					<p>We maintain a list of consultants that we recommend working with when it comes to managed support, customization, and setup help. </p>
-					<p><a href="">View Consultants...</a></p>
+					<p><a href="<?php echo home_url( '/consultants/' ); ?>">View Consultants...</a></p>
 				</div><!-- /.consultants -->
 			</div><!-- /.columns -->
 

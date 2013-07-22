@@ -2,9 +2,11 @@
 /**
  * The template for displaying the front page.
  *
- * @package EDD
- * @version 1.0
- * @since   1.0
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 ?>
 <?php get_header(); ?>

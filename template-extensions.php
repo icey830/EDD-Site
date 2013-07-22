@@ -1,5 +1,16 @@
 <?php
 /* Template Name: Extensions */
+
+/**
+ * The template for displaying all the extensions.
+ *
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
+ */
+
 get_header();
 the_post();
 ?>
@@ -16,7 +27,7 @@ the_post();
 			<div class="clearfix"></div>
 			<?php echo eddwp_extenstion_cats_shortcode(); ?>
 		</section><!-- /.content -->
-		
+
 		<section class="extensions-container">
 			<div class="extensions clearfix">
 				<?php
@@ -40,9 +51,9 @@ the_post();
 					</div>
 					<?php
 				endwhile;
-				
+
 				$big = 999999999;
-				
+
 				$links = paginate_links(
 					array(
 						'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),

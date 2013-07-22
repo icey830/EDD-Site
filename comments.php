@@ -2,16 +2,18 @@
 /**
  * The template for displaying comments.
  *
- * @package EDD
- * @version 1.0
- * @since   1.0
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 ?>
 
 <?php
 	if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && 'comments.php' == basename( $_SERVER['SCRIPT_FILENAME'] ) ) {
 		die ( __( 'This file cannot be loaded directly.', 'edd' ) );
-	} // end if
+	}
 ?>
 
 <?php if ( post_password_required() ) { ?>

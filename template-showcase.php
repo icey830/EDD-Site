@@ -1,5 +1,16 @@
 <?php
 /* Template Name: Showcase */
+
+/**
+ * The template for displaying the Showcase page.
+ *
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
+ */
+
 get_header();
 the_post();
 ?>
@@ -27,7 +38,7 @@ the_post();
 						)
 					)
 				);
-				
+
 				while ( $featured_showcases->have_posts() ) {
 					$featured_showcases->the_post();
 				?>
@@ -42,12 +53,12 @@ the_post();
 					</div><!-- /.featured-site -->
 				<?php
 				}
-				
+
 				wp_reset_postdata();
 				?>
-				
+
 				<div class="clearfix"></div>
-			
+
 				<?php
 				$showcases = new WP_Query(
 					array(
@@ -63,7 +74,7 @@ the_post();
 						)
 					)
 				);
-				
+
 				while ( $showcases->have_posts() ) {
 					$showcases->the_post();
 					?>
@@ -78,7 +89,7 @@ the_post();
 					</div><!-- /.site -->
 					<?php
 				}
-				
+
 				wp_reset_postdata();
 				?>
 			</div><!-- /.sites -->
@@ -86,6 +97,6 @@ the_post();
 				<?php the_content(); ?>
 			</div>
 		</section><!-- /.showcase -->
-	
+
 	</section><!-- /.main -->
 <?php get_footer(); ?>

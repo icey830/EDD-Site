@@ -7,7 +7,11 @@
  * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * @package EDD
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 
 get_header(); ?>

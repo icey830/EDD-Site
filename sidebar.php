@@ -2,7 +2,11 @@
 /**
  * The Sidebar containing the main widget areas.
  *
- * @package EDD
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 ?>
 	<aside class="sidebar">

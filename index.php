@@ -8,9 +8,11 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package EDD
- * @version 1.0
- * @since   1.0
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 ?>
 <?php get_header(); ?>
@@ -26,7 +28,7 @@
 					<p><a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'edd' ); ?></a></p>
 				</article><!-- /#post-<?php echo get_the_ID(); ?> -->
 				<?php } ?>
-				
+
 				<?php
 				global $wp_query;
 				if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) { ?>
@@ -35,7 +37,7 @@
 							<?php if( get_next_posts_link() ) { ?>
 								<li class="previous">
 									<?php next_posts_link( __( '<span class="nav-previous meta-nav"><i class="icon-chevron-left"></i> Older</span>', 'edd' ) ); ?>
-								</li>			
+								</li>
 							<?php
 							} if( get_previous_posts_link() ) { ?>
 								<li class="next">
@@ -46,7 +48,7 @@
 					</div><!-- /#page-nav -->
 				<?php } ?>
 			</section><!-- /.content -->
-			
+
 			<aside class="sidebar">
 				<div class="newsletter">
 					<h3>Email Newsletter</h3>

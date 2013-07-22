@@ -1,21 +1,33 @@
+<?php
+/**
+ * The template for displaying search results for extensions.
+ *
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
+ */
+?>
+
 <?php get_header(); ?>
 
 	<?php
 	$q['s'] = $_GET['extension_s'];
-				
-	$q['s'] = stripslashes( $q['s'] );
-	
+
+	$q['s'] = sanitize_text_field( stripslashes( $q['s'] ) );
+
 	if ( empty( $_GET['s'] ) && $wp_query->is_main_query() )
-		$q['s'] = urldecode($q['s']);
-		
+		$q['s'] = urldecode( $q['s'] );
+
 	$q['c'] = $_GET['category'];
-	
+
 	$q['c'] = stripslashes( $q['c'] );
 	?>
 
 	<section class="main clearfix">
 		<section class="content">
-			<h1>Search Results For "<?php echo $_GET['extension_s']; ?>"</h1>
+			<h1>Search Results For "<?php echo sanitize_text_field( stripslashes( $_GET['extension_s'] ) ); ?>"</h1>
 			<form id="extensions_searchform" class="clearfix" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="get">
 				<fieldset>
 					<input type="search" name="extension_s" value="<?php echo $q['s']; ?>" />
@@ -26,7 +38,7 @@
 			<div class="clearfix"></div>
 			<?php
 			$c = get_terms( 'extension_category' );
-			
+
 			if ( $c ) {
 				?>
 				<div class="filter clearfix">
@@ -37,11 +49,11 @@
 						<?php } ?>
 					</ul>
 				</div>
-			<?php	
+			<?php
 			}
 			?>
 		</section><!-- /.content -->
-		
+
 		<section class="extensions-container">
 			<div class="extensions clearfix">
 				<?php
@@ -53,7 +65,7 @@
 					$tax_query,
 					'paged' => isset( $_GET['paged'] ) ? (int) $_GET['paged'] : 1
 				);
-				
+
 				$tax_query = array(
 					'tax_query' => array(
 						array(
@@ -63,11 +75,11 @@
 						)
 					)
 				);
-					
+
 				$s_query = new WP_Query( $query );
-				
+
 				$query = $s_query;
-				
+
 				$c = 0; while ( $query->have_posts() ) { $query->the_post(); $c++; ?>
 					<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?>">
 						<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
@@ -89,7 +101,7 @@
 				}
 
 				$big = 999999999;
-				
+
 				$links = paginate_links( array(
 					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 					'format' => '?paged=%#%',

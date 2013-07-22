@@ -1,8 +1,12 @@
 <?php
 /**
- * The template for displaying the blog index page.
+ * The template for displaying an extension.
  *
- * @package EDD
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 
 get_header();
@@ -52,7 +56,7 @@ the_post();
 				endif;
 				?>
 			</section><!-- /.content -->
-			
+
 			<aside class="sidebar">
 				<div class="box">
 					<h3>Extension Details</h3>

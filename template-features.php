@@ -1,5 +1,16 @@
 <?php
 /* Template Name: Features */
+
+/**
+ * The template for displaying the Features page.
+ *
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
+ */
+
 get_header();
 the_post();
 ?>
@@ -10,7 +21,7 @@ the_post();
 
 	<?php
 	$features = new WP_Query( array( 'post_type' => 'features', 'nopaging' => true, 'order' => 'ASC' ) );
-	
+
 	while ( $features->have_posts() ) {
 		$features->the_post();
 		?>
@@ -25,7 +36,7 @@ the_post();
 		</section><!-- /.feature-area -->
 		<?php
 	}
-	
+
 	wp_reset_postdata();
 	?>
 	<section class="feature-area" id="feature-edd">

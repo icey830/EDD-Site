@@ -2,9 +2,11 @@
 /**
  * The template for displaying the search results.
  *
- * @package EDD
- * @version 1.0
- * @since   1.0
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 ?>
 <?php get_header(); ?>
@@ -24,12 +26,12 @@
 							<li><i class="icon-user"></i> <?php the_author(); ?></li>
 							<?php
 							$categories = get_the_category_list( __( ', ', 'edd' ) );
-							
+
 							if ( $categories ) {
 							?>
 							<li><i class="icon-list-ul"></i> <?php echo $categories; ?></li>
 							<?php
-							} // end if 
+							} // end if
 
 							$tags = get_the_tag_list( '', __( ', ', 'edd' ) );
 							if ( $tags ) {
@@ -41,7 +43,7 @@
 					</div><!-- /.post-meta-->
 				</article><!-- /#post-<?php echo get_the_ID(); ?> -->
 				<?php } ?>
-				
+
 				<?php
 				global $wp_query;
 				if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) { ?>
@@ -50,7 +52,7 @@
 							<?php if( get_next_posts_link() ) { ?>
 								<li class="previous">
 									<?php next_posts_link( __( '<span class="nav-previous meta-nav"><i class="icon-chevron-left"></i> Older</span>', 'edd' ) ); ?>
-								</li>			
+								</li>
 							<?php
 							} if( get_previous_posts_link() ) { ?>
 								<li class="next">
@@ -61,7 +63,7 @@
 					</div><!-- /#page-nav -->
 				<?php } ?>
 			</section><!-- /.content -->
-			
+
 			<aside class="sidebar">
 				<div class="newsletter">
 					<h3>Email Newsletter</h3>

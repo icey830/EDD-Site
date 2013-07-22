@@ -2,9 +2,11 @@
 /**
  * The template for displaying Archive pages.
  *
- * @package EDD
- * @version 1.0
- * @since   1.0
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 
 get_header(); ?>
@@ -83,9 +85,9 @@ get_header(); ?>
 							</ul>
 						</div>
 					</article>
-				
+
 				<?php endwhile; ?>
-				
+
 				<?php
 				global $wp_query;
 				if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) { ?>
@@ -94,7 +96,7 @@ get_header(); ?>
 							<?php if( get_next_posts_link() ) { ?>
 								<li class="previous">
 									<?php next_posts_link( __( '<span class="nav-previous meta-nav"><i class="icon-chevron-left"></i> Older</span>', 'edd' ) ); ?>
-								</li>			
+								</li>
 							<?php
 							} if( get_previous_posts_link() ) { ?>
 								<li class="next">
@@ -107,7 +109,7 @@ get_header(); ?>
 
 				<?php } // end if ?>
 			</section><!-- /.content -->
-			
+
 			<aside class="sidebar">
 				<div class="newsletter">
 					<h3>Email Newsletter</h3>

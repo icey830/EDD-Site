@@ -2,7 +2,11 @@
 /**
  * The template for displaying the bbPress forums index.
  *
- * @package EDD
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 
 get_header(); ?>

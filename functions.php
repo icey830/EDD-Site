@@ -14,7 +14,7 @@
 /* ------------------------------------------------------------------------------- *
  *
  * /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ CONTENTS /\/\/\/\/\/\/\/\/\/\/\/\/\/\//\/\/\/\
- * 
+ *
  * 1. Theme Setup
  * 2. Stylesheets and JavaScript Files
  * 3. Comments Template
@@ -44,7 +44,7 @@ function edd_theme_setup() {
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 
 	add_editor_style( 'css/editor-style.css' );
-	
+
 	add_image_size( 'showcase', 320, 200, true );
 	add_image_size( 'featured-showcase', 460, 330, true );
 
@@ -94,7 +94,7 @@ function edd_register_theme_scripts() {
 
 	if ( is_singular() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
-		
+
 	wp_dequeue_style( 'bbp-default-bbpress' );
 	wp_dequeue_style( 'bbp_private_replies_style' );
 	wp_dequeue_style( 'staff-list-custom-css' );
@@ -105,7 +105,7 @@ function edd_register_theme_scripts() {
 	if ( is_bbpress() || is_page( 'support' ) ) {
 		wp_enqueue_style( 'bbp-default-bbpress', trailingslashit( bbPress()->themes_url . 'default' ) . 'css/bbpress.css', array(), bbp_get_version(), 'screen' );
 	}
-	
+
 	if ( is_page( 'your-account' ) ) {
 		wp_enqueue_style( 'bootstrap' );
 		wp_enqueue_script( 'bootstrap-js' );
@@ -114,7 +114,7 @@ function edd_register_theme_scripts() {
 	global $wp_styles;
 	array_unshift( $wp_styles->queue, 'edd-styles' );
 
-	// Load the main stylesheet at the end so overrides are easier	
+	// Load the main stylesheet at the end so overrides are easier
 	wp_enqueue_style( 'edd-style' );
 }
 add_action( 'wp_enqueue_scripts', 'edd_register_theme_scripts' );
@@ -142,14 +142,14 @@ function edd_comment( $comment, $args, $depth ) {
 				<a class="comment-date" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php printf( __( '%1$s at %2$s' ), get_comment_date(), get_comment_time() ); ?></a>
 				<?php edit_comment_link( __( '(Edit)' ), '' ); ?>
 		 	</div><!-- /.comment-meta -->
-	
+
 			<?php if ( '0' == $comment->comment_approved ) : ?>
 				<p class="alert"><?php echo apply_filters( 'eddwp_comment_awaiting_moderation', __( 'Your comment is awaiting moderation.', 'edd' ) ); ?></p>
 			<?php endif; ?>
 
 			<?php
 			comment_text();
-			
+
 			comment_reply_link(
 				array_merge(
 					$args,
@@ -237,7 +237,7 @@ function edd_wp_title( $title, $sep ) {
 	if ( is_search() || isset( $_GET['extension_s'] ) ) :
 		if ( is_search() )
 			$search_term = get_query_var( 's' );
-		
+
 		if ( isset( $_GET['extension_s'] ) )
 			$search_term = sanitize_text_field( trim( stripslashes( $_GET['extension_s'] ) ) );
 
@@ -338,7 +338,7 @@ function eddwp_extensions_cb() {
 		</div>
 
 	<?php endwhile; ?>
-	
+
 	<?php echo '</div>';
 }
 add_shortcode( 'extensions', 'eddwp_extensions_cb' );
@@ -400,7 +400,7 @@ function eddwp_bbp_get_forum_freshness_link( $anchor, $forum_id, $time_since, $l
 		$anchor = '<a href="' . $link_url . '" title="' . esc_attr( $title ) . '">' . 'Last response ' . $time_since . '</a>';
 	else
 		$anchor = __( 'No Topics', 'edd' );
-	
+
 	return $anchor;
 }
 add_filter( 'bbp_get_forum_freshness_link', 'eddwp_bbp_get_forum_freshness_link', 10, 6 );
@@ -437,7 +437,7 @@ function eddwp_support_admin_bar( $wp_admin_bar ) {
 		),
 		'posts_per_page' => -1
 	);
-	
+
 	$assigned_tickets = new WP_Query( $args );
 
 	$wp_admin_bar->add_node(
@@ -469,7 +469,7 @@ function eddwp_support_admin_bar( $wp_admin_bar ) {
 			'href'	 =>	'/support/dashboard/'
 		)
 	);
-	
+
 	wp_reset_postdata();
 }
 add_action( 'admin_bar_menu', 'eddwp_support_admin_bar', 999 );
@@ -522,7 +522,7 @@ class SR_Newsletter_Signup_Form extends WP_Widget {
 	 * @access public
 	 * @return void
 	 */
-	public function widget($args, $instance) {	
+	public function widget($args, $instance) {
 		extract( $args, EXTR_SKIP );
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
@@ -547,7 +547,7 @@ class SR_Newsletter_Signup_Form extends WP_Widget {
 	 * @access public
 	 * @return void
 	 */
-	public function update($new_instance, $old_instance) {		
+	public function update($new_instance, $old_instance) {
 		$instance = $old_instance;
 
 		$instance['title']   = strip_tags( $new_instance['title'] );
@@ -565,14 +565,14 @@ class SR_Newsletter_Signup_Form extends WP_Widget {
 	 * @param array $instance The array of keys and values for the widget
 	 * @return void
 	 */
-	public function form( $instance ) {	
+	public function form( $instance ) {
 		$title       = isset( $instance['title']       ) ? esc_attr( $instance['title']       ) : '';
 		$description = isset( $instance['description'] ) ? esc_attr( $instance['description'] ) : '';
 		$list_id     = isset( $instance['list_id']     ) ? esc_attr( $instance['list_id']     ) : '';
 		$message     = isset( $instance['message']     ) ? esc_attr( $instance['message']     ) : '';
 		?>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Widget Title:', 'edd' ); ?></label> 
+				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Widget Title:', 'edd' ); ?></label>
 				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
 			</p>
 
@@ -582,7 +582,7 @@ class SR_Newsletter_Signup_Form extends WP_Widget {
 			</p>
 
 			<p>
-				<label for="<?php echo $this->get_field_id( 'list_id' ); ?>"><?php _e( 'Choose a List', 'edd' ); ?></label> 
+				<label for="<?php echo $this->get_field_id( 'list_id' ); ?>"><?php _e( 'Choose a List', 'edd' ); ?></label>
 				<select name="<?php echo $this->get_field_name( 'list_id' ); ?>" id="<?php echo $this->get_field_id( 'list_id' ); ?>" class="widefat">
 				<?php
 					$lists = pmc_get_lists();
@@ -594,10 +594,10 @@ class SR_Newsletter_Signup_Form extends WP_Widget {
 			</p>
 
 			<p>
-				<label for="<?php echo $this->get_field_id( 'message' ); ?>"><?php _e( 'Success Message:', 'edd' ); ?></label> 
+				<label for="<?php echo $this->get_field_id( 'message' ); ?>"><?php _e( 'Success Message:', 'edd' ); ?></label>
 				<input class="widefat" id="<?php echo $this->get_field_id( 'message' ); ?>" name="<?php echo $this->get_field_name( 'message' ); ?>" type="text" value="<?php echo $message; ?>" />
 			</p>
-		<?php 
+		<?php
 	}
 }
 
@@ -607,7 +607,7 @@ class SR_Newsletter_Signup_Form extends WP_Widget {
  */
 function eddwp_is_extension_third_party() {
 	global $post;
-	
+
 	$terms = get_the_terms( $post->ID, 'extension_category' );
 
 	if ( has_term( '3rd Party', 'extension_category', $post->ID ) ) {
@@ -630,7 +630,7 @@ function eddwp_shortcode_box( $atts, $content = null ) {
 	$default = array(
         'style' => 'alert'
     );
- 
+
     extract( shortcode_atts( $default, $atts ) );
 
     $output = '<div class="info-box info-box-'.$style.'"><div class="icon">'.do_shortcode( $content ).'</div></div>';
@@ -723,7 +723,7 @@ function eddwp_shortcode_tabs( $atts, $content = null ) {
 /**
  * Toggles
  */
-function eddwp_shortcode_toggle( $atts, $content = null ) {		
+function eddwp_shortcode_toggle( $atts, $content = null ) {
 	$last = '';
 	if ( isset( $atts[0] ) && trim( $atts[0] ) == 'last') $last = ' tb-toggle-last';
 	$default = array(
@@ -782,56 +782,56 @@ function eddwp_get_classes( $element, $start_space = false, $end_space = false, 
  */
 function eddwp_post_grid( $atts ) {
 	$default = array(
-        'categories'    => '',                  // @deprecated -- Category slug(s) to include/exclude
-        'cat'           => '',                  // cat: Category ID(s) to include/exclude
-        'category_name' => '',                  // category_name: Category slug(s) to include/exclude
-        'tag'           => '',                  // tag: Tag(s) to include/exclude
-        'columns' 		=> 3,					// columns: Number of posts per row
-        'rows' 			=> 3,					// rows: Number of rows per slide
-        'orderby' 		=> 'date',				// orderby: date, title, comment_count, rand
-        'order' 		=> 'DESC',				// order: DESC, ASC
-        'offset' 		=> 0,					// offset: Number of posts to offset off the start, defaults to 0
-        'query' 		=> '',					// custom query string
-        'crop'			=> '',					// crop: Can manually enter a featured image crop size
-        'link' 			=> 0,					// link: Show link after posts, true or false
-        'link_text' 	=> 'View All Posts', 	// link_text: Text for the link
-        'link_url' 		=> 'http://google.com',	// link_url: URL where link should go
-        'link_target' 	=> '_self' 				// link_target: Where link opens - _self, _blank
-    ); 
-    
+        'categories'    => '',
+        'cat'           => '',
+        'category_name' => '',
+        'tag'           => '',
+        'columns' 		=> 3,
+        'rows' 			=> 3,
+        'orderby' 		=> 'date',
+        'order' 		=> 'DESC',
+        'offset' 		=> 0,
+        'query' 		=> '',
+        'crop'			=> '',
+        'link' 			=> 0,
+        'link_text' 	=> 'View All Posts',
+        'link_url' 		=> 'http://google.com',
+        'link_target' 	=> '_self'
+    );
+
     shortcode_atts( $default, $atts );
-    
+
 	$post__in = explode( ',', $atts['include'] );
-	
+
 	$args = array(
-		'orderby' => $atts['orderby'],
-		'order' => $atts['order'],
-		'post__in' => $post__in,
+		'orderby'   => $atts['orderby'],
+		'order'     => $atts['order'],
+		'post__in'  => $post__in,
 		'post_type' => 'any'
 	);
-	
+
 	$query = new WP_Query( $args );
-	
+
 	ob_start();
-	
-	$counter = 0; while ( $query->have_posts() ) { $query->the_post(); $counter++;
-		?>
-		<div class="grid-item column <?php if( $counter%3 == 0 ) echo ' last'; ?>">
-			<div class="article-wrap">
+	?>
+
+	<?php if ( $query->have_posts() ) : ?>
+		<div class="post-grid">
+			<?php $counter = 0; while ( $query->have_posts() ) { $query->the_post(); $counter++; ?>
+			<div class="grid-item column <?php if( $counter%3 == 0 ) echo ' last'; ?>">
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-					<div class="entry-content">
-						<?php the_post_thumbnail(); ?>
-						<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
-						<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
-					</div><!-- .entry-content -->
-				</article><!-- #post-<?php the_ID(); ?> -->
-			</div><!-- .article-wrap (end) -->
-		</div><!-- .grid-item (end) -->
-		<?php
-	}
-	
+					<?php the_post_thumbnail(); ?>
+					<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+					<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
+				</article><!-- /#post-<?php the_ID(); ?> -->
+			</div><!-- /.grid-item (end) -->
+			<?php } // end while ?>
+		</div><!-- /.post-grid -->
+	<?php endif; ?>
+
+	<?php
 	wp_reset_postdata();
-	
+
 	return ob_get_clean();
 }
 add_shortcode( 'post_grid', 'eddwp_post_grid' );

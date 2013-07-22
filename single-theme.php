@@ -1,8 +1,12 @@
 <?php
 /**
- * The template for displaying the blog index page.
+ * The template for displaying a theme.
  *
- * @package EDD
+ * @package   EDD
+ * @version   1.0
+ * @since     1.0
+ * @author	  Sunny Ratilal
+ * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 
 get_header();
@@ -15,7 +19,7 @@ the_post();
 				<h1><?php the_title(); ?></h2>
 				<?php the_content(); ?>
 			</section><!-- /.content -->
-			
+
 			<aside class="sidebar">
 				<div class="newsletter">
 					<h3>Email Newsletter</h3>
