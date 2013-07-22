@@ -200,5 +200,25 @@
         $('.header i').on('click', function() {
 	       $('#primary').slideToggle(); 
         });
+
+		// Toggles        
+        $('.tb-toggle').each(function(){
+			$(this).find('.toggle-content').hide();
+		});
+		$('.tb-toggle a.toggle-trigger').click(function(){
+			var el = $(this), parent = el.closest('.tb-toggle');
+			
+			if( el.hasClass('active') )
+			{
+				parent.find('.toggle-content').hide();
+				el.removeClass('active');
+			}
+			else
+			{
+				parent.find('.toggle-content').show();
+				el.addClass('active');
+			}
+			return false;
+		});
     });
 }(jQuery));

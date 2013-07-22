@@ -38,6 +38,8 @@ get_header(); ?>
 				echo '<aside class="sidebar">';
 				edd_bbp_d_sidebar();
 				echo '</aside><!-- /.sidebar -->';
+			} else {
+				get_sidebar( 'forums' );
 			}
 			
 			?>
