@@ -806,15 +806,32 @@ function eddwp_post_grid( $atts ) {
 	$args = array(
 		'orderby' => $atts['orderby'],
 		'order' => $atts['order'],
-		'post__in' => $post__in
+		'post__in' => $post__in,
+		'post_type' => 'any'
 	);
 	
 	$query = new WP_Query( $args );
 	
-	while ( $query->have_posts() ) { $query->the_post();
-		echo get_the_title();
+	ob_start();
+	
+	$counter = 0; while ( $query->have_posts() ) { $query->the_post(); $counter++;
+		?>
+		<div class="grid-item column <?php if( $counter%3 == 0 ) echo ' last'; ?>">
+			<div class="article-wrap">
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<div class="entry-content">
+						<?php the_post_thumbnail(); ?>
+						<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h2>
+						<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
+					</div><!-- .entry-content -->
+				</article><!-- #post-<?php the_ID(); ?> -->
+			</div><!-- .article-wrap (end) -->
+		</div><!-- .grid-item (end) -->
+		<?php
 	}
 	
 	wp_reset_postdata();
+	
+	return ob_get_clean();
 }
 add_shortcode( 'post_grid', 'eddwp_post_grid' );
