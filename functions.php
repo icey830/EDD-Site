@@ -781,6 +781,26 @@ function eddwp_get_classes( $element, $start_space = false, $end_space = false, 
  * Post Grid
  */
 function eddwp_post_grid( $atts ) {
+	$default = array(
+        'categories'    => '',                  // @deprecated -- Category slug(s) to include/exclude
+        'cat'           => '',                  // cat: Category ID(s) to include/exclude
+        'category_name' => '',                  // category_name: Category slug(s) to include/exclude
+        'tag'           => '',                  // tag: Tag(s) to include/exclude
+        'columns' 		=> 3,					// columns: Number of posts per row
+        'rows' 			=> 3,					// rows: Number of rows per slide
+        'orderby' 		=> 'date',				// orderby: date, title, comment_count, rand
+        'order' 		=> 'DESC',				// order: DESC, ASC
+        'offset' 		=> 0,					// offset: Number of posts to offset off the start, defaults to 0
+        'query' 		=> '',					// custom query string
+        'crop'			=> '',					// crop: Can manually enter a featured image crop size
+        'link' 			=> 0,					// link: Show link after posts, true or false
+        'link_text' 	=> 'View All Posts', 	// link_text: Text for the link
+        'link_url' 		=> 'http://google.com',	// link_url: URL where link should go
+        'link_target' 	=> '_self' 				// link_target: Where link opens - _self, _blank
+    ); 
+    
+    shortcode_atts( $default, $atts );
+    
 	$post__in = explode( ',', $atts['include'] );
 	
 	$args = array(
