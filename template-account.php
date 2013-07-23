@@ -32,6 +32,7 @@
 				<li><a href="#tab3" data-toggle="tab">Commissions</a></li>
 				<?php } // end if ?>
 				<li><a href="#tab4" data-toggle="tab">Support Subscription</a></li>
+				<li><a href="#tab5" data-toggle="tab">Affiliate Area</a></li>
 			</ul><!-- /.nav-tabs -->
 
 			<div class="tab-content">
@@ -51,6 +52,12 @@
 					<?php
 					echo do_shortcode( '[subscription_details]' );
 					echo do_shortcode( '[card_details]' );
+					?>
+				</div><!-- /.tab-pane -->
+				<div class="tab-pane" id="tab5">
+					<?php
+					$affiliates = get_post( 1543 );
+					echo apply_filters( 'the_content', $affiliates->post_content );
 					?>
 				</div><!-- /.tab-pane -->
 			</div><!-- /.tab-content -->
