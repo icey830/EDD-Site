@@ -617,6 +617,22 @@ function eddwp_is_extension_third_party() {
 	}
 }
 
+/**
+ * Checks if an extension is hosted off site
+ */
+function eddwp_is_external_extension() {
+
+	return get_post_meta( get_the_ID(), 'ecpt_is_external', true );
+}
+
+/**
+ * Gets the external extension URL
+ */
+function eddwp_get_external_extension_url() {
+
+	return get_post_meta( get_the_ID(), 'ecpt_externalurl', true );
+}
+
 /* ----------------------------------------------------------- *
  * 7. Shortcodes
  * ----------------------------------------------------------- */
