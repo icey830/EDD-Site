@@ -69,7 +69,7 @@ get_header(); ?>
 
 					<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
 						<p class="entry-date"><span><?php the_date(); ?></span></p>
-						<h2><?php the_title(); ?></h2>
+						<h2><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 						<?php the_excerpt(); ?>
 						<div class="post-meta">
 							<ul>

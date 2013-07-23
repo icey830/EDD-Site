@@ -119,12 +119,12 @@
 						)
 					)
 				);
-				
+
 				while ( $extensions->have_posts() ) {
 					$extensions->the_post();
 					?>
 					<li>
-						<a href="<?php get_permalink(); ?>">
+						<a href="<?php the_permalink(); ?>">
 							<div class="preview-image">
 								<?php the_post_thumbnail( 'showcase' ); ?>
 							</div>
@@ -136,7 +136,7 @@
 					</li>
 					<?php
 				}
-				
+
 				wp_reset_postdata();
 				?>
 				</ul>
@@ -226,7 +226,7 @@
 		<p>We have <del>some</del> <ins>a lot</ins> of happy customers and here's what some are saying:</p>
 
 		<div class="testimonials">
-		<?php		
+		<?php
 		$testimonials = new WP_Query(
 			array(
 				'posts_per_page' => 6,
@@ -240,12 +240,12 @@
 			<div class="testimonial">
 				<blockquote>
 					<p><?php the_content(); ?></p>
-					<cite><a href="<?php get_post_meta( get_the_ID(), 'ecpt_url', true ); ?>"><?php echo get_post_meta( get_the_ID(), 'ecpt_author', true ); ?></a></cite>
+					<cite><?php echo get_post_meta( get_the_ID(), 'ecpt_author', true ); ?></cite>
 				</blockquote>
 			</div>
 		<?php
 		}
-		
+
 		wp_reset_postdata();
 		?>
 		</div><!-- /.testimonials -->
