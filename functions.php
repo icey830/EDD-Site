@@ -98,7 +98,6 @@ function edd_register_theme_scripts() {
 	wp_dequeue_style( 'bbp-default-bbpress' );
 	wp_dequeue_style( 'bbp_private_replies_style' );
 	wp_dequeue_style( 'staff-list-custom-css' );
-	wp_dequeue_style( 'notifications' );
 	wp_dequeue_style( 'sharedaddy' );
 	wp_dequeue_style( 'edd-styles' );
 
