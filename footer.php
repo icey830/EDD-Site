@@ -20,7 +20,7 @@
 
 				<div class="forum col">
 					<h4>Need help?</h4>
-					<p>If you ever need help with EDD, there is a complete <a href="<?php echo home_url( '/support/' ); ?> ">Support Forum</a> available where you can get your support questions answered. If you'd like to report a bug or have ideas for how to improve the plugin, please post it to our <a href="">GitHub Issue Tracker</a>.</p>
+					<p>If you ever need help with EDD, there is a complete <a href="<?php echo home_url( '/support/' ); ?> ">Support Forum</a> available where you can get your support questions answered. If you'd like to report a bug or have ideas for how to improve the plugin, please post it to our <a href="http://github.com/easydigitaldownloads/Easy-Digital-Downloads/issues">GitHub Issue Tracker</a>.</p>
 				</div><!-- /.forum -->
 
 				<div class="consultants col">
@@ -39,7 +39,7 @@
 				</ul>
 			</div><!-- /.social -->
 
-			<p class="copyright">Copyright &copy; 2013, Easy Digital Downloads. A project by <a href="<?php echo esc_url( '/team/' ); ?>">Pippin Williamson and Friends</a>.</p>
+			<p class="copyright">Copyright &copy; 2013, Easy Digital Downloads. A project by <a href="<?php echo esc_url( '/the-crew//' ); ?>">Pippin Williamson and Friends</a>.</p>
 		</div><!-- .container -->
 	</footer><!-- #colophon -->
 
