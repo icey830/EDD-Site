@@ -2,11 +2,9 @@
 /**
  * The template for displaying the front page.
  *
- * @package   EDD
- * @version   1.0
- * @since     1.0
- * @author	  Sunny Ratilal
- * @copyright Copyright (c) 2013, Sunny Ratilal.
+ * @package EDD
+ * @version 1.0
+ * @since   1.0
  */
 ?>
 <?php get_header(); ?>
@@ -195,7 +193,7 @@
 			</div><!-- /.slide-6-text -->
 		</div><!-- /.right -->
 		<div class="app-store-button clearfix">
-			<p><a href=""><img src="<?php echo get_template_directory_uri() ?>/images/app-store.png"></a></p>
+			<p><a href="https://itunes.apple.com/us/app/easy-digital-downloads/id625303275?ls=1&mt=8"><img src="<?php echo get_template_directory_uri() ?>/images/app-store.png"></a></p>
 		</div><!-- /.app-store-button -->
 	</div><!-- /.feature -->
 </section><!-- /.feature-ios -->
@@ -263,19 +261,7 @@
 	<div class="feature">
 		<h2>Sign up for our newsletter now.</h2>
 		<h3>Be amongst the first to know about important news and upcoming features.</h3>
-		<form id="pmc_mailchimp" action="" method="post">
-			<div class="names clearfix">
-				<input name="pmc_fname" id="pmc_fname" type="text" placeholder="Enter your first name">
-				<input name="pmc_lname" id="pmc_lname" type="text" placeholder="Enter your last name">
-			</div>
-			<div>
-				<input name="pmc_email" id="pmc_email" type="email" placeholder="Enter your email address">
-				<input type="submit" value="Subscribe">
-			</div>
-			<input type="hidden" name="redirect" value="https://easydigitaldownloads.com/">
-			<input type="hidden" name="action" value="pmc_signup">
-			<input type="hidden" name="pmc_list_id" value="be2b495923">
-		</form>
+		<?php echo do_shortcode( '[mailchimp list="3"]' ); ?>
 	</div><!-- /.feature -->
 </section><!-- /.feature-newsletter -->
 
