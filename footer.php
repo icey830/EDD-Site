@@ -39,7 +39,7 @@
 				</ul>
 			</div><!-- /.social -->
 
-			<p class="copyright">Copyright &copy; 2013, Easy Digital Downloads. A project by <a href="<?php echo esc_url( '/the-crew//' ); ?>">Pippin Williamson and Friends</a>.</p>
+			<p class="copyright">Copyright &copy; 2013, Easy Digital Downloads. A project by <a href="<?php echo esc_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.</p>
 		</div><!-- .container -->
 	</footer><!-- #colophon -->
 
