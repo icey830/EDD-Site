@@ -20,15 +20,14 @@
 	if ( empty( $_GET['s'] ) && $wp_query->is_main_query() )
 		$q['s'] = urldecode( $q['s'] );
 
-	$q['c'] = $_GET['category'];
+	$q['c'] = isset( $_GET['category'] ) ? stripslashes( $_GET['category'] ) : false;;
 
-	$q['c'] = stripslashes( $q['c'] );
 	?>
 
 	<section class="main clearfix">
 		<section class="content">
 			<h1>Search Results For "<?php echo sanitize_text_field( stripslashes( $_GET['extension_s'] ) ); ?>"</h1>
-			<form id="extensions_searchform" class="clearfix" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="get">
+			<form id="extensions_searchform" class="clearfix" action="<?php echo home_url( 'extensions' ); ?>" method="get">
 				<fieldset>
 					<input type="search" name="extension_s" value="<?php echo $q['s']; ?>" />
 					<input type="submit" value="Search" />
@@ -59,22 +58,22 @@
 				<?php
 
 				$tax_query = array(
-					'tax_query' => array(
-						array(
-							'taxonomy' => 'extension_category',
-							'field' => 'slug',
-							'terms' => $q['c']
-						)
+					array(
+						'taxonomy' => 'extension_category',
+						'field' => 'slug',
+						'terms' => $q['c']
 					)
 				);
-					
+
 				$query = array(
 					's' => $q['s'],
 					'post_type' => 'extension',
 					'posts_per_page' => 21,
-					$tax_query,
 					'paged' => isset( $_GET['paged'] ) ? (int) $_GET['paged'] : 1
 				);
+				if( $q['c'] ) {
+					$query['tax_query'] = $tax_query;
+				}
 
 				$s_query = new WP_Query( $query );
 
