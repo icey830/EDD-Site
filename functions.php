@@ -611,9 +611,9 @@ function eddwp_is_extension_third_party() {
 	$terms = get_the_terms( $post->ID, 'extension_category' );
 
 	if ( has_term( '3rd Party', 'extension_category', $post->ID ) ) {
-		return false;
-	} else {
 		return true;
+	} else {
+		return false;
 	}
 }
 
