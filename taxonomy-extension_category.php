@@ -8,13 +8,12 @@
  * @author	  Sunny Ratilal
  * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
-
+global $wp_query;
 get_header();
-the_post();
 ?>
 	<section class="main clearfix">
 		<section class="content clearfix">
-			<h1><?php echo ucwords( strip_tags( $_GET['extension_category'] ) ) ?></h1>
+			<h1><?php single_term_title(); ?></h1>
 			<form id="extensions_searchform" class="clearfix" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="get">
 				<fieldset>
 					<input type="search" name="extension_s" value="" />
@@ -56,7 +55,7 @@ the_post();
 					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 					'format' => '?paged=%#%',
 					'current' => max( 1, get_query_var('paged') ),
-					'total' => $extensions->max_num_pages
+					'total' => $wp_query->max_num_pages
 				));
 				?>
 				<div class="clear"></div>
