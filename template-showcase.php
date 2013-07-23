@@ -30,7 +30,7 @@ the_post();
 						'posts_per_page' => 2,
 						'tax_query'      => array(
 							array(
-								'taxonomy' => 'showcase_category',
+								'taxonomy' => 'showcasecategory',
 								'field'    => 'slug',
 								'terms'    => 'featured',
 								'operator' => 'IN'
@@ -66,7 +66,7 @@ the_post();
 						'nopaging' => true,
 						'tax_query' => array(
 							array(
-								'taxonomy' => 'showcase_category',
+								'taxonomy' => 'showcasecategory',
 								'field'    => 'slug',
 								'terms'    => 'featured',
 								'operator' => 'NOT IN'

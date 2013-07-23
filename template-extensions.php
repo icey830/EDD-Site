@@ -41,8 +41,10 @@ the_post();
 							<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
 						</a>
 						<div class="overlay">
-							<a href="<?php the_permalink(); ?>" class="overlay-view-details button">View Details</span>
-							<a href="<?php echo home_url( '/edd-add/' . get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
+							<a href="<?php the_permalink(); ?>" class="overlay-view-details button">View Details</a>
+							<?php if( ! eddwp_is_external_extension() ) : ?>
+								<a href="<?php echo home_url( '/edd-add/' . get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
+							<?php endif; ?>
 						</div>
 						<?php
 						if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) )

@@ -69,8 +69,8 @@ get_header(); ?>
 
 					<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
 						<p class="entry-date"><span><?php the_date(); ?></span></p>
-						<h1><?php the_title(); ?></h2>
-						<?php the_content(); ?>
+						<h2><?php the_title(); ?></h2>
+						<?php the_excerpt(); ?>
 						<div class="post-meta">
 							<ul>
 								<li><i class="icon-user"></i> <?php the_author(); ?></li>

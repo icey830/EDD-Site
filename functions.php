@@ -620,9 +620,12 @@ function eddwp_is_extension_third_party() {
 /**
  * Checks if an extension is hosted off site
  */
-function eddwp_is_external_extension() {
+function eddwp_is_external_extension( $post_id = 0 ) {
 
-	return get_post_meta( get_the_ID(), 'ecpt_is_external', true );
+	if( empty( $post_id ) )
+		$post_id = get_the_ID();
+
+	return (bool) get_post_meta( $post_id, 'ecpt_is_external', true );
 }
 
 /**
