@@ -28,7 +28,7 @@ get_header();
 		<section class="extensions-container">
 			<div class="extensions clearfix">
 				<?php $c = 0; while ( have_posts() ) { the_post(); $c++; ?>
-					<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?>">
+					<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?> <?php if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) ) echo ' third-party-extension'; ?>">
 						<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
 							<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
 							<h2><?php the_title(); ?></h2>
