@@ -1842,3 +1842,69 @@ input#edd-discount,
 		padding-bottom: 0;
 	}
 }
+
+/* ----------------------------- *
+ * Register for Support
+ * ----------------------------- */
+ 
+.rcp_form label {
+	width: 180px;
+
+}
+
+.rcp_form input[type="text"], .rcp_form input[type="password"], .rcp_form input[type="email"] {
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 6px 8px;
+	margin-top: 10px;
+	width: 350px;
+	
+	&:focus {
+		border: 1px solid #2794da;
+		outline: none;
+		-webkit-box-shadow: 0px 0px 3px rgba(40,149,217,0.4);
+		box-shadow: 0px 0px 3px rgba(40,149,217,0.4);
+	}
+}
+
+.rcp_form #rcp_payment_gateways {
+	margin: 20px 0;
+}
+
+.rcp_form #rcp_payment_gateways label {
+	width: auto
+}
+
+#rcp_submit {
+	margin-top: 2px;
+	padding: 4px 14px;
+	background: #2794da;
+	display: inline-block;
+	color: #fff;
+	-webkit-box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
+	box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
+	cursor: pointer;
+	border-radius: 3px;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	line-height: 24px;
+	font-weight: 300;
+	border: 1px solid #287aad;
+
+	&:hover {
+		background: #5ba3cf;
+		color: #fff;
+	}
+
+	&:active {
+		-webkit-box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+		box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+	}
+}
