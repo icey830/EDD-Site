@@ -58,14 +58,6 @@
 			<div class="extensions clearfix">
 				<?php
 
-				$query = array(
-					's' => $q['s'],
-					'post_type' => 'extension',
-					'posts_per_page' => 21,
-					$tax_query,
-					'paged' => isset( $_GET['paged'] ) ? (int) $_GET['paged'] : 1
-				);
-
 				$tax_query = array(
 					'tax_query' => array(
 						array(
@@ -74,6 +66,14 @@
 							'terms' => $q['c']
 						)
 					)
+				);
+					
+				$query = array(
+					's' => $q['s'],
+					'post_type' => 'extension',
+					'posts_per_page' => 21,
+					$tax_query,
+					'paged' => isset( $_GET['paged'] ) ? (int) $_GET['paged'] : 1
 				);
 
 				$s_query = new WP_Query( $query );
