@@ -261,7 +261,19 @@
 	<div class="feature">
 		<h2>Sign up for our newsletter now.</h2>
 		<h3>Be amongst the first to know about important news and upcoming features.</h3>
-		<?php echo do_shortcode( '[mailchimp list="3"]' ); ?>
+		<form id="pmc_mailchimp" action="" method="post">
+			<div class="names clearfix">
+				<input name="pmc_fname" id="pmc_fname" type="text" placeholder="Enter your first name">
+				<input name="pmc_lname" id="pmc_lname" type="text" placeholder="Enter your last name">
+			</div>
+			<div>
+				<input name="pmc_email" id="pmc_email" type="email" placeholder="Enter your email address">
+				<input type="submit" value="Subscribe">
+			</div>
+			<input type="hidden" name="redirect" value="https://easydigitaldownloads.com/">
+			<input type="hidden" name="action" value="pmc_signup">
+			<input type="hidden" name="pmc_list_id" value="be2b495923">
+		</form>
 	</div><!-- /.feature -->
 </section><!-- /.feature-newsletter -->
 
