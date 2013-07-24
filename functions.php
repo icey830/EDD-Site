@@ -16,12 +16,13 @@
  * /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ CONTENTS /\/\/\/\/\/\/\/\/\/\/\/\/\/\//\/\/\/\
  *
  * 1. Theme Setup
- * 2. Stylesheets and JavaScript Files
- * 3. Comments Template
- * 4. Features
- * 5. Custom Actions/Filters
- * 6. Widgets
- * 7. Shortcodes
+ * 2. Includes
+ * 3. Stylesheets and JavaScript Files
+ * 4. Comments Template
+ * 5. Features
+ * 6. Custom Actions/Filters
+ * 7. Widgets
+ * 8. Shortcodes
  *
  * ------------------------------------------------------------------------------- */
 
@@ -55,7 +56,14 @@ function edd_theme_setup() {
 add_action( 'after_setup_theme', 'edd_theme_setup' );
 
 /* ----------------------------------------------------------- *
- * 2. Stylesheets and JavaScript Files
+ * 2. Includes
+ * ----------------------------------------------------------- */
+
+include( dirname(__FILE__) . '/includes/class-fragment-cache.php' );
+
+
+/* ----------------------------------------------------------- *
+ * 3. Stylesheets and JavaScript Files
  * ----------------------------------------------------------- */
 
 /**
@@ -119,7 +127,7 @@ function edd_register_theme_scripts() {
 add_action( 'wp_enqueue_scripts', 'edd_register_theme_scripts' );
 
 /* ----------------------------------------------------------- *
- * 3. Comments Template
+ * 4. Comments Template
  * ----------------------------------------------------------- */
 
 /**
@@ -183,7 +191,7 @@ function eddwp_comment_form() {
 }
 
 /* ----------------------------------------------------------- *
- * 4. Features
+ * 5. Features
  * ----------------------------------------------------------- */
 
 /**
@@ -220,7 +228,7 @@ function edd_register_theme_sidebars() {
 add_action( 'widgets_init', 'edd_register_theme_sidebars' );
 
 /* ----------------------------------------------------------- *
- * 5. Custom Actions/Filters
+ * 6. Custom Actions/Filters
  * ----------------------------------------------------------- */
 
 /**
@@ -489,7 +497,7 @@ add_action( 'edd_after_cc_expiration', 'eddwp_add_security_info' );
 remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
 
 /* ----------------------------------------------------------- *
- * 6. Widgets
+ * 7. Widgets
  * ----------------------------------------------------------- */
 
 /**
@@ -636,7 +644,7 @@ function eddwp_get_external_extension_url() {
 }
 
 /* ----------------------------------------------------------- *
- * 7. Shortcodes
+ * 8. Shortcodes
  * ----------------------------------------------------------- */
 
 /**

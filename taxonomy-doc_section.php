@@ -16,7 +16,6 @@ add_filter( 'body_class', function( $classes ) {
 } );
 
 get_header();
-the_post();
 ?>
 	<section class="main clearfix">
 		<div class="container clearfix">
