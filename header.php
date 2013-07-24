@@ -45,7 +45,13 @@
 			<i class="icon-list"></i>
 
 			<nav id="primary" class="navigation-main" role="navigation">
-				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+				<?php
+				$frag = new CWS_Fragment_Cache( 'edd-primary-nav', 3600 );
+				if ( ! $frag->output() ) {
+					wp_nav_menu( array( 'theme_location' => 'primary' ) );
+					$frag->store();
+				}
+				?>
 			</nav><!-- /#primary -->
 		</header><!-- /.header -->
 	</div><!-- /.header-outer -->
