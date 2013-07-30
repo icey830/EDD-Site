@@ -23,6 +23,7 @@
  * 6. Custom Actions/Filters
  * 7. Widgets
  * 8. Shortcodes
+ * 9. Extensions feed
  *
  * ------------------------------------------------------------------------------- */
 
@@ -349,6 +350,19 @@ function eddwp_extensions_cb() {
 	<?php echo '</div>';
 }
 add_shortcode( 'extensions', 'eddwp_extensions_cb' );
+
+
+function eddwp_button( $atts, $content = null ) {
+	extract( shortcode_atts( array(
+			'link' 	 => '',
+			'target' => '_blank',
+		),
+		$atts, 'eddwp_button' )
+	);
+
+	return '<a href="' . esc_url( $link ) . '" target="' . esc_attr( $target ) . '" class="edd-submit button blue">' . $content . '</a>';
+}
+add_shortcode( 'button', 'eddwp_button' );
 
 /**
  * Add the rewrite tag for the extensions search
@@ -861,3 +875,34 @@ function eddwp_post_grid( $atts ) {
 	return ob_get_clean();
 }
 add_shortcode( 'post_grid', 'eddwp_post_grid' );
+
+
+/* ----------------------------------------------------------- *
+ * 1. Theme Setup
+ * ----------------------------------------------------------- */
+
+function eddwp_register_extensions_feed() {
+	add_feed('extensions', 'edd_extensions_feed');
+}
+add_action( 'init', 'eddwp_register_extensions_feed' );
+
+function edd_extensions_feed() {
+	load_template( STYLESHEETPATH . '/extension-feed.php');
+}
+add_action('do_feed_extensions', 'edd_extensions_feed', 10, 1);
+
+function custom_feed_rewrite($wp_rewrite) {
+	$feed_rules = array(
+		'feed/(.+)' => 'index.php?feed=' . $wp_rewrite->preg_index(1),
+		'(.+).xml' => 'index.php?feed='. $wp_rewrite->preg_index(1)
+	);
+	$wp_rewrite->rules = $feed_rules + $wp_rewrite->rules;
+}
+add_filter('generate_rewrite_rules', 'custom_feed_rewrite');
+
+function edd_feed_request($qv) {
+	if (isset($qv['feed']) && $qv['feed'] == 'extensions')
+		$qv['post_type'] = 'extension';
+	return $qv;
+}
+add_filter('request', 'edd_feed_request');
