@@ -511,6 +511,13 @@ add_action( 'edd_after_cc_expiration', 'eddwp_add_security_info' );
  */
 remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
 
+/**
+ * Disable WordPress Admin Bar on Mobile
+ */
+if ( wp_is_mobile() ) {
+	show_admin_bar( false );
+}
+
 /* ----------------------------------------------------------- *
  * 7. Widgets
  * ----------------------------------------------------------- */
@@ -654,7 +661,6 @@ function eddwp_is_external_extension( $post_id = 0 ) {
  * Gets the external extension URL
  */
 function eddwp_get_external_extension_url() {
-
 	return get_post_meta( get_the_ID(), 'ecpt_externalurl', true );
 }
 
