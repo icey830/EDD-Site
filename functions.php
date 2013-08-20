@@ -49,6 +49,7 @@ function edd_theme_setup() {
 
 	add_image_size( 'showcase', 320, 200, true );
 	add_image_size( 'featured-showcase', 460, 330, true );
+	add_image_size( 'extension', 180, 150, true );
 
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'edd' ),
@@ -901,8 +902,17 @@ function custom_feed_rewrite($wp_rewrite) {
 add_filter('generate_rewrite_rules', 'custom_feed_rewrite');
 
 function edd_feed_request($qv) {
-	if (isset($qv['feed']) && $qv['feed'] == 'extensions')
+	if (isset($qv['feed']) && $qv['feed'] == 'extensions') {
 		$qv['post_type'] = 'extension';
+	}
 	return $qv;
 }
 add_filter('request', 'edd_feed_request');
+
+function edd_feed_query( $query ) {
+	if( $query->is_feed && $query->query_vars['feed'] == 'extensions' ) {
+		$query->set( 'posts_per_page', 200 );
+	}
+	return $query;
+}
+add_filter('pre_get_posts', 'edd_feed_query', 999);
