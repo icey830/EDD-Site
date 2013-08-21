@@ -141,13 +141,21 @@
 					<div class="bbp-submit-wrapper">
 
 						<?php do_action( 'bbp_theme_before_reply_form_submit_button' ); ?>
-						
+
 						<?php
-						if ( current_user_can( 'moderate' ) && ! bbp_is_reply_edit() ) {
+						$topic_id = bbp_get_topic_id();
+
+						$status = get_post_meta( $topic_id, '_bbps_topic_status', true );
+
+						if ( current_user_can( 'moderate' ) && ! bbp_is_reply_edit() && $status == 1 ) {
 							?>
 							<button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_reply_close" name="bbp_reply_close" class="button submit">Reply and Resolve</button>
 							<?php
-						} // end if
+						} elseif ( current_user_can( 'moderate' ) && ! bbp_is_reply_edit() && $status == 2 ) {
+							?>
+							<button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_reply_open" name="bbp_reply_open" class="button submit">Reply and Reopen</button>
+							<?php
+						}
 						?>
 
 						<button type="submit" tabindex="<?php bbp_tab_index(); ?>" id="bbp_reply_submit" name="bbp_reply_submit" class="button submit"><?php _e( 'Submit', 'bbpress' ); ?></button>
