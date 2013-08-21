@@ -29,7 +29,9 @@ get_header(); ?>
 							?>
 							<li><i class="icon-tag"></i> <?php echo get_the_tag_list( '', __( ', ', 'edd' ) ); ?></li>
 							<?php } // end if ?>
+							<?php if ( comments_open() ) { ?>
 							<li><i class="icon-comments-alt"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), __( '% Comments', 'edd' ), '', ''); ?></span></li>
+							<?php } // end if ?>
 						</ul>
 					</div>
 				</article>
