@@ -885,40 +885,41 @@ add_shortcode( 'post_grid', 'eddwp_post_grid' );
 
 
 /* ----------------------------------------------------------- *
- * 1. Theme Setup
+ * 9. Extensions Feed
  * ----------------------------------------------------------- */
 
 function eddwp_register_extensions_feed() {
-	add_feed('extensions', 'edd_extensions_feed');
+	add_feed( 'extensions', 'edd_extensions_feed' );
 }
 add_action( 'init', 'eddwp_register_extensions_feed' );
 
-function edd_extensions_feed() {
+function eddwp_extensions_feed() {
 	load_template( STYLESHEETPATH . '/extension-feed.php');
 }
-add_action('do_feed_extensions', 'edd_extensions_feed', 10, 1);
+add_action( 'do_feed_extensions', 'eddwp_extensions_feed', 10, 1 );
 
-function custom_feed_rewrite($wp_rewrite) {
+function eddwp_feed_rewrite( $wp_rewrite ) {
 	$feed_rules = array(
-		'feed/(.+)' => 'index.php?feed=' . $wp_rewrite->preg_index(1),
-		'(.+).xml' => 'index.php?feed='. $wp_rewrite->preg_index(1)
+		'feed/(.+)' => 'index.php?feed=' . $wp_rewrite->preg_index( 1 ),
+		'(.+).xml'  => 'index.php?feed=' . $wp_rewrite->preg_index( 1 )
 	);
+
 	$wp_rewrite->rules = $feed_rules + $wp_rewrite->rules;
 }
-add_filter('generate_rewrite_rules', 'custom_feed_rewrite');
+add_filter( 'generate_rewrite_rules', 'eddwp_feed_rewrite' );
 
-function edd_feed_request($qv) {
-	if (isset($qv['feed']) && $qv['feed'] == 'extensions') {
+function eddwp_feed_request($qv) {
+	if ( isset( $qv['feed'] ) && 'extensions' == $qv['feed'] )
 		$qv['post_type'] = 'extension';
-	}
+
 	return $qv;
 }
-add_filter('request', 'edd_feed_request');
+add_filter( 'request', 'eddwp_feed_request' );
 
-function edd_feed_query( $query ) {
-	if( $query->is_feed && $query->query_vars['feed'] == 'extensions' ) {
+function eddwp_feed_query( $query ) {
+	if ( $query->is_feed && $query->query_vars['feed'] == 'extensions' ) {
 		$query->set( 'posts_per_page', 200 );
 	}
 	return $query;
 }
-add_filter('pre_get_posts', 'edd_feed_query', 999);
+add_filter( 'pre_get_posts', 'eddwp_feed_query', 999 );
