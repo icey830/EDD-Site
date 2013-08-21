@@ -84,6 +84,12 @@ get_header();
 					<p>Easy Digital Downloads will never lock your data in. With our simple export options, you can easily send all sales, earnings, and customer data to Excell, Google Docs, or any other reporting system of your choice.</p>
 				</div>
 			</div>
+			<div class="inner-feature">
+				<div class="inside">
+					<h3 style="text-align: center">Start your online store now</h3>
+					<p style="text-align: center"><a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip" class="download-button"><i class="icon-cloud-download"></i> Download</a></p>
+				</div>
+			</div>
 		</div>
 	</div><!-- /.feature -->
 </section><!-- /.feature-taxes -->
