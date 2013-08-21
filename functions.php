@@ -518,6 +518,38 @@ if ( wp_is_mobile() ) {
 	show_admin_bar( false );
 }
 
+/**
+ * Send a Pushover Notification when a moderator is assigned to a topic
+ */
+function eddwp_send_pushover_notification_on_assignment() {
+	if ( isset( $_POST['bbps_support_topic_assign'] ) ) {
+		$user_id  = absint( $_POST['bbps_assign_list'] );
+
+		$topic = bbp_get_topic( $_POST['bbps_topic_id'] );
+
+		if ( $user_id > 0 && $user_id != get_current_user_id() ) {
+			$title = __( 'Easy Digital Downloads: A forum topic has been assigned to you', 'eddwp' );
+			$message = sprintf( __( 'You have been assigned to %1$s by another moderator', 'eddwp' ), $topic->post_title );
+			$user_push_key = get_user_meta( $user_id, 'ckpn_user_key', true );
+
+			$url  = $topic->guid;
+			$url_title = __( 'View Topic', 'eddwp' );
+
+			$args = array(
+				'title' => $title,
+				'message' => $message,
+				'user' => $user_push_key,
+				'url' => $url,
+				'url_title' => $url_title
+			);
+
+			ckpn_send_notification( $args );
+		}
+	}
+}
+add_action( 'init', 'eddwp_send_pushover_notification_on_assignment' );
+
+
 /* ----------------------------------------------------------- *
  * 7. Widgets
  * ----------------------------------------------------------- */
