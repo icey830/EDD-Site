@@ -535,18 +535,20 @@ function eddwp_send_pushover_notification_on_assignment() {
 			$message = sprintf( __( 'You have been assigned to %1$s by another moderator', 'eddwp' ), $topic->post_title );
 			$user_push_key = get_user_meta( $user_id, 'ckpn_user_key', true );
 
-			$url       = $topic->guid;
-			$url_title = __( 'View Topic', 'eddwp' );
+			if( $user_push_key ) {
+				$url       = $topic->guid;
+				$url_title = __( 'View Topic', 'eddwp' );
 
-			$args = array(
-				'title' => $title,
-				'message' => $message,
-				'user' => $user_push_key,
-				'url' => $url,
-				'url_title' => $url_title
-			);
+				$args = array(
+					'title' => $title,
+					'message' => $message,
+					'user' => $user_push_key,
+					'url' => $url,
+					'url_title' => $url_title
+				);
 
-			ckpn_send_notification( $args );
+				ckpn_send_notification( $args );
+			}
 		}
 	}
 }

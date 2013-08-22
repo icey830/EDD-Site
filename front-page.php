@@ -19,7 +19,7 @@ get_header();
 			<div class="hero-text">
 				<h1>Say hello to the world's easiest way to sell digital downloads through WordPress</h1>
 				<h2>for free</h2>
-				<p><a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip" class="download-button"><i class="icon-cloud-download"></i> Download</a> <a href="https://easydigitaldownloads.com/demo/" target="_blank" class="download-button demo-button"><i class="icon-eye-open"></i> Demo</a></p>
+				<p><a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button" class="download-button"><i class="icon-cloud-download"></i> Download</a> <a href="https://easydigitaldownloads.com/demo/" target="_blank" class="download-button demo-button"><i class="icon-eye-open"></i> Demo</a></p>
 			</div><!-- /.hero-text -->
 			<img src="<?php echo get_template_directory_uri(); ?>/images/edd-standing.png" />
 		</div><!-- .hero-inside -->
@@ -87,7 +87,7 @@ get_header();
 			<div class="inner-feature">
 				<div class="inside">
 					<h3 style="text-align: center">Start your online store now</h3>
-					<p style="text-align: center"><a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip" class="download-button"><i class="icon-cloud-download"></i> Download</a></p>
+					<p style="text-align: center"><a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_3&utm_campaign=Download+Button" class="download-button"><i class="icon-cloud-download"></i> Download</a></p>
 				</div>
 			</div>
 		</div>
