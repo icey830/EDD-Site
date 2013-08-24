@@ -926,7 +926,7 @@ add_shortcode( 'post_grid', 'eddwp_post_grid' );
  * ----------------------------------------------------------- */
 
 function eddwp_register_extensions_feed() {
-	add_feed( 'extensions', 'edd_extensions_feed' );
+	add_feed( 'extensions', 'eddwp_extensions_feed' );
 }
 add_action( 'init', 'eddwp_register_extensions_feed' );
 
