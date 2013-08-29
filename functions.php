@@ -74,9 +74,13 @@ include( dirname(__FILE__) . '/includes/class-fragment-cache.php' );
 function edd_register_theme_scripts() {
 	$deps = array( 'roboto-font' );
 
-	if ( is_bbpress() || is_page( 'support' ) ) {
-		$deps[] = 'bbp-default-bbpress';
-	} elseif ( is_page( 'your-account' ) ) {
+	if( function_exists( 'is_bbpress' ) ) {
+		if ( is_bbpress() || is_page( 'support' ) ) {
+			$deps[] = 'bbp-default-bbpress';
+		}
+	}
+
+	if ( is_page( 'your-account' ) ) {
 		$deps[] = 'bootstrap';
 	}
 
@@ -111,7 +115,7 @@ function edd_register_theme_scripts() {
 	wp_dequeue_style( 'sharedaddy' );
 	wp_dequeue_style( 'edd-styles' );
 
-	if ( is_bbpress() || is_page( 'support' ) ) {
+	if ( function_exists( 'is_bbpress' ) && is_bbpress() || is_page( 'support' ) ) {
 		wp_enqueue_style( 'bbp-default-bbpress', trailingslashit( bbPress()->themes_url . 'default' ) . 'css/bbpress.css', array(), bbp_get_version(), 'screen' );
 	}
 
@@ -406,7 +410,7 @@ function eddwp_body_class( $classes ) {
 	if ( is_category() || is_tag() || is_author() || is_day() || is_month() || is_year() )
 		$classes[] = 'blog';
 
-	if ( bbp_is_single_user() )
+	if ( function_exists( 'bbp_is_single_user' ) && bbp_is_single_user() )
 		$classes[] = 'full-width no-sidebar';
 
 	return $classes;
