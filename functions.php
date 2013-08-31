@@ -395,6 +395,12 @@ add_action( 'init', 'eddwp_process_rewrites' );
 function eddwp_body_class( $classes ) {
 	global $post;
 
+	$user_agent = $_SERVER['HTTP_USER_AGENT'];
+
+	if ( preg_match( '/Firefox/i', $user_agent ) ) {
+		$classes[] = 'firefox';
+	}
+
 	if ( isset( $_GET['extension_s'] ) )
 		$classes[] = 'extension-search';
 
