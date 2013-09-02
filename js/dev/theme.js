@@ -220,5 +220,16 @@
 			}
 			return false;
 		});
+
+        // Support Admin
+        $('#wp-admin-bar-assigned_tickets').click(function(){
+            $('#TB_overlay, #TB_window').toggle();
+            return false;
+        });
+
+        $('#TB_overlay').click(function() {
+            $('#TB_overlay, #TB_window').toggle();
+            return false;
+        });
     });
 }(jQuery));
