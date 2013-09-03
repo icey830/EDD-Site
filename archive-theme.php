@@ -19,6 +19,36 @@ get_header();
 		</section><!-- /.content -->
 
 		<section class="themes-container">
+			<?php
+			$featured_showcases = new WP_Query(
+				array(
+					'post_type'      => 'showcase',
+					'posts_per_page' => 2,
+					'tax_query'      => array(
+						array(
+							'taxonomy' => 'showcasecategory',
+							'field'    => 'slug',
+							'terms'    => 'featured',
+							'operator' => 'IN'
+						)
+					)
+				)
+			);
+
+			while ( $featured_showcases->have_posts() ) : $featured_showcases->the_post(); ?>
+				<div class="featured-theme">
+					<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
+						<?php the_post_thumbnail( 'featured-showcase' ); ?>
+					</a>
+					<a class="overlay" href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
+						<?php the_title(); ?>
+						<span class="button">View Details</span>
+					</a><!-- /.text-overlay -->
+				</div><!-- /.featured-site -->
+				<?php
+			endwhile;
+			wp_reset_postdata(); ?>
+
 			<div class="themes clearfix">
 				<?php
 				$c = 0; while ( have_posts() ) { the_post(); $c++;

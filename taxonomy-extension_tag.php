@@ -29,13 +29,13 @@ get_header();
 			<div class="extensions clearfix">
 				<?php $c = 0; while ( have_posts() ) { the_post(); $c++; ?>
 					<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?>">
-						<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
+						<a href="<?php echo home_url( '/extensions/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
 							<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
 							<h2><?php the_title(); ?></h2>
 							<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
 						</a>
 						<div class="overlay">
-							<a href="<?php the_permalink(); ?>" class="overlay-view-details button">View Details</a>
+							<a href="<?php echo home_url( '/extensions/' . $post->post_name ); ?>" class="overlay-view-details button">View Details</a>
 							<?php if( ! eddwp_is_external_extension() ) : ?>
 								<a href="<?php echo home_url( '/edd-add/' . get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
 							<?php endif; ?>
