@@ -996,3 +996,12 @@ function edd_bbp_action_links_dropdown() {
 	<?php
 }
 add_action( 'bbp_theme_before_reply_admin_links', 'edd_bbp_action_links_dropdown' );
+
+
+function eddwp_themes_pre_get_posts( $query ) {
+	if ( $query->is_archive() && $query->is_main_query() && $query->query_vars['post_type'] == 'theme' ) {
+		$query->set( 'orderby', 'menu_order' );
+		$query->set( 'order', 'ASC' );
+	}
+}
+add_action( 'pre_get_posts', 'eddwp_themes_pre_get_posts', 999 );
