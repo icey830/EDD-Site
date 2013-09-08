@@ -10,6 +10,10 @@
  */
 ?>
 
+	<?php
+	$footer_cache = new CWS_Fragment_Cache( 'edd-footer', 3600 );
+	if ( ! $footer_cache->output() ) : ob_start();
+	?>
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="container">
 			<img src="<?php echo get_template_directory_uri(); ?>/images/edd-sitting.png" />
@@ -42,6 +46,11 @@
 			<p class="copyright">Copyright &copy; 2013, Easy Digital Downloads. A project by <a href="<?php echo esc_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.</p>
 		</div><!-- .container -->
 	</footer><!-- #colophon -->
+	<?php
+	echo ob_get_clean();
+	$footer_cache->store();
+	endif;
+	?>
 
 	<?php wp_footer(); ?>
 
