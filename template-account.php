@@ -45,7 +45,8 @@
 				</div><!-- /.tab-pane -->
 
 				<div class="tab-pane" id="tab3">
-					<?php echo eddc_user_commissions(); ?>
+					<?php if( function_exists( 'eddc_user_product_list' ) ) { echo eddc_user_product_list(); } ?>
+					<?php if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); } ?>
 				</div><!-- /.tab-pane -->
 
 				<div class="tab-pane" id="tab4">
