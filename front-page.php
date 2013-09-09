@@ -38,6 +38,9 @@ get_header();
 /* ----------------------------- *
  * Features
  * ----------------------------- */
+
+$feature_cache = new CWS_Fragment_Cache( 'edd-homepage-features', 43200 );
+if ( ! $feature_cache->output() ) : ob_start();
 ?>
 <section class="featureset clearfix feature-overview">
 	<div class="feature">
@@ -93,6 +96,11 @@ get_header();
 		</div>
 	</div><!-- /.feature -->
 </section><!-- /.feature-taxes -->
+<?php
+echo ob_get_clean();
+$feature_cache->store();
+endif;
+?>
 
 <?php
 /* ----------------------------- *
@@ -154,6 +162,9 @@ get_header();
 /* ----------------------------- *
  * iOS App
  * ----------------------------- */
+
+$edd_homepage_section_two = new CWS_Fragment_Cache( 'edd-homepage-section-two', 43200 );
+if ( ! $edd_homepage_section_two->output() ) : ob_start();
 ?>
 <section class="featureset clearfix feature-ios">
 	<div class="feature">
@@ -219,6 +230,11 @@ get_header();
 		<i class="icon-group"></i>
 	</div><!-- /.feature -->
 </section><!-- /.feature-support -->
+<?php
+echo ob_get_clean();
+$edd_homepage_section_two->store();
+endif;
+?>
 
 <?php
 /* ----------------------------- *
