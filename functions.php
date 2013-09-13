@@ -417,11 +417,11 @@ function eddwp_body_class( $classes ) {
 	if ( is_category() || is_tag() || is_author() || is_day() || is_month() || is_year() )
 		$classes[] = 'blog';
 
-	if ( function_exists( 'bbp_is_single_user' ) && bbp_is_single_user() )
-		$classes[] = 'full-width no-sidebar';
-
-	if ( isset( $_GET['s_type'] ) ) {
+	if ( isset( $_GET['s_type'] ) && isset( $_GET['doc_s'] ) ) {
 		unset( $classes['blog'] );
+		$classes[] = 'search';
+		$classes[] = 'documentation';
+		$classes[] = 'documentation-search';
 	}
 
 	return $classes;

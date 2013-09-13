@@ -21,27 +21,21 @@ global $post;
 
 $originalPost = $post;
 
+$search = isset( $_GET['doc_s'] ) ? $_GET['doc_s'] : '';
+
 $engine = SearchWP::instance();
 // perform the search
-$posts = $engine->search( 'documentation', get_search_query(), 1 );
+$posts = $engine->search( 'documentation', $search, 1 );
 
 ?>
 	<section class="main clearfix">
 		<div class="container clearfix">
 			<aside class="sidebar doc-search-sidebar">
-				<aside id="search-wp-widget" class="widget widget_doc_search">
-					<div class="search-widet-wrap">
-						<form method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
-							<input type="search" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'edd' ); ?>" />
-							<input type="hidden" name="s_type" value="doc" />
-							<input type="submit" class="submit" id="searchsubmit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'edd' ); ?>" />
-						</form>
-					</div>
-				</aside>
+				<?php get_template_part( 'docs', 'search-form' ); ?>
 				<?php dynamic_sidebar( 'documentation-sidebar' ); ?>
 			</aside><!-- /.sidebar -->
 
-			<h1>Search results for: <span class="search-query"><?php the_search_query(); ?></span></h1>
+			<h1>Search results for: <span class="search-query"><?php $search; ?></span></h1>
 
 			<section class="content">
 				<?php if( ! empty( $posts ) ) : ?>
