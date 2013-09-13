@@ -20,6 +20,15 @@ get_header();
 	<section class="main clearfix">
 		<div class="container clearfix">
 			<aside class="sidebar">
+				<aside id="search-wp-widget" class="widget widget_doc_search">
+					<div class="search-widet-wrap">
+						<form method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
+							<input type="search" class="field" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" id="s" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'edd' ); ?>" />
+							<input type="hidden" name="s_type" value="doc" />
+							<input type="submit" class="submit" id="searchsubmit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'edd' ); ?>" />
+						</form>
+					</div>
+				</aside>
 				<?php dynamic_sidebar( 'documentation-sidebar' ); ?>
 			</aside><!-- /.sidebar -->
 

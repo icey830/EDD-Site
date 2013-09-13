@@ -62,6 +62,7 @@ add_action( 'after_setup_theme', 'edd_theme_setup' );
  * ----------------------------------------------------------- */
 
 include( dirname(__FILE__) . '/includes/class-fragment-cache.php' );
+include( dirname(__FILE__) . '/includes/query-filters.php' );
 
 
 /* ----------------------------------------------------------- *
@@ -418,6 +419,10 @@ function eddwp_body_class( $classes ) {
 
 	if ( function_exists( 'bbp_is_single_user' ) && bbp_is_single_user() )
 		$classes[] = 'full-width no-sidebar';
+
+	if ( isset( $_GET['s_type'] ) ) {
+		unset( $classes['blog'] );
+	}
 
 	return $classes;
 }
