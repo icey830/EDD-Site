@@ -3227,12 +3227,17 @@ input#edd-discount:focus,
 /* ----------------------------- *
  * Documentation
  * ----------------------------- */
-.documentation .sidebar {
+.documentation .sidebar,
+.doc-search-sidebar {
   float: left;
   margin-right: 20px;
+  margin-left: 0!important;
   width: 240px;
   background: #fff;
   padding: 20px;
+}
+.documentation .doc-search-sidebar #s {
+  width: 115px;
 }
 .documentation .sidebar h3 {
   text-transform: uppercase;
@@ -3301,21 +3306,21 @@ input#edd-discount:focus,
 .type-docs h3 a {
   color: #232527;
 }
-.documentation.tax-doc_section .main .content {
+.documentation .main .content {
   background: transparent;
   padding: 0;
 }
-.documentation.tax-doc_section .main .content h1 {
+.documentation .main .content h1 {
   background: #fff;
   padding: 20px;
   margin-bottom: 20px;
 }
-.documentation.tax-doc_section .main .content .type-docs {
+.documentation .main .content .type-docs {
   padding: 20px;
   background: #fff;
   margin-bottom: 20px;
 }
-.documentation.tax-doc_section .main .content .type-docs h3 {
+.documentation .main .content .type-docs h3 {
   margin-top: 0;
 }
 /* ----------------------------- *

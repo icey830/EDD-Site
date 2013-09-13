@@ -35,7 +35,7 @@ $posts = $engine->search( 'documentation', $search, 1 );
 				<?php dynamic_sidebar( 'documentation-sidebar' ); ?>
 			</aside><!-- /.sidebar -->
 
-			<h1>Search results for: <span class="search-query"><?php $search; ?></span></h1>
+			<h1>Search results for: <span class="search-query"><?php echo $search; ?></span></h1>
 
 			<section class="content">
 				<?php if( ! empty( $posts ) ) : ?>
