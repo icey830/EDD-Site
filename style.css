@@ -3318,6 +3318,25 @@ input#edd-discount:focus,
 .documentation .main .content .type-docs h3 {
   margin-top: 0;
 }
+.archive.documentation .main .content,
+.search.documentation .main .content {
+  background: transparent;
+  padding: 0;
+}
+.archive.documentation .main .content h1,
+.search.documentation .main .content h1 {
+  padding: 20px;
+}
+.archive.documentation .main .content .type-docs,
+.search.documentation .main .content .type-docs {
+  padding: 20px;
+  background: #fff;
+  margin-bottom: 20px;
+}
+.archive.documentation .main .content .type-docs h3,
+.search.documentation .main .content .type-docs h3 {
+  margin-top: 0;
+}
 /* ----------------------------- *
  * Support Pricing
  * ----------------------------- */
