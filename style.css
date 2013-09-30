@@ -346,6 +346,13 @@ a:focus {
 .social-buttons br {
   display: none;
 }
+/* Simple Notices */
+#notification-area h3 {
+  display: none;
+}
+#notification-area .remove-notice {
+  margin: 0;
+}
 /*
  * Typography
  * Copyright (c) 2013, Sunny Ratilal.
@@ -2139,13 +2146,8 @@ div.sharedaddy .sd-content {
   margin-top: 5%;
 }
 .feature-75252 img {
-  position: relative;
   top: 40px;
-}
-.feature-75252 img {
   position: relative;
-  left: 50%;
-  margin-left: -400px;
 }
 #feature-edd {
   padding: 0;
