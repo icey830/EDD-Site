@@ -19,7 +19,17 @@ get_header();
 			<div class="hero-text">
 				<h1>Say hello to the world's easiest way to sell digital downloads through WordPress</h1>
 				<h2>for free</h2>
-				<p><a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button" class="download-button"><i class="icon-cloud-download"></i> Download</a> <a href="https://easydigitaldownloads.com/demo/" target="_blank" class="download-button demo-button"><i class="icon-eye-open"></i> Demo</a></p>
+				<p>
+					<?php
+					$text = '<a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button" class="download-button"><i class="icon-cloud-download"></i> Download</a>&nbsp;';
+					//if( function_exists( 'ab_press_optimizer' ) ) {
+					//	echo ab_press_optimizer( 1, $text );
+					//} else {
+						echo $text;
+					//}
+					?>
+					<a href="https://easydigitaldownloads.com/demo/" target="_blank" class="download-button demo-button"><i class="icon-eye-open"></i> Demo</a>
+				</p>
 			</div><!-- /.hero-text -->
 			<img src="<?php echo get_template_directory_uri(); ?>/images/edd-standing.png" />
 		</div><!-- .hero-inside -->
@@ -39,8 +49,6 @@ get_header();
  * Features
  * ----------------------------- */
 
-$feature_cache = new CWS_Fragment_Cache( 'edd-homepage-features', 43200 );
-if ( ! $feature_cache->output() ) : ob_start();
 ?>
 <section class="featureset clearfix feature-overview">
 	<div class="feature">
@@ -90,22 +98,29 @@ if ( ! $feature_cache->output() ) : ob_start();
 			<div class="inner-feature">
 				<div class="inside">
 					<h3 style="text-align: center">Start your online store now</h3>
-					<p style="text-align: center"><a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_3&utm_campaign=Download+Button" class="download-button"><i class="icon-cloud-download"></i> Download</a></p>
+					<p style="text-align: center">
+						<?php
+						$text = '<a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button" class="download-button"><i class="icon-cloud-download"></i> Download</a>;';
+						//if( function_exists( 'ab_press_optimizer' ) ) {
+						//	echo ab_press_optimizer( 2, $text );
+						//} else {
+							echo $text;
+						//}
+						?>
+					</p>
 				</div>
 			</div>
 		</div>
 	</div><!-- /.feature -->
 </section><!-- /.feature-taxes -->
-<?php
-echo ob_get_clean();
-$feature_cache->store();
-endif;
-?>
+
 
 <?php
 /* ----------------------------- *
  * Extensions
  * ----------------------------- */
+$extension_cache = new CWS_Fragment_Cache( 'edd-homepage-extensions', 7200 );
+if ( ! $extension_cache->output() ) : ob_start();
 ?>
 <section class="featureset clearfix feature-extensions">
 	<div class="feature clearfix">
@@ -159,12 +174,13 @@ endif;
 </section><!-- /.feature-extensions -->
 
 <?php
+echo ob_get_clean();
+$extension_cache->store();
+endif;
+
 /* ----------------------------- *
  * iOS App
  * ----------------------------- */
-
-$edd_homepage_section_two = new CWS_Fragment_Cache( 'edd-homepage-section-two', 43200 );
-if ( ! $edd_homepage_section_two->output() ) : ob_start();
 ?>
 <section class="featureset clearfix feature-ios">
 	<div class="feature">
@@ -230,12 +246,6 @@ if ( ! $edd_homepage_section_two->output() ) : ob_start();
 		<i class="icon-group"></i>
 	</div><!-- /.feature -->
 </section><!-- /.feature-support -->
-<?php
-echo ob_get_clean();
-$edd_homepage_section_two->store();
-endif;
-?>
-
 <?php
 /* ----------------------------- *
  * >100k downloads
