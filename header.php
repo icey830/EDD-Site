@@ -46,11 +46,7 @@
 
 			<nav id="primary" class="navigation-main" role="navigation">
 				<?php
-				$frag = new CWS_Fragment_Cache( 'edd-primary-nav', 3600 );
-				if ( ! $frag->output() ) {
 					wp_nav_menu( array( 'theme_location' => 'primary' ) );
-					$frag->store();
-				}
 				?>
 			</nav><!-- /#primary -->
 		</header><!-- /.header -->
