@@ -14,18 +14,7 @@ global $wp_query;
 get_header();
 ?>
 	<section class="main clearfix">
-		<section class="content clearfix">
-			<h1>Extensions</h1>
-			<form id="extensions_searchform" class="clearfix" action="<?php echo home_url( 'extensions' ); ?>" method="get">
-				<fieldset>
-					<input type="search" name="extension_s" value="" />
-					<input type="submit" value="Search" />
-					<input type="hidden" name="action" value="extension_search" />
-				</fieldset>
-			</form><!-- /#extensions_searchform -->
-			<div class="clearfix"></div>
-			<?php echo eddwp_extenstion_cats_shortcode(); ?>
-		</section><!-- /.content -->
+		<?php get_template_part( 'extensions', 'header' ); ?>
 
 		<section class="extensions-container">
 			<div class="extensions clearfix">
