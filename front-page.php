@@ -100,7 +100,7 @@ get_header();
 					<h3 style="text-align: center">Start your online store now</h3>
 					<p style="text-align: center">
 						<?php
-						$text = '<a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button" class="download-button"><i class="icon-cloud-download"></i> Download</a>;';
+						$text = '<a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button" class="download-button"><i class="icon-cloud-download"></i> Download</a>';
 						//if( function_exists( 'ab_press_optimizer' ) ) {
 						//	echo ab_press_optimizer( 2, $text );
 						//} else {
