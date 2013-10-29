@@ -91,15 +91,15 @@
 			<tbody>
 				<?php do { ?>
 
-				<?php $tickets->the_post(); ?>
+					<?php $tickets->the_post(); ?>
 
-				<?php $parent = get_post_field( 'post_parent', get_the_ID() ); ?>
+					<?php $parent = get_post_field( 'post_parent', get_the_ID() ); ?>
 
-				<tr>
-					<td><?php if ( $parent == 499 ) : ?><strong>Priority:</strong> <?php endif; ?> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></td>
-					<td><?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ?> ago</td>
-					<td><?php if ( function_exists( 'bbpress' ) ) { echo bbp_get_topic_freshness_link( $tickets->post_ID ); } ?></td>
-				</tr>
+					<tr>
+						<td><?php if ( $parent == 499 ) : ?><strong>Priority:</strong> <?php endif; ?> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></td>
+						<td><?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ?> ago</td>
+						<td><?php if ( function_exists( 'bbpress' ) ) { echo bbp_get_topic_freshness_link( $tickets->post_ID ); } ?></td>
+					</tr>
 
 				<?php } while ( $tickets->have_posts() ); wp_reset_postdata(); ?>
 			</tbody>
