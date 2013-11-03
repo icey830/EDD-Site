@@ -13,4 +13,7 @@
 	</div>
 	<div class="clearfix"></div>
 	<?php echo eddwp_extenstion_cats_shortcode(); ?>
+	<a href="<?php echo home_url( '/?extension=core-extensions-bundle&ref=1' ); ?>">
+		<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/banner-ceb.png" title="Core Extensions Bundle" alt="Core Extensions Bundle banner"/>
+	</a>
 </section><!-- /.content -->

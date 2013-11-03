@@ -21,7 +21,8 @@ get_header();
 				<?php
 				$text = "Say hello to the world's easiest way to sell digital downloads through WordPress";
 				if( function_exists( 'ab_press_optimizer' ) ) {
-					echo ab_press_optimizer( 3, $text );
+					//echo ab_press_optimizer( 3, $text );
+					echo $text;
 				} else {
 					echo $text;
 				}
