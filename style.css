@@ -353,6 +353,16 @@ a:focus {
 #notification-area .remove-notice {
   margin: 0;
 }
+/* Core extensions bundle */
+#in-bundle-extensions {
+  margin: 0 0 30px;
+  padding: 0;
+}
+#in-bundle-extensions li {
+  width: 33%;
+  height: 25px;
+  display: inline-block;
+}
 /*
  * Typography
  * Copyright (c) 2013, Sunny Ratilal.
@@ -3196,11 +3206,6 @@ input#edd-discount:focus,
 }
 #edd_checkout_form_wrap input.edd-input {
   width: 50% !important;
-}
-#edd_purchase_form_wrap #edd_terms_agreement {
-  border: none;
-  padding: 0;
-  margin: 0;
 }
 #edd_checkout_form_wrap input#eddmc_mailchimp_signup {
   float: none;

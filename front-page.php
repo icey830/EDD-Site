@@ -17,17 +17,27 @@ get_header();
 	<section class="hero clearfix">
 		<div class="hero-inside">
 			<div class="hero-text">
-				<h1>Say hello to the world's easiest way to sell digital downloads through WordPress</h1>
+				<h1>
+				<?php
+				$text = "Say hello to the world's easiest way to sell digital downloads through WordPress";
+				if( function_exists( 'ab_press_optimizer' ) ) {
+					echo ab_press_optimizer( 3, $text );
+				} else {
+					echo $text;
+				}
+				?>
+				</h1>
 				<h2>for free</h2>
 				<p>
+					<a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button" class="download-button"><i class="icon-cloud-download"></i> 
 					<?php
-					$text = '<a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button" class="download-button"><i class="icon-cloud-download"></i> Download</a>&nbsp;';
-					//if( function_exists( 'ab_press_optimizer' ) ) {
-					//	echo ab_press_optimizer( 1, $text );
-					//} else {
+					$text = 'Download';
+					if( function_exists( 'ab_press_optimizer' ) ) {
+						//echo ab_press_optimizer( 1, $text );
 						echo $text;
-					//}
-					?>
+					} else {
+					}
+					?></a>&nbsp;
 					<a href="https://easydigitaldownloads.com/demo/" target="_blank" class="download-button demo-button"><i class="icon-eye-open"></i> Demo</a>
 				</p>
 			</div><!-- /.hero-text -->
@@ -101,11 +111,11 @@ get_header();
 					<p style="text-align: center">
 						<?php
 						$text = '<a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button" class="download-button"><i class="icon-cloud-download"></i> Download</a>;';
-						//if( function_exists( 'ab_press_optimizer' ) ) {
-						//	echo ab_press_optimizer( 2, $text );
-						//} else {
+						if( function_exists( 'ab_press_optimizer' ) ) {
+							//echo ab_press_optimizer( 2, $text );
 							echo $text;
-						//}
+						} else {
+						}
 						?>
 					</p>
 				</div>

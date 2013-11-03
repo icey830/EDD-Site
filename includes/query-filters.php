@@ -19,10 +19,18 @@ function eddwp_pre_get_posts( $query ) {
 	if( is_admin() )
 		return;
 
-	if( ! $query->is_main_query() || ! is_tax( 'extension_category' ) )
-		return;
+	if( $query->is_main_query() && is_tax( 'extension_category' ) ) {
 
-	$query->set( 'orderby', 'menu_order' );
-	$query->set( 'order', 'ASC' );
+		$query->set( 'orderby', 'menu_order' );
+		$query->set( 'order', 'ASC' );
+
+	}
+
+	if( $query->is_main_query() && is_post_type_archive( 'extension' ) && ! isset( $_GET['display'] ) ) {
+
+		$query->set( 'orderby', 'menu_order' );
+		$query->set( 'order', 'ASC' );
+	}
+
 }
 add_action( 'pre_get_posts', 'eddwp_pre_get_posts', 9999 );
