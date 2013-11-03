@@ -71,7 +71,7 @@
 }
 
 .sidebar .widget.jetpack_subscription_widget {
-	& input[type="email"] {
+	& input[type="text"] {
 		background: #fff;
 		border: none;
 		padding: 10px 8px;
@@ -218,6 +218,39 @@
 			border: 1px solid #999;
 			-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+		}
+	}
+}
+
+.moderator-sidebar {
+	.box {
+		background: #fff;
+		padding: 30px 20px;
+	}
+
+	.bbp-user-forum-role {
+		padding-top: 10px;
+		border-top: 1px solid #eee;
+	}
+
+	.bbp-user-forum-role,
+	.bbp-user-topic-count,
+	.bbp-user-reply-count {
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid #eee;
+	}
+
+	.edd_users_purchases {
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			strong {
+				display: block;
+				margin: 20px 0 -25px 0;
+			}
 		}
 	}
 }

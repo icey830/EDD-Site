@@ -15,15 +15,16 @@
  *
  * /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ CONTENTS /\/\/\/\/\/\/\/\/\/\/\/\/\/\//\/\/\/\
  *
- * 1. Theme Setup
- * 2. Includes
- * 3. Stylesheets and JavaScript Files
- * 4. Comments Template
- * 5. Features
- * 6. Custom Actions/Filters
- * 7. Widgets
- * 8. Shortcodes
- * 9. Extensions feed
+ * 1.  Theme Setup
+ * 2.  Includes
+ * 3.  Stylesheets and JavaScript Files
+ * 4.  Comments Template
+ * 5.  Features
+ * 6.  Custom Actions/Filters
+ * 7.  Widgets
+ * 8.  Shortcodes
+ * 9.  Extensions feed
+ * 10. Misc
  *
  * ------------------------------------------------------------------------------- */
 
@@ -739,7 +740,7 @@ function eddwp_shortcode_box( $atts, $content = null ) {
 add_shortcode( 'box', 'eddwp_shortcode_box' );
 
 /**
- * Content formatter.
+ * Content formatter
  */
 function eddwp_content_formatter( $content ) {
 	$new_content = '';
@@ -940,16 +941,25 @@ add_shortcode( 'post_grid', 'eddwp_post_grid' );
  * 9. Extensions Feed
  * ----------------------------------------------------------- */
 
+/**
+ * Register the feed
+ */
 function eddwp_register_extensions_feed() {
 	add_feed( 'extensions', 'eddwp_extensions_feed' );
 }
 add_action( 'init', 'eddwp_register_extensions_feed' );
 
+/**
+ * Initialise the feed when requested
+ */
 function eddwp_extensions_feed() {
 	load_template( STYLESHEETPATH . '/extension-feed.php');
 }
 add_action( 'do_feed_extensions', 'eddwp_extensions_feed', 10, 1 );
 
+/**
+ * Register the rewrite rule for the feed
+ */
 function eddwp_feed_rewrite( $wp_rewrite ) {
 	$feed_rules = array(
 		'feed/(.+)' => 'index.php?feed=' . $wp_rewrite->preg_index( 1 ),
@@ -960,6 +970,9 @@ function eddwp_feed_rewrite( $wp_rewrite ) {
 }
 add_filter( 'generate_rewrite_rules', 'eddwp_feed_rewrite' );
 
+/**
+ * Alter the WordPress Query for the feed
+ */
 function eddwp_feed_request($qv) {
 	if ( isset( $qv['feed'] ) && 'extensions' == $qv['feed'] )
 		$qv['post_type'] = 'extension';
@@ -968,6 +981,9 @@ function eddwp_feed_request($qv) {
 }
 add_filter( 'request', 'eddwp_feed_request' );
 
+/**
+ * Alter the WordPress Query for the feed
+ */
 function eddwp_feed_query( $query ) {
 	if ( $query->is_feed && $query->query_vars['feed'] == 'extensions' ) {
 		$query->set( 'posts_per_page', 200 );
@@ -976,6 +992,9 @@ function eddwp_feed_query( $query ) {
 }
 add_filter( 'pre_get_posts', 'eddwp_feed_query', 999 );
 
+/* ----------------------------------------------------------- *
+ * 10. Misc
+ * ----------------------------------------------------------- */
 
 /**
  * Creates the toggle for the action links dropdown
@@ -995,14 +1014,16 @@ function edd_bbp_action_links_dropdown() {
 	if ( bbp_is_topic_trash( bbp_get_reply_topic_id( $reply_id ) ) )
 		return;
 
-?>
+	?>
 	<button class="bbp-action-links-dropdown-toggle" data-toggle="dropdown"><span class="filter-option pull-left">Actions</span> <i class="icon icon-angle-down"></i></button>
 	<i class="icon-caret-up icon"></i>
 	<?php
 }
 add_action( 'bbp_theme_before_reply_admin_links', 'edd_bbp_action_links_dropdown' );
 
-
+/**
+ * Alter the WordPress query when displaying themes
+ */
 function eddwp_themes_pre_get_posts( $query ) {
 	if ( $query->is_archive() && $query->is_main_query() && $query->query_vars['post_type'] == 'theme' ) {
 		$query->set( 'orderby', 'menu_order' );

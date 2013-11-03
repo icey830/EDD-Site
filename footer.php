@@ -53,20 +53,6 @@
 	?>
 
 	<?php wp_footer(); ?>
-<!-- Begin Inspectlet Embed Code -->
-<script type="text/javascript" id="inspectletjs">
-	window.__insp = window.__insp || [];
-	__insp.push(['wid', 935152861]);
-	(function() {
-		function __ldinsp(){var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://www.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); }
-		if (window.attachEvent){
-			window.attachEvent('onload', __ldinsp);
-		}else{
-			window.addEventListener('load', __ldinsp, false);
-		}
-	})();
-</script>
-<!-- End Inspectlet Embed Code -->
 
 <?php if ( current_user_can( 'moderate' ) ) : ?>
 
@@ -105,15 +91,15 @@
 			<tbody>
 				<?php do { ?>
 
-				<?php $tickets->the_post(); ?>
+					<?php $tickets->the_post(); ?>
 
-				<?php $parent = get_post_field( 'post_parent', get_the_ID() ); ?>
+					<?php $parent = get_post_field( 'post_parent', get_the_ID() ); ?>
 
-				<tr>
-					<td><?php if ( $parent == 499 ) : ?><strong>Priority:</strong> <?php endif; ?> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></td>
-					<td><?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ?> ago</td>
-					<td><?php if ( function_exists( 'bbpress' ) ) { echo bbp_get_topic_freshness_link( $tickets->post_ID ); } ?></td>
-				</tr>
+					<tr>
+						<td><?php if ( $parent == 499 ) : ?><strong>Priority:</strong> <?php endif; ?> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></td>
+						<td><?php echo human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ?> ago</td>
+						<td><?php if ( function_exists( 'bbpress' ) ) { echo bbp_get_topic_freshness_link( $tickets->post_ID ); } ?></td>
+					</tr>
 
 				<?php } while ( $tickets->have_posts() ); wp_reset_postdata(); ?>
 			</tbody>
@@ -125,6 +111,21 @@
 </div>
 
 <?php endif; ?>
+
+<!-- Begin Inspectlet Embed Code -->
+<script type="text/javascript" id="inspectletjs">
+	window.__insp = window.__insp || [];
+	__insp.push(['wid', 935152861]);
+	(function() {
+		function __ldinsp(){var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://www.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); }
+		if (window.attachEvent){
+			window.attachEvent('onload', __ldinsp);
+		}else{
+			window.addEventListener('load', __ldinsp, false);
+		}
+	})();
+</script>
+<!-- End Inspectlet Embed Code -->
 
 </body>
 </html>

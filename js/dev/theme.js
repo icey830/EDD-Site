@@ -201,6 +201,12 @@
 	       $('#primary').slideToggle(); 
         });
 
+        $(window).resize(function() {
+            if ($( window ).width() >= 944) {
+                $('#primary').show();
+            }
+        });
+
 		// Toggles        
         $('.tb-toggle').each(function(){
 			$(this).find('.toggle-content').hide();
