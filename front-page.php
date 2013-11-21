@@ -20,12 +20,7 @@ get_header();
 				<h1>
 				<?php
 				$text = "Say hello to the world's easiest way to sell digital downloads through WordPress";
-				if( function_exists( 'ab_press_optimizer' ) ) {
-					//echo ab_press_optimizer( 3, $text );
-					echo $text;
-				} else {
-					echo $text;
-				}
+				echo $text;
 				?>
 				</h1>
 				<h2>for free</h2>
@@ -33,11 +28,7 @@ get_header();
 					<a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button" class="download-button"><i class="icon-cloud-download"></i> 
 					<?php
 					$text = 'Download';
-					if( function_exists( 'ab_press_optimizer' ) ) {
-						//echo ab_press_optimizer( 1, $text );
-						echo $text;
-					} else {
-					}
+					echo $text;
 					?></a>&nbsp;
 					<a href="https://easydigitaldownloads.com/demo/" target="_blank" class="download-button demo-button"><i class="icon-eye-open"></i> Demo</a>
 				</p>
