@@ -8,6 +8,7 @@
 ?>
 
 <div id="bbpress-forums">
+	<?php bbp_forum_subscription_link( array( 'before' => '', 'subscribe' => 'Subscribe to email notifications for new tickets posted to this forum', 'unsubscribe' => 'Unsubscribe from this forum' ) ); ?>
 	<?php
 	bbp_breadcrumb( array(
 		'before' => '<div class="bbp-breadcrumb clearfix"><p>',
