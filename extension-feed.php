@@ -3,9 +3,16 @@
 if ( have_posts() ) {
 	while ( have_posts() ) {
 		the_post();
+
+		$url = add_query_arg( array( 
+			'utm_source'   => 'plugin-addons-page',
+			'utm_medium'   => 'plugin',
+			'utm_campaign' => 'EDD Addons Page'
+		), get_permalink() );
+		
 		echo '<div class="edd-extension">';
 			echo '<h3 class="edd-extension-title">' . get_the_title() . '</h3>';
-			echo '<a href="' . add_query_arg('ref', '1', get_permalink() ) . '" title="' . get_the_title() . '">';
+			echo '<a href="' . esc_url( $url ) . '" title="' . get_the_title() . '">';
 				the_post_thumbnail('extension', array('title' => get_the_title()));
 			echo '</a>';
 			echo '<p>' . get_post_meta(get_the_ID(), 'ecpt_shortdescription', true) . '</p>';
