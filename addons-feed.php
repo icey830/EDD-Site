@@ -12,4 +12,5 @@ if ( have_posts() ) {
 		echo '</div>';
 	}
 }
+exit;
 ?>
