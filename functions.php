@@ -946,6 +946,7 @@ add_shortcode( 'post_grid', 'eddwp_post_grid' );
  */
 function eddwp_register_extensions_feed() {
 	add_feed( 'extensions', 'eddwp_extensions_feed' );
+	add_feed( 'addons', 'eddwp_extensions_feed' );
 }
 add_action( 'init', 'eddwp_register_extensions_feed' );
 
@@ -956,6 +957,14 @@ function eddwp_extensions_feed() {
 	load_template( STYLESHEETPATH . '/extension-feed.php');
 }
 add_action( 'do_feed_extensions', 'eddwp_extensions_feed', 10, 1 );
+
+/**
+ * Initialise the feed when requested
+ */
+function eddwp_addons_feed() {
+	load_template( STYLESHEETPATH . '/addons-feed.php');
+}
+add_action( 'do_feed_addons', 'eddwp_addons_feed', 10, 1 );
 
 /**
  * Register the rewrite rule for the feed
@@ -977,6 +986,9 @@ function eddwp_feed_request($qv) {
 	if ( isset( $qv['feed'] ) && 'extensions' == $qv['feed'] )
 		$qv['post_type'] = 'extension';
 
+	if ( isset( $qv['feed'] ) && 'addons' == $qv['feed'] )
+		$qv['post_type'] = 'extension';
+
 	return $qv;
 }
 add_filter( 'request', 'eddwp_feed_request' );
@@ -986,6 +998,9 @@ add_filter( 'request', 'eddwp_feed_request' );
  */
 function eddwp_feed_query( $query ) {
 	if ( $query->is_feed && $query->query_vars['feed'] == 'extensions' ) {
+		$query->set( 'posts_per_page', 200 );
+	}
+	if ( $query->is_feed && $query->query_vars['feed'] == 'addons' ) {
 		$query->set( 'posts_per_page', 200 );
 	}
 	return $query;
