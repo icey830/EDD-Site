@@ -41,7 +41,9 @@ get_header(); ?>
 				get_sidebar( 'forums' );
 			} elseif ( current_user_can( 'moderate' ) && bbp_is_single_topic() && ! bbp_is_single_user() ) {
 				echo '<aside class="sidebar edd-moderator-sidebar">';
-				edd_bbp_d_sidebar();
+					echo '<div class="edd-moderator-sidebar-inside>';
+						edd_bbp_d_sidebar();
+					echo '</div>';
 				echo '</aside><!-- /.sidebar -->';
 			} else {
 				get_sidebar( 'forums' );
