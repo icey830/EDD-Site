@@ -9,6 +9,8 @@
  * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 
+global $post;
+
 get_header();
 the_post();
 ?>
@@ -61,7 +63,7 @@ the_post();
 				<div class="box">
 					<h3>Extension Details</h3>
 					<div class="author clearfix">
-						<p><span>Developer:</span> <span><?php echo get_post_meta( get_the_ID(), 'ecpt_developer', true ); ?></span></p>
+						<p><span>Developer:</span> <span><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo get_the_author(); ?></a></span></p>
 					</div>
 					<div class="version clearfix">
 						<p><span>Version:</span> <span><?php echo get_post_meta( get_the_ID(), 'ecpt_version', true ); ?></span></p>
