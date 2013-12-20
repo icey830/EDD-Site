@@ -8,7 +8,7 @@
 		</fieldset>
 	</form><!-- /#extensions_searchform -->
 	<div class="clearfix "></div>
-	<div class="notice info" style="margin-bottom: -20px;">
+	<div class="extensions-offer notice info" style="margin-bottom: -20px;">
 		<p>Purchase 3 or more extensions at once and save an automatic 10% off your purchase</p>
 	</div>
 	<div class="clearfix"></div>
