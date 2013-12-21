@@ -70,6 +70,36 @@
 	}
 }
 
+body.bbpress .sidebar .widget.jetpack_subscription_widget,
+body.bbpress #subscribe-email input {
+	& input[type="text"] {
+		border: 1px solid #ccc;
+		background: #fff;
+		font-size: 12px;
+		font-weight: 300;
+		width: 100% !important;
+		outline: none;
+		padding: 5px !important;
+		
+		&:focus {
+			border: 1px solid #aaa;
+			outline: none;
+		}
+	}
+}
+
+body.bbpress #subscribe-text,
+body.bbpress #subscribe-email {
+	margin-bottom: 10px;
+}
+
+body.bbpress .sidebar .widget.jetpack_subscription_widget input[type="text"]:focus,
+body.bbpress .sidebar .widget.jetpack_subscription_widget input[type="text"]:active,
+body.bbpress .sidebar .widget.jetpack_subscription_widget input[type="text"]:hover {
+	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+}
+
 .sidebar .widget.jetpack_subscription_widget {
 	& input[type="text"] {
 		background: #fff;
