@@ -133,7 +133,7 @@ if ( ! $extension_cache->output() ) : ob_start();
 		<div class="clearfix">
 			<div id="extensions-intro-box">
 				<h2>Dozens of Extensions <a href="<?php echo home_url( '/extensions' ); ?>">See All Extensions</a></h2>
-				<p>With over 100 extensions, Easy Digital Downloads can be tailored to your exact needs. From payment processors to newsletter signup forms, EDD has extensions to fill the needs of almost every user.</p>
+				<p>With over 190 extensions, Easy Digital Downloads can be tailored to your exact needs. From payment processors to newsletter signup forms, EDD has extensions to fill the needs of almost every user.</p>
 			</div><!-- /#extensions-intro-box -->
 			<div class="extensions-grid">
 				<ul>
@@ -259,7 +259,7 @@ endif;
 ?>
 <section class="featureset clearfix feature-customers">
 	<div class="feature">
-		<h2>With over 100,000 downloads, we got your back...</h2>
+		<h2>With over 200,000 downloads, we got your back...</h2>
 		<p>We have <del>some</del> <ins>a lot</ins> of happy customers and here's what some are saying:</p>
 
 		<div class="testimonials">
