@@ -455,9 +455,13 @@ span.bbp-admin-links a {
 	border-radius: 6px;
 	background: #fff;
 	border: 1px solid #aaa;
-	padding: 4px 9px;
+	padding: 3px 9px;
 	position: relative;
 	float: right;
+
+	&:active, &:focus {
+		outline: none;
+	}
 }
 
 .bbp-action-links-dropdown-toggle:hover {
