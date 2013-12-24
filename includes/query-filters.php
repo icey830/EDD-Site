@@ -32,5 +32,10 @@ function eddwp_pre_get_posts( $query ) {
 		$query->set( 'order', 'ASC' );
 	}
 
+	if( $query->is_main_query() && is_post_type_archive( 'theme' ) ) {
+
+		$query->set( 'posts_per_page', 32 );
+	}
+
 }
 add_action( 'pre_get_posts', 'eddwp_pre_get_posts', 9999 );
