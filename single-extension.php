@@ -63,7 +63,13 @@ the_post();
 				<div class="box">
 					<h3>Extension Details</h3>
 					<div class="author clearfix">
-						<p><span>Developer:</span> <span><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo get_the_author(); ?></a></span></p>
+						<p><span>Developer:</span>&nbsp;
+							<?php if( get_post_meta( get_the_ID(), 'ecpt_hideauthorlink', true ) ) : ?>
+								<span><?php echo get_post_meta( get_the_ID(), 'ecpt_developer', true ); ?></span>
+							<?php else : ?>
+								<span><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo get_the_author(); ?></a></span>
+							<?php endif; ?>
+						</p>
 					</div>
 					<div class="version clearfix">
 						<p><span>Version:</span> <span><?php echo get_post_meta( get_the_ID(), 'ecpt_version', true ); ?></span></p>
