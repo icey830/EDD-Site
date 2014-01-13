@@ -82,6 +82,9 @@ the_post();
 						<h4>Pricing</h4>
 						<?php echo edd_get_purchase_link( array( 'download_id' => get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ) ); ?>
 					</div>
+					<div class="terms clearfix">
+						<p><a href="https://easydigitaldownloads.com/docs/extensions-terms-conditions/" target="_blank">View license terms</a></p>
+					</div>
 					<?php } // end if ?>
 					<?php if( eddwp_is_external_extension() ) { ?>
 						<a href="<?php echo esc_url( eddwp_get_external_extension_url() ); ?>" title="View Extension Details" class="edd-submit button blue">View Extension</a>
