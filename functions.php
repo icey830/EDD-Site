@@ -309,14 +309,14 @@ add_filter( 'wp_editor_set_quality', 'edd_image_full_quality' );
  * This function is used in the footer template to get the latest blog post.
  */
 function eddwp_get_latest_post() {
-	$query = new WP_Query( array( 'posts_per_page' => 1 ) );
+	$recent = get_posts( array( 'posts_per_page' => 1 ) );
 
-	while ( $query->have_posts() ) {
-		$query->the_post();
+	if( $recent ) {
+		foreach( $recent as $item ) {
 		remove_filter( 'the_excerpt', 'sharing_display', 19 );
-		printf( '<h4>%s</h4>', get_the_title() );
+		printf( '<h4>%s</h4>', get_the_title( $item->ID ) );
 		the_excerpt();
-		printf( '<a href="%1$s">%2$s</a>', get_permalink(), __( 'Read More...', 'edd' ) );
+		printf( '<a href="%1$s">%2$s</a>', get_permalink( $item->ID ), __( 'Read More...', 'edd' ) );
 		add_filter( 'the_excerpt', 'sharing_display', 19 );
 	}
 }
