@@ -473,6 +473,7 @@ function eddwp_support_admin_bar( $wp_admin_bar ) {
 
 	$args = array(
 		'post_type'  => 'topic',
+		'post_status' => 'publish',
 		'meta_query' => array(
 			'relation' => 'AND',
 			array(
@@ -505,7 +506,8 @@ function eddwp_support_admin_bar( $wp_admin_bar ) {
 		'meta_key'   => '_bbps_topic_status',
 		'meta_value' => '1',
 		'posts_per_page' => -1,
-		'post_status' => 'publish'
+		'post_status' => 'publish',
+		'fields'      => 'ids'
 	);
 
 	$o = new WP_Query( $args );

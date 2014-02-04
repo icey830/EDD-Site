@@ -64,18 +64,20 @@
 		global $user_ID;
 		$tickets = new WP_Query(
 			array(
-				'post_type' => 'topic',
+				'post_type'  => 'topic',
+				'post_status' => 'publish',
 				'meta_query' => array(
 					'relation' => 'AND',
 					array(
-						'key' => '_bbps_topic_status',
-						'value' => 1
+						'key'   => '_bbps_topic_status',
+						'value' => '1',
 					),
 					array(
-						'key' => 'bbps_topic_assigned',
-						'value' => $user_ID
+						'key'   => 'bbps_topic_assigned',
+						'value' => $user_ID,
 					)
-				)
+				),
+				'posts_per_page' => -1
 			)
 		);
 		if ( $tickets->have_posts() ) :
