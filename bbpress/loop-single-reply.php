@@ -39,7 +39,7 @@
 
 	<?php
 	
-	if ( $GLOBALS['bbp_private_replies']->is_private() ) {
+	if ( isset( $GLOBALS['bbp_private_replies'] ) && $GLOBALS['bbp_private_replies']->is_private() ) {
 		echo '<i class="icon-lock"></i>';
 	}
 	?>
