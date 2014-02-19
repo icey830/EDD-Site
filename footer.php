@@ -113,5 +113,7 @@
 </div>
 
 <?php endif; ?>
+
+<?php eddwp_modal(); ?>
 </body>
 </html>
