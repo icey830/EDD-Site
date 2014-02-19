@@ -1074,3 +1074,21 @@ function eddwp_themes_pre_get_posts( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'eddwp_themes_pre_get_posts', 999 );
+
+/**
+ * Modal purchase link for single theme
+ */
+function eddwp_modal() {
+	if ( is_singular( 'theme' ) ) {
+		ob_start();
+		?>
+		<div id="modal-overlay"></div><!-- /#overlay -->
+		<div id="modal">
+			<div id="content"></div><!-- /#content -->
+			<a href="#" id="close-modal"><i class="fa fa-times-circle-o"></i></a>
+		</div><!-- /#modal -->
+		<?php
+		$modal = ob_get_clean();
+		echo $modal;
+	}
+}
