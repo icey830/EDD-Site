@@ -383,6 +383,11 @@ function eddwp_button( $atts, $content = null ) {
 }
 add_shortcode( 'button', 'eddwp_button' );
 
+function eddwp_theme_preview( $atts, $content = null ) {
+	return '<div class="theme-preview">' . $content . '</div>';
+}
+add_shortcode( 'theme_preview', 'eddwp_theme_preview' );
+
 /**
  * Add the rewrite tag for the extensions search
  */
