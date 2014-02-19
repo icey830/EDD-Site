@@ -388,6 +388,11 @@ function eddwp_theme_preview( $atts, $content = null ) {
 }
 add_shortcode( 'theme-preview', 'eddwp_theme_preview' );
 
+function eddwp_theme_meta( $atts, $content = null ) {
+	return '<div class="theme-meta">' . $content . '</div>';
+}
+add_shortcode( 'theme-meta', 'eddwp_theme_meta' );
+
 /**
  * Add the rewrite tag for the extensions search
  */
