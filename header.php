@@ -13,6 +13,7 @@
 <!--[if IE 8 ]><html id="ie8" <?php language_attributes(); ?>><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html <?php language_attributes(); ?>><!--<![endif]-->
 <head>
+	<script src="//cdn.optimizely.com/js/595951729.js"></script>
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
