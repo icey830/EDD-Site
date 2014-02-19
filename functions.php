@@ -49,6 +49,7 @@ function edd_theme_setup() {
 	add_editor_style( 'css/editor-style.css' );
 
 	add_image_size( 'showcase', 320, 200, true );
+	add_image_size( 'theme-showcase', 460, 280, true );
 	add_image_size( 'featured-showcase', 460, 330, true );
 	add_image_size( 'extension', 180, 150, true );
 

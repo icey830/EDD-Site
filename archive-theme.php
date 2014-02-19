@@ -23,9 +23,9 @@ get_header();
 				<?php
 				$c = 0; while ( have_posts() ) { the_post(); $c++;
 				?>
-					<div class="theme <?php if ( 0 == $c%3 ) echo ' theme-clear'; ?>">
+					<div class="theme <?php if ( 0 == $c % 2 ) echo ' theme-clear'; ?>">
 						<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
-							<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
+							<div class="thumbnail-holder"><?php the_post_thumbnail( 'theme-showcase' ); ?></div>
 							<h2><?php the_title(); ?></h2>
 						</a>
 						<a class="overlay" href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
