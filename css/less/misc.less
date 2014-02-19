@@ -246,3 +246,53 @@ a:focus { outline: none !important; }
 	height: 25px;
 	display: inline-block;
 }
+
+#modal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	display: none;
+	z-index: 9998;
+}
+
+#modal {
+	display: none;
+	position: fixed;
+	background: #fff;
+	border: 2px solid #333;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+	border-radius: 2px;
+	z-index: 9999;
+}
+
+#modal #content {
+	padding: 20px;
+}
+
+#modal-close {
+	position: absolute;
+	font-size: 22px;
+	font-size: 2.2rem;
+	display: block;
+	top: -32px;
+	right: -20px;
+	color: #fff;
+}
+
+#shopping-cart-modal {
+	display: none;
+}
+
+#modal #content {
+	min-width: 230px;
+}
+
+#modal #content li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}

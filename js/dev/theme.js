@@ -69,6 +69,12 @@
             return method;
         }());
 
+        $('.theme-purchase').on('click', function (e) {
+            var data = $(this).parents('.content').find('.edd_download_purchase_form');
+            modal.open({content: data });
+            e.preventDefault();
+        });
+
         // Hide elements before they transiton in
         $('.testimonial, .extensions-grid li').css({opacity: 0});
 
