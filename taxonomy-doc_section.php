@@ -35,6 +35,8 @@ get_header();
 					</article>
 
 				<?php endwhile; ?>
+
+				<?php eddwp_paginate_links(); ?>
 			</section><!-- /.content -->
 		</div><!-- /.container -->
 	</section><!-- /.main -->

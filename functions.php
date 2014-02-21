@@ -394,6 +394,23 @@ function eddwp_theme_meta( $atts, $content = null ) {
 add_shortcode( 'theme-meta', 'eddwp_theme_meta' );
 
 /**
+ * Setup pagination
+ */
+function eddwp_paginate_links() {
+	global $wp_query;
+
+	$big = 999999999;
+
+	echo '<div id="page-nav">' . paginate_links( array(
+		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+		'format' => '?paged=%#%',
+		'current' => max( 1, get_query_var( 'paged' ) ),
+		'total' => $wp_query->max_num_pages,
+		'type' => 'list'
+	) ) . '</div>';
+}
+
+/**
  * Add the rewrite tag for the extensions search
  */
 function eddwp_add_rewrite_tags() {

@@ -44,7 +44,7 @@
 
 
 #page-nav {
-	.paged {
+	.paged, .page-numbers {
 		margin: 20px 0;
 		padding: 0;
 		list-style: none;
@@ -75,6 +75,22 @@
 					margin-right: 5px;
 				}
 			}
+		}
+	}
+
+	.page-numbers {
+		a {
+			margin-right: 8px;
+			border: 1px solid #fff;
+		}
+
+		.current {
+			border: 1px solid #555;
+			display: inline-block;
+			float: left;
+			padding: 3px 12px;
+			background: #fff;
+			margin-right: 8px;
 		}
 	}
 }
