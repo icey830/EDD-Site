@@ -43,6 +43,8 @@
 				<a href="<?php echo get_option( 'siteurl' ); ?>" class="logo-image"><img src="<?php echo get_template_directory_uri() ?>/images/logo.png" alt="Easy Digital Downloads" /></a>
 			</div><!-- #logo -->
 
+			<?php if( ! is_page( 'checkout' ) ) : ?>
+			
 			<i class="icon-list"></i>
 
 			<nav id="primary" class="navigation-main" role="navigation">
@@ -50,5 +52,7 @@
 					wp_nav_menu( array( 'theme_location' => 'primary' ) );
 				?>
 			</nav><!-- /#primary -->
+
+			<?php endif; ?>
 		</header><!-- /.header -->
 	</div><!-- /.header-outer -->
