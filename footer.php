@@ -8,9 +8,7 @@
  * @author	  Sunny Ratilal
  * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
-?>
 
-	<?php
 	$footer_cache = new CWS_Fragment_Cache( 'edd-footer', 3600 );
 	if ( ! $footer_cache->output() ) : ob_start();
 	?>
