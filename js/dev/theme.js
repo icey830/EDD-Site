@@ -5,6 +5,76 @@
     "use strict";
 
     $(function () {
+        var modal = (function () {
+            var method = {},
+                overlay,
+                $modal,
+                content,
+                close;
+
+            // Center the modal in the viewport
+            method.center = function () {
+                var top, left;
+
+                top = Math.max($(window).height() - $modal.outerHeight(), 0) / 2;
+                left = Math.max($(window).width() - $modal.outerWidth(), 0) / 2;
+
+                $modal.css({
+                    top:top + $(window).scrollTop(),
+                    left:left + $(window).scrollLeft()
+                });
+            };
+
+            // Open the modal
+            method.open = function (settings) {
+                content.empty().append(settings.content);
+
+                $modal.css({
+                    width: settings.width || 'auto',
+                    height: settings.height || 'auto'
+                });
+
+                method.center();
+                $(window).bind('resize.modal', method.center);
+                $modal.fadeIn();
+                overlay.fadeIn();
+            };
+
+            // Close the modal
+            method.close = function () {
+                $modal.fadeOut();
+                overlay.fadeOut(500, function() {
+                    content.empty();
+                });
+                $(window).unbind('resize.modal');
+            };
+
+            // Generate the HTML and add it to the document
+            overlay = $('<div id="modal-overlay"></div>');
+            $modal  = $('<div id="modal"></div>');
+            content = $('<div id="content"></div>');
+            close   = $('<a id="modal-close" href="#"><i class="fa fa-times-circle-o"></i></a>');
+
+            $modal.hide();
+            overlay.hide();
+            $modal.append(content, close);
+
+            $('body').append(overlay, $modal);
+
+            close.click(function(e){
+                e.preventDefault();
+                method.close();
+            });
+
+            return method;
+        }());
+
+        $('.theme-purchase').on('click', function (e) {
+            var data = $(this).parents('.content').find('.edd_download_purchase_form');
+            modal.open({content: data });
+            e.preventDefault();
+        });
+
         // Hide elements before they transiton in
         $('.testimonial, .extensions-grid li').css({opacity: 0});
 
@@ -31,10 +101,10 @@
             $(this).toggleClass('current-page-item');
             return false;
         });
-        
+
         $('.nav-tabs a').on('click', function(e) {
             e.preventDefault();
-	        $(this).tab('show'); 
+	        $(this).tab('show');
         });
 
         // Initialize the slider on the iPhone

@@ -4,7 +4,7 @@
 		<form method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
 			<input type="search" class="field" name="doc_s" value="<?php echo esc_attr( $search ); ?>" id="s" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'edd' ); ?>" />
 			<input type="hidden" name="s_type" value="doc" />
-			<input type="submit" class="submit" id="searchsubmit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'edd' ); ?>" />
+			<button type="submit"><i class="icon-search"></i></button>
 		</form>
 	</div>
 </aside>
