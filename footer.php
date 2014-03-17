@@ -114,6 +114,6 @@
 
 <?php endif; ?>
 
-<?php eddwp_modal(); ?>
+<?php //eddwp_modal(); ?>
 </body>
 </html>
