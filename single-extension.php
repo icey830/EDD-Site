@@ -83,7 +83,7 @@ the_post();
 						<?php echo edd_get_purchase_link( array( 'download_id' => get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ) ); ?>
 					</div>
 					<div class="terms clearfix">
-						<p><a href="https://easydigitaldownloads.com/docs/extensions-terms-conditions/" target="_blank">View license terms</a></p>
+						<p>Extensions subject to yearly license for support and updates. <a href="https://easydigitaldownloads.com/docs/extensions-terms-conditions/" target="_blank">View license terms</a>.</p>
 					</div>
 					<?php } // end if ?>
 					<?php if( eddwp_is_external_extension() ) { ?>
