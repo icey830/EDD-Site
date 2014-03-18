@@ -69,7 +69,7 @@
 					's' => $q['s'],
 					'post_type' => 'extension',
 					'posts_per_page' => 21,
-					'paged' => isset( $_GET['paged'] ) ? (int) $_GET['paged'] : 1
+					'paged' => isset( $_GET['page'] ) ? (int) $_GET['page'] : 1
 				);
 				if( $q['c'] ) {
 					$query['tax_query'] = $tax_query;
@@ -102,11 +102,12 @@
 				}
 
 				$big = 999999999;
+				$base = home_url( 'extensions' ) . '/?' . remove_query_arg( 'page', $_SERVER['QUERY_STRING'] ) . '%_%';
 
 				$links = paginate_links( array(
-					'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-					'format' => '?paged=%#%',
-					'current' => max( 1, isset( $_GET['paged'] ) ? (int) $_GET['paged'] : 1 ),
+					'base' => $base,
+					'format' => '&page=%#%',
+					'current' => max( 1, isset( $_GET['page'] ) ? (int) $_GET['page'] : 1 ),
 					'total' => $query->max_num_pages
 				));
 				?>

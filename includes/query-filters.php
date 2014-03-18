@@ -26,6 +26,21 @@ function eddwp_pre_get_posts( $query ) {
 
 	}
 
+	if( $query->is_main_query() && is_post_type_archive( 'extension' ) ) {
+
+		$tax_query = array(
+			array(
+				'taxonomy' => 'extension_category',
+				'field'    => 'slug',
+				'terms'    => '3rd-party',
+				'operator' => 'NOT IN'
+			)
+		);
+
+		$query->set( 'tax_query', $tax_query );
+
+	}
+
 	if( $query->is_main_query() && is_post_type_archive( 'extension' ) && ! isset( $_GET['display'] ) ) {
 
 		$query->set( 'orderby', 'menu_order' );
