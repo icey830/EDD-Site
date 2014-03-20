@@ -31,13 +31,13 @@
 				<?php if ( eddc_user_has_commissions() ) { ?>
 				<li><a href="#tab3" data-toggle="tab">Commissions</a></li>
 				<?php } // end if ?>
-				<li><a href="#tab4" data-toggle="tab">Support Subscription</a></li>
-				<li><a href="#tab5" data-toggle="tab">Affiliate Area</a></li>
+				<li><a href="#tab5" data-toggle="tab">Support Subscription</a></li>
+				<li><a href="#tab6" data-toggle="tab">Affiliate Area</a></li>
 			</ul><!-- /.nav-tabs -->
 
 			<div class="tab-content">
 				<div class="tab-pane active purchases-tab-pane" id="tab1">
-					<?php edd_get_template_part( 'history', 'purchases' ); ?>
+					<?php echo apply_filters( 'the_content', do_shortcode( '[purchase_history]' ) ); ?>
 				</div><!-- /.tab-pane -->
 
 				<div class="tab-pane" id="tab2">
@@ -49,13 +49,13 @@
 					<?php if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); } ?>
 				</div><!-- /.tab-pane -->
 
-				<div class="tab-pane" id="tab4">
+				<div class="tab-pane" id="tab5">
 					<?php
 					echo do_shortcode( '[subscription_details]' );
 					echo do_shortcode( '[card_details]' );
 					?>
 				</div><!-- /.tab-pane -->
-				<div class="tab-pane" id="tab5">
+				<div class="tab-pane" id="tab6">
 					<?php
 					$affiliates = get_post( 1543 );
 					echo apply_filters( 'the_content', $affiliates->post_content );

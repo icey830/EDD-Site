@@ -75,6 +75,9 @@ include( dirname(__FILE__) . '/includes/query-filters.php' );
  * Enqueue scripts and styles
  */
 function edd_register_theme_scripts() {
+
+	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+	
 	$deps = array( 'roboto-font' );
 
 	if( function_exists( 'is_bbpress' ) ) {
@@ -83,7 +86,7 @@ function edd_register_theme_scripts() {
 		}
 	}
 
-	if ( is_page( 'your-account' ) ) {
+	if ( is_page( 635 ) ) {
 		$deps[] = 'bootstrap';
 	}
 
@@ -111,6 +114,12 @@ function edd_register_theme_scripts() {
 
 	if ( is_singular() && get_option( 'thread_comments' ) )
 		wp_enqueue_script( 'comment-reply' );
+
+	if( is_singular( 'extension' ) && defined( 'EDD_WL_PLUGIN_URL' ) ) {
+		wp_enqueue_script( 'edd-wl', EDD_WL_PLUGIN_URL . 'includes/js/edd-wl' .  $suffix . '.js', array( 'jquery' ), EDD_WL_VERSION, true );
+		wp_enqueue_script( 'edd-wl-validate', EDD_WL_PLUGIN_URL . 'includes/js/jquery.validate' .  $suffix . '.js', array( 'jquery' ), EDD_WL_VERSION, true );
+		wp_enqueue_script( 'edd-wl-modal', EDD_WL_PLUGIN_URL . 'includes/js/modal' .  $suffix . '.js', array( 'jquery' ), EDD_WL_VERSION, true );
+	}
 
 	wp_dequeue_style( 'bbp-default-bbpress' );
 	wp_dequeue_style( 'bbp_private_replies_style' );
