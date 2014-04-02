@@ -9,8 +9,6 @@
  * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 
-	$footer_cache = new CWS_Fragment_Cache( 'edd-footer', 3600 );
-	if ( ! $footer_cache->output() ) : ob_start();
 	?>
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="container">
@@ -43,14 +41,9 @@
 				</div><!-- /.social -->
 			<?php endif; ?>
 
-			<p class="copyright">Copyright &copy; <?php echo date( 'Y' ); ?>, Easy Digital Downloads. A project by <a href="<?php echo esc_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.</p>
+			<p class="copyright">Copyright &copy; <?php echo date( 'Y' ); ?>, Easy Digital Downloads. <?php if( ! is_page( 'checkout' ) ) : ?>A project by <a href="<?php echo esc_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.<?php endif; ?></p>
 		</div><!-- .container -->
 	</footer><!-- #colophon -->
-	<?php
-	echo ob_get_clean();
-	$footer_cache->store();
-	endif;
-	?>
 
 	<?php wp_footer(); ?>
 
