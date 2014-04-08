@@ -23,38 +23,43 @@ the_post();
 				the_content();
 
 				if ( function_exists('p2p_register_connection_type') ) :
-					echo '<div class="related-items">';
-						echo '<strong>Documentation, Support, and Related Items</strong>';
-						// Find connected posts
-						$connected = new WP_Query( array(
-						  'connected_type' => 'extensions_to_docs',
-						  'connected_items' => get_queried_object(),
-						  'nopaging' => true,
-						) );
+					$extensions_to_forums = p2p_type( 'extensions_to_forums' )->get_adjacent_items( $post->post_ID );
+					$extensions_to_docs = p2p_type( 'extensions_to_docs' )->get_adjacent_items( $post->post_ID );
 
-						// Display connected posts
-						if ( $connected->have_posts() ) :
-							while ( $connected->have_posts() ) : $connected->the_post(); ?>
-								<div> - <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
-							<?php endwhile;
-						wp_reset_postdata();
-						endif;
+					if ( $extensions_to_docs['p2p_type'] == 'extensions_to_forums' || $extensions_to_docs['p2p_type'] == 'extensions_to_docs' ) {
+						echo '<div class="related-items">';
+							echo '<strong>Documentation, Support, and Related Items</strong>';
+							// Find connected posts
+							$connected = new WP_Query( array(
+							  'connected_type' => 'extensions_to_docs',
+							  'connected_items' => get_queried_object(),
+							  'nopaging' => true,
+							) );
 
-						// Find connected forums
-						$connected = new WP_Query( array(
-						  'connected_type' => 'extensions_to_forums',
-						  'connected_items' => get_queried_object(),
-						  'nopaging' => true,
-						) );
+							// Display connected posts
+							if ( $connected->have_posts() ) :
+								while ( $connected->have_posts() ) : $connected->the_post(); ?>
+									<div> - <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
+								<?php endwhile;
+							wp_reset_postdata();
+							endif;
 
-						// Display connected posts
-						if ( $connected->have_posts() ) :
-							while ( $connected->have_posts() ) : $connected->the_post(); ?>
-								<div> - <a href="<?php the_permalink(); ?>">Support Forum for <?php the_title(); ?></a></div>
-							<?php endwhile;
-						wp_reset_postdata();
-						endif;
-					echo '</div>';
+							// Find connected forums
+							$connected = new WP_Query( array(
+							  'connected_type' => 'extensions_to_forums',
+							  'connected_items' => get_queried_object(),
+							  'nopaging' => true,
+							) );
+
+							// Display connected posts
+							if ( $connected->have_posts() ) :
+								while ( $connected->have_posts() ) : $connected->the_post(); ?>
+									<div> - <a href="<?php the_permalink(); ?>">Support Forum for <?php the_title(); ?></a></div>
+								<?php endwhile;
+							wp_reset_postdata();
+							endif;
+						echo '</div>';
+					}
 				endif;
 				?>
 			</section><!-- /.content -->
