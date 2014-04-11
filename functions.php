@@ -1046,11 +1046,21 @@ add_filter( 'request', 'eddwp_feed_request' );
  * Alter the WordPress Query for the feed
  */
 function eddwp_feed_query( $query ) {
-	if ( $query->is_feed && $query->query_vars['feed'] == 'extensions' ) {
+	if ( $query->is_feed && ( $query->query_vars['feed'] == 'extensions' || $query->query_vars['feed'] == 'addons' ) ) {
+
 		$query->set( 'posts_per_page', 50 );
-	}
-	if ( $query->is_feed && $query->query_vars['feed'] == 'addons' ) {
-		$query->set( 'posts_per_page', 50 );
+	
+		$tax_query = array(
+			array(
+				'taxonomy' => 'extension_category',
+				'field'    => 'slug',
+				'terms'    => '3rd-party',
+				'operator' => 'NOT IN'
+			)
+		);
+
+		$query->set( 'tax_query', $tax_query );
+
 	}
 	return $query;
 }
