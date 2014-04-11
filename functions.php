@@ -1047,10 +1047,10 @@ add_filter( 'request', 'eddwp_feed_request' );
  */
 function eddwp_feed_query( $query ) {
 	if ( $query->is_feed && $query->query_vars['feed'] == 'extensions' ) {
-		$query->set( 'posts_per_page', 100 );
+		$query->set( 'posts_per_page', 50 );
 	}
 	if ( $query->is_feed && $query->query_vars['feed'] == 'addons' ) {
-		$query->set( 'posts_per_page', 100 );
+		$query->set( 'posts_per_page', 50 );
 	}
 	return $query;
 }
