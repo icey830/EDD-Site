@@ -619,6 +619,17 @@ function eddwp_send_pushover_notification_on_assignment() {
 }
 add_action( 'init', 'eddwp_send_pushover_notification_on_assignment' );
 
+/**
+ * Change the bbPress Login Widget if the user is logged in or out
+ */
+function eddwp_bbp_login_widget_title( $title, $instance, $id_base ) {
+	if ( ! is_user_logged_in() ) {
+		return $title;
+	} else {
+		return __( 'Logged in as', 'eddwp' );
+	}
+}
+add_filter( 'bbp_login_widget_title', 'eddwp_bbp_login_widget_title', 10, 3 );
 
 /* ----------------------------------------------------------- *
  * 7. Widgets
