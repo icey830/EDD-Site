@@ -23,37 +23,35 @@ the_post();
 				the_content();
 
 				if ( function_exists('p2p_register_connection_type') ) :
-					$extensions_to_forums = p2p_type( 'extensions_to_forums' )->get_adjacent_items( $post->post_ID );
-					$extensions_to_docs = p2p_type( 'extensions_to_docs' )->get_adjacent_items( $post->post_ID );
 
-					if ( $extensions_to_docs['p2p_type'] == 'extensions_to_forums' || $extensions_to_docs['p2p_type'] == 'extensions_to_docs' ) {
+					// Find connected posts
+					$docs = new WP_Query( array(
+					  'connected_type' => 'extensions_to_docs',
+					  'connected_items' => get_queried_object(),
+					  'nopaging' => true,
+					) );
+
+					// Find connected forums
+					$forums = new WP_Query( array(
+					  'connected_type' => 'extensions_to_forums',
+					  'connected_items' => get_queried_object(),
+					  'nopaging' => true,
+					) );
+
+					if ( $forums->have_posts() || $docs->have_posts() ) {
 						echo '<div class="related-items">';
 							echo '<strong>Documentation, Support, and Related Items</strong>';
-							// Find connected posts
-							$connected = new WP_Query( array(
-							  'connected_type' => 'extensions_to_docs',
-							  'connected_items' => get_queried_object(),
-							  'nopaging' => true,
-							) );
-
 							// Display connected posts
-							if ( $connected->have_posts() ) :
-								while ( $connected->have_posts() ) : $connected->the_post(); ?>
+							if ( $docs->have_posts() ) :
+								while ( $docs->have_posts() ) : $docs->the_post(); ?>
 									<div> - <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
 								<?php endwhile;
 							wp_reset_postdata();
 							endif;
 
-							// Find connected forums
-							$connected = new WP_Query( array(
-							  'connected_type' => 'extensions_to_forums',
-							  'connected_items' => get_queried_object(),
-							  'nopaging' => true,
-							) );
-
 							// Display connected posts
-							if ( $connected->have_posts() ) :
-								while ( $connected->have_posts() ) : $connected->the_post(); ?>
+							if ( $forums->have_posts() ) :
+								while ( $forums->have_posts() ) : $forums->the_post(); ?>
 									<div> - <a href="<?php the_permalink(); ?>">Support Forum for <?php the_title(); ?></a></div>
 								<?php endwhile;
 							wp_reset_postdata();

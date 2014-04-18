@@ -13,7 +13,13 @@
 	</div>
 	<div class="clearfix"></div>
 	<?php echo eddwp_extenstion_cats_shortcode(); ?>
+	<?php if( is_tax( 'extension_category', 'affiliates-2' ) ) : ?>
+	<a href="http://affiliatewp.com/?utm_source=edd&utm_medium=banner&utm_campaign=Extension%20Category">
+		<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/affwp-banner.png" title="AffiliateWP" alt="AffiliateWP - The best affiliate plugin for WordPress"/>
+	</a>
+	<?php else : ?>
 	<a href="<?php echo home_url( '/?extension=core-extensions-bundle' ); ?>">
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/banner-ceb.png" title="Core Extensions Bundle" alt="Core Extensions Bundle banner"/>
 	</a>
+	<?php endif; ?>
 </section><!-- /.content -->
