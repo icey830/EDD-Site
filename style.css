@@ -418,6 +418,10 @@ a:focus {
   margin: 0;
   padding: 0;
 }
+li.share-mwp a.sd-button > span {
+  background-repeat: no-repeat;
+  padding-left: 20px;
+}
 /*
  * Typography
  * Copyright (c) 2013, Sunny Ratilal.
