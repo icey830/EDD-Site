@@ -160,7 +160,7 @@ if ( ! $extension_cache->output() ) : ob_start();
 					<li>
 						<a href="<?php the_permalink(); ?>">
 							<div class="preview-image">
-								<?php the_post_thumbnail( 'showcase' ); ?>
+								<?php the_post_thumbnail( 'theme-showcase' ); ?>
 							</div>
 							<?php
 							the_title();
