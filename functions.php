@@ -631,6 +631,73 @@ function eddwp_bbp_login_widget_title( $title, $instance, $id_base ) {
 }
 add_filter( 'bbp_login_widget_title', 'eddwp_bbp_login_widget_title', 10, 3 );
 
+function eddwp_display_extensions() {
+	$query = new WP_Query( array(
+		'post_type' => 'extension',
+		'posts_per_page' => 3,
+		'orderby' => 'rand'
+	) );
+
+	?>
+	<div class="clearfix">
+	<?php
+	$c = 0; while ( $query->have_posts() ) {
+		$query->the_post(); $c++;
+
+		?>
+		<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?><?php if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) ) echo ' third-party-extension'; ?><?php if ( eddwp_is_extension_free() ) echo ' free-extension'; ?>">
+				<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
+				<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
+				<h3><?php the_title(); ?></h3>
+				<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
+			</a>
+			<div class="overlay">
+				<a href="<?php the_permalink(); ?>" class="overlay-view-details button">View Details</a>
+				<?php if( ! eddwp_is_external_extension() ) : ?>
+					<a href="<?php echo home_url( '/checkout/?edd_action=add_to_cart&download_id=' . get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
+				<?php endif; ?>
+			</div>
+			<?php
+			if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) )
+				echo '<i class="third-party"></i>';
+			?>
+		</div>
+		<?php
+	}
+	?>
+	</div>
+	<?php
+}
+
+function eddwp_display_themes() {
+	?>
+	<?php
+	$query = new WP_Query( array(
+		'post_type' => 'theme',
+		'posts_per_page' => 3,
+		'orderby' => 'rand'
+	) );
+
+	?>
+	<div class="clearfix">
+	<?php
+	$c = 0; while ( $query->have_posts() ) {
+		$query->the_post(); $c++;
+
+		?>
+		<div class="theme <?php if ( 0 == $c % 3 ) echo ' theme-clear'; ?>">
+			<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
+				<div class="thumbnail-holder"><?php the_post_thumbnail( 'theme-showcase' ); ?></div>
+				<h3 class="theme-name"><?php the_title(); ?></h3>
+			</a>
+		</div>
+		<?php
+	}
+	?>
+	</div>
+	<?php
+}
+
 /* ----------------------------------------------------------- *
  * 7. Widgets
  * ----------------------------------------------------------- */
