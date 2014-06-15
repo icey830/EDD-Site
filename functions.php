@@ -77,7 +77,7 @@ include( dirname(__FILE__) . '/includes/query-filters.php' );
 function edd_register_theme_scripts() {
 
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-	
+
 	$deps = array( 'roboto-font' );
 
 	if( function_exists( 'is_bbpress' ) ) {
@@ -763,9 +763,9 @@ function eddwp_is_extension_third_party() {
  * Checks if an extension is hosted off site
  */
 function eddwp_is_external_extension( $post_id = 0 ) {
-
-	if( empty( $post_id ) )
+	if ( empty( $post_id ) ) {
 		$post_id = get_the_ID();
+	}
 
 	return (bool) get_post_meta( $post_id, 'ecpt_is_external', true );
 }
@@ -775,6 +775,19 @@ function eddwp_is_external_extension( $post_id = 0 ) {
  */
 function eddwp_get_external_extension_url() {
 	return get_post_meta( get_the_ID(), 'ecpt_externalurl', true );
+}
+
+/**
+ * Checks if an extension is free
+ */
+function eddwp_is_extension_free( $post_id = 0 ) {
+	if ( empty( $post_id ) ) {
+		$post_id = get_the_ID();
+	}
+
+	if ( has_term( 'Free', 'extension_category', $post_id ) || get_post_meta( $post_id, 'edd_price,', true ) == 'Free' || (bool) get_post_meta( $post_id, 'ecpt_is_external', true ) == true ) {
+		return true;
+	}
 }
 
 /* ----------------------------------------------------------- *

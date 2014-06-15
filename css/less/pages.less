@@ -450,6 +450,10 @@
 	background: #fff;
 }
 
+.extension {
+	height: 320px;
+}
+
 .changelog-content {
 	& strong {
 		font-size: 18px;
@@ -496,15 +500,14 @@
 	color: #555;
 }
 
-.extension .overlay,
-.theme .overlay {
+.extension .overlay {
 	background: rgba(0,0,0,0.75);
 	cursor: pointer;
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 300px;
-	height: 194px;
+	width: 100%;
+	height: 220px;
 	display: block;
 	opacity: 0;
 	-webkit-transition: opacity .2s ease-in-out;
@@ -639,7 +642,22 @@
 	box-shadow: 0 0 2px #ccc;
 }
 
-.thumbnail-holder {
+.extension.free-extension {
+	.overlay a {
+		margin-left: -54px;
+	}
+}
+
+.extension .thumbnail-holder {
+	max-width: 320px;
+	max-height: 200px;
+	margin: 0 auto;
+	vertical-align: middle;
+	overflow: hidden;
+	display: block;
+}
+
+.theme .thumbnail-holder {
 	max-width: 320px;
 	max-height: 160px;
 	margin: 0 auto;
