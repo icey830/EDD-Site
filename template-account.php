@@ -27,6 +27,7 @@
 
 			<ul class="nav nav-tabs nav-append-content">
 				<li class="active"><a href="#tab1" data-toggle="tab">Purchases</a></li>
+				<li><a href="#tab6" data-toggle="tab">Downloads</a></li>
 				<li><a href="#tab2" data-toggle="tab">Profile</a></li>
 				<?php if ( eddc_user_has_commissions() ) { ?>
 				<li><a href="#tab3" data-toggle="tab">Commissions</a></li>
@@ -52,6 +53,12 @@
 					<?php
 					echo do_shortcode( '[subscription_details]' );
 					echo do_shortcode( '[card_details]' );
+					?>
+				</div><!-- /.tab-pane -->
+
+				<div class="tab-pane" id="tab6">
+					<?php
+					echo do_shortcode( '[download_history]' );
 					?>
 				</div><!-- /.tab-pane -->
 			</div><!-- /.tab-content -->
