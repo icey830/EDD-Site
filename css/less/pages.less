@@ -1328,6 +1328,8 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	display: block;
 	padding-top: 30px;
 	border-top: 1px solid #efefef;
+	*display: inline-block;
+	height: 1%;
 
 	& .current, .page-numbers {
 		background: #fff;
@@ -1355,6 +1357,15 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 		-o-transition: none;
 		-ms-transition: none;
 		transition: none;
+	}
+
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+		visibility: hidden;
+		font-size: 0;
+		height: 0;
 	}
 }
 
