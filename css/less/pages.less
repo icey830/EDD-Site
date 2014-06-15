@@ -1004,7 +1004,8 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 }
 
 #edd_user_history,
-.affiliate-stats table {
+.affiliate-stats table,
+.rcp-table {
 	max-width: 100%;
 	background-color: transparent;
 	border-collapse: collapse;
@@ -1013,7 +1014,8 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 }
 
 #edd_user_history thead th,
-.affiliate-stats table thead th {
+.affiliate-stats table thead th,
+.rcp-table thead th {
 	vertical-align: bottom;
 	padding: 12px 10px;
 	padding-bottom: 14px;
@@ -1021,12 +1023,16 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	text-align: left;
 }
 
-#edd_user_history tbody > tr:nth-child(odd) > td, #edd_user_history tbody > tr:nth-child(odd) > th {
+#edd_user_history tbody > tr:nth-child(odd) > td,
+#edd_user_history tbody > tr:nth-child(odd) > th,
+.rcp-table tbody > tr:nth-child(odd) > td,
+.rcp-table tbody > tr:nth-child(odd) > th {
 	background-color: transparent;
 }
 
 #edd_user_history td,
-.affiliate-stats table td {
+.affiliate-stats table td,
+.rcp-table td {
 	padding: 12px 10px;
 	border-top: 2px solid #eef0f0;
 	line-height: 20px;
@@ -1034,7 +1040,18 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	vertical-align: top;
 }
 
-#edd_user_history tbody > tr:nth-child(even) > td, #edd_user_history tbody > tr.selected-row > td, #edd_user_history tbody > tr:nth-child(even) > th, #edd_user_history tbody > tr.selected-row > th {
+.rcp-table:first-child {
+	margin-bottom: 30px;
+}
+
+#edd_user_history tbody > tr:nth-child(even) > td,
+#edd_user_history tbody > tr.selected-row > td,
+#edd_user_history tbody > tr:nth-child(even) > th,
+#edd_user_history tbody > tr.selected-row > th,
+.rcp-table tbody > tr:nth-child(even) > td,
+.rcp-table tbody > tr.selected-row > td,
+.rcp-table tbody > tr:nth-child(even) > th,
+.rcp-table tbody > tr.selected-row > th {
 	background: #f9fafb;
 }
 
