@@ -440,10 +440,10 @@
 .extension,
 .theme {
 	float: left;
-	width: 300px;
+	width: 345px;
 	margin-top: 10px;
-	margin-bottom: 20px;
-	margin-right: 20px;
+	margin-bottom: 25px;
+	margin-right: 32px;
 	position: relative;
 	height: 300px;
 	padding-top: 10px;
@@ -464,8 +464,14 @@
 }
 
 .theme {
-	height: 250px;
+	height: 220px;
 	padding-bottom: 10px;
+
+	.theme-name {
+		display: block;
+		padding-left: 15px;
+		padding-top: 12px;
+	}
 }
 
 .extension.extension-clear,
@@ -634,11 +640,12 @@
 }
 
 .thumbnail-holder {
-	width: 278px;
-	height: 174px;
+	max-width: 320px;
+	max-height: 160px;
 	margin: 0 auto;
 	vertical-align: middle;
 	overflow: hidden;
+	display: block;
 }
 
 .pagination {
