@@ -205,24 +205,23 @@
 	padding: 80px 0 0;
 
 	&.feature-pad { padding-bottom: 80px; }
-}
 
+	.feature-text {
+		width: 940px;
+		margin: 0 auto;
 
-.feature-area .feature-text {
-	width: 940px;
-	margin: 0 auto;
+		& h3 { font-weight: 400; }
 
-	& h3 { font-weight: 400; }
+		& p {
+			font-size: 18px;
+			font-weight: 300;
+			line-height: 30px;
+		}
 
-	& p {
-		font-size: 18px;
-		font-weight: 300;
-		line-height: 30px;
-	}
-
-	&  .feature-text-inner {
-		float: left;
-		width: 46%;
+		&  .feature-text-inner {
+			float: left;
+			width: 46%;
+		}
 	}
 }
 
@@ -231,17 +230,17 @@
 .feature-left img { float: right; }
 
 .feature-center .feature-text {
- 	& .feature-text-inner {
+ 	.feature-text-inner {
 		float: none;
 		width: 100%;
 		text-align: center;
 
-		& p {
+		p {
 			margin-bottom: 25px;
 		}
 	}
 
-	& .feature-text .wp-post-image {
+	.feature-text .wp-post-image {
 		left: 50%;
 		position: relative;
 		margin-left: -400px;
@@ -254,9 +253,13 @@
 }
 
 .feature-75248 img,
-.feature-75250 img { margin-right: 20%; }
+.feature-75250 img {
+	margin-right: 20%
+}
 
-.feature-75248 img { margin-top: 3.5%; }
+.feature-75248 img {
+	margin-top: 3.5%;
+}
 
 .feature-75253 img {
 	margin-top: 5%;
@@ -278,7 +281,7 @@
 	top: -1px;
 	background: #fff;
 
-	& .feature-text-inner {
+	.feature-text-inner {
 		background: url(images/edd-standing.png) no-repeat center right;
 		padding: 80px 0;
 		width: 100%;
@@ -286,7 +289,7 @@
 		display: block;
 		position: relative;
 
-		& h3 {
+		h3 {
 			width: 500px;
 			position: relative;
 			left: 25%;
@@ -338,39 +341,45 @@
 	margin: 0 auto 20px;
 }
 
-.page-id-13 h1 { float: left; }
-
-#extensions_searchform { float: right; }
-
-#extensions_searchform fieldset {
-	border: none;
-	background: transparent;
+.page-id-13 h1 {
+	float: left;
 }
 
-#extensions_searchform fieldset input[type="search"] {
-	width: 226px;
-	text-indent: 0;
-	height: 20px;
-	border-radius: 3px;
-	padding: 5px 10px;
-	display: inline-block;
-	outline: none;
-	border: 1px solid #ccc;
-	-webkit-transition: border .2s ease-in-out;
-	-moz-transition: border .2s ease-in-out;
-	-o-transition: border .2s ease-in-out;
-	-ms-transition: border .2s ease-in-out;
-	transition: border .2s ease-in-out;
-}
+#extensions_searchform {
+	float: right;
 
-#extensions_searchform fieldset input[type="search"]:focus { border-color: #777; }
+	fieldset {
+		border: none;
+		background: transparent;
 
-#extensions_searchform fieldset input[type="submit"] {
-	padding: 8px 13px 8px;
-	text-decoration: none;
-	border-radius: 2px;
-	background: #eee;
-	border: none;
+		input[type="search"] {
+			width: 226px;
+			text-indent: 0;
+			height: 20px;
+			border-radius: 3px;
+			padding: 5px 10px;
+			display: inline-block;
+			outline: none;
+			border: 1px solid #ccc;
+			-webkit-transition: border .2s ease-in-out;
+			-moz-transition: border .2s ease-in-out;
+			-o-transition: border .2s ease-in-out;
+			-ms-transition: border .2s ease-in-out;
+			transition: border .2s ease-in-out;
+
+			&:focus {
+				border-color: #777;
+			}
+		}
+
+		input[type="submit"] {
+			padding: 8px 13px 8px;
+			text-decoration: none;
+			border-radius: 2px;
+			background: #eee;
+			border: none;
+		}
+	}
 }
 
 .page-template-template-extensions-php .main .content {
@@ -395,36 +404,36 @@
 	margin-right: -20px;
 	padding: 10px 20px 20px;
 	margin-top: 40px;
-}
 
-.filter ul {
-	margin: 0;
-	padding: 0;
-}
+	ul {
+		margin: 0;
+		padding: 0;
+	}
 
-.filter li {
-	float: left;
-	list-style: none;
-	margin-right: 8px;
-}
+	 li {
+		float: left;
+		list-style: none;
+		margin-right: 8px;
+	}
 
-.filter a {
-	position: relative;
-	background: #fff;
-	color: #232527;
-	border-radius: 3px;
-	display: inline-block;
-	font-size: 14px;
-	font-weight: normal;
-	margin-top: 10px;
-	padding: 3px 8px;
-	.all_transition();
-	border: 1px solid #ccc;
+	a {
+		position: relative;
+		background: #fff;
+		color: #232527;
+		border-radius: 3px;
+		display: inline-block;
+		font-size: 14px;
+		font-weight: normal;
+		margin-top: 10px;
+		padding: 3px 8px;
+		.all_transition();
+		border: 1px solid #ccc;
 
-	&:hover {
-		background: #2794da;
-		color: #fff;
-		border: 1px solid #25597a;
+		&:hover {
+			background: #2794da;
+			color: #fff;
+			border: 1px solid #25597a;
+		}
 	}
 }
 
