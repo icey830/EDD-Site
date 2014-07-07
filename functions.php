@@ -131,7 +131,7 @@ function edd_register_theme_scripts() {
 		wp_enqueue_style( 'bbp-default-bbpress', trailingslashit( bbPress()->themes_url . 'default' ) . 'css/bbpress.css', array(), bbp_get_version(), 'screen' );
 	}
 
-	if ( is_page( 635 ) ) {
+	if ( is_page( 635 ) || is_page( 65892 ) ) {
 		wp_enqueue_style( 'bootstrap' );
 		wp_enqueue_script( 'bootstrap-js' );
 	}
