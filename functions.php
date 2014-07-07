@@ -86,7 +86,7 @@ function edd_register_theme_scripts() {
 		}
 	}
 
-	if ( is_page( 635 ) ) {
+	if ( is_page( 635 ) || is_page( 65892 ) ) {
 		$deps[] = 'bootstrap';
 	}
 
