@@ -9,7 +9,7 @@
 
 <div id="bbpress-forums">
 	<div class="bbp-search-form">
-		<?php bbp_get_template_part( 'form', 'search' ); ?>
+		<?php bbp_get_template_part( 'form', 'search-main' ); ?>
 	</div>
 
 	<?php	

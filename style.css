@@ -2823,7 +2823,7 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 }
 #edd_checkout_form_wrap span.card-type {
   top: 52px;
-  right: 235px;
+  right: 390px;
 }
 /* ----------------------------- *
  * My Account
@@ -4381,13 +4381,25 @@ span.bbp-admin-links a {
   float: left;
   width: 555px;
 }
+#bbp-search-form.bbp-main-search {
+  background: #85c0e5;
+  padding: 20px;
+  color: #fff;
+}
+#bbp-search-form.bbp-main-search h3 {
+  margin-top: 0;
+}
+#bbp-search-form.bbp-main-search p {
+  margin-botom: 15px;
+}
+#bbp-search-form.bbp-main-search #search-intro {
+  margin-bottom: 15px;
+}
 #bbpress-forums div.bbp-search-form {
   position: relative;
   margin-top: 12px;
   float: none;
-  background: #f8f9f9;
   display: block;
-  padding: 13px 20px;
   margin-bottom: 50px;
 }
 #bbpress-forums div.bbp-search-form #bbp_search {
