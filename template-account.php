@@ -29,6 +29,7 @@ $rcp_load_css = $rcp_load_scripts = true;
 
 			<ul class="nav nav-tabs nav-append-content">
 				<li class="active"><a href="#tab1" data-toggle="tab">Purchases</a></li>
+				<li><a href="#downloads-tab" data-toggle="tab">Downloads</a></li>
 				<li><a href="#tab2" data-toggle="tab">Profile</a></li>
 				<?php if ( eddc_user_has_commissions() ) { ?>
 				<li><a href="#tab3" data-toggle="tab">Commissions</a></li>
@@ -40,6 +41,11 @@ $rcp_load_css = $rcp_load_scripts = true;
 				<div class="tab-pane active purchases-tab-pane" id="tab1">
 					<?php echo apply_filters( 'the_content', do_shortcode( '[purchase_history]' ) ); ?>
 				</div><!-- /.tab-pane -->
+
+				<div class="tab-pane downloads-tab-pane" id="downloads-tab">
+					<?php echo apply_filters( 'the_content', do_shortcode( '[download_history]' ) ); ?>
+				</div><!-- /.tab-pane -->
+
 
 				<div class="tab-pane" id="tab2">
 					<?php edd_get_template_part( 'shortcode', 'profile-editor' ); ?>
