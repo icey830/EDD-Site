@@ -10,6 +10,8 @@
  * @author	  Sunny Ratilal
  * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
+global $rcp_load_css, $rcp_load_scripts;
+$rcp_load_css = $rcp_load_scripts = true;
 ?>
 <?php get_header(); ?>
 
