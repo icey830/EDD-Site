@@ -29,6 +29,7 @@ the_post();
 					  'connected_type' => 'extensions_to_docs',
 					  'connected_items' => get_queried_object(),
 					  'nopaging' => true,
+					  'post_status' => 'publish'
 					) );
 
 					// Find connected forums
@@ -36,6 +37,7 @@ the_post();
 					  'connected_type' => 'extensions_to_forums',
 					  'connected_items' => get_queried_object(),
 					  'nopaging' => true,
+					  'post_status' => 'publish'
 					) );
 
 					if ( $forums->have_posts() || $docs->have_posts() ) {
