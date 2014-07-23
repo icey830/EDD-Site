@@ -507,57 +507,6 @@ function eddwp_support_admin_bar( $wp_admin_bar ) {
 		)
 	);
 
-	$args = array(
-		'post_type'  => 'topic',
-		'post_status' => 'publish',
-		'meta_query' => array(
-			'relation' => 'AND',
-			array(
-				'key'   => '_bbps_topic_status',
-				'value' => '1',
-			),
-			array(
-				'key'   => 'bbps_topic_assigned',
-				'value' => $user_ID,
-			)
-		),
-		'posts_per_page' => -1
-	);
-
-	$assigned_tickets = new WP_Query( $args );
-
-	$wp_admin_bar->add_node(
-		array(
-			'id'	 =>	'assigned_tickets',
-			'parent' => 'eddwp_support',
-			'title'	 =>	__( 'Assigned Tickets (' . $assigned_tickets->post_count . ')' ),
-			'href'	 =>	'/support/dashboard/#your_tickets'
-		)
-	);
-
-	wp_reset_postdata();
-
-	$args = array(
-		'post_type'  => 'topic',
-		'meta_key'   => '_bbps_topic_status',
-		'meta_value' => '1',
-		'posts_per_page' => -1,
-		'post_status' => 'publish',
-		'fields'      => 'ids'
-	);
-
-	$o = new WP_Query( $args );
-
-	$wp_admin_bar->add_node(
-		array(
-			'id'	 =>	'unresolved_tickets',
-			'parent' => 'eddwp_support',
-			'title'	 =>	__( 'Unresolved Tickets (' . $o->post_count . ')' ),
-			'href'	 =>	'/support/dashboard/'
-		)
-	);
-
-	wp_reset_postdata();
 }
 add_action( 'admin_bar_menu', 'eddwp_support_admin_bar', 999 );
 
