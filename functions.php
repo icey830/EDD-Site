@@ -1062,11 +1062,17 @@ function eddwp_feed_query( $query ) {
 		$query->set( 'posts_per_page', 50 );
 	
 		$tax_query = array(
+			'relation' => 'AND',
 			array(
 				'taxonomy' => 'extension_category',
 				'field'    => 'slug',
 				'terms'    => '3rd-party',
 				'operator' => 'NOT IN'
+			),
+			array(
+				'taxonomy' => 'extension_category',
+				'field'    => 'slug',
+				'terms'    => 'popular'
 			)
 		);
 
