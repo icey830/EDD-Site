@@ -1040,7 +1040,9 @@ add_filter( 'pre_get_posts', 'eddwp_feed_query', 999 );
  * Creates the toggle for the action links dropdown
  */
 function edd_bbp_action_links_dropdown() {
+	
 	$reply_id = bbp_get_reply_id();
+	$reply    = bbp_get_reply( $reply_id );
 
 	// If post is not a reply, return
 	if ( ! bbp_is_reply( $reply_id ) && ! bbp_is_topic( $reply_id ) )
@@ -1053,6 +1055,10 @@ function edd_bbp_action_links_dropdown() {
 	// If topic is trashed, do not show admin links
 	if ( bbp_is_topic_trash( bbp_get_reply_topic_id( $reply_id ) ) )
 		return;
+
+	if( ! current_user_can( 'moderate' ) && bbp_past_edit_lock( $reply->post_date_gmt ) ) {
+		return;
+	}
 
 	?>
 	<button class="bbp-action-links-dropdown-toggle" data-toggle="dropdown"><span class="filter-option pull-left">Actions</span> <i class="icon icon-angle-down"></i></button>
