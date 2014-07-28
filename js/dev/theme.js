@@ -78,9 +78,6 @@
         // Hide elements before they transiton in
         $('.testimonial, .extensions-grid li').css({opacity: 0});
 
-        // Initialize the video
-        eddVideo();
-
         $('.remove-notice').on('click', function() {
             $('#notification-area').slideUp();
             $('html').animate({
@@ -168,69 +165,6 @@
             $('.icon-caret-up, .bbp-action-links-dropdown', container).slideToggle();
         });
 
-        // Load the video
-        function eddVideo() {
-            // Load YouTube Iframe API
-            var tag = document.createElement('script'),
-                firstScriptTag = document.getElementsByTagName('script')[0],
-                player;
-
-            tag.src = "https://www.youtube.com/iframe_api";
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-            $('#video-complete, #video-complete-inner').hide();
-
-            $('.video-thumbnail').on('click', function(e) {
-                e.preventDefault();
-
-                $(this).parent().parent().animate({
-                    height: '600px'
-                }, 500);
-
-                $('#video-container').fadeIn();
-
-                if (!player) {
-                    player = new YT.Player('video-container', {
-                        width: '100%',
-                        height: 600,
-                        wmode: 'transparent',
-                        playerVars: { autoplay: 1, showinfo: 0, disablekb: 1, rel: 0, wmode: 'transparent'},
-                        videoId: 'japHPcIFs4I',
-                        events: {
-                            'onStateChange': onPlayerStateChange
-                        }
-                    });
-                }
-
-                if (player && player.playVideo) {
-                    player.setPlaybackQuality('hd720');
-                    player.playVideo();
-                }
-
-                function onPlayerStateChange(event) {
-                    if (event.data === 0) {
-                        $('#video-complete').show();
-                        $('#video-complete-inner').fadeIn(2500);
-                    }
-                }
-
-                return false;
-            });
-
-            $('.replay-button').on('click', function() {
-                $('#video-complete').fadeOut(2500);
-                player.playVideo();
-            });
-
-            $('.close-button').on('click', function() {
-                $('.hero').animate({
-                    height: '433px'
-                }, 500);
-                $('#video-container, #video-complete').fadeOut(1500);
-                player.seekTo(0);
-                player.pauseVideo();
-            });
-        };
 
         // Intialise and carry out the transitions
         function initAnimations() {

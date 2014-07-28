@@ -507,57 +507,6 @@ function eddwp_support_admin_bar( $wp_admin_bar ) {
 		)
 	);
 
-	$args = array(
-		'post_type'  => 'topic',
-		'post_status' => 'publish',
-		'meta_query' => array(
-			'relation' => 'AND',
-			array(
-				'key'   => '_bbps_topic_status',
-				'value' => '1',
-			),
-			array(
-				'key'   => 'bbps_topic_assigned',
-				'value' => $user_ID,
-			)
-		),
-		'posts_per_page' => -1
-	);
-
-	$assigned_tickets = new WP_Query( $args );
-
-	$wp_admin_bar->add_node(
-		array(
-			'id'	 =>	'assigned_tickets',
-			'parent' => 'eddwp_support',
-			'title'	 =>	__( 'Assigned Tickets (' . $assigned_tickets->post_count . ')' ),
-			'href'	 =>	'/support/dashboard/#your_tickets'
-		)
-	);
-
-	wp_reset_postdata();
-
-	$args = array(
-		'post_type'  => 'topic',
-		'meta_key'   => '_bbps_topic_status',
-		'meta_value' => '1',
-		'posts_per_page' => -1,
-		'post_status' => 'publish',
-		'fields'      => 'ids'
-	);
-
-	$o = new WP_Query( $args );
-
-	$wp_admin_bar->add_node(
-		array(
-			'id'	 =>	'unresolved_tickets',
-			'parent' => 'eddwp_support',
-			'title'	 =>	__( 'Unresolved Tickets (' . $o->post_count . ')' ),
-			'href'	 =>	'/support/dashboard/'
-		)
-	);
-
-	wp_reset_postdata();
 }
 add_action( 'admin_bar_menu', 'eddwp_support_admin_bar', 999 );
 
@@ -1142,11 +1091,17 @@ function eddwp_feed_query( $query ) {
 		$query->set( 'posts_per_page', 50 );
 	
 		$tax_query = array(
+			'relation' => 'AND',
 			array(
 				'taxonomy' => 'extension_category',
 				'field'    => 'slug',
 				'terms'    => '3rd-party',
 				'operator' => 'NOT IN'
+			),
+			array(
+				'taxonomy' => 'extension_category',
+				'field'    => 'slug',
+				'terms'    => 'popular'
 			)
 		);
 
@@ -1165,7 +1120,9 @@ add_filter( 'pre_get_posts', 'eddwp_feed_query', 999 );
  * Creates the toggle for the action links dropdown
  */
 function edd_bbp_action_links_dropdown() {
+	
 	$reply_id = bbp_get_reply_id();
+	$reply    = bbp_get_reply( $reply_id );
 
 	// If post is not a reply, return
 	if ( ! bbp_is_reply( $reply_id ) && ! bbp_is_topic( $reply_id ) )
@@ -1178,6 +1135,10 @@ function edd_bbp_action_links_dropdown() {
 	// If topic is trashed, do not show admin links
 	if ( bbp_is_topic_trash( bbp_get_reply_topic_id( $reply_id ) ) )
 		return;
+
+	if( ! current_user_can( 'moderate' ) && bbp_past_edit_lock( $reply->post_date_gmt ) ) {
+		return;
+	}
 
 	?>
 	<button class="bbp-action-links-dropdown-toggle" data-toggle="dropdown"><span class="filter-option pull-left">Actions</span> <i class="icon icon-angle-down"></i></button>

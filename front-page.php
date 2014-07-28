@@ -142,6 +142,7 @@ if ( ! $extension_cache->output() ) : ob_start();
 					array(
 						'post_type' => 'extension',
 						'posts_per_page' => 6,
+						'post_status' => 'publish',
 						'orderby' => 'menu_order',
 						'order' => 'ASC',
 						'tax_query' => array(
@@ -268,7 +269,8 @@ endif;
 			array(
 				'posts_per_page' => 6,
 				'post_type' => 'testimonials',
-				'orderby' => 'rand'
+				'orderby' => 'rand',
+				'post_status' => 'publish',
 			)
 		);
 
