@@ -1,6 +1,6 @@
 {
 "CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
-"creatorBuild": "16877",
+"creatorBuild": "17018",
 "files": {
 	"\/404.php": {
 		"fileType": 8192,
@@ -8,6 +8,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/404.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/addons-feed.php": {
@@ -16,6 +17,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/addons-feed.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/archive-extension.php": {
@@ -24,6 +26,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/archive-extension.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/archive-theme.php": {
@@ -32,6 +35,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/archive-theme.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/archive-videos.php": {
@@ -40,6 +44,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/archive-videos.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/archive.php": {
@@ -48,6 +53,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/archive.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/author.php": {
@@ -56,6 +62,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/author.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/bbpress.php": {
@@ -64,6 +71,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bbpress.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/bbpress\/content-archive-forum.php": {
@@ -72,6 +80,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bbpress\/content-archive-forum.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/bbpress\/content-single-forum.php": {
@@ -80,6 +89,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bbpress\/content-single-forum.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/bbpress\/content-single-topic.php": {
@@ -88,6 +98,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bbpress\/content-single-topic.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/bbpress\/form-reply.php": {
@@ -96,6 +107,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bbpress\/form-reply.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/bbpress\/form-search.php": {
@@ -104,6 +116,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bbpress\/form-search.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/bbpress\/loop-forums.php": {
@@ -112,6 +125,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bbpress\/loop-forums.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/bbpress\/loop-search-reply.php": {
@@ -120,6 +134,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bbpress\/loop-search-reply.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/bbpress\/loop-search-topic.php": {
@@ -128,6 +143,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bbpress\/loop-search-topic.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/bbpress\/loop-single-forum.php": {
@@ -136,6 +152,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bbpress\/loop-single-forum.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/bbpress\/loop-single-reply.php": {
@@ -144,6 +161,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bbpress\/loop-single-reply.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/bbpress\/loop-single-topic.php": {
@@ -152,6 +170,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bbpress\/loop-single-topic.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/bbpress\/loop-topics.php": {
@@ -160,6 +179,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bbpress\/loop-topics.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/bootstrap.min.js": {
@@ -168,6 +188,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/bootstrap.min.js",
 		"outputAbbreviatedPath": "\/min\/bootstrap.min-ck.js",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
@@ -178,6 +199,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/comments.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/css\/editor-style.css": {
@@ -186,6 +208,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/editor-style.css",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/css\/less\/bbpress.less": {
@@ -198,25 +221,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/bbpress.less",
 		"outputAbbreviatedPath": "\/css\/css\/bbpress.css",
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 0,
-		"relativeURLS": 0,
-		"shouldRunAutoprefixer": 0,
-		"shouldRunBless": 0,
-		"strictImports": 0,
-		"strictMath": 0,
-		"strictUnits": 0
-		},
-	"\/css\/less\/checkout.less": {
-		"allowInsecureImports": 0,
-		"createSourceMap": 0,
-		"disableJavascript": 0,
-		"fileType": 1,
-		"ieCompatibility": 1,
-		"ignore": 1,
-		"ignoreWasSetByUser": 1,
-		"inputAbbreviatedPath": "\/css\/less\/checkout.less",
-		"outputAbbreviatedPath": "\/css\/css\/checkout.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -236,6 +241,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/comments.less",
 		"outputAbbreviatedPath": "\/css\/css\/comments.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -255,6 +261,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/editor-style.less",
 		"outputAbbreviatedPath": "\/css\/editor-style.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -274,6 +281,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/footer.less",
 		"outputAbbreviatedPath": "\/css\/css\/footer.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -293,6 +301,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/header.less",
 		"outputAbbreviatedPath": "\/css\/css\/header.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -312,6 +321,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/homepage.less",
 		"outputAbbreviatedPath": "\/css\/css\/homepage.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -331,6 +341,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/ie-styles.less",
 		"outputAbbreviatedPath": "\/css\/css\/ie-styles.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -350,6 +361,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/media-queries.less",
 		"outputAbbreviatedPath": "\/css\/css\/media-queries.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -369,6 +381,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/misc.less",
 		"outputAbbreviatedPath": "\/css\/css\/misc.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -388,6 +401,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/mixins.less",
 		"outputAbbreviatedPath": "\/css\/css\/mixins.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -407,6 +421,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/navigation.less",
 		"outputAbbreviatedPath": "\/css\/css\/navigation.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -426,6 +441,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/pages.less",
 		"outputAbbreviatedPath": "\/css\/css\/pages.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -445,6 +461,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/posts.less",
 		"outputAbbreviatedPath": "\/css\/css\/posts.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -464,6 +481,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/structure.less",
 		"outputAbbreviatedPath": "\/css\/css\/structure.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -483,6 +501,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/style.less",
 		"outputAbbreviatedPath": "\/style.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 1,
 		"outputStyle": 2,
 		"relativeURLS": 0,
@@ -502,6 +521,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/typography.less",
 		"outputAbbreviatedPath": "\/css\/css\/typography.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -521,6 +541,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/variables.less",
 		"outputAbbreviatedPath": "\/css\/css\/variables.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -540,6 +561,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/less\/widgets.less",
 		"outputAbbreviatedPath": "\/css\/css\/widgets.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -555,6 +577,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/lib\/bootstrap.min.css",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/css\/lib\/dev\/font-awesome\/bootstrap.less": {
@@ -567,6 +590,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/lib\/dev\/font-awesome\/bootstrap.less",
 		"outputAbbreviatedPath": "\/css\/lib\/dev\/css\/bootstrap.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -586,6 +610,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/lib\/dev\/font-awesome\/core.less",
 		"outputAbbreviatedPath": "\/css\/lib\/dev\/css\/core.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -605,6 +630,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/lib\/dev\/font-awesome\/extras.less",
 		"outputAbbreviatedPath": "\/css\/lib\/dev\/css\/extras.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -624,6 +650,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/lib\/dev\/font-awesome\/font-awesome-ie7.less",
 		"outputAbbreviatedPath": "\/css\/lib\/dev\/css\/font-awesome-ie7.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -643,6 +670,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/lib\/dev\/font-awesome\/font-awesome.less",
 		"outputAbbreviatedPath": "\/css\/lib\/dev\/css\/font-awesome.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -662,6 +690,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/lib\/dev\/font-awesome\/icons.less",
 		"outputAbbreviatedPath": "\/css\/lib\/dev\/css\/icons.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -681,6 +710,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/lib\/dev\/font-awesome\/mixins.less",
 		"outputAbbreviatedPath": "\/css\/lib\/dev\/css\/mixins.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -700,6 +730,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/lib\/dev\/font-awesome\/path.less",
 		"outputAbbreviatedPath": "\/css\/lib\/dev\/css\/path.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -719,6 +750,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/lib\/dev\/font-awesome\/variables.less",
 		"outputAbbreviatedPath": "\/css\/lib\/dev\/css\/variables.css",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 0,
 		"relativeURLS": 0,
@@ -734,6 +766,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/lib\/font-awesome-ie7.css",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/css\/lib\/font-awesome.css": {
@@ -742,6 +775,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/lib\/font-awesome.css",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/css\/lib\/normalize.css": {
@@ -750,14 +784,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/css\/lib\/normalize.css",
 		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsSetByUser": 0
-		},
-	"\/custom-functions\/custom-functions.php": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/custom-functions\/custom-functions.php",
-		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/docs-search-form.php": {
@@ -766,6 +793,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/docs-search-form.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/edd_templates\/shortcode-receipt.php": {
@@ -774,6 +802,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/edd_templates\/shortcode-receipt.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/extension-feed.php": {
@@ -782,6 +811,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/extension-feed.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/extensions-header.php": {
@@ -790,6 +820,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/extensions-header.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/footer.php": {
@@ -798,6 +829,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/footer.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/front-page.php": {
@@ -806,6 +838,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/front-page.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/functions.php": {
@@ -814,7 +847,19 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/functions.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/Gruntfile.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/Gruntfile.js",
+		"outputAbbreviatedPath": "\/min\/Gruntfile-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
 		},
 	"\/header.php": {
 		"fileType": 8192,
@@ -822,6 +867,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/header.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/home.php": {
@@ -830,7 +876,19 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/home.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/images\/affwp-banner.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 51823,
+		"inputAbbreviatedPath": "\/images\/affwp-banner.png",
+		"outputAbbreviatedPath": "\/images\/affwp-banner.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
 		},
 	"\/images\/app-store.png": {
 		"fileType": 32768,
@@ -839,6 +897,7 @@
 		"initialSize": 9893,
 		"inputAbbreviatedPath": "\/images\/app-store.png",
 		"outputAbbreviatedPath": "\/images\/app-store.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -849,6 +908,7 @@
 		"initialSize": 27167,
 		"inputAbbreviatedPath": "\/images\/banner-ceb.png",
 		"outputAbbreviatedPath": "\/images\/banner-ceb.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -859,6 +919,7 @@
 		"initialSize": 39473,
 		"inputAbbreviatedPath": "\/images\/best-reporting.jpg",
 		"outputAbbreviatedPath": "\/images\/best-reporting.jpg",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -869,6 +930,7 @@
 		"initialSize": 1577,
 		"inputAbbreviatedPath": "\/images\/bullets.png",
 		"outputAbbreviatedPath": "\/images\/bullets.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -879,6 +941,7 @@
 		"initialSize": 54930,
 		"inputAbbreviatedPath": "\/images\/cart-system.jpg",
 		"outputAbbreviatedPath": "\/images\/cart-system.jpg",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -889,6 +952,7 @@
 		"initialSize": 20738,
 		"inputAbbreviatedPath": "\/images\/cart-system.png",
 		"outputAbbreviatedPath": "\/images\/cart-system.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -899,6 +963,7 @@
 		"initialSize": 12762,
 		"inputAbbreviatedPath": "\/images\/checkout-2co.png",
 		"outputAbbreviatedPath": "\/images\/checkout-2co.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -909,6 +974,7 @@
 		"initialSize": 10084,
 		"inputAbbreviatedPath": "\/images\/checkout-cc.png",
 		"outputAbbreviatedPath": "\/images\/checkout-cc.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -919,6 +985,7 @@
 		"initialSize": 16558,
 		"inputAbbreviatedPath": "\/images\/checkout-paypal.png",
 		"outputAbbreviatedPath": "\/images\/checkout-paypal.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -929,6 +996,7 @@
 		"initialSize": 67046,
 		"inputAbbreviatedPath": "\/images\/customer-area.jpg",
 		"outputAbbreviatedPath": "\/images\/customer-area.jpg",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -939,6 +1007,7 @@
 		"initialSize": 47683,
 		"inputAbbreviatedPath": "\/images\/data-export.png",
 		"outputAbbreviatedPath": "\/images\/data-export.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -949,6 +1018,7 @@
 		"initialSize": 25620,
 		"inputAbbreviatedPath": "\/images\/developer-friendly.png",
 		"outputAbbreviatedPath": "\/images\/developer-friendly.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -959,6 +1029,7 @@
 		"initialSize": 25866,
 		"inputAbbreviatedPath": "\/images\/discount-codes.png",
 		"outputAbbreviatedPath": "\/images\/discount-codes.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -969,6 +1040,7 @@
 		"initialSize": 5299,
 		"inputAbbreviatedPath": "\/images\/discount.png",
 		"outputAbbreviatedPath": "\/images\/discount.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -979,6 +1051,7 @@
 		"initialSize": 11763,
 		"inputAbbreviatedPath": "\/images\/discounts.jpg",
 		"outputAbbreviatedPath": "\/images\/discounts.jpg",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -989,6 +1062,18 @@
 		"initialSize": 19589,
 		"inputAbbreviatedPath": "\/images\/download-small.jpg",
 		"outputAbbreviatedPath": "\/images\/download-small.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/earnings.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 73917,
+		"inputAbbreviatedPath": "\/images\/earnings.png",
+		"outputAbbreviatedPath": "\/images\/earnings.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -999,6 +1084,7 @@
 		"initialSize": 14445,
 		"inputAbbreviatedPath": "\/images\/edd-footer.png",
 		"outputAbbreviatedPath": "\/images\/edd-footer.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1009,6 +1095,7 @@
 		"initialSize": 70746,
 		"inputAbbreviatedPath": "\/images\/edd-ios-1.png",
 		"outputAbbreviatedPath": "\/images\/edd-ios-1.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1019,16 +1106,18 @@
 		"initialSize": 21878,
 		"inputAbbreviatedPath": "\/images\/edd-ios-2.jpg",
 		"outputAbbreviatedPath": "\/images\/edd-ios-2.jpg",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/images\/edd-ios-3.jpg": {
-		"fileType": 16384,
+	"\/images\/edd-ios-3.png": {
+		"fileType": 32768,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 20430,
-		"inputAbbreviatedPath": "\/images\/edd-ios-3.jpg",
-		"outputAbbreviatedPath": "\/images\/edd-ios-3.jpg",
+		"initialSize": 20955,
+		"inputAbbreviatedPath": "\/images\/edd-ios-3.png",
+		"outputAbbreviatedPath": "\/images\/edd-ios-3.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1039,6 +1128,7 @@
 		"initialSize": 43755,
 		"inputAbbreviatedPath": "\/images\/edd-ios-4.jpg",
 		"outputAbbreviatedPath": "\/images\/edd-ios-4.jpg",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1049,6 +1139,7 @@
 		"initialSize": 18578,
 		"inputAbbreviatedPath": "\/images\/edd-ios-5.jpg",
 		"outputAbbreviatedPath": "\/images\/edd-ios-5.jpg",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1059,6 +1150,7 @@
 		"initialSize": 34534,
 		"inputAbbreviatedPath": "\/images\/edd-ios-6.png",
 		"outputAbbreviatedPath": "\/images\/edd-ios-6.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1069,6 +1161,7 @@
 		"initialSize": 27104,
 		"inputAbbreviatedPath": "\/images\/edd-ios-7.png",
 		"outputAbbreviatedPath": "\/images\/edd-ios-7.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1079,6 +1172,7 @@
 		"initialSize": 36209,
 		"inputAbbreviatedPath": "\/images\/edd-sitting.png",
 		"outputAbbreviatedPath": "\/images\/edd-sitting.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1089,6 +1183,7 @@
 		"initialSize": 35667,
 		"inputAbbreviatedPath": "\/images\/edd-standing.png",
 		"outputAbbreviatedPath": "\/images\/edd-standing.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1099,6 +1194,7 @@
 		"initialSize": 23504,
 		"inputAbbreviatedPath": "\/images\/elegant-reporting.png",
 		"outputAbbreviatedPath": "\/images\/elegant-reporting.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1109,6 +1205,7 @@
 		"initialSize": 1392,
 		"inputAbbreviatedPath": "\/images\/favicon.png",
 		"outputAbbreviatedPath": "\/images\/favicon.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1119,6 +1216,7 @@
 		"initialSize": 78146,
 		"inputAbbreviatedPath": "\/images\/feature-1.jpg",
 		"outputAbbreviatedPath": "\/images\/feature-1.jpg",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1129,6 +1227,7 @@
 		"initialSize": 6569,
 		"inputAbbreviatedPath": "\/images\/feature-2.png",
 		"outputAbbreviatedPath": "\/images\/feature-2.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1139,6 +1238,7 @@
 		"initialSize": 5096,
 		"inputAbbreviatedPath": "\/images\/feature-3.png",
 		"outputAbbreviatedPath": "\/images\/feature-3.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1149,6 +1249,7 @@
 		"initialSize": 3268,
 		"inputAbbreviatedPath": "\/images\/forums-sign.png",
 		"outputAbbreviatedPath": "\/images\/forums-sign.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1159,6 +1260,7 @@
 		"initialSize": 83013,
 		"inputAbbreviatedPath": "\/images\/hero-bg.png",
 		"outputAbbreviatedPath": "\/images\/hero-bg.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1169,6 +1271,7 @@
 		"initialSize": 2355,
 		"inputAbbreviatedPath": "\/images\/icon-close.png",
 		"outputAbbreviatedPath": "\/images\/icon-close.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1179,6 +1282,7 @@
 		"initialSize": 1062,
 		"inputAbbreviatedPath": "\/images\/icon-direction.png",
 		"outputAbbreviatedPath": "\/images\/icon-direction.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1189,6 +1293,7 @@
 		"initialSize": 1133,
 		"inputAbbreviatedPath": "\/images\/icon-quote.png",
 		"outputAbbreviatedPath": "\/images\/icon-quote.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1199,6 +1304,7 @@
 		"initialSize": 2069,
 		"inputAbbreviatedPath": "\/images\/icon-replay.png",
 		"outputAbbreviatedPath": "\/images\/icon-replay.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1209,6 +1315,7 @@
 		"initialSize": 17329,
 		"inputAbbreviatedPath": "\/images\/icon-support.png",
 		"outputAbbreviatedPath": "\/images\/icon-support.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1219,6 +1326,7 @@
 		"initialSize": 40084,
 		"inputAbbreviatedPath": "\/images\/iphone.png",
 		"outputAbbreviatedPath": "\/images\/iphone.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1229,6 +1337,7 @@
 		"initialSize": 6549,
 		"inputAbbreviatedPath": "\/images\/logo.png",
 		"outputAbbreviatedPath": "\/images\/logo.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1239,6 +1348,7 @@
 		"initialSize": 233637,
 		"inputAbbreviatedPath": "\/images\/mbp.png",
 		"outputAbbreviatedPath": "\/images\/mbp.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1249,6 +1359,7 @@
 		"initialSize": 8461,
 		"inputAbbreviatedPath": "\/images\/nav.png",
 		"outputAbbreviatedPath": "\/images\/nav.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1259,6 +1370,7 @@
 		"initialSize": 16598,
 		"inputAbbreviatedPath": "\/images\/payment-gateways.jpg",
 		"outputAbbreviatedPath": "\/images\/payment-gateways.jpg",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1269,6 +1381,7 @@
 		"initialSize": 11155,
 		"inputAbbreviatedPath": "\/images\/payment-history-admin.jpg",
 		"outputAbbreviatedPath": "\/images\/payment-history-admin.jpg",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1279,6 +1392,7 @@
 		"initialSize": 13542,
 		"inputAbbreviatedPath": "\/images\/payment-history.jpg",
 		"outputAbbreviatedPath": "\/images\/payment-history.jpg",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1289,6 +1403,7 @@
 		"initialSize": 10475,
 		"inputAbbreviatedPath": "\/images\/paypal-stripe.png",
 		"outputAbbreviatedPath": "\/images\/paypal-stripe.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1299,6 +1414,7 @@
 		"initialSize": 15771,
 		"inputAbbreviatedPath": "\/images\/reports.jpg",
 		"outputAbbreviatedPath": "\/images\/reports.jpg",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1309,6 +1425,7 @@
 		"initialSize": 8052,
 		"inputAbbreviatedPath": "\/images\/ribbon-3rd-party.png",
 		"outputAbbreviatedPath": "\/images\/ribbon-3rd-party.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1319,6 +1436,7 @@
 		"initialSize": 7531,
 		"inputAbbreviatedPath": "\/images\/ribbon-free.png",
 		"outputAbbreviatedPath": "\/images\/ribbon-free.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1329,6 +1447,7 @@
 		"initialSize": 8830,
 		"inputAbbreviatedPath": "\/images\/sales-reports.jpg",
 		"outputAbbreviatedPath": "\/images\/sales-reports.jpg",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1339,6 +1458,7 @@
 		"initialSize": 1956,
 		"inputAbbreviatedPath": "\/images\/social-fb.png",
 		"outputAbbreviatedPath": "\/images\/social-fb.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1349,6 +1469,7 @@
 		"initialSize": 1985,
 		"inputAbbreviatedPath": "\/images\/social-gh.png",
 		"outputAbbreviatedPath": "\/images\/social-gh.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1359,6 +1480,7 @@
 		"initialSize": 2927,
 		"inputAbbreviatedPath": "\/images\/social-gp.png",
 		"outputAbbreviatedPath": "\/images\/social-gp.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1369,6 +1491,7 @@
 		"initialSize": 2524,
 		"inputAbbreviatedPath": "\/images\/social-tw.png",
 		"outputAbbreviatedPath": "\/images\/social-tw.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1379,6 +1502,7 @@
 		"initialSize": 107501,
 		"inputAbbreviatedPath": "\/images\/taxes.png",
 		"outputAbbreviatedPath": "\/images\/taxes.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1389,6 +1513,7 @@
 		"initialSize": 379,
 		"inputAbbreviatedPath": "\/images\/toggle.png",
 		"outputAbbreviatedPath": "\/images\/toggle.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1399,6 +1524,7 @@
 		"initialSize": 17406,
 		"inputAbbreviatedPath": "\/images\/touch-icon-ipad-retina.png",
 		"outputAbbreviatedPath": "\/images\/touch-icon-ipad-retina.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1409,6 +1535,7 @@
 		"initialSize": 6532,
 		"inputAbbreviatedPath": "\/images\/touch-icon-ipad.png",
 		"outputAbbreviatedPath": "\/images\/touch-icon-ipad.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1419,6 +1546,7 @@
 		"initialSize": 12520,
 		"inputAbbreviatedPath": "\/images\/touch-icon-iphone-retina.png",
 		"outputAbbreviatedPath": "\/images\/touch-icon-iphone-retina.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1429,6 +1557,7 @@
 		"initialSize": 4891,
 		"inputAbbreviatedPath": "\/images\/touch-icon-iphone.png",
 		"outputAbbreviatedPath": "\/images\/touch-icon-iphone.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1439,6 +1568,7 @@
 		"initialSize": 64750,
 		"inputAbbreviatedPath": "\/images\/track-payments.jpg",
 		"outputAbbreviatedPath": "\/images\/track-payments.jpg",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1449,6 +1579,7 @@
 		"initialSize": 25217,
 		"inputAbbreviatedPath": "\/images\/video-thumbnail.png",
 		"outputAbbreviatedPath": "\/images\/video-thumbnail.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1458,6 +1589,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/includes\/class-fragment-cache.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/includes\/query-filters.php": {
@@ -1466,6 +1598,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/includes\/query-filters.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/index.php": {
@@ -1474,6 +1607,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/index.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/js\/dev\/theme-ck.js": {
@@ -1482,6 +1616,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/dev\/theme-ck.js",
 		"outputAbbreviatedPath": "\/js\/dev\/min\/theme-ck-ck.js",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
@@ -1492,6 +1627,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/dev\/theme.js",
 		"outputAbbreviatedPath": "\/js\/dev\/min\/theme-ck.js",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
@@ -1502,6 +1638,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/lib\/bootstrap.min.js",
 		"outputAbbreviatedPath": "\/js\/lib\/min\/bootstrap.min-ck.js",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
@@ -1512,6 +1649,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/lib\/modernizr.min.js",
 		"outputAbbreviatedPath": "\/js\/lib\/min\/modernizr.min-ck.js",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
@@ -1522,6 +1660,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/lib\/nivoslider.min.js",
 		"outputAbbreviatedPath": "\/js\/lib\/min\/nivoslider.min-ck.js",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
@@ -1532,6 +1671,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/theme.min.js",
 		"outputAbbreviatedPath": "\/js\/min\/theme.min-ck.js",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
@@ -1542,6 +1682,16 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/no-results.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/page-checkout.php": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/page-checkout.php",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/page-support.php": {
@@ -1550,6 +1700,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/page-support.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/page.php": {
@@ -1558,6 +1709,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/page.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/README.md": {
@@ -1569,6 +1721,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/README.md",
 		"outputAbbreviatedPath": "\/README.html",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/screenshot.png": {
@@ -1578,6 +1731,7 @@
 		"initialSize": 1406,
 		"inputAbbreviatedPath": "\/screenshot.png",
 		"outputAbbreviatedPath": "\/screenshot.png",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
@@ -1587,6 +1741,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/search-doc.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/search-extensions.php": {
@@ -1595,6 +1750,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/search-extensions.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/search.php": {
@@ -1603,6 +1759,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/search.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/searchform.php": {
@@ -1611,6 +1768,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/searchform.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/sidebar-forums.php": {
@@ -1619,6 +1777,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/sidebar-forums.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/sidebar.php": {
@@ -1627,6 +1786,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/sidebar.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/single-docs.php": {
@@ -1635,6 +1795,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/single-docs.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/single-extension.php": {
@@ -1643,6 +1804,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/single-extension.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/single-theme.php": {
@@ -1651,6 +1813,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/single-theme.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/single-videos.php": {
@@ -1659,6 +1822,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/single-videos.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/single.php": {
@@ -1667,6 +1831,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/single.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/style.css": {
@@ -1675,6 +1840,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/style.css",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/taxonomy-doc_section.php": {
@@ -1683,6 +1849,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/taxonomy-doc_section.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/taxonomy-extension_category.php": {
@@ -1691,6 +1858,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/taxonomy-extension_category.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/taxonomy-extension_tag.php": {
@@ -1699,6 +1867,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/taxonomy-extension_tag.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/template-account.php": {
@@ -1707,6 +1876,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/template-account.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/template-documentation.php": {
@@ -1715,6 +1885,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/template-documentation.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/template-extensions.php": {
@@ -1723,6 +1894,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/template-extensions.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/template-features.php": {
@@ -1731,6 +1903,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/template-features.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/template-showcase.php": {
@@ -1739,6 +1912,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/template-showcase.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
 	"\/template-support-pricing.php": {
@@ -1747,6 +1921,7 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/template-support-pricing.php",
 		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		}
 	},
@@ -1818,12 +1993,16 @@
 			"active": 0,
 			"flagValue": 3
 			},
-		"no-unnecessary_fat_arrows": {
+		"no_backticks": {
 			"active": 1,
 			"flagValue": -1
 			},
-		"no_backticks": {
+		"no_debugger": {
 			"active": 1,
+			"flagValue": -1
+			},
+		"no_empty_functions": {
+			"active": 0,
 			"flagValue": -1
 			},
 		"no_empty_param_list": {
@@ -1835,6 +2014,10 @@
 			"flagValue": -1
 			},
 		"no_implicit_parens": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"no_interpolation_in_single_quotes": {
 			"active": 0,
 			"flagValue": -1
 			},
@@ -1859,6 +2042,14 @@
 			"flagValue": -1
 			},
 		"no_trailing_whitespace": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_unnecessary_double_quotes": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"no_unnecessary_fat_arrows": {
 			"active": 1,
 			"flagValue": -1
 			},
@@ -1980,10 +2171,6 @@
 			"active": 0,
 			"flagValue": -1
 			},
-		"gcl": {
-			"active": 0,
-			"flagValue": -1
-			},
 		"globalstrict": {
 			"active": 0,
 			"flagValue": -1
@@ -2096,10 +2283,6 @@
 			"active": 0,
 			"flagValue": -1
 			},
-		"onevar": {
-			"active": 0,
-			"flagValue": -1
-			},
 		"phantom": {
 			"active": 0,
 			"flagValue": -1
@@ -2136,10 +2319,6 @@
 			"active": 0,
 			"flagValue": -1
 			},
-		"smarttabs": {
-			"active": 0,
-			"flagValue": -1
-			},
 		"strict": {
 			"active": 0,
 			"flagValue": -1
@@ -2152,10 +2331,6 @@
 			"active": 0,
 			"flagValue": -1
 			},
-		"trailing": {
-			"active": 1,
-			"flagValue": -1
-			},
 		"typed": {
 			"active": 0,
 			"flagValue": -1
@@ -2166,10 +2341,6 @@
 			},
 		"unused": {
 			"active": 1,
-			"flagValue": -1
-			},
-		"white": {
-			"active": 0,
 			"flagValue": -1
 			},
 		"withstmt": {

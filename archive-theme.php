@@ -23,23 +23,17 @@ get_header();
 				<?php
 				$c = 0; while ( have_posts() ) { the_post(); $c++;
 				?>
-					<div class="theme <?php if ( 0 == $c % 2 ) echo ' theme-clear'; ?>">
-						<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
+					<div class="theme <?php if ( 0 == $c % 3 ) echo ' theme-clear'; ?>">
+						<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
 							<div class="thumbnail-holder"><?php the_post_thumbnail( 'theme-showcase' ); ?></div>
-						</a>
-						<a class="overlay" href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
-							<span><span><?php the_title(); ?></span></span>
+							<span class="theme-name"><?php the_title(); ?></span>
 						</a>
 					</div>
 				<?php
 				}
-
-				eddwp_paginate_links();
 				?>
-				<div class="clear"></div>
-				<div class="pagination">
-					<?php echo $links; ?>
-				</div>
+				<div class="clearfix">&nbsp;</div>
+				<?php eddwp_paginate_links(); ?>
 				<?php wp_reset_postdata(); ?>
 			</div><!-- /.themes -->
 		</section><!-- /.theme-container -->

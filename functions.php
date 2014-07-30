@@ -77,7 +77,7 @@ include( dirname(__FILE__) . '/includes/query-filters.php' );
 function edd_register_theme_scripts() {
 
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-	
+
 	$deps = array( 'roboto-font' );
 
 	if( function_exists( 'is_bbpress' ) ) {
@@ -86,7 +86,7 @@ function edd_register_theme_scripts() {
 		}
 	}
 
-	if ( is_page( 635 ) ) {
+	if ( is_page( 635 ) || is_page( 65892 ) ) {
 		$deps[] = 'bootstrap';
 	}
 
@@ -131,7 +131,7 @@ function edd_register_theme_scripts() {
 		wp_enqueue_style( 'bbp-default-bbpress', trailingslashit( bbPress()->themes_url . 'default' ) . 'css/bbpress.css', array(), bbp_get_version(), 'screen' );
 	}
 
-	if ( is_page( 635 ) ) {
+	if ( is_page( 635 ) || is_page( 65892 ) ) {
 		wp_enqueue_style( 'bootstrap' );
 		wp_enqueue_script( 'bootstrap-js' );
 	}
@@ -580,6 +580,73 @@ function eddwp_bbp_login_widget_title( $title, $instance, $id_base ) {
 }
 add_filter( 'bbp_login_widget_title', 'eddwp_bbp_login_widget_title', 10, 3 );
 
+function eddwp_display_extensions() {
+	$query = new WP_Query( array(
+		'post_type' => 'extension',
+		'posts_per_page' => 3,
+		'orderby' => 'rand'
+	) );
+
+	?>
+	<div class="clearfix">
+	<?php
+	$c = 0; while ( $query->have_posts() ) {
+		$query->the_post(); $c++;
+
+		?>
+		<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?><?php if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) ) echo ' third-party-extension'; ?><?php if ( eddwp_is_extension_free() ) echo ' free-extension'; ?>">
+				<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
+				<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
+				<h3><?php the_title(); ?></h3>
+				<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
+			</a>
+			<div class="overlay">
+				<a href="<?php the_permalink(); ?>" class="overlay-view-details button">View Details</a>
+				<?php if( ! eddwp_is_external_extension() ) : ?>
+					<a href="<?php echo home_url( '/checkout/?edd_action=add_to_cart&download_id=' . get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
+				<?php endif; ?>
+			</div>
+			<?php
+			if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) )
+				echo '<i class="third-party"></i>';
+			?>
+		</div>
+		<?php
+	}
+	?>
+	</div>
+	<?php
+}
+
+function eddwp_display_themes() {
+	?>
+	<?php
+	$query = new WP_Query( array(
+		'post_type' => 'theme',
+		'posts_per_page' => 3,
+		'orderby' => 'rand'
+	) );
+
+	?>
+	<div class="clearfix">
+	<?php
+	$c = 0; while ( $query->have_posts() ) {
+		$query->the_post(); $c++;
+
+		?>
+		<div class="theme <?php if ( 0 == $c % 3 ) echo ' theme-clear'; ?>">
+			<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
+				<div class="thumbnail-holder"><?php the_post_thumbnail( 'theme-showcase' ); ?></div>
+				<h3 class="theme-name"><?php the_title(); ?></h3>
+			</a>
+		</div>
+		<?php
+	}
+	?>
+	</div>
+	<?php
+}
+
 /* ----------------------------------------------------------- *
  * 7. Widgets
  * ----------------------------------------------------------- */
@@ -712,9 +779,9 @@ function eddwp_is_extension_third_party() {
  * Checks if an extension is hosted off site
  */
 function eddwp_is_external_extension( $post_id = 0 ) {
-
-	if( empty( $post_id ) )
+	if ( empty( $post_id ) ) {
 		$post_id = get_the_ID();
+	}
 
 	return (bool) get_post_meta( $post_id, 'ecpt_is_external', true );
 }
@@ -724,6 +791,19 @@ function eddwp_is_external_extension( $post_id = 0 ) {
  */
 function eddwp_get_external_extension_url() {
 	return get_post_meta( get_the_ID(), 'ecpt_externalurl', true );
+}
+
+/**
+ * Checks if an extension is free
+ */
+function eddwp_is_extension_free( $post_id = 0 ) {
+	if ( empty( $post_id ) ) {
+		$post_id = get_the_ID();
+	}
+
+	if ( has_term( 'Free', 'extension_category', $post_id ) || get_post_meta( $post_id, 'edd_price,', true ) == 'Free' || (bool) get_post_meta( $post_id, 'ecpt_is_external', true ) == true ) {
+		return true;
+	}
 }
 
 /* ----------------------------------------------------------- *

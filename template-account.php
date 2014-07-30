@@ -62,6 +62,12 @@ $rcp_load_css = $rcp_load_scripts = true;
 					echo do_shortcode( '[card_details]' );
 					?>
 				</div><!-- /.tab-pane -->
+
+				<div class="tab-pane" id="tab6">
+					<?php
+					echo do_shortcode( '[download_history]' );
+					?>
+				</div><!-- /.tab-pane -->
 			</div><!-- /.tab-content -->
 
 			<?php } else { ?>
