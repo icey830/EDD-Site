@@ -584,7 +584,14 @@ function eddwp_display_extensions() {
 	$query = new WP_Query( array(
 		'post_type' => 'extension',
 		'posts_per_page' => 3,
-		'orderby' => 'rand'
+		'orderby' => 'rand',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'extension_category',
+				'field' => 'slug',
+				'terms' => 'popular'
+			)
+		)
 	) );
 
 	?>
@@ -598,7 +605,6 @@ function eddwp_display_extensions() {
 				<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
 				<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
 				<h3><?php the_title(); ?></h3>
-				<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
 			</a>
 			<div class="overlay">
 				<a href="<?php the_permalink(); ?>" class="overlay-view-details button">View Details</a>
