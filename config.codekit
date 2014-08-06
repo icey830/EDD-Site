@@ -1414,6 +1414,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/images\/paypal-stripe-features.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 10475,
+		"inputAbbreviatedPath": "\/images\/paypal-stripe-features.png",
+		"outputAbbreviatedPath": "\/images\/paypal-stripe-features.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/paypal-stripe.png": {
 		"fileType": 32768,
 		"ignore": 0,
