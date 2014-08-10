@@ -28,9 +28,39 @@
 
 .bbpress .sidebar {
 	float: left;
-	margin-left: 20px;
-	width: 240px;
+	margin-left: 10px;
+	width: 250px;
 	padding-top: 25px;
+
+	.edd-moderator-sidebar-inside:first-child {
+		margin-bottom: 30px;
+
+		.item {
+			background: #fff;
+			border-bottom: 2px solid #ccc;
+			padding: 20px;
+			font-size: 18px;
+			font-size: 1.8rem;
+			font-weight: 400;
+
+			.count {
+				background: #929eb5;
+				color: #fff;
+				padding: 4px 9px;
+				border-radius: 15px;
+				font-size: 13px;
+				font-size: 1.3rem;
+				margin-right: 6px;
+				display: inline-block;
+				width: 40px;
+				text-align: center;
+			}
+			
+			.count.count-green {
+				background: #5eb05a;
+			}
+		}
+	}
 }
 
 #bbp_topic_title,
@@ -489,7 +519,7 @@ span.bbp-admin-links a {
 
 #bbpress-forums div.bbp-breadcrumb p {
 	float: left;
-	width: 555px;
+	width: 100%;
 }
 
 #bbp-search-form.bbp-main-search {
