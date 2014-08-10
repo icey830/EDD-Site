@@ -1639,6 +1639,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/js\/dev\/min\/theme-ck.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/js\/dev\/min\/theme-ck.js",
+		"outputAbbreviatedPath": "\/js\/dev\/min\/min\/theme-ck-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/js\/dev\/theme-ck.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -1655,9 +1666,9 @@
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/dev\/theme.js",
-		"outputAbbreviatedPath": "\/js\/dev\/min\/theme-ck.js",
+		"outputAbbreviatedPath": "\/js\/theme.min.js",
 		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
+		"outputPathIsSetByUser": 1,
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
@@ -1696,7 +1707,7 @@
 		},
 	"\/js\/theme.min.js": {
 		"fileType": 64,
-		"ignore": 0,
+		"ignore": 1,
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/js\/theme.min.js",
 		"outputAbbreviatedPath": "\/js\/min\/theme.min-ck.js",

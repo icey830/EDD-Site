@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2013, Sunny Ratilal. All Rights Reserved.
+ * Copyright (c) 2014, Sunny Ratilal. All Rights Reserved.
  */
 (function ($) {
     "use strict";
@@ -181,7 +181,7 @@
 	            // iPhone
 	            if ($(document).scrollTop() >= $('.feature-ios').offset().top - $(window).height() + 500) {
 	                $('.featureset.feature-ios .iphone').addClass('iphone-animation');
-	            };
+	            }
 	
 	            // Testimonials
 	            if ($(document).scrollTop() >= $('.feature-customers').offset().top - $(window).height() + 100) {
@@ -239,6 +239,12 @@
 
         $('#TB_overlay').click(function() {
             $('#TB_overlay, #TB_window').toggle();
+            return false;
+        });
+
+        // Forums
+        $('#bbp-forum-289 .bbp-forum-title').on('click', function() {
+            $('.bbp-forums-list', this.parent).slideToggle();
             return false;
         });
     });
