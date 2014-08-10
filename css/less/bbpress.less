@@ -340,8 +340,9 @@ li.bbp-topic-title {
 }
 
 li.bbp-body div.hentry {
-	margin-bottom: 30px;
 	width: 100% !important;
+	padding: 30px;
+	margin-bottom: 0;
 }
 
 #bbpress-forums div.odd { background: none; }
@@ -805,4 +806,17 @@ span.bbp-author-ip {
 		display: block;
 		margin-bottom: 12px;
 	}
+}
+
+.bbp-author-name + br {
+	display: none;
+}
+
+#bbpress-forums div.bbp-forum-author .bbp-author-role,
+#bbpress-forums div.bbp-topic-author .bbp-author-role,
+#bbpress-forums div.bbp-reply-author .bbp-author-role  {
+	font-size: 11px;
+	font-style: 1.1rem;
+	text-transform: uppercase;
+	font-style: normal;
 }
