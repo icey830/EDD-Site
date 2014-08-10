@@ -137,12 +137,13 @@ function edd_register_theme_scripts() {
 	}
 
 	global $wp_styles;
+	array_unshift( $wp_styles->queue, 'd4p-bbattachments-css');
 	array_unshift( $wp_styles->queue, 'edd-styles' );
 
 	// Load the main stylesheet at the end so overrides are easier
 	wp_enqueue_style( 'edd-style' );
 }
-add_action( 'wp_enqueue_scripts', 'edd_register_theme_scripts' );
+add_action( 'wp_enqueue_scripts', 'edd_register_theme_scripts', 9999 );
 
 /* ----------------------------------------------------------- *
  * 4. Comments Template
