@@ -1760,9 +1760,18 @@ input#edd-discount,
 #edd_checkout_form_wrap select.edd-select,
 .edd-select {
 	width: 50%;
-	background: #fff;
+	background: #fff url("data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==") no-repeat;
 	border: 1px solid #ccc;
+	-webkit-appearance: none;
+	background-position-y: center;
+	background-position-x: 97%;
 	color: #666;
+	border-radius: 0;
+	padding: 6px 8px;
+
+	&:focus, &:active {
+		outline: none;
+	}
 }
 
 /* ----------------------------- *
