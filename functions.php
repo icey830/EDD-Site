@@ -537,6 +537,15 @@ remove_action( 'bbp_template_before_single_topic' , 'edd_bbp_d_assign_topic_form
 remove_action( 'bbp_template_before_single_topic', 'edd_bbp_d_ping_asignee_button' );
 
 /**
+ * Filter the admin reply links to remove extra &nbsp; add by bbPress
+ */
+function eddwp_get_reply_admin_links( $retval, $r, $args ) {
+	$retval = str_replace("&nbsp;", '', $retval);
+	echo trim($retval);
+}
+add_filter( 'bbp_get_reply_admin_links', 'eddwp_get_reply_admin_links', 10, 3 );
+
+/**
  * Renders the Checkout Submit section
  *
  * @since 1.3.3
