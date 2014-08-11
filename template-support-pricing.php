@@ -31,7 +31,6 @@ the_content();
 			array(
 				'posts_per_page' => 6,
 				'post_type' => 'testimonials',
-				'orderby' => 'rand',
 				'post_status' => 'publish',
 			)
 		);
