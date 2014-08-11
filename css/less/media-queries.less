@@ -21,6 +21,10 @@
 	}
 }
 
+/* ----------------------------- *
+ * Old 940px layout
+ * ----------------------------- */
+
 @media (min-width: 980px) and (max-width: 1120px) {
 	.header-outer {
 		.header {
@@ -49,14 +53,11 @@
 	.single-theme .main .content,
 	.single-extension .main .content,
 	.documentation .main .content {
-		background: none;
-		padding: 0;
-		-webkit-box-shadow: none;
-		box-shadow: none;
-		border: none;
 		width: 680px;
-		margin: 0 0 20px;
-		float: left;
+	}
+
+	.single-extension .main .sidebar {
+		width: 240px;
 	}
 
 	.bbpress .main .content {
@@ -86,6 +87,34 @@
 
 	footer .container .col {
 		width: 283px;
+	}
+
+	.feature {
+		width: 100%;
+	}
+
+	.extensions-container,
+	.themes-container {
+		width: 940px;
+	}
+
+	.extension,
+	.theme {
+		width: 300px;
+		margin-right: 20px;
+	}
+
+	.extension .thumbnail-holder,
+	.theme .thumbnail-holder {
+		max-width: 280px;
+	}
+
+	.single-theme .sidebar {
+		width: 230px;
+	}
+
+	.single-theme .secondary .container {
+		width: 940px;
 	}
 }
 
@@ -144,6 +173,32 @@
 
 	footer .container img {
 		right: -25px;
+	}
+
+	footer .container {
+		width: 940px;
+	}
+
+	footer .container .col {
+		width: 283px;
+	}
+
+	.home .featureset.feature-extensions .extensions-grid ul li a img {
+		max-width: 100%;
+	}
+
+	.featureset.feature-support i {
+		margin-top: 180px;
+		margin-right: 30px;
+	}
+
+	.feature-newsletter .feature form .names {
+		padding-left: 190px;
+	}
+
+	.extensions-container,
+	.themes-container {
+		width: 940px;
 	}
 }
 
