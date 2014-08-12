@@ -906,17 +906,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/images\/affwp-banner.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 51823,
-		"inputAbbreviatedPath": "\/images\/affwp-banner.png",
-		"outputAbbreviatedPath": "\/images\/affwp-banner.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
 	"\/images\/app-store.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -924,17 +913,6 @@
 		"initialSize": 9893,
 		"inputAbbreviatedPath": "\/images\/app-store.png",
 		"outputAbbreviatedPath": "\/images\/app-store.png",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"processed": 0
-		},
-	"\/images\/banner-ceb.png": {
-		"fileType": 32768,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"initialSize": 27167,
-		"inputAbbreviatedPath": "\/images\/banner-ceb.png",
-		"outputAbbreviatedPath": "\/images\/banner-ceb.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
