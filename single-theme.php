@@ -34,7 +34,8 @@ $exclude_ids = array( get_the_ID() );
 					$meta = array(
 						'demo' => get_post_meta( get_the_ID(), 'ecpt_demo_url', true ),
 						'purchase' => get_post_meta( get_the_ID(), 'ecpt_purchaselink', true ),
-						'more_info' => get_post_meta( get_the_ID(), 'ecpt_externalurl', true )
+						'more_info' => get_post_meta( get_the_ID(), 'ecpt_externalurl', true ),
+						'download_id' => get_post_meta( get_the_ID(), 'ecpt_downloadid2', true ),
 					);
 					?>
 					<?php if ( ! empty( $meta['demo'] ) ) : ?>
@@ -42,8 +43,9 @@ $exclude_ids = array( get_the_ID() );
 					<?php endif; ?>
 
 					<?php if ( ! empty( $meta['purchase'] ) ) : ?>
-						<?php if ( is_numeric( $meta['purchase'] ) || is_int( $meta['purchase'] ) ) : ?>
-						<a class="button" href="https://easydigitaldownloads.com/checkout/?edd_action=add_to_cart&download_id=<?php echo $meta['purchase'] ?>">Purchase</a>
+						<?php if ( is_numeric( $meta['purchase'] ) || is_int( $meta['purchase'] ) || ! empty( $meta['download_id'] ) ) : ?>
+						<h4>Pricing</h4>
+						<?php echo edd_get_purchase_link( array( 'download_id' => $meta['download_id'] ) ); ?>
 						<?php else : ?>
 						<a class="button" href="<?php echo $meta['purchase'] ?>">Purchase</a>
 						<?php endif; ?>
