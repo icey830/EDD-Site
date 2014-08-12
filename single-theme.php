@@ -29,7 +29,30 @@ $exclude_ids = array( get_the_ID() );
 			</section><!-- /.content -->
 
 			<aside class="sidebar">
-				<?php echo get_post_meta( get_the_ID(), 'ecpt_sidebar', true ); ?>
+				<div class="section-buttons">
+					<?php
+					$meta = array(
+						'demo' => get_post_meta( get_the_ID(), 'ecpt_demo_url', true ),
+						'purchase' => get_post_meta( get_the_ID(), 'ecpt_purchaselink', true ),
+						'more_info' => get_post_meta( get_the_ID(), 'ecpt_externalurl', true )
+					);
+					?>
+					<?php if ( ! empty( $meta['demo'] ) ) : ?>
+					<a class="button" href="<?php echo get_post_meta( $post->ID, 'ecpt_demo_url', true ); ?>">Live Demo</a>
+					<?php endif; ?>
+
+					<?php if ( ! empty( $meta['purchase'] ) ) : ?>
+						<?php if ( is_numeric( $meta['purchase'] ) || is_int( $meta['purchase'] ) ) : ?>
+						<a class="button" href="https://easydigitaldownloads.com/checkout/?edd_action=add_to_cart&download_id=<?php echo $meta['purchase'] ?>">Purchase</a>
+						<?php else : ?>
+						<a class="button" href="<?php echo $meta['purchase'] ?>">Purchase</a>
+						<?php endif; ?>
+					<?php endif; ?>
+
+					<?php if ( ! empty( $meta['more_info'] ) ) : ?>
+						<a class="button" href="<?php echo $meta['more_infe'] ?>">More Information</a>
+					<?php endif; ?>
+				</div>
 				<div class="social-share">
 					
 				</div><!-- /.social-share -->
