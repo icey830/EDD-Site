@@ -75,7 +75,7 @@ get_header(); ?>
 								echo '<span class="count count-normal">'. $count .'</span>';
 							}
 							?>
-							Assigned
+							<a href="/support/dashboard">Assigned</a>
 						</div>
 
 						<div class="item">
@@ -111,7 +111,7 @@ get_header(); ?>
 								echo '<span class="count count-normal">'. $count .'</span>';
 							}
 							?>
-							Unassigned
+							<a href="/support/dashboard">Unassigned</a>
 						</div>
 
 						<div class="item">
@@ -142,7 +142,7 @@ get_header(); ?>
 								echo '<span class="count count-normal">'. $count .'</span>';
 							}
 							?>
-							No Replies
+							<a href="/support/dashboard">No Replies</a>
 						</div>
 
 						<div class="item">
@@ -172,7 +172,7 @@ get_header(); ?>
 								echo '<span class="count count-normal">'. $count .'</span>';
 							}
 							?>
-							Unresolved
+							<a href="/support/dashboard">Unresolved</a>
 						</div>
 					<?php
 					echo '</div>';
@@ -188,4 +188,4 @@ get_header(); ?>
 		</div><!-- /.container -->
 	</section><!-- /.main -->
 
-<?php get_footer(); ?>
+<?php get_footer(); ?
