@@ -9,6 +9,7 @@
  * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 
+global $user_ID;
 get_header(); ?>
 
 	<section class="main clearfix">
@@ -41,6 +42,141 @@ get_header(); ?>
 				get_sidebar( 'forums' );
 			} elseif ( current_user_can( 'moderate' ) && bbp_is_single_topic() && ! bbp_is_single_user() ) {
 				echo '<aside class="sidebar edd-moderator-sidebar">';
+					echo '<div class="edd-moderator-sidebar-inside">';
+					?>
+						<div class="item">
+							<?php
+							$args = array(
+								'post_type'  => 'topic',
+								'meta_query' => array(
+									'relation' => 'AND',
+									array(
+										'key'   => '_bbps_topic_status',
+										'value' => '1'
+									),
+									array(
+										'key'   => 'bbps_topic_assigned',
+										'value' => $user_ID,
+									)
+								),
+								'order' => 'ASC',
+								'orderby' => 'meta_value',
+								'meta_key' => '_bbp_last_active_time',
+								'posts_per_page' => -1,
+								'post_parent__not_in' => array( 318 )
+							);
+							$assigned_tickets = new WP_Query( $args );
+							$count = $assigned_tickets->post_count;
+							?>
+
+							<?php if ( $count == 0 ) {
+								echo '<span class="count count-green">0</span>';
+							} else {
+								echo '<span class="count count-normal">'. $count .'</span>';
+							}
+							?>
+							Assigned
+						</div>
+
+						<div class="item">
+							<?php
+							$args = array(
+								'post_type'  => 'topic',
+								'meta_query' => array(
+									'relation' => 'AND',
+									array(
+										'key'     => 'bbps_topic_assigned',
+										'compare' => 'NOT EXISTS',
+										'value'   => '1'
+									),
+									array(
+										'key'   => '_bbps_topic_status',
+										'value' => '1',
+									),
+								),
+								'order' => 'ASC',
+								'orderby' => 'meta_value',
+								'meta_key' => '_bbp_last_active_time',
+								'posts_per_page' => -1,
+								'post_status' => 'publish',
+								'post_parent__not_in' => array( 318 )
+							);
+							$unassigned_tickets = new WP_Query( $args );
+							$count = $unassigned_tickets->post_count;
+							?>
+
+							<?php if ( $count == 0 ) {
+								echo '<span class="count count-green">0</span>';
+							} else {
+								echo '<span class="count count-normal">'. $count .'</span>';
+							}
+							?>
+							Unassigned
+						</div>
+
+						<div class="item">
+							<?php
+							$args = array(
+								'post_type'  => 'topic',
+								'meta_query' => array(
+									'relation' => 'AND',
+									array(
+										'key'     => '_bbp_voice_count',
+										'value'   => '1'
+									),
+									array(
+										'key'   => '_bbps_topic_status',
+										'value' => '1',
+									),
+								),
+								'posts_per_page' => -1,
+								'post_status' => 'publish'
+							);
+							$no_reply_tickets = new WP_Query( $args );
+							$count = $no_reply_tickets->post_count
+							?>
+
+							<?php if ( $count == 0 ) {
+								echo '<span class="count count-green">0</span>';
+							} else {
+								echo '<span class="count count-normal">'. $count .'</span>';
+							}
+							?>
+							No Replies
+						</div>
+
+						<div class="item">
+							<?php
+							$args = array(
+								'post_type'  => 'topic',
+								'post_parent__not_in' => array( 318 ),
+								'posts_per_page' => -1,
+								'post_status' => 'publish',
+								'order' => 'ASC',
+								'orderby' => 'meta_value',
+								'meta_key' => '_bbp_last_active_time',
+								'meta_query' => array(
+									array(
+										'key'   => '_bbps_topic_status',
+										'value' => '1',
+									),
+								),
+							);
+							$unresolved_tickets = new WP_Query( $args );
+							$count = $unresolved_tickets->post_count;
+							?>
+
+							<?php if ( $count == 0 ) {
+								echo '<span class="count count-green">0</span>';
+							} else {
+								echo '<span class="count count-normal">'. $count .'</span>';
+							}
+							?>
+							Unresolved
+						</div>
+					<?php
+					echo '</div>';
+
 					echo '<div class="edd-moderator-sidebar-inside">';
 						edd_bbp_d_sidebar();
 					echo '</div>';

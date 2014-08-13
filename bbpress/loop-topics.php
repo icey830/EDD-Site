@@ -13,7 +13,8 @@ do_action( 'bbp_template_before_topics_loop' );
 	<li class="bbp-header">
 		<ul class="forum-titles">
 			<li class="bbp-topic-title">Topic</li>
-			<li class="bbp-topic-freshness">Freshness</li>
+			<li class="bbp-topic-voice-count">Users</li>
+			<li class="bbp-topic-reply-count">Posts</li>
 		</ul>
 	</li><!-- /.bbp-header -->
 	<li class="bbp-body">

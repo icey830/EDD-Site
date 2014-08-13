@@ -25,6 +25,7 @@
  * 8.  Shortcodes
  * 9.  Extensions feed
  * 10. Misc
+ * 11. bbPress
  *
  * ------------------------------------------------------------------------------- */
 
@@ -77,7 +78,7 @@ include( dirname(__FILE__) . '/includes/query-filters.php' );
 function edd_register_theme_scripts() {
 
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
-	
+
 	$deps = array( 'roboto-font' );
 
 	if( function_exists( 'is_bbpress' ) ) {
@@ -86,7 +87,7 @@ function edd_register_theme_scripts() {
 		}
 	}
 
-	if ( is_page( 635 ) ) {
+	if ( is_page( 635 ) || is_page( 65892 ) ) {
 		$deps[] = 'bootstrap';
 	}
 
@@ -129,20 +130,22 @@ function edd_register_theme_scripts() {
 
 	if ( function_exists( 'is_bbpress' ) && is_bbpress() || is_page( 'support' ) ) {
 		wp_enqueue_style( 'bbp-default-bbpress', trailingslashit( bbPress()->themes_url . 'default' ) . 'css/bbpress.css', array(), bbp_get_version(), 'screen' );
+		wp_enqueue_script( 'bootstrap-select' );
 	}
 
-	if ( is_page( 635 ) ) {
+	if ( is_page( 635 ) || is_page( 65892 ) ) {
 		wp_enqueue_style( 'bootstrap' );
 		wp_enqueue_script( 'bootstrap-js' );
 	}
 
 	global $wp_styles;
+	array_unshift( $wp_styles->queue, 'd4p-bbattachments-css');
 	array_unshift( $wp_styles->queue, 'edd-styles' );
 
 	// Load the main stylesheet at the end so overrides are easier
 	wp_enqueue_style( 'edd-style' );
 }
-add_action( 'wp_enqueue_scripts', 'edd_register_theme_scripts' );
+add_action( 'wp_enqueue_scripts', 'edd_register_theme_scripts', 9999 );
 
 /* ----------------------------------------------------------- *
  * 4. Comments Template
@@ -521,6 +524,58 @@ function eddwp_add_security_info() {
 add_action( 'edd_after_cc_expiration', 'eddwp_add_security_info' );
 
 /**
+ * Shows the final purchase total at the bottom of the checkout page
+ */
+remove_action( 'edd_purchase_form_before_submit', 'edd_checkout_final_total', 999 );
+remove_action( 'edd_purchase_form_after_cc_form', 'edd_checkout_submit', 9999 );
+
+/**
+ * Remove bbPress Support Dashboard Actions/Filter
+ */
+remove_action( 'bbp_template_before_single_topic', 'edd_bbp_d_add_support_forum_features' );
+remove_action( 'bbp_template_before_single_topic' , 'edd_bbp_d_assign_topic_form' );
+remove_action( 'bbp_template_before_single_topic', 'edd_bbp_d_ping_asignee_button' );
+
+/**
+ * Filter the admin reply links to remove extra &nbsp; add by bbPress
+ */
+function eddwp_get_reply_admin_links( $retval, $r, $args ) {
+	$retval = str_replace("&nbsp;", '', $retval);
+	echo trim($retval);
+}
+add_filter( 'bbp_get_reply_admin_links', 'eddwp_get_reply_admin_links', 10, 3 );
+
+/**
+ * Renders the Checkout Submit section
+ *
+ * @since 1.3.3
+ * @return void
+ */
+function eddwp_checkout_submit() {
+?>
+	<fieldset id="edd_purchase_submit">
+		<?php do_action( 'edd_purchase_form_before_submit' ); ?>
+
+		<?php edd_checkout_hidden_fields(); ?>
+
+		<p id="edd_final_total_wrap">
+			<strong><?php _e( 'Purchase Total:', 'edd' ); ?></strong>
+			<span class="edd_cart_amount" data-subtotal="<?php echo edd_get_cart_subtotal(); ?>" data-total="<?php echo edd_get_cart_subtotal(); ?>"><?php edd_cart_total(); ?></span>
+
+			<?php echo edd_checkout_button_purchase(); ?>
+		</p>
+
+		<?php do_action( 'edd_purchase_form_after_submit' ); ?>
+
+		<?php if ( edd_is_ajax_disabled() ) { ?>
+			<p class="edd-cancel"><a href="javascript:history.go(-1)"><?php _e( 'Go back', 'edd' ); ?></a></p>
+		<?php } ?>
+	</fieldset>
+<?php
+}
+add_action( 'edd_purchase_form_after_cc_form', 'eddwp_checkout_submit', 9999 );
+
+/**
  * Remove the default purchase link that's appended after `the_content`
  */
 remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
@@ -579,6 +634,79 @@ function eddwp_bbp_login_widget_title( $title, $instance, $id_base ) {
 	}
 }
 add_filter( 'bbp_login_widget_title', 'eddwp_bbp_login_widget_title', 10, 3 );
+
+function eddwp_display_extensions() {
+	$query = new WP_Query( array(
+		'post_type' => 'extension',
+		'posts_per_page' => 3,
+		'orderby' => 'rand',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'extension_category',
+				'field' => 'slug',
+				'terms' => 'popular'
+			)
+		)
+	) );
+
+	?>
+	<div class="clearfix">
+	<?php
+	$c = 0; while ( $query->have_posts() ) {
+		$query->the_post(); $c++;
+
+		?>
+		<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?><?php if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) ) echo ' third-party-extension'; ?><?php if ( eddwp_is_extension_free() ) echo ' free-extension'; ?>">
+				<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
+				<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
+				<h3><?php the_title(); ?></h3>
+			</a>
+			<div class="overlay">
+				<a href="<?php the_permalink(); ?>" class="overlay-view-details button">View Details</a>
+				<?php if( ! eddwp_is_external_extension() ) : ?>
+					<a href="<?php echo home_url( '/checkout/?edd_action=add_to_cart&download_id=' . get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
+				<?php endif; ?>
+			</div>
+			<?php
+			if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) )
+				echo '<i class="third-party"></i>';
+			?>
+		</div>
+		<?php
+	}
+	?>
+	</div>
+	<?php
+}
+
+function eddwp_display_themes() {
+	?>
+	<?php
+	$query = new WP_Query( array(
+		'post_type' => 'theme',
+		'posts_per_page' => 3,
+		'orderby' => 'rand'
+	) );
+
+	?>
+	<div class="clearfix">
+	<?php
+	$c = 0; while ( $query->have_posts() ) {
+		$query->the_post(); $c++;
+
+		?>
+		<div class="theme <?php if ( 0 == $c % 3 ) echo ' theme-clear'; ?>">
+			<a href="<?php the_permalink(); ?>" title="<?php echo get_the_title(); ?>">
+				<div class="thumbnail-holder"><?php the_post_thumbnail( 'theme-showcase' ); ?></div>
+				<h3 class="theme-name"><?php the_title(); ?></h3>
+			</a>
+		</div>
+		<?php
+	}
+	?>
+	</div>
+	<?php
+}
 
 /* ----------------------------------------------------------- *
  * 7. Widgets
@@ -712,9 +840,9 @@ function eddwp_is_extension_third_party() {
  * Checks if an extension is hosted off site
  */
 function eddwp_is_external_extension( $post_id = 0 ) {
-
-	if( empty( $post_id ) )
+	if ( empty( $post_id ) ) {
 		$post_id = get_the_ID();
+	}
 
 	return (bool) get_post_meta( $post_id, 'ecpt_is_external', true );
 }
@@ -724,6 +852,19 @@ function eddwp_is_external_extension( $post_id = 0 ) {
  */
 function eddwp_get_external_extension_url() {
 	return get_post_meta( get_the_ID(), 'ecpt_externalurl', true );
+}
+
+/**
+ * Checks if an extension is free
+ */
+function eddwp_is_extension_free( $post_id = 0 ) {
+	if ( empty( $post_id ) ) {
+		$post_id = get_the_ID();
+	}
+
+	if ( has_term( 'Free', 'extension_category', $post_id ) || get_post_meta( $post_id, 'edd_price,', true ) == 'Free' || (bool) get_post_meta( $post_id, 'ecpt_is_external', true ) == true ) {
+		return true;
+	}
 }
 
 /* ----------------------------------------------------------- *
@@ -1095,3 +1236,92 @@ function eddwp_modal() {
 		echo $modal;
 	}
 }
+
+/* ----------------------------------------------------------- *
+ * 11. bbPress
+ * ----------------------------------------------------------- */
+function eddwp_add_support_forum_features() {
+	if ( edd_bbp_d_is_support_forum( bbp_get_forum_id() ) ) :
+		$topic_id = bbp_get_topic_id();
+		$status = edd_bbp_d_get_topic_status( $topic_id );
+	?>
+	<div class="moderator-tools clearfix">
+		<div class="topic-status">
+			<?php
+			if ( current_user_can( 'moderate' ) ) {
+				edd_bbp_d_generate_status_options( $topic_id, $status );
+			} else { ?>
+				This topic is: <?php echo $status; ?>
+			<?php } ?>
+		</div>
+
+		<?php
+		if ( get_option( '_bbps_topic_assign' ) == 1 && current_user_can( 'moderate' ) ) {
+			$topic_id = bbp_get_topic_id();
+			$topic_assigned = edd_bbp_get_topic_assignee_id( $topic_id );
+
+			global $current_user;
+			get_currentuserinfo();
+			$current_user_id = $current_user->ID;
+			?>
+			<div id="bbps_support_forum_options">
+				<?php
+				$user_login = $current_user->user_login;
+				if ( ! empty( $topic_assigned ) ) {
+					if ( $topic_assigned == $current_user_id ) { ?>
+						<div class='bbps-support-forums-message'>This topic is assigned to you.</div><?php
+					} else {
+						$assigned_user_name = edd_bbp_get_topic_assignee_name( $topic_assigned ); ?>
+						<div class='bbps-support-forums-message'> This topic is already assigned to: <?php echo $assigned_user_name; ?></div><?php
+					}
+				}
+				?>
+				<div id="bbps_support_topic_assign">
+					<form id="bbps-topic-assign" name="bbps_support_topic_assign" action="" method="post">
+					<?php
+					$all_users = edd_bbp_d_get_all_mods();
+
+					$topic_id = bbp_get_topic_id();
+					$claimed_user_id = get_post_meta( $topic_id, 'bbps_topic_assigned', true );
+
+					if ( ! empty( $all_users ) ) {
+						if ( $claimed_user_id > 0 ) {
+							$text = "Reassign topic to: ";
+						} else {
+							$text = "Assign topic to: ";
+						}
+
+						echo '<span>' . $text . '</span>';
+					?>
+						<select name="bbps_assign_list" id="bbps_support_options">
+						<option value="">Unassigned</option><?php
+						foreach ( $all_users as $user ) {
+					?>
+							<option value="<?php echo $user->ID; ?>"> <?php echo $user->user_firstname . ' ' . $user->user_lastname ; ?></option>
+						<?php
+						}
+						?> </select> <?php
+					}
+					?>
+						<input type="submit" value="Assign" name="bbps_support_topic_assign" />
+						<input type="hidden" value="bbps_assign_topic" name="bbps_action"/>
+						<input type="hidden" value="<?php echo $topic_id ?>" name="bbps_topic_id" />
+					</form>
+					<form id="bbs-topic-assign-me" name="bbps_support_topic_assign" action="" method="post">
+						<input type="submit" value="Assign To Me" name="bbps_support_topic_assign" />
+						<input type="hidden" value="<?php echo get_current_user_id(); ?>" name="bbps_assign_list" />
+						<input type="hidden" value="bbps_assign_topic" name="bbps_action"/>
+						<input type="hidden" value="<?php echo $topic_id ?>" name="bbps_topic_id" />
+					</form>
+				</div>
+			</div><!-- /#bbps_support_forum_options -->
+			<?php
+		}
+		?>
+
+		<?php edd_bbp_d_ping_asignee_button(); ?>
+	</div>
+	<?php
+	endif;
+}
+add_action( 'bbp_template_before_single_topic', 'eddwp_add_support_forum_features' );

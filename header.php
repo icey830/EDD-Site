@@ -47,7 +47,7 @@
 				<?php endif; ?>
 			</div><!-- #logo -->
 
-			<?php if( ! is_page( 'checkout' ) ) : ?>
+			<?php if( ! is_page( 'checkout' ) || is_page( 130 ) || is_page( 635 ) ) : ?>
 			
 			<i class="icon-list"></i>
 

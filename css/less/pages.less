@@ -8,7 +8,7 @@
  * Global
  * ----------------------------- */
 .main .content {
-	width: 940px;
+	width: 1100px;
 	margin: 25px auto;
 	background: #fff;
 	padding: 20px;
@@ -25,7 +25,7 @@
  * Showcase
  * ----------------------------- */
 .showcase {
-	width: 940px;
+	width: 1100px;
 	margin: 0 auto 20px;
 
 	& .site {
@@ -33,19 +33,19 @@
 		float: left;
 		padding: 10px;
 		position: relative;
-		width: 300px;
+		width: 353px;
 		margin-right: 20px;
 		margin-bottom: 20px;
 
 		& img {
-			width: 280px;
+			width: 333px;
 			height: auto;
 		}
 
 		& .text-overlay {
 			background: rgba(34,36,38,0.9);
-			width: 300px;
-			height: 204px;
+			width: 353px;
+			height: 235px;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -100,7 +100,7 @@
 		float: left;
 		padding: 10px;
 		position: relative;
-		width: 460px;
+		width: 540px;
 		margin-right: 20px;
 		margin-bottom: 20px;
 
@@ -109,14 +109,14 @@
 		}
 
 		& img {
-			width: 440px;
-			height: 325px;
+			width: 540px;
+			height: 370px;
 		}
 
 		& .text-overlay {
 			background: rgba(34,36,38,0.9);
-			width: 460px;
-			height: 353px;
+			width: 540px;
+			height: 397px;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -169,6 +169,22 @@
 
 .showcase .site:nth-child(3n+3) { margin-right: 0; }
 
+.page-id-2483 .the-content {
+	padding: 30px;
+	background: #fff;
+
+	> p:first-child {
+		font-size: 24px;
+		font-size: 2.4rem;
+		font-weight: 300;
+		line-height: 1.2;
+	}
+
+	.gform_wrapper .gform_footer {
+		padding-bottom: 0;
+	}
+}
+
 /* ----------------------------- *
  * Features
  * ----------------------------- */
@@ -205,24 +221,23 @@
 	padding: 80px 0 0;
 
 	&.feature-pad { padding-bottom: 80px; }
-}
 
+	.feature-text {
+		width: 940px;
+		margin: 0 auto;
 
-.feature-area .feature-text {
-	width: 940px;
-	margin: 0 auto;
+		& h3 { font-weight: 400; }
 
-	& h3 { font-weight: 400; }
+		& p {
+			font-size: 18px;
+			font-weight: 300;
+			line-height: 30px;
+		}
 
-	& p {
-		font-size: 18px;
-		font-weight: 300;
-		line-height: 30px;
-	}
-
-	&  .feature-text-inner {
-		float: left;
-		width: 46%;
+		&  .feature-text-inner {
+			float: left;
+			width: 46%;
+		}
 	}
 }
 
@@ -231,21 +246,29 @@
 .feature-left img { float: right; }
 
 .feature-center .feature-text {
- 	& .feature-text-inner {
+ 	.feature-text-inner {
 		float: none;
 		width: 100%;
 		text-align: center;
 
-		& p {
+		p {
 			margin-bottom: 25px;
 		}
 	}
 
-	& .feature-text .wp-post-image {
+	.feature-text .wp-post-image {
 		left: 50%;
 		position: relative;
 		margin-left: -400px;
 	}
+}
+
+.feature-75246.feature-area .feature-text .feature-text-inner {
+	width: 32%;
+}
+
+.feature-75247.feature-right .feature-text .feature-text-inner {
+	width: 60%;
 }
 
 .feature-75247 img {
@@ -253,10 +276,27 @@
 	margin-top: 2%;
 }
 
-.feature-75248 img,
-.feature-75250 img { margin-right: 20%; }
+.feature-75248.feature-area .feature-text .feature-text-inner,
+.feature-75250.feature-area .feature-text .feature-text-inner {
+	width: 60%;
+}
 
-.feature-75248 img { margin-top: 3.5%; }
+.feature-75248 img,
+.feature-75250 img {
+	margin-right: 20%
+}
+
+.feature-75250 img {
+	margin-top: 2.8%;
+}
+
+.feature-75251 img {
+	margin-left: 9%;
+}
+
+.feature-75248 img {
+	margin-top: 3.5%;
+}
 
 .feature-75253 img {
 	margin-top: 5%;
@@ -269,7 +309,8 @@
 }
 
 .feature-75254 img {
-	margin-left: 9.5%;
+	margin-left: 12%;
+	box-shadow: 0 0 12px #eee;
 }
 
 #feature-edd {
@@ -278,7 +319,7 @@
 	top: -1px;
 	background: #fff;
 
-	& .feature-text-inner {
+	.feature-text-inner {
 		background: url(images/edd-standing.png) no-repeat center right;
 		padding: 80px 0;
 		width: 100%;
@@ -286,7 +327,7 @@
 		display: block;
 		position: relative;
 
-		& h3 {
+		h3 {
 			width: 500px;
 			position: relative;
 			left: 25%;
@@ -318,6 +359,35 @@
 	text-align: center;
 }
 
+.page-template-template-features-php #feature-testimonials {
+	padding: 80px 0 150px;
+
+	.feature-text .feature-text-inner {
+		width: 100%;
+		float: none;
+	}
+
+	.quote {
+		float: left;
+		width: 48%;
+		margin-right: 2%;
+		height: 250px;
+	}
+
+	.quote:nth-child(2n+2) {
+		margin-right: 0;
+		margin-left: 2%;
+	}
+
+	.quote blockquote {
+		font-style: normal;
+		font-size: 16px;
+		background: url(images/icon-quote.png) no-repeat 0 15px;
+		padding-left: 50px;
+		border-left: none;
+	}
+}
+
 /* ----------------------------- *
  * Extensions and Themes
  * ----------------------------- */
@@ -334,43 +404,49 @@
 
 .extensions-container,
 .themes-container {
-	width: 940px;
+	width: 1100px;
 	margin: 0 auto 20px;
 }
 
-.page-id-13 h1 { float: left; }
-
-#extensions_searchform { float: right; }
-
-#extensions_searchform fieldset {
-	border: none;
-	background: transparent;
+.page-id-13 h1 {
+	float: left;
 }
 
-#extensions_searchform fieldset input[type="search"] {
-	width: 226px;
-	text-indent: 0;
-	height: 20px;
-	border-radius: 3px;
-	padding: 5px 10px;
-	display: inline-block;
-	outline: none;
-	border: 1px solid #ccc;
-	-webkit-transition: border .2s ease-in-out;
-	-moz-transition: border .2s ease-in-out;
-	-o-transition: border .2s ease-in-out;
-	-ms-transition: border .2s ease-in-out;
-	transition: border .2s ease-in-out;
-}
+#extensions_searchform {
+	float: right;
 
-#extensions_searchform fieldset input[type="search"]:focus { border-color: #777; }
+	fieldset {
+		border: none;
+		background: transparent;
 
-#extensions_searchform fieldset input[type="submit"] {
-	padding: 8px 13px 8px;
-	text-decoration: none;
-	border-radius: 2px;
-	background: #eee;
-	border: none;
+		input[type="search"] {
+			width: 226px;
+			text-indent: 0;
+			height: 20px;
+			border-radius: 3px;
+			padding: 5px 10px;
+			display: inline-block;
+			outline: none;
+			border: 1px solid #ccc;
+			-webkit-transition: border .2s ease-in-out;
+			-moz-transition: border .2s ease-in-out;
+			-o-transition: border .2s ease-in-out;
+			-ms-transition: border .2s ease-in-out;
+			transition: border .2s ease-in-out;
+
+			&:focus {
+				border-color: #777;
+			}
+		}
+
+		input[type="submit"] {
+			padding: 8px 13px 8px;
+			text-decoration: none;
+			border-radius: 2px;
+			background: #eee;
+			border: none;
+		}
+	}
 }
 
 .page-template-template-extensions-php .main .content {
@@ -395,50 +471,54 @@
 	margin-right: -20px;
 	padding: 10px 20px 20px;
 	margin-top: 40px;
-}
 
-.filter ul {
-	margin: 0;
-	padding: 0;
-}
+	ul {
+		margin: 0;
+		padding: 0;
+	}
 
-.filter li {
-	float: left;
-	list-style: none;
-	margin-right: 8px;
-}
+	 li {
+		float: left;
+		list-style: none;
+		margin-right: 8px;
+	}
 
-.filter a {
-	position: relative;
-	background: #fff;
-	color: #232527;
-	border-radius: 3px;
-	display: inline-block;
-	font-size: 14px;
-	font-weight: normal;
-	margin-top: 10px;
-	padding: 3px 8px;
-	.all_transition();
-	border: 1px solid #ccc;
+	a {
+		position: relative;
+		background: #fff;
+		color: #232527;
+		border-radius: 3px;
+		display: inline-block;
+		font-size: 14px;
+		font-weight: normal;
+		margin-top: 10px;
+		padding: 3px 8px;
+		.all_transition();
+		border: 1px solid #ccc;
 
-	&:hover {
-		background: #2794da;
-		color: #fff;
-		border: 1px solid #25597a;
+		&:hover {
+			background: #2794da;
+			color: #fff;
+			border: 1px solid #25597a;
+		}
 	}
 }
 
 .extension,
 .theme {
 	float: left;
-	width: 300px;
+	width: 345px;
 	margin-top: 10px;
-	margin-bottom: 20px;
-	margin-right: 20px;
+	margin-bottom: 25px;
+	margin-right: 32px;
 	position: relative;
 	height: 300px;
 	padding-top: 10px;
 	background: #fff;
+}
+
+.extension {
+	height: 320px;
 }
 
 .changelog-content {
@@ -455,8 +535,14 @@
 }
 
 .theme {
-	height: 250px;
+	height: 220px;
 	padding-bottom: 10px;
+
+	.theme-name {
+		display: block;
+		padding-left: 15px;
+		padding-top: 12px;
+	}
 }
 
 .extension.extension-clear,
@@ -481,15 +567,14 @@
 	color: #555;
 }
 
-.extension .overlay,
-.theme .overlay {
+.extension .overlay {
 	background: rgba(0,0,0,0.75);
 	cursor: pointer;
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 300px;
-	height: 194px;
+	width: 100%;
+	height: 220px;
 	display: block;
 	opacity: 0;
 	-webkit-transition: opacity .2s ease-in-out;
@@ -601,9 +686,6 @@
 	margin-left: -10px;
 	margin-top: -10px;
 	max-width: 290px;
-	border: 1px solid #c8c8c8;
-	-webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-	box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
 .extensions-grid ul li a .price,
@@ -627,12 +709,28 @@
 	box-shadow: 0 0 2px #ccc;
 }
 
-.thumbnail-holder {
-	width: 278px;
-	height: 174px;
+.extension.free-extension {
+	.overlay a {
+		margin-left: -54px;
+	}
+}
+
+.extension .thumbnail-holder {
+	max-width: 320px;
+	max-height: 200px;
 	margin: 0 auto;
 	vertical-align: middle;
 	overflow: hidden;
+	display: block;
+}
+
+.theme .thumbnail-holder {
+	max-width: 320px;
+	max-height: 160px;
+	margin: 0 auto;
+	vertical-align: middle;
+	overflow: hidden;
+	display: block;
 }
 
 .pagination {
@@ -672,19 +770,24 @@
 }
 
 .single-extension .main .content {
-	width: 680px;
+	width: 740px;
 	margin: 5px 0 20px;
 	float: left;
+	padding: 50px;
+
+	h1 + p img {
+		width: 100%;
+	}
 }
 
 .single-extension .main .sidebar {
 	float: left;
 	margin-top: 5px;
-	margin-left: 20px;
+	margin-left: 60px;
 	margin-bottom: 20px;
 	background: #fff;
-	width: 240px;
-	padding: 20px;
+	width: 300px;
+	padding: 50px;
 }
 
 .single-extension .main .sidebar h3 {
@@ -836,6 +939,64 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 .single-theme .main .content {
 	background: white;
 	padding: 20px;
+	margin-bottom: 0;
+
+	h3:first-child {
+		margin-top: 0;
+		line-height: 1.5;
+		margin-bottom: 2rem;
+		margin-bottom: 20px;
+	}
+}
+
+.single-theme .sidebar {
+	.section-buttons {
+		margin: 20px auto 0;
+		display: block;
+
+		a {
+			font-size: 18px;
+			font-size: 1.8rem;
+			padding: 3% 6%;
+			margin-bottom: 20px;
+		}
+
+		.edd_price_options,
+		.edd_purchase_submit_wrapper,
+		h4 {
+			text-align: left;
+		}
+	}
+}
+
+.single-theme .secondary {
+	.container {
+		width: 1100px;
+		margin: 0 auto;
+		padding-bottom: 30px;
+
+		.quote {
+			float: left;
+			width: 48%;
+			margin-right: 2%;
+			height: 250px;
+
+			blockquote {
+				font-style: normal;
+				font-size: 16px;
+				background: url(images/icon-quote.png) no-repeat 0 15px;
+				padding-left: 50px;
+				border-left: none;
+			}
+		}
+
+		.themes {
+			margin-top: 30px;
+			padding-top: 20px;
+			border-top: 1px solid #eee;
+			margin-bottom: 110px;
+		}
+	}
 }
 
 .third-party-extension .overlay .overlay-add-to-cart {
@@ -865,8 +1026,19 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 }
 
 #edd_checkout_form_wrap span.card-type {
-	top: 52px;
-	right: 390px;
+	top: 54px;
+	right: 281px;
+}
+
+.theme-preview {
+	background: #fff;
+	margin: 0 auto;
+	text-align: center;
+	padding: 30px 0;
+
+	img {
+		display: inline-block;
+	}
 }
 
 /* ----------------------------- *
@@ -961,7 +1133,7 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	overflow: auto;
 	border: 2px solid #ddd;
 	border-radius: 6px;
-	margin-bottom: 20px;
+	margin-bottom: 140px;
 	padding: 20px;
 	position: relative;
 	z-index: 1;
@@ -969,7 +1141,9 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 }
 
 #edd_user_history,
-.affiliate-stats table {
+.affiliate-stats table,
+.rcp-table,
+.edd_sl_table {
 	max-width: 100%;
 	background-color: transparent;
 	border-collapse: collapse;
@@ -978,7 +1152,9 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 }
 
 #edd_user_history thead th,
-.affiliate-stats table thead th {
+.affiliate-stats table thead th,
+.rcp-table thead th,
+.edd_sl_table thead th {
 	vertical-align: bottom;
 	padding: 12px 10px;
 	padding-bottom: 14px;
@@ -986,12 +1162,18 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	text-align: left;
 }
 
-#edd_user_history tbody > tr:nth-child(odd) > td, #edd_user_history tbody > tr:nth-child(odd) > th {
+#edd_user_history tbody > tr:nth-child(odd) > td,
+#edd_user_history tbody > tr:nth-child(odd) > th,
+.rcp-table tbody > tr:nth-child(odd) > td,
+.rcp-table tbody > tr:nth-child(odd) > th,
+.edd_sl_table tbody > tr:nth-child(odd) > th {
 	background-color: transparent;
 }
 
 #edd_user_history td,
-.affiliate-stats table td {
+.affiliate-stats table td,
+.rcp-table td,
+.edd_sl_table td {
 	padding: 12px 10px;
 	border-top: 2px solid #eef0f0;
 	line-height: 20px;
@@ -999,7 +1181,22 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	vertical-align: top;
 }
 
-#edd_user_history tbody > tr:nth-child(even) > td, #edd_user_history tbody > tr.selected-row > td, #edd_user_history tbody > tr:nth-child(even) > th, #edd_user_history tbody > tr.selected-row > th {
+.rcp-table:first-child {
+	margin-bottom: 30px;
+}
+
+#edd_user_history tbody > tr:nth-child(even) > td,
+#edd_user_history tbody > tr.selected-row > td,
+#edd_user_history tbody > tr:nth-child(even) > th,
+#edd_user_history tbody > tr.selected-row > th,
+.rcp-table tbody > tr:nth-child(even) > td,
+.rcp-table tbody > tr.selected-row > td,
+.rcp-table tbody > tr:nth-child(even) > th,
+.rcp-table tbody > tr.selected-row > th,
+.edd_sl_table tbody > tr:nth-child(even) > td,
+.edd_sl_table tbody > tr.selected-row > td,
+.edd_sl_table tbody > tr:nth-child(even) > th,
+.edd_sl_table tbody > tr.selected-row > th {
 	background: #f9fafb;
 }
 
@@ -1069,6 +1266,10 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 		-webkit-box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
 		box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
 	}
+}
+
+.page-id-635.login .content {
+	width: 640px;
 }
 
 .login h1,
@@ -1224,8 +1425,8 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	}
 }
 
-#edd_user_commissions_unpaid {
-	& h3 {
+#edd_commissioned_products {
+	h3 {
 		margin-top: 0;
 	}
 }
@@ -1271,10 +1472,13 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	border-bottom: double #232527;
 }
 
+#edd_commissions_unpaid_pagination,
 #edd_commissions_paid_pagination {
 	display: block;
 	padding-top: 30px;
 	border-top: 1px solid #efefef;
+	*display: inline-block;
+	height: 1%;
 
 	& .current, .page-numbers {
 		background: #fff;
@@ -1303,6 +1507,15 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 		-ms-transition: none;
 		transition: none;
 	}
+
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+		visibility: hidden;
+		font-size: 0;
+		height: 0;
+	}
 }
 
 /* ----------------------------- *
@@ -1311,6 +1524,48 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 
 .page-id-160 .content {
 	width: 640px;
+}
+
+.page-id-160 .checkout-cart-empty {
+	width: 895px;
+
+	.extension,
+	.theme {
+		background: #f4f4f4;
+		width: 263px;
+		padding-top: 0;
+		height: 270px;
+
+		.overlay {
+			height: 164px;
+		}
+
+		h3 {
+			font-size: 18px;
+			font-size: 1.8rem;
+			padding: 0 10px;
+			margin-top: 5px;
+		}
+
+		.thumbnail-holder {
+			margin-bottom: 10px;
+		}
+	}
+
+	.theme {
+		height: 220px
+	}
+}
+
+.page-id-160 .checkout-cart-empty h1,
+.page-id-160 .checkout-cart-empty h2.tagline {
+	text-align: center;
+}
+
+.page-id-160 .checkout-cart-empty h2.tagline {
+	font-size: 24px;
+	font-size: 2.4rem;
+	color: #aaa;
 }
 
 #edd_checkout_wrap {
@@ -1464,7 +1719,14 @@ input#edd-discount,
 	padding: .7em 1.387em;
 }
 
-#edd_final_total_wrap strong {
+#edd_final_total_wrap strong,
+#edd_final_total_wrap .edd_cart_amount {
+	font-weight: 300;
+	font-size: 26px;
+	font-size: 2.6rem;
+}
+
+#edd_final_total_wrap .edd_cart_amount {
 	font-weight: 400;
 }
 
@@ -1488,6 +1750,51 @@ input#edd-discount,
 	margin-bottom: -20px;
 }
 
+#edd_checkout_form_wrap #edd-payment-mode-wrap .edd-payment-mode-label,
+#edd_checkout_form_wrap legend {
+	font-size: 22px;
+	font-size: 2.2rem;
+	font-weight: 300;
+	line-height: 1.2;
+	margin-bottom: 25px;
+}
+
+#edd_checkout_form_wrap label {
+	font-weight: 500;
+}
+
+#edd_checkout_form_wrap #edd_final_total_wrap {
+	text-align: center;
+	padding: 25px;
+
+	#edd-purchase-button {
+		display: block;
+		font-size: 18px;
+		font-size: 1.8rem;
+		margin: auto;
+		padding: 16px 30px;
+		font-weight: 300;
+		margin-top: 8px;
+	}
+}
+
+#edd_checkout_form_wrap select.edd-select,
+.edd-select {
+	width: 50%;
+	background: #fff url("data:image/svg+xml;base64, PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iM3B4IiB2aWV3Qm94PSIwIDAgNiAzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA2IDMiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxwb2x5Z29uIHBvaW50cz0iNS45OTIsMCAyLjk5MiwzIC0wLjAwOCwwICIvPjwvc3ZnPg==") no-repeat;
+	border: 1px solid #ccc;
+	-webkit-appearance: none;
+	background-position-y: center;
+	background-position-x: 97%;
+	color: #666;
+	border-radius: 0;
+	padding: 6px 8px;
+
+	&:focus, &:active {
+		outline: none;
+	}
+}
+
 /* ----------------------------- *
  * Documentation
  * ----------------------------- */
@@ -1496,7 +1803,7 @@ input#edd-discount,
 	float: left;
 	margin-right: 20px;
 	margin-left: 0!important;
-	width: 240px;
+	width: 300px;
 	background: #fff;
 	padding: 20px;
 }
@@ -1544,7 +1851,7 @@ input#edd-discount,
 
 .documentation .main .content {
 	float: left;
-	width: 680px;
+	width: 780px;
 	margin: 0 0 20px;
 	background: #fff;
 	padding: 20px;
@@ -1645,7 +1952,16 @@ input#edd-discount,
 	font-size: 18px;
 	font-weight: 300;
 	float: left;
-	width: 490px;
+	width: 330px;
+	margin-right: 30px;
+
+	article h4 {
+		font-weight: 400;
+	}
+}
+
+.support-pricing .why.last {
+	margin-right: 0;
 }
 
 .support-pricing .main .content:hover #support-people {
@@ -1662,12 +1978,12 @@ input#edd-discount,
 }
 
 .pricing-container {
-	width: 760px;
+	width: 1100px;
 	margin: 35px auto 0;
 }
 
 .pricing-container .support-box {
-	width: 350px;
+	width: 333px;
 	float: left;
 	background: #fff;
 	background: -webkit-linear-gradient(#ffffff 0%, #eaeaea 100%);
@@ -1677,14 +1993,14 @@ input#edd-discount,
 	background: linear-gradient(#ffffff 0%, #eaeaea 100%);
 	border-radius: 3px;
 	color: #555;
-	border: 1px solid #3f7197;
+	border: 1px solid #bbb;
 	-webkit-box-shadow: 0 2px 6px rgba(29,58,82,0.4);
 	box-shadow: 0 2px 6px rgba(29,58,82,0.4);
 	margin-right: 50px;
 }
 
-.pricing-container .priority-support {
-	border: 2px solid #588fc9;
+.pricing-container .fortyfive-days {
+	border: 3px solid #588fc9;
 	position: relative;
 	z-index: 2;
 	top: -13px;
@@ -1693,7 +2009,7 @@ input#edd-discount,
 	border-top-width: 3px;
 }
 
-.pricing-container .priority-support .label {
+.pricing-container .fortyfive-days .label {
 	position: absolute;
 	background: #588fc9;
 	font-size: 14px;
@@ -1707,16 +2023,18 @@ input#edd-discount,
 	font-weight: 300;
 	font-size: 28px;
 	text-align: center;
-	padding: 30px 0;
+	padding: 30px 15px;
 	border-bottom: 1px solid #ddd;
 	margin: 0;
 }
 
-.pricing-container .priority-support h2 {
+.pricing-container .fortyfive-days h2 {
 	padding-top: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
-.pricing-container .support-box:nth-child(2n) { margin-right: 0; }
+.pricing-container .support-box:nth-child(3n) { margin-right: 0; }
 
 .pricing-container .support-box .price {
 	font-weight: 300;
@@ -1802,6 +2120,21 @@ input#edd-discount,
 	}
 }
 
+.page-template-template-support-pricing-php .quote {
+	float: left;
+	width: 48%;
+	margin-right: 2%;
+	margin-top: 20px;
+
+	blockquote {
+		font-style: normal;
+		font-size: 16px;
+		background: url(images/icon-quote.png) no-repeat 0 15px;
+		padding-left: 50px;
+		border-left: none;
+	}
+}
+
 /* ----------------------------- *
  * Team
  * ----------------------------- */
@@ -1828,6 +2161,14 @@ input#edd-discount,
 	float: left;
 	width: 49%;
 	margin-right: 2%;
+	border: 1px solid #eee;
+	border-left: 8px solid #eee;
+	padding: 20px;
+	margin-bottom: 20px;
+
+	p:first-child {
+		display: inline;
+	}
 }
 
 .contributors h2 {
@@ -1966,3 +2307,57 @@ input#edd-discount,
 .card-expiry-month, .card-expiry-year {
 	width: auto !important;
 }
+
+/* ----------------------------- *
+ * Support Dashboard
+ * ----------------------------- */
+#support-tabs li.active{
+	border-width: 2px;
+}
+
+#support-tabs.nav-tabs > li.active > a {
+	border-width: 2px;
+}
+
+#support-tabs + .tab-content {
+	padding: 10px;
+}
+
+.bbp-tickets {
+	margin: 0;
+	padding: 0;
+}
+
+#mods-grid {
+	border: 1px solid #eee;
+	padding: 10px;
+	margin: 25px 0;
+
+	.mod {
+		text-align: center;
+		margin: 2%;
+		width: 21%;
+		padding: 10px;
+		border: 1px solid #eee;
+
+		.mod-name {
+			font-size: 16px;
+			margin-bottom: 12px;
+		}
+
+		.mod-gravatar img {
+			border-radius: 23px;
+			margin: 15px 0;
+		}
+	}
+}
+
+/* ----------------------------- *
+ * Support Pricing Signup
+ * ----------------------------- */
+.page-id-130 {
+	.content {
+		width: 640px;
+	}
+}
+
