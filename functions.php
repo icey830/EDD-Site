@@ -332,6 +332,7 @@ function eddwp_get_latest_post() {
 		printf( '<a href="%1$s">%2$s</a>', get_permalink( $query->posts[0]->ID ), __( 'Read More...', 'edd' ) );
 		add_filter( 'the_excerpt', 'sharing_display', 19 );
 	}
+	wp_reset_postdata();
 }
 
 /**
