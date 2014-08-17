@@ -13,6 +13,9 @@
 		'before' => '<div class="bbp-breadcrumb clearfix"><p>',
 	) );
 
+	bbp_topic_favorite_link();
+	bbp_topic_subscription_link();
+
 	do_action( 'bbp_template_before_single_topic' );
 
 	if ( post_password_required() ) {
