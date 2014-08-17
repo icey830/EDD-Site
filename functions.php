@@ -322,17 +322,12 @@ add_filter( 'wp_editor_set_quality', 'edd_image_full_quality' );
  * This function is used in the footer template to get the latest blog post.
  */
 function eddwp_get_latest_post() {
-	$query = new WP_Query( array( 'posts_per_page' => 1 ) );
-
-	while ( $query->have_posts() ) {
-		$query->the_post();
-		remove_filter( 'the_excerpt', 'sharing_display', 19 );
-		printf( '<h4>%s</h4>', get_the_title() );
-		the_excerpt();
-		printf( '<a href="%1$s">%2$s</a>', get_permalink( $query->posts[0]->ID ), __( 'Read More...', 'edd' ) );
-		add_filter( 'the_excerpt', 'sharing_display', 19 );
+	$items = get_posts( array( 'posts_per_page' => 1 ) );
+	foreach( $items as $item ) {
+		printf( '<h4>%s</h4>', $item->post_title );
+		echo wpautop( wp_trim_words( $item->post_content, 50 ) );
+		printf( '<a href="%1$s">%2$s</a>', get_permalink( $item->ID ), __( 'Read More...', 'edd' ) );
 	}
-	wp_reset_postdata();
 }
 
 /**
