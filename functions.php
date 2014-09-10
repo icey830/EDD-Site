@@ -1147,7 +1147,7 @@ function eddwp_feed_query( $query ) {
 	if ( $query->is_feed && ( $query->query_vars['feed'] == 'extensions' || $query->query_vars['feed'] == 'addons' ) ) {
 
 		$query->set( 'posts_per_page', 50 );
-	
+
 		$tax_query = array(
 			'relation' => 'AND',
 			array(
@@ -1178,7 +1178,7 @@ add_filter( 'pre_get_posts', 'eddwp_feed_query', 999 );
  * Creates the toggle for the action links dropdown
  */
 function edd_bbp_action_links_dropdown() {
-	
+
 	$reply_id = bbp_get_reply_id();
 	$reply    = bbp_get_reply( $reply_id );
 
@@ -1330,8 +1330,9 @@ add_action( 'bbp_template_before_single_topic', 'eddwp_add_support_forum_feature
 function eddc_get_upcoming_commissions(){
 	global $user_ID;
 
-	if( !is_user_logged_in() )
+	if( ! is_user_logged_in() ) {
 		return;
+	}
 
 	$day    = date( 'd', strtotime( 'today' ));
 	$month  = date( 'm', strtotime( 'today' ));
@@ -1343,25 +1344,23 @@ function eddc_get_upcoming_commissions(){
 	        $year_last = $year - 1;
 	        $from      = '12/15/'.$year_last;
 	        $to        = '01/15/'.$year;
-	    }
-	    else{
+	    } else {
 	        $last_month = $month - 1;
 	        $from       = $last_month.'/15/'.$year;
 	        $to         =   $month.'/15/'.$year;
 	    }
-	}
-	else{
+
+	} else {
+
 	    if ( $month == 2 ){
 	        $year_last = $year - 1;
 	        $from      = '12/15/'.$year_last;
 	        $to        = '01/15/'.$year;
-	    }
-	    else if ( $month == 1 ){
+	    } else if ( $month == 1 ){
 	        $year_last = $year - 1;
 	        $from      = '11/15/'.$year_last;
 	        $to        = '12/15/'.$year_last;
-	    }
-	    else{
+	    } else {
 	        $last_month = $month - 1;
 	        $two_months = $month - 2;
 	        $from       = $two_months.'/15/'.$year;
@@ -1416,5 +1415,6 @@ function eddc_get_upcoming_commissions(){
 	$total = edd_sanitize_amount( $total );
 	$from = implode( '/', $from );
 	$to   = implode( '/', $to );
+
 	return 'Next Payout: Commissions earned from '.  date( 'm/d/Y', strtotime( $from ) ) .' to '. date( 'm/d/Y', strtotime( $to ) ) . ' in the amount of ' . edd_currency_filter( edd_format_amount( $total ) );
 }
