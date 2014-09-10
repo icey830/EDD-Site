@@ -1416,5 +1416,5 @@ function eddc_get_upcoming_commissions(){
 	$from = implode( '/', $from );
 	$to   = implode( '/', $to );
 
-	return 'Next Payout: Commissions earned from '.  date( 'm/d/Y', strtotime( $from ) ) .' to '. date( 'm/d/Y', strtotime( $to ) ) . ' in the amount of ' . edd_currency_filter( edd_format_amount( $total ) );
+	return 'Next payout for Commissions earned from '.  date( 'm/d/Y', strtotime( $from ) ) .' to '. date( 'm/d/Y', strtotime( $to ) ) . ' will be: <strong>' . edd_currency_filter( edd_format_amount( $total ) ) . '</strong>';
 }
