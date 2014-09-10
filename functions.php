@@ -26,6 +26,7 @@
  * 9.  Extensions feed
  * 10. Misc
  * 11. bbPress
+ * 12. Commissions
  *
  * ------------------------------------------------------------------------------- */
 
@@ -1321,3 +1322,99 @@ function eddwp_add_support_forum_features() {
 	endif;
 }
 add_action( 'bbp_template_before_single_topic', 'eddwp_add_support_forum_features' );
+
+
+/* ----------------------------------------------------------- *
+ * 12. Next Commissions Payout Amount
+ * ----------------------------------------------------------- */
+function eddc_get_upcoming_commissions(){
+	global $user_ID;
+
+	if( !is_user_logged_in() )
+		return;
+
+	$day    = date( 'd', strtotime( 'today' ));
+	$month  = date( 'm', strtotime( 'today' ));
+	$year   = date( 'Y', strtotime( 'today' ));
+	$from   = '';
+	$to     = '';
+	if ( $day > 15 ){
+	    if ( $month == 1 ){
+	        $year_last = $year - 1;
+	        $from      = '12/15/'.$year_last;
+	        $to        = '01/15/'.$year;
+	    }
+	    else{
+	        $last_month = $month - 1;
+	        $from       = $last_month.'/15/'.$year;
+	        $to         =   $month.'/15/'.$year;
+	    }
+	}
+	else{
+	    if ( $month == 2 ){
+	        $year_last = $year - 1;
+	        $from      = '12/15/'.$year_last;
+	        $to        = '01/15/'.$year;
+	    }
+	    else if ( $month == 1 ){
+	        $year_last = $year - 1;
+	        $from      = '11/15/'.$year_last;
+	        $to        = '12/15/'.$year_last;
+	    }
+	    else{
+	        $last_month = $month - 1;
+	        $two_months = $month - 2;
+	        $from       = $two_months.'/15/'.$year;
+	        $to         = $last_month.'/15/'.$year;
+	    }
+	}
+	$from = explode( '/', $from );
+	$to   = explode( '/', $to );
+
+	$query = array(
+		'post_type'      => 'edd_commission',
+		'posts_per_page' => -1,
+		'number'         => -1,
+		'nopaging'		 => true,
+		'query_args'     => array(
+			'date_query' => array(
+				'after'       => array(
+					'year'    => $from[2],
+					'month'   => $from[0],
+					'day'     => $from[1],
+				),
+				'before'      => array(
+					'year'    => $to[2],
+					'month'   => $to[0],
+					'day'     => $to[1],
+				),
+				'inclusive' => true
+			)
+		),
+		'meta_query' 	=> array(
+			'key'   	=> '_user_id',
+			'value' 	=> $user_ID
+		),
+		'tax_query'      => array(
+			array(
+				'taxonomy' => 'edd_commission_status',
+				'terms'    => 'unpaid',
+				'field'    => 'slug'
+			)
+		),
+		'fields'        => 'ids'
+	);
+	$commissions = new WP_Query( $query );
+	$total = (float) 0;
+	if ( $commissions->have_posts() ) {
+		foreach ( $commissions->posts as $id ) {
+			$commission_info = get_post_meta( $id, '_edd_commission_info', true );
+			$total += $commission_info['amount'];
+		}
+	}
+
+	$total = edd_sanitize_amount( $total );
+	$from = implode( '/', $from );
+	$to   = implode( '/', $to );
+	return 'Next Payout: Commissions earned from '.  date( 'm/d/Y', strtotime( $from ) ) .' to '. date( 'm/d/Y', strtotime( $to ) ) . ' in the amount of ' . edd_currency_filter( edd_format_amount( $total ) );
+}
