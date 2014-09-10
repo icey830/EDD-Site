@@ -53,6 +53,7 @@ $rcp_load_css = $rcp_load_scripts = true;
 
 				<div class="tab-pane" id="tab3">
 					<?php if( function_exists( 'eddc_user_product_list' ) ) { echo eddc_user_product_list(); } ?>
+					<?php if( function_exists( 'eddc_get_upcoming_commissions' ) ) { echo eddc_get_upcoming_commissions(); } ?>
 					<?php if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); } ?>
 				</div><!-- /.tab-pane -->
 
