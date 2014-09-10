@@ -1372,28 +1372,22 @@ function eddc_get_upcoming_commissions(){
 
 	$query = array(
 		'post_type'      => 'edd_commission',
-		'posts_per_page' => -1,
-		'number'         => -1,
 		'nopaging'		 => true,
-		'query_args'     => array(
-			'date_query' => array(
-				'after'       => array(
-					'year'    => $from[2],
-					'month'   => $from[0],
-					'day'     => $from[1],
-				),
-				'before'      => array(
-					'year'    => $to[2],
-					'month'   => $to[0],
-					'day'     => $to[1],
-				),
-				'inclusive' => true
-			)
+		'date_query' => array(
+			'after'       => array(
+				'year'    => $from[2],
+				'month'   => $from[0],
+				'day'     => $from[1],
+			),
+			'before'      => array(
+				'year'    => $to[2],
+				'month'   => $to[0],
+				'day'     => $to[1],
+			),
+			'inclusive' => true
 		),
-		'meta_query' 	=> array(
-			'key'   	=> '_user_id',
-			'value' 	=> $user_ID
-		),
+		'meta_key' => '_user_id',
+		'meta_value' => $user_ID,
 		'tax_query'      => array(
 			array(
 				'taxonomy' => 'edd_commission_status',
