@@ -41,7 +41,12 @@ get_header(); ?>
 			if ( ! current_user_can( 'moderate' ) && ! bbp_is_single_user() ) {
 				get_sidebar( 'forums' );
 			} elseif ( current_user_can( 'moderate' ) && bbp_is_single_topic() && ! bbp_is_single_user() ) {
+				
+
 				echo '<aside class="sidebar edd-moderator-sidebar">';
+					
+			
+					/*
 					echo '<div class="edd-moderator-sidebar-inside">';
 					?>
 						<div class="item">
@@ -176,7 +181,7 @@ get_header(); ?>
 						</div>
 					<?php
 					echo '</div>';
-
+					*/
 					echo '<div class="edd-moderator-sidebar-inside">';
 						edd_bbp_d_sidebar();
 					echo '</div>';
