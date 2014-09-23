@@ -10,9 +10,8 @@ $color = edd_get_option( 'checkout_color', 'gray' );
 $color = ( $color == 'inherit' ) ? '' : $color;
 
 ?>
-<script type="text/javascript">jQuery(document).ready(function($){ $(".edd_sl_show_key").on("click", function(e) {e.preventDefault();$(this).parent().find('span').fadeToggle("fast");});});</script>
 <style type="text/css">.edd_sl_license_status.expired { color: red; }</style>
-<p><a href="<?php echo remove_query_arg( 'payment_id' ); ?>" class="edd-manage-license-back edd-submit button <?php echo esc_attr( $color ); ?>"><?php _e( 'Go back', 'edd_sl' ); ?></a></p>
+<p><a href="<?php echo remove_query_arg( array( 'payment_id', 'edd_sl_error' ) ); ?>" class="edd-manage-license-back edd-submit button <?php echo esc_attr( $color ); ?>"><?php _e( 'Go back', 'edd_sl' ); ?></a></p>
 <?php
 // Retrieve all license keys for the specified payment
 $keys = edd_software_licensing()->get_licenses_of_purchase( $payment_id );
@@ -38,8 +37,7 @@ if ( $keys ) : ?>
 				<td><?php echo get_the_title( edd_software_licensing()->get_download_id( $license->ID ) ); ?></td>
 				<td>
 					<span style="position:relative;">
-						<a href="#" class="edd_sl_show_key" title="<?php _e( 'Click to view license key', 'edd_sl' ); ?>"><img src="<?php echo EDD_SL_PLUGIN_URL . '/images/key.png'; ?>"/></a>
-						<span class="edd_sl_license_key" style="display:none;position: absolute; left: 30px; top: -3px; z-index: 2; border: 1px solid #ddd; background: #f0f0f0; padding: 4px;"><?php echo edd_software_licensing()->get_license_key( $license->ID ); ?></span>
+						<span class="edd_sl_license_key"><?php echo edd_software_licensing()->get_license_key( $license->ID ); ?></span>
 					</span>
 				</td>
 				<td class="edd_sl_license_status <?php echo edd_software_licensing()->get_license_status( $license->ID ); ?>"><?php echo edd_software_licensing()->license_status( $license->ID ); ?></td>
