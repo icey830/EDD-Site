@@ -73,9 +73,9 @@ the_post();
 		
 							if ( $forums->have_posts() || $docs->have_posts() ) {
 								echo '<div class="related-items">';
-									echo '<h3>Documenation</h3>';
 									// Display connected posts
 									if ( $docs->have_posts() ) :
+										echo '<h3>Documenation</h3>';
 										echo '<ul class="related-links">';
 										while ( $docs->have_posts() ) : $docs->the_post(); ?>
 											<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
@@ -83,10 +83,10 @@ the_post();
 										endwhile;
 										echo '</ul>';
 										wp_reset_postdata();
-									endif;									
-									echo '<h3>Support</h3>';		
+									endif;							
 									// Display connected posts
-									if ( $forums->have_posts() ) :
+									if ( $forums->have_posts() ) :				
+										echo '<h3>Support</h3>';
 										while ( $forums->have_posts() ) : $forums->the_post(); ?>
 											<div>Need help? Visit the <a href="<?php the_permalink(); ?>">Support Forums</a>.</div>
 											<?php
