@@ -2835,6 +2835,25 @@ div.sharedaddy .sd-content {
 .single-extension .main .sidebar .box div {
   padding: 5px 0;
 }
+.single-extension .main .sidebar .related-items {
+  margin-top: 20px;
+}
+.sidebar .related-links {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 25px;
+}
+.sidebar .related-links li {
+  list-style: none;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #EBEBEB;
+  margin-bottom: 6px;
+}
+.sidebar .related-links li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+  margin-bottom: 0;
+}
 .single-extension .main .sidebar .box.fi h3 {
   margin-bottom: 0;
 }
