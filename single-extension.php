@@ -83,10 +83,8 @@ the_post();
 										endwhile;
 										echo '</ul>';
 										wp_reset_postdata();
-									endif;
-									
-									echo '<h3>Support</h3>';
-		
+									endif;									
+									echo '<h3>Support</h3>';		
 									// Display connected posts
 									if ( $forums->have_posts() ) :
 										while ( $forums->have_posts() ) : $forums->the_post(); ?>
