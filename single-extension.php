@@ -88,7 +88,7 @@ the_post();
 									// Display connected posts
 									if ( $forums->have_posts() ) :
 										while ( $forums->have_posts() ) : $forums->the_post(); ?>
-											<div>Need help? Visit the <a href="<?php the_permalink(); ?>"> Support Forums</a>.</div>
+											<div>Need help? Visit the <a href="<?php the_permalink(); ?>">Support Forums</a>.</div>
 											<?php
 										endwhile;
 										wp_reset_postdata();
