@@ -19,49 +19,7 @@ the_post();
 		<div class="container clearfix">
 			<section class="content">
 				<h1><?php the_title(); ?></h2>
-				<?php
-				the_content();
-
-				if ( function_exists('p2p_register_connection_type') ) :
-
-					// Find connected posts
-					$docs = new WP_Query( array(
-					  'connected_type' => 'extensions_to_docs',
-					  'connected_items' => get_queried_object(),
-					  'nopaging' => true,
-					  'post_status' => 'publish'
-					) );
-
-					// Find connected forums
-					$forums = new WP_Query( array(
-					  'connected_type' => 'extensions_to_forums',
-					  'connected_items' => get_queried_object(),
-					  'nopaging' => true,
-					  'post_status' => 'publish'
-					) );
-
-					if ( $forums->have_posts() || $docs->have_posts() ) {
-						echo '<div class="related-items">';
-							echo '<strong>Documentation, Support, and Related Items</strong>';
-							// Display connected posts
-							if ( $docs->have_posts() ) :
-								while ( $docs->have_posts() ) : $docs->the_post(); ?>
-									<div> - <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
-								<?php endwhile;
-							wp_reset_postdata();
-							endif;
-
-							// Display connected posts
-							if ( $forums->have_posts() ) :
-								while ( $forums->have_posts() ) : $forums->the_post(); ?>
-									<div> - <a href="<?php the_permalink(); ?>">Support Forum for <?php the_title(); ?></a></div>
-								<?php endwhile;
-							wp_reset_postdata();
-							endif;
-						echo '</div>';
-					}
-				endif;
-				?>
+				<?php the_content(); ?>
 			</section><!-- /.content -->
 
 			<aside class="sidebar">
@@ -94,6 +52,51 @@ the_post();
 					<?php if( eddwp_is_external_extension() ) { ?>
 						<a href="<?php echo esc_url( eddwp_get_external_extension_url() ); ?>" title="View Extension Details" class="edd-submit button blue">View Extension</a>
 					<?php } ?>
+					<?php
+						if ( function_exists('p2p_register_connection_type') ) :
+		
+							// Find connected posts
+							$docs = new WP_Query( array(
+							  'connected_type' => 'extensions_to_docs',
+							  'connected_items' => get_queried_object(),
+							  'nopaging' => true,
+							  'post_status' => 'publish'
+							) );
+		
+							// Find connected forums
+							$forums = new WP_Query( array(
+							  'connected_type' => 'extensions_to_forums',
+							  'connected_items' => get_queried_object(),
+							  'nopaging' => true,
+							  'post_status' => 'publish'
+							) );
+		
+							if ( $forums->have_posts() || $docs->have_posts() ) {
+								echo '<div class="related-items">';
+									// Display connected posts
+									if ( $docs->have_posts() ) :
+										echo '<h3>Documenation</h3>';
+										echo '<ul class="related-links">';
+										while ( $docs->have_posts() ) : $docs->the_post(); ?>
+											<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+											<?php
+										endwhile;
+										echo '</ul>';
+										wp_reset_postdata();
+									endif;							
+									// Display connected posts
+									if ( $forums->have_posts() ) :				
+										echo '<h3>Support</h3>';
+										while ( $forums->have_posts() ) : $forums->the_post(); ?>
+											<div>Need help? Visit the <a href="<?php the_permalink(); ?>">Support Forums</a>.</div>
+											<?php
+										endwhile;
+										wp_reset_postdata();
+									endif;
+								echo '</div>';
+							}
+						endif;
+					?>
 				</div>
 			</aside><!-- /.sidebar -->
 		</div><!-- /.container -->
