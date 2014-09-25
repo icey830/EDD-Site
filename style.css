@@ -621,6 +621,18 @@ address {
 .single-theme .main .content h1 {
   margin-bottom: 15px;
 }
+.content pre {
+  word-break: normal;
+  word-wrap: normal;
+  overflow: auto;
+  font-size: 12px;
+}
+.content code {
+  white-space: normal;
+  display: inline !important;
+  font-size: 12px !important;
+  padding: 2px !important;
+}
 /*
  * Structure
  * Copyright (c) 2013, Sunny Ratilal.
