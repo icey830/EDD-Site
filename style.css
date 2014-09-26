@@ -5267,6 +5267,9 @@ span.bbp-author-ip {
   .documentation .main .content {
     width: 680px;
   }
+  #edd_checkout_form_wrap span.card-type {
+    right: 432px;
+  }
 }
 /* ----------------------------- *
  * Tablets to regular desktops
@@ -5376,6 +5379,9 @@ span.bbp-author-ip {
   }
   .documentation .main .content {
     width: 680px;
+  }
+  #edd_checkout_form_wrap span.card-type {
+    right: 281px;
   }
 }
 /* ----------------------------- *
@@ -5616,6 +5622,9 @@ span.bbp-author-ip {
   }
   footer .container img {
     right: -25px;
+  }
+  #edd_checkout_form_wrap span.card-type {
+    display: none;
   }
 }
 /* ----------------------------- *
