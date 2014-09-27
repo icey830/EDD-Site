@@ -4744,11 +4744,11 @@ li.bbp-body div.hentry {
 span.bbp-admin-links {
   margin-right: 3px;
   margin-left: 3px;
-  display:inline-block;
+  display: inline-block;
 }
 span.bbp-admin-links a {
   font-size: 11px;
-  display:inline-block;
+  display: inline-block;
   margin-left: 5px;
 }
 .bbp-discussion-meta {
@@ -5659,6 +5659,9 @@ span.bbp-author-ip {
   #passwordreset {
     width: 100%;
   }
+  .bbp-reply-permalink {
+    display: none;
+  }
   .header-outer {
     padding: 20px 0;
   }
@@ -6094,3 +6097,6 @@ span.bbp-author-ip {
 /* ----------------------------- *
  * iPad (Portrait)
  * ----------------------------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  
+}
