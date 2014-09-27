@@ -41,7 +41,7 @@ get_header();
 			<div id="video-complete-inner">
 					<a class="replay-button"><span class="button"></span> Replay</a>
 				<a class="close-button"><span class="button"></span> Close</a>
-			</div><!-- #video-complete-inner -->
+			</div><!--#video-complete-inner -->
 		<!--</div>--><!-- /#video-complete -->
 	</section><!-- /.hero -->
 </div><!-- /.hero-container -->

@@ -527,13 +527,6 @@ remove_action( 'edd_purchase_form_before_submit', 'edd_checkout_final_total', 99
 remove_action( 'edd_purchase_form_after_cc_form', 'edd_checkout_submit', 9999 );
 
 /**
- * Remove bbPress Support Dashboard Actions/Filter
- */
-remove_action( 'bbp_template_before_single_topic', 'edd_bbp_d_add_support_forum_features' );
-remove_action( 'bbp_template_before_single_topic' , 'edd_bbp_d_assign_topic_form' );
-remove_action( 'bbp_template_before_single_topic', 'edd_bbp_d_ping_asignee_button' );
-
-/**
  * Filter the admin reply links to remove extra &nbsp; add by bbPress
  */
 function eddwp_get_reply_admin_links( $retval, $r, $args ) {
@@ -1202,95 +1195,6 @@ function eddwp_modal() {
 		echo $modal;
 	}
 }
-
-/* ----------------------------------------------------------- *
- * 11. bbPress
- * ----------------------------------------------------------- */
-function eddwp_add_support_forum_features() {
-	if ( edd_bbp_d_is_support_forum( bbp_get_forum_id() ) ) :
-		$topic_id = bbp_get_topic_id();
-		$status = edd_bbp_d_get_topic_status( $topic_id );
-	?>
-	<div class="moderator-tools clearfix">
-		<div class="topic-status">
-			<?php
-			if ( current_user_can( 'moderate' ) ) {
-				edd_bbp_d_generate_status_options( $topic_id, $status );
-			} else { ?>
-				This topic is: <?php echo $status; ?>
-			<?php } ?>
-		</div>
-
-		<?php
-		if ( get_option( '_bbps_topic_assign' ) == 1 && current_user_can( 'moderate' ) ) {
-			$topic_id = bbp_get_topic_id();
-			$topic_assigned = edd_bbp_get_topic_assignee_id( $topic_id );
-
-			global $current_user;
-			get_currentuserinfo();
-			$current_user_id = $current_user->ID;
-			?>
-			<div id="bbps_support_forum_options">
-				<?php
-				$user_login = $current_user->user_login;
-				if ( ! empty( $topic_assigned ) ) {
-					if ( $topic_assigned == $current_user_id ) { ?>
-						<div class='bbps-support-forums-message'>This topic is assigned to you.</div><?php
-					} else {
-						$assigned_user_name = edd_bbp_get_topic_assignee_name( $topic_assigned ); ?>
-						<div class='bbps-support-forums-message'> This topic is already assigned to: <?php echo $assigned_user_name; ?></div><?php
-					}
-				}
-				?>
-				<div id="bbps_support_topic_assign">
-					<form id="bbps-topic-assign" name="bbps_support_topic_assign" action="" method="post">
-					<?php
-					$all_users = edd_bbp_d_get_all_mods();
-
-					$topic_id = bbp_get_topic_id();
-					$claimed_user_id = get_post_meta( $topic_id, 'bbps_topic_assigned', true );
-
-					if ( ! empty( $all_users ) ) {
-						if ( $claimed_user_id > 0 ) {
-							$text = "Reassign topic to: ";
-						} else {
-							$text = "Assign topic to: ";
-						}
-
-						echo '<span>' . $text . '</span>';
-					?>
-						<select name="bbps_assign_list" id="bbps_support_options">
-						<option value="">Unassigned</option><?php
-						foreach ( $all_users as $user ) {
-					?>
-							<option value="<?php echo $user->ID; ?>"> <?php echo $user->user_firstname . ' ' . $user->user_lastname ; ?></option>
-						<?php
-						}
-						?> </select> <?php
-					}
-					?>
-						<input type="submit" value="Assign" name="bbps_support_topic_assign" />
-						<input type="hidden" value="bbps_assign_topic" name="bbps_action"/>
-						<input type="hidden" value="<?php echo $topic_id ?>" name="bbps_topic_id" />
-					</form>
-					<form id="bbs-topic-assign-me" name="bbps_support_topic_assign" action="" method="post">
-						<input type="submit" value="Assign To Me" name="bbps_support_topic_assign" />
-						<input type="hidden" value="<?php echo get_current_user_id(); ?>" name="bbps_assign_list" />
-						<input type="hidden" value="bbps_assign_topic" name="bbps_action"/>
-						<input type="hidden" value="<?php echo $topic_id ?>" name="bbps_topic_id" />
-					</form>
-				</div>
-			</div><!-- /#bbps_support_forum_options -->
-			<?php
-		}
-		?>
-
-		<?php edd_bbp_d_ping_asignee_button(); ?>
-	</div>
-	<?php
-	endif;
-}
-add_action( 'bbp_template_before_single_topic', 'eddwp_add_support_forum_features' );
 
 
 /* ----------------------------------------------------------- *
