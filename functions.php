@@ -527,13 +527,6 @@ remove_action( 'edd_purchase_form_before_submit', 'edd_checkout_final_total', 99
 remove_action( 'edd_purchase_form_after_cc_form', 'edd_checkout_submit', 9999 );
 
 /**
- * Remove bbPress Support Dashboard Actions/Filter
- */
-remove_action( 'bbp_template_before_single_topic', 'edd_bbp_d_add_support_forum_features' );
-remove_action( 'bbp_template_before_single_topic' , 'edd_bbp_d_assign_topic_form' );
-remove_action( 'bbp_template_before_single_topic', 'edd_bbp_d_ping_asignee_button' );
-
-/**
  * Filter the admin reply links to remove extra &nbsp; add by bbPress
  */
 function eddwp_get_reply_admin_links( $retval, $r, $args ) {
