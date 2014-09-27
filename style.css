@@ -4744,9 +4744,12 @@ li.bbp-body div.hentry {
 span.bbp-admin-links {
   margin-right: 3px;
   margin-left: 3px;
+  display:inline-block;
 }
 span.bbp-admin-links a {
   font-size: 11px;
+  display:inline-block;
+  margin-left: 5px;
 }
 .bbp-discussion-meta {
   border-bottom: 1px solid #eee;
@@ -6091,6 +6094,3 @@ span.bbp-author-ip {
 /* ----------------------------- *
  * iPad (Portrait)
  * ----------------------------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  
-}
