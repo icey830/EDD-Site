@@ -5013,6 +5013,8 @@ span.bbp-admin-links a {
   display: block;
 }
 #bbpress-forums .moderator-tools form#bbps-topic-assign,
+#bbpress-forums .moderator-tools #bbps-topic-ping,
+#bbpress-forums .moderator-tools #bbps-topic-keep-open,
 #bbpress-forums .moderator-tools form#bbs-topic-assign-me {
   float: left;
 }
