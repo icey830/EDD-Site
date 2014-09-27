@@ -4965,6 +4965,7 @@ span.bbp-admin-links a {
 }
 #bbpress-forums .moderator-tools #bbps_support_forum_options input[type="submit"] {
   padding: 4px 14px;
+  margin-right: 5px;
   background: #2794da;
   display: inline-block;
   color: #fff;
