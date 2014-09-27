@@ -85,13 +85,6 @@
             });
         });
 
-        $('.bbp-admin-links a').wrap('<li>');
-
-        $('.bbp-reply-header').each(function() {
-            $('.bbp-admin-links', this).wrapAll('<ul>').parent().addClass('bbp-action-links-dropdown');
-            $('li', this).unwrap();
-        });
-
         // Show the sign in form
         $('.my-account').on('click', function() {
             $('#sign-in-form').toggle();
