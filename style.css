@@ -4969,7 +4969,6 @@ span.bbp-admin-links a {
 }
 #bbpress-forums .moderator-tools input[name="bbps_support_submit"],
 #bbpress-forums .moderator-tools input[name="bbps_support_topic_assign"] {
-  margin-top: 10px;
   padding: 4px 14px;
   background: #2794da;
   display: inline-block;
@@ -5015,12 +5014,6 @@ span.bbp-admin-links a {
 #bbpress-forums .moderator-tools form#bbps-topic-assign,
 #bbpress-forums .moderator-tools form#bbs-topic-assign-me {
   float: left;
-}
-#bbpress-forums .moderator-tools form#bbs-topic-assign-me {
-  margin-left: 15px;
-}
-#bbpress-forums .moderator-tools form#bbs-topic-assign-me input[type=submit] {
-  margin-top: 35px;
 }
 #bbpress-forums .moderator-tools div#bbps_support_forum_ping {
   float: left;
