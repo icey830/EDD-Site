@@ -5045,7 +5045,6 @@ span.bbp-author-ip {
   outline: none;
 }
 .bbpress #bbps-topic-ping .edd-submit {
-  margin-top: 2px;
   padding: 4px 14px;
   background: #2794da;
   display: inline-block;
@@ -5074,6 +5073,9 @@ span.bbp-author-ip {
 .bbpress #bbps-topic-ping .edd-submit:active {
   -webkit-box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+#bbpress-forums .moderator-tools select#bbps_support_options {
+  padding: 6px 14px 7px;
 }
 #bbpress-forums .bbp-attachments-count {
   float: right;
@@ -5654,6 +5656,9 @@ span.bbp-author-ip {
   footer .container .col {
     width: 100%;
   }
+  #bbpress-forums .moderator-tools #bbps_support_forum_options form {
+    margin-bottom: 4px;
+  }
 }
 /* ----------------------------- *
  * iPhone (Landscape)
@@ -6096,6 +6101,18 @@ span.bbp-author-ip {
   .bbp-user-page .edd_users_purchases h4,
   .bbp-user-page .rcp_support_status h4 {
     margin-top: 0;
+  }
+  #bbpress-forums .moderator-tools #bbps_support_forum_options form {
+    float: none;
+    margin-bottom: 12px;
+  }
+  #bbpress-forums .moderator-tools select#bbps_support_options,
+  #bbpress-forums .moderator-tools #bbps_support_forum_options input[type="submit"] {
+    display: block;
+    width: 100%;
+  }
+  #bbpress-forums .moderator-tools select#bbps_support_options {
+    margin-bottom: 4px;
   }
 }
 /* ----------------------------- *
