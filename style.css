@@ -4195,18 +4195,24 @@ input#edd-discount:focus,
 }
 #mods-grid .mod {
   text-align: center;
-  margin: 2%;
+  margin: 1% 2%;
   width: 21%;
   padding: 10px;
   border: 1px solid #eee;
 }
+#mods-grid .mod .mod-name,
+#mods-grid .mod .mod-gravatar {
+  display: inline-block;
+}
 #mods-grid .mod .mod-name {
-  font-size: 16px;
-  margin-bottom: 12px;
+  font-size: 12px;
+}
+#mods-grid .mod .mod-gravatar {
+  float: left;
 }
 #mods-grid .mod .mod-gravatar img {
   border-radius: 23px;
-  margin: 15px 0;
+  margin: 4px 8px 0 2px;
 }
 /* ----------------------------- *
  * Support Pricing Signup
@@ -5263,6 +5269,13 @@ span.bbp-author-ip {
   #edd_checkout_form_wrap span.card-type {
     right: 432px;
   }
+  #mods-grid .mod .mod-name {
+    display: block;
+    font-size: 14px;
+  }
+  #mods-grid .mod .mod-ticket-count {
+    margin-top: 10px;
+  }
 }
 /* ----------------------------- *
  * Tablets to regular desktops
@@ -5271,6 +5284,9 @@ span.bbp-author-ip {
   .main .container {
     width: 100%;
     margin: 20px auto;
+  }
+  .main .content {
+    width: 100%;
   }
   .blog .main .content,
   .single-theme .main .content,
@@ -5633,6 +5649,12 @@ span.bbp-author-ip {
   #edd_checkout_form_wrap span.card-type {
     display: none;
   }
+  #mods-grid .mod .mod-name,
+  #mods-grid .mod .mod-gravatar,
+  #mods-grid .mod .mod-ticket-count {
+    display: inline;
+    vertical-align: -webkit-baseline-middle;
+  }
 }
 /* ----------------------------- *
  * iPad (Portrait)
@@ -5653,6 +5675,17 @@ span.bbp-author-ip {
   }
   footer .container .col {
     width: 100%;
+  }
+  #mods-grid .mod .mod-name,
+  #mods-grid .mod .mod-ticket-count {
+    display: block;
+    text-align: left;
+  }
+  #mods-grid .mod .mod-gravatar {
+    display: none;
+  }
+  #mods-grid .mod .mod-ticket-count {
+    margin-top: 0;
   }
 }
 /* ----------------------------- *
@@ -6096,6 +6129,10 @@ span.bbp-author-ip {
   .bbp-user-page .edd_users_purchases h4,
   .bbp-user-page .rcp_support_status h4 {
     margin-top: 0;
+  }
+  #mods-grid .mod {
+    margin: 1% 0;
+    width: 100%;
   }
 }
 /* ----------------------------- *

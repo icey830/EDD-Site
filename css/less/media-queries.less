@@ -182,6 +182,15 @@
 	#edd_checkout_form_wrap span.card-type {
 		right: 432px;
 	}
+	
+	#mods-grid .mod .mod-name {
+		display: block;
+		font-size: 14px;
+	}
+	
+	#mods-grid .mod .mod-ticket-count {
+		margin-top: 10px;
+	}
 }
 
 /* ----------------------------- *
@@ -193,6 +202,10 @@
 	.main .container {
 		width: 100%;
 		margin: 20px auto;
+	}
+	
+	.main .content {
+		width: 100%;
 	}
 
 	.blog .main .content,
@@ -640,6 +653,13 @@
 	#edd_checkout_form_wrap span.card-type {
 		display: none;
 	}
+	
+	#mods-grid .mod .mod-name,
+	#mods-grid .mod .mod-gravatar,
+	#mods-grid .mod .mod-ticket-count {
+		display: inline;
+		vertical-align: -webkit-baseline-middle;
+	}
 }
 
 /* ----------------------------- *
@@ -666,6 +686,20 @@
 
 	footer .container .col {
 		width: 100%;
+	}
+	
+	#mods-grid .mod .mod-name,
+	#mods-grid .mod .mod-ticket-count {
+		display: block;
+		text-align: left;
+	}
+	
+	#mods-grid .mod .mod-gravatar {
+		display: none;
+	}
+	
+	#mods-grid .mod .mod-ticket-count {
+		margin-top: 0;
 	}
 }
 
@@ -1202,6 +1236,11 @@
 		.rcp_support_status h4 {
 			margin-top: 0;
 		}
+	}
+	
+	#mods-grid .mod {
+		margin: 1% 0;
+		width: 100%;
 	}
 }
 
