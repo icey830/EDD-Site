@@ -5008,10 +5008,7 @@ span.bbp-admin-links a {
 #bbpress-forums .moderator-tools #bbps-topic-assign span {
   display: block;
 }
-#bbpress-forums .moderator-tools form#bbps-topic-assign,
-#bbpress-forums .moderator-tools #bbps-topic-ping,
-#bbpress-forums .moderator-tools #bbps-topic-keep-open,
-#bbpress-forums .moderator-tools form#bbs-topic-assign-me {
+#bbpress-forums .moderator-tools #bbps_support_forum_options form {
   float: left;
 }
 #bbpress-forums .moderator-tools div#bbps_support_forum_ping {
