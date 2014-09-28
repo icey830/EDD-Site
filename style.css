@@ -5408,6 +5408,11 @@ span.bbp-author-ip {
   #edd_checkout_form_wrap span.card-type {
     right: 281px;
   }
+  #mods-grid .mod .mod-name {
+    display: block;
+    font-size: 14px;
+    text-align: left;
+  }
 }
 /* ----------------------------- *
  * Phones to portrait tablets and narrow desktops
@@ -5650,6 +5655,9 @@ span.bbp-author-ip {
   }
   #edd_checkout_form_wrap span.card-type {
     display: none;
+  }
+  #mods-grid .mod {
+    width: 46%;
   }
   #mods-grid .mod .mod-name,
   #mods-grid .mod .mod-gravatar,
