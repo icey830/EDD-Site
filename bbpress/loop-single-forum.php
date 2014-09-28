@@ -19,7 +19,10 @@
 		<?php
 		do_action( 'bbp_theme_after_forum_description' );
 		do_action( 'bbp_theme_before_forum_sub_forums' );
-		bbp_list_forums();
+		bbp_list_forums( array(
+			'show_reply_count'	=> false,
+			'show_topic_count'	=> false
+		) );
 		do_action( 'bbp_theme_after_forum_sub_forums' );
 		bbp_forum_row_actions();
 		?>
