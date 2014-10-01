@@ -35,7 +35,11 @@ the_post();
 						</p>
 					</div>
 					<div class="version clearfix">
-						<p><span>Version:</span> <span><?php echo get_post_meta( get_the_ID(), 'ecpt_version', true ); ?></span></p>
+						<?php
+						$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) );
+						$version = get_post_meta( $download_id, '_edd_sl_version', true );
+						?>
+						<p><span>Version:</span> <span><?php echo $version; ?></span></p>
 					</div>
 					<div class="price clearfix">
 						<p><span>Price:</span> <span><?php echo get_post_meta( get_the_ID(), 'ecpt_price', true ); ?></span></p>
