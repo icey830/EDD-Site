@@ -36,7 +36,7 @@ the_post();
 					</div>
 					<div class="version clearfix">
 						<?php
-						$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) );
+						$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
 						$version = get_post_meta( $download_id, '_edd_sl_version', true );
 						?>
 						<p><span>Version:</span> <span><?php echo $version; ?></span></p>
