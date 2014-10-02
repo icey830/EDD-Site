@@ -704,12 +704,19 @@ function eddwp_display_themes() {
 function eddwp_extensions_changelog( $content ) {   
 	global $post;
 	
+	// bail if this is not an extension post type
 	if ( 'extension' !== $post->post_type )
 		return $content;
 	
+	// get the ID of the associated download post type
 	$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
-	$changelog = get_post_meta( $download_id, '_edd_sl_changelog', true );
 	
+	// bail if there's no associated download
+	if ( '' == $download_id )
+		return $content;
+	
+	// get the changelog data of the associated download and add it to the content
+	$changelog = get_post_meta( $download_id, '_edd_sl_changelog', true );	
 	$content = $content . do_shortcode( '[toggle title="Changelog"]' . $changelog . '[/toggle]' ) ;
 	
 	return $content;
