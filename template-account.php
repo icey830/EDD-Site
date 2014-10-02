@@ -34,7 +34,6 @@ $rcp_load_css = $rcp_load_scripts = true;
 				<?php if ( eddc_user_has_commissions() ) { ?>
 				<li><a href="#tab3" data-toggle="tab">Commissions</a></li>
 				<?php } // end if ?>
-				<li><a href="#support-tickets" data-toggle="tab">Support Tickets</a></li>
 				<li><a href="#tab5" data-toggle="tab">Support Subscription</a></li>
 			</ul><!-- /.nav-tabs -->
 
@@ -57,12 +56,6 @@ $rcp_load_css = $rcp_load_scripts = true;
 					<div id="next-payout"><?php if( function_exists( 'eddc_get_upcoming_commissions' ) ) { echo eddc_get_upcoming_commissions(); } ?></div>
 					<?php if( function_exists( 'eddc_user_product_list' ) ) { echo eddc_user_product_list(); } ?>
 					<?php if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); } ?>
-				</div><!-- /.tab-pane -->
-
-				<div class="tab-pane" id="support-tickets">
-					<?php
-					echo do_shortcode( '[support_tickets]' );
-					?>
 				</div><!-- /.tab-pane -->
 
 				<div class="tab-pane" id="tab5">
