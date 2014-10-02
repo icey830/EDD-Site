@@ -698,6 +698,24 @@ function eddwp_display_themes() {
 	<?php
 }
 
+/**
+ * Append the connected download's changelog to the extension content
+ */
+function eddwp_extensions_changelog( $content ) {   
+	global $post;
+	
+	if ( 'extension' !== $post->post_type )
+		return $content;
+	
+	$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
+	$changelog = get_post_meta( $download_id, '_edd_sl_changelog', true );
+	
+	$content = $content . do_shortcode( '[toggle title="Changelog"]' . $changelog . '[/toggle]' ) ;
+	
+	return $content;
+}
+add_filter( 'the_content', 'eddwp_extensions_changelog' );
+
 /* ----------------------------------------------------------- *
  * 7. Widgets
  * ----------------------------------------------------------- */
