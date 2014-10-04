@@ -26,23 +26,21 @@ the_post();
 				<div class="box">
 					<h3>Extension Details</h3>
 					<div class="author clearfix">
-						<p><span>Developer:</span>&nbsp;
+						<p><span class="extension-detail-label">Developer:</span>&nbsp;
 							<?php if( get_post_meta( get_the_ID(), 'ecpt_hideauthorlink', true ) ) : ?>
-								<span><?php echo get_post_meta( get_the_ID(), 'ecpt_developer', true ); ?></span>
+								<span class="extension-detail"><?php echo get_post_meta( get_the_ID(), 'ecpt_developer', true ); ?></span>
 							<?php else : ?>
-								<span><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo get_the_author(); ?></a></span>
+								<span class="extension-detail"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo get_the_author(); ?></a></span>
 							<?php endif; ?>
 						</p>
 					</div>
+					<?php $download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true ); // get associated download ID ?>
 					<div class="version clearfix">
-						<?php
-						$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
-						$version = get_post_meta( $download_id, '_edd_sl_version', true );
-						?>
-						<p><span>Version:</span> <span><?php echo $version; ?></span></p>
+						<?php $version = get_post_meta( $download_id, '_edd_sl_version', true );?>
+						<p><span class="extension-detail-label">Version:</span> <span class="extension-detail"><?php echo $version; ?></span></p>
 					</div>
 					<div class="price clearfix">
-						<p><span>Price:</span> <span><?php echo get_post_meta( get_the_ID(), 'ecpt_price', true ); ?></span></p>
+						<p><span class="extension-detail-label">Price:</span> <span class="extension-detail"><?php echo edd_price_range( $download_id ); ?></span></p>
 					</div>
 					<?php if ( ! eddwp_is_extension_third_party() && ! eddwp_is_external_extension() ) { ?>
 					<div class="pricing">

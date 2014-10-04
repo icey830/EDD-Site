@@ -2836,13 +2836,13 @@ div.sharedaddy .sd-content {
 .single-extension .main .sidebar .box:last-child {
   margin-bottom: 0;
 }
-.single-extension .main .sidebar .box div span:first-child {
+.single-extension .main .sidebar .box div .extension-detail-label {
   float: left;
   text-transform: uppercase;
   color: #999;
   font-size: 12px;
 }
-.single-extension .main .sidebar .box div p span + span {
+.single-extension .main .sidebar .box div .extension-detail {
   float: right;
 }
 .single-extension .main .sidebar .box div {
