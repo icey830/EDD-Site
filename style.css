@@ -3488,6 +3488,28 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
   font-size: 0;
   height: 0;
 }
+#edd-support-tickets {
+  list-style: none;
+  padding-left: 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 0;
+}
+#edd-support-tickets li {
+  border-bottom: 1px solid #eee;
+  padding: 0.3em 1em;
+}
+#edd-support-tickets li:nth-child(odd) {
+  background: #fafafa;
+}
+#edd-support-tickets li:last-child {
+  border: none;
+}
+#edd-support-tickets .resolved {
+  color: #1b7c43;
+}
+#edd-support-tickets .notresolved {
+  color: #f00;
+}
 /* ----------------------------- *
  * Checkout
  * ----------------------------- */
@@ -6164,3 +6186,6 @@ span.bbp-author-ip {
 /* ----------------------------- *
  * iPad (Portrait)
  * ----------------------------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  
+}
