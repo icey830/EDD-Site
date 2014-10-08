@@ -2833,6 +2833,9 @@ div.sharedaddy .sd-content {
 .single-extension .main .sidebar .box {
   margin-bottom: 40px;
 }
+.single-extension .main .sidebar .box .pricing {
+  margin-top: 20px;
+}
 .single-extension .main .sidebar .box:last-child {
   margin-bottom: 0;
 }
@@ -6186,6 +6189,3 @@ span.bbp-author-ip {
 /* ----------------------------- *
  * iPad (Portrait)
  * ----------------------------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  
-}
