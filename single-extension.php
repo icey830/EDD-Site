@@ -34,17 +34,16 @@ the_post();
 							<?php endif; ?>
 						</p>
 					</div>
-					<?php $download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true ); // get associated download ID ?>
 					<div class="version clearfix">
-						<?php $version = get_post_meta( $download_id, '_edd_sl_version', true );?>
+						<?php
+							$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
+							$version = get_post_meta( $download_id, '_edd_sl_version', true );
+						?>
 						<p><span class="extension-detail-label">Version:</span> <span class="extension-detail"><?php echo $version; ?></span></p>
-					</div>
-					<div class="price clearfix">
-						<p><span class="extension-detail-label">Price:</span> <span class="extension-detail"><?php echo edd_price_range( $download_id ); ?></span></p>
 					</div>
 					<?php if ( ! eddwp_is_extension_third_party() && ! eddwp_is_external_extension() ) { ?>
 					<div class="pricing">
-						<h4>Pricing</h4>
+						<h3>Pricing</h3>
 						<?php echo edd_get_purchase_link( array( 'download_id' => get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ) ); ?>
 					</div>
 					<div class="terms clearfix">
