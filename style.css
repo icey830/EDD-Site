@@ -631,8 +631,12 @@ address {
 .content code {
   white-space: normal;
   display: inline !important;
+  color: #7a7a7a;
   font-size: 12px !important;
+  font-family: Courier, 'Courier New', monospace !important;
   padding: 2px !important;
+  border: none !important;
+  border-radius: 0 !important;
 }
 /*
  * Structure
