@@ -4579,6 +4579,9 @@ div.bbp-template-notice.info {
   font-size: 16px;
   border-radius: 6px;
 }
+.bbp-reply-content div.bbp-template-notice {
+  clear: none!important;
+}
 div.bbp-template-notice p {
   font-size: 14px;
   line-height: 24px;
@@ -6193,3 +6196,6 @@ span.bbp-author-ip {
 /* ----------------------------- *
  * iPad (Portrait)
  * ----------------------------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  
+}
