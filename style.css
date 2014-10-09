@@ -5160,9 +5160,9 @@ span.bbp-author-ip {
   font-weight: 500;
 }
 .gsc-orderby-container .gsc-orderby {
-  word-wrap: normal;
+  word-wrap: normal!important;
 }
-.gsc-selected-option-container {
+.gsc-orderby-container .gsc-selected-option-container {
   width: 150px!important;
 }
 @-ms-viewport {
