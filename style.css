@@ -5159,6 +5159,12 @@ span.bbp-author-ip {
 #bbpress-forums .bbp-reply-form fieldset.bbp-form legend {
   font-weight: 500;
 }
+.gsc-orderby-container .gsc-orderby {
+  word-wrap: normal;
+}
+.gsc-selected-option-container {
+  width: 150px!important;
+}
 @-ms-viewport {
   width: device-width;
 }
