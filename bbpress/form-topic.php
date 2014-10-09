@@ -55,14 +55,6 @@
 
 				<?php endif; ?>
 
-				<?php if ( current_user_can( 'unfiltered_html' ) ) : ?>
-
-					<div class="bbp-template-notice">
-						<p><?php _e( 'Your account has the ability to post unrestricted HTML content.', 'bbpress' ); ?></p>
-					</div>
-
-				<?php endif; ?>
-
 				<?php do_action( 'bbp_template_notices' ); ?>
 
 				<div id="bbp-new-topic-fields">
