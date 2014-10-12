@@ -5329,6 +5329,9 @@ span.bbp-author-ip {
   .main .content {
     width: 100%;
   }
+  .bbpress .main .content {
+    width: 640px;
+  }
   .blog .main .content,
   .single-theme .main .content,
   .single-extension .main .content,
@@ -6202,6 +6205,3 @@ span.bbp-author-ip {
 /* ----------------------------- *
  * iPad (Portrait)
  * ----------------------------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  
-}
