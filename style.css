@@ -675,12 +675,12 @@ address {
 .cse form.gsc-search-box,
 form.gsc-search-box,
 table.gsc-search-box {
-  padding: 0;
-  margin-bottom: 0;
+  padding: 0 !important;
+  margin-bottom: 0 !important;
 }
 .gsc-control-cse {
-  background-color: transparent;
-  border: none;
+  background-color: transparent !important;
+  border: none !important;
 }
 .cse input.gsc-input,
 input.gsc-input {
@@ -689,10 +689,10 @@ input.gsc-input {
 #google-search-form input {
   font-size: 15px;
   padding: 6px 8px 8px !important;
-  border: none;
+  border: none !important;
 }
 .gsc-clear-button {
-  display: none;
+  display: none !important;
 }
 /* ----------------------------- *
  * Sidebar
