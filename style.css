@@ -917,6 +917,8 @@ body.bbpress .sidebar .widget.jetpack_subscription_widget input[type="text"]:hov
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
   line-height: 1.2;
   margin-top: 0;
+  height: auto !important;
+  border: 1px solid #287aad !important;
 }
 /*
  * Navigation
