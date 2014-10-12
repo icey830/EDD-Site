@@ -13,9 +13,19 @@
 		<p>Use keywords specific to your inquiry. Other users have likely already encountered your issue. If you cannot find an answer to your issue, feel free to open a new ticket.</p>
 	</div>
 
-	<div>
-		<input type="hidden" name="action" value="bbp-search-request" />
-		<input placeholder="Search..." tabindex="<?php bbp_tab_index(); ?>" type="text" value="<?php echo esc_attr( bbp_get_search_terms() ); ?>" name="bbp_search" id="bbp_search" />
-		<input tabindex="<?php bbp_tab_index(); ?>" class="submit-button" type="submit" id="bbp_search_submit" value="Search" />
+	<div id="google-search-form">
+		<script>
+		  (function() {
+		    var cx = '013364375160530833496:u0gpdnp1z-8';
+		    var gcse = document.createElement('script');
+		    gcse.type = 'text/javascript';
+		    gcse.async = true;
+		    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+		        '//www.google.com/cse/cse.js?cx=' + cx;
+		    var s = document.getElementsByTagName('script')[0];
+		    s.parentNode.insertBefore(gcse, s);
+		  })();
+		</script>
+		<gcse:search></gcse:search>
 	</div>
 </form>
