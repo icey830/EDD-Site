@@ -693,6 +693,7 @@ input.gsc-input {
 }
 #google-search-form-sidebar input {
   font-size: 13px;
+  padding: 6px 10px !important;
 }
 .gsc-clear-button {
   display: none !important;
