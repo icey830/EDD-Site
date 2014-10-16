@@ -691,8 +691,16 @@ input.gsc-input {
   padding: 6px 8px 8px !important;
   border: none !important;
 }
+#google-search-form-sidebar input {
+  font-size: 13px;
+  padding: 6px 10px !important;
+}
 .gsc-clear-button {
   display: none !important;
+}
+table.gstl_51.gssb_c,
+table.gstl_50.gssb_c {
+  margin-top: 29px !important;
 }
 /* ----------------------------- *
  * Sidebar
@@ -878,7 +886,8 @@ body.bbpress .sidebar .widget.jetpack_subscription_widget input[type="text"]:hov
  * ----------------------------- */
 .sidebar input[type="submit"],
 .sidebar .button,
-#google-search-form input.gsc-search-button {
+#google-search-form input.gsc-search-button,
+#google-search-form-sidebar input.gsc-search-button {
   margin-top: 2px;
   padding: 4px 14px;
   background: #2794da;
@@ -903,17 +912,20 @@ body.bbpress .sidebar .widget.jetpack_subscription_widget input[type="text"]:hov
 }
 .sidebar input[type="submit"]:hover,
 .sidebar .button:hover,
-#google-search-form input.gsc-search-button:hover {
+#google-search-form input.gsc-search-button:hover,
+#google-search-form-sidebar input.gsc-search-button:hover {
   background: #5ba3cf;
   color: #fff;
 }
 .sidebar input[type="submit"]:active,
 .sidebar .button:active,
-#google-search-form input.gsc-search-button:active {
+#google-search-form input.gsc-search-button:active,
+#google-search-form-sidebar input.gsc-search-button:active {
   -webkit-box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
 }
-#google-search-form input.gsc-search-button {
+#google-search-form input.gsc-search-button,
+#google-search-form-sidebar input.gsc-search-button {
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
   line-height: 1.2;
   margin-top: 0;
@@ -6243,3 +6255,6 @@ span.bbp-author-ip {
 /* ----------------------------- *
  * iPad (Portrait)
  * ----------------------------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  
+}
