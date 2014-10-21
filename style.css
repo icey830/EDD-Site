@@ -4114,6 +4114,15 @@ input#edd-discount:focus,
   float: left;
   margin-right: 20px;
 }
+.contributors .crew-edd-standing {
+  float: right;
+  border: none;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  margin-left: 30px;
+  margin-top: 50px;
+}
 .contributors h3 {
   height: 90px;
   line-height: 90px;
@@ -4131,6 +4140,11 @@ input#edd-discount:focus,
 }
 .contributors .contributor p:first-child {
   display: inline;
+}
+.contributors .contributor.lead {
+  float: none;
+  width: 100%;
+  margin-bottom: 40px;
 }
 .contributors h2 {
   font-size: 25px;
@@ -5763,6 +5777,9 @@ span.bbp-author-ip {
     display: inline;
     vertical-align: -webkit-baseline-middle;
   }
+  .contributors .crew-edd-standing {
+    display: none;
+  }
 }
 /* ----------------------------- *
  * iPad (Portrait)
@@ -5797,6 +5814,13 @@ span.bbp-author-ip {
   }
   #bbpress-forums .moderator-tools #bbps_support_forum_options form {
     margin-bottom: 4px;
+  }
+  .contributors .contributor {
+    width: 100%;
+  }
+  .contributors h3 {
+    line-height: 1.4;
+    margin-top: 10px;
   }
 }
 /* ----------------------------- *
