@@ -2637,6 +2637,12 @@ div.sharedaddy .sd-content {
 }
 .extension {
   height: 320px;
+  width: 47%;
+  padding: 10px 0;
+  margin-right: 0;
+}
+.grid-item.column:nth-child(odd) .extension {
+  margin-right: 6%;
 }
 .changelog-content strong {
   font-size: 18px;
@@ -5294,7 +5300,6 @@ span.bbp-author-ip {
   .themes-container {
     width: 940px;
   }
-  .extension,
   .theme {
     width: 300px;
     margin-right: 20px;
@@ -6255,6 +6260,3 @@ span.bbp-author-ip {
 /* ----------------------------- *
  * iPad (Portrait)
  * ----------------------------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  
-}
