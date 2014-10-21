@@ -2641,7 +2641,12 @@ div.sharedaddy .sd-content {
   padding: 10px 0;
   margin-right: 0;
 }
-.grid-item.column:nth-child(odd) .extension {
+.container .content .extension {
+  width: 47%;
+  padding: 10px 0;
+  margin-right: 0;
+}
+.container .content .grid-item.column:nth-child(odd) .extension {
   margin-right: 6%;
 }
 .changelog-content strong {
@@ -5315,6 +5320,7 @@ span.bbp-author-ip {
   .themes-container {
     width: 940px;
   }
+  .archive .extension,
   .theme {
     width: 300px;
     margin-right: 20px;
