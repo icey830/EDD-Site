@@ -2637,6 +2637,12 @@ div.sharedaddy .sd-content {
 }
 .extension {
   height: 320px;
+  width: 47%;
+  padding: 10px 0;
+  margin-right: 0;
+}
+.grid-item.column:nth-child(odd) .extension {
+  margin-right: 6%;
 }
 .changelog-content strong {
   font-size: 18px;
@@ -4108,6 +4114,15 @@ input#edd-discount:focus,
   float: left;
   margin-right: 20px;
 }
+.contributors .crew-edd-standing {
+  float: right;
+  border: none;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  margin-left: 30px;
+  margin-top: 50px;
+}
 .contributors h3 {
   height: 90px;
   line-height: 90px;
@@ -4125,6 +4140,11 @@ input#edd-discount:focus,
 }
 .contributors .contributor p:first-child {
   display: inline;
+}
+.contributors .contributor.lead {
+  float: none;
+  width: 100%;
+  margin-bottom: 40px;
 }
 .contributors h2 {
   font-size: 25px;
@@ -4756,7 +4776,8 @@ li.bbp-forum-freshness {
   padding-left: 0;
   margin: 20px 0 0 0;
 }
-.js #bbpress-forums #bbp-forum-289 .bbp-forums-list {
+.js #bbpress-forums #bbp-forum-289 .bbp-forums-list,
+.js #bbpress-forums #bbp-forum-3560 .bbp-forums-list {
   display: none;
 }
 li.bbp-topic-title {
@@ -5294,7 +5315,6 @@ span.bbp-author-ip {
   .themes-container {
     width: 940px;
   }
-  .extension,
   .theme {
     width: 300px;
     margin-right: 20px;
@@ -5757,6 +5777,9 @@ span.bbp-author-ip {
     display: inline;
     vertical-align: -webkit-baseline-middle;
   }
+  .contributors .crew-edd-standing {
+    display: none;
+  }
 }
 /* ----------------------------- *
  * iPad (Portrait)
@@ -5791,6 +5814,13 @@ span.bbp-author-ip {
   }
   #bbpress-forums .moderator-tools #bbps_support_forum_options form {
     margin-bottom: 4px;
+  }
+  .contributors .contributor {
+    width: 100%;
+  }
+  .contributors h3 {
+    line-height: 1.4;
+    margin-top: 10px;
   }
 }
 /* ----------------------------- *
@@ -6255,6 +6285,3 @@ span.bbp-author-ip {
 /* ----------------------------- *
  * iPad (Portrait)
  * ----------------------------- */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  
-}

@@ -519,6 +519,13 @@
 
 .extension {
 	height: 320px;
+	width: 47%;
+	padding: 10px 0;
+	margin-right: 0;
+}
+
+.grid-item.column:nth-child(odd) .extension {
+	margin-right: 6%;
 }
 
 .changelog-content {
@@ -2205,6 +2212,16 @@ input#edd-discount,
 	margin-right: 20px;
 }
 
+.contributors .crew-edd-standing {
+	float: right;
+	border: none;
+	width: auto;
+	height: auto;
+	border-radius: 0;
+	margin-left: 30px;
+	margin-top: 50px;
+}
+
 .contributors h3 {
 	height: 90px;
 	line-height: 90px;
@@ -2224,6 +2241,12 @@ input#edd-discount,
 	p:first-child {
 		display: inline;
 	}
+}
+
+.contributors .contributor.lead {
+	float: none;
+	width: 100%;
+	margin-bottom: 40px;
 }
 
 .contributors h2 {
