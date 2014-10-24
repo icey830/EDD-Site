@@ -12,7 +12,7 @@
 global $post;
 
 $extension_terms = wp_get_object_terms( $post->ID, 'extension_category' );
-$term_slug = $$extension_terms[0]->slug;
+$term_slug = $extension_terms[0]->slug;
 
 get_header();
 the_post();
