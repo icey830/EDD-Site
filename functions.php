@@ -704,8 +704,12 @@ function eddwp_display_themes() {
 function eddwp_extensions_changelog( $content ) {   
 	global $post;
 	
-	// bail if this is not an extension post type
-	if( 'extension' !== $post->post_type )
+	// get the extension terms (to search for "bundles" which don't have changelogs)
+	$extension_terms = wp_get_object_terms( $post->ID, 'extension_category' );
+	$term_slug = $extension_terms[0]->slug;
+	
+	// bail if this is not an extension post type or if it is a bundle
+	if( 'extension' !== $post->post_type || 'bundles' == $term_slug )
 		return $content;
 	
 	// get the ID of the associated download post type
