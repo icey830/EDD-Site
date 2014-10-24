@@ -3609,6 +3609,10 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 .page-id-160 .checkout-cart-empty .theme {
   height: 220px;
 }
+.page-id-160 .checkout-cart-empty .extension:not(:last-of-type),
+.page-id-160 .checkout-cart-empty .theme:not(:last-of-type) {
+  margin-right: 32px;
+}
 .page-id-160 .checkout-cart-empty h1,
 .page-id-160 .checkout-cart-empty h2.tagline {
   text-align: center;
