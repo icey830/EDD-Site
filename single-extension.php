@@ -11,9 +11,6 @@
 
 global $post;
 
-$extension_terms = wp_get_object_terms( $post->ID, 'extension_category' );
-$term_slug = $extension_terms[0]->slug;
-
 get_header();
 the_post();
 ?>
@@ -37,7 +34,7 @@ the_post();
 							<?php endif; ?>
 						</p>
 					</div>
-					<?php if( 'bundles' != $term_slug ) { ?>
+					<?php if( ! has_term( 'bundles', 'extension_category', get_the_ID() ) ) { ?>
 					<div class="version clearfix">
 						<?php
 							$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
