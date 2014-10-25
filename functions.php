@@ -734,7 +734,7 @@ function eddwp_docs_support_forum_link( $content ) {
 		return $content;
 
 	// build link to the support forums
-	$support_forums = sprintf( '<p>For assistance, please open a ticket in the <a href="%s">support forums</a>.</p>',
+	$support_forums = sprintf( '<p class="docs-support-link">For assistance, please open a ticket in the <a href="%s">support forums</a>.</p>',
 		get_option( 'siteurl' ) . '/support/'
 	);
 
