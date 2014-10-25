@@ -723,6 +723,28 @@ function eddwp_extensions_changelog( $content ) {
 }
 add_filter( 'the_content', 'eddwp_extensions_changelog' );
 
+/**
+ * Append link to support forums at bottom of documentation content
+ */
+function eddwp_docs_support_forum_link( $content ) {
+	global $post;
+
+	// bail if this is not a documentation post type
+	if( 'docs' !== $post->post_type )
+		return $content;
+
+	// build link to the support forums
+	$support_forums = sprintf( '<p>For assistance, please open a ticket in the <a href="%s">support forums</a>.</p>',
+		get_option( 'siteurl' ) . '/support/'
+	);
+
+	// add the link to support forums below the doc content
+	$content = $content . $support_forums;
+
+	return $content;
+}
+add_filter( 'the_content', 'eddwp_docs_support_forum_link' );
+
 /* ----------------------------------------------------------- *
  * 7. Widgets
  * ----------------------------------------------------------- */
