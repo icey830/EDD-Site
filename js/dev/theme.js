@@ -240,5 +240,10 @@
             $('.bbp-forums-list', this.parent).slideToggle();
             return false;
         });
+        
+        $('#bbp-forum-3560 .bbp-forum-title').on('click', function() {
+            $('#bbp-forum-3560 .bbp-forums-list', this.parent).slideToggle();
+            return false;
+        });
     });
 }(jQuery));

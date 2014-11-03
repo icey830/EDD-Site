@@ -521,6 +521,16 @@
 	height: 320px;
 }
 
+.container .content .extension {
+	width: 47%;
+	padding: 10px 0;
+	margin-right: 0;
+}
+
+.container .content .grid-item.column:nth-child(odd) .extension {
+	margin-right: 6%;
+}
+
 .changelog-content {
 	& strong {
 		font-size: 18px;
@@ -1296,7 +1306,7 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 }
 
 .page-id-635.login .content {
-	width: 640px;
+	max-width: 640px;
 }
 
 .login h1,
@@ -1610,6 +1620,11 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	.theme {
 		height: 220px
 	}
+}
+
+.page-id-160 .checkout-cart-empty .extension:not(:last-of-type),
+.page-id-160 .checkout-cart-empty .theme:not(:last-of-type) {
+	margin-right: 32px;
 }
 
 .page-id-160 .checkout-cart-empty h1,
@@ -1983,6 +1998,12 @@ input#edd-discount,
 	}
 }
 
+.docs-support-link {
+	background: #EDF8FF;
+	padding: 10px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 /* ----------------------------- *
  * Support Pricing
  * ----------------------------- */
@@ -2205,6 +2226,16 @@ input#edd-discount,
 	margin-right: 20px;
 }
 
+.contributors .crew-edd-standing {
+	float: right;
+	border: none;
+	width: auto;
+	height: auto;
+	border-radius: 0;
+	margin-left: 30px;
+	margin-top: 50px;
+}
+
 .contributors h3 {
 	height: 90px;
 	line-height: 90px;
@@ -2224,6 +2255,12 @@ input#edd-discount,
 	p:first-child {
 		display: inline;
 	}
+}
+
+.contributors .contributor.lead {
+	float: none;
+	width: 100%;
+	margin-bottom: 40px;
 }
 
 .contributors h2 {

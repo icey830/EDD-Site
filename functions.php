@@ -697,8 +697,8 @@ function eddwp_display_themes() {
 function eddwp_extensions_changelog( $content ) {   
 	global $post;
 	
-	// bail if this is not an extension post type
-	if( 'extension' !== $post->post_type )
+	// bail if this is not an extension post type or if it is a bundle
+	if( 'extension' !== $post->post_type || has_term( 'bundles', 'extension_category', get_the_ID() ) )
 		return $content;
 	
 	// get the ID of the associated download post type
@@ -715,6 +715,28 @@ function eddwp_extensions_changelog( $content ) {
 	return $content;
 }
 add_filter( 'the_content', 'eddwp_extensions_changelog' );
+
+/**
+ * Append link to support forums at bottom of documentation content
+ */
+function eddwp_docs_support_forum_link( $content ) {
+	global $post;
+
+	// bail if this is not a documentation post type
+	if( 'docs' !== $post->post_type )
+		return $content;
+
+	// build link to the support forums
+	$support_forums = sprintf( '<p class="docs-support-link">For assistance, please open a ticket in the <a href="%s">support forums</a>.</p>',
+		get_option( 'siteurl' ) . '/support/'
+	);
+
+	// add the link to support forums below the doc content
+	$content = $content . $support_forums;
+
+	return $content;
+}
+add_filter( 'the_content', 'eddwp_docs_support_forum_link' );
 
 /* ----------------------------------------------------------- *
  * 7. Widgets
@@ -1212,6 +1234,27 @@ function eddwp_modal() {
 		$modal = ob_get_clean();
 		echo $modal;
 	}
+}
+
+/**
+ * Google Custom Search
+ */
+function eddwp_google_custom_search() {
+	?>
+	<script>
+	  (function() {
+	    var cx = '013364375160530833496:u0gpdnp1z-8';
+	    var gcse = document.createElement('script');
+	    gcse.type = 'text/javascript';
+	    gcse.async = true;
+	    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+	        '//www.google.com/cse/cse.js?cx=' + cx;
+	    var s = document.getElementsByTagName('script')[0];
+	    s.parentNode.insertBefore(gcse, s);
+	  })();
+	</script>
+	<gcse:search></gcse:search>
+	<?php
 }
 
 

@@ -34,6 +34,7 @@ the_post();
 							<?php endif; ?>
 						</p>
 					</div>
+					<?php if( ! has_term( 'bundles', 'extension_category', get_the_ID() ) ) { ?>
 					<div class="version clearfix">
 						<?php
 							$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
@@ -41,6 +42,7 @@ the_post();
 						?>
 						<p><span class="extension-detail-label">Version:</span> <span class="extension-detail"><?php echo $version; ?></span></p>
 					</div>
+					<?php } // end if  ?>
 					<?php if ( ! eddwp_is_extension_third_party() && ! eddwp_is_external_extension() ) { ?>
 					<div class="pricing">
 						<h3>Pricing</h3>
