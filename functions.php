@@ -571,13 +571,6 @@ add_action( 'edd_purchase_form_after_cc_form', 'eddwp_checkout_submit', 9999 );
 remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
 
 /**
- * Disable WordPress Admin Bar on Mobile
- */
-if ( wp_is_mobile() ) {
-	show_admin_bar( false );
-}
-
-/**
  * Send a Pushover Notification when a moderator is assigned to a topic
  */
 function eddwp_send_pushover_notification_on_assignment() {
