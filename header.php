@@ -37,6 +37,8 @@
 
 <body <?php body_class(); ?>>
 
+	<?php do_action( 'eddwp_body_start' ); ?>
+
 	<div class="header-outer">
 		<header class="header clearfix">
 			<div id="logo">
