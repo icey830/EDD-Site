@@ -67,7 +67,7 @@ add_action( 'after_setup_theme', 'edd_theme_setup' );
 
 include( dirname(__FILE__) . '/includes/class-fragment-cache.php' );
 include( dirname(__FILE__) . '/includes/query-filters.php' );
-
+include( dirname(__FILE__) . '/includes/simple-notices-pro.php' );
 
 /* ----------------------------------------------------------- *
  * 3. Stylesheets and JavaScript Files
