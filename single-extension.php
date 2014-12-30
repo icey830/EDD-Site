@@ -76,7 +76,7 @@ the_post();
 							  'post_status' => 'publish'
 							) );
 		
-							if ( $forums->have_posts() || $docs->have_posts() ) {
+							if ( $forums->have_posts() || $docs->have_posts() || $external_doc ) {
 								echo '<div class="related-items">';
 									// Display connected posts
 									if ( $external_doc || $docs->have_posts() ) :
