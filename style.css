@@ -649,8 +649,7 @@ address {
   width: 1100px;
   margin: 0 auto 120px;
 }
-.blog .main .content,
-.single-theme .main .content {
+.blog .main .content {
   background: none;
   padding: 0;
   -webkit-box-shadow: none;
@@ -2864,16 +2863,19 @@ div.sharedaddy .sd-content {
   margin: 0;
   width: 550px;
 }
-.single-extension .main .content {
+.single-extension .main .content,
+.single-theme .main .content {
   width: 740px;
   margin: 5px 0 20px;
   float: left;
   padding: 50px;
 }
-.single-extension .main .content h1 + p img {
+.single-extension .main .content h1 + p img,
+.single-theme .main .content h1 + p img {
   width: 100%;
 }
-.single-extension .main .sidebar {
+.single-extension .main .sidebar,
+.single-theme .main .sidebar {
   float: left;
   margin-top: 5px;
   margin-left: 60px;
@@ -2882,7 +2884,8 @@ div.sharedaddy .sd-content {
   width: 300px;
   padding: 50px;
 }
-.single-extension .main .sidebar h3 {
+.single-extension .main .sidebar h3,
+.single-theme .main .sidebar h3 {
   margin: 0;
   font-weight: normal;
   margin-bottom: 15px;
@@ -2892,28 +2895,35 @@ div.sharedaddy .sd-content {
   border-bottom: 1px solid #aaa;
   padding: 10px 0;
 }
-.single-extension .main .sidebar .box {
+.single-extension .main .sidebar .box,
+.single-theme .main .sidebar .box {
   margin-bottom: 40px;
 }
-.single-extension .main .sidebar .box .pricing {
+.single-extension .main .sidebar .box .pricing,
+.single-theme .main .sidebar .box .pricing {
   margin-top: 20px;
 }
-.single-extension .main .sidebar .box:last-child {
+.single-extension .main .sidebar .box:last-child,
+.single-theme .main .sidebar .box:last-child {
   margin-bottom: 0;
 }
-.single-extension .main .sidebar .box div .extension-detail-label {
+.single-extension .main .sidebar .box div .extension-detail-label,
+.single-theme .main .sidebar .box div .extension-detail-label {
   float: left;
   text-transform: uppercase;
   color: #999;
   font-size: 12px;
 }
-.single-extension .main .sidebar .box div .extension-detail {
+.single-extension .main .sidebar .box div .extension-detail,
+.single-theme .main .sidebar .box div .extension-detail {
   float: right;
 }
-.single-extension .main .sidebar .box div {
+.single-extension .main .sidebar .box div,
+.single-theme .main .sidebar .box div {
   padding: 5px 0;
 }
-.single-extension .main .sidebar .related-items {
+.single-extension .main .sidebar .related-items,
+.single-theme .main .sidebar .related-items {
   margin-top: 20px;
 }
 .sidebar .related-links {
@@ -2932,15 +2942,18 @@ div.sharedaddy .sd-content {
   border-bottom: none;
   margin-bottom: 0;
 }
-.single-extension .main .sidebar .box.fi h3 {
+.single-extension .main .sidebar .box.fi h3,
+.single-theme .main .sidebar .box.fi h3 {
   margin-bottom: 0;
 }
-.single-extension .main .sidebar .box.fi ul {
+.single-extension .main .sidebar .box.fi ul,
+.single-theme .main .sidebar .box.fi ul {
   margin: 10px 0;
   padding: 0;
   list-style: none;
 }
-.single-extension .main .sidebar .box.fi ul li {
+.single-extension .main .sidebar .box.fi ul li,
+.single-theme .main .sidebar .box.fi ul li {
   display: block;
   padding: 4px 0;
   text-align: center;
@@ -2956,7 +2969,8 @@ div.sharedaddy .sd-content {
   transition: background .2s linear;
   cursor: pointer;
 }
-.single-extension .main .sidebar .box.fi ul li:hover {
+.single-extension .main .sidebar .box.fi ul li:hover,
+.single-theme .main .sidebar .box.fi ul li:hover {
   background: rgba(60, 123, 191, 0.88);
 }
 .edd_price_options ul {
@@ -3015,13 +3029,15 @@ html.js .edd_download_purchase_form input[type="radio"] {
 html.js .edd_download_purchase_form label .edd_price_option_name {
   margin-left: 5px;
 }
-.single-extension .main .sidebar .box .pricing h4 {
+.single-extension .main .sidebar .box .pricing h4,
+.single-theme .main .sidebar .box .pricing h4 {
   font-weight: normal;
   font-size: 15px;
   margin: 10px 0 5px 0;
   padding: 0;
 }
-.single-extension .main .info-box {
+.single-extension .main .info-box,
+.single-theme .main .info-box {
   background: #f7f9fa;
   border: 2px solid #e9ecef;
   padding: 16px 20px;
@@ -3030,8 +3046,7 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
   color: #34495e;
 }
 .single-theme .main .content {
-  background: white;
-  padding: 20px;
+  background: #fff;
   margin-bottom: 0;
 }
 .single-theme .main .content h3:first-child {
@@ -5329,12 +5344,13 @@ span.bbp-author-ip {
     padding: 20px;
   }
   .blog .main .content,
-  .single-theme .main .content,
   .single-extension .main .content,
+  .single-theme .main .content,
   .documentation .main .content {
     width: 620px;
   }
-  .single-extension .main .sidebar {
+  .single-extension .main .sidebar,
+  .single-theme .main .sidebar {
     width: 260px;
     padding: 30px;
   }
@@ -5458,12 +5474,13 @@ span.bbp-author-ip {
     width: 640px;
   }
   .blog .main .content,
-  .single-theme .main .content,
   .single-extension .main .content,
+  .single-theme .main .content,
   .documentation .main .content {
     width: 620px;
   }
-  .single-extension .main .sidebar {
+  .single-extension .main .sidebar,
+  .single-theme .main .sidebar {
     width: 260px;
     padding: 30px;
   }
@@ -5762,12 +5779,13 @@ span.bbp-author-ip {
   .main .container {
     width: 100%;
   }
-  .single-extension .main .content {
+  .single-extension .main .content,
+  .single-theme .main .content {
     width: 100%;
   }
   .single-extension .main .sidebar,
-  .blog .sidebar,
-  .single-theme .sidebar {
+  .single-theme .sidebar,
+  .blog .sidebar {
     width: 100%;
     margin-left: 0;
   }
@@ -6122,12 +6140,13 @@ span.bbp-author-ip {
   .main .container {
     width: 100%;
   }
-  .single-extension .main .content {
+  .single-extension .main .content,
+  .single-theme .main .content {
     width: 100%;
   }
   .single-extension .main .sidebar,
-  .blog .sidebar,
-  .single-theme .sidebar {
+  .single-theme .main .sidebar,
+  .blog .sidebar {
     width: 100%;
     margin-left: 0;
   }
