@@ -5741,6 +5741,7 @@ span.bbp-author-ip {
   .showcase .site {
     width: 100%;
     float: none;
+    text-align: center;
   }
   .showcase .featured-site .text-overlay,
   .showcase .site .text-overlay {
