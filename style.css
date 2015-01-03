@@ -2836,7 +2836,9 @@ div.sharedaddy .sd-content {
   border-top: 1px solid #efefef;
 }
 .pagination .current,
-.pagination .page-numbers {
+.pagination .page-numbers,
+.edd_pagination .current,
+.edd_pagination .page-numbers {
   background: #fff;
   color: #232527;
   border-radius: 3px;
@@ -2849,7 +2851,9 @@ div.sharedaddy .sd-content {
   -webkit-transition: none;
 }
 .pagination .current,
-.pagination .page-numbers:hover {
+.pagination .page-numbers:hover,
+.edd_pagination .current,
+.edd_pagination .page-numbers:hover {
   background: #2794da;
   border: 1px solid #25597a;
   color: #fff;
@@ -2858,6 +2862,12 @@ div.sharedaddy .sd-content {
   -o-transition: none;
   -ms-transition: none;
   transition: none;
+}
+#edd_purchase_history_pagination {
+  margin-top: 20px;
+}
+#edd_purchase_history_pagination > br {
+  display: none;
 }
 .extension-search .main .content h1 {
   float: left;
@@ -6019,7 +6029,8 @@ span.bbp-author-ip {
   .extensions-offer {
     margin-bottom: 0;
   }
-  .pagination {
+  .pagination,
+  .edd_pagination {
     padding-left: 20px;
   }
   .extensions-grid ul li,
