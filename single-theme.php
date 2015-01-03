@@ -32,7 +32,7 @@ the_post();
 							<?php endif; ?>
 						</p>
 					</div>
-					<?php if( ! has_term( 'bundles', 'extension_category', get_the_ID() ) ) { ?>
+					<?php if( ! eddwp_is_external_extension() ) { ?>
 					<div class="version clearfix">
 						<?php
 							$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
