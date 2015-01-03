@@ -260,7 +260,7 @@ endif;
 ?>
 <section class="featureset clearfix feature-customers">
 	<div class="feature">
-		<h2>With over 300,000 downloads, we got your back...</h2>
+		<h2>With over 475,000 downloads, we got your back...</h2>
 		<p>We have <del>some</del> <ins>a lot</ins> of happy customers and here's what some are saying:</p>
 
 		<div class="testimonials">
