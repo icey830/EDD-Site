@@ -747,30 +747,46 @@
 	display: block;
 	padding-top: 30px;
 	border-top: 1px solid #efefef;
+}
 
-	& .current, .page-numbers {
-		background: #fff;
-		color: #232527;
-		border-radius: 3px;
-		padding: 1px 8px;
-		font-weight: normal;
-		border: 1px solid #ccc;
-		margin-right: 5px;
-		float: left;
-		display: block;
-		-webkit-transition: none;
-	}
+.pagination .current,
+.pagination .page-numbers,
+.edd_pagination .current,
+.edd_pagination .page-numbers {
+	background: #fff;
+	color: #232527;
+	border-radius: 3px;
+	padding: 1px 8px;
+	font-weight: normal;
+	border: 1px solid #ccc;
+	margin-right: 5px;
+	float: left;
+	display: block;
+	-webkit-transition: none;
+}
 
-	& .current, .page-numbers:hover {
-		background: #2794da;
-		border: 1px solid #25597a;
-		color: #fff;
-		-webkit-transition: none;
-		-moz-transition: none;
-		-o-transition: none;
-		-ms-transition: none;
-		transition: none;
-	}
+.pagination .current,
+.pagination .page-numbers:hover,
+.edd_pagination .current,
+.edd_pagination .page-numbers:hover {
+	background: #2794da;
+	border: 1px solid #25597a;
+	color: #fff;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	-ms-transition: none;
+	transition: none;
+}
+
+#edd_purchase_history_pagination,
+#edd_download_history_pagination {
+	margin-top: 20px;
+}
+
+#edd_purchase_history_pagination > br,
+#edd_download_history_pagination > br {
+	display: none;
 }
 
 .extension-search .main .content h1 {

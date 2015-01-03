@@ -34,7 +34,7 @@ the_post();
 							<?php endif; ?>
 						</p>
 					</div>
-					<?php if( ! has_term( 'bundles', 'extension_category', get_the_ID() ) ) { ?>
+					<?php if( ! has_term( array( '3rd-party', 'bundles' ), 'extension_category', get_the_ID() ) ) { ?>
 					<div class="version clearfix">
 						<?php
 							$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
