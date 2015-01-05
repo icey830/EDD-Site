@@ -2664,8 +2664,8 @@ div.sharedaddy .sd-content {
   padding-left: 15px;
   padding-top: 12px;
 }
-.extension.extension-clear,
-.theme.theme-clear {
+.archive .extension.extension-clear,
+.archive .theme.theme-clear {
   margin-right: 0;
 }
 .extension h2,
@@ -5370,9 +5370,13 @@ span.bbp-author-ip {
     width: 940px;
   }
   .archive .extension,
-  .theme {
+  .archive .theme {
     width: 300px;
     margin-right: 20px;
+  }
+  .archive .extension.extension-clear,
+  .archive .theme.theme-clear {
+    margin-right: 0;
   }
   .extension .thumbnail-holder,
   .theme .thumbnail-holder {
@@ -5497,6 +5501,15 @@ span.bbp-author-ip {
   }
   .feature {
     width: 100%;
+  }
+  .archive .extension,
+  .archive .theme {
+    width: 31.5%;
+    margin-right: 20px;
+  }
+  .archive .extension.extension-clear,
+  .archive .theme.theme-clear {
+    margin-right: 0;
   }
   .extensions-grid ul li a img {
     max-width: 284px;
@@ -5754,10 +5767,19 @@ span.bbp-author-ip {
   .gform_wrapper .top_label select.medium {
     width: 98% !important;
   }
+  .extensions-container,
+  .themes-container {
+    max-width: 100%;
+  }
   .extension,
   .theme {
     float: none;
+    max-width: 80%;
     margin: 0 auto 40px !important;
+  }
+  .archive .extension.extension-clear,
+  .archive .theme.theme-clear {
+    margin-right: 0;
   }
   .main .container {
     width: 100%;

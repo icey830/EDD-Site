@@ -101,9 +101,14 @@
 	}
 	
 	.archive .extension,
-	.theme {
+	.archive .theme {
 		width: 300px;
 		margin-right: 20px;
+	}
+
+	.archive .extension.extension-clear,
+	.archive .theme.theme-clear {
+		margin-right: 0;
 	}
 
 	.extension .thumbnail-holder,
@@ -262,6 +267,17 @@
 
 	.feature {
 		width: 100%;
+	}
+	
+	.archive .extension,
+	.archive .theme {
+		width: 31.5%;
+		margin-right: 20px;
+	}
+
+	.archive .extension.extension-clear,
+	.archive .theme.theme-clear {
+		margin-right: 0;
 	}
 
 	.extensions-grid ul li a img {
@@ -580,10 +596,21 @@
 	.gform_wrapper .top_label select.medium {
 		width: 98% !important;
 	}
+	
+	.extensions-container,
+	.themes-container {
+		max-width: 100%;
+	}
 
 	.extension, .theme {
 		float: none;
+		max-width: 80%;
 		margin: 0 auto 40px !important;
+	}
+
+	.archive .extension.extension-clear,
+	.archive .theme.theme-clear {
+		margin-right: 0;
 	}
 
 	.main .container {
