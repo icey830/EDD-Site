@@ -967,7 +967,7 @@ body.bbpress .sidebar .widget.jetpack_subscription_widget input[type="text"]:hov
 #primary ul ul {
   display: none;
   position: absolute;
-  width: 180px;
+  width: 155px;
   left: 8px;
   top: -9999em;
   background: #fff;
@@ -1195,7 +1195,7 @@ html.cssanimations.csstransitions #primary ul li:hover ul {
   height: 650px;
 }
 .hero .hero-inside {
-  width: 1000px;
+  width: 980px;
   margin: 0 auto;
 }
 .hero h1,
@@ -1250,7 +1250,7 @@ html.cssanimations.csstransitions #primary ul li:hover ul {
   color: #555;
 }
 .hero .hero-text {
-  padding: 40px 10px 10px;
+  padding: 40px 0 10px;
   text-align: center;
   -webkit-animation: intro-text 0.8s linear;
   -moz-animation: intro-text 0.8s linear;
@@ -1573,7 +1573,6 @@ html.cssanimations.csstransitions #primary ul li:hover ul {
   float: right;
 }
 .home .featureset.feature-extensions .extensions-grid ul li a img {
-  max-width: 325px;
   margin: 0;
   padding: 0;
 }
@@ -1827,9 +1826,9 @@ html.cssanimations body.firefox .iphone {
   list-style: none;
 }
 #extensions-intro-box {
-  background: #fff;
-  padding: 40px;
-  font-weight: 300;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 30px;
 }
 #extensions-intro-box a {
   background: #fff;
@@ -1874,17 +1873,15 @@ html.cssanimations body.firefox .iphone {
   padding: 0;
 }
 .extensions-grid ul li {
-  width: 33%;
+  width: 32.5%;
   margin-right: 1%;
-  float: left;
+  display: inline-block;
   margin-bottom: 1%;
+  vertical-align: top;
 }
 .extensions-grid ul li:nth-child(3n+3) {
   width: 32%;
   margin-right: 0;
-}
-.extensions-grid ul li:nth-child(3n+3) a img {
-  max-width: 281px;
 }
 .extensions-grid ul li a {
   display: block;
@@ -2760,17 +2757,10 @@ div.sharedaddy .sd-content {
   padding: 0;
 }
 .extensions-grid ul li {
-  width: 33%;
+  width: 32.5%;
   margin-right: 1%;
-  float: left;
+  display: inline-block;
   margin-bottom: 1%;
-}
-.extensions-grid ul li:nth-child(3n+3) {
-  width: 32%;
-  margin-right: 0;
-}
-.extensions-grid ul li:nth-child(3n+3) a img {
-  max-width: 281px;
 }
 .extensions-grid ul li a {
   display: block;
@@ -5329,9 +5319,6 @@ span.bbp-author-ip {
     right: 20px;
     width: 198px;
   }
-  footer .container img {
-    right: -25px;
-  }
 }
 /* ----------------------------- *
  * Old 940px layout
@@ -5415,9 +5402,6 @@ span.bbp-author-ip {
   }
   .single-theme .secondary .container {
     width: 940px;
-  }
-  footer .container img {
-    right: -35px;
   }
   .page-id-635 footer .container img {
     display: none;
@@ -5539,15 +5523,6 @@ span.bbp-author-ip {
   .archive .extension.extension-clear,
   .archive .theme.theme-clear {
     margin-right: 0;
-  }
-  .extensions-grid ul li a img {
-    max-width: 284px;
-  }
-  .extensions-grid ul li:nth-child(3n+3) a img {
-    max-width: 273px;
-  }
-  footer .container img {
-    right: -15px;
   }
   footer .container {
     width: 940px;
@@ -5705,13 +5680,11 @@ span.bbp-author-ip {
     padding: 0;
     margin-top: 480px;
   }
-  .hero .hero-inside img {
-    right: -5px;
-  }
   .hero .hero-text h1,
   .hero .hero-text h2 {
     font-size: 2.4rem;
-    width: 590px;
+    width: 100%;
+    max-width: 590px;
     margin: 0 auto;
   }
   .hero .hero-text p {
@@ -5870,9 +5843,6 @@ span.bbp-author-ip {
   #support-people {
     display: none;
   }
-  footer .container img {
-    right: -25px;
-  }
   #edd_checkout_form_wrap span.card-type {
     display: none;
   }
@@ -5903,9 +5873,6 @@ span.bbp-author-ip {
     top: 505px;
     width: 164px;
   }
-  footer .container img {
-    right: -25px;
-  }
   footer .container .col {
     width: 100%;
   }
@@ -5929,6 +5896,18 @@ span.bbp-author-ip {
   .contributors h3 {
     line-height: 1.4;
     margin-top: 10px;
+  }
+  .extensions-grid ul li {
+    width: 49%;
+    margin-right: 1%;
+  }
+  .extensions-grid ul li:nth-child(3n+3) {
+    width: 49%;
+    margin-right: 1%;
+  }
+  .extensions-grid ul li:nth-child(even) {
+    width: 49%%;
+    margin-right: 0;
   }
 }
 /* ----------------------------- *
@@ -6063,9 +6042,6 @@ span.bbp-author-ip {
     -o-animation-name: none;
     animation-name: none;
   }
-  #extensions-intro-box {
-    margin-bottom: 30px;
-  }
   #extensions-intro-box a {
     margin-left: 0;
   }
@@ -6076,10 +6052,9 @@ span.bbp-author-ip {
   .edd_pagination {
     padding-left: 20px;
   }
-  .extensions-grid ul li,
-  .extensions-grid ul li:nth-child(3n+3) {
-    width: 100%;
-    float: none;
+  .extensions-grid ul li {
+    width: 100% !important;
+    margin-right: 0 !important;
     margin-bottom: 30px;
   }
   .extensions-grid ul li a img {
