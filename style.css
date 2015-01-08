@@ -1573,7 +1573,6 @@ html.cssanimations.csstransitions #primary ul li:hover ul {
   float: right;
 }
 .home .featureset.feature-extensions .extensions-grid ul li a img {
-  max-width: 325px;
   margin: 0;
   padding: 0;
 }
@@ -1827,9 +1826,9 @@ html.cssanimations body.firefox .iphone {
   list-style: none;
 }
 #extensions-intro-box {
-  background: #fff;
-  padding: 40px;
-  font-weight: 300;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 30px;
 }
 #extensions-intro-box a {
   background: #fff;
@@ -1874,17 +1873,15 @@ html.cssanimations body.firefox .iphone {
   padding: 0;
 }
 .extensions-grid ul li {
-  width: 33%;
+  width: 32.5%;
   margin-right: 1%;
-  float: left;
+  display: inline-block;
   margin-bottom: 1%;
+  vertical-align: top;
 }
 .extensions-grid ul li:nth-child(3n+3) {
   width: 32%;
   margin-right: 0;
-}
-.extensions-grid ul li:nth-child(3n+3) a img {
-  max-width: 281px;
 }
 .extensions-grid ul li a {
   display: block;
@@ -2760,17 +2757,10 @@ div.sharedaddy .sd-content {
   padding: 0;
 }
 .extensions-grid ul li {
-  width: 33%;
+  width: 32.5%;
   margin-right: 1%;
-  float: left;
+  display: inline-block;
   margin-bottom: 1%;
-}
-.extensions-grid ul li:nth-child(3n+3) {
-  width: 32%;
-  margin-right: 0;
-}
-.extensions-grid ul li:nth-child(3n+3) a img {
-  max-width: 281px;
 }
 .extensions-grid ul li a {
   display: block;
@@ -5540,12 +5530,6 @@ span.bbp-author-ip {
   .archive .theme.theme-clear {
     margin-right: 0;
   }
-  .extensions-grid ul li a img {
-    max-width: 284px;
-  }
-  .extensions-grid ul li:nth-child(3n+3) a img {
-    max-width: 273px;
-  }
   footer .container img {
     right: -15px;
   }
@@ -5930,6 +5914,18 @@ span.bbp-author-ip {
     line-height: 1.4;
     margin-top: 10px;
   }
+  .extensions-grid ul li {
+    width: 49%;
+    margin-right: 1%;
+  }
+  .extensions-grid ul li:nth-child(3n+3) {
+    width: 49%;
+    margin-right: 1%;
+  }
+  .extensions-grid ul li:nth-child(even) {
+    width: 49%%;
+    margin-right: 0;
+  }
 }
 /* ----------------------------- *
  * iPhone (Landscape)
@@ -6063,9 +6059,6 @@ span.bbp-author-ip {
     -o-animation-name: none;
     animation-name: none;
   }
-  #extensions-intro-box {
-    margin-bottom: 30px;
-  }
   #extensions-intro-box a {
     margin-left: 0;
   }
@@ -6076,10 +6069,9 @@ span.bbp-author-ip {
   .edd_pagination {
     padding-left: 20px;
   }
-  .extensions-grid ul li,
-  .extensions-grid ul li:nth-child(3n+3) {
-    width: 100%;
-    float: none;
+  .extensions-grid ul li {
+    width: 100% !important;
+    margin-right: 0 !important;
     margin-bottom: 30px;
   }
   .extensions-grid ul li a img {
