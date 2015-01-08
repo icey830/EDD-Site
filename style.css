@@ -1195,7 +1195,7 @@ html.cssanimations.csstransitions #primary ul li:hover ul {
   height: 650px;
 }
 .hero .hero-inside {
-  width: 1000px;
+  width: 980px;
   margin: 0 auto;
 }
 .hero h1,
@@ -1250,7 +1250,7 @@ html.cssanimations.csstransitions #primary ul li:hover ul {
   color: #555;
 }
 .hero .hero-text {
-  padding: 40px 10px 10px;
+  padding: 40px 0 10px;
   text-align: center;
   -webkit-animation: intro-text 0.8s linear;
   -moz-animation: intro-text 0.8s linear;
@@ -5319,9 +5319,6 @@ span.bbp-author-ip {
     right: 20px;
     width: 198px;
   }
-  footer .container img {
-    right: -25px;
-  }
 }
 /* ----------------------------- *
  * Old 940px layout
@@ -5405,9 +5402,6 @@ span.bbp-author-ip {
   }
   .single-theme .secondary .container {
     width: 940px;
-  }
-  footer .container img {
-    right: -35px;
   }
   .page-id-635 footer .container img {
     display: none;
@@ -5529,9 +5523,6 @@ span.bbp-author-ip {
   .archive .extension.extension-clear,
   .archive .theme.theme-clear {
     margin-right: 0;
-  }
-  footer .container img {
-    right: -15px;
   }
   footer .container {
     width: 940px;
@@ -5689,13 +5680,11 @@ span.bbp-author-ip {
     padding: 0;
     margin-top: 480px;
   }
-  .hero .hero-inside img {
-    right: -5px;
-  }
   .hero .hero-text h1,
   .hero .hero-text h2 {
     font-size: 2.4rem;
-    width: 590px;
+    width: 100%;
+    max-width: 590px;
     margin: 0 auto;
   }
   .hero .hero-text p {
@@ -5854,9 +5843,6 @@ span.bbp-author-ip {
   #support-people {
     display: none;
   }
-  footer .container img {
-    right: -25px;
-  }
   #edd_checkout_form_wrap span.card-type {
     display: none;
   }
@@ -5886,9 +5872,6 @@ span.bbp-author-ip {
   .hero .hero-inside img {
     top: 505px;
     width: 164px;
-  }
-  footer .container img {
-    right: -25px;
   }
   footer .container .col {
     width: 100%;
