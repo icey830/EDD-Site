@@ -968,7 +968,7 @@ body.bbpress .sidebar .widget.jetpack_subscription_widget input[type="text"]:hov
 #primary ul ul {
   display: none;
   position: absolute;
-  width: 180px;
+  width: 155px;
   left: 8px;
   top: -9999em;
   background: #fff;
