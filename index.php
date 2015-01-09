@@ -36,12 +36,12 @@
 						<ul class="paged">
 							<?php if( get_next_posts_link() ) { ?>
 								<li class="previous">
-									<?php next_posts_link( __( '<span class="nav-previous meta-nav"><i class="icon-chevron-left"></i> Older</span>', 'edd' ) ); ?>
+									<?php next_posts_link( __( '<span class="nav-previous meta-nav"><i class="fa fa-chevron-left"></i> Older</span>', 'edd' ) ); ?>
 								</li>
 							<?php
 							} if( get_previous_posts_link() ) { ?>
 								<li class="next">
-									<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer <i class="icon-chevron-right"></i></span>', 'edd' ) ); ?>
+									<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer <i class="fa fa-chevron-right"></i></span>', 'edd' ) ); ?>
 								</li>
 							<?php } ?>
 						</ul><!-- /.paged -->
