@@ -26,7 +26,7 @@ get_header(); ?>
 							<div class="right">
 								<span class="posted-in">Posted In: <a href="<?php echo get_permalink( bbp_get_global_post_field( 'post_parent', 'display', bbp_get_topic_id() ) ); ?>"><?php echo get_the_title( bbp_get_global_post_field( 'post_parent', 'display', bbp_get_topic_id() ) ); ?></a></span>
 								<?php if ( 2 == get_post_meta( bbp_get_topic_id(), '_bbps_topic_status', true ) ) { ?>
-								<span class="status resolved"><i class="icon-ok"></i> Resolved</span>
+								<span class="status resolved"><i class="fa fa-ok"></i> Resolved</span>
 								<?php } // end if ?>
 							</div>
 						</div>

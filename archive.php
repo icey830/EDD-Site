@@ -73,15 +73,15 @@ get_header(); ?>
 						<?php the_excerpt(); ?>
 						<div class="post-meta">
 							<ul>
-								<li><i class="icon-user"></i> <?php the_author(); ?></li>
-								<li><i class="icon-list-ul"></i> <?php echo get_the_category_list( __( ', ', 'edd' ) ); ?></li>
+								<li><i class="fa fa-user"></i> <?php the_author(); ?></li>
+								<li><i class="fa fa-list-ul"></i> <?php echo get_the_category_list( __( ', ', 'edd' ) ); ?></li>
 								<?php
 								$tags = get_the_tag_list( '', __( ', ', 'edd' ) );
 								if ( $tags ) {
 								?>
-								<li><i class="icon-tag"></i> <?php echo get_the_tag_list( '', __( ', ', 'edd' ) ); ?></li>
+								<li><i class="fa fa-tag"></i> <?php echo get_the_tag_list( '', __( ', ', 'edd' ) ); ?></li>
 								<?php } // end if ?>
-								<li><i class="icon-comments-alt"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), __( '% Comments', 'edd' ), '', ''); ?></span></li>
+								<li><i class="fa fa-comments-o"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), __( '% Comments', 'edd' ), '', ''); ?></span></li>
 							</ul>
 						</div>
 					</article>
@@ -95,12 +95,12 @@ get_header(); ?>
 						<ul class="paged">
 							<?php if( get_next_posts_link() ) { ?>
 								<li class="previous">
-									<?php next_posts_link( __( '<span class="nav-previous meta-nav"><i class="icon-chevron-left"></i> Older</span>', 'edd' ) ); ?>
+									<?php next_posts_link( __( '<span class="nav-previous meta-nav"><i class="fa fa-chevron-left"></i> Older</span>', 'edd' ) ); ?>
 								</li>
 							<?php
 							} if( get_previous_posts_link() ) { ?>
 								<li class="next">
-									<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer <i class="icon-chevron-right"></i></span>', 'edd' ) ); ?>
+									<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer <i class="fa fa-chevron-right"></i></span>', 'edd' ) ); ?>
 								</li>
 							<?php } ?>
 						</ul><!-- /.paged -->
