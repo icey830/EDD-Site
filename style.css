@@ -2660,8 +2660,8 @@ div.sharedaddy .sd-content {
   padding-left: 15px;
   padding-top: 12px;
 }
-.archive .extension.extension-clear,
-.archive .theme.theme-clear {
+.extension.extension-clear,
+.theme.theme-clear {
   margin-right: 0;
 }
 .extension h2,
@@ -5384,13 +5384,13 @@ span.bbp-author-ip {
   .themes-container {
     width: 940px;
   }
-  .archive .extension,
-  .archive .theme {
+  .extension,
+  .theme {
     width: 300px;
     margin-right: 20px;
   }
-  .archive .extension.extension-clear,
-  .archive .theme.theme-clear {
+  .extension.extension-clear,
+  .theme.theme-clear {
     margin-right: 0;
   }
   .extension .thumbnail-holder,
@@ -5515,13 +5515,13 @@ span.bbp-author-ip {
   .feature {
     width: 100%;
   }
-  .archive .extension,
-  .archive .theme {
+  .extension,
+  .theme {
     width: 31.5%;
     margin-right: 20px;
   }
-  .archive .extension.extension-clear,
-  .archive .theme.theme-clear {
+  .extension.extension-clear,
+  .theme.theme-clear {
     margin-right: 0;
   }
   footer .container {
@@ -5780,8 +5780,8 @@ span.bbp-author-ip {
     max-width: 80%;
     margin: 0 auto 40px !important;
   }
-  .archive .extension.extension-clear,
-  .archive .theme.theme-clear {
+  .extension.extension-clear,
+  .theme.theme-clear {
     margin-right: 0;
   }
   .main .container {
