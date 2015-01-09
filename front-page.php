@@ -25,12 +25,12 @@ get_header();
 				</h1>
 				<h2>for free</h2>
 				<p>
-					<a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button" class="download-button"><i class="icon-cloud-download"></i> 
+					<a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button" class="download-button"><i class="fa fa-cloud-download"></i> 
 					<?php
 					$text = 'Download';
 					echo $text;
 					?></a>&nbsp;
-					<a href="https://easydigitaldownloads.com/demo/" target="_blank" class="download-button demo-button"><i class="icon-eye-open"></i> Demo</a>
+					<a href="https://easydigitaldownloads.com/demo/" target="_blank" class="download-button demo-button"><i class="fa fa-eye"></i> Demo</a>
 				</p>
 			</div><!-- /.hero-text -->
 			<img src="<?php echo get_template_directory_uri(); ?>/images/edd-standing.png" />
@@ -102,7 +102,7 @@ get_header();
 					<h3 style="text-align: center">Start your online store now</h3>
 					<p style="text-align: center">
 						<?php
-						$text = '<a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button" class="download-button"><i class="icon-cloud-download"></i> Download</a>';
+						$text = '<a href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button" class="download-button"><i class="fa fa-cloud-download"></i> Download</a>';
 						if( function_exists( 'ab_press_optimizer' ) ) {
 							//echo ab_press_optimizer( 2, $text );
 						//if( function_exists( 'ab_press_optimizer' ) ) {
@@ -250,7 +250,7 @@ endif;
 			<p>We provide exceptional support and in-depth documentation to alleviate your issues as soon as possible.</p>
 			<p>Our Support Team will always do their absolute best to help you with your debug and you'll be on your way in no time. Our Support Team comprises of people who work with and understand Easy Digital Downloads; who can serve you better?</p>
 		</div>
-		<i class="icon-group"></i>
+		<i class="fa fa-group"></i>
 	</div><!-- /.feature -->
 </section><!-- /.feature-support -->
 <?php

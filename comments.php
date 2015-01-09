@@ -46,8 +46,8 @@
 
 		<div id="comment-navigation">
 			<nav class="navigation comment-nav" role="navigation">
-				<?php previous_comments_link( '<i class="icon-chevron-left"></i>' . __( 'Previous Comments', 'edd' ) ); ?>
-				<?php next_comments_link( __( 'Newer Comments', 'edd' ) . '<i class="icon-chevron-right"></i>'); ?>
+				<?php previous_comments_link( '<i class="fa fa-chevron-left"></i>' . __( 'Previous Comments', 'edd' ) ); ?>
+				<?php next_comments_link( __( 'Newer Comments', 'edd' ) . '<i class="fa fa-chevron-right"></i>'); ?>
 			</nav><!-- /.comment-nav -->
 		</div><!-- /#comment-naviation -->
 

@@ -3896,7 +3896,7 @@ input#edd-discount:focus,
   margin-bottom: 20px;
   text-align: center;
 }
-.doc-section .icon-cog {
+.doc-section .fa-cog {
   -webkit-animation: spin 5s infinite linear both;
   -moz-animation: spin 5s infinite linear both;
   -ms-animation: spin 5s infinite linear both;
@@ -4916,7 +4916,7 @@ span.bbp-admin-links a {
   color: #fff;
   border: 1px solid #5f9b72;
 }
-.bbp-meta i.icon-caret-up {
+.bbp-meta i.fa-caret-up {
   position: absolute;
   top: 35px;
   color: #aaa;

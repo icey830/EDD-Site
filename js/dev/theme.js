@@ -155,7 +155,7 @@
 
         $('.bbp-action-links-dropdown-toggle').on('click', function() {
             var container = $(this).parent();
-            $('.icon-caret-up, .bbp-action-links-dropdown', container).slideToggle();
+            $('.fa-caret-up, .bbp-action-links-dropdown', container).slideToggle();
         });
 
 
