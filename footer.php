@@ -26,7 +26,7 @@
 
 					<div class="consultants col">
 						<h4>Trusted Consultants</h4>
-						<p>We maintain a list of consultants that we recommend working with when it comes to managed support, customization, and setup help. If you are looking for additional help with EDD, consider these <a href="<?php echo home_url( '/consultants/' ); ?>">trust consultants</a>.</p>
+						<p>We maintain a list of consultants that we recommend working with when it comes to managed support, customization, and setup help. If you are looking for additional help with EDD, consider these <a href="<?php echo home_url( '/consultants/' ); ?>">trusted consultants</a>.</p>
 					</div><!-- /.consultants -->
 				</div><!-- /.columns -->
 
