@@ -4374,8 +4374,9 @@ footer .container .columns {
 }
 footer .container .col {
   float: left;
-  width: 336px;
-  margin-right: 30px;
+  width: 30%;
+  margin-right: 4.5%;
+  margin-bottom: 20px;
   text-align: left;
 }
 footer .container .col:last-child {
@@ -5374,9 +5375,6 @@ span.bbp-author-ip {
   footer .container {
     width: 940px;
   }
-  footer .container .col {
-    width: 283px;
-  }
   .feature {
     width: 100%;
   }
@@ -5526,9 +5524,6 @@ span.bbp-author-ip {
   }
   footer .container {
     width: 940px;
-  }
-  footer .container .col {
-    width: 283px;
   }
   .home .featureset.feature-extensions .extensions-grid ul li a img {
     max-width: 100%;
