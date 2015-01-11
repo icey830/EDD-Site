@@ -51,7 +51,7 @@
 
 			<?php if( ! is_page( 'checkout' ) || is_page( 130 ) || is_page( 635 ) ) : ?>
 			
-			<i class="icon-list"></i>
+			<i class="fa fa-bars"></i>
 
 			<nav id="primary" class="navigation-main" role="navigation">
 				<?php
