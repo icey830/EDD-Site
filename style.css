@@ -5581,6 +5581,9 @@ span.bbp-author-ip {
   #mods-grid .mod .mod-ticket-count {
     margin-top: 10px;
   }
+  .title-404 {
+    font-weight: 400;
+  }
 }
 /* ----------------------------- *
  * Tablets to regular desktops
@@ -5716,6 +5719,9 @@ span.bbp-author-ip {
     display: block;
     font-size: 14px;
     text-align: left;
+  }
+  .title-404 {
+    font-weight: 400;
   }
 }
 /* ----------------------------- *
