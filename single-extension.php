@@ -80,7 +80,7 @@ the_post();
 								echo '<div class="related-items">';
 									// Display connected posts
 									if ( $external_doc || $docs->have_posts() ) :
-										echo '<h3>Documenation</h3>';
+										echo '<h3>Documentation</h3>';
 										echo '<ul class="related-links">';
 										if( empty( $external_doc ) ) :
 											while ( $docs->have_posts() ) : $docs->the_post(); ?>
