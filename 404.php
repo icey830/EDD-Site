@@ -17,7 +17,7 @@ get_header(); ?>
 				<div class="post" id="post-0">
 					<div class="message-404 clearfix">
 						<div class="sad-edd-404">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/sad-edd.png" />
+							<img src="<?php echo get_template_directory_uri(); ?>/images/edd-sad.png" />
 						</div>
 						<div class="search-404">
 							<h3 class="title-404">Bummer. It looks like this link is broken.</h3>
