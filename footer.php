@@ -12,7 +12,9 @@
 	?>
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="container">
-			<img src="<?php echo get_template_directory_uri(); ?>/images/edd-sitting.png" />
+			<?php if ( ! is_404() ) : ?>
+				<img src="<?php echo get_template_directory_uri(); ?>/images/edd-sitting.png" />
+			<?php endif; ?>
 			<?php if ( ! is_page( 'checkout' ) || ! is_page( 130 ) || is_page( 635 ) ) : ?>
 				<div class="columns clearfix">
 					<div class="dev-blog col">
