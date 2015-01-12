@@ -29,8 +29,12 @@ get_header(); ?>
 						</div>
 					</div>
 					<div class="resources-404">
-						<div class="recent-posts-404 col-404">
-							<?php the_widget( 'WP_Widget_Recent_Posts', array( 'title'=> 'Latest Blog Posts', 'number' => 5 ) ); ?>
+						<div class="links-404 col-404">
+							<h2 class="widgettitle">Helpful Resources</h2>
+							<p>Looking for assistance with EDD? Try reading the documentation for general EDD instructions, extension and theme configuration resources, and much more.</p>
+							<p><a href="<?php echo esc_url( '/documentation/' ); ?>">EDD Documentation</a></p>
+							<p>Still have unanswered questions? No worries. We love our customers and we're always glad to help you out if you have any problems with the plugin.</p>
+							<p><a href="<?php echo esc_url( '/support/' ); ?>">Open a support ticket</a></p>
 						</div>
 						<div class="extensions-404 col-404">
 							<h2 class="widgettitle">Featured Extensions</h2>
@@ -68,12 +72,8 @@ get_header(); ?>
 							?>
 							<p class="extensions-button-404"><a href="<?php echo esc_url( '/extensions/' ); ?>">View All Extensions</a></p>
 						</div>
-						<div class="links-404 col-404">
-							<h2 class="widgettitle">Helpful Resources</h2>
-							<p>Looking for assistance with EDD? Try reading the documentation for general EDD instructions, extension and theme configuration resources, and much more.</p>
-							<p><a href="<?php echo esc_url( '/documentation/' ); ?>">EDD Documentation</a></p>
-							<p>Still have unanswered questions? No worries. We love our customers and we're always glad to help you out if you have any problems with the plugin.</p>
-							<p><a href="<?php echo esc_url( '/support/' ); ?>">Open a support ticket</a></p>
+						<div class="recent-posts-404 col-404">
+							<?php the_widget( 'WP_Widget_Recent_Posts', array( 'title'=> 'Latest Blog Posts', 'number' => 5 ) ); ?>
 						</div>
 					</div>
 				</div>
