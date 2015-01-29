@@ -49,12 +49,14 @@
 	.blog .main .content,
 	.single-extension .main .content,
 	.single-theme .main .content,
+	.single-download .main .content,
 	.documentation .main .content {
 		width: 620px;
 	}
 
 	.single-extension .main .sidebar,
-	.single-theme .main .sidebar {
+	.single-theme .main .sidebar,
+	.single-download .main .sidebar {
 		width: 260px;
 		padding: 30px;
 	}
@@ -89,27 +91,31 @@
 	}
 
 	.extensions-container,
-	.themes-container {
+	.themes-container,
+	.edd-downloads-container {
 		width: 940px;
 	}
 	
 	.extension,
-	.theme {
+	.theme,
+	.edd-download {
 		width: 300px;
 		margin-right: 20px;
 	}
 
 	.extension.extension-clear,
-	.theme.theme-clear {
+	.theme.theme-clear ,
+	.edd-download.edd-download-clear {
 		margin-right: 0;
 	}
 
 	.extension .thumbnail-holder,
-	.theme .thumbnail-holder {
+	.theme .thumbnail-holder,
+	.edd-download .thumbnail-holder {
 		max-width: 280px;
 	}
 
-	.single-theme .sidebar {
+	.single-theme .main .sidebar {
 		width: 230px;
 	}
 
@@ -213,12 +219,14 @@
 	.blog .main .content,
 	.single-extension .main .content,
 	.single-theme .main .content,
+	.single-download .main .content,
 	.documentation .main .content {
 		width: 620px;
 	}
 
 	.single-extension .main .sidebar,
-	.single-theme .main .sidebar {
+	.single-theme .main .sidebar,
+	.single-download .main .sidebar {
 		width: 260px;
 		padding: 30px;
 	}
@@ -264,13 +272,15 @@
 	}
 	
 	.extension,
-	.theme {
+	.theme,
+	.edd-download {
 		width: 31.5%;
 		margin-right: 20px;
 	}
 
 	.extension.extension-clear,
-	.theme.theme-clear {
+	.theme.theme-clear ,
+	.edd-download.edd-download-clear{
 		margin-right: 0;
 	}
 
@@ -278,7 +288,8 @@
 		width: 940px;
 	}
 
-	.home .featureset.feature-extensions .extensions-grid ul li a img {
+	.home .featureset.feature-extensions .extensions-grid ul li a img,
+	.home .featureset.feature-edd-downloads .edd-downloads-grid ul li a img {
 		max-width: 100%;
 	}
 
@@ -292,7 +303,8 @@
 	}
 
 	.extensions-container,
-	.themes-container {
+	.themes-container,
+	.edd-downloads-container {
 		width: 940px;
 	}
 
@@ -578,18 +590,22 @@
 	}
 	
 	.extensions-container,
-	.themes-container {
+	.themes-container,
+	.edd-downloads-container {
 		max-width: 100%;
 	}
 
-	.extension, .theme {
+	.extension,
+	.theme,
+	.edd-download {
 		float: none;
 		max-width: 80%;
 		margin: 0 auto 40px !important;
 	}
 
 	.extension.extension-clear,
-	.theme.theme-clear {
+	.theme.theme-clear,
+	.edd-download.edd-download-clear {
 		margin-right: 0;
 	}
 
@@ -598,22 +614,28 @@
 	}
 
 	.single-extension .main .content,
-	.single-theme .main .content {
+	.single-theme .main .content,
+	.single-download .main .content {
 		width: 100%;
 	}
 
 	.single-extension .main .sidebar,
-	.single-theme .sidebar,
+	.single-theme .main .sidebar,
+	.single-download .main .sidebar,
 	.blog .sidebar {
 		width: 100%;
 		margin-left: 0;
 	}
 
-	.blog .sidebar, .single-theme .sidebar {
+	.blog .sidebar,
+	.single-theme .main .sidebar,
+	.single-download .main .sidebar {
 		margin-top: 25px;
 	}
 
-	.blog .main .content, .single-theme .main .content {
+	.blog .main .content,
+	.single-theme .main .content,
+	.single-download .main .content {
 		width: 100%;
 	}
 
@@ -767,17 +789,20 @@
 		margin-top: 10px;
 	}
 
-	.extensions-grid ul li {
+	.extensions-grid ul li,
+	.edd-downloads-grid ul li {
 		width: 49%;
 		margin-right: 1%;
 	}
 	
-	.extensions-grid ul li:nth-child(3n+3) {
+	.extensions-grid ul li:nth-child(3n+3),
+	.edd-downloads-grid ul li:nth-child(3n+3) {
 		width: 49%;
 		margin-right: 1%;
 	}
 	
-	.extensions-grid ul li:nth-child(even) {
+	.extensions-grid ul li:nth-child(even),
+	.edd-downloads-grid ul li:nth-child(even) {
 		width: 49%%;
 		margin-right: 0;
 	}
@@ -957,13 +982,15 @@
 		padding-left: 20px;
 	}
 
-	.extensions-grid ul li {
+	.extensions-grid ul li,
+	.edd-downloads-grid ul li {
 		width: 100% !important;
 		margin-right: 0 !important;
 		margin-bottom: 30px;
 	}
 
-	.extensions-grid ul li a img {
+	.extensions-grid ul li a img,
+	.edd-downloads-grid ul li a img {
 		margin-left: 3px;
 		margin-top: 3px;
 		max-width: 97% !important;
@@ -1068,7 +1095,9 @@
 		width: 98% !important;
 	}
 
-	.extension, .theme {
+	.extension,
+	.theme,
+	.edd-download {
 		float: none;
 		margin: 0 auto 40px !important;
 	}
@@ -1078,22 +1107,28 @@
 	}
 
 	.single-extension .main .content,
-	.single-theme .main .content {
+	.single-theme .main .content,
+	.single-download .main .content {
 		width: 100%;
 	}
 
 	.single-extension .main .sidebar,
 	.single-theme .main .sidebar,
+	.single-download .main .sidebar,
 	.blog .sidebar {
 		width: 100%;
 		margin-left: 0;
 	}
 
-	.blog .sidebar, .single-theme .sidebar {
+	.blog .sidebar,
+	.single-theme .main .sidebar,
+	.single-download .main .sidebar {
 		margin-top: 25px;
 	}
 
-	.blog .main .content, .single-theme .main .content {
+	.blog .main .content,
+	.single-theme .main .content,
+	.single-download .main .content {
 		width: 100%;
 	}
 
@@ -1176,11 +1211,14 @@
 	}
 
 	.featureset.feature-overview,
-	.featureset.feature-extensions {
+	.featureset.feature-extensions,
+	.featureset.feature-edd-downloads {
 		padding: 30px 30px;
 	}
 
-	.extensions-container, .themes-container {
+	.extensions-container,
+	.themes-container,
+	.edd-downloads-container {
 		width: 100%;
 	}
 
