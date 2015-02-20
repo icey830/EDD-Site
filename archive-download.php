@@ -22,7 +22,7 @@
 						<div class="overlay">
 							<a href="<?php the_permalink(); ?>" class="overlay-view-details button">View Details</a>
 							<?php if( ! eddwp_is_external_extension() ) : ?>
-								<a href="<?php echo home_url( '/checkout/?edd_action=add_to_cart&download_id=' . get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
+								<a href="<?php echo home_url( '/checkout/?edd_action=add_to_cart&download_id=' . get_the_ID() ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
 							<?php endif; ?>
 						</div>
 						<?php
