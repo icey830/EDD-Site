@@ -2927,6 +2927,9 @@ div.sharedaddy .sd-content {
 .single-download .main .content h1 + p img {
   width: 100%;
 }
+.single-download .featured-img {
+  margin-bottom: 15px;
+}
 .single-extension .main .sidebar,
 .single-theme .main .sidebar,
 .single-download .main .sidebar {

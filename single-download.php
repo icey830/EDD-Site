@@ -22,7 +22,7 @@ if ( has_term( 'themes', 'download_category', get_the_ID() ) ) {
 				<?php
 					the_title( '<h1 class="download-entry-title">', '</h1>' );
 					if ( has_post_thumbnail() ) :
-						the_post_thumbnail( 'vendd_product_image', array( 'class' => 'featured-img' ) );
+						the_post_thumbnail( 'edd_download_image', array( 'class' => 'featured-img' ) );
 					endif;
 					the_content();
 				?>
