@@ -53,7 +53,7 @@ if ( has_term( 'themes', 'download_category', get_the_ID() ) ) {
 					</div>
 					<?php } // end if ?>
 					<?php if( eddwp_is_external_extension() ) { ?>
-						<a href="<?php echo esc_url( eddwp_get_external_extension_url() ); ?>" title="View Product Details" class="edd-submit button blue">View Product</a>
+						<a href="<?php echo esc_url( eddwp_get_external_extension_url() ); ?>" title="View Details" class="edd-submit button blue">View <?php echo ucfirst( $download_type ); ?></a>
 					<?php } ?>
 					<?php
 						if ( function_exists('p2p_register_connection_type') ) :
