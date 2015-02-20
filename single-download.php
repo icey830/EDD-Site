@@ -19,8 +19,13 @@ if ( has_term( 'themes', 'download_category', get_the_ID() ) ) {
 	<section class="main clearfix">
 		<div class="container clearfix">
 			<section class="content">
-				<h1><?php the_title(); ?></h2>
-				<?php the_content(); ?>
+				<?php
+					the_title( '<h1 class="download-entry-title">', '</h1>' );
+					if ( has_post_thumbnail() ) :
+						the_post_thumbnail( 'vendd_product_image', array( 'class' => 'featured-img' ) );
+					endif;
+					the_content();
+				?>
 			</section><!-- /.content -->
 
 			<aside class="sidebar">
