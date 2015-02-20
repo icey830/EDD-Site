@@ -7,6 +7,13 @@ global $post;
 
 get_header();
 the_post();
+
+if ( has_term( 'themes', 'download_category', get_the_ID() ) ) {
+	$download_type = 'theme';
+} else {
+	$download_type = 'extension';
+}
+
 ?>
 
 	<section class="main clearfix">
@@ -18,7 +25,7 @@ the_post();
 
 			<aside class="sidebar">
 				<div class="box">
-					<h3>Product Details</h3>
+					<h3><?php echo ucfirst( $download_type ); ?> Details</h3>
 					<div class="author clearfix">
 						<p><span class="edd-download-detail-label">Developer:</span>&nbsp;
 							<?php if( get_post_meta( get_the_ID(), 'ecpt_hideauthorlink', true ) ) : ?>
@@ -43,7 +50,7 @@ the_post();
 						<?php echo edd_get_purchase_link( array( 'download_id' => get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ) ); ?>
 					</div>
 					<div class="terms clearfix">
-						<p>Products subject to yearly license for support and updates. <a href="https://easydigitaldownloads.com/docs/extensions-terms-conditions/" target="_blank">View license terms</a>.</p>
+						<p><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="https://easydigitaldownloads.com/docs/extensions-terms-conditions/" target="_blank">View license terms</a>.</p>
 					</div>
 					<?php } // end if ?>
 					<?php if( eddwp_is_external_extension() ) { ?>
