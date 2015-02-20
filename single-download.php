@@ -38,8 +38,7 @@ if ( has_term( 'themes', 'download_category', get_the_ID() ) ) {
 					<?php if( ! has_term( array( '3rd-party', 'bundles' ), 'download_category', get_the_ID() ) ) { ?>
 					<div class="version clearfix">
 						<?php
-							$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
-							$version = get_post_meta( $download_id, '_edd_sl_version', true );
+							$version = get_post_meta( get_the_ID(), '_edd_sl_version', true );
 						?>
 						<p><span class="edd-download-detail-label">Version:</span> <span class="edd-download-detail"><?php echo $version; ?></span></p>
 					</div>
