@@ -47,7 +47,7 @@ if ( has_term( 'themes', 'download_category', get_the_ID() ) ) {
 					<?php if ( ! eddwp_is_extension_third_party() && ! eddwp_is_external_extension() ) { ?>
 					<div class="pricing">
 						<h3>Pricing</h3>
-						<?php echo edd_get_purchase_link( array( 'download_id' => get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ) ); ?>
+						<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
 					</div>
 					<div class="terms clearfix">
 						<p><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="https://easydigitaldownloads.com/docs/extensions-terms-conditions/" target="_blank">View license terms</a>.</p>
