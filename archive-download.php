@@ -13,7 +13,7 @@
 				<?php
 				$c = 0; while ( have_posts() ) : the_post(); $c++;
 				?>
-					<div class="edd-download <?php if ( 0 == $c%3 ) echo ' edd-download-clear'; ?> <?php if ( has_term( '3rd Party', 'download_category', get_the_ID() ) ) echo ' third-party-edd-download'; ?> <?php if ( eddwp_is_extension_free() ) echo ' free-edd-download'; ?>">
+					<div class="edd-download<?php if ( 0 == $c%3 ) echo ' edd-download-clear'; if ( has_term( '3rd Party', 'download_category', get_the_ID() ) ) echo ' third-party-edd-download'; if ( eddwp_is_extension_free() ) echo ' free-edd-download'; ?>">
 						<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
 							<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
 							<h2><?php the_title(); ?></h2>
