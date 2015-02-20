@@ -28,10 +28,10 @@ if ( has_term( 'themes', 'download_category', get_the_ID() ) ) {
 					<h3><?php echo ucfirst( $download_type ); ?> Details</h3>
 					<div class="author clearfix">
 						<p><span class="edd-download-detail-label">Developer:</span>&nbsp;
-							<?php if( get_post_meta( get_the_ID(), 'ecpt_hideauthorlink', true ) ) : ?>
+							<?php if ( get_post_meta( get_the_ID(), 'ecpt_developer', true ) ) : ?>
 								<span class="edd-download-detail"><?php echo get_post_meta( get_the_ID(), 'ecpt_developer', true ); ?></span>
 							<?php else : ?>
-								<span class="edd-download-detail"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo get_the_author(); ?></a></span>
+								<span class="edd-download-detail"><?php echo get_the_author(); ?></span>
 							<?php endif; ?>
 						</p>
 					</div>
