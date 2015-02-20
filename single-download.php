@@ -61,9 +61,9 @@ if ( has_term( 'themes', 'download_category', get_the_ID() ) ) {
 		
 							$external_doc = get_post_meta( get_the_ID(), 'ecpt_documentationlink', true );
 
-							// Find connected posts
+							// Find connected docs
 							$docs = new WP_Query( array(
-							  'connected_type' => 'extensions_to_docs',
+							  'connected_type' => 'downloads_to_docs',
 							  'connected_items' => get_queried_object(),
 							  'nopaging' => true,
 							  'post_status' => 'publish'
@@ -71,7 +71,7 @@ if ( has_term( 'themes', 'download_category', get_the_ID() ) ) {
 		
 							// Find connected forums
 							$forums = new WP_Query( array(
-							  'connected_type' => 'extensions_to_forums',
+							  'connected_type' => 'downloads_to_forums',
 							  'connected_items' => get_queried_object(),
 							  'nopaging' => true,
 							  'post_status' => 'publish'

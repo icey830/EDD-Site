@@ -1256,6 +1256,27 @@ function eddwp_google_custom_search() {
 	<?php
 }
 
+/**
+ * Connections for downloads post type
+ *
+ * Add these connections to the Custom Functions Plugin for EDD Site (then delete)
+ */
+function temporary_eddwp_connection_types() {
+	p2p_register_connection_type( array(
+		'name' => 'downloads_to_docs',
+		'from' => 'download',
+		'to' => 'docs',
+		'reciprocal' => true
+	) );
+	p2p_register_connection_type( array(
+		'name' => 'downloads_to_forums',
+		'from' => 'download',
+		'to' => 'forum',
+		'reciprocal' => true
+	) );
+}
+add_action( 'p2p_init', 'temporary_eddwp_connection_types' );
+
 
 /* ----------------------------------------------------------- *
  * 12. Next Commissions Payout Amount
