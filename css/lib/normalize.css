@@ -223,6 +223,16 @@ img {
 }
 
 /**
+ * Keep all embedded elements responsive
+ */
+
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/**
  * Correct overflow displayed oddly in IE 9.
  */
 
