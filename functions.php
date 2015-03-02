@@ -326,7 +326,8 @@ function eddwp_get_latest_post() {
 	$items = get_posts( array( 'posts_per_page' => 1 ) );
 	foreach( $items as $item ) {
 		printf( '<h4>%s</h4>', $item->post_title );
-		echo wpautop( wp_trim_words( $item->post_content, 35, '...&nbsp;<a href="' . get_permalink( $item->ID ) . '">continue reading</a>' ) );
+		echo wpautop( wp_trim_words( $item->post_content, 50 ) );
+		printf( '<a href="%1$s">%2$s</a>', get_permalink( $item->ID ), __( 'Read More...', 'edd' ) );
 	}
 }
 
@@ -569,41 +570,6 @@ add_action( 'edd_purchase_form_after_cc_form', 'eddwp_checkout_submit', 9999 );
  */
 remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
 
-/**
- * Send a Pushover Notification when a moderator is assigned to a topic
- */
-function eddwp_send_pushover_notification_on_assignment() {
-	if ( isset( $_POST['bbps_support_topic_assign'] ) ) {
-
-		if( ! function_exists( 'ckpn_send_notification' ) )
-			return;
-
-		$user_id  = absint( $_POST['bbps_assign_list'] );
-		$topic    = bbp_get_topic( $_POST['bbps_topic_id'] );
-
-		if ( $user_id > 0 && $user_id != get_current_user_id() ) {
-			$title = __( 'Easy Digital Downloads: A forum topic has been assigned to you', 'eddwp' );
-			$message = sprintf( __( 'You have been assigned to %1$s by another moderator', 'eddwp' ), $topic->post_title );
-			$user_push_key = get_user_meta( $user_id, 'ckpn_user_key', true );
-
-			if( $user_push_key ) {
-				$url       = $topic->guid;
-				$url_title = __( 'View Topic', 'eddwp' );
-
-				$args = array(
-					'title' => $title,
-					'message' => $message,
-					'user' => $user_push_key,
-					'url' => $url,
-					'url_title' => $url_title
-				);
-
-				ckpn_send_notification( $args );
-			}
-		}
-	}
-}
-add_action( 'init', 'eddwp_send_pushover_notification_on_assignment' );
 
 /**
  * Change the bbPress Login Widget if the user is logged in or out
