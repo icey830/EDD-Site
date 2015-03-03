@@ -657,6 +657,27 @@ function eddwp_display_themes() {
 }
 
 /**
+ * Append demo button link to download products
+ */
+function eddwp_demo_link( $content ) {
+	global $post;
+
+	// bail if there is no demo link
+	$demo_link = get_post_meta( get_the_ID(), 'ecpt_demolink', true );
+	if( empty( $demo_link ) )
+		return $content;
+
+	// build link to the demo
+	$output_demo_link = sprintf( '<p class="edd-demo-link"><a class="edd-submit button blue" href="%s">View Demo</a></p>', $demo_link );
+
+	// add the link to demo below the content
+	$content = $content . $output_demo_link;
+
+	return $content;
+}
+add_filter( 'the_content', 'eddwp_demo_link' );
+
+/**
  * Append the connected download's changelog to the extension content
  */
 function eddwp_extensions_changelog( $content ) {   
