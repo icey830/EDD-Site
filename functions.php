@@ -1193,6 +1193,30 @@ add_filter( 'pre_get_posts', 'eddwp_feed_query', 999 );
  * 10. Misc
  * ----------------------------------------------------------- */
 
+
+/**
+ * Add rss image
+ */
+function eddwp_rss_featured_image() {
+    global $post;
+    
+    if ( has_post_thumbnail( $post->ID ) ) {
+    	$thumbnail = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
+    	?>
+    	<media:content url="<?php echo $thumbnail; ?>" type="image" medium="image" width="600" height="300"></media:content>
+    <?php }
+}
+add_filter( 'rss2_item', 'eddwp_rss_featured_image' );
+
+/**
+ * Add rss namespaces
+ */
+function eddwp_rss_namespace() {
+    echo 'xmlns:media="http://search.yahoo.com/mrss/"
+    xmlns:georss="http://www.georss.org/georss"';
+}
+add_filter( 'rss2_ns', 'eddwp_rss_namespace' );
+
 /**
  * Alter the WordPress query when displaying themes
  */
