@@ -23,22 +23,8 @@ get_header(); ?>
 							the_post_thumbnail( 'full', array( 'class' => 'featured-img' ) );
 						}
 						the_content();
+						eddwp_post_meta();
 					?>
-					<div class="post-meta">
-						<ul>
-							<li><i class="fa fa-user"></i> <?php the_author(); ?></li>
-							<li><i class="fa fa-list-ul"></i> <?php echo get_the_category_list( __( ', ', 'edd' ) ); ?></li>
-							<?php
-							$tags = get_the_tag_list( '', __( ', ', 'edd' ) );
-							if ( $tags ) {
-							?>
-							<li><i class="fa fa-tag"></i> <?php echo get_the_tag_list( '', __( ', ', 'edd' ) ); ?></li>
-							<?php } // end if ?>
-							<?php if ( comments_open() ) { ?>
-							<li><i class="fa fa-comments-o"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), __( '% Comments', 'edd' ), '', ''); ?></span></li>
-							<?php } // end if ?>
-						</ul>
-					</div>
 				</article>
 				<?php } // end while ?>
 

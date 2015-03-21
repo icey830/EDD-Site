@@ -19,29 +19,8 @@
 					<p class="entry-date"><span><?php the_date(); ?></span></p>
 					<h2><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<?php the_excerpt(); ?>
-					<p><a href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'edd' ); ?></a></p>
-					<div class="post-meta">
-						<ul>
-							<li><i class="fa fa-user"></i> <?php the_author(); ?></li>
-							<?php
-							$categories = get_the_category_list( __( ', ', 'edd' ) );
-
-							if ( $categories ) {
-							?>
-							<li><i class="fa fa-list-ul"></i> <?php echo $categories; ?></li>
-							<?php
-							} // end if
-
-							$tags = get_the_tag_list( '', __( ', ', 'edd' ) );
-							if ( $tags ) {
-							?>
-							<li><i class="fa fa-tag"></i> <?php echo get_the_tag_list( '', __( ', ', 'edd' ) ); ?></li>
-							<?php } ?>
-							<?php if ( comments_open() ) { ?>
-							<li><i class="fa fa-comments-o"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), __( '% Comments', 'edd' ), '', ''); ?></span></li>
-							<?php } // end if ?>
-						</ul>
-					</div><!-- /.post-meta-->
+					<p><a class="edd-button button blue" href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'edd' ); ?></a></p>
+					<?php eddwp_post_meta(); ?>
 				</article><!-- /#post-<?php echo get_the_ID(); ?> -->
 				<?php } ?>
 
