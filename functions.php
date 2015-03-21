@@ -1246,6 +1246,9 @@ function eddwp_modal() {
 	}
 }
 
+/**
+ * Sidebar Newsletter Sign Up Form
+ */
 function eddwp_newsletter_sidebar() {
 	?>
 	<div class="newsletter widget">
