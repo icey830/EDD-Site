@@ -410,7 +410,7 @@ function eddwp_paginate_links() {
 
 	$big = 999999999;
 
-	echo '<div class="pagination">' . paginate_links( array(
+	echo '<div class="pagination clear">' . paginate_links( array(
 		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 		'format' => '?paged=%#%',
 		'current' => max( 1, get_query_var( 'paged' ) ),
@@ -1266,6 +1266,27 @@ function eddwp_google_custom_search() {
 	<gcse:search></gcse:search>
 	<?php
 }
+
+/**
+ * Connections for downloads post type
+ *
+ * Add these connections to the Custom Functions Plugin for EDD Site (then delete)
+ */
+function temporary_eddwp_connection_types() {
+	p2p_register_connection_type( array(
+		'name' => 'downloads_to_docs',
+		'from' => 'download',
+		'to' => 'docs',
+		'reciprocal' => true
+	) );
+	p2p_register_connection_type( array(
+		'name' => 'downloads_to_forums',
+		'from' => 'download',
+		'to' => 'forum',
+		'reciprocal' => true
+	) );
+}
+add_action( 'p2p_init', 'temporary_eddwp_connection_types' );
 
 
 /* ----------------------------------------------------------- *
