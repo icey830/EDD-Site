@@ -1970,9 +1970,15 @@ html.cssanimations body.firefox .iphone {
   font-size: 1.3rem;
   margin-left: -50px;
 }
+.blog .main .content .featured-img {
+  margin-bottom: 30px;
+}
 .blog .main .content h1 {
   padding: 36px 0;
   margin: 0;
+}
+.blog .main .content .entry-title {
+  padding: 20px 0 36px;
 }
 .blog .sidebar,
 .single-theme .sidebar {
