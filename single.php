@@ -17,8 +17,13 @@ get_header(); ?>
 				<?php while ( have_posts() ) { the_post(); ?>
 				<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
 					<p class="entry-date"><span><?php the_date(); ?></span></p>
-					<h1><?php the_title(); ?></h2>
-					<?php the_content(); ?>
+					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					<?php
+						if ( has_post_thumbnail() ) {
+							the_post_thumbnail( 'full', array( 'class' => 'featured-img' ) );
+						}
+						the_content();
+					?>
 					<div class="post-meta">
 						<ul>
 							<li><i class="fa fa-user"></i> <?php the_author(); ?></li>
