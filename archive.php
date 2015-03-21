@@ -70,20 +70,10 @@ get_header(); ?>
 					<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
 						<p class="entry-date"><span><?php the_date(); ?></span></p>
 						<h2><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						<?php the_excerpt(); ?>
-						<div class="post-meta">
-							<ul>
-								<li><i class="fa fa-user"></i> <?php the_author(); ?></li>
-								<li><i class="fa fa-list-ul"></i> <?php echo get_the_category_list( __( ', ', 'edd' ) ); ?></li>
-								<?php
-								$tags = get_the_tag_list( '', __( ', ', 'edd' ) );
-								if ( $tags ) {
-								?>
-								<li><i class="fa fa-tag"></i> <?php echo get_the_tag_list( '', __( ', ', 'edd' ) ); ?></li>
-								<?php } // end if ?>
-								<li><i class="fa fa-comments-o"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), __( '% Comments', 'edd' ), '', ''); ?></span></li>
-							</ul>
-						</div>
+						<?php
+							the_excerpt();
+							eddwp_post_meta();
+						?>
 					</article>
 
 				<?php endwhile; ?>

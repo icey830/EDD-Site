@@ -1193,7 +1193,6 @@ add_filter( 'pre_get_posts', 'eddwp_feed_query', 999 );
  * 10. Misc
  * ----------------------------------------------------------- */
 
-
 /**
  * Add rss image
  */
@@ -1244,6 +1243,38 @@ function eddwp_modal() {
 		$modal = ob_get_clean();
 		echo $modal;
 	}
+}
+
+/**
+ * Post Meta
+ */
+function eddwp_post_meta() {
+	?>
+	<div class="post-meta">
+		<ul>
+			<?php if ( is_single() ) { ?>
+				<li><i class="fa fa-user"></i> <?php the_author(); ?></li>
+			<?php } // end if ?>
+			<?php
+			$categories = get_the_category_list( __( ', ', 'edd' ) );
+
+			if ( $categories ) {
+			?>
+			<li><i class="fa fa-list-ul"></i> <?php echo $categories; ?></li>
+			<?php
+			} // end if
+
+			$tags = get_the_tag_list( '', __( ', ', 'edd' ) );
+			if ( $tags ) {
+			?>
+			<li><i class="fa fa-tag"></i> <?php echo get_the_tag_list( '', __( ', ', 'edd' ) ); ?></li>
+			<?php } ?>
+			<?php if ( comments_open() && ! is_single() ) { ?>
+			<li><i class="fa fa-comments-o"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), __( '% Comments', 'edd' ), '', ''); ?></span></li>
+			<?php } // end if ?>
+		</ul>
+	</div><!-- /.post-meta-->
+	<?php
 }
 
 /**

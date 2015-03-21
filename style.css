@@ -662,7 +662,7 @@ address {
 }
 .blog .main .content .hentry {
   background: #fff;
-  padding: 50px;
+  padding: 30px 50px;
   margin-bottom: 30px;
 }
 .bbpress.full-width .main .content,
@@ -2028,7 +2028,6 @@ html.cssanimations body.firefox .iphone {
   list-style: none;
 }
 .blog .post-meta li {
-  margin-bottom: 5px;
   font-size: 13px;
 }
 .blog .post-meta li i {
