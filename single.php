@@ -68,23 +68,24 @@ get_header(); ?>
 			</section><!-- /.content -->
 
 			<aside class="sidebar">
-				<div class="newsletter">
-					<h3>Email Newsletter</h3>
-					<p>Sign up to receive regular updates from Easy Digital Downloads.</p>
-					<form id="pmc_mailchimp" action="" method="post">
+				<div class="newsletter widget">
+					<h3 class="newsletter-title">Email Newsletter</h3>
+					<p class="newsletter-description">Sign up to the Easy Digital Downloads email newsletter and be the first to know about the latest information and exclusive promotions.</p>
+					<form class="newsletter-form" id="pmc_mailchimp" action="" method="post">
 						<div>
-							<input name="pmc_fname" id="pmc_fname" type="text" placeholder="<?php _e('Name'); ?>"/>
+							<input class="newsletter-name" name="pmc_fname" id="pmc_fname" type="text" placeholder="First Name"/>
 						</div>
 						<div>
-							<input name="pmc_email" id="pmc_email" type="text" placeholder="<?php _e('Enter your email address'); ?>"/>
+							<input class="newsletter-email" name="pmc_email" id="pmc_email" type="text" placeholder="Email Address"/>
 						</div>
 						<div>
 							<input type="hidden" name="redirect" value="<?php echo 'https://' . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>"/>
 							<input type="hidden" name="action" value="pmc_signup"/>
 							<input type="hidden" name="pmc_list_id" value="<?php echo $list_id; ?>"/>
-							<input type="submit" value="<?php _e( 'Sign Up' ); ?>"/>
+							<input type="submit" value="Sign Up"/>
 						</div>
 					</form>
+					<p class="newsletter-note"><i class="fa fa-lock"></i>We will never send you spam. Your email address is secure.</p>
 				</div>
 				<?php dynamic_sidebar( 'blog-sidebar' ); ?>
 			</aside><!-- /.sidebar -->
