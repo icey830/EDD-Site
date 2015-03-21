@@ -9,7 +9,6 @@ Author: Sunny Ratilal
  * Main LESS File
  * Copyright (c) 2013, Sunny Ratilal.
  */
-
 /*
  * Variables
  * Copyright (c) 2013, Sunny Ratilal.
@@ -5569,12 +5568,8 @@ span.bbp-author-ip {
   }
   .single-extension .main .sidebar,
   .single-theme .main .sidebar,
-<<<<<<< HEAD
   .blog .sidebar,
-  .single-theme .sidebar {
-=======
-  .single-download .main .sidebar {
->>>>>>> origin/dev
+  .single-theme .sidebar .single-download .main .sidebar {
     width: 260px;
     padding: 30px;
   }
@@ -5715,12 +5710,8 @@ span.bbp-author-ip {
   }
   .single-extension .main .sidebar,
   .single-theme .main .sidebar,
-<<<<<<< HEAD
   .blog .sidebar,
-  .single-theme .sidebar {
-=======
-  .single-download .main .sidebar {
->>>>>>> origin/dev
+  .single-theme .sidebar .single-download .main .sidebar {
     width: 260px;
     padding: 30px;
   }
