@@ -655,13 +655,13 @@ address {
   -webkit-box-shadow: none;
   box-shadow: none;
   border: none;
-  width: 820px;
-  margin: 25px 20px 25px 0;
+  width: 740px;
+  margin: 5px 0 20px;
   float: left;
 }
 .blog .main .content .hentry {
   background: #fff;
-  padding: 30px;
+  padding: 50px;
   margin-bottom: 30px;
 }
 .bbpress.full-width .main .content,
@@ -706,14 +706,14 @@ table.gstl_50.gssb_c {
  * ----------------------------- */
 .sidebar .widget {
   background: #fff;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 30px;
+  margin-bottom: 30px;
 }
 .sidebar .newsletter {
   background: #85c0e5;
-  padding: 20px;
+  padding: 30px;
   color: #fff;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .sidebar .newsletter p {
   margin: 0 0 10px;
@@ -1944,10 +1944,10 @@ html.cssanimations body.firefox .iphone {
 }
 .blog .main .content .entry-date span {
   background: #eee;
-  padding: 5px 8px 5px 28px;
+  padding: 5px 8px 5px 50px;
   font-size: 13px;
   font-size: 1.3rem;
-  margin-left: -30px;
+  margin-left: -50px;
 }
 .blog .main .content h1 {
   padding: 36px 0;
@@ -1956,9 +1956,9 @@ html.cssanimations body.firefox .iphone {
 .blog .sidebar,
 .single-theme .sidebar {
   float: left;
-  margin-left: 10px;
-  width: 250px;
-  padding-top: 25px;
+  margin: 5px 0 0 60px;
+  width: 300px;
+  padding: 0;
 }
 .blog .post-meta {
   padding-top: 10px;
@@ -2035,7 +2035,7 @@ div.sharedaddy .sd-content {
 }
 #comments {
   background: #fff;
-  padding: 30px;
+  padding: 50px;
   margin-top: 40px;
 }
 #comments h3 {
@@ -2119,7 +2119,7 @@ div.sharedaddy .sd-content {
 }
 #respond {
   background: #f9f9f9;
-  padding: 30px;
+  padding: 50px;
   margin-top: 30px;
 }
 #respond h3 {
@@ -5483,9 +5483,15 @@ span.bbp-author-ip {
     width: 620px;
   }
   .single-extension .main .sidebar,
-  .single-theme .main .sidebar {
+  .single-theme .main .sidebar,
+  .blog .sidebar,
+  .single-theme .sidebar {
     width: 260px;
     padding: 30px;
+  }
+  .blog .sidebar,
+  .single-theme .sidebar {
+    padding: 0;
   }
   .bbpress .main .content {
     box-shadow: none;
@@ -5614,9 +5620,15 @@ span.bbp-author-ip {
     width: 620px;
   }
   .single-extension .main .sidebar,
-  .single-theme .main .sidebar {
+  .single-theme .main .sidebar,
+  .blog .sidebar,
+  .single-theme .sidebar {
     width: 260px;
     padding: 30px;
+  }
+  .blog .sidebar,
+  .single-theme .sidebar {
+    padding: 0;
   }
   .header-outer {
     padding: 20px 0;
