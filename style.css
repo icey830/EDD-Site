@@ -425,6 +425,25 @@ li.share-mwp a.sd-button > span {
 html .row {
   margin: 0;
 }
+/* Tips, Notices, & Alerts */
+.tip,
+.notice,
+.alert {
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+.tip {
+  background: #f8f8f8;
+  border: 1px solid #eee;
+}
+.notice {
+  background: #EDF8FF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.alert {
+  background: #ffffe0;
+  border: 1px solid #e6db55;
+}
 /*
  * Typography
  * Copyright (c) 2013, Sunny Ratilal.
