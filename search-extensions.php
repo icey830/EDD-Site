@@ -107,7 +107,7 @@
 				$links = paginate_links( array(
 					'base' => $base,
 					'format' => '&page=%#%',
-					'current' => max( 1, isset( $_GET['page'] ) ? (int) $_GET['page'] : 1 ),
+					'current' => max( 1, isset( $_GET['paged'] ) ? (int) $_GET['paged'] : 1 ),
 					'total' => $query->max_num_pages
 				));
 				?>
