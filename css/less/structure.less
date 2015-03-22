@@ -18,14 +18,14 @@
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	border: none;
-	width: 820px;
-	margin: 25px 20px 25px 0;
+	width: 740px;
+	margin: 5px 0 20px;
 	float: left;
 }
 
 .blog .main .content .hentry {
 	background: #fff;
-	padding: 30px;
+	padding: 30px 50px;
 	margin-bottom: 30px;
 }
 
@@ -73,25 +73,25 @@ table.gstl_50.gssb_c {
  * ----------------------------- */
 .sidebar .widget {
 	background: #fff;
-	padding: 20px;
-	margin-bottom: 20px;
+	padding: 30px;
+	margin-bottom: 30px;
 }
 
 .sidebar .newsletter {
 	background: #85c0e5;
-	padding: 20px;
+	padding: 30px;
 	color: #fff;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 	
 	& p { margin: 0 0 10px; }
 	
 	& input[type="text"] {
-		background: #fff;
 		border: none;
-		padding: 10px 8px;
+		padding: 9px 8px 9px 36px;
 		margin: 5px 0;
 		width: 100%;
 		border: 1px solid #fff;
+		border-radius: 3px;
 		outline: none;
 		
 		&:focus {
@@ -101,6 +101,44 @@ table.gstl_50.gssb_c {
 			outline: none;
 		}
 	}
+}
+
+.sidebar .newsletter .newsletter-title {
+	background: #62A9D7 url(images/edd-newsletter.png) no-repeat 22px bottom;
+	font-weight: 400;
+	padding: 18px 30px;
+	margin: -30px -30px 20px;
+	text-align: right;
+	font-size: 20px;
+}
+
+.sidebar .newsletter form {
+	margin-bottom: 20px;
+}
+
+.sidebar .newsletter .newsletter-name {
+	background: #fff url('images/sprite.png') no-repeat 10px -39px;
+}
+
+.sidebar .newsletter .newsletter-email {
+	background: #fff url('images/sprite.png') no-repeat 10px -88px;
+}
+
+.sidebar .newsletter input[type="submit"] {
+	display: block;
+	margin-top: 4px;
+	width: 100%;
+}
+
+.sidebar .newsletter .newsletter-note {
+	font-size: 13px;
+	line-height: 1.4;
+	opacity: .75;
+	margin-bottom: 0;
+}
+
+.sidebar .newsletter .newsletter-note .fa {
+	margin-right: 6px;
 }
 
 body.bbpress .sidebar .widget.jetpack_subscription_widget,

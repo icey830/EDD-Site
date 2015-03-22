@@ -410,7 +410,7 @@ function eddwp_paginate_links() {
 
 	$big = 999999999;
 
-	echo '<div class="pagination">' . paginate_links( array(
+	echo '<div class="pagination clear">' . paginate_links( array(
 		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 		'format' => '?paged=%#%',
 		'current' => max( 1, get_query_var( 'paged' ) ),
@@ -1193,7 +1193,6 @@ add_filter( 'pre_get_posts', 'eddwp_feed_query', 999 );
  * 10. Misc
  * ----------------------------------------------------------- */
 
-
 /**
  * Add rss image
  */
@@ -1247,6 +1246,65 @@ function eddwp_modal() {
 }
 
 /**
+ * Post Meta
+ */
+function eddwp_post_meta() {
+	?>
+	<div class="post-meta">
+		<ul>
+			<?php if ( is_single() ) { ?>
+				<li><i class="fa fa-user"></i> <?php the_author(); ?></li>
+			<?php } // end if ?>
+			<?php
+			$categories = get_the_category_list( __( ', ', 'edd' ) );
+
+			if ( $categories ) {
+			?>
+			<li><i class="fa fa-list-ul"></i> <?php echo $categories; ?></li>
+			<?php
+			} // end if
+
+			$tags = get_the_tag_list( '', __( ', ', 'edd' ) );
+			if ( $tags ) {
+			?>
+			<li><i class="fa fa-tag"></i> <?php echo get_the_tag_list( '', __( ', ', 'edd' ) ); ?></li>
+			<?php } ?>
+			<?php if ( comments_open() && ! is_single() ) { ?>
+			<li><i class="fa fa-comments-o"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), __( '% Comments', 'edd' ), '', ''); ?></span></li>
+			<?php } // end if ?>
+		</ul>
+	</div><!-- /.post-meta-->
+	<?php
+}
+
+/**
+ * Sidebar Newsletter Sign Up Form
+ */
+function eddwp_newsletter_sidebar() {
+	?>
+	<div class="newsletter widget">
+		<h3 class="newsletter-title">Email Newsletter</h3>
+		<p class="newsletter-description">Sign up to the Easy Digital Downloads email newsletter and be the first to know about the latest information and exclusive promotions.</p>
+		<form class="newsletter-form" id="pmc_mailchimp" action="" method="post">
+			<div>
+				<input class="newsletter-name" name="pmc_fname" id="pmc_fname" type="text" placeholder="First Name"/>
+			</div>
+			<div>
+				<input class="newsletter-email" name="pmc_email" id="pmc_email" type="text" placeholder="Email Address"/>
+			</div>
+			<div>
+				<input type="hidden" name="redirect" value="<?php echo 'https://' . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>"/>
+				<input type="hidden" name="action" value="pmc_signup"/>
+				<input type="hidden" name="pmc_list_id" value="<?php echo $list_id; ?>"/>
+				<input type="submit" value="Sign Up"/>
+			</div>
+		</form>
+		<p class="newsletter-note"><i class="fa fa-lock"></i>We will never send you spam. Your email address is secure.</p>
+	</div>
+	<?php
+}
+
+/**
  * Google Custom Search
  */
 function eddwp_google_custom_search() {
@@ -1266,6 +1324,27 @@ function eddwp_google_custom_search() {
 	<gcse:search></gcse:search>
 	<?php
 }
+
+/**
+ * Connections for downloads post type
+ *
+ * Add these connections to the Custom Functions Plugin for EDD Site (then delete)
+ */
+function temporary_eddwp_connection_types() {
+	p2p_register_connection_type( array(
+		'name' => 'downloads_to_docs',
+		'from' => 'download',
+		'to' => 'docs',
+		'reciprocal' => true
+	) );
+	p2p_register_connection_type( array(
+		'name' => 'downloads_to_forums',
+		'from' => 'download',
+		'to' => 'forum',
+		'reciprocal' => true
+	) );
+}
+add_action( 'p2p_init', 'temporary_eddwp_connection_types' );
 
 
 /* ----------------------------------------------------------- *
