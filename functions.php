@@ -679,29 +679,57 @@ function eddwp_demo_link( $content ) {
 add_filter( 'the_content', 'eddwp_demo_link' );
 
 /**
- * Append the connected download's changelog to the extension content
+ * Append the changelog to the extension or download content
  */
-function eddwp_extensions_changelog( $content ) {   
+function eddwp_product_changelog( $content ) {   
 	global $post;
-	
-	// bail if this is not an extension post type or if it is a bundle
-	if( 'extension' !== $post->post_type || has_term( 'bundles', 'extension_category', get_the_ID() ) )
+
+	// make sure we're on an extension or a download
+	if( 'extension' === $post->post_type || 'download' === $post->post_type ) {
+		$post_type = true;
+	} else {
+		$post_type = false;
+	}
+
+	// see of the CPT has a category of "bundles"
+	if( has_term( 'bundles', 'extension_category', get_the_ID() ) || has_term( 'bundles', 'download_category', get_the_ID() ) ) {
+		$bundles = true;
+	} else {
+		$bundles = false;
+	}
+
+	// If not an extension or download, or has extension/download category of "bundles," bail.
+	if( !$post_type || $bundles )
 		return $content;
 	
-	// get the ID of the associated download post type
-	$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
+	// check to see if it's an extension we're dealing with and act accordingly
+	if( 'extension' === $post->post_type ) {
+		
+		// for extensions, get the ID of the associated download post type
+		$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
+
+		// bail if there's no associated download
+		if( empty( $download_id ) ) {
+			return $content;
+		}
+		
+		// get the changelog data of the associated download
+		$changelog = get_post_meta( $download_id, '_edd_sl_changelog', true );
+		
+	} elseif ( 'download' === $post->post_type ) {
+
+		// get the changelog data of the download
+		$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
+	}
 	
-	// bail if there's no associated download
-	if( empty( $download_id ) )
-		return $content;
-	
-	// get the changelog data of the associated download and add it to the content
-	$changelog = get_post_meta( $download_id, '_edd_sl_changelog', true );	
-	$content = $content . do_shortcode( '[toggle title="Changelog"]' . $changelog . '[/toggle]' ) ;
+	// if it exists, append the changelog (from either source) to the relevent content output
+	if( !empty( $changelog ) ) {
+		$content = $content . do_shortcode( '[toggle title="Changelog"]' . $changelog . '[/toggle]' );
+	}
 	
 	return $content;
 }
-add_filter( 'the_content', 'eddwp_extensions_changelog' );
+add_filter( 'the_content', 'eddwp_product_changelog' );
 
 /**
  * Append link to support forums at bottom of documentation content
