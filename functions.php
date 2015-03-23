@@ -721,8 +721,10 @@ function eddwp_product_changelog( $content ) {
 		$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
 	}
 	
-	// append the changelog (from either source) to the relevent content output
-	$content = $content . do_shortcode( '[toggle title="Changelog"]' . $changelog . '[/toggle]' ) ;
+	// if it exists, append the changelog (from either source) to the relevent content output
+	if( !empty( $changelog ) ) {
+		$content = $content . do_shortcode( '[toggle title="Changelog"]' . $changelog . '[/toggle]' );
+	}
 	
 	return $content;
 }
