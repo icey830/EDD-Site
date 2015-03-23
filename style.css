@@ -5621,7 +5621,8 @@ span.bbp-author-ip {
   .single-extension .main .sidebar,
   .single-theme .main .sidebar,
   .blog .sidebar,
-  .single-theme .sidebar .single-download .main .sidebar {
+  .single-theme .sidebar,
+  .single-download .main .sidebar {
     width: 260px;
     padding: 30px;
   }
@@ -5763,7 +5764,8 @@ span.bbp-author-ip {
   .single-extension .main .sidebar,
   .single-theme .main .sidebar,
   .blog .sidebar,
-  .single-theme .sidebar .single-download .main .sidebar {
+  .single-theme .sidebar,
+  .single-download .main .sidebar {
     width: 260px;
     padding: 30px;
   }
