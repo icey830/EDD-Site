@@ -255,56 +255,34 @@ add_action( 'widgets_init', 'edd_register_theme_sidebars' );
  * ----------------------------------------------------------- */
 
 /**
- * Filters wp_title to print a neat <title> tag based on what is being viewed.
+ * Create a nicely formatted and more specific title element text for output
+ * in head of document, based on current view.
+ *
+ * @param string $title Default title text for current view.
+ * @param string $sep Optional separator.
+ * @return string The filtered title.
  */
 function edd_wp_title( $title, $sep ) {
-	global $paged, $page, $post;
+	global $paged, $page;
 
-	/* Default title */
-	$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
-
-	/* Search */
-	if ( is_search() || isset( $_GET['extension_s'] ) ) :
-		if ( is_search() )
-			$search_term = get_query_var( 's' );
-
-		if ( isset( $_GET['extension_s'] ) )
-			$search_term = sanitize_text_field( trim( stripslashes( $_GET['extension_s'] ) ) );
-
-		$title = __( 'Search Results For' , 'edd' ) . ' ' . $search_term . ' | ' . get_bloginfo( 'name' );
-	/* Homepage */
-	elseif ( is_home() || is_front_page() ) :
-		$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
-	/* Single page */
-	elseif ( is_page() ) :
-		$title = strip_tags( htmlspecialchars_decode( get_the_title( $post->ID ) ) ) . ' | ' . get_bloginfo( 'name' );
-	/* 404 Page */
-	elseif ( is_404() ) :
-		$title = __( '404 - Nothing Found', 'edd' ) . ' | ' . get_bloginfo( 'name' );
-	/* Author Archive */
-	elseif ( is_author() ) :
-		$title = get_userdata( get_query_var( 'author' ) )->display_name . ' | ' . __( 'Author Archive', 'edd' )	. ' | ' . get_bloginfo( 'name' );
-	/* Category Archive */
-	elseif ( is_category() ) :
-		$title = single_cat_title( '', false ) . ' | ' . __( 'Category Archive', 'edd' ) . ' | ' . get_bloginfo( 'name' );
-	/* Tag Archive */
-	elseif ( is_tag() ) :
-		$title = single_tag_title( '', false ) . ' | ' . __( 'Tag Archive', 'edd' ) . ' | ' . get_bloginfo( 'name' );
-	/* Single Blog Post */
-	elseif ( is_single() ) :
-		$post_title = the_title_attribute( 'echo=0' );
-
-		if ( ! empty( $post_title ) )
-			$title = $post_title . ' | ' . get_bloginfo( 'name' );
-	endif;
-
-	/* Feed (RSS|Atom) */
-	if ( is_feed() )
+	if ( is_feed() ) {
 		return $title;
+	}
 
-	/* Pagination */
-	if ( $paged >= 2 || $page >= 2 )
+	// Add the site name.
+	$title .= get_bloginfo( 'name' );
+
+	// Add the site description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	
+	if ( $site_description && ( is_home() || is_front_page() ) ) {
+		$title = "$title $sep $site_description";
+	}
+
+	// Add a page number if necessary.
+	if ( $paged >= 2 || $page >= 2 ) {
 		$title = "$title $sep " . sprintf( __( 'Page %s', 'edd' ), max( $paged, $page ) );
+	}
 
 	return $title;
 }
