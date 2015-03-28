@@ -45,7 +45,7 @@
 			</section><!-- /.content -->
 
 			<aside class="sidebar">
-				<?php eddwp_newsletter_sidebar(); ?>
+				<?php eddwp_newsletter_form(); ?>
 				<?php dynamic_sidebar( 'blog-sidebar' ); ?>
 			</aside><!-- /.sidebar -->
 		</div><!-- /.container -->
