@@ -28,33 +28,21 @@ get_header(); ?>
 				</article>
 				<?php } // end while ?>
 
-				<?php
-				global $wp_query;
-				if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) { ?>
-					<div id="page-nav">
-						<ul class="paged">
-							<?php if( get_next_posts_link() ) { ?>
-								<li class="previous">
-									<?php next_posts_link( __( '<span class="nav-previous meta-nav"><i class="fa fa-chevron-left"></i> Older</span>', 'edd' ) ); ?>
-								</li>
-							<?php
-							} if( get_previous_posts_link() ) { ?>
-								<li class="next">
-									<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer <i class="fa fa-chevron-right"></i></span>', 'edd' ) ); ?>
-								</li>
-							<?php } ?>
-						</ul><!-- /.paged -->
-					</div><!-- /#page-nav -->
-				<?php
-				} // end if
+				<div class="edd-post-footer clearfix">
+					<div class="newsletter-wrap">
+						<?php eddwp_newsletter_form(); ?>
+					</div>
+				</div>
 
-				if ( comments_open() || '0' != get_comments_number() )
-					comments_template();
+				<?php
+					if ( comments_open() || '0' != get_comments_number() ) {
+						comments_template();
+					}
 				?>
 			</section><!-- /.content -->
 
 			<aside class="sidebar">
-				<?php eddwp_newsletter_sidebar(); ?>
+				<?php eddwp_newsletter_form(); ?>
 				<?php dynamic_sidebar( 'blog-sidebar' ); ?>
 			</aside><!-- /.sidebar -->
 		</div><!-- /.container -->
