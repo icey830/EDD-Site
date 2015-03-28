@@ -1288,7 +1288,6 @@ function eddwp_post_meta() {
  */
 function eddwp_author_box() {
 	$author_url = get_the_author_meta( 'user_url' );
-	$author_twitter = get_the_author_meta( 'twitter' );
 	?>
 		<div class="edd-author-box clearfix">
 			<div class="edd-author-avatar">
