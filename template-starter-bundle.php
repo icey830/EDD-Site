@@ -12,7 +12,7 @@ the_post();
 			<div class="the-content clearfix">
 				<div class="entry-header">
 					<h1 class="entry-title">Jump start your store with the <strong>EDD <?php the_title(); ?></strong></h1>
-					<span class="entry-headline">Let's not make this complicated...</span>
+					<span class="entry-headline">Let's make this simple.</span>
 					<div class="bundle-details clearfix">
 						<p class="bundle-description">Easy Digital Downloads has over 250 extensions to choose from. Finding the ones you need for your store can be a difficult task. Use the form below to build a Starter Bundle from some of our most popular extensions.</p>
 						<p class="bundle-discount">Purchase through this form and receive an automatic<span>30% Discount</span></p>
