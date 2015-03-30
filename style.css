@@ -4634,6 +4634,357 @@ input#edd-discount:focus,
   margin-bottom: 30px;
   padding-bottom: 30px;
 }
+/* ----------------------------- *
+ * Starter Bundle
+ * ----------------------------- */
+#starter-bundle .content {
+  padding: 50px;
+  border-radius: 4px;
+}
+#starter-bundle .entry-title {
+  background: #62a9d7 url(images/edd-starter-bundle-header.png) no-repeat right bottom;
+  color: #fff;
+  padding: 34px 50px;
+  border-radius: 4px 4px 0 0;
+  margin: -50px -50px 50px;
+}
+#starter-bundle .entry-headline {
+  display: block;
+  font: 300 30px/1.4 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+  margin-bottom: 20px;
+}
+#starter-bundle .bundle-description {
+  float: left;
+  width: 50%;
+}
+#starter-bundle .bundle-discount {
+  float: right;
+  text-align: center;
+  background: #F5F8FC;
+  padding: 30px;
+  border-radius: 4px;
+  margin-top: -55px;
+  width: 45%;
+}
+#starter-bundle .bundle-discount span {
+  display: block;
+  color: #38C238;
+  font-weight: 700;
+  font-size: 30px;
+  margin-top: 16px;
+}
+#starter-bundle .edd-gf-section {
+  padding: 0;
+  border: none;
+  margin: 0;
+}
+#starter-bundle .edd-gf-section h2 {
+  display: none;
+}
+#starter-bundle .edd-gf-divider {
+  clear: both;
+  color: #f4f4f4;
+  text-align: center;
+  padding: 0;
+  border: none;
+  border-top: 4px solid #fafafa;
+  margin: 30px 0;
+}
+#starter-bundle .edd-gf-divider:after {
+  content: "\f078";
+  font-family: FontAwesome;
+  display: inline-block;
+  position: relative;
+  top: -25px;
+  font-size: 30px;
+  padding: 0 10px;
+  background: white;
+}
+#starter-bundle .gsection_description {
+  width: 100%;
+}
+#starter-bundle .starter-bundle-headline {
+  font-weight: 300;
+  text-align: center;
+  padding: 30px 0;
+  margin: 30px 0;
+}
+#starter-bundle .gform_wrapper {
+  max-width: 100%;
+}
+#starter-bundle .gfield {
+  position: relative;
+}
+#starter-bundle .edd-gf-select {
+  float: left;
+  clear: none;
+  width: 500px;
+}
+#starter-bundle .edd-gf-email-marketing,
+#starter-bundle .edd-gf-merchant-processor {
+  padding: 50px 0;
+  border-top: 4px solid #fafafa;
+}
+#starter-bundle .edd-gf-email-marketing {
+  float: left;
+  padding-right: 50px;
+  border-right: 2px solid #fafafa;
+}
+#starter-bundle .edd-gf-merchant-processor {
+  float: right;
+  padding-left: 50px;
+  border-left: 2px solid #fafafa;
+}
+#starter-bundle .edd-gf-marketing,
+#starter-bundle .edd-gf-accounting,
+#starter-bundle .edd-gf-misc {
+  float: left;
+  clear: none;
+  padding: 50px 0 30px;
+  border: 4px solid #fafafa;
+  border-width: 4px 0;
+  margin-bottom: 30px;
+  width: 319px;
+  min-height: 470px;
+}
+#starter-bundle .edd-gf-marketing {
+  padding-right: 50px;
+  border-right: 2px solid #fafafa;
+}
+#starter-bundle .edd-gf-accounting {
+  padding: 50px 50px 0;
+  border: 2px solid #fafafa;
+  border-width: 4px 2px;
+  width: 361px;
+}
+#starter-bundle .edd-gf-misc {
+  padding-left: 50px;
+  border-left: 2px solid #fafafa;
+}
+#starter-bundle .gfield_label {
+  font: 300 32px/1.4 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+  margin: 0;
+}
+#starter-bundle .gfield_required {
+  display: none;
+}
+#starter-bundle .gfield_description {
+  padding-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+}
+#starter-bundle .gfield_description p {
+  font-size: 13px;
+  padding: 20px 0;
+  border: 1px solid #f1f1f1;
+  border-width: 1px 0 0;
+}
+#starter-bundle .edd-gf-label-tip {
+  display: inline-block;
+  background: #F5F8FC;
+  font-size: 13px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin: 4px 0 10px;
+}
+#starter-bundle .gfield_contains_required .edd-gf-label-tip:after {
+  display: inline-block;
+  content: "*";
+  color: #EDA3A3;
+  margin-left: 4px;
+}
+#starter-bundle .edd-gf-step {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#starter-bundle .gfield_price {
+  display: inline-block;
+  font-size: 13px;
+  text-align: center;
+  padding: 10px 10px 5px;
+  border-radius: 4px;
+  width: 25%;
+}
+#starter-bundle .gfield_price .gfield_label {
+  display: block;
+  background: #fafafa;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  padding: 6px 4px 2px;
+  border-radius: 4px 4px 0 0;
+}
+#starter-bundle .gfield_price .ginput_container {
+  display: block;
+  background: #fafafa;
+  line-height: 1;
+  padding: 2px 4px 6px;
+  border-radius: 0 0 4px 4px;
+  margin-top: 0;
+}
+#starter-bundle .ginput_product_price_label {
+  display: none;
+}
+#starter-bundle .ginput_product_price {
+  color: #999;
+}
+#starter-bundle .edd-gf-total-price {
+  display: block;
+  font-size: 20px;
+  text-align: center;
+  margin: 20px 0 0;
+}
+#starter-bundle .edd-gf-total-price .ginput_container {
+  display: inline-block;
+}
+#starter-bundle .edd-gf-total-price .ginput_total {
+  color: #38C238;
+}
+#starter-bundle .edd-gf-total-price .gfield_label {
+  font-size: 20px;
+  margin-right: 10px;
+}
+#starter-bundle .edd-gf-payment .starter-bundle-headline {
+  margin: 30px 0 10px;
+}
+#starter-bundle .edd-gf-payment-method {
+  margin: 0 auto !important;
+  width: 660px;
+}
+#starter-bundle .edd-gf-payment-method .gfield_label {
+  display: none;
+}
+#starter-bundle .edd-gf-payment-method .gfield_radio {
+  margin: 0 !important;
+}
+#starter-bundle .edd-gf-payment-method .gfield_radio li {
+  display: inline-block;
+  margin: 0 50px 0 0;
+  width: 305px;
+}
+#starter-bundle .edd-gf-payment-method .gfield_radio li:last-child {
+  margin-right: 0;
+}
+#starter-bundle .edd-gf-payment-method .gfield_radio li input {
+  display: none;
+}
+#starter-bundle .edd-gf-payment-method .gfield_radio li label {
+  background: #fafafa;
+  color: #ccc;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 20px;
+  border: 2px solid #eee;
+  border-radius: 4px;
+  margin: 0 !important;
+  width: 100%;
+  transition: all .2s;
+  -moz-transition: all .2s;
+  -webkit-transition: all .2s;
+  cursor: pointer;
+}
+#starter-bundle .edd-gf-payment-method .gfield_radio li label:hover {
+  color: #999;
+}
+#starter-bundle .edd-gf-payment-method .gfield_radio li input:checked + label {
+  background: #F5F8FC;
+  color: #62a9d7;
+  font-weight: 700;
+  border: 2px solid #DAE7F0;
+}
+#starter-bundle .edd-gf-payment-method .gfield_radio li input + label:before {
+  display: inline-block;
+  font-size: 30px;
+  line-height: 1.2;
+  font-family: "FontAwesome";
+  content: "\f057";
+  color: #ccc;
+  margin-right: 10px;
+}
+#starter-bundle .edd-gf-payment-method .gfield_radio li input:checked + label:before {
+  color: #38C238;
+  content: "\f058";
+}
+#starter-bundle .edd-gf-credit-debit,
+#starter-bundle .edd-gf-billing-address,
+#starter-bundle .edd-gf-starter-discount,
+#starter-bundle .gform_footer {
+  width: 660px;
+  margin: 30px auto !important;
+}
+#starter-bundle .edd-gf-billing-address {
+  padding-bottom: 30px;
+  border-bottom: 4px solid #fafafa;
+  margin-top: 0 !important;
+}
+#starter-bundle .edd-gf-billing-address > label {
+  margin-bottom: 10px;
+}
+#starter-bundle .edd-gf-cc input[type="text"] {
+  padding: 10px !important;
+  margin-bottom: 0 !important;
+}
+#starter-bundle .edd-gf-cc .ginput_full input[type="text"] {
+  width: 100% !important;
+}
+#starter-bundle .edd-gf-cc .ginput_container label {
+  color: #999;
+  font-size: 13px;
+}
+#starter-bundle .ginput_left,
+#starter-bundle .ginput_right {
+  margin: 0 4% 0 0;
+  width: 48%;
+}
+#starter-bundle .ginput_right {
+  float: right;
+  margin-right: 0;
+}
+#starter-bundle .ginput_left input[type="text"],
+#starter-bundle .ginput_right input[type="text"] {
+  width: 100%;
+}
+#starter-bundle .edd-gf-starter-discount {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 4px solid #fafafa;
+}
+#starter-bundle .edd-gf-starter-discount .gfield_label {
+  margin-bottom: 10px;
+}
+#starter-bundle .edd-gf-starter-discount .gfield_description {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+#starter-bundle .edd-gf-starter-discount input[type="text"],
+#starter-bundle .edd-gf-starter-discount input[type="text"]:active,
+#starter-bundle .edd-gf-starter-discount input[type="text"]:hover {
+  display: inline;
+  color: #38C238;
+  font-size: 24px !important;
+  text-align: center;
+  border: none;
+  box-shadow: none;
+}
+#starter-bundle .gform_footer {
+  text-align: center;
+}
+#starter-bundle .gform_footer input[type="submit"] {
+  display: block;
+  font-size: 20px;
+  padding: 10px;
+  margin: 0 auto;
+  width: 300px;
+}
+#starter-bundle .gform_footer .gform_save_link {
+  color: #999;
+  margin: 10px 0 0;
+}
+#starter-bundle .gform_footer .gform_save_link:hover {
+  color: #555;
+}
 footer {
   background: #f9f9f9 url(images/edd-footer.png) no-repeat center bottom;
   -webkit-box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.02);
