@@ -4880,13 +4880,23 @@ input#edd-discount:focus,
   top: 0;
   right: 0;
 }
+#starter-bundle .edd-gf-selected-extensions,
+#starter-bundle .edd-gf-selected-extensions .starter-bundle-headline {
+  font-size: 20px;
+  padding: 0;
+  border: none;
+  margin: 0;
+}
+#starter-bundle .edd-gf-selected-extensions h2 {
+  display: none;
+}
 #starter-bundle .gfield_price {
   display: inline-block;
   font-size: 13px;
   text-align: center;
   padding: 10px 10px 5px;
   border-radius: 4px;
-  width: 25%;
+  width: 20%;
 }
 #starter-bundle .gfield_price .gfield_label {
   display: block;
@@ -4894,22 +4904,14 @@ input#edd-discount:focus,
   font-size: 13px;
   font-weight: 400;
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  padding: 6px 4px 2px;
-  border-radius: 4px 4px 0 0;
-}
-#starter-bundle .gfield_price .ginput_container {
-  display: block;
-  background: #fafafa;
-  line-height: 1;
-  padding: 2px 4px 6px;
-  border-radius: 0 0 4px 4px;
-  margin-top: 0;
+  padding: 6px 4px;
+  border-radius: 4px;
 }
 #starter-bundle .ginput_product_price_label {
   display: none;
 }
 #starter-bundle .ginput_product_price {
-  color: #999;
+  display: none;
 }
 #starter-bundle .edd-gf-total-price {
   display: block;
@@ -4922,6 +4924,7 @@ input#edd-discount:focus,
 }
 #starter-bundle .edd-gf-total-price .ginput_total {
   color: #38C238;
+  font-size: 30px;
 }
 #starter-bundle .edd-gf-total-price .gfield_label {
   font-size: 20px;
@@ -4961,6 +4964,7 @@ input#edd-discount:focus,
   border-radius: 4px;
   margin: 0 !important;
   width: 100%;
+  height: 78px;
   transition: all .2s;
   -moz-transition: all .2s;
   -webkit-transition: all .2s;
@@ -4975,18 +4979,14 @@ input#edd-discount:focus,
   font-weight: 700;
   border: 2px solid #DAE7F0;
 }
-#starter-bundle .edd-gf-payment-method .gfield_radio li input + label:before {
+#starter-bundle .edd-gf-payment-method .gfield_radio li input:checked + label:before {
   display: inline-block;
+  color: #38C238;
   font-size: 30px;
   line-height: 1.2;
   font-family: "FontAwesome";
-  content: "\f057";
-  color: #ccc;
-  margin-right: 10px;
-}
-#starter-bundle .edd-gf-payment-method .gfield_radio li input:checked + label:before {
-  color: #38C238;
   content: "\f058";
+  margin-right: 10px;
 }
 #starter-bundle .edd-gf-credit-debit,
 #starter-bundle .edd-gf-billing-address,
@@ -5030,7 +5030,7 @@ input#edd-discount:focus,
 #starter-bundle .edd-gf-starter-discount {
   text-align: center;
   padding-bottom: 20px;
-  border-bottom: 4px solid #fafafa;
+  margin-bottom: 0 !important;
 }
 #starter-bundle .edd-gf-starter-discount .gfield_label {
   margin-bottom: 10px;
