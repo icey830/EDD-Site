@@ -1477,7 +1477,7 @@ function edd_wp_gravity_form_download_options( $form ) {
             continue;
         }
 
-        $downloads = get_posts( array( 'posts_per_page' => -1, 'post_type' => 'download' ) );
+        $downloads = get_posts( array( 'posts_per_page' => -1, 'post_type' => 'download', 'orderby' => 'post_title', 'order' => 'ASC' ) );
 
         $choices = array();
 
