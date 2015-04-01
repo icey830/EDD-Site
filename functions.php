@@ -1477,12 +1477,12 @@ function edd_wp_gravity_form_download_options( $form ) {
             continue;
         }
 
-        $downloads = get_posts( array( 'posts_per_page' => -1, 'post_type', 'download' ) );
+        $downloads = get_posts( array( 'posts_per_page' => -1, 'post_type' => 'download' ) );
 
         $choices = array();
 
         foreach ( $downloads as $download ) {
-            $choices[] = array( 'text' => $download->download_title, 'value' => $post->post_title );
+            $choices[] = array( 'text' => $download->post_title, 'value' => $download->post_title );
         }
 
         // update 'Select a Post' to whatever you'd like the instructive option to be
