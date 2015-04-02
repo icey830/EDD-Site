@@ -4655,6 +4655,7 @@ input#edd-discount:focus,
 }
 #starter-bundle .bundle-description {
   float: left;
+  margin-bottom: 0;
   width: 50%;
 }
 #starter-bundle .bundle-discount {
@@ -4719,6 +4720,10 @@ input#edd-discount:focus,
   float: left;
   clear: none;
   width: 500px;
+}
+#starter-bundle select,
+#starter-bundle .gform_wrapper .chosen-container {
+  max-width: 100%;
 }
 #starter-bundle .edd-gf-email-marketing,
 #starter-bundle .edd-gf-merchant-processor {
@@ -4854,7 +4859,7 @@ input#edd-discount:focus,
 }
 #starter-bundle .edd-gf-payment-method {
   margin: 0 auto !important;
-  width: 660px;
+  max-width: 660px;
 }
 #starter-bundle .edd-gf-payment-method .gfield_label {
   display: none;
@@ -4911,7 +4916,7 @@ input#edd-discount:focus,
 #starter-bundle .edd-gf-billing-address,
 #starter-bundle .edd-gf-starter-discount,
 #starter-bundle .gform_footer {
-  width: 660px;
+  max-width: 660px;
   margin: 30px auto !important;
 }
 #starter-bundle .edd-gf-billing-address {
@@ -6109,6 +6114,53 @@ span.bbp-author-ip {
   .title-404 {
     font-weight: 400;
   }
+  #starter-bundle .entry-title {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+  #starter-bundle .bundle-discount {
+    padding: 20px;
+  }
+  #starter-bundle .edd-gf-divider {
+    margin: 20px 0 10px;
+  }
+  #starter-bundle .starter-bundle-headline {
+    margin: 0;
+  }
+  #starter-bundle .edd-gf-payment .starter-bundle-headline {
+    margin: 10px 0;
+  }
+  #starter-bundle .edd-gf-select {
+    width: 420px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  #starter-bundle .edd-gf-marketing,
+  #starter-bundle .edd-gf-misc {
+    padding-top: 30px;
+    width: 269px;
+  }
+  #starter-bundle .edd-gf-email-marketing {
+    padding-right: 30px;
+  }
+  #starter-bundle .edd-gf-merchant-processor {
+    padding-left: 30px;
+  }
+  #starter-bundle .edd-gf-marketing {
+    padding-right: 30px;
+  }
+  #starter-bundle .edd-gf-misc {
+    padding-left: 30px;
+  }
+  #starter-bundle .edd-gf-accounting {
+    width: 302px;
+  }
+  #starter-bundle .edd-gf-accounting {
+    padding: 30px 30px 0;
+  }
+  #starter-bundle .gfield_price {
+    width: 25%;
+  }
 }
 /* ----------------------------- *
  * Tablets to regular desktops
@@ -6259,6 +6311,56 @@ span.bbp-author-ip {
   }
   .title-404 {
     font-weight: 400;
+  }
+  #starter-bundle .entry-title {
+    font-size: 26px;
+    border-radius: 0;
+    margin-bottom: 30px;
+  }
+  #starter-bundle .bundle-discount {
+    padding: 20px;
+  }
+  #starter-bundle .edd-gf-divider {
+    margin: 20px 0 10px;
+  }
+  #starter-bundle .starter-bundle-headline {
+    font-size: 26px;
+    margin: 0;
+  }
+  #starter-bundle .edd-gf-payment .starter-bundle-headline {
+    margin: 10px 0;
+  }
+  #starter-bundle .edd-gf-select {
+    width: 50%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  #starter-bundle .edd-gf-marketing,
+  #starter-bundle .edd-gf-accounting,
+  #starter-bundle .edd-gf-misc {
+    padding-top: 30px;
+    width: 33.33333%;
+  }
+  #starter-bundle .edd-gf-email-marketing {
+    padding-right: 30px;
+  }
+  #starter-bundle .edd-gf-merchant-processor {
+    padding-left: 30px;
+  }
+  #starter-bundle .edd-gf-marketing {
+    padding-right: 30px;
+  }
+  #starter-bundle .edd-gf-misc {
+    padding-left: 30px;
+  }
+  #starter-bundle .edd-gf-accounting {
+    padding: 30px 30px 0;
+  }
+  #starter-bundle .gfield_price {
+    width: 25%;
+  }
+  #starter-bundle .content {
+    border-radius: 0;
   }
 }
 /* ----------------------------- *
@@ -6554,6 +6656,41 @@ span.bbp-author-ip {
     width: 100%;
     margin: 0 0 30px;
   }
+  #starter-bundle .content {
+    margin-top: -20px;
+  }
+  #starter-bundle .entry-title {
+    font-size: 26px;
+    border-radius: 0;
+    margin-bottom: 30px;
+  }
+  #starter-bundle .edd-gf-divider {
+    margin: 10px 0;
+  }
+  #starter-bundle .starter-bundle-headline {
+    font-size: 26px;
+    margin: 0;
+  }
+  #starter-bundle .edd-gf-select,
+  #starter-bundle .edd-gf-checkbox,
+  #starter-bundle .edd-gf-radio {
+    padding: 30px 0;
+    border: 4px solid #fafafa;
+    border-width: 4px 0 0;
+    margin: 0;
+    width: 100%;
+    min-height: 100px;
+  }
+  #starter-bundle .edd-gf-misc {
+    border-bottom: 4px solid #fafafa;
+    margin-bottom: 30px;
+  }
+  #starter-bundle .gfield_price {
+    width: 50%;
+  }
+  #starter-bundle .content {
+    border-radius: 0;
+  }
 }
 /* ----------------------------- *
  * iPad (Portrait)
@@ -6607,6 +6744,18 @@ span.bbp-author-ip {
   .edd-downloads-grid ul li:nth-child(even) {
     width: 49%%;
     margin-right: 0;
+  }
+  #starter-bundle .bundle-description,
+  #starter-bundle .bundle-discount {
+    float: none;
+    width: 100%;
+  }
+  #starter-bundle .bundle-discount {
+    margin-top: 20px;
+  }
+  #starter-bundle .edd-gf-payment-method .gfield_radio li {
+    margin: 0 0 10px;
+    width: 100%;
   }
 }
 /* ----------------------------- *
@@ -7073,6 +7222,14 @@ span.bbp-author-ip {
   }
   #bbpress-forums .moderator-tools select#bbps_support_options {
     margin-bottom: 4px;
+  }
+  #starter-bundle .gfield_price {
+    width: 100%;
+  }
+  #starter-bundle .ginput_left,
+  #starter-bundle .ginput_right {
+    margin: 0 0 10px;
+    width: 100%;
   }
 }
 /* ----------------------------- *
