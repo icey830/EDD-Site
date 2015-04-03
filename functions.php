@@ -1464,3 +1464,36 @@ function eddc_get_upcoming_commissions(){
 
 	return 'Next payout for Commissions earned from '.  date( 'm/d/Y', strtotime( $from ) ) .' to '. date( 'm/d/Y', strtotime( $to ) ) . ' will be: <strong>' . edd_currency_filter( edd_format_amount( $total ) ) . '</strong>';
 }
+
+/**
+ * Adds all Downloads to the Extension drop down in the new ticket form
+ *
+ */
+function edd_wp_gravity_form_download_options( $form ) {
+
+    foreach ( $form['fields'] as &$field ) {
+
+        if ( $field->type != 'select' || strpos( $field->cssClass, 'extension-list' ) === false ) {
+            continue;
+        }
+
+        $downloads = get_posts( array( 'posts_per_page' => -1, 'post_type' => 'download', 'orderby' => 'post_title', 'order' => 'ASC' ) );
+
+        $choices = array();
+
+        foreach ( $downloads as $download ) {
+            $choices[] = array( 'text' => $download->post_title, 'value' => $download->post_title );
+        }
+
+        // update 'Select a Post' to whatever you'd like the instructive option to be
+        $field->placeholder = 'Select extension';
+        $field->choices = $choices;
+
+    }
+
+    return $form;
+}
+add_filter( 'gform_pre_render_11', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_pre_validation_11', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_pre_submission_filter_11', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_admin_pre_render_11', 'edd_wp_gravity_form_download_options' );
