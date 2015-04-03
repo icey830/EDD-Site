@@ -1259,10 +1259,9 @@ function eddwp_post_meta() {
 	?>
 	<div class="post-meta">
 		<ul>
-			<?php if ( is_single() ) { ?>
-				<li><i class="fa fa-user"></i> <?php the_author(); ?></li>
-			<?php } // end if ?>
 			<?php
+			if ( is_single() ) eddwp_author_box();
+
 			$categories = get_the_category_list( __( ', ', 'edd' ) );
 
 			if ( $categories ) {
@@ -1285,28 +1284,51 @@ function eddwp_post_meta() {
 }
 
 /**
- * Sidebar Newsletter Sign Up Form
+ * Single post author box
  */
-function eddwp_newsletter_sidebar() {
+function eddwp_author_box() {
+	$author_url = get_the_author_meta( 'user_url' );
 	?>
-	<div class="newsletter widget">
-		<h3 class="newsletter-title">Email Newsletter</h3>
-		<p class="newsletter-description">Sign up to the Easy Digital Downloads email newsletter and be the first to know about the latest information and exclusive promotions.</p>
-		<form class="newsletter-form" id="pmc_mailchimp" action="" method="post">
-			<div>
-				<input class="newsletter-name" name="pmc_fname" id="pmc_fname" type="text" placeholder="First Name"/>
+		<div class="edd-author-box clearfix">
+			<div class="edd-author-avatar">
+				<?php echo get_avatar( get_the_author_meta( 'ID' ), 85, '', get_the_author_meta( 'display_name' ) ); ?>
 			</div>
-			<div>
-				<input class="newsletter-email" name="pmc_email" id="pmc_email" type="text" placeholder="Email Address"/>
+			<div class="edd-author-bio">
+				<h4 class="edd-author-title">Written by <?php echo get_the_author_meta( 'display_name' ); ?></h4>
+				<?php if ( $author_url ) { ?>
+					<span class="edd-author-url"><a href="<?php echo esc_url( $author_url ); ?>" target="_blank"><i class="fa fa-link"></i></a></span>
+				<?php } ?>
+				<?php echo wpautop( get_the_author_meta( 'description' ) ); ?>
 			</div>
-			<div>
-				<input type="hidden" name="redirect" value="<?php echo 'https://' . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>"/>
-				<input type="hidden" name="action" value="pmc_signup"/>
-				<input type="hidden" name="pmc_list_id" value="<?php echo $list_id; ?>"/>
-				<input type="submit" value="Sign Up"/>
-			</div>
-		</form>
-		<p class="newsletter-note"><i class="fa fa-lock"></i>We will never send you spam. Your email address is secure.</p>
+		</div>
+	<?php
+}
+
+/**
+ * Universal Newsletter Sign Up Form
+ */
+function eddwp_newsletter_form() {
+	?>
+	<div class="newsletter">
+		<h3 class="newsletter-title"><span>Subscribe to the Easy Digital Downloads </span>Email Newsletter</h3>
+		<div class="edd-newsletter-content-wrap">
+			<p class="newsletter-description">Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads by submitting your information below.</p>
+			<form class="newsletter-form" id="pmc_mailchimp" action="" method="post">
+				<div class="newsletter-name-container">
+					<input class="newsletter-name" name="pmc_fname" id="pmc_fname" type="text" placeholder="First Name"/>
+				</div>
+				<div class="newsletter-email-container">
+					<input class="newsletter-email" name="pmc_email" id="pmc_email" type="text" placeholder="Email Address"/>
+				</div>
+				<div class="newsletter-submit-container">
+					<input type="hidden" name="redirect" value="<?php echo 'https://' . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>"/>
+					<input type="hidden" name="action" value="pmc_signup"/>
+					<input type="hidden" name="pmc_list_id" value="<?php echo $list_id; ?>"/>
+					<input type="submit" class="newsletter-submit edd-button button blue" value="Sign Up"/>
+				</div>
+			</form>
+			<p class="newsletter-note"><i class="fa fa-lock"></i>We will never send you spam. Your email address is secure.</p>
+		</div>
 	</div>
 	<?php
 }
@@ -1442,3 +1464,36 @@ function eddc_get_upcoming_commissions(){
 
 	return 'Next payout for Commissions earned from '.  date( 'm/d/Y', strtotime( $from ) ) .' to '. date( 'm/d/Y', strtotime( $to ) ) . ' will be: <strong>' . edd_currency_filter( edd_format_amount( $total ) ) . '</strong>';
 }
+
+/**
+ * Adds all Downloads to the Extension drop down in the new ticket form
+ *
+ */
+function edd_wp_gravity_form_download_options( $form ) {
+
+    foreach ( $form['fields'] as &$field ) {
+
+        if ( $field->type != 'select' || strpos( $field->cssClass, 'extension-list' ) === false ) {
+            continue;
+        }
+
+        $downloads = get_posts( array( 'posts_per_page' => -1, 'post_type' => 'download', 'orderby' => 'post_title', 'order' => 'ASC' ) );
+
+        $choices = array();
+
+        foreach ( $downloads as $download ) {
+            $choices[] = array( 'text' => $download->post_title, 'value' => $download->post_title );
+        }
+
+        // update 'Select a Post' to whatever you'd like the instructive option to be
+        $field->placeholder = 'Select extension';
+        $field->choices = $choices;
+
+    }
+
+    return $form;
+}
+add_filter( 'gform_pre_render_11', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_pre_validation_11', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_pre_submission_filter_11', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_admin_pre_render_11', 'edd_wp_gravity_form_download_options' );
