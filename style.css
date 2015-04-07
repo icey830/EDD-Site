@@ -5137,6 +5137,22 @@ input#edd-discount:focus,
 #starter-package .gform_footer .gform_save_link:hover {
   color: #555;
 }
+/* ----------------------------- *
+ * Common Page Templates
+ * ----------------------------- */
+#landing-page.main {
+  padding: 25px 20px 100px;
+}
+#landing-page .content {
+  padding: 50px;
+  border-radius: 4px;
+  margin: 25px auto;
+  width: 100%;
+  max-width: 640px;
+}
+#landing-page .entry-header {
+  margin-bottom: 20px;
+}
 footer {
   background: #f9f9f9 url(images/edd-footer.png) no-repeat center bottom;
   -webkit-box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.02);
@@ -6896,6 +6912,10 @@ span.bbp-author-ip {
   #starter-package .content {
     border-radius: 0;
   }
+  /* Common Page Templates */
+  #landing-page.main {
+    padding-bottom: 25px;
+  }
 }
 /* ----------------------------- *
  * iPad (Portrait)
@@ -7472,6 +7492,16 @@ span.bbp-author-ip {
   #starter-package .ginput_right {
     margin: 0 0 10px;
     width: 100%;
+  }
+  /* Common Page Templates */
+  #landing-page.main {
+    padding: 0;
+    margin: 0;
+  }
+  #landing-page .content {
+    padding: 20px;
+    border-radius: 0;
+    margin: 0;
   }
 }
 /* ----------------------------- *
