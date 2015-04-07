@@ -6255,6 +6255,25 @@ span.bbp-author-ip {
   .title-404 {
     font-weight: 400;
   }
+  .edd-author-bio {
+    width: 440px;
+  }
+  .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
+    background-position-x: 24px;
+    font-size: 16px;
+    padding-left: 125px;
+  }
+  .edd-post-footer .newsletter .newsletter-name-container,
+  .edd-post-footer .newsletter .newsletter-email-container {
+    width: 180px;
+  }
+  .edd-post-footer .newsletter-wrap {
+    padding: 50px 30px 30px;
+  }
+  .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
+    padding: 20px 50px 20px 155px;
+    margin: -50px -30px 20px;
+  }
   #starter-package .entry-title {
     font-size: 26px;
     margin-bottom: 30px;
@@ -6452,6 +6471,27 @@ span.bbp-author-ip {
   }
   .title-404 {
     font-weight: 400;
+  }
+  .edd-author-box {
+    text-align: center;
+  }
+  .edd-author-avatar {
+    float: none;
+    margin: 0 auto 10px;
+  }
+  .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
+    font-size: 16px;
+  }
+  .edd-post-footer .newsletter .newsletter-name-container,
+  .edd-post-footer .newsletter .newsletter-email-container {
+    width: 180px;
+  }
+  .edd-post-footer .newsletter-wrap {
+    padding: 50px 50px 30px;
+  }
+  .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
+    padding: 20px 50px 20px 155px;
+    margin: -50px -50px 20px;
   }
   #starter-package .entry-title {
     font-size: 26px;
@@ -6797,6 +6837,24 @@ span.bbp-author-ip {
     width: 100%;
     margin: 0 0 30px;
   }
+  .sidebar .newsletter .newsletter-name-container,
+  .sidebar .newsletter .newsletter-email-container,
+  .sidebar .newsletter .newsletter-submit-container {
+    display: inline-block;
+    width: 210px;
+    margin-right: 5px;
+  }
+  .sidebar .newsletter .newsletter-submit-container {
+    width: 100px;
+    margin-right: 0;
+  }
+  .sidebar .newsletter .newsletter-title {
+    text-align: left;
+    padding: 20px 50px 20px 155px;
+  }
+  .sidebar .newsletter-title span {
+    display: inline;
+  }
   #starter-package .content {
     margin-top: -20px;
   }
@@ -6885,6 +6943,34 @@ span.bbp-author-ip {
   .edd-downloads-grid ul li:nth-child(even) {
     width: 49%%;
     margin-right: 0;
+  }
+  .edd-author-box {
+    text-align: center;
+  }
+  .edd-author-avatar {
+    float: none;
+    margin: 0 auto 10px;
+  }
+  .edd-author-bio {
+    width: 100%;
+  }
+  .single .newsletter .newsletter-title {
+    text-align: right;
+  }
+  .single .newsletter-title span {
+    display: none;
+  }
+  .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
+    font-size: 20px;
+    text-align: right;
+  }
+  .single .newsletter .newsletter-name-container,
+  .single .newsletter .newsletter-email-container,
+  .single .newsletter .newsletter-submit-container {
+    width: 100%;
+  }
+  .single .newsletter form {
+    margin-bottom: 20px;
   }
   #starter-package .package-description,
   #starter-package .package-discount {
@@ -7363,6 +7449,13 @@ span.bbp-author-ip {
   }
   #bbpress-forums .moderator-tools select#bbps_support_options {
     margin-bottom: 4px;
+  }
+  #starter-package .content,
+  #starter-package .entry-title {
+    padding: 20px;
+  }
+  #starter-package .entry-title {
+    margin: -20px -20px 30px;
   }
   #starter-package .gfield_price {
     width: 100%;
