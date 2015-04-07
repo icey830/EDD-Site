@@ -4780,6 +4780,10 @@ input#edd-discount:focus,
 #starter-package .edd-gf-section h2 {
   display: none;
 }
+#starter-package .edd-gf-payment h2 {
+  display: block;
+  margin-bottom: 30px !important;
+}
 #starter-package .edd-gf-divider {
   clear: both;
   color: #f4f4f4;
@@ -4876,7 +4880,8 @@ input#edd-discount:focus,
   padding-left: 50px;
   border-left: 2px solid #fafafa;
 }
-#starter-package .gfield_label {
+#starter-package .gfield_label,
+#starter-package .edd-gf-payment h2 {
   font: 300 32px/1.4 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
   margin: 0;
 }
@@ -4964,13 +4969,12 @@ input#edd-discount:focus,
   font-size: 20px;
   margin-right: 10px;
 }
-#starter-package .edd-gf-payment .starter-package-headline {
-  margin: 30px 0 10px;
-}
+#starter-package .edd-gf-payment,
 #starter-package .edd-gf-payment-method {
   margin: 0 auto !important;
   max-width: 660px;
 }
+#starter-package .edd-gf-email-field .gfield_label,
 #starter-package .edd-gf-payment-method .gfield_label {
   display: none;
 }
@@ -5038,9 +5042,11 @@ input#edd-discount:focus,
 #starter-package .edd-gf-email-field {
   margin: 0 auto !important;
 }
-#starter-package .edd-gf-name-field .gfield_label,
-#starter-package .edd-gf-email-field .gfield_label {
-  font-size: 24px;
+#starter-package .edd-gf-email-field {
+  margin-bottom: 30px !important;
+}
+#starter-package .edd-gf-name-field .gfield_label {
+  margin-bottom: 10px;
 }
 #starter-package .edd-gf-billing-address {
   padding-bottom: 30px;
