@@ -4867,13 +4867,13 @@ input#edd-discount:focus,
 #starter-package .gfield_checkbox input[type="checkbox"]:disabled + label {
   color: #bbb;
 }
-#starter-package .gf_browser_chrome .gfield_checkbox li input[type="checkbox"] {
-  margin-top: 4px;
+#starter-package .gfield_checkbox li input[type="checkbox"] {
+  margin-top: 4px !important;
 }
-#starter-package .gf_browser_chrome ul.gform_fields li.edd-gf-accounting input[type="radio"] {
-  margin: 3px 5px 3px 2px;
+#starter-package ul.gform_fields li.edd-gf-accounting input[type="radio"] {
+  margin: 3px 5px 3px 2px !important;
 }
-#starter-package .gf_browser_chrome ul.gform_fields li.edd-gf-accounting input[type="radio"] + label {
+#starter-package ul.gform_fields li.edd-gf-accounting input[type="radio"] + label {
   margin-left: 26px !important;
 }
 #starter-package .edd-gf-misc {
