@@ -24,7 +24,7 @@
 			'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/banner-ceb.png',
 			'title' => 'Core Extensions Bundle'
 		),
-		0 => array(
+		1 => array(
 			'url'   => home_url( '/starter-package' ),
 			'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/banner-sp.png',
 			'title' => 'Starter Package'
