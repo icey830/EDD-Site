@@ -1385,6 +1385,13 @@ function temporary_eddwp_connection_types() {
 }
 add_action( 'p2p_init', 'temporary_eddwp_connection_types' );
 
+/**
+ * Check to see if EDD is activated
+ */
+function eddwp_edd_is_activated() {
+	return class_exists( 'Easy_Digital_Downloads' );
+}
+
 
 /* ----------------------------------------------------------- *
  * 12. Next Commissions Payout Amount
