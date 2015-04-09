@@ -1227,10 +1227,10 @@ add_filter( 'rss2_ns', 'eddwp_rss_namespace' );
 /**
  * Removes styling from Better Click To Tweet plugin
  */
-function affwp_remove_bctt_styling() {
+function eddwp_remove_bctt_styling() {
 	remove_action('wp_enqueue_scripts', 'bctt_scripts');
 }
-add_action( 'template_redirect', 'affwp_remove_bctt_styling' );
+add_action( 'template_redirect', 'eddwp_remove_bctt_styling' );
 
 
 /**
