@@ -1002,6 +1002,33 @@
 	#landing-page.main {
 		padding-bottom: 25px;
 	}
+	
+	#account-page .nav-tabs {
+		margin-bottom: 15px;
+	}
+	
+	#account-page .nav-tabs > li {
+		width: 46%;
+		margin-right: 6%;
+	}
+	
+	#account-page .nav-tabs.nav-append-content > li.active:first-child:before {
+		display: none;
+	}
+	
+	#account-page .nav-tabs > li:nth-child(even) {
+		float: right;
+		margin-right: 0;
+	}
+	
+	#account-page .nav-tabs > li.active > a {
+		border: 2px solid #ddd;
+		border-radius: 6px;
+	}
+	
+	#account-page .nav-tabs > li:not(.active) > a:hover {
+		border-color: #eee;
+	}
 }
 
 /* ----------------------------- *
@@ -1555,28 +1582,6 @@
 		margin-left: -182px;
 	}
 
-	.tab-content {
-		border: none;
-		border-radius: 0;
-		position: relative;
-		padding: 20px;
-	}
-
-	.nav-tabs>li, .nav-pills>li {
-		float: none;
-		display: block;
-		margin-bottom: 0 !important;
-	}
-
-	.nav-tabs>li>a {
-		border: none;
-		border-radius: 0;
-	}
-
-	.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-		border: none !important;
-	}
-
 	.tab-pane.purchases-tab-pane {
 		margin-top: -20px;
 		margin-left: -20px;
@@ -1585,7 +1590,12 @@
 	}
 
 	#edd_profile_editor_form fieldset label {
+		width: 100%;
 		margin-bottom: 0;
+	}
+	
+	#edd_profile_editor_form #edd_address_country {
+		margin-bottom: 25px;
 	}
 
 	#edd_profile_editor_form fieldset input[type="text"], #edd_profile_editor_form fieldset input[type="email"], #edd_profile_editor_form fieldset input[type="password"] {
@@ -1729,6 +1739,17 @@
 		padding: 20px;
 		border-radius: 0;
 		margin: 0;
+	}
+	
+	#account-page {
+		font-size: 13px;
+	}
+	
+	#account-page .nav-tabs > li,
+	#account-page .nav-tabs > li:nth-child(even) {
+		float: none;
+		width: 100%;
+		margin-right: 0;
 	}
 }
 
