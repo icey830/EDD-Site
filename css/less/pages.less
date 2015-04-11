@@ -3110,11 +3110,16 @@ input#edd-discount,
 	max-width: 100%;
 }
 
+#starter-package .gfield_error.edd-gf-cc select {
+	border: 1px solid #790000;
+}
+
 #starter-package .edd-gf-email-field .gfield_description,
 #starter-package .edd-gf-cc .gfield_description,
 #starter-package .edd-gf-cc .ginput_container label {
 	color: #999;
 	font-size: 13px;
+	line-height: 25px;
 }
 
 #starter-package .edd-gf-buyer-detail .ginput_container,
@@ -3122,7 +3127,11 @@ input#edd-discount,
 	color: #999;
 	font-size: 13px;
 	line-height: 25px;
-	margin: .188em 0 .75em 0;
+	margin: .188em 0 .4em 0;
+}
+
+#starter-package .edd-gf-name-field.edd-gf-buyer-detail .ginput_container {
+	margin-bottom: 0;
 }
 
 #starter-package .ginput_left,
@@ -3179,6 +3188,11 @@ input#edd-discount,
 	width: 300px;
 }
 
+#starter-package .gform_ajax_spinner {
+	display: block;
+	margin: 10px auto 0;
+}
+
 #starter-package .gform_footer .gform_save_link {
 	color: #999;
 	margin: 10px 0 0;
@@ -3186,6 +3200,62 @@ input#edd-discount,
 
 #starter-package .gform_footer .gform_save_link:hover {
 	color: #555;
+}
+
+#starter-package .gform_wrapper div.validation_error {
+	background: #FFDFE0;
+	color: #790000;
+	font-size: 1em;
+	font-weight: 400;
+	padding: 10px 20px;
+	border: 1px solid #790000;
+	border-radius: 4px;
+	margin: 25px 0;
+}
+
+#starter-package .gform_wrapper div.validation_error,
+#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container,
+#starter-package .gform_wrapper .top_label .gfield_error:not(.edd-gf-marketing) {
+	width: 100%;
+}
+
+#starter-package .gform_wrapper li.gfield.gfield_error {
+	padding: 30px;
+	border: 1px solid #790000;
+	border-radius: 4px;
+}
+
+#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required.edd-gf-marketing {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+#starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-name-field {
+	padding-bottom: 0;
+	border-bottom: none;
+	border-radius: 4px 4px 0 0;
+}
+
+#starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-email-field {
+	padding-top: 10px;
+	border-top: none;
+	border-radius: 0 0 4px 4px;
+}
+
+#starter-package .gfield_description.validation_message {
+	color: #555;
+}
+
+#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.gfield_description,
+#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container,
+#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required label.gfield_label,
+#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required fieldset legend.gfield_label {
+	margin-left: 0;
+	max-width: 100%;
+}
+
+#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.gfield_description.validation_message {
+	display: none;
 }
 
 
