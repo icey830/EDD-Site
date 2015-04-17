@@ -1333,7 +1333,7 @@ function eddwp_newsletter_form() {
 				<div class="newsletter-submit-container">
 					<input type="hidden" name="redirect" value="<?php echo 'https://' . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>"/>
 					<input type="hidden" name="action" value="pmc_signup"/>
-					<input type="hidden" name="pmc_list_id" value="<?php echo $list_id; ?>"/>
+					<input type="hidden" name="pmc_list_id" value="56689"/>
 					<input type="submit" class="newsletter-submit edd-button button blue" value="Sign Up"/>
 				</div>
 			</form>
