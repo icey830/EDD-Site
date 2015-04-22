@@ -1190,6 +1190,7 @@ function eddwp_feed_query( $query ) {
 		);
 
 		$query->set( 'tax_query', $tax_query );
+		$query->set( 'orderby', 'menu_order' );
 
 	}
 	return $query;
