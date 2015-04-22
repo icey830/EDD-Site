@@ -1174,23 +1174,43 @@ function eddwp_feed_query( $query ) {
 
 		$query->set( 'posts_per_page', 50 );
 
-		$tax_query = array(
-			'relation' => 'AND',
-			array(
-				'taxonomy' => 'extension_category',
-				'field'    => 'slug',
-				'terms'    => '3rd-party',
-				'operator' => 'NOT IN'
-			),
-			array(
-				'taxonomy' => 'extension_category',
-				'field'    => 'slug',
-				'terms'    => 'popular'
-			)
-		);
+		if( isset( $_GET['display'] ) && 'new' == $_GET['display'] ) {
 
-		$query->set( 'tax_query', $tax_query );
-		$query->set( 'orderby', 'menu_order' );
+			$tax_query = array(
+				'relation' => 'AND',
+				array(
+					'taxonomy' => 'extension_category',
+					'field'    => 'slug',
+					'terms'    => '3rd-party',
+					'operator' => 'NOT IN'
+				)
+			);
+
+			$query->set( 'tax_query', $tax_query );
+			$query->set( 'orderby', 'date' );
+			$query->set( 'order', 'DESC' );
+
+		} else {
+
+			$tax_query = array(
+				'relation' => 'AND',
+				array(
+					'taxonomy' => 'extension_category',
+					'field'    => 'slug',
+					'terms'    => '3rd-party',
+					'operator' => 'NOT IN'
+				),
+				array(
+					'taxonomy' => 'extension_category',
+					'field'    => 'slug',
+					'terms'    => 'popular'
+				)
+			);
+
+			$query->set( 'tax_query', $tax_query );
+			$query->set( 'orderby', 'menu_order' );
+
+		}
 
 	}
 	return $query;
