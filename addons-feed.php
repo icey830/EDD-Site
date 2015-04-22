@@ -5,7 +5,7 @@ echo '<div class="edd-extension edd-starter-package">';
 	echo '<a href="' . esc_url( $url ) . '" title="' . get_the_title() . '">';
 		the_post_thumbnail('showcase', array('title' => get_the_title()));
 	echo '</a>';
-	echo '<p>Jump-start your store with the EDD Starter Package</p>';
+	echo '<p>Save 30% on popular extensions with our Starter Package</p>';
 	echo '<a href="https://easydigitaldownloads.com/starter-package/" title="Starter Package" class="button-secondary">Get Started!</a>';
 echo '</div>';
 
