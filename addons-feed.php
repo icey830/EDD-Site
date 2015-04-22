@@ -1,4 +1,14 @@
 <?php
+
+echo '<div class="edd-extension edd-starter-package">';
+	echo '<h3 class="edd-extension-title">Starter Package</h3>';
+	echo '<a href="' . esc_url( $url ) . '" title="' . get_the_title() . '">';
+		the_post_thumbnail('showcase', array('title' => get_the_title()));
+	echo '</a>';
+	echo '<p>Jump-start your store with the EDD Starter Package</p>';
+	echo '<a href="https://easydigitaldownloads.com/starter-package/" title="Starter Package" class="button-secondary">Get Started!</a>';
+echo '</div>';
+
 if ( have_posts() ) {
 	while ( have_posts() ) {
 		the_post();
