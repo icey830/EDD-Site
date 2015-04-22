@@ -26,7 +26,7 @@ if ( have_posts() ) {
 				the_post_thumbnail('showcase', array('title' => get_the_title()));
 			echo '</a>';
 			echo '<p>' . get_post_meta(get_the_ID(), 'ecpt_shortdescription', true) . '</p>';
-			echo '<a href="' . $url . '" title="' . get_the_title() . '" class="button-secondary">Get this Add On</a>';
+			echo '<a href="' . $url . '" title="' . get_the_title() . '" class="button-secondary">Get this Extension</a>';
 		echo '</div>';
 	}
 }
