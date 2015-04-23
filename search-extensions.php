@@ -44,7 +44,7 @@
 					<ul class="extension-categories clearfix">
 						<li><a href="<?php echo home_url( 'extensions' ); ?>">All</a></li>
 						<?php foreach ( $c as $o )  { ?>
-						<li><a href="<?php echo add_query_arg( 'category', $o->slug ); ?>"><?php echo $o->name; ?></a></li>
+						<li><a href="<?php echo esc_url( add_query_arg( 'category', $o->slug ) ); ?>"><?php echo $o->name; ?></a></li>
 						<?php } ?>
 					</ul>
 				</div>
@@ -105,7 +105,7 @@
 				$base = home_url( 'extensions' ) . '/?' . remove_query_arg( 'page', $_SERVER['QUERY_STRING'] ) . '%_%';
 
 				$links = paginate_links( array(
-					'base' => $base,
+					'base' => esc_url( $base ),
 					'format' => '&page=%#%',
 					'current' => max( 1, isset( $_GET['page'] ) ? (int) $_GET['page'] : 1 ),
 					'total' => $query->max_num_pages

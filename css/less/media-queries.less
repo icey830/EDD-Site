@@ -965,6 +965,10 @@
 		margin: 10px 0;
 	}
 	
+	#starter-package .edd-gf-name-field {
+		margin-top: 20px !important;
+	}
+	
 	#starter-package .starter-package-headline {
 		font-size: 26px;
 		margin: 0;
@@ -995,8 +999,47 @@
 	}
 	
 	/* Common Page Templates */
+	.main,
 	#landing-page.main {
 		padding-bottom: 25px;
+	}
+	
+	#full-width-page.main {
+		padding: 0;
+		margin: 0;
+	}
+	
+	#full-width-page .content {
+		padding: 20px;
+		border-radius: 0;
+		margin: 0;
+	}
+	
+	#account-page .nav-tabs {
+		margin-bottom: 15px;
+	}
+	
+	#account-page .nav-tabs > li {
+		width: 46%;
+		margin-right: 6%;
+	}
+	
+	#account-page .nav-tabs.nav-append-content > li.active:first-child:before {
+		display: none;
+	}
+	
+	#account-page .nav-tabs > li:nth-child(even) {
+		float: right;
+		margin-right: 0;
+	}
+	
+	#account-page .nav-tabs > li.active > a {
+		border: 2px solid #ddd;
+		border-radius: 6px;
+	}
+	
+	#account-page .nav-tabs > li:not(.active) > a:hover {
+		border-color: #eee;
 	}
 }
 
@@ -1551,28 +1594,6 @@
 		margin-left: -182px;
 	}
 
-	.tab-content {
-		border: none;
-		border-radius: 0;
-		position: relative;
-		padding: 20px;
-	}
-
-	.nav-tabs>li, .nav-pills>li {
-		float: none;
-		display: block;
-		margin-bottom: 0 !important;
-	}
-
-	.nav-tabs>li>a {
-		border: none;
-		border-radius: 0;
-	}
-
-	.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-		border: none !important;
-	}
-
 	.tab-pane.purchases-tab-pane {
 		margin-top: -20px;
 		margin-left: -20px;
@@ -1581,7 +1602,12 @@
 	}
 
 	#edd_profile_editor_form fieldset label {
+		width: 100%;
 		margin-bottom: 0;
+	}
+	
+	#edd_profile_editor_form #edd_address_country {
+		margin-bottom: 25px;
 	}
 
 	#edd_profile_editor_form fieldset input[type="text"], #edd_profile_editor_form fieldset input[type="email"], #edd_profile_editor_form fieldset input[type="password"] {
@@ -1705,6 +1731,15 @@
 		margin: 0 0 10px;
 		width: 100%;
 	}
+
+	#starter-package .gform_wrapper .ginput_complex select.ginput_card_expiration.ginput_card_expiration_month,
+	#starter-package .gform_wrapper .ginput_complex select.ginput_card_expiration.ginput_card_expiration_year {
+		width: 100% !important;
+	}
+	
+	#starter-package .gform_wrapper .ginput_complex select.ginput_card_expiration.ginput_card_expiration_month {
+		margin-bottom: 10px !important;
+	}
 	
 	/* Common Page Templates */
 	#landing-page.main {
@@ -1716,6 +1751,17 @@
 		padding: 20px;
 		border-radius: 0;
 		margin: 0;
+	}
+	
+	#account-page {
+		font-size: 13px;
+	}
+	
+	#account-page .nav-tabs > li,
+	#account-page .nav-tabs > li:nth-child(even) {
+		float: none;
+		width: 100%;
+		margin-right: 0;
 	}
 }
 

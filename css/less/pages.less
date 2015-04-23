@@ -16,7 +16,7 @@
 
 .main {
 	background: #eee;
-	padding: 20px 0 0;
+	padding: 20px 0 100px;
 }
 
 .main .content h1 { margin: 0; }
@@ -1159,6 +1159,10 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 /* ----------------------------- *
  * My Account
  * ----------------------------- */
+ 
+.page-template-template-account .main .container {
+	max-width: 940px;
+}
 
 .nav-tabs:before, .nav-pills:before, .nav-tabs:after, .nav-pills:after {
 	display: table;
@@ -1248,7 +1252,6 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	overflow: auto;
 	border: 2px solid #ddd;
 	border-radius: 6px;
-	margin-bottom: 140px;
 	padding: 20px;
 	position: relative;
 	z-index: 1;
@@ -1293,6 +1296,66 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 	border-top: 2px solid #eef0f0;
 	line-height: 20px;
 	text-align: left;
+	vertical-align: top;
+}
+
+#account-page .downloads-tab-pane .edd_download_file .edd_download_file_link:first-child br {
+	display: none;
+}
+
+#account-page .commissions-tab-pane .edd-select {
+	border-radius: 4px;
+	margin-bottom: 10px;
+}
+
+#account-page .commissions-tab-pane .edd-submit,
+#account-page .commissions-tab-pane .edd-submit:focus,
+#account-page .commissions-tab-pane .edd-submit:active {
+	display: block;
+	max-width: 140px;
+	margin-top: 2px;
+	padding: 4px 14px;
+	background: #2794da;
+	color: #fff;
+	-webkit-box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	border-radius: 3px;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	line-height: 24px;
+	font-weight: 300;
+	border: 1px solid #287aad;
+}
+
+#account-page .commissions-tab-pane .edd-submit:active {
+	border: 1px solid #287aad;
+	box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#account-page .commissions-tab-pane .edd-submit:hover,
+#account-page .commissions-tab-pane .edd-submit:focus {
+	background: #5ba3cf;
+	color: #fff;
+	border: 1px solid #287aad;
+}
+
+#account-page .profile-editor-tab-pane .edd-select {
+	border-radius: 3px;
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	max-width: 300px;
+}
+
+#account-page table.rcp-table th {
 	vertical-align: top;
 }
 
@@ -1591,7 +1654,6 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 #edd_commissions_paid_pagination {
 	display: block;
 	padding-top: 30px;
-	border-top: 1px solid #efefef;
 	*display: inline-block;
 	height: 1%;
 
@@ -3110,11 +3172,16 @@ input#edd-discount,
 	max-width: 100%;
 }
 
+#starter-package .gfield_error.edd-gf-cc select {
+	border: 1px solid #790000;
+}
+
 #starter-package .edd-gf-email-field .gfield_description,
 #starter-package .edd-gf-cc .gfield_description,
 #starter-package .edd-gf-cc .ginput_container label {
 	color: #999;
 	font-size: 13px;
+	line-height: 25px;
 }
 
 #starter-package .edd-gf-buyer-detail .ginput_container,
@@ -3122,7 +3189,11 @@ input#edd-discount,
 	color: #999;
 	font-size: 13px;
 	line-height: 25px;
-	margin: .188em 0 .75em 0;
+	margin: .188em 0 .4em 0;
+}
+
+#starter-package .edd-gf-name-field.edd-gf-buyer-detail .ginput_container {
+	margin-bottom: 0;
 }
 
 #starter-package .ginput_left,
@@ -3179,6 +3250,11 @@ input#edd-discount,
 	width: 300px;
 }
 
+#starter-package .gform_ajax_spinner {
+	display: block;
+	margin: 10px auto 0;
+}
+
 #starter-package .gform_footer .gform_save_link {
 	color: #999;
 	margin: 10px 0 0;
@@ -3186,6 +3262,62 @@ input#edd-discount,
 
 #starter-package .gform_footer .gform_save_link:hover {
 	color: #555;
+}
+
+#starter-package .gform_wrapper div.validation_error {
+	background: #FFDFE0;
+	color: #790000;
+	font-size: 1em;
+	font-weight: 400;
+	padding: 10px 20px;
+	border: 1px solid #790000;
+	border-radius: 4px;
+	margin: 25px 0;
+}
+
+#starter-package .gform_wrapper div.validation_error,
+#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container,
+#starter-package .gform_wrapper .top_label .gfield_error:not(.edd-gf-marketing) {
+	width: 100%;
+}
+
+#starter-package .gform_wrapper li.gfield.gfield_error {
+	padding: 30px;
+	border: 1px solid #790000;
+	border-radius: 4px;
+}
+
+#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required.edd-gf-marketing {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+#starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-name-field {
+	padding-bottom: 0;
+	border-bottom: none;
+	border-radius: 4px 4px 0 0;
+}
+
+#starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-email-field {
+	padding-top: 10px;
+	border-top: none;
+	border-radius: 0 0 4px 4px;
+}
+
+#starter-package .gfield_description.validation_message {
+	color: #555;
+}
+
+#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.gfield_description,
+#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container,
+#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required label.gfield_label,
+#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required fieldset legend.gfield_label {
+	margin-left: 0;
+	max-width: 100%;
+}
+
+#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.gfield_description.validation_message {
+	display: none;
 }
 
 
@@ -3205,6 +3337,12 @@ input#edd-discount,
 	max-width: 640px;
 }
 
-#landing-page .entry-header {
+#landing-page .entry-header,
+#full-width-page .entry-header {
 	margin-bottom: 20px;
+}
+
+#full-width-page .content {
+	padding: 50px;
+	border-radius: 4px;
 }
