@@ -1514,3 +1514,33 @@ add_filter( 'gform_pre_render_11', 'edd_wp_gravity_form_download_options' );
 add_filter( 'gform_pre_validation_11', 'edd_wp_gravity_form_download_options' );
 add_filter( 'gform_pre_submission_filter_11', 'edd_wp_gravity_form_download_options' );
 add_filter( 'gform_admin_pre_render_11', 'edd_wp_gravity_form_download_options' );
+
+function eddwp_facebook_conversion_pixel() {
+
+	if( function_exists( 'edd_is_success_page' ) && ! edd_is_success_page() ) {
+		return;
+	}
+
+	if( ! edd_get_purchase_session() ) {
+		return;
+	}
+?>
+<!-- Facebook Conversion Code for EDD Checkout Success -->
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6023481255100', {'value':'0.00','currency':'USD'}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6023481255100&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+<?php
+}
+add_action( 'wp_footer', 'eddwp_facebook_conversion_pixel' );
