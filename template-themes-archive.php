@@ -127,27 +127,25 @@ $no_duplicates = array(); // don't repeat the same theme twice
 							);
 							$eddwp_themes = new WP_Query( $eddwp_theme_args );
 
-							while ( $eddwp_themes->have_posts() ) : $eddwp_themes->the_post(); $no_duplicates[] = $post->ID;
-								if ( ! in_array( $post->ID, $no_duplicates ) ) :
-									?>
-									<div class="download-grid-item">
-										<?php
-											the_post_thumbnail( 'download-grid-thumb', array(
-												'class' => 'download-grid-thumb' )
-											);
-										?>
-										<div class="download-grid-item-info">
-											<?php
-												the_title( '<h4 class="download-grid-title">', '</h4>' );
-												the_excerpt();
-											?>
-										</div>
-										<div class="download-grid-item-cta">
-											<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">See Theme Details</a>
-										</div>
-									</div>
+							while ( $eddwp_themes->have_posts() ) : $eddwp_themes->the_post();
+								?>
+								<div class="download-grid-item">
 									<?php
-								endif;
+										the_post_thumbnail( 'download-grid-thumb', array(
+											'class' => 'download-grid-thumb' )
+										);
+									?>
+									<div class="download-grid-item-info">
+										<?php
+											the_title( '<h4 class="download-grid-title">', '</h4>' );
+											the_excerpt();
+										?>
+									</div>
+									<div class="download-grid-item-cta">
+										<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">See Theme Details</a>
+									</div>
+								</div>
+								<?php
 							endwhile;
 							wp_reset_postdata();
 						?>
