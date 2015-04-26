@@ -204,6 +204,18 @@
 	}
 }
 
+@media all and (max-width: 1100px) {
+	.full-width .inner {
+		padding: 30px 20px;
+	}
+	.inner .section-header {
+		margin-bottom: 30px;
+	}
+	.featured-download-info {
+		padding-left: 30px;
+	}
+}
+
 /* ----------------------------- *
  * Tablets to regular desktops
  * ----------------------------- */
@@ -819,6 +831,67 @@
 	.edd-downloads-grid ul li:nth-child(even) {
 		width: 49%%;
 		margin-right: 0;
+	}
+	
+	.two-col .download-grid-item,
+	.three-col .download-grid-item {
+		width: 48%;
+		margin-right: 3.2%;
+		margin-bottom: 3.5%;
+	}
+
+	.three-col .download-grid-item:nth-child(3n) {
+		margin-right: 3.2%;
+	}
+
+	.three-col .download-grid-item:nth-child(even) {
+		margin-right: 0;
+	}
+	
+	.featured-download-thumb,
+	.featured-download-info {
+		width: 100%;
+		padding: 0;
+	}
+	
+	.featured-download-img,
+	.featured-download-title {
+		margin-bottom: 20px;
+	}
+
+	.featured-download-title {
+		font-size: 24px;
+	}
+
+	.featured-download-label {
+		vertical-align: text-bottom;
+	}
+
+	.download-grid-item-primary-link,
+	.download-grid-item-secondary-link,
+	.featured-download-primary-link,
+	.featured-download-secondary-link {
+		text-align: center;
+		width: 100%;
+	}
+
+	.download-grid-item-primary-link,
+	.featured-download-primary-link {
+		margin-bottom: 10px;
+	}
+}
+
+@media (max-width: 600px) {
+	.two-col .download-grid-item,
+	.three-col .download-grid-item {
+		width: 100%;
+		margin-right: 0%;
+		margin-bottom: 5%;
+	}
+	
+	.two-col .download-grid-item .download-grid-title,
+	.three-col .download-grid-item .download-grid-title {
+		font-size: 24px;
 	}
 }
 

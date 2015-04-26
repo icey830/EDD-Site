@@ -54,6 +54,8 @@ function edd_theme_setup() {
 	add_image_size( 'theme-showcase', 460, 280, true );
 	add_image_size( 'featured-showcase', 460, 330, true );
 	add_image_size( 'extension', 180, 150, true );
+	add_image_size( 'download-grid-thumb', 600, 400, true );
+	add_image_size( 'featured-download', 760, 507, true );
 
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'edd' ),
@@ -470,6 +472,14 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'search';
 		$classes[] = 'documentation';
 		$classes[] = 'documentation-search';
+	}
+	
+	if ( is_page_template( 'template-themes-archive.php' ) ) {
+		$classes[] = 'template-themes';
+	}
+	
+	if ( is_page_template( 'template-extensions-archive.php' ) ) {
+		$classes[] = 'template-extensions';
 	}
 
 	return $classes;
