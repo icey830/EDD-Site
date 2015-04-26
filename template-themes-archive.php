@@ -112,6 +112,7 @@ $no_duplicates = array(); // don't repeat the same theme twice
 							$eddwp_theme_args = array(
 								'post_type' => 'download',
 								'tax_query' => array(
+									'relation' => 'AND',
 									array(
 										'taxonomy' => 'download_category',
 										'field'    => 'slug',
