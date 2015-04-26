@@ -209,7 +209,8 @@ function eddwp_comment_form() {
 
 	comment_form(
 		array(
-			'fields' => apply_filters( 'comment_form_default_fields', $fields )
+			'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+			'comment_notes_after' => '<p class="comments-support-notice notice">For support, please open a ticket in the <a href="https://easydigitaldownloads.com/support/">Support Forums</a>.</p><p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>',
 		)
 	);
 }
@@ -256,56 +257,34 @@ add_action( 'widgets_init', 'edd_register_theme_sidebars' );
  * ----------------------------------------------------------- */
 
 /**
- * Filters wp_title to print a neat <title> tag based on what is being viewed.
+ * Create a nicely formatted and more specific title element text for output
+ * in head of document, based on current view.
+ *
+ * @param string $title Default title text for current view.
+ * @param string $sep Optional separator.
+ * @return string The filtered title.
  */
 function edd_wp_title( $title, $sep ) {
-	global $paged, $page, $post;
+	global $paged, $page;
 
-	/* Default title */
-	$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
-
-	/* Search */
-	if ( is_search() || isset( $_GET['extension_s'] ) ) :
-		if ( is_search() )
-			$search_term = get_query_var( 's' );
-
-		if ( isset( $_GET['extension_s'] ) )
-			$search_term = sanitize_text_field( trim( stripslashes( $_GET['extension_s'] ) ) );
-
-		$title = __( 'Search Results For' , 'edd' ) . ' ' . $search_term . ' | ' . get_bloginfo( 'name' );
-	/* Homepage */
-	elseif ( is_home() || is_front_page() ) :
-		$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
-	/* Single page */
-	elseif ( is_page() ) :
-		$title = strip_tags( htmlspecialchars_decode( get_the_title( $post->ID ) ) ) . ' | ' . get_bloginfo( 'name' );
-	/* 404 Page */
-	elseif ( is_404() ) :
-		$title = __( '404 - Nothing Found', 'edd' ) . ' | ' . get_bloginfo( 'name' );
-	/* Author Archive */
-	elseif ( is_author() ) :
-		$title = get_userdata( get_query_var( 'author' ) )->display_name . ' | ' . __( 'Author Archive', 'edd' )	. ' | ' . get_bloginfo( 'name' );
-	/* Category Archive */
-	elseif ( is_category() ) :
-		$title = single_cat_title( '', false ) . ' | ' . __( 'Category Archive', 'edd' ) . ' | ' . get_bloginfo( 'name' );
-	/* Tag Archive */
-	elseif ( is_tag() ) :
-		$title = single_tag_title( '', false ) . ' | ' . __( 'Tag Archive', 'edd' ) . ' | ' . get_bloginfo( 'name' );
-	/* Single Blog Post */
-	elseif ( is_single() ) :
-		$post_title = the_title_attribute( 'echo=0' );
-
-		if ( ! empty( $post_title ) )
-			$title = $post_title . ' | ' . get_bloginfo( 'name' );
-	endif;
-
-	/* Feed (RSS|Atom) */
-	if ( is_feed() )
+	if ( is_feed() ) {
 		return $title;
+	}
 
-	/* Pagination */
-	if ( $paged >= 2 || $page >= 2 )
+	// Add the site name.
+	$title .= get_bloginfo( 'name' );
+
+	// Add the site description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	
+	if ( $site_description && ( is_home() || is_front_page() ) ) {
+		$title = "$title $sep $site_description";
+	}
+
+	// Add a page number if necessary.
+	if ( $paged >= 2 || $page >= 2 ) {
 		$title = "$title $sep " . sprintf( __( 'Page %s', 'edd' ), max( $paged, $page ) );
+	}
 
 	return $title;
 }
@@ -1205,22 +1184,43 @@ function eddwp_feed_query( $query ) {
 
 		$query->set( 'posts_per_page', 50 );
 
-		$tax_query = array(
-			'relation' => 'AND',
-			array(
-				'taxonomy' => 'extension_category',
-				'field'    => 'slug',
-				'terms'    => '3rd-party',
-				'operator' => 'NOT IN'
-			),
-			array(
-				'taxonomy' => 'extension_category',
-				'field'    => 'slug',
-				'terms'    => 'popular'
-			)
-		);
+		if( isset( $_GET['display'] ) && 'new' == $_GET['display'] ) {
 
-		$query->set( 'tax_query', $tax_query );
+			$tax_query = array(
+				'relation' => 'AND',
+				array(
+					'taxonomy' => 'extension_category',
+					'field'    => 'slug',
+					'terms'    => '3rd-party',
+					'operator' => 'NOT IN'
+				)
+			);
+
+			$query->set( 'tax_query', $tax_query );
+			$query->set( 'orderby', 'date' );
+			$query->set( 'order', 'DESC' );
+
+		} else {
+
+			$tax_query = array(
+				'relation' => 'AND',
+				array(
+					'taxonomy' => 'extension_category',
+					'field'    => 'slug',
+					'terms'    => '3rd-party',
+					'operator' => 'NOT IN'
+				),
+				array(
+					'taxonomy' => 'extension_category',
+					'field'    => 'slug',
+					'terms'    => 'popular'
+				)
+			);
+
+			$query->set( 'tax_query', $tax_query );
+			$query->set( 'orderby', 'menu_order' );
+
+		}
 
 	}
 	return $query;
@@ -1253,6 +1253,16 @@ function eddwp_rss_namespace() {
     xmlns:georss="http://www.georss.org/georss"';
 }
 add_filter( 'rss2_ns', 'eddwp_rss_namespace' );
+
+
+/**
+ * Removes styling from Better Click To Tweet plugin
+ */
+function eddwp_remove_bctt_styling() {
+	remove_action('wp_enqueue_scripts', 'bctt_scripts');
+}
+add_action( 'template_redirect', 'eddwp_remove_bctt_styling' );
+
 
 /**
  * Alter the WordPress query when displaying themes
@@ -1290,10 +1300,9 @@ function eddwp_post_meta() {
 	?>
 	<div class="post-meta">
 		<ul>
-			<?php if ( is_single() ) { ?>
-				<li><i class="fa fa-user"></i> <?php the_author(); ?></li>
-			<?php } // end if ?>
 			<?php
+			if ( is_single() ) eddwp_author_box();
+
 			$categories = get_the_category_list( __( ', ', 'edd' ) );
 
 			if ( $categories ) {
@@ -1316,28 +1325,51 @@ function eddwp_post_meta() {
 }
 
 /**
- * Sidebar Newsletter Sign Up Form
+ * Single post author box
  */
-function eddwp_newsletter_sidebar() {
+function eddwp_author_box() {
+	$author_url = get_the_author_meta( 'user_url' );
 	?>
-	<div class="newsletter widget">
-		<h3 class="newsletter-title">Email Newsletter</h3>
-		<p class="newsletter-description">Sign up to the Easy Digital Downloads email newsletter and be the first to know about the latest information and exclusive promotions.</p>
-		<form class="newsletter-form" id="pmc_mailchimp" action="" method="post">
-			<div>
-				<input class="newsletter-name" name="pmc_fname" id="pmc_fname" type="text" placeholder="First Name"/>
+		<div class="edd-author-box clearfix">
+			<div class="edd-author-avatar">
+				<?php echo get_avatar( get_the_author_meta( 'ID' ), 85, '', get_the_author_meta( 'display_name' ) ); ?>
 			</div>
-			<div>
-				<input class="newsletter-email" name="pmc_email" id="pmc_email" type="text" placeholder="Email Address"/>
+			<div class="edd-author-bio">
+				<h4 class="edd-author-title">Written by <?php echo get_the_author_meta( 'display_name' ); ?></h4>
+				<?php if ( $author_url ) { ?>
+					<span class="edd-author-url"><a href="<?php echo esc_url( $author_url ); ?>" target="_blank"><i class="fa fa-link"></i></a></span>
+				<?php } ?>
+				<?php echo wpautop( get_the_author_meta( 'description' ) ); ?>
 			</div>
-			<div>
-				<input type="hidden" name="redirect" value="<?php echo 'https://' . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>"/>
-				<input type="hidden" name="action" value="pmc_signup"/>
-				<input type="hidden" name="pmc_list_id" value="<?php echo $list_id; ?>"/>
-				<input type="submit" value="Sign Up"/>
-			</div>
-		</form>
-		<p class="newsletter-note"><i class="fa fa-lock"></i>We will never send you spam. Your email address is secure.</p>
+		</div>
+	<?php
+}
+
+/**
+ * Universal Newsletter Sign Up Form
+ */
+function eddwp_newsletter_form() {
+	?>
+	<div class="newsletter">
+		<h3 class="newsletter-title"><span>Subscribe to the Easy Digital Downloads </span>Email Newsletter</h3>
+		<div class="edd-newsletter-content-wrap">
+			<p class="newsletter-description">Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads by submitting your information below.</p>
+			<form class="newsletter-form" id="pmc_mailchimp" action="" method="post">
+				<div class="newsletter-name-container">
+					<input class="newsletter-name" name="pmc_fname" id="pmc_fname" type="text" placeholder="First Name"/>
+				</div>
+				<div class="newsletter-email-container">
+					<input class="newsletter-email" name="pmc_email" id="pmc_email" type="text" placeholder="Email Address"/>
+				</div>
+				<div class="newsletter-submit-container">
+					<input type="hidden" name="redirect" value="<?php echo 'https://' . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>"/>
+					<input type="hidden" name="action" value="pmc_signup"/>
+					<input type="hidden" name="pmc_list_id" value="be2b495923"/>
+					<input type="submit" class="newsletter-submit edd-button button blue" value="Sign Up"/>
+				</div>
+			</form>
+			<p class="newsletter-note"><i class="fa fa-lock"></i>We will never send you spam. Your email address is secure.</p>
+		</div>
 	</div>
 	<?php
 }
@@ -1383,6 +1415,13 @@ function temporary_eddwp_connection_types() {
 	) );
 }
 add_action( 'p2p_init', 'temporary_eddwp_connection_types' );
+
+/**
+ * Check to see if EDD is activated
+ */
+function eddwp_edd_is_activated() {
+	return class_exists( 'Easy_Digital_Downloads' );
+}
 
 
 /* ----------------------------------------------------------- *
@@ -1473,3 +1512,66 @@ function eddc_get_upcoming_commissions(){
 
 	return 'Next payout for Commissions earned from '.  date( 'm/d/Y', strtotime( $from ) ) .' to '. date( 'm/d/Y', strtotime( $to ) ) . ' will be: <strong>' . edd_currency_filter( edd_format_amount( $total ) ) . '</strong>';
 }
+
+/**
+ * Adds all Downloads to the Extension drop down in the new ticket form
+ *
+ */
+function edd_wp_gravity_form_download_options( $form ) {
+
+    foreach ( $form['fields'] as &$field ) {
+
+        if ( $field->type != 'select' || strpos( $field->cssClass, 'extension-list' ) === false ) {
+            continue;
+        }
+
+        $downloads = get_posts( array( 'posts_per_page' => -1, 'post_type' => 'download', 'orderby' => 'post_title', 'order' => 'ASC' ) );
+
+        $choices = array();
+
+        foreach ( $downloads as $download ) {
+            $choices[] = array( 'text' => $download->post_title, 'value' => $download->post_title );
+        }
+
+        // update 'Select a Post' to whatever you'd like the instructive option to be
+        $field->placeholder = 'Select extension';
+        $field->choices = $choices;
+
+    }
+
+    return $form;
+}
+add_filter( 'gform_pre_render_11', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_pre_validation_11', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_pre_submission_filter_11', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_admin_pre_render_11', 'edd_wp_gravity_form_download_options' );
+
+function eddwp_facebook_conversion_pixel() {
+
+	if( function_exists( 'edd_is_success_page' ) && ! edd_is_success_page() ) {
+		return;
+	}
+
+	if( ! edd_get_purchase_session() ) {
+		return;
+	}
+?>
+<!-- Facebook Conversion Code for EDD Checkout Success -->
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6023481255100', {'value':'0.00','currency':'USD'}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6023481255100&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+<?php
+}
+add_action( 'wp_footer', 'eddwp_facebook_conversion_pixel' );

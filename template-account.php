@@ -12,20 +12,19 @@
  */
 global $rcp_load_css, $rcp_load_scripts;
 $rcp_load_css = $rcp_load_scripts = true;
-?>
-<?php get_header(); ?>
 
-	<section class="main clearfix">
+get_header();
+
+if ( is_user_logged_in() ) { ?>
+
+	<section id="account-page" class="main clearfix">
 		<div class="container clearfix">
-			<?php if ( is_user_logged_in() ) { ?>
 
-			<section class="content clearfix">
-				<?php while ( have_posts() ) { the_post(); ?>
-				<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
-					<h1><?php the_title(); ?></h1>
-				</article><!-- /#post-<?php echo get_the_ID(); ?> -->
-				<?php } ?>
-			</section><!-- /.content -->
+			<?php while ( have_posts() ) { the_post(); ?>
+			<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
+				<h1>My Account</h1>
+			</article><!-- /#post-<?php echo get_the_ID(); ?> -->
+			<?php } ?>
 
 			<ul class="nav nav-tabs nav-append-content">
 				<li class="active"><a href="#tab1" data-toggle="tab">Purchases</a></li>
@@ -39,6 +38,7 @@ $rcp_load_css = $rcp_load_scripts = true;
 			</ul><!-- /.nav-tabs -->
 
 			<div class="tab-content">
+
 				<div class="tab-pane active purchases-tab-pane" id="tab1">
 					<?php echo apply_filters( 'the_content', do_shortcode( '[purchase_history]' ) ); ?>
 				</div><!-- /.tab-pane -->
@@ -48,63 +48,68 @@ $rcp_load_css = $rcp_load_scripts = true;
 				</div><!-- /.tab-pane -->
 
 
-				<div class="tab-pane" id="tab2">
+				<div class="tab-pane profile-editor-tab-pane" id="tab2">
 					<?php edd_get_template_part( 'shortcode', 'profile-editor' ); ?>
 				</div><!-- /.tab-pane -->
 
-				<div class="tab-pane" id="tab3">
+				<div class="tab-pane commissions-tab-pane" id="tab3">
 					<h3>Next Payout</h3>
-					<div id="next-payout"><?php if( function_exists( 'eddc_get_upcoming_commissions' ) ) { echo eddc_get_upcoming_commissions(); } ?></div>
+					<p id="next-payout"><?php if( function_exists( 'eddc_get_upcoming_commissions' ) ) { echo eddc_get_upcoming_commissions(); } ?></p>
 					<?php if( function_exists( 'eddc_user_product_list' ) ) { echo eddc_user_product_list(); } ?>
 					<?php if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); } ?>
 				</div><!-- /.tab-pane -->
 
-				<div class="tab-pane" id="support-tickets">
+				<div class="tab-pane support-tickets-tab-pane" id="support-tickets">
 					<?php
 					echo do_shortcode( '[support_tickets]' );
 					?>
 				</div><!-- /.tab-pane -->
 
-				<div class="tab-pane" id="tab5">
+				<div class="tab-pane support-subscription-tab-pane" id="tab5">
 					<?php
 					echo do_shortcode( '[subscription_details]' );
 					echo do_shortcode( '[card_details]' );
 					?>
 				</div><!-- /.tab-pane -->
 
-				<div class="tab-pane" id="tab6">
+				<div class="tab-pane download-history-tab-pane" id="tab6">
 					<?php
 					echo do_shortcode( '[download_history]' );
 					?>
 				</div><!-- /.tab-pane -->
+
 			</div><!-- /.tab-content -->
-
-			<?php } else { ?>
-
-			<section class="content clearfix">
-				<h1>You must be logged-in to access your account information.</h1>
-				<form name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
-					<fieldset>
-						<div class="row">
-							<input type="text" placeholder="Username" id="user_login" size="20" value="" name="log" />
-						</div><!-- /.row -->
-
-						<div class="row">
-							<input type="password" placeholder="Password" id="user_pass" size="20" value="" name="pwd" />
-						</div><!-- /.row -->
-					</fieldset>
-
-					<div class="row clearfix">
-						<input type="checkbox" name="rememberme" id="rememberme" value="forever" checked="checked" />
-						<label for="rememberme">Remember my password</label>
-						<input type="submit" name="wp-submit" value="Sign In" />
-						<input type="hidden" name="redirect_to" value="<?php echo ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>" />
-					</div>
-				</form><!-- /#loginform -->
-			</div>
-
-			<?php } // end if ?>
 		</div><!-- /.container -->
 	</section><!-- /.main -->
+	<?php
+		
+} else { ?>
 
-<?php get_footer(); ?>
+	<section id="landing-page" class="landing main clearfix">
+		<article class="content clearfix">
+			<h1>You must be logged-in to access your account information.</h1>
+			<form name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
+				<fieldset>
+					<div class="row">
+						<input type="text" placeholder="Username" id="user_login" size="20" value="" name="log" />
+					</div><!-- /.row -->
+
+					<div class="row">
+						<input type="password" placeholder="Password" id="user_pass" size="20" value="" name="pwd" />
+					</div><!-- /.row -->
+				</fieldset>
+
+				<div class="row clearfix">
+					<input type="checkbox" name="rememberme" id="rememberme" value="forever" checked="checked" />
+					<label for="rememberme">Remember my password</label>
+					<input type="submit" name="wp-submit" value="Sign In" />
+					<input type="hidden" name="redirect_to" value="<?php echo ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>" />
+				</div>
+			</form><!-- /#loginform -->
+		</article>
+	</section>
+	<?php
+
+} // end if
+
+get_footer();

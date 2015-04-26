@@ -42,14 +42,14 @@
 	<div class="header-outer">
 		<header class="header clearfix">
 			<div id="logo">
-				<?php if( is_page( 'checkout' ) ) : ?>
+				<?php if( is_page( 'checkout' ) && false !== edd_get_cart_contents() ) : ?>
 					<img src="<?php echo get_template_directory_uri() ?>/images/logo.png" alt="Easy Digital Downloads" />
 				<?php else : ?>
 					<a href="<?php echo get_option( 'siteurl' ); ?>" class="logo-image"><img src="<?php echo get_template_directory_uri() ?>/images/logo.png" alt="Easy Digital Downloads" /></a>
 				<?php endif; ?>
 			</div><!-- #logo -->
 
-			<?php if( ! is_page( 'checkout' ) || is_page( 130 ) || is_page( 635 ) ) : ?>
+			<?php if( ( ! is_page( 'checkout' ) || ( is_page( 'checkout' ) && eddwp_edd_is_activated() && false === edd_get_cart_contents() ) ) || is_page( 130 ) || is_page( 635 ) ) : ?>
 			
 			<i class="fa fa-bars"></i>
 
