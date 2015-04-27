@@ -391,9 +391,21 @@ function eddwp_paginate_links() {
 
 	$big = 999999999;
 
+	if( ! function_exists( 'edd_get_current_page_url' ) ) {
+		return;
+	}
+
+	$url = edd_get_current_page_url();
+
+	if( false === strpos( $url, '?' ) ) {
+		$sep = '?';
+	} else {
+		$sep = '&';
+	}
+
 	echo '<div class="pagination clear">' . paginate_links( array(
-		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-		'format' => '?paged=%#%',
+		'base' => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+		'format' => $sep . 'paged=%#%',
 		'current' => max( 1, get_query_var( 'paged' ) ),
 		'total' => $wp_query->max_num_pages,
 	) ) . '</div>';
@@ -1244,15 +1256,16 @@ add_filter( 'pre_get_posts', 'eddwp_feed_query', 999 );
  * ----------------------------------------------------------- */
 
 /**
- * Add rss image
+ * Add RSS image
  */
 function eddwp_rss_featured_image() {
     global $post;
     
     if ( has_post_thumbnail( $post->ID ) ) {
     	$thumbnail = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
+    	$mime_type = get_post_mime_type( get_post_thumbnail_id( $post->ID ) );
     	?>
-    	<media:content url="<?php echo $thumbnail; ?>" type="image" medium="image" width="600" height="300"></media:content>
+    	<media:content url="<?php echo $thumbnail; ?>" type="<?php echo $mime_type; ?>" medium="image" width="600" height="300"></media:content>
     <?php }
 }
 add_filter( 'rss2_item', 'eddwp_rss_featured_image' );
