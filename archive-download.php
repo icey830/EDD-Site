@@ -2,42 +2,41 @@
 /**
  * The template for displaying all the download items.
  */
+get_header();
 ?>
-
-<?php get_header(); ?>
-
 	<section class="main clearfix">
 
-		<section class="edd-downloads-container">
-			<div class="edd-downloads clearfix">
-				<?php
-				$c = 0; while ( have_posts() ) : the_post(); $c++;
-				?>
-					<div class="edd-download<?php if ( 0 == $c%3 ) echo ' edd-download-clear'; if ( has_term( '3rd Party', 'download_category', get_the_ID() ) ) echo ' third-party-edd-download'; if ( eddwp_is_extension_free() ) echo ' free-edd-download'; ?>">
-						<a href="<?php the_permalink(); ?>" title="<?php get_the_title(); ?>">
-							<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
-							<h2><?php the_title(); ?></h2>
-							<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
-						</a>
-						<div class="overlay">
-							<a href="<?php the_permalink(); ?>" class="overlay-view-details button">View Details</a>
-							<?php if( ! eddwp_is_external_extension() ) : ?>
-								<a href="<?php echo home_url( '/checkout/?edd_action=add_to_cart&download_id=' . get_the_ID() ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
-							<?php endif; ?>
-						</div>
-						<?php
-						if ( has_term( '3rd Party', 'download_category', get_the_ID() ) )
-							echo '<i class="third-party"></i>';
-						?>
-					</div>
-					<?php
-				endwhile;
-
-				eddwp_paginate_links();
-				wp_reset_postdata();
-				?>
+		<div class="edd-downloads-area full-width">
+			<div class="inner">
+				<div class="edd-downloads">
+					<section class="download-grid three-col clearfix">
+						<?php while ( have_posts() ) : the_post(); ?>
+							<div class="download-grid-item">
+								<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
+									<?php
+										the_post_thumbnail( 'download-grid-thumb', array(
+											'class' => 'download-grid-thumb' )
+										);
+									?>
+								</a>
+								<div class="download-grid-item-info">
+									<?php
+										the_title( '<h4 class="download-grid-title">', '</h4>' );
+										$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
+										echo $short_desc;
+									?>
+								</div>
+								<div class="download-grid-item-cta">
+									<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
+								</div>
+							</div>
+						<?php endwhile; wp_reset_postdata(); ?>
+					</section><!-- .download-grid three-col -->
+					<?php eddwp_paginate_links(); ?>
+				</div>
 			</div>
-		</section><!-- /.edd-downloads-container -->
-	</section><!-- /.main -->
+		</div>
 		
-<?php get_footer(); ?>
+	</section><!-- /.main -->
+	<?php
+get_footer();

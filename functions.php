@@ -403,6 +403,7 @@ function eddwp_paginate_links() {
  * Add the rewrite tag for the extensions search
  */
 function eddwp_add_rewrite_tags() {
+	add_rewrite_tag( '%download_s%', '([^/]+)' );
 	add_rewrite_tag( '%extension_s%', '([^/]+)' );
 }
 add_action( 'init', 'eddwp_add_rewrite_tags' );
@@ -412,6 +413,10 @@ add_action( 'init', 'eddwp_add_rewrite_tags' );
  * correct template is loaded when the extension search is initiated.
  */
 function eddwp_process_rewrites() {
+	if ( isset( $_GET[ 'download_s' ] ) && ! empty ( $_GET['download_s'] ) && isset( $_GET['action'] ) && $_GET['action'] == 'download_search' ) {
+		load_template( dirname( __FILE__ ) . '/search-downloads-extensions.php' );
+		die();
+	}
 	if ( isset( $_GET[ 'extension_s' ] ) && ! empty ( $_GET['extension_s'] ) && isset( $_GET['action'] ) && $_GET['action'] == 'extension_search' ) {
 		load_template( dirname( __FILE__ ) . '/search-extensions.php' );
 		die();
@@ -433,6 +438,9 @@ function eddwp_body_class( $classes ) {
 
 	if ( isset( $_GET['extension_s'] ) )
 		$classes[] = 'extension-search';
+
+	if ( isset( $_GET['download_s'] ) )
+		$classes[] = 'download-search';
 
 	if ( is_page( 'support' ) )
 		$classes[] = 'bbpress';
@@ -459,6 +467,10 @@ function eddwp_body_class( $classes ) {
 	
 	if ( is_page_template( 'template-extensions-archive.php' ) ) {
 		$classes[] = 'template-extensions';
+	}
+	
+	if ( is_page_template( 'template-site-showcase.php' ) ) {
+		$classes[] = 'template-site-showcase';
 	}
 
 	return $classes;
