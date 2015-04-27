@@ -1225,9 +1225,8 @@ function eddwp_feed_query( $query ) {
 		}
 
 	}
-	return $query;
 }
-add_filter( 'pre_get_posts', 'eddwp_feed_query', 999 );
+add_action( 'pre_get_posts', 'eddwp_feed_query', 99999999 );
 
 /* ----------------------------------------------------------- *
  * 10. Misc
