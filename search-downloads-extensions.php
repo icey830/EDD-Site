@@ -148,7 +148,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 		
 						$links = paginate_links( array(
 							'base'    => esc_url( $base ),
-							'format'  => '?&page=%#%',
+							'format'  => '&page=%#%',
 							'current' => max( 1, isset( $_GET['page'] ) ? (int) $_GET['page'] : 1 ),
 							'total'   => $s_query->max_num_pages
 						) );
