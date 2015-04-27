@@ -147,13 +147,13 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 						$base = home_url( 'extensions-template' ) . '/?' . remove_query_arg( 'page', $_SERVER['QUERY_STRING'] ) . '%_%';
 		
 						$links = paginate_links( array(
-							'base'    => esc_url( $base ),
-							'format'  => '?&page=%#%',
+							'base'    => $base,
+							'format'  => '&page=%#%',
 							'current' => max( 1, isset( $_GET['page'] ) ? (int) $_GET['page'] : 1 ),
 							'total'   => $s_query->max_num_pages
 						) );
 					?>
-					<div class="pagination">
+					<div class="pagination clearfix">
 						<?php echo $links; ?>
 					</div>
 					<?php wp_reset_postdata(); ?>
