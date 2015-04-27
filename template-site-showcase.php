@@ -31,7 +31,6 @@ the_post();
 										'taxonomy' => 'showcasecategory',
 										'field'    => 'slug',
 										'terms'    => 'featured',
-										'operator' => 'IN'
 									)
 								)
 							);
@@ -74,7 +73,7 @@ the_post();
 									)
 								)
 							);
-							$sites = new WP_Query( $featured_showcases );
+							$sites = new WP_Query( $site_showcases );
 
 							while ( $sites->have_posts() ) : $sites->the_post();
 								?>
