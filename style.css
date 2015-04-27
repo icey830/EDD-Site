@@ -884,7 +884,8 @@ address {
  * ----------------------------- */
 .download-grid-item {
   display: inline-block;
-  background: #fff;
+  background: #f9f9f9;
+  text-align: center;
   padding: 20px;
   border-radius: 4px;
   vertical-align: top;
@@ -922,14 +923,29 @@ address {
 .download-grid-item-info > p {
   margin-bottom: 20px;
 }
-.download-grid-item-primary-link {
-  margin-right: 10px;
-}
 .download-grid-item-secondary-link {
   color: #666;
 }
 .download-grid-item-secondary-link:hover {
   color: #666;
+}
+.edd-downloads .pagination {
+  padding: 10px 0 30px;
+  border: none;
+}
+.edd-downloads .pagination .page-numbers,
+.edd-downloads .pagination .page-numbers.dots:hover {
+  background: #f9f9f9;
+  border: none;
+}
+.edd-downloads .pagination .page-numbers.dots:hover {
+  background: #f9f9f9;
+  color: #555;
+}
+.edd-downloads .pagination .current,
+.edd-downloads .pagination .page-numbers:hover {
+  background: #2794da;
+  border: none;
 }
 /* ----------------------------- *
  * Container
@@ -4903,9 +4919,83 @@ input#edd-discount:focus,
 }
 /* FIND OUT WHY I'M HERE AND REMOVE ME */
 .template-themes .main,
-.template-extensions .main {
+.template-extensions .main,
+.template-site-showcase .main,
+.post-type-archive-download .main,
+.tax-download_category .main,
+.tax-download_tag .main {
   padding: 0;
 }
+.tax-download_category .extensions-header-area .inner,
+.tax-download_tag .extensions-header-area .inner {
+  padding-bottom: 0;
+}
+/* extensions page */
+.template-extensions .edd-downloads-area .inner,
+.download-search .edd-downloads-area .inner {
+  padding-top: 30px;
+}
+.extensions-header .section-header {
+  margin-bottom: 10px;
+}
+.extensions-search-form {
+  padding: 30px 0 0;
+  margin: 0 auto;
+  max-width: 700px;
+}
+.extensions-search-form input {
+  display: inline-block;
+  font-size: 24px;
+  padding: 10px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.extensions-search-form input[type="search"] {
+  border: none;
+  border-radius: 3px;
+  margin-right: 2%;
+  max-width: 80%;
+}
+.extensions-search-form input[type="submit"] {
+  width: 15%;
+  min-width: 105px;
+}
+.edd-downloads .section-header .filter-label {
+  display: inline-block;
+  font-size: 24px;
+  text-align: left;
+  width: 16%;
+  vertical-align: top;
+}
+.edd-downloads .section-header .filter {
+  display: inline-block;
+  background: none;
+  padding: 0;
+  margin: 0;
+  width: 78.5%;
+}
+.section-header .filter li {
+  margin: 0 8px 8px 0;
+}
+.section-header .filter a {
+  background: #a2acb2;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1;
+  padding: 6px 8px;
+  border: none;
+  margin: 0;
+}
+.section-header .filter a:hover {
+  background: #2794DA;
+}
+#extensions-bundle-promotion.download-grid-item {
+  background: #2794da;
+  color: #fff;
+}
+/* themes page */
 .featured-download-area {
   background: #eee;
 }
@@ -4961,11 +5051,21 @@ input#edd-discount:focus,
 .recommended-download-area {
   background: #eee;
 }
-.eddwp-downloads-area {
+.template-extensions .edd-downloads-area,
+.template-themes .edd-downloads-area,
+.download-search .edd-downloads-area {
   background: #fff;
 }
-.eddwp-downloads-area .download-grid-item {
-  background: #fafafa;
+/* showcase page */
+.site-showcase-area {
+  background: #fff;
+}
+.showcase-submission {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 50px;
+  border-radius: 4px;
 }
 /* ----------------------------- *
  * Starter package
@@ -7259,6 +7359,13 @@ span.bbp-author-ip {
   #account-page .nav-tabs > li:not(.active) > a:hover {
     border-color: #eee;
   }
+  .edd-downloads .section-header .filter-label,
+  .edd-downloads .section-header .filter {
+    width: 100%;
+  }
+  .edd-downloads .section-header .filter-label {
+    margin-bottom: 20px;
+  }
 }
 /* ----------------------------- *
  * iPad (Portrait)
@@ -7349,6 +7456,20 @@ span.bbp-author-ip {
   }
   .download-grid-item-primary-link,
   .featured-download-primary-link {
+    margin-bottom: 10px;
+  }
+  .extensions-search-form {
+    max-width: 500px;
+  }
+  .extensions-search-form input {
+    font-size: 18px;
+  }
+  .extensions-search-form input[type="search"],
+  .extensions-search-form input[type="submit"] {
+    width: 100%;
+    max-width: 100%;
+  }
+  .extensions-search-form input[type="search"] {
     margin-bottom: 10px;
   }
 }
@@ -7885,6 +8006,9 @@ span.bbp-author-ip {
     padding: 20px;
     border-radius: 0;
     margin: 0;
+  }
+  .showcase-submission {
+    padding: 20px;
   }
   #account-page {
     font-size: 13px;

@@ -30,28 +30,30 @@ $no_duplicates = array(); // don't repeat the same theme twice
 						<p class="section-subtitle">While EDD is designed to work with any theme, the themes below take advantage of more EDD features.</p>
 					</div>
 						<div class="featured-download-thumb">
-							<?php
-								the_post_thumbnail( 'featured-download', array(
-									'class' => 'featured-download-img' )
-								);
-							?>
+							<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
+								<?php
+									the_post_thumbnail( 'featured-download', array(
+										'class' => 'featured-download-img' )
+									);
+								?>
+							</a>
 						</div>
 						<div class="featured-download-info">
 							<?php
 								the_title( '<h3 class="featured-download-title"><span class="featured-download-label">Featured</span>', '</h3>' );
 								the_excerpt();
 							?>
-							<a class="featured-download-primary-link button" href="<?php echo home_url( '/checkout/?edd_action=add_to_cart&download_id=' . get_the_ID() ); ?>">Purchase <?php the_title(); ?></a>
-							<a class="featured-download-secondary-link gray-button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">See Theme Details</a>
+							<a class="featured-download-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">See Theme Details</a>
+							<a class="featured-download-secondary-link gray-button" href="<?php echo home_url( '/checkout/?edd_action=add_to_cart&download_id=' . get_the_ID() ); ?>">Purchase <?php the_title(); ?></a>
 						</div>
 					</div>
 				</div>
 			</div>
 		<?php endwhile; wp_reset_postdata(); ?>
 
-		<div class="eddwp-downloads-area full-width">
+		<div class="edd-downloads-area full-width">
 			<div class="inner">
-				<div class="eddwp-downloads">
+				<div class="edd-downloads">
 					<div class="section-header">
 						<h2 class="section-title">Official Easy Digital Downloads Themes</h2>
 						<p class="section-subtitle">These themes were optimized to work with EDD and its extensions by our team members.</p>
@@ -81,20 +83,22 @@ $no_duplicates = array(); // don't repeat the same theme twice
 								if ( ! in_array( $post->ID, $no_duplicates ) ) :
 									?>
 									<div class="download-grid-item">
-										<?php
-											the_post_thumbnail( 'download-grid-thumb', array(
-												'class' => 'download-grid-thumb' )
-											);
-										?>
+										<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
+											<?php
+												the_post_thumbnail( 'download-grid-thumb', array(
+													'class' => 'download-grid-thumb' )
+												);
+											?>
+										</a>
 										<div class="download-grid-item-info">
 											<?php
 												the_title( '<h4 class="download-grid-title">', '</h4>' );
-												the_excerpt();
+												$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
+												echo $short_desc;
 											?>
 										</div>
 										<div class="download-grid-item-cta">
-											<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>"><?php the_title(); ?> Details</a>
-											<a class="download-grid-item-secondary-link gray-button" href="<?php echo home_url( '/checkout/?edd_action=add_to_cart&download_id=' . get_the_ID() ); ?>">Add to Cart</a>
+											<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
 										</div>
 									</div>
 									<?php
@@ -137,19 +141,22 @@ $no_duplicates = array(); // don't repeat the same theme twice
 							while ( $eddwp_themes->have_posts() ) : $eddwp_themes->the_post();
 								?>
 								<div class="download-grid-item">
-									<?php
-										the_post_thumbnail( 'download-grid-thumb', array(
-											'class' => 'download-grid-thumb' )
-										);
-									?>
+									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
+										<?php
+											the_post_thumbnail( 'download-grid-thumb', array(
+												'class' => 'download-grid-thumb' )
+											);
+										?>
+									</a>
 									<div class="download-grid-item-info">
 										<?php
 											the_title( '<h4 class="download-grid-title">', '</h4>' );
-											the_excerpt();
+											$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
+											echo $short_desc;
 										?>
 									</div>
 									<div class="download-grid-item-cta">
-										<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">See Theme Details</a>
+										<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
 									</div>
 								</div>
 								<?php
