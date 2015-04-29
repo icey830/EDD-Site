@@ -1232,7 +1232,7 @@ function eddwp_feed_query( $query ) {
 				array(
 					'taxonomy' => 'extension_category',
 					'field'    => 'slug',
-					'terms'    => '3rd-party',
+					'terms'    => array( '3rd-party' ),
 					'operator' => 'NOT IN'
 				),
 				array(
@@ -1250,7 +1250,7 @@ function eddwp_feed_query( $query ) {
 	}
 	return $query;
 }
-add_filter( 'pre_get_posts', 'eddwp_feed_query', 999 );
+add_filter( 'pre_get_posts', 'eddwp_feed_query', 99999999 );
 
 /* ----------------------------------------------------------- *
  * 10. Misc
