@@ -1257,6 +1257,22 @@ add_filter( 'pre_get_posts', 'eddwp_feed_query', 99999999 );
  * ----------------------------------------------------------- */
 
 /**
+ * Featured image for downloads grid output
+ */
+function eddwp_downloads_grid_thumbnail() {
+	
+	// replace old featured image programmatically until fully removed
+	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
+	$old_default = 'https://easydigitaldownloads.com/wp-content/uploads/2013/07/defaultpng.png';
+	
+	if( has_post_thumbnail() && $image[0] !== $old_default ) {
+		the_post_thumbnail( 'download-grid-thumb', array( 'class' => 'download-grid-thumb' ) );
+	} else {
+		echo '<img class="download-grid-thumb wp-post-image" src="' . get_template_directory_uri() . '/images/featured-image-default.png" alt="' . get_the_title() . '" />';
+	}
+}
+
+/**
  * Add RSS image
  */
 function eddwp_rss_featured_image() {
@@ -1441,22 +1457,6 @@ function temporary_eddwp_connection_types() {
 	) );
 }
 add_action( 'p2p_init', 'temporary_eddwp_connection_types' );
-
-/**
- * Featured image for downloads grid output
- */
-function eddwp_downloads_grid_thumbnail() {
-	
-	// replace old featured image programmatically until fully removed
-	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
-	$old_default = 'https://easydigitaldownloads.com/wp-content/uploads/2013/07/defaultpng.png';
-	
-	if( has_post_thumbnail() && $image[0] !== $old_default ) {
-		the_post_thumbnail( 'download-grid-thumb', array( 'class' => 'download-grid-thumb' ) );
-	} else {
-		echo '<img class="download-grid-thumb wp-post-image" src="' . get_template_directory_uri() . '/images/featured-image-default.png" alt="' . get_the_title() . '" />';
-	}
-}
 
 /**
  * Check to see if EDD is activated
