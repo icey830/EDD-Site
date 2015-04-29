@@ -39,11 +39,7 @@ the_post();
 							while ( $featured->have_posts() ) : $featured->the_post();
 								?>
 								<div class="download-grid-item">
-									<?php
-										the_post_thumbnail( 'download-grid-thumb', array(
-											'class' => 'download-grid-thumb' )
-										);
-									?>
+									<?php eddwp_downloads_grid_thumbnail(); ?>
 									<div class="download-grid-item-info">
 										<?php
 											the_title( '<h4 class="download-grid-title">', '</h4>' );
@@ -78,11 +74,7 @@ the_post();
 							while ( $sites->have_posts() ) : $sites->the_post();
 								?>
 								<div class="download-grid-item">
-									<?php
-										the_post_thumbnail( 'download-grid-thumb', array(
-											'class' => 'download-grid-thumb' )
-										);
-									?>
+									<?php eddwp_downloads_grid_thumbnail(); ?>
 									<div class="download-grid-item-info">
 										<?php
 											the_title( '<h4 class="download-grid-title">', '</h4>' );

@@ -120,11 +120,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 								?>
 								<div class="download-grid-item">
 									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-										<?php
-											the_post_thumbnail( 'download-grid-thumb', array(
-												'class' => 'download-grid-thumb' )
-											);
-										?>
+										<?php eddwp_downloads_grid_thumbnail(); ?>
 									</a>
 									<div class="download-grid-item-info">
 										<?php
@@ -153,7 +149,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 							'total'   => $s_query->max_num_pages
 						) );
 					?>
-					<div class="pagination">
+					<div class="pagination clearfix">
 						<?php echo $links; ?>
 					</div>
 					<?php wp_reset_postdata(); ?>

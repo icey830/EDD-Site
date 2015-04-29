@@ -31,11 +31,7 @@ $no_duplicates = array(); // don't repeat the same theme twice
 					</div>
 						<div class="featured-download-thumb">
 							<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-								<?php
-									the_post_thumbnail( 'featured-download', array(
-										'class' => 'featured-download-img' )
-									);
-								?>
+								<?php eddwp_downloads_grid_thumbnail(); ?>
 							</a>
 						</div>
 						<div class="featured-download-info">
@@ -84,11 +80,7 @@ $no_duplicates = array(); // don't repeat the same theme twice
 									?>
 									<div class="download-grid-item">
 										<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-											<?php
-												the_post_thumbnail( 'download-grid-thumb', array(
-													'class' => 'download-grid-thumb' )
-												);
-											?>
+											<?php eddwp_downloads_grid_thumbnail(); ?>
 										</a>
 										<div class="download-grid-item-info">
 											<?php
@@ -142,11 +134,7 @@ $no_duplicates = array(); // don't repeat the same theme twice
 								?>
 								<div class="download-grid-item">
 									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-										<?php
-											the_post_thumbnail( 'download-grid-thumb', array(
-												'class' => 'download-grid-thumb' )
-											);
-										?>
+										<?php eddwp_downloads_grid_thumbnail(); ?>
 									</a>
 									<div class="download-grid-item-info">
 										<?php
