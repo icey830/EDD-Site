@@ -108,11 +108,7 @@ the_post();
 								?>
 								<div class="download-grid-item">
 									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-										<?php
-											the_post_thumbnail( 'download-grid-thumb', array(
-												'class' => 'download-grid-thumb' )
-											);
-										?>
+										<?php eddwp_downloads_grid_thumbnail(); ?>
 									</a>
 									<div class="download-grid-item-info">
 										<?php
