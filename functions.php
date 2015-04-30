@@ -1269,7 +1269,6 @@ function eddwp_downloads_grid_thumbnail() {
 		the_post_thumbnail( 'download-grid-thumb', array( 'class' => 'download-grid-thumb' ) );
 	} else {
 		echo '<img class="download-grid-thumb wp-post-image" src="' . get_template_directory_uri() . '/images/featured-image-default.png" alt="' . get_the_title() . '" />';
-		echo $old_default;
 	}
 }
 
