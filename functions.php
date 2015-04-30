@@ -1263,7 +1263,7 @@ function eddwp_downloads_grid_thumbnail() {
 	
 	// replace old featured image programmatically until fully removed
 	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
-	$old_default = 'https://easydigitaldownloads.com/wp-content/uploads/2013/07/defaultpng.png';
+	$old_default = home_url( '/wp-content/uploads/2013/07/defaultpng.png' );
 	
 	if( has_post_thumbnail() && $image[0] !== $old_default ) {
 		the_post_thumbnail( 'download-grid-thumb', array( 'class' => 'download-grid-thumb' ) );

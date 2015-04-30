@@ -23,7 +23,7 @@ if ( has_term( 'themes', 'download_category', get_the_ID() ) ) {
 					the_title( '<h1 class="download-entry-title">', '</h1>' );
 
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
-					$old_default = 'https://easydigitaldownloads.com/wp-content/uploads/2013/07/defaultpng.png';
+					$old_default = home_url( '/wp-content/uploads/2013/07/defaultpng.png' );
 
 					if ( has_post_thumbnail() && $image[0] !== $old_default ) :
 						the_post_thumbnail( 'edd_download_image', array( 'class' => 'featured-img' ) );
