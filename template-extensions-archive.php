@@ -120,6 +120,12 @@ the_post();
 									<div class="download-grid-item-cta">
 										<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
 									</div>
+									<?php
+										$thrid_party = has_term( '3rd Party', 'download_category', $post->id );
+										if( $thrid_party ) {
+											echo '<i class="third-party"></i>';
+										}
+									?>
 								</div>
 								<?php
 							endwhile;
