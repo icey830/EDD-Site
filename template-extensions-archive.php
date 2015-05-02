@@ -87,7 +87,7 @@ the_post();
 								<p><?php echo $bundle_promotion[ $num ]['desc']; ?></p>
 							</div>
 							<div class="download-grid-item-cta">
-								<a class="download-grid-item-secondary-link gray-button" href="<?php echo $bundle_promotion[ $num ]['url']; ?>">More Information</a>
+								<a class="green-button" href="<?php echo $bundle_promotion[ $num ]['url']; ?>">More Information</a>
 							</div>
 						</div>
 						<?php
