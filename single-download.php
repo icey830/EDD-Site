@@ -8,12 +8,17 @@ global $post;
 get_header();
 the_post();
 
-if ( has_term( 'themes', 'download_category', get_the_ID() ) ) {
-	$download_type = 'theme';
-} else {
-	$download_type = 'extension';
-}
+$is_extension = has_term( 'extensions', 'download_category', get_the_ID() );
+$is_theme     = has_term( 'themes', 'download_category', get_the_ID() );
+$is_bundle    = has_term( 'bundles', 'download_category', get_the_ID() );
 
+if ( $is_extension && ! $is_bundle ) {
+	$download_type = 'extension';
+} elseif ( $is_theme ) {
+	$download_type = 'themes';
+} elseif ( $is_bundle ) {
+	$download_type = 'bundle';
+}
 ?>
 
 	<section class="main clearfix">
@@ -46,21 +51,21 @@ if ( has_term( 'themes', 'download_category', get_the_ID() ) ) {
 						</p>
 					</div>
 					<?php if( ! has_term( array( '3rd-party', 'bundles' ), 'download_category', get_the_ID() ) ) { ?>
-					<div class="version clearfix">
-						<?php
-							$version = get_post_meta( get_the_ID(), '_edd_sl_version', true );
-						?>
-						<p><span class="edd-download-detail-label">Version:</span> <span class="edd-download-detail"><?php echo $version; ?></span></p>
-					</div>
+						<div class="version clearfix">
+							<?php
+								$version = get_post_meta( get_the_ID(), '_edd_sl_version', true );
+							?>
+							<p><span class="edd-download-detail-label">Version:</span> <span class="edd-download-detail"><?php echo $version; ?></span></p>
+						</div>
 					<?php } // end if  ?>
 					<?php if ( ! eddwp_is_extension_third_party() && ! eddwp_is_external_extension() ) { ?>
-					<div class="pricing">
-						<h3>Pricing</h3>
-						<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
-					</div>
-					<div class="terms clearfix">
-						<p><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="https://easydigitaldownloads.com/docs/extensions-terms-conditions/" target="_blank">View license terms</a>.</p>
-					</div>
+						<div class="pricing">
+							<h3>Pricing</h3>
+							<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
+						</div>
+						<div class="terms clearfix">
+							<p><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="https://easydigitaldownloads.com/docs/extensions-terms-conditions/" target="_blank">View license terms</a>.</p>
+						</div>
 					<?php } // end if ?>
 					<?php if( eddwp_is_external_extension() ) { ?>
 						<a href="<?php echo esc_url( eddwp_get_external_extension_url() ); ?>" title="View Details" class="edd-submit button blue">View <?php echo ucfirst( $download_type ); ?></a>
