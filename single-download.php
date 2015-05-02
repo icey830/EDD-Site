@@ -11,6 +11,8 @@ the_post();
 $is_extension = has_term( 'extensions', 'download_category', get_the_ID() );
 $is_theme     = has_term( 'themes', 'download_category', get_the_ID() );
 $is_bundle    = has_term( 'bundles', 'download_category', get_the_ID() );
+$is_3rd_party = has_term( '3rd-party', 'download_category', get_the_ID() );
+$has_license  = get_post_meta( get_the_ID(), 'edd_license_enabled', true );
 
 if ( $is_extension && ! $is_bundle ) {
 	$download_type = 'extension';
@@ -50,11 +52,9 @@ if ( $is_extension && ! $is_bundle ) {
 							<?php endif; ?>
 						</p>
 					</div>
-					<?php if( ! has_term( array( '3rd-party', 'bundles' ), 'download_category', get_the_ID() ) ) { ?>
+					<?php if( $has_license && ! $is_3rd_party ) { ?>
 						<div class="version clearfix">
-							<?php
-								$version = get_post_meta( get_the_ID(), '_edd_sl_version', true );
-							?>
+							<?php $version = get_post_meta( get_the_ID(), '_edd_sl_version', true ); ?>
 							<p><span class="edd-download-detail-label">Version:</span> <span class="edd-download-detail"><?php echo $version; ?></span></p>
 						</div>
 					<?php } // end if  ?>
