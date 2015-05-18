@@ -30,7 +30,7 @@ get_header(); ?>
 					<?php the_content(); ?>
 
 					<div class="edd-bbpress-archive">
-						<?php echo do_shortcode( '[[bbp-forum-index]' ); ?>
+						<?php echo do_shortcode( '[bbp-forum-index]' ); ?>
 					</div>
 				</article>
 				<?php } ?>
