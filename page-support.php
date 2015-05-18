@@ -17,9 +17,16 @@ get_header(); ?>
 				<?php while ( have_posts() ) { the_post(); ?>
 				<article class="entry">
 					<h1><?php the_title(); ?></h1>
-					<div class="bbp-search-form">
-						<?php bbp_get_template_part( 'form', 'search-main' ); ?>
-					</div>
+					<form role="search" method="get" id="bbp-search-form" class="bbp-main-search" action="<?php bbp_search_url(); ?>">
+						<div id="search-intro">
+							<h3>Having troubles? Try searching for a solution.</h3>
+							<p>Use keywords specific to your inquiry. Other users have likely already encountered your issue. If you cannot find an answer to your issue, feel free to open a new ticket.</p>
+						</div>
+
+						<div id="google-search-form">
+							<?php eddwp_google_custom_search(); ?>
+						</div>
+					</form>
 					<?php the_content(); ?>
 				</article>
 				<?php } ?>
