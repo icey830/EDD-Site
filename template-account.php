@@ -33,7 +33,6 @@ if ( is_user_logged_in() ) { ?>
 				<?php if ( eddc_user_has_commissions() ) { ?>
 				<li><a href="#tab3" data-toggle="tab">Commissions</a></li>
 				<?php } // end if ?>
-				<li><a href="#support-tickets" data-toggle="tab">Support Tickets</a></li>
 				<li><a href="#tab5" data-toggle="tab">Support Subscription</a></li>
 			</ul><!-- /.nav-tabs -->
 
@@ -59,13 +58,8 @@ if ( is_user_logged_in() ) { ?>
 					<?php if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); } ?>
 				</div><!-- /.tab-pane -->
 
-				<div class="tab-pane support-tickets-tab-pane" id="support-tickets">
-					<?php
-					echo do_shortcode( '[support_tickets]' );
-					?>
-				</div><!-- /.tab-pane -->
-
 				<div class="tab-pane support-subscription-tab-pane" id="tab5">
+
 					<?php
 					echo do_shortcode( '[subscription_details]' );
 					echo do_shortcode( '[card_details]' );
