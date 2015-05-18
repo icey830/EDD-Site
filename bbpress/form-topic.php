@@ -17,6 +17,14 @@
 
 <?php endif; ?>
 
+<?php if ( ! bbp_is_topic_edit() ) : ?>
+
+	<div class="warning">
+		<p>These forums are closed to new replies / tickets. Please open a support ticket from our new <a href="<?php echo esc_url( home_url( '/support' ) ); ?>">Support</a> page.</p>
+	</div>
+
+<?php endif; ?>
+
 <?php if ( bbp_is_topic_edit() ) : ?>
 
 	<?php bbp_topic_tag_list( bbp_get_topic_id() ); ?>
