@@ -9,9 +9,6 @@
 
 <div id="bbpress-forums">
 	<?php	
-	bbp_breadcrumb( array(
-		'before' => '<div class="bbp-breadcrumb clearfix"><p>',
-	) );
 	
 	do_action( 'bbp_template_before_forums_index' );
 
