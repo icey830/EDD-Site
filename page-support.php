@@ -17,6 +17,9 @@ get_header(); ?>
 				<?php while ( have_posts() ) { the_post(); ?>
 				<article class="entry">
 					<h1><?php the_title(); ?></h1>
+					<div class="bbp-search-form">
+						<?php bbp_get_template_part( 'form', 'search-main' ); ?>
+					</div>
 					<?php the_content(); ?>
 				</article>
 				<?php } ?>
