@@ -15,10 +15,6 @@
 		right: 20px;
 		width: 198px;
 	}
-
-	footer .container img {
-		right: -25px;
-	}
 }
 
 /* ----------------------------- *
@@ -51,15 +47,25 @@
 	}
 
 	.blog .main .content,
-	.single-theme .main .content,
 	.single-extension .main .content,
+	.single-theme .main .content,
+	.single-download .main .content,
 	.documentation .main .content {
 		width: 620px;
 	}
 
-	.single-extension .main .sidebar {
+	.single-extension .main .sidebar,
+	.single-theme .main .sidebar,
+	.blog .sidebar,
+	.single-theme .sidebar,
+	.single-download .main .sidebar {
 		width: 260px;
 		padding: 30px;
+	}
+
+	.blog .sidebar,
+	.single-theme .sidebar {
+		padding: 0;
 	}
 
 	.bbpress .main .content {
@@ -87,40 +93,41 @@
 		width: 940px;
 	}
 
-	footer .container .col {
-		width: 283px;
-	}
-
 	.feature {
 		width: 100%;
 	}
 
 	.extensions-container,
-	.themes-container {
+	.themes-container,
+	.edd-downloads-container {
 		width: 940px;
 	}
 	
-	.archive .extension,
-	.theme {
+	.extension,
+	.theme,
+	.edd-download {
 		width: 300px;
 		margin-right: 20px;
 	}
 
+	.extension.extension-clear,
+	.theme.theme-clear ,
+	.edd-download.edd-download-clear {
+		margin-right: 0;
+	}
+
 	.extension .thumbnail-holder,
-	.theme .thumbnail-holder {
+	.theme .thumbnail-holder,
+	.edd-download .thumbnail-holder {
 		max-width: 280px;
 	}
 
-	.single-theme .sidebar {
+	.single-theme .main .sidebar {
 		width: 230px;
 	}
 
 	.single-theme .secondary .container {
 		width: 940px;
-	}
-
-	footer .container img {
-		right: -35px;
 	}
 
 	.page-id-635 footer .container img {
@@ -191,6 +198,95 @@
 	#mods-grid .mod .mod-ticket-count {
 		margin-top: 10px;
 	}
+	
+	.title-404 {
+		font-weight: 400;
+	}
+	
+	.edd-author-bio {
+		width: 440px;
+	}
+	
+	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
+		background-position-x: 24px;
+		font-size: 16px;
+		padding-left: 125px;
+	}
+	
+	.edd-post-footer .newsletter .newsletter-name-container,
+	.edd-post-footer .newsletter .newsletter-email-container {
+		width: 180px;
+	}
+	
+	.edd-post-footer .newsletter-wrap {
+		padding: 50px 30px 30px;
+	}
+	
+	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
+		padding: 20px 50px 20px 155px;
+		margin: -50px -30px 20px;
+	}
+	
+	#starter-package .entry-title {
+		font-size: 26px;
+		margin-bottom: 30px;
+	}
+	
+	#starter-package .package-discount {
+		padding: 20px;
+	}
+	
+	#starter-package .edd-gf-divider {
+		margin: 20px 0 10px;
+	}
+	
+	#starter-package .starter-package-headline {
+		margin: 0;
+	}
+	
+	#starter-package .edd-gf-payment .starter-package-headline {
+		margin: 10px 0;
+	}
+	
+	#starter-package .edd-gf-select {
+		width: 420px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	
+	#starter-package .edd-gf-marketing,
+	#starter-package .edd-gf-misc {
+		padding-top: 30px;
+		width: 269px;
+	}
+	
+	#starter-package .edd-gf-email-marketing {
+		padding-right: 30px;
+	}
+	
+	#starter-package .edd-gf-merchant-processor {
+		padding-left: 30px;
+	}
+	
+	#starter-package .edd-gf-marketing {
+		padding-right: 30px;
+	}
+	
+	#starter-package .edd-gf-misc {
+		padding-left: 30px;
+	}
+	
+	#starter-package .edd-gf-accounting {
+		width: 302px;
+	}
+	
+	#starter-package .edd-gf-accounting {
+		padding: 30px 30px 0;
+	}
+	
+	#starter-package .gfield_price {
+		width: 25%;
+	}
 }
 
 /* ----------------------------- *
@@ -213,15 +309,25 @@
 	}
 
 	.blog .main .content,
-	.single-theme .main .content,
 	.single-extension .main .content,
+	.single-theme .main .content,
+	.single-download .main .content,
 	.documentation .main .content {
 		width: 620px;
 	}
 
-	.single-extension .main .sidebar {
+	.single-extension .main .sidebar,
+	.single-theme .main .sidebar,
+	.blog .sidebar,
+	.single-theme .sidebar,
+	.single-download .main .sidebar {
 		width: 260px;
 		padding: 30px;
+	}
+
+	.blog .sidebar,
+	.single-theme .sidebar {
+		padding: 0;
 	}
 	
 	.header-outer {
@@ -263,28 +369,26 @@
 	.feature {
 		width: 100%;
 	}
-
-	.extensions-grid ul li a img {
-		max-width: 284px;
+	
+	.extension,
+	.theme,
+	.edd-download {
+		width: 31.5%;
+		margin-right: 20px;
 	}
 
-	.extensions-grid ul li:nth-child(3n+3) a img {
-		max-width: 273px;
-	}
-
-	footer .container img {
-		right: -15px;
+	.extension.extension-clear,
+	.theme.theme-clear ,
+	.edd-download.edd-download-clear{
+		margin-right: 0;
 	}
 
 	footer .container {
 		width: 940px;
 	}
 
-	footer .container .col {
-		width: 283px;
-	}
-
-	.home .featureset.feature-extensions .extensions-grid ul li a img {
+	.home .featureset.feature-extensions .extensions-grid ul li a img,
+	.home .featureset.feature-edd-downloads .edd-downloads-grid ul li a img {
 		max-width: 100%;
 	}
 
@@ -298,7 +402,8 @@
 	}
 
 	.extensions-container,
-	.themes-container {
+	.themes-container,
+	.edd-downloads-container {
 		width: 940px;
 	}
 
@@ -366,6 +471,101 @@
 		display: block;
 		font-size: 14px;
 		text-align: left;
+	}
+	
+	.title-404 {
+		font-weight: 400;
+	}
+	
+	.edd-author-box {
+		text-align: center;
+	}
+	
+	.edd-author-avatar {
+		float: none;
+		margin: 0 auto 10px;
+	}
+	
+	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
+		font-size: 16px;
+	}
+	
+	.edd-post-footer .newsletter .newsletter-name-container,
+	.edd-post-footer .newsletter .newsletter-email-container {
+		width: 180px;
+	}
+	
+	.edd-post-footer .newsletter-wrap {
+		padding: 50px 50px 30px;
+	}
+	
+	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
+		padding: 20px 50px 20px 155px;
+		margin: -50px -50px 20px;
+	}
+	
+	#starter-package .entry-title {
+		font-size: 26px;
+		border-radius: 0;
+		margin-bottom: 30px;
+	}
+	
+	#starter-package .package-discount {
+		padding: 20px;
+	}
+	
+	#starter-package .edd-gf-divider {
+		margin: 20px 0 10px;
+	}
+	
+	#starter-package .starter-package-headline {
+		font-size: 26px;
+		margin: 0;
+	}
+	
+	#starter-package .edd-gf-payment .starter-package-headline {
+		margin: 10px 0;
+	}
+	
+	#starter-package .edd-gf-select {
+		width: 50%;
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+	
+	#starter-package .edd-gf-marketing,
+	#starter-package .edd-gf-accounting,
+	#starter-package .edd-gf-misc {
+		padding-top: 30px;
+		width: 33.33333%;
+	}
+	
+	#starter-package .edd-gf-email-marketing {
+		padding-right: 30px;
+	}
+	
+	#starter-package .edd-gf-merchant-processor {
+		padding-left: 30px;
+	}
+	
+	#starter-package .edd-gf-marketing {
+		padding-right: 30px;
+	}
+	
+	#starter-package .edd-gf-misc {
+		padding-left: 30px;
+	}
+	
+	#starter-package .edd-gf-accounting {
+		padding: 30px 30px 0;
+	}
+	
+	#starter-package .gfield_price {
+		width: 25%;
+	}
+	
+	#starter-package .content {
+		border-radius: 0;
 	}
 }
 
@@ -469,14 +669,11 @@
 		margin-top: 480px;
 	}
 
-	.hero .hero-inside img {
-		right: -5px;
-	}
-
 	.hero .hero-text h1,
 	.hero .hero-text h2 {
 		font-size: 2.4rem;
-		width: 590px;
+		width: 100%;
+		max-width: 590px;
 		margin: 0 auto;
 	}
 
@@ -550,6 +747,7 @@
 	.showcase .site {
 		width: 100%;
 		float: none;
+		text-align: center;
 	}
 
 	.showcase .featured-site .text-overlay,
@@ -580,31 +778,54 @@
 	.gform_wrapper .top_label select.medium {
 		width: 98% !important;
 	}
+	
+	.extensions-container,
+	.themes-container,
+	.edd-downloads-container {
+		max-width: 100%;
+	}
 
-	.extension, .theme {
+	.extension,
+	.theme,
+	.edd-download {
 		float: none;
+		max-width: 80%;
 		margin: 0 auto 40px !important;
+	}
+
+	.extension.extension-clear,
+	.theme.theme-clear,
+	.edd-download.edd-download-clear {
+		margin-right: 0;
 	}
 
 	.main .container {
 		width: 100%;
 	}
 
-	.single-extension .main .content {
+	.single-extension .main .content,
+	.single-theme .main .content,
+	.single-download .main .content {
 		width: 100%;
 	}
 
 	.single-extension .main .sidebar,
-	.blog .sidebar, .single-theme .sidebar {
+	.single-theme .main .sidebar,
+	.single-download .main .sidebar,
+	.blog .sidebar {
 		width: 100%;
 		margin-left: 0;
 	}
 
-	.blog .sidebar, .single-theme .sidebar {
+	.blog .sidebar,
+	.single-theme .main .sidebar,
+	.single-download .main .sidebar {
 		margin-top: 25px;
 	}
 
-	.blog .main .content, .single-theme .main .content {
+	.blog .main .content,
+	.single-theme .main .content,
+	.single-download .main .content {
 		width: 100%;
 	}
 
@@ -656,10 +877,6 @@
 		display: none;
 	}
 
-	footer .container img {
-		right: -25px;
-	}
-
 	#edd_checkout_form_wrap span.card-type {
 		display: none;
 	}
@@ -677,6 +894,152 @@
 	
 	.contributors .crew-edd-standing {
 		display: none;
+	}
+	
+	.content-404 {
+		padding: 10px;
+		margin-top: 20px;
+	}
+	
+	.message-404 {
+		text-align: center;
+	}
+	
+	.sad-edd-404 img {
+		max-width: 300px;
+	}
+	
+	.sad-edd-404,
+	.search-404 {
+		float: none;
+		width: 100%;
+	}
+	
+	.title-404 {
+		font-weight: 400;
+	}
+	
+	.content-404 #google-search-form {
+		margin: 0 auto 20px;
+	}
+	
+	.col-404,
+	.extensions-404.col-404 {
+		width: 100%;
+		margin: 0 0 30px;
+	}
+
+	.sidebar .newsletter .newsletter-name-container,
+	.sidebar .newsletter .newsletter-email-container,
+	.sidebar .newsletter .newsletter-submit-container {
+		display: inline-block;
+		width: 210px;
+		margin-right: 5px;
+	}
+	
+	.sidebar .newsletter .newsletter-submit-container {
+		width: 100px;
+		margin-right: 0;
+	}
+	
+	.sidebar .newsletter .newsletter-title {
+		text-align: left;
+		padding: 20px 50px 20px 155px;
+	}
+	
+	.sidebar .newsletter-title span {
+		display: inline;
+	}
+	
+	#starter-package .content {
+		margin-top: -20px;
+	}
+	
+	#starter-package .entry-title {
+		font-size: 26px;
+		border-radius: 0;
+		margin-bottom: 30px;
+	}
+	
+	#starter-package .edd-gf-divider {
+		margin: 10px 0;
+	}
+	
+	#starter-package .edd-gf-name-field {
+		margin-top: 20px !important;
+	}
+	
+	#starter-package .starter-package-headline {
+		font-size: 26px;
+		margin: 0;
+	}
+	
+	#starter-package .edd-gf-select,
+	#starter-package .edd-gf-checkbox,
+	#starter-package .edd-gf-radio {
+		padding: 30px 0;
+		border: 4px solid #fafafa;
+		border-width: 4px 0 0;
+		margin: 0;
+		width: 100%;
+		min-height: 100px;
+	}
+	
+	#starter-package .edd-gf-misc {
+		border-bottom: 4px solid #fafafa;
+		margin-bottom: 30px;
+	}
+	
+	#starter-package .gfield_price {
+		width: 50%;
+	}
+	
+	#starter-package .content {
+		border-radius: 0;
+	}
+	
+	/* Common Page Templates */
+	.main,
+	#landing-page.main {
+		padding-bottom: 25px;
+	}
+	
+	#full-width-page.main {
+		padding: 0;
+		margin: 0;
+	}
+	
+	#full-width-page .content {
+		padding: 20px;
+		border-radius: 0;
+		margin: 0;
+	}
+	
+	#account-page .nav-tabs {
+		margin-bottom: 15px;
+	}
+	
+	#account-page .nav-tabs > li {
+		width: 46%;
+		margin-right: 6%;
+	}
+	
+	#account-page .nav-tabs.nav-append-content > li.active:first-child:before {
+		display: none;
+	}
+	
+	#account-page .nav-tabs > li:nth-child(even) {
+		float: right;
+		margin-right: 0;
+	}
+	
+	#account-page .nav-tabs > li.active > a {
+		border: 2px solid #ddd;
+		border-radius: 6px;
+	}
+	
+	#account-page .nav-tabs > li:not(.active) > a:hover {
+		border-color: #eee;
 	}
 }
 
@@ -696,10 +1059,6 @@
 	.hero .hero-inside img {
 		top: 505px;
 		width: 164px;
-	}
-
-	footer .container img {
-		right: -25px;
 	}
 
 	footer .container .col {
@@ -731,6 +1090,75 @@
 	.contributors h3 {
 		line-height: 1.4;
 		margin-top: 10px;
+	}
+
+	.extensions-grid ul li,
+	.edd-downloads-grid ul li {
+		width: 49%;
+		margin-right: 1%;
+	}
+	
+	.extensions-grid ul li:nth-child(3n+3),
+	.edd-downloads-grid ul li:nth-child(3n+3) {
+		width: 49%;
+		margin-right: 1%;
+	}
+	
+	.extensions-grid ul li:nth-child(even),
+	.edd-downloads-grid ul li:nth-child(even) {
+		width: 49%%;
+		margin-right: 0;
+	}
+
+	.edd-author-box {
+		text-align: center;
+	}
+	
+	.edd-author-avatar {
+		float: none;
+		margin: 0 auto 10px;
+	}
+	
+	.edd-author-bio {
+		width: 100%;
+	}
+	
+	.single .newsletter .newsletter-title {
+		text-align: right;
+	}
+	
+	.single .newsletter-title span {
+		display: none;
+	}
+	
+	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
+		font-size: 20px;
+		text-align: right;
+	}
+	
+	.single .newsletter .newsletter-name-container,
+	.single .newsletter .newsletter-email-container,
+	.single .newsletter .newsletter-submit-container {
+		width: 100%;
+	}
+	
+	.single .newsletter form {
+		margin-bottom: 20px;
+	}
+	
+	#starter-package .package-description,
+	#starter-package .package-discount {
+		float: none;
+		width: 100%
+	}
+	
+	#starter-package .package-discount {
+		margin-top: 20px;
+	}
+	
+	#starter-package .edd-gf-payment-method .gfield_radio li {
+		margin: 0 0 10px;
+		width: 100%;
 	}
 }
 
@@ -895,10 +1323,6 @@
 		animation-name: none;
 	}
 
-	#extensions-intro-box {
-		margin-bottom: 30px;
-	}
-
 	#extensions-intro-box a {
 		margin-left: 0;
 	}
@@ -907,18 +1331,20 @@
 		margin-bottom: 0;
 	}
 
-	.pagination {
+	.pagination,
+	.edd_pagination {
 		padding-left: 20px;
 	}
 
 	.extensions-grid ul li,
-	.extensions-grid ul li:nth-child(3n+3) {
-		width: 100%;
-		float: none;
+	.edd-downloads-grid ul li {
+		width: 100% !important;
+		margin-right: 0 !important;
 		margin-bottom: 30px;
 	}
 
-	.extensions-grid ul li a img {
+	.extensions-grid ul li a img,
+	.edd-downloads-grid ul li a img {
 		margin-left: 3px;
 		margin-top: 3px;
 		max-width: 97% !important;
@@ -1023,7 +1449,9 @@
 		width: 98% !important;
 	}
 
-	.extension, .theme {
+	.extension,
+	.theme,
+	.edd-download {
 		float: none;
 		margin: 0 auto 40px !important;
 	}
@@ -1032,21 +1460,29 @@
 		width: 100%;
 	}
 
-	.single-extension .main .content {
+	.single-extension .main .content,
+	.single-theme .main .content,
+	.single-download .main .content {
 		width: 100%;
 	}
 
 	.single-extension .main .sidebar,
-	.blog .sidebar, .single-theme .sidebar {
+	.single-theme .main .sidebar,
+	.single-download .main .sidebar,
+	.blog .sidebar {
 		width: 100%;
 		margin-left: 0;
 	}
 
-	.blog .sidebar, .single-theme .sidebar {
+	.blog .sidebar,
+	.single-theme .main .sidebar,
+	.single-download .main .sidebar {
 		margin-top: 25px;
 	}
 
-	.blog .main .content, .single-theme .main .content {
+	.blog .main .content,
+	.single-theme .main .content,
+	.single-download .main .content {
 		width: 100%;
 	}
 
@@ -1129,11 +1565,14 @@
 	}
 
 	.featureset.feature-overview,
-	.featureset.feature-extensions {
+	.featureset.feature-extensions,
+	.featureset.feature-edd-downloads {
 		padding: 30px 30px;
 	}
 
-	.extensions-container, .themes-container {
+	.extensions-container,
+	.themes-container,
+	.edd-downloads-container {
 		width: 100%;
 	}
 
@@ -1155,28 +1594,6 @@
 		margin-left: -182px;
 	}
 
-	.tab-content {
-		border: none;
-		border-radius: 0;
-		position: relative;
-		padding: 20px;
-	}
-
-	.nav-tabs>li, .nav-pills>li {
-		float: none;
-		display: block;
-		margin-bottom: 0 !important;
-	}
-
-	.nav-tabs>li>a {
-		border: none;
-		border-radius: 0;
-	}
-
-	.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-		border: none !important;
-	}
-
 	.tab-pane.purchases-tab-pane {
 		margin-top: -20px;
 		margin-left: -20px;
@@ -1185,7 +1602,12 @@
 	}
 
 	#edd_profile_editor_form fieldset label {
+		width: 100%;
 		margin-bottom: 0;
+	}
+	
+	#edd_profile_editor_form #edd_address_country {
+		margin-bottom: 25px;
 	}
 
 	#edd_profile_editor_form fieldset input[type="text"], #edd_profile_editor_form fieldset input[type="email"], #edd_profile_editor_form fieldset input[type="password"] {
@@ -1287,6 +1709,59 @@
 	
 	#bbpress-forums .moderator-tools select#bbps_support_options {
 		margin-bottom: 4px;
+	}
+	
+	#starter-package .content,
+	#starter-package .entry-title {
+		padding: 20px;
+	}
+	
+	#starter-package .entry-title {
+		margin: -20px -20px 30px;
+	}
+	
+	#starter-package .gfield_price {
+		width: 100%;
+	}
+	
+	#starter-package .edd-gf-buyer-detail .name_first,
+	#starter-package .edd-gf-buyer-detail .name_last,
+	#starter-package .ginput_left,
+	#starter-package .ginput_right {
+		margin: 0 0 10px;
+		width: 100%;
+	}
+
+	#starter-package .gform_wrapper .ginput_complex select.ginput_card_expiration.ginput_card_expiration_month,
+	#starter-package .gform_wrapper .ginput_complex select.ginput_card_expiration.ginput_card_expiration_year {
+		width: 100% !important;
+	}
+	
+	#starter-package .gform_wrapper .ginput_complex select.ginput_card_expiration.ginput_card_expiration_month {
+		margin-bottom: 10px !important;
+	}
+	
+	/* Common Page Templates */
+	#landing-page.main {
+		padding: 0;
+		margin: 0;
+	}
+	
+	#landing-page .content {
+		padding: 20px;
+		border-radius: 0;
+		margin: 0;
+	}
+	
+	#account-page {
+		font-size: 13px;
+	}
+	
+	#account-page .nav-tabs > li,
+	#account-page .nav-tabs > li:nth-child(even) {
+		float: none;
+		width: 100%;
+		margin-right: 0;
 	}
 }
 

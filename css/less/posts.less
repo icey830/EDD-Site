@@ -2,23 +2,38 @@
 
 .blog .main .content .entry-date span {
 	background: #eee;
-	padding: 5px 8px 5px 28px;
+	padding: 5px 8px 5px 50px;
 	font-size: 13px;
 	font-size: 1.3rem;
-	margin-left: -30px;
+	margin: 0 0 20px -50px;
+	display: inline-block;
+	line-height: 1.4;
 }
 
-.blog .main .content h1 {
-	padding: 36px 0;
-	margin: 0;
+.blog .main .content h1,
+.blog .main .content h2,
+.blog .main .content h3,
+.blog .main .content h4,
+.blog .main .content h5,
+.blog .main .content h6 {
+	margin: 0 0 20px;
+}
+
+.blog .main .content .entry-title {
+	padding: 0;
+	margin: 0 0 30px;
+}
+
+.blog .main .content .featured-img {
+	margin-bottom: 30px;
 }
 
 .blog .sidebar,
 .single-theme .sidebar {
 	float: left;
-	margin-left: 10px;
-	width: 250px;
-	padding-top: 25px;
+	margin: 5px 0 0 60px;
+	width: 300px;
+	padding: 0;
 }
 
 .blog .post-meta {
@@ -32,7 +47,6 @@
 	}
 	
 	& li {
-		margin-bottom: 5px;
 		font-size: 13px;
 		
 		& i {

@@ -67,7 +67,7 @@ add_action( 'after_setup_theme', 'edd_theme_setup' );
 
 include( dirname(__FILE__) . '/includes/class-fragment-cache.php' );
 include( dirname(__FILE__) . '/includes/query-filters.php' );
-
+include( dirname(__FILE__) . '/includes/simple-notices-pro.php' );
 
 /* ----------------------------------------------------------- *
  * 3. Stylesheets and JavaScript Files
@@ -94,7 +94,7 @@ function edd_register_theme_scripts() {
 
 	wp_register_style(  'roboto-font', 'https://fonts.googleapis.com/css?family=Roboto:300,400,500' );
 	wp_register_style(  'edd-style',    get_stylesheet_directory_uri() . '/style.css',                 $deps,                filemtime( get_stylesheet_directory() . '/style.css' )   );
-	wp_register_style(  'font-awesome', get_template_directory_uri()   . '/css/lib/font-awesome.css',  array( 'edd-style' ), '3.2.1' );
+	wp_register_style(  'font-awesome', get_template_directory_uri()   . '/css/lib/font-awesome/css/font-awesome.min.css',  array( 'edd-style' ), '3.2.1' );
 	wp_register_style(  'normalize',    get_template_directory_uri()   . '/css/lib/normalize.css',     array( ),             '2.1.2' );
 	wp_register_style(  'bootstrap',    get_template_directory_uri()   . '/css/lib/bootstrap.min.css', array( ),             '1.0'   );
 
@@ -207,7 +207,8 @@ function eddwp_comment_form() {
 
 	comment_form(
 		array(
-			'fields' => apply_filters( 'comment_form_default_fields', $fields )
+			'fields' => apply_filters( 'comment_form_default_fields', $fields ),
+			'comment_notes_after' => '<p class="comments-support-notice notice">For support, please open a ticket in the <a href="https://easydigitaldownloads.com/support/">Support Forums</a>.</p><p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>',
 		)
 	);
 }
@@ -254,56 +255,34 @@ add_action( 'widgets_init', 'edd_register_theme_sidebars' );
  * ----------------------------------------------------------- */
 
 /**
- * Filters wp_title to print a neat <title> tag based on what is being viewed.
+ * Create a nicely formatted and more specific title element text for output
+ * in head of document, based on current view.
+ *
+ * @param string $title Default title text for current view.
+ * @param string $sep Optional separator.
+ * @return string The filtered title.
  */
 function edd_wp_title( $title, $sep ) {
-	global $paged, $page, $post;
+	global $paged, $page;
 
-	/* Default title */
-	$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
-
-	/* Search */
-	if ( is_search() || isset( $_GET['extension_s'] ) ) :
-		if ( is_search() )
-			$search_term = get_query_var( 's' );
-
-		if ( isset( $_GET['extension_s'] ) )
-			$search_term = sanitize_text_field( trim( stripslashes( $_GET['extension_s'] ) ) );
-
-		$title = __( 'Search Results For' , 'edd' ) . ' ' . $search_term . ' | ' . get_bloginfo( 'name' );
-	/* Homepage */
-	elseif ( is_home() || is_front_page() ) :
-		$title = get_bloginfo( 'name' ) . ' | ' . get_bloginfo( 'description' );
-	/* Single page */
-	elseif ( is_page() ) :
-		$title = strip_tags( htmlspecialchars_decode( get_the_title( $post->ID ) ) ) . ' | ' . get_bloginfo( 'name' );
-	/* 404 Page */
-	elseif ( is_404() ) :
-		$title = __( '404 - Nothing Found', 'edd' ) . ' | ' . get_bloginfo( 'name' );
-	/* Author Archive */
-	elseif ( is_author() ) :
-		$title = get_userdata( get_query_var( 'author' ) )->display_name . ' | ' . __( 'Author Archive', 'edd' )	. ' | ' . get_bloginfo( 'name' );
-	/* Category Archive */
-	elseif ( is_category() ) :
-		$title = single_cat_title( '', false ) . ' | ' . __( 'Category Archive', 'edd' ) . ' | ' . get_bloginfo( 'name' );
-	/* Tag Archive */
-	elseif ( is_tag() ) :
-		$title = single_tag_title( '', false ) . ' | ' . __( 'Tag Archive', 'edd' ) . ' | ' . get_bloginfo( 'name' );
-	/* Single Blog Post */
-	elseif ( is_single() ) :
-		$post_title = the_title_attribute( 'echo=0' );
-
-		if ( ! empty( $post_title ) )
-			$title = $post_title . ' | ' . get_bloginfo( 'name' );
-	endif;
-
-	/* Feed (RSS|Atom) */
-	if ( is_feed() )
+	if ( is_feed() ) {
 		return $title;
+	}
 
-	/* Pagination */
-	if ( $paged >= 2 || $page >= 2 )
+	// Add the site name.
+	$title .= get_bloginfo( 'name' );
+
+	// Add the site description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	
+	if ( $site_description && ( is_home() || is_front_page() ) ) {
+		$title = "$title $sep $site_description";
+	}
+
+	// Add a page number if necessary.
+	if ( $paged >= 2 || $page >= 2 ) {
 		$title = "$title $sep " . sprintf( __( 'Page %s', 'edd' ), max( $paged, $page ) );
+	}
 
 	return $title;
 }
@@ -410,9 +389,21 @@ function eddwp_paginate_links() {
 
 	$big = 999999999;
 
-	echo '<div class="pagination">' . paginate_links( array(
-		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-		'format' => '?paged=%#%',
+	if( ! function_exists( 'edd_get_current_page_url' ) ) {
+		return;
+	}
+
+	$url = edd_get_current_page_url();
+
+	if( false === strpos( $url, '?' ) ) {
+		$sep = '?';
+	} else {
+		$sep = '&';
+	}
+
+	echo '<div class="pagination clear">' . paginate_links( array(
+		'base' => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+		'format' => $sep . 'paged=%#%',
 		'current' => max( 1, get_query_var( 'paged' ) ),
 		'total' => $wp_query->max_num_pages,
 	) ) . '</div>';
@@ -570,41 +561,6 @@ add_action( 'edd_purchase_form_after_cc_form', 'eddwp_checkout_submit', 9999 );
  */
 remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );
 
-/**
- * Send a Pushover Notification when a moderator is assigned to a topic
- */
-function eddwp_send_pushover_notification_on_assignment() {
-	if ( isset( $_POST['bbps_support_topic_assign'] ) ) {
-
-		if( ! function_exists( 'ckpn_send_notification' ) )
-			return;
-
-		$user_id  = absint( $_POST['bbps_assign_list'] );
-		$topic    = bbp_get_topic( $_POST['bbps_topic_id'] );
-
-		if ( $user_id > 0 && $user_id != get_current_user_id() ) {
-			$title = __( 'Easy Digital Downloads: A forum topic has been assigned to you', 'eddwp' );
-			$message = sprintf( __( 'You have been assigned to %1$s by another moderator', 'eddwp' ), $topic->post_title );
-			$user_push_key = get_user_meta( $user_id, 'ckpn_user_key', true );
-
-			if( $user_push_key ) {
-				$url       = $topic->guid;
-				$url_title = __( 'View Topic', 'eddwp' );
-
-				$args = array(
-					'title' => $title,
-					'message' => $message,
-					'user' => $user_push_key,
-					'url' => $url,
-					'url_title' => $url_title
-				);
-
-				ckpn_send_notification( $args );
-			}
-		}
-	}
-}
-add_action( 'init', 'eddwp_send_pushover_notification_on_assignment' );
 
 /**
  * Change the bbPress Login Widget if the user is logged in or out
@@ -692,29 +648,78 @@ function eddwp_display_themes() {
 }
 
 /**
- * Append the connected download's changelog to the extension content
+ * Append demo button link to download products
  */
-function eddwp_extensions_changelog( $content ) {   
+function eddwp_demo_link( $content ) {
 	global $post;
-	
-	// bail if this is not an extension post type or if it is a bundle
-	if( 'extension' !== $post->post_type || has_term( 'bundles', 'extension_category', get_the_ID() ) )
+
+	// bail if there is no demo link
+	$demo_link = get_post_meta( get_the_ID(), 'ecpt_demolink', true );
+	if( empty( $demo_link ) )
+		return $content;
+
+	// build link to the demo
+	$output_demo_link = sprintf( '<p class="edd-demo-link"><a class="edd-submit button blue" href="%s">View Demo</a></p>', $demo_link );
+
+	// add the link to demo below the content
+	$content = $content . $output_demo_link;
+
+	return $content;
+}
+add_filter( 'the_content', 'eddwp_demo_link' );
+
+/**
+ * Append the changelog to the extension or download content
+ */
+function eddwp_product_changelog( $content ) {   
+	global $post;
+
+	// make sure we're on an extension or a download
+	if( 'extension' === $post->post_type || 'download' === $post->post_type ) {
+		$post_type = true;
+	} else {
+		$post_type = false;
+	}
+
+	// see of the CPT has a category of "bundles"
+	if( has_term( 'bundles', 'extension_category', get_the_ID() ) || has_term( 'bundles', 'download_category', get_the_ID() ) ) {
+		$bundles = true;
+	} else {
+		$bundles = false;
+	}
+
+	// If not an extension or download, or has extension/download category of "bundles," bail.
+	if( !$post_type || $bundles )
 		return $content;
 	
-	// get the ID of the associated download post type
-	$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
+	// check to see if it's an extension we're dealing with and act accordingly
+	if( 'extension' === $post->post_type ) {
+		
+		// for extensions, get the ID of the associated download post type
+		$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
+
+		// bail if there's no associated download
+		if( empty( $download_id ) ) {
+			return $content;
+		}
+		
+		// get the changelog data of the associated download
+		$changelog = get_post_meta( $download_id, '_edd_sl_changelog', true );
+		
+	} elseif ( 'download' === $post->post_type ) {
+
+		// get the changelog data of the download
+		$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
+	}
 	
-	// bail if there's no associated download
-	if( empty( $download_id ) )
-		return $content;
-	
-	// get the changelog data of the associated download and add it to the content
-	$changelog = get_post_meta( $download_id, '_edd_sl_changelog', true );	
-	$content = $content . do_shortcode( '[toggle title="Changelog"]' . $changelog . '[/toggle]' ) ;
+	// if it exists, append the changelog (from either source) to the relevent content output
+	if( !empty( $changelog ) ) {
+		$content = $content . do_shortcode( '[toggle title="Changelog"]' . $changelog . '[/toggle]' );
+	}
 	
 	return $content;
 }
-add_filter( 'the_content', 'eddwp_extensions_changelog' );
+add_filter( 'the_content', 'eddwp_product_changelog' );
 
 /**
  * Append link to support forums at bottom of documentation content
@@ -1181,31 +1186,132 @@ function eddwp_feed_query( $query ) {
 
 		$query->set( 'posts_per_page', 50 );
 
-		$tax_query = array(
-			'relation' => 'AND',
-			array(
-				'taxonomy' => 'extension_category',
-				'field'    => 'slug',
-				'terms'    => '3rd-party',
-				'operator' => 'NOT IN'
-			),
-			array(
-				'taxonomy' => 'extension_category',
-				'field'    => 'slug',
-				'terms'    => 'popular'
-			)
-		);
+		if( isset( $_GET['display'] ) && 'new' == $_GET['display'] ) {
 
-		$query->set( 'tax_query', $tax_query );
+			$tax_query = array(
+				'relation' => 'AND',
+				array(
+					'taxonomy' => 'extension_category',
+					'field'    => 'slug',
+					'terms'    => '3rd-party',
+					'operator' => 'NOT IN'
+				)
+			);
+
+			$query->set( 'tax_query', $tax_query );
+			$query->set( 'orderby', 'date' );
+			$query->set( 'order', 'DESC' );
+
+		} else {
+
+			$tax_query = array(
+				'relation' => 'AND',
+				array(
+					'taxonomy' => 'extension_category',
+					'field'    => 'slug',
+					'terms'    => array( '3rd-party' ),
+					'operator' => 'NOT IN'
+				),
+				array(
+					'taxonomy' => 'extension_category',
+					'field'    => 'slug',
+					'terms'    => 'popular'
+				)
+			);
+
+			$query->set( 'tax_query', $tax_query );
+			$query->set( 'orderby', 'menu_order' );
+
+		}
 
 	}
-	return $query;
 }
-add_filter( 'pre_get_posts', 'eddwp_feed_query', 999 );
+add_action( 'pre_get_posts', 'eddwp_feed_query', 99999999 );
 
 /* ----------------------------------------------------------- *
  * 10. Misc
  * ----------------------------------------------------------- */
+
+/**
+ * Add RSS image
+ */
+function eddwp_rss_featured_image() {
+    global $post;
+    
+    if ( has_post_thumbnail( $post->ID ) ) {
+    	$thumbnail = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
+    	$mime_type = get_post_mime_type( get_post_thumbnail_id( $post->ID ) );
+    	?>
+    	<media:content url="<?php echo $thumbnail; ?>" type="<?php echo $mime_type; ?>" medium="image" width="600" height="300"></media:content>
+    <?php }
+}
+add_filter( 'rss2_item', 'eddwp_rss_featured_image' );
+
+/**
+ * Add rss namespaces
+ */
+function eddwp_rss_namespace() {
+    echo 'xmlns:media="http://search.yahoo.com/mrss/"
+    xmlns:georss="http://www.georss.org/georss"';
+}
+add_filter( 'rss2_ns', 'eddwp_rss_namespace' );
+
+/**
+ * RSS
+ * Get an array of excluded category IDs
+ */
+function eddwp_rss_get_excluded_categories() {
+
+	$excluded_categories = array( 
+		'exclude-from-rss'
+	);
+
+	$ids = array();
+
+	if ( $excluded_categories ) {
+		foreach ( $excluded_categories as $category ) {
+			$category = get_category_by_slug( $category );
+			$ids[] = $category->cat_ID;
+		}
+	}
+
+	if ( $ids) {
+		return $ids;
+	}
+	
+	return false;
+}
+
+/**
+ * RSS
+ * Hide blocked categories from being listed on the site
+ */
+function eddwp_get_object_terms( $terms, $object_ids, $taxonomies ) {
+    
+    if ( $terms ) {
+    	foreach ( $terms as $id => $term ) {
+
+    		$term_id = isset( $term->term_id ) ? $term->term_id : '';
+
+    	    if ( in_array( $term_id, eddwp_rss_get_excluded_categories() ) ) {
+    	        unset( $terms[$id] );
+    	    }
+    	}
+    }
+
+    return $terms;
+
+}
+add_filter( 'wp_get_object_terms', 'eddwp_get_object_terms', 10, 3 );
+
+/**
+ * Removes styling from Better Click To Tweet plugin
+ */
+function eddwp_remove_bctt_styling() {
+	remove_action('wp_enqueue_scripts', 'bctt_scripts');
+}
+add_action( 'template_redirect', 'eddwp_remove_bctt_styling' );
+
 
 /**
  * Alter the WordPress query when displaying themes
@@ -1237,6 +1343,87 @@ function eddwp_modal() {
 }
 
 /**
+ * Post Meta
+ */
+function eddwp_post_meta() {
+	?>
+	<div class="post-meta">
+		<ul>
+			<?php
+			if ( is_single() ) eddwp_author_box();
+
+			$categories = get_the_category_list( __( ', ', 'edd' ) );
+
+			if ( $categories ) {
+			?>
+			<li><i class="fa fa-list-ul"></i> <?php echo $categories; ?></li>
+			<?php
+			} // end if
+
+			$tags = get_the_tag_list( '', __( ', ', 'edd' ) );
+			if ( $tags ) {
+			?>
+			<li><i class="fa fa-tag"></i> <?php echo get_the_tag_list( '', __( ', ', 'edd' ) ); ?></li>
+			<?php } ?>
+			<?php if ( comments_open() && ! is_single() ) { ?>
+			<li><i class="fa fa-comments-o"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), __( '% Comments', 'edd' ), '', ''); ?></span></li>
+			<?php } // end if ?>
+		</ul>
+	</div><!-- /.post-meta-->
+	<?php
+}
+
+/**
+ * Single post author box
+ */
+function eddwp_author_box() {
+	$author_url = get_the_author_meta( 'user_url' );
+	?>
+		<div class="edd-author-box clearfix">
+			<div class="edd-author-avatar">
+				<?php echo get_avatar( get_the_author_meta( 'ID' ), 85, '', get_the_author_meta( 'display_name' ) ); ?>
+			</div>
+			<div class="edd-author-bio">
+				<h4 class="edd-author-title">Written by <?php echo get_the_author_meta( 'display_name' ); ?></h4>
+				<?php if ( $author_url ) { ?>
+					<span class="edd-author-url"><a href="<?php echo esc_url( $author_url ); ?>" target="_blank"><i class="fa fa-link"></i></a></span>
+				<?php } ?>
+				<?php echo wpautop( get_the_author_meta( 'description' ) ); ?>
+			</div>
+		</div>
+	<?php
+}
+
+/**
+ * Universal Newsletter Sign Up Form
+ */
+function eddwp_newsletter_form() {
+	?>
+	<div class="newsletter">
+		<h3 class="newsletter-title"><span>Subscribe to the Easy Digital Downloads </span>Email Newsletter</h3>
+		<div class="edd-newsletter-content-wrap">
+			<p class="newsletter-description">Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads by submitting your information below.</p>
+			<form class="newsletter-form" id="pmc_mailchimp" action="" method="post">
+				<div class="newsletter-name-container">
+					<input class="newsletter-name" name="pmc_fname" id="pmc_fname" type="text" placeholder="First Name"/>
+				</div>
+				<div class="newsletter-email-container">
+					<input class="newsletter-email" name="pmc_email" id="pmc_email" type="text" placeholder="Email Address"/>
+				</div>
+				<div class="newsletter-submit-container">
+					<input type="hidden" name="redirect" value="<?php echo 'https://' . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>"/>
+					<input type="hidden" name="action" value="pmc_signup"/>
+					<input type="hidden" name="pmc_list_id" value="be2b495923"/>
+					<input type="submit" class="newsletter-submit edd-button button blue" value="Sign Up"/>
+				</div>
+			</form>
+			<p class="newsletter-note"><i class="fa fa-lock"></i>We will never send you spam. Your email address is secure.</p>
+		</div>
+	</div>
+	<?php
+}
+
+/**
  * Google Custom Search
  */
 function eddwp_google_custom_search() {
@@ -1255,6 +1442,34 @@ function eddwp_google_custom_search() {
 	</script>
 	<gcse:search></gcse:search>
 	<?php
+}
+
+/**
+ * Connections for downloads post type
+ *
+ * Add these connections to the Custom Functions Plugin for EDD Site (then delete)
+ */
+function temporary_eddwp_connection_types() {
+	p2p_register_connection_type( array(
+		'name' => 'downloads_to_docs',
+		'from' => 'download',
+		'to' => 'docs',
+		'reciprocal' => true
+	) );
+	p2p_register_connection_type( array(
+		'name' => 'downloads_to_forums',
+		'from' => 'download',
+		'to' => 'forum',
+		'reciprocal' => true
+	) );
+}
+add_action( 'p2p_init', 'temporary_eddwp_connection_types' );
+
+/**
+ * Check to see if EDD is activated
+ */
+function eddwp_edd_is_activated() {
+	return class_exists( 'Easy_Digital_Downloads' );
 }
 
 
@@ -1346,3 +1561,66 @@ function eddc_get_upcoming_commissions(){
 
 	return 'Next payout for Commissions earned from '.  date( 'm/d/Y', strtotime( $from ) ) .' to '. date( 'm/d/Y', strtotime( $to ) ) . ' will be: <strong>' . edd_currency_filter( edd_format_amount( $total ) ) . '</strong>';
 }
+
+/**
+ * Adds all Downloads to the Extension drop down in the new ticket form
+ *
+ */
+function edd_wp_gravity_form_download_options( $form ) {
+
+    foreach ( $form['fields'] as &$field ) {
+
+        if ( $field->type != 'select' || strpos( $field->cssClass, 'extension-list' ) === false ) {
+            continue;
+        }
+
+        $downloads = get_posts( array( 'posts_per_page' => -1, 'post_type' => 'download', 'orderby' => 'post_title', 'order' => 'ASC' ) );
+
+        $choices = array();
+
+        foreach ( $downloads as $download ) {
+            $choices[] = array( 'text' => $download->post_title, 'value' => $download->post_title );
+        }
+
+        // update 'Select a Post' to whatever you'd like the instructive option to be
+        $field->placeholder = 'Select extension';
+        $field->choices = $choices;
+
+    }
+
+    return $form;
+}
+add_filter( 'gform_pre_render_11', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_pre_validation_11', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_pre_submission_filter_11', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_admin_pre_render_11', 'edd_wp_gravity_form_download_options' );
+
+function eddwp_facebook_conversion_pixel() {
+
+	if( function_exists( 'edd_is_success_page' ) && ! edd_is_success_page() ) {
+		return;
+	}
+
+	if( function_exists( 'edd_get_purchase_session' ) && ! edd_get_purchase_session() ) {
+		return;
+	}
+?>
+<!-- Facebook Conversion Code for EDD Checkout Success -->
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6023481255100', {'value':'0.00','currency':'USD'}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6023481255100&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+<?php
+}
+add_action( 'wp_footer', 'eddwp_facebook_conversion_pixel' );

@@ -34,7 +34,7 @@ the_post();
 							<?php endif; ?>
 						</p>
 					</div>
-					<?php if( ! has_term( 'bundles', 'extension_category', get_the_ID() ) ) { ?>
+					<?php if( ! has_term( array( '3rd-party', 'bundles' ), 'extension_category', get_the_ID() ) ) { ?>
 					<div class="version clearfix">
 						<?php
 							$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
@@ -58,6 +58,8 @@ the_post();
 					<?php
 						if ( function_exists('p2p_register_connection_type') ) :
 		
+							$external_doc = get_post_meta( get_the_ID(), 'ecpt_documentationlink', true );
+
 							// Find connected posts
 							$docs = new WP_Query( array(
 							  'connected_type' => 'extensions_to_docs',
@@ -74,16 +76,20 @@ the_post();
 							  'post_status' => 'publish'
 							) );
 		
-							if ( $forums->have_posts() || $docs->have_posts() ) {
+							if ( $forums->have_posts() || $docs->have_posts() || $external_doc ) {
 								echo '<div class="related-items">';
 									// Display connected posts
-									if ( $docs->have_posts() ) :
-										echo '<h3>Documenation</h3>';
+									if ( $external_doc || $docs->have_posts() ) :
+										echo '<h3>Documentation</h3>';
 										echo '<ul class="related-links">';
-										while ( $docs->have_posts() ) : $docs->the_post(); ?>
-											<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-											<?php
-										endwhile;
+										if( empty( $external_doc ) ) :
+											while ( $docs->have_posts() ) : $docs->the_post(); ?>
+												<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+												<?php
+											endwhile;
+										else :
+											echo '<li><a href="' . esc_url( $external_doc ) . '">View Setup Documentation</a></li>';
+										endif;
 										echo '</ul>';
 										wp_reset_postdata();
 									endif;							

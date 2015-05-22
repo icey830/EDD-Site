@@ -6,7 +6,7 @@
 	height: 650px;
 	
 	& .hero-inside {
-		width: 1000px;
+		width: 980px;
 		margin: 0 auto;
 	}
 	
@@ -64,7 +64,7 @@
 	}
 	
 	& .hero-text {
-		padding: 40px 10px 10px;
+		padding: 40px 0 10px;
 		text-align: center;
 		position: relative;
 		-webkit-animation: intro-text .8s linear;
@@ -339,7 +339,8 @@
 	border: 1px solid #25597a;
 }
 
-.featureset.feature-extensions {
+.featureset.feature-extensions,
+.featureset.feature-edd-downloads {
 	background: #f2f1ef;
 	background: -webkit-linear-gradient(#eee 0%, #fbfbfb 100%);
 	background: -moz-linear-gradient(#eee 0%, #fbfbfb 100%);
@@ -378,6 +379,7 @@
 }
 
 .featureset.feature-extensions .feature-content,
+.featureset.feature-edd-downloads .feature-content,
 .featureset.feature-support .feature-content {
 	margin: 0;
 	text-align: left;
@@ -434,20 +436,23 @@
 	margin-top: 35px;
 }
 
-.featureset.feature-extensions .feature-content { float: right; }
+.featureset.feature-extensions .feature-content,
+.featureset.feature-edd-downloads .feature-content { float: right; }
 
-.home .featureset.feature-extensions .extensions-grid ul li a img {
-	max-width: 325px;
+.home .featureset.feature-extensions .extensions-grid ul li a img,
+.home .featureset.feature-edd-downloads .edd-downloads-grid ul li a img {
 	margin: 0;
 	padding: 0;
 }
 
-.home .extensions-grid ul li .preview-image {
+.home .extensions-grid ul li .preview-image,
+.home .edd-downloads-grid ul li .preview-image {
 	height: 100%;
 	margin-bottom: 12px;
 }
 
-.home .extensions-grid ul li a p {
+.home .extensions-grid ul li a p,
+.home .edd-downloads-grid ul li a p {
 	margin-top: 8px;
 }
 
@@ -715,7 +720,8 @@ html.cssanimations body.firefox .iphone { opacity: 1; }
 
 .app-store-button .price { margin: 0; }
 
-.feature-extensions-left {
+.feature-extensions-left,
+.feature-edd-downloads-left {
 	float: left;
 }
 
@@ -729,9 +735,9 @@ html.cssanimations body.firefox .iphone { opacity: 1; }
 }
 
 #extensions-intro-box {
-	background: #fff;
-	padding: 40px;
-	font-weight: 300;
+	text-align: center;
+	max-width: 700px;
+	margin: 0 auto 30px;
 }
 
 #extensions-intro-box a {
@@ -763,42 +769,46 @@ html.cssanimations body.firefox .iphone { opacity: 1; }
 
 #extensions-intro-box h2 { margin-top: 8px; }
 
-.extensions h1 {
+.extensions h1,
+.edd-downloads h1 {
 	float: left;
 }
 
-.extensions form {
+.extensions form,
+.edd-downloads form {
 	float: right;
 }
 
-.extensions-grid {
+.extensions-grid,
+.edd-downloads-grid {
 	margin: 0;
 	padding: 0;
 }
 
-.extensions-grid ul {
+.extensions-grid ul,
+.edd-downloads-grid ul {
 	list-style: none;
 	margin: 10px 0 0 0;
 	padding: 0;
 }
 
-.extensions-grid ul li {
-	width: 33%;
+.extensions-grid ul li,
+.edd-downloads-grid ul li {
+	width: 32.5%;
 	margin-right: 1%;
-	float: left;
+	display: inline-block;
 	margin-bottom: 1%;
+	vertical-align: top;
 }
 
-.extensions-grid ul li:nth-child(3n+3) {
+.extensions-grid ul li:nth-child(3n+3),
+.edd-downloads-grid ul li:nth-child(3n+3) {
 	width: 32%;
 	margin-right: 0;
 }
 
-.extensions-grid ul li:nth-child(3n+3) a img {
-	max-width: 281px;
-}
-
-.extensions-grid ul li a {
+.extensions-grid ul li a,
+.edd-downloads-grid ul li a {
 	display: block;
 	background: #fff;
 	padding: 20px;
@@ -807,32 +817,38 @@ html.cssanimations body.firefox .iphone { opacity: 1; }
 	-webkit-transition: all .2s linear;
 }
 
-.extensions-grid ul li .preview-image {
+.extensions-grid ul li .preview-image,
+.edd-downloads-grid ul li .preview-image {
 	height: 100%;
 }
 
-.feature-extensions .extensions-grid ul li a img {
+.feature-extensions .extensions-grid ul li a img,
+.feature-edd-downloads .edd-downloads-grid ul li a img {
 	margin-left: -10px;
 	margin-top: -10px;
 	max-width: 100%;
 }
 
 .extensions-grid ul li a .price,
-.extensions-grid ul li a p {
+.edd-downloads-grid ul li a .price,
+.extensions-grid ul li a p,
+.edd-downloads-grid ul li a p {
 	font-size: 14px;
 	display: block;
 	margin: 8px 0;
 	color: #888;
 }
 
-.extensions-grid ul li a p {
+.extensions-grid ul li a p,
+.edd-downloads-grid ul li a p {
 	margin-top: 20px;
 	margin-bottom: 0;
 	padding-bottom: 0;
 	font-size: 16px;
 }
 
-.extensions-grid ul li a:hover {
+.extensions-grid ul li a:hover,
+.edd-downloads-grid ul li a:hover {
 	background: #f9f9f9;
 	color: #111;
 	box-shadow: 0 0 2px #ccc;

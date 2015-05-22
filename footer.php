@@ -12,8 +12,10 @@
 	?>
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="container">
-			<img src="<?php echo get_template_directory_uri(); ?>/images/edd-sitting.png" />
-			<?php if ( ! is_page( 'checkout' ) || ! is_page( 130 ) || is_page( 635 ) ) : ?>
+			<?php if ( ! is_404() ) : ?>
+				<img src="<?php echo get_template_directory_uri(); ?>/images/edd-sitting.png" />
+			<?php endif; ?>
+			<?php if ( ! is_page( array( 'checkout', 130, 635 ) ) ) : ?>
 				<div class="columns clearfix">
 					<div class="dev-blog col">
 						<?php eddwp_get_latest_post(); ?>
@@ -26,8 +28,7 @@
 
 					<div class="consultants col">
 						<h4>Trusted Consultants</h4>
-						<p>We maintain a list of consultants that we recommend working with when it comes to managed support, customization, and setup help. </p>
-						<p><a href="<?php echo home_url( '/consultants/' ); ?>">View Consultants...</a></p>
+						<p>We maintain a list of consultants that we recommend working with when it comes to managed support, customization, and setup help. If you are looking for additional help with EDD, consider these <a href="<?php echo home_url( '/consultants/' ); ?>">trusted consultants</a>.</p>
 					</div><!-- /.consultants -->
 				</div><!-- /.columns -->
 

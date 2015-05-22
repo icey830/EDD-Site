@@ -17,9 +17,23 @@
 	<a href="http://affiliatewp.com/?utm_source=edd&utm_medium=banner&utm_campaign=Extension%20Category">
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/affwp-banner.png" title="AffiliateWP" alt="AffiliateWP - The best affiliate plugin for WordPress"/>
 	</a>
-	<?php else : ?>
-	<a href="<?php echo home_url( '/?extension=core-extensions-bundle' ); ?>">
-		<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/banner-ceb.png" title="Core Extensions Bundle" alt="Core Extensions Bundle banner"/>
+	<?php else :
+	$banners = array(
+		0 => array(
+			'url'   => home_url( '/?extension=core-extensions-bundle' ),
+			'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/banner-ceb.png',
+			'title' => 'Core Extensions Bundle'
+		),
+		1 => array(
+			'url'   => home_url( '/starter-package' ),
+			'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/banner-sp.png',
+			'title' => 'Starter Package'
+		)
+	);
+	$num = rand( 0, 1 );
+	?>
+	<a href="<?php echo $banners[ $num ]['url']; ?>">
+		<img src="<?php echo $banners[ $num ]['image']; ?>" title="<?php echo $banners[ $num ]['title']; ?>" alt="<?php echo $banners[ $num ]['title']; ?>"/>
 	</a>
 	<?php endif; ?>
 </section><!-- /.content -->
