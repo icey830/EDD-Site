@@ -28,10 +28,6 @@ get_header(); ?>
 						</div>
 					</form>
 					<?php the_content(); ?>
-
-					<div class="edd-bbpress-archive">
-						<?php echo do_shortcode( '[bbp-forum-index]' ); ?>
-					</div>
 				</article>
 				<?php } ?>
 			</section><!-- /.content -->
