@@ -66,12 +66,6 @@ if ( is_user_logged_in() ) { ?>
 					?>
 				</div><!-- /.tab-pane -->
 
-				<div class="tab-pane download-history-tab-pane" id="tab6">
-					<?php
-					echo do_shortcode( '[download_history]' );
-					?>
-				</div><!-- /.tab-pane -->
-
 			</div><!-- /.tab-content -->
 		</div><!-- /.container -->
 	</section><!-- /.main -->
