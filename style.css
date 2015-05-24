@@ -4951,12 +4951,12 @@ input#edd-discount:focus,
  * Featured Download Template (theme and extension)
  * ----------------------------- */
 .template-themes .sharedaddy,
-.template-extensions .sharedaddy {
+.post-type-archive-download .sharedaddy {
   display: none;
 }
 /* FIND OUT WHY I'M HERE AND REMOVE ME */
 .template-themes .main,
-.template-extensions .main,
+.post-type-archive-download .main,
 .template-site-showcase .main,
 .post-type-archive-download .main,
 .tax-download_category .main,
@@ -4968,7 +4968,7 @@ input#edd-discount:focus,
   padding-bottom: 0;
 }
 /* extensions page */
-.template-extensions .edd-downloads-area .inner,
+.post-type-archive-download .edd-downloads-area .inner,
 .download-search .edd-downloads-area .inner {
   padding-top: 30px;
 }
@@ -5092,10 +5092,13 @@ input#edd-discount:focus,
 .recommended-download-area {
   background: #eee;
 }
-.template-extensions .edd-downloads-area,
+.post-type-archive-download .edd-downloads-area,
 .template-themes .edd-downloads-area,
 .download-search .edd-downloads-area {
   background: #fff;
+}
+.theme-forest-edd-link {
+  text-align: center;
 }
 /* showcase page */
 .site-showcase-area {

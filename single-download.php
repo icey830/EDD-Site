@@ -17,7 +17,7 @@ $has_license  = get_post_meta( get_the_ID(), 'edd_license_enabled', true );
 if ( $is_extension && ! $is_bundle ) {
 	$download_type = 'extension';
 } elseif ( $is_theme ) {
-	$download_type = 'themes';
+	$download_type = 'theme';
 } elseif ( $is_bundle ) {
 	$download_type = 'bundle';
 }
