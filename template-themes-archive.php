@@ -151,6 +151,9 @@ $no_duplicates = array(); // don't repeat the same theme twice
 							endwhile;
 							wp_reset_postdata();
 						?>
+						<p class="theme-forest-edd-link">
+							<a class="edd-subtmi button blue" href="http://themeforest.net/tags/easy%20digital%20downloads">View all EDD Themes on ThemeForest</a>
+						</p>
 					</section><!-- .download-grid three-col -->
 				</div>
 			</div>

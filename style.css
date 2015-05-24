@@ -5097,6 +5097,9 @@ input#edd-discount:focus,
 .download-search .edd-downloads-area {
   background: #fff;
 }
+.theme-forest-edd-link {
+  text-align: center;
+}
 /* showcase page */
 .site-showcase-area {
   background: #fff;
