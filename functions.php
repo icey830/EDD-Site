@@ -478,10 +478,6 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'template-themes';
 	}
 	
-	if ( is_page_template( 'template-extensions-archive.php' ) ) {
-		$classes[] = 'template-extensions';
-	}
-	
 	if ( is_page_template( 'template-site-showcase.php' ) ) {
 		$classes[] = 'template-site-showcase';
 	}
