@@ -16,7 +16,7 @@ the_post();
 						<h2 class="section-title">Extensions for Easy Digital Downloads</h2>
 						<p class="section-subtitle">Use extensions built specifically for EDD to customize the functionality of your online business.</p>
 						<div class="extensions-search-form">
-							<form id="extensions-searchform" class="clearfix" action="<?php echo home_url( 'extensions-template' ); ?>" method="get">
+							<form id="extensions-searchform" class="clearfix" action="<?php echo home_url( 'downloads' ); ?>" method="get">
 								<input class="extensions-search-text" type="search" name="download_s" placeholder="Ex. Payment Gateway" />
 								<input class="extensions-search-submit button" type="submit" value="Search" />
 								<input type="hidden" name="action" value="download_search" />
