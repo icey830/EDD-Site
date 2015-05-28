@@ -92,9 +92,10 @@ the_post();
 						</div>
 						<?php
 							$extension_args = array(
-								'post_type' => 'download',
-								'paged'     => get_query_var( 'paged' ),
-								'tax_query' => array(
+								'post_type'      => 'download',
+								'paged'          => get_query_var( 'paged' ),
+								'posts_per_page' => 23,
+								'tax_query'      => array(
 									array(
 										'taxonomy' => 'download_category',
 										'field'    => 'slug',
