@@ -962,6 +962,10 @@ address {
 .download-grid-item-info > p {
   margin-bottom: 20px;
 }
+.checkout-cart-empty .download-grid-item-info > p {
+  max-width: 300px;
+  margin: 0 auto 20px;
+}
 .download-grid-item-secondary-link {
   color: #666;
 }
@@ -4105,7 +4109,7 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 .page-id-160 .checkout-cart-empty h2.tagline {
   font-size: 24px;
   font-size: 2.4rem;
-  color: #aaa;
+  margin-bottom: 30px;
 }
 #edd_checkout_wrap {
   margin-top: 15px;
