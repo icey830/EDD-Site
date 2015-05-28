@@ -95,11 +95,19 @@ the_post();
 								'post_type'      => 'download',
 								'paged'          => get_query_var( 'paged' ),
 								'posts_per_page' => 23,
+								'order'          => 'ASC',
 								'tax_query'      => array(
+									'relation'   => 'AND',
 									array(
 										'taxonomy' => 'download_category',
 										'field'    => 'slug',
 										'terms'    => 'extensions',
+									),
+									array(
+										'taxonomy' => 'download_category',
+										'field'    => 'slug',
+										'terms'    => '3rd-party',
+										'operator' => 'NOT IN',
 									),
 								),
 							);
