@@ -37,7 +37,7 @@ get_header(); ?>
 												'terms'    => 'extensions',
 											),
 											array(
-												'taxonomy' => 'download_category',
+												'taxonomy' => 'download_tag',
 												'field'    => 'slug',
 												'terms'    => 'recommended',
 											),
@@ -87,7 +87,7 @@ get_header(); ?>
 												'terms'    => 'themes',
 											),
 											array(
-												'taxonomy' => 'download_category',
+												'taxonomy' => 'download_tag',
 												'field'    => 'slug',
 												'terms'    => 'recommended',
 											),
