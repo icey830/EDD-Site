@@ -5111,6 +5111,9 @@ input#edd-discount:focus,
 .site-showcase-area {
   background: #fff;
 }
+.template-site-showcase .download-grid-item {
+  min-height: 340px;
+}
 .showcase-submission {
   max-width: 700px;
   margin: 0 auto;
