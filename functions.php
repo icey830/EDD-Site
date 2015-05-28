@@ -1188,10 +1188,10 @@ add_filter( 'generate_rewrite_rules', 'eddwp_feed_rewrite' );
  */
 function eddwp_feed_request($qv) {
 	if ( isset( $qv['feed'] ) && 'extensions' == $qv['feed'] )
-		$qv['post_type'] = 'extension';
+		$qv['post_type'] = 'download';
 
 	if ( isset( $qv['feed'] ) && 'addons' == $qv['feed'] )
-		$qv['post_type'] = 'extension';
+		$qv['post_type'] = 'download';
 
 	return $qv;
 }
