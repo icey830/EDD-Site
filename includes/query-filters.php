@@ -19,18 +19,18 @@ function eddwp_pre_get_posts( $query ) {
 	if( is_admin() )
 		return;
 
-	if( $query->is_main_query() && is_tax( 'download_category' ) ) {
+	if( $query->is_main_query() && is_tax( 'extension_category' ) ) {
 
 		$query->set( 'orderby', 'menu_order' );
 		$query->set( 'order', 'ASC' );
 
 	}
 
-	if( $query->is_main_query() && is_post_type_archive( 'download' ) ) {
+	if( $query->is_main_query() && is_post_type_archive( 'extension' ) ) {
 
 		$tax_query = array(
 			array(
-				'taxonomy' => 'download_category',
+				'taxonomy' => 'extension_category',
 				'field'    => 'slug',
 				'terms'    => '3rd-party',
 				'operator' => 'NOT IN'
@@ -41,10 +41,15 @@ function eddwp_pre_get_posts( $query ) {
 
 	}
 
-	if( $query->is_main_query() && is_post_type_archive( 'download' ) && ! isset( $_GET['display'] ) ) {
+	if( $query->is_main_query() && is_post_type_archive( 'extension' ) && ! isset( $_GET['display'] ) ) {
 
 		$query->set( 'orderby', 'menu_order' );
 		$query->set( 'order', 'ASC' );
+	}
+
+	if( $query->is_main_query() && is_post_type_archive( 'theme' ) ) {
+
+		$query->set( 'posts_per_page', 32 );
 	}
 
 }
