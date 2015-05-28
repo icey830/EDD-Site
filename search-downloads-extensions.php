@@ -19,7 +19,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 						<h2 class="section-title">Search Results for <strong><?php echo sanitize_text_field( stripslashes( $_GET['download_s'] ) ); ?></strong></h2>
 						<p class="section-subtitle">Enter keywords in the form below to perform another search.</p>
 						<div class="extensions-search-form">
-							<form id="extensions-searchform" class="clearfix" action="<?php echo home_url( 'extensions-template' ); ?>" method="get">
+							<form id="extensions-searchform" class="clearfix" action="<?php echo home_url( '/downloads/' ); ?>" method="get">
 								<input class="extensions-search-text" type="search" name="download_s" placeholder="Ex. Payment Gateway" value="<?php echo $q['s']; ?>"/>
 								<input class="extensions-search-submit button" type="submit" value="Search" />
 								<input type="hidden" name="action" value="download_search" />
