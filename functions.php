@@ -1244,9 +1244,12 @@ function eddwp_feed_query( $query ) {
 		}
 
 	}
-	return $query;
 }
+<<<<<<< HEAD
 add_filter( 'pre_get_posts', 'eddwp_feed_query', 99999999 );
+=======
+add_action( 'pre_get_posts', 'eddwp_feed_query', 99999999 );
+>>>>>>> master
 
 /* ----------------------------------------------------------- *
  * 10. Misc
@@ -1292,6 +1295,53 @@ function eddwp_rss_namespace() {
 }
 add_filter( 'rss2_ns', 'eddwp_rss_namespace' );
 
+/**
+ * RSS
+ * Get an array of excluded category IDs
+ */
+function eddwp_rss_get_excluded_categories() {
+
+	$excluded_categories = array( 
+		'exclude-from-rss'
+	);
+
+	$ids = array();
+
+	if ( $excluded_categories ) {
+		foreach ( $excluded_categories as $category ) {
+			$category = get_category_by_slug( $category );
+			$ids[] = $category->cat_ID;
+		}
+	}
+
+	if ( $ids) {
+		return $ids;
+	}
+	
+	return false;
+}
+
+/**
+ * RSS
+ * Hide blocked categories from being listed on the site
+ */
+function eddwp_get_object_terms( $terms, $object_ids, $taxonomies ) {
+    
+    if ( $terms ) {
+    	foreach ( $terms as $id => $term ) {
+
+    		$term_id = isset( $term->term_id ) ? $term->term_id : '';
+
+    	    if ( in_array( $term_id, eddwp_rss_get_excluded_categories() ) ) {
+    	        unset( $terms[$id] );
+    	    }
+    	}
+    }
+
+    return $terms;
+
+}
+add_filter( 'wp_get_object_terms', 'eddwp_get_object_terms', 10, 3 );
 
 /**
  * Removes styling from Better Click To Tweet plugin
@@ -1590,7 +1640,7 @@ function eddwp_facebook_conversion_pixel() {
 		return;
 	}
 
-	if( ! edd_get_purchase_session() ) {
+	if( function_exists( 'edd_get_purchase_session' ) && ! edd_get_purchase_session() ) {
 		return;
 	}
 ?>
