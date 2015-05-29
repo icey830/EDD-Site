@@ -25,6 +25,36 @@ get_header();
 		<div class="edd-downloads-area full-width">
 			<div class="inner">
 				<div class="edd-downloads">
+					<div class="section-header">
+						<div class="filter-label">Categories:</div>
+						<?php
+							$cat_args = array(
+								'exclude'  => array(
+									162 /* live site - themes */,
+									1571 /* live site - featured theme */,
+									11 /* local site - themes (delete) */,
+									187 /* local site - featured theme (delete) */,
+								),
+							);
+							$cats = get_terms( 'download_category', $cat_args );
+
+							if ( $cats ) {
+								$cat_list = '<div class="filter clearfix">';
+								$cat_list .= '<ul class="download-categories clearfix">';
+								$cat_list .= '<li><a href="' . home_url('/downloads') . '">All</a></li>';
+								$cat_list .= '<li><a href="' . home_url('/downloads/?display=newest') . '">Newest</a></li>';
+
+								foreach( $cats as $cat ) {
+									$cat_list .= '<li><a href="' . get_term_link( $cat->slug, 'download_category' ) . '">' . $cat->name . '</a></li>';
+								}
+
+								$cat_list .= '</ul>';
+								$cat_list .= '</div>';
+
+								echo $cat_list;
+							}
+						?>
+					</div>
 					<section class="download-grid three-col clearfix">
 						<?php while ( have_posts() ) : the_post(); ?>
 							<div class="download-grid-item">
