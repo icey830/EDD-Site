@@ -146,10 +146,16 @@ if ( ! $extension_cache->output() ) : ob_start();
 						'orderby'        => 'menu_order',
 						'order'          => 'ASC',
 						'tax_query'      => array(
+							'relation'   => 'AND',
+							array(
+								'taxonomy' => 'download_category',
+								'field'    => 'slug',
+								'terms'    => 'extensions'
+							),
 							array(
 								'taxonomy' => 'download_tag',
 								'field'    => 'slug',
-								'terms'    => 'featured-extensions'
+								'terms'    => 'featured'
 							)
 						)
 					)
