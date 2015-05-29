@@ -1245,11 +1245,8 @@ function eddwp_feed_query( $query ) {
 
 	}
 }
-<<<<<<< HEAD
-add_filter( 'pre_get_posts', 'eddwp_feed_query', 99999999 );
-=======
 add_action( 'pre_get_posts', 'eddwp_feed_query', 99999999 );
->>>>>>> master
+
 
 /* ----------------------------------------------------------- *
  * 10. Misc
