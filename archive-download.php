@@ -95,7 +95,8 @@ the_post();
 								'post_type'      => 'download',
 								'paged'          => get_query_var( 'paged' ),
 								'posts_per_page' => 23,
-								'order'          => 'ASC',
+								'order'          => isset( $_GET['display'] ) ? 'DESC' : 'ASC',
+								'orderby'        => isset( $_GET['display'] ) ? 'date' : 'menu_order',
 								'tax_query'      => array(
 									'relation'   => 'AND',
 									array(
