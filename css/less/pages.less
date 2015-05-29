@@ -638,14 +638,15 @@
 }
 
 .extension i.third-party,
-.edd-download i.third-party {
+.edd-download i.third-party,
+.download-grid-item i.third-party {
 	display: block;
 	background: url(images/ribbon-3rd-party.png) no-repeat;
 	width: 99px;
 	height: 99px;
 	position: absolute;
 	top: -4px;
-	right: -6px;
+	right: -5px;
 }
 
 .extension i.free,
@@ -1777,7 +1778,7 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 .page-id-160 .checkout-cart-empty h2.tagline {
 	font-size: 24px;
 	font-size: 2.4rem;
-	color: #aaa;
+	margin-bottom: 30px;
 }
 
 #edd_checkout_wrap {
@@ -2765,6 +2766,219 @@ input#edd-discount,
 	margin-bottom: 30px;
 	padding-bottom: 30px;
 }
+
+
+/* ----------------------------- *
+ * Featured Download Template (theme and extension)
+ * ----------------------------- */
+
+.template-themes .sharedaddy,
+.post-type-archive-download .sharedaddy { display: none; } /* FIND OUT WHY I'M HERE AND REMOVE ME */
+ 
+.template-themes .main,
+.post-type-archive-download .main,
+.template-site-showcase .main,
+.post-type-archive-download .main,
+.tax-download_category .main,
+.tax-download_tag .main {
+	padding: 0; 
+}
+
+.tax-download_category .extensions-header-area .inner,
+.tax-download_tag .extensions-header-area .inner {
+	padding-bottom: 40px;
+}
+
+/* extensions page */
+
+.post-type-archive-download .edd-downloads-area .inner,
+.download-search .edd-downloads-area .inner {
+	padding-top: 30px;
+}
+
+.extensions-header .section-header {
+	margin-bottom: 10px;
+}
+
+.extensions-search-form {
+	padding: 30px 0 0;
+	margin: 0 auto;
+	max-width: 700px;
+}
+
+.extensions-search-form input {
+	display: inline-block;
+	font-size: 24px;
+	padding: 10px;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.extensions-search-form input[type="search"] {
+	border: none;
+	border-radius: 3px;
+	margin-right: 2%;
+	max-width: 80%;
+}
+
+.extensions-search-form input[type="submit"] {
+	width: 15%;
+	min-width: 105px;
+}
+
+.edd-downloads .section-header .filter-label {
+	display: inline-block;
+	font-size: 24px;
+	text-align: left;
+	width: 16%;
+	vertical-align: top;
+}
+
+.edd-downloads .section-header .filter {
+	display: inline-block;
+	background: none;
+	padding: 0;
+	margin: 0;
+	width: 78.5%;
+}
+
+.section-header .filter li {
+	margin: 0 8px 8px 0;
+}
+
+.section-header .filter a {
+	background: #a2acb2;
+	color: #fff;
+	font-size: 13px;
+	line-height: 1;
+	padding: 6px 8px;
+	border: none;
+	margin: 0;
+}
+
+.section-header .filter a:hover {
+	background: #2794DA;
+}
+
+#extensions-bundle-promotion.download-grid-item {
+	background: #2794da;
+	color: #fff;
+}
+
+#extensions-bundle-promotion.download-grid-item .download-grid-thumb {
+	border: none;
+	margin: 11px 0 32px;
+}
+
+#extensions-bundle-promotion.download-grid-item .green-button {
+	padding: 8px 18px;
+	font-size: 18px;
+}
+
+/* themes page */
+
+.featured-download-area {
+	background: #eee;
+}
+
+.featured-download-thumb,
+.featured-download-info {
+	float: left;
+	width: 50%;
+}
+
+.featured-download-thumb .download-grid-thumb {
+	border: 2px solid #E4E4E4;
+}
+
+.featured-download-img {
+	border-radius: 4px;
+}
+
+.featured-download-info {
+	padding-left: 50px;
+}
+
+.featured-download-title {
+	font-size: 30px;
+	line-height: 1.4;
+	margin: 0 0 25px;
+}
+
+.featured-download-label {
+	background: #38C238;
+	color: #fff;
+	display: inline-block;
+	padding: 8px 10px 6px;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	border-radius: 4px;
+	vertical-align: text-top;
+	margin-right: 10px;
+	line-height: 1;
+	margin-top: 4px;
+}
+
+.featured-download-supported {
+	color: #999;
+	font-size: 13px;
+	font-style: italic;
+}
+
+.featured-download-primary-link {
+	margin-right: 10px;
+}
+
+.featured-download-secondary-link {
+	background: #fff;
+	color: #666;
+	-webkit-transition: all .2s;
+	-moz-transition: all .2s;
+	transition: all .2s;
+}
+
+.featured-download-secondary-link:hover {
+	background: #fafafa;
+}
+
+.recommended-download-area {
+	background: #eee;
+}
+
+.post-type-archive-download .edd-downloads-area,
+.tax-download_category .edd-downloads-area,
+.tax-download_tag .edd-downloads-area,
+.template-themes .edd-downloads-area,
+.download-search .edd-downloads-area {
+	background: #fff;
+}
+
+.theme-forest-edd-link {
+	text-align: center;
+}
+
+/* showcase page */
+
+.site-showcase-area {
+	background: #fff;
+}
+
+.template-site-showcase .download-grid-item {
+	min-height: 340px;
+}
+
+.showcase-submission {
+	max-width: 700px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 50px;
+	border-radius: 4px;
+}
+
 
 /* ----------------------------- *
  * Starter package

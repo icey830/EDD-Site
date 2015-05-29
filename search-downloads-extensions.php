@@ -1,11 +1,14 @@
 <?php
 /**
- * The template for displaying all the download items.
- *
- * This archive template doubles as the Extensions template.
+ * The template for displaying search results for downloads with "extensions" category.
  */
 get_header();
-the_post();
+
+$q['s'] = $_GET['download_s'];
+$q['s'] = sanitize_text_field( stripslashes( $q['s'] ) );
+if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
+	$q['s'] = urldecode( $q['s'] );
+}
 ?>
 	<section class="main clearfix">
 
@@ -13,11 +16,11 @@ the_post();
 			<div class="inner">
 				<div class="extensions-header clearfix">
 					<div class="section-header">
-						<h2 class="section-title">Extensions for Easy Digital Downloads</h2>
-						<p class="section-subtitle">Use extensions built specifically for EDD to customize the functionality of your online business.</p>
+						<h2 class="section-title">Search Results for <strong><?php echo sanitize_text_field( stripslashes( $_GET['download_s'] ) ); ?></strong></h2>
+						<p class="section-subtitle">Enter keywords in the form below to perform another search.</p>
 						<div class="extensions-search-form">
-							<form id="extensions-searchform" class="clearfix" action="<?php echo home_url( 'downloads' ); ?>" method="get">
-								<input class="extensions-search-text" type="search" name="download_s" placeholder="Ex. Payment Gateway" />
+							<form id="extensions-searchform" class="clearfix" action="<?php echo home_url( '/downloads/' ); ?>" method="get">
+								<input class="extensions-search-text" type="search" name="download_s" placeholder="Ex. Payment Gateway" value="<?php echo $q['s']; ?>"/>
 								<input class="extensions-search-submit button" type="submit" value="Search" />
 								<input type="hidden" name="action" value="download_search" />
 							</form>
@@ -35,10 +38,10 @@ the_post();
 						<?php
 							$cat_args = array(
 								'exclude'  => array(
-									22 /* extensions */,
-									162 /* themes */,
-									1572 /* child themes */,
-									1571 /* featured theme */,
+									162 /* live site - themes */,
+									1571 /* live site - featured theme */,
+									11 /* local site - themes (delete) */,
+									187 /* local site - featured theme (delete) */,
 								),
 							);
 							$cats = get_terms( 'download_category', $cat_args );
@@ -91,13 +94,13 @@ the_post();
 							</div>
 						</div>
 						<?php
-							$extension_args = array(
+							$query = array(
+								's'              => $q['s'],
 								'post_type'      => 'download',
-								'paged'          => get_query_var( 'paged' ),
-								'posts_per_page' => 23,
-								'order'          => 'ASC',
-								'tax_query'      => array(
-									'relation'   => 'AND',
+								'posts_per_page' => 20,
+								'paged'          => isset( $_GET['page'] ) ? (int) $_GET['page'] : 1,
+								'tax_query' => array(
+									'relation'     => 'OR',
 									array(
 										'taxonomy' => 'download_category',
 										'field'    => 'slug',
@@ -106,14 +109,14 @@ the_post();
 									array(
 										'taxonomy' => 'download_category',
 										'field'    => 'slug',
-										'terms'    => '3rd-party',
-										'operator' => 'NOT IN',
+										'terms'    => 'bundle',
 									),
 								),
 							);
-							$extensions = new WP_Query( $extension_args );
+							
+							$s_query = new WP_Query( $query );
 
-							while ( $extensions->have_posts() ) : $extensions->the_post();
+							while ( $s_query->have_posts() ) : $s_query->the_post();
 								?>
 								<div class="download-grid-item">
 									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
@@ -129,25 +132,21 @@ the_post();
 									<div class="download-grid-item-cta">
 										<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
 									</div>
-									<?php
-										$thrid_party = has_term( '3rd Party', 'download_category', $post->id );
-										if( $thrid_party ) {
-											echo '<i class="third-party"></i>';
-										}
-									?>
 								</div>
 								<?php
 							endwhile;
 							wp_reset_postdata();
 						?>
-					</section><!-- .download-grid two-col -->
+					</section><!-- .download-grid three-col -->
 					<?php
 						$big = 999999999;
+						$base = home_url( 'extensions-template' ) . '/?' . remove_query_arg( 'page', $_SERVER['QUERY_STRING'] ) . '%_%';
+		
 						$links = paginate_links( array(
-							'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-							'format'  => '?&page=%#%',
-							'current' => max( 1, get_query_var( 'paged' ) ),
-							'total'   => $extensions->max_num_pages
+							'base'    => $base,
+							'format'  => '&page=%#%',
+							'current' => max( 1, isset( $_GET['page'] ) ? (int) $_GET['page'] : 1 ),
+							'total'   => $s_query->max_num_pages
 						) );
 					?>
 					<div class="pagination clearfix">
