@@ -8,6 +8,8 @@ get_header();
 the_post();
 $featured_theme_args = array(
 	'post_type' => 'download',
+	'orderby'   => 'menu_order',
+	'order'     => 'ASC',
 	'tax_query' => array(
 		array(
 			'taxonomy' => 'download_category',
@@ -58,6 +60,8 @@ $no_duplicates = array(); // don't repeat the same theme twice
 						<?php
 							$eddwp_theme_args = array(
 								'post_type' => 'download',
+								'orderby'   => 'menu_order',
+								'order'     => 'ASC',
 								'tax_query' => array(
 									'relation' => 'AND',
 									array(
@@ -114,6 +118,9 @@ $no_duplicates = array(); // don't repeat the same theme twice
 						<?php
 							$eddwp_theme_args = array(
 								'post_type' => 'download',
+								'orderby'   => 'menu_order',
+								'order'     => 'ASC',
+								'posts_per_page' => 100,
 								'tax_query' => array(
 									'relation' => 'AND',
 									array(
