@@ -118,6 +118,9 @@ $no_duplicates = array(); // don't repeat the same theme twice
 						<?php
 							$eddwp_theme_args = array(
 								'post_type' => 'download',
+								'orderby'   => 'menu_order',
+								'order'     => 'ASC',
+								'posts_per_page' => 100,
 								'tax_query' => array(
 									'relation' => 'AND',
 									array(
