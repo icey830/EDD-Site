@@ -30,10 +30,10 @@ get_header();
 						<?php
 							$cat_args = array(
 								'exclude'  => array(
-									162 /* live site - themes */,
-									1571 /* live site - featured theme */,
-									11 /* local site - themes (delete) */,
-									187 /* local site - featured theme (delete) */,
+									22 /* extensions */,
+									162 /* themes */,
+									1572 /* child themes */,
+									1571 /* featured theme */,
 								),
 							);
 							$cats = get_terms( 'download_category', $cat_args );
