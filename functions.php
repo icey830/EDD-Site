@@ -318,7 +318,7 @@ function eddwp_get_latest_post() {
  */
 function eddwp_author_archive_query( $query ) {
 	if ( $query->is_author ) {
-		$query->set( 'post_type', 'extension' );
+		$query->set( 'post_type', 'download' );
 	}
 	remove_action( 'pre_get_posts', 'eddwp_author_archive_query' );
 }
@@ -332,7 +332,7 @@ function eddwp_extensions_cb() {
 
 	$extensions = new WP_Query(
 		array(
-			'post_type' => 'extension',
+			'post_type' => 'download',
 			'nopaging'  => true,
 			'orderby'   => 'rand'
 		)
