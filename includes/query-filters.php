@@ -49,4 +49,4 @@ function eddwp_pre_get_posts( $query ) {
 	}
 
 }
-add_action( 'pre_get_posts', 'eddwp_pre_get_posts', 9999 );
+add_action( 'pre_get_posts', 'eddwp_pre_get_posts', 99999999 );
