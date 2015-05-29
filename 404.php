@@ -41,16 +41,16 @@ get_header(); ?>
 							<?php
 								$extensions = new WP_Query(
 									array(
-										'post_type' => 'extension',
+										'post_type'      => 'download',
 										'posts_per_page' => 4,
-										'post_status' => 'publish',
-										'orderby' => 'menu_order',
-										'order' => 'ASC',
-										'tax_query' => array(
+										'post_status'    => 'publish',
+										'orderby'        => 'menu_order',
+										'order'          => 'ASC',
+										'tax_query'      => array(
 											array(
-												'taxonomy' => 'extension_tag',
-												'field' => 'slug',
-												'terms' => 'featured'
+												'taxonomy' => 'download_tag',
+												'field'    => 'slug',
+												'terms'    => 'featured'
 											)
 										)
 									)
@@ -70,7 +70,7 @@ get_header(); ?>
 								}				
 								wp_reset_postdata();
 							?>
-							<p class="extensions-button-404"><a href="<?php echo esc_url( '/extensions/' ); ?>">View All Extensions</a></p>
+							<p class="extensions-button-404"><a href="<?php echo esc_url( '/downloads/' ); ?>">View All Extensions</a></p>
 						</div>
 						<div class="recent-posts-404 col-404">
 							<?php the_widget( 'WP_Widget_Recent_Posts', array( 'title'=> 'Latest Blog Posts', 'number' => 5 ) ); ?>

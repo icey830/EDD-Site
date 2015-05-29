@@ -105,7 +105,7 @@
 				$base = home_url( 'extensions' ) . '/?' . remove_query_arg( 'page', $_SERVER['QUERY_STRING'] ) . '%_%';
 
 				$links = paginate_links( array(
-					'base' => esc_url( $base ),
+					'base' => $base,
 					'format' => '&page=%#%',
 					'current' => max( 1, isset( $_GET['page'] ) ? (int) $_GET['page'] : 1 ),
 					'total' => $query->max_num_pages

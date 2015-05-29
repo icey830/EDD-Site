@@ -5,6 +5,9 @@ Version: 2.0
 Description: Version 2 of Easy Digital Downloads
 Author: Sunny Ratilal
 */
+
+
+
 /*
  * Main LESS File
  * Copyright (c) 2013, Sunny Ratilal.
@@ -300,6 +303,40 @@ a:focus {
 .gform_wrapper .gform_footer input.button span,
 .gform_wrapper .gform_footer input[type=submit] span,
 .gform_wrapper input[type=submit] span {
+  color: #fff !important;
+}
+.green-button {
+  margin-top: 2px;
+  padding: 4px 14px;
+  background: #38C238;
+  display: inline-block;
+  color: #fff;
+  -webkit-box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.13);
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.13);
+  cursor: pointer;
+  border-radius: 3px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 24px;
+  font-weight: 300;
+  border: 1px solid #279827;
+}
+.green-button:hover {
+  background: #4CD54C;
+  color: #fff;
+}
+.green-button:active {
+  -webkit-box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+.green-button span {
   color: #fff !important;
 }
 .gray-button {
@@ -884,10 +921,12 @@ address {
  * ----------------------------- */
 .download-grid-item {
   display: inline-block;
+  position: relative;
   background: #f9f9f9;
   text-align: center;
   padding: 20px;
   border-radius: 4px;
+  min-height: 390px;
   vertical-align: top;
 }
 .two-col .download-grid-item {
@@ -908,11 +947,12 @@ address {
 }
 .download-grid-thumb {
   border-radius: 4px;
+  border: 2px solid #f2f2f2;
   margin-bottom: 20px;
   vertical-align: bottom;
 }
 .download-grid-title {
-  margin: 0 0 20px;
+  margin: 0 0 10px;
 }
 .two-col .download-grid-item .download-grid-title {
   font-size: 26px;
@@ -922,6 +962,10 @@ address {
 }
 .download-grid-item-info > p {
   margin-bottom: 20px;
+}
+.checkout-cart-empty .download-grid-item-info > p {
+  max-width: 300px;
+  margin: 0 auto 20px;
 }
 .download-grid-item-secondary-link {
   color: #666;
@@ -3051,14 +3095,15 @@ div.sharedaddy .sd-content {
   margin-top: -10px;
 }
 .extension i.third-party,
-.edd-download i.third-party {
+.edd-download i.third-party,
+.download-grid-item i.third-party {
   display: block;
   background: url(images/ribbon-3rd-party.png) no-repeat;
   width: 99px;
   height: 99px;
   position: absolute;
   top: -4px;
-  right: -6px;
+  right: -5px;
 }
 .extension i.free,
 .edd-download i.free {
@@ -4065,7 +4110,7 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 .page-id-160 .checkout-cart-empty h2.tagline {
   font-size: 24px;
   font-size: 2.4rem;
-  color: #aaa;
+  margin-bottom: 30px;
 }
 #edd_checkout_wrap {
   margin-top: 15px;
@@ -4914,12 +4959,12 @@ input#edd-discount:focus,
  * Featured Download Template (theme and extension)
  * ----------------------------- */
 .template-themes .sharedaddy,
-.template-extensions .sharedaddy {
+.post-type-archive-download .sharedaddy {
   display: none;
 }
 /* FIND OUT WHY I'M HERE AND REMOVE ME */
 .template-themes .main,
-.template-extensions .main,
+.post-type-archive-download .main,
 .template-site-showcase .main,
 .post-type-archive-download .main,
 .tax-download_category .main,
@@ -4928,10 +4973,10 @@ input#edd-discount:focus,
 }
 .tax-download_category .extensions-header-area .inner,
 .tax-download_tag .extensions-header-area .inner {
-  padding-bottom: 0;
+  padding-bottom: 40px;
 }
 /* extensions page */
-.template-extensions .edd-downloads-area .inner,
+.post-type-archive-download .edd-downloads-area .inner,
 .download-search .edd-downloads-area .inner {
   padding-top: 30px;
 }
@@ -4995,6 +5040,14 @@ input#edd-discount:focus,
   background: #2794da;
   color: #fff;
 }
+#extensions-bundle-promotion.download-grid-item .download-grid-thumb {
+  border: none;
+  margin: 11px 0 32px;
+}
+#extensions-bundle-promotion.download-grid-item .green-button {
+  padding: 8px 18px;
+  font-size: 18px;
+}
 /* themes page */
 .featured-download-area {
   background: #eee;
@@ -5003,6 +5056,9 @@ input#edd-discount:focus,
 .featured-download-info {
   float: left;
   width: 50%;
+}
+.featured-download-thumb .download-grid-thumb {
+  border: 2px solid #E4E4E4;
 }
 .featured-download-img {
   border-radius: 4px;
@@ -5051,14 +5107,22 @@ input#edd-discount:focus,
 .recommended-download-area {
   background: #eee;
 }
-.template-extensions .edd-downloads-area,
+.post-type-archive-download .edd-downloads-area,
+.tax-download_category .edd-downloads-area,
+.tax-download_tag .edd-downloads-area,
 .template-themes .edd-downloads-area,
 .download-search .edd-downloads-area {
   background: #fff;
 }
+.theme-forest-edd-link {
+  text-align: center;
+}
 /* showcase page */
 .site-showcase-area {
   background: #fff;
+}
+.template-site-showcase .download-grid-item {
+  min-height: 340px;
 }
 .showcase-submission {
   max-width: 700px;
@@ -7365,6 +7429,14 @@ span.bbp-author-ip {
   }
   .edd-downloads .section-header .filter-label {
     margin-bottom: 20px;
+  }
+  .tax-download_category .extensions-header-area .inner,
+  .tax-download_tag .extensions-header-area .inner {
+    padding-bottom: 20px;
+  }
+  .tax-download_category .extensions-header-area .inner .section-header,
+  .tax-download_tag .extensions-header-area .inner .section-header {
+    margin-bottom: 10px;
   }
 }
 /* ----------------------------- *

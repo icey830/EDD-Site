@@ -8,14 +8,7 @@
 ?>
 
 <div id="bbpress-forums">
-	<div class="bbp-search-form">
-		<?php bbp_get_template_part( 'form', 'search-main' ); ?>
-	</div>
-
 	<?php	
-	bbp_breadcrumb( array(
-		'before' => '<div class="bbp-breadcrumb clearfix"><p>',
-	) );
 	
 	do_action( 'bbp_template_before_forums_index' );
 
