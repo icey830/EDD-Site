@@ -39,7 +39,7 @@ get_header(); ?>
 											array(
 												'taxonomy' => 'download_tag',
 												'field'    => 'slug',
-												'terms'    => 'recommended',
+												'terms'    => 'featured',
 											),
 											array(
 												'taxonomy' => 'download_category',
@@ -89,7 +89,7 @@ get_header(); ?>
 											array(
 												'taxonomy' => 'download_tag',
 												'field'    => 'slug',
-												'terms'    => 'recommended',
+												'terms'    => 'featured',
 											),
 											array(
 												'taxonomy' => 'download_category',
