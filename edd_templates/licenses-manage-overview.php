@@ -36,7 +36,8 @@ if ( $keys ) : ?>
 				<?php do_action( 'edd_sl_license_row_start', $license->ID ); ?>
 				<td><?php echo get_the_title( edd_software_licensing()->get_download_id( $license->ID ) ); ?></td>
 				<td>
-					<span style="position:relative;">
+					<span class="view-key-wrapper">
+						<a href="#" class="edd_sl_show_key" title="<?php _e( 'Click to view license key', 'edd_sl' ); ?>"><img src="<?php echo EDD_SL_PLUGIN_URL . '/images/key.png'; ?>"/></a>
 						<span class="edd_sl_license_key"><?php echo edd_software_licensing()->get_license_key( $license->ID ); ?></span>
 					</span>
 				</td>
