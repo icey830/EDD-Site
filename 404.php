@@ -50,7 +50,7 @@ get_header(); ?>
 											array(
 												'taxonomy' => 'download_tag',
 												'field'    => 'slug',
-												'terms'    => 'featured-extensions'
+												'terms'    => 'featured'
 											)
 										)
 									)
