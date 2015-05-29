@@ -42,6 +42,20 @@ function eddwp_pre_get_posts( $query ) {
 
 	}
 
+	if( $query->is_main_query() && is_tax( 'download_category', '3rd-party' ) ) {
+
+		$no_3rd_party_themes = array(
+			array(
+				'taxonomy' => 'download_category',
+				'field'    => 'slug',
+				'terms'    => 'themes',
+				'operator' => 'NOT IN'
+			)
+		);
+
+		$query->set( 'tax_query', $no_3rd_party_themes );
+	}
+
 	if( $query->is_main_query() && is_post_type_archive( 'download' ) && ! isset( $_GET['display'] ) ) {
 
 		$query->set( 'orderby', 'menu_order' );
