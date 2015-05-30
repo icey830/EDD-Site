@@ -40,11 +40,17 @@ if ( is_user_logged_in() ) { ?>
 			<div class="tab-content">
 
 				<div class="tab-pane active purchases-tab-pane" id="tab1">
-					<?php echo apply_filters( 'the_content', do_shortcode( '[purchase_history]' ) ); ?>
+					<?php
+					if ( isset( $_GET['payment_id'] ) && is_numeric( $_GET['payment_id'] ) ) {
+						echo apply_filters( 'the_content', do_shortcode( '[purchase_history]' ) );
+					} else {
+						echo do_shortcode( '[purchase_history]' );
+					}
+					?>
 				</div><!-- /.tab-pane -->
 
 				<div class="tab-pane downloads-tab-pane" id="downloads-tab">
-					<?php echo apply_filters( 'the_content', do_shortcode( '[download_history]' ) ); ?>
+					<?php echo do_shortcode( '[download_history]' ); ?>
 				</div><!-- /.tab-pane -->
 
 
@@ -82,7 +88,7 @@ if ( is_user_logged_in() ) { ?>
 		</div><!-- /.container -->
 	</section><!-- /.main -->
 	<?php
-		
+
 } else { ?>
 
 	<section id="landing-page" class="landing main clearfix">
