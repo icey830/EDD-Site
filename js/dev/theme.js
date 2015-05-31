@@ -133,7 +133,7 @@
         });
         
         if ($('.edd_price_options input').prop('checked') || $(".edd_price_options input:checked")) {
-            $(this).parent().addClass('selected');
+            $('.edd_price_options input:checked').parent().addClass('selected');
         }   
 
 		// Payment Method Radio Buttons
