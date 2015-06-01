@@ -132,7 +132,7 @@
             $(this).addClass('selected');
         });
         
-        if ($('.edd_price_options input').prop('checked')) {
+        if ($('.edd_price_options input').prop('checked') || $(".edd_price_options input:checked")) {
             $('.edd_price_options input:checked').parent().addClass('selected');
         }   
 
