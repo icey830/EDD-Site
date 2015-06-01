@@ -250,7 +250,8 @@ a:focus {
 .edd-submit.button.blue,
 .gform_wrapper .gform_footer input.button,
 .gform_wrapper .gform_footer input[type=submit],
-.gform_wrapper input[type=submit] {
+.gform_wrapper input[type=submit],
+.sidebar .widget_edd_cart_widget .cart_item.edd_checkout a {
   margin-top: 2px;
   padding: 4px 14px;
   background: #2794da;
@@ -279,7 +280,8 @@ a:focus {
 .edd-submit.button.blue:hover,
 .gform_wrapper .gform_footer input.button:hover,
 .gform_wrapper .gform_footer input[type=submit]:hover,
-.gform_wrapper input[type=submit]:hover {
+.gform_wrapper input[type=submit]:hover,
+.sidebar .widget_edd_cart_widget .cart_item.edd_checkout a:hover {
   background: #5ba3cf;
   color: #fff;
 }
@@ -289,7 +291,8 @@ a:focus {
 .edd-submit.button.blue:active,
 .gform_wrapper .gform_footer input.button:active,
 .gform_wrapper .gform_footer input[type=submit]:active,
-.gform_wrapper input[type=submit]:active {
+.gform_wrapper input[type=submit]:active,
+.sidebar .widget_edd_cart_widget .cart_item.edd_checkout a:active {
   -webkit-box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
 }
@@ -299,7 +302,8 @@ a:focus {
 .edd-submit.button.blue span,
 .gform_wrapper .gform_footer input.button span,
 .gform_wrapper .gform_footer input[type=submit] span,
-.gform_wrapper input[type=submit] span {
+.gform_wrapper input[type=submit] span,
+.sidebar .widget_edd_cart_widget .cart_item.edd_checkout a span {
   color: #fff !important;
 }
 .green-button {
@@ -5773,6 +5777,44 @@ footer h4 {
 #tickets tbody tr td {
   padding: 5px;
   border-bottom: 1px solid #777;
+}
+/* ----------------------------- *
+ * Cart widget
+ * ----------------------------- */
+.sidebar .widget_edd_cart_widget .edd-cart-item,
+.sidebar .widget_edd_cart_widget .edd-cart-number-of-items {
+  font-size: 13px;
+}
+.sidebar .widget_edd_cart_widget .edd-cart-number-of-items {
+  margin-bottom: 10px;
+}
+.sidebar .widget_edd_cart_widget .edd-cart-item .edd-cart-item-title {
+  display: block;
+  font-weight: bold;
+}
+.sidebar .widget_edd_cart_widget .edd-cart-item .edd-cart-item-separator {
+  display: none;
+}
+.sidebar .widget_edd_cart_widget .edd-cart-item .edd-cart-item-price {
+  display: inline;
+  background: #3da63d;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px;
+  border-radius: 3px;
+}
+.sidebar .widget_edd_cart_widget .edd-cart-item .edd-remove-from-cart {
+  color: #999;
+}
+.sidebar .widget_edd_cart_widget .edd-cart-item .edd-remove-from-cart:hover {
+  color: #555;
+}
+.sidebar .widget_edd_cart_widget .cart_item.edd_subtotal {
+  padding: 10px 0;
+  border: 1px solid #f2f2f2;
+  border-width: 1px 0;
+  margin: 15px 0;
 }
 /*
  * bbPress
