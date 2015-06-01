@@ -52,23 +52,33 @@ if ( $is_extension && ! $is_bundle ) {
 							<?php endif; ?>
 						</p>
 					</div>
-					<?php if( $has_license && ! $is_3rd_party ) { ?>
+					<?php if( $has_license && ! $is_3rd_party && ! $is_bundle ) { ?>
 						<div class="version clearfix">
 							<?php $version = get_post_meta( get_the_ID(), '_edd_sl_version', true ); ?>
 							<p><span class="edd-download-detail-label">Version:</span> <span class="edd-download-detail"><?php echo $version; ?></span></p>
 						</div>
 					<?php } // end if  ?>
-					<?php if ( ! eddwp_is_extension_third_party() && ! eddwp_is_external_extension() ) { ?>
+					<?php if ( ! eddwp_is_extension_third_party() && ! eddwp_is_external_extension() ) {
+						$license = home_url( '/docs/extensions-terms-conditions/' );
+						?>
 						<div class="pricing">
 							<h3>Pricing</h3>
 							<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
 						</div>
 						<div class="terms clearfix">
-							<p><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="https://easydigitaldownloads.com/docs/extensions-terms-conditions/" target="_blank">View license terms</a>.</p>
+							<p><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="<?php echo $license; ?>" target="_blank">View license terms</a>.</p>
 						</div>
 					<?php } // end if ?>
-					<?php if( eddwp_is_external_extension() ) { ?>
+					<?php if ( eddwp_is_external_extension() ) { ?>
 						<a href="<?php echo esc_url( eddwp_get_external_extension_url() ); ?>" title="View Details" class="edd-submit button blue">View <?php echo ucfirst( $download_type ); ?></a>
+					<?php } ?>
+					<?php if ( ! $is_bundle ) {
+						$core_extensions = home_url( '/downloads/core-extensions-bundle/' );
+						?>
+						<div class="core-extensions">
+							<h3>Core Extensions</h3>
+							<p>Receive the best discount EDD has to offer when you purchase our Core Extensions Bundle. <a href="<?php echo $core_extensions; ?>">Learn more</a>.</p>
+						</div>
 					<?php } ?>
 					<?php
 						if ( function_exists('p2p_register_connection_type') ) :
