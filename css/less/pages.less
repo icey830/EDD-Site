@@ -2208,11 +2208,11 @@ input#edd-discount,
 
 .pricing-container {
 	width: 1100px;
-	margin: 35px auto 0;
+	margin: 35px auto;
 }
 
 .pricing-container .support-box {
-	width: 333px;
+	width: 48%;
 	float: left;
 	background: #fff;
 	background: -webkit-linear-gradient(#ffffff 0%, #eaeaea 100%);
@@ -2225,20 +2225,22 @@ input#edd-discount,
 	border: 1px solid #bbb;
 	-webkit-box-shadow: 0 2px 6px rgba(29,58,82,0.4);
 	box-shadow: 0 2px 6px rgba(29,58,82,0.4);
-	margin-right: 50px;
+	margin-right: 3.5%;
+}
+
+.pricing-container .support-box:not(.fortyfive-days) {
+	margin-right: 0;
 }
 
 .pricing-container .fortyfive-days {
 	border: 3px solid #588fc9;
-	position: relative;
 	z-index: 2;
-	top: -13px;
 	-webkit-box-shadow: 20px 20px 20px -10px rgba(0, 0, 0, .15), -20px 20px 20px -10px rgba(0, 0, 0, .15);
 	box-shadow: 20px 20px 20px -10px rgba(0, 0, 0, .15), -20px 20px 20px -10px rgba(0, 0, 0, .15);
 	border-top-width: 3px;
 }
 
-.pricing-container .fortyfive-days .label {
+.pricing-container .priority-support:not(.fortyfive-days) .label {
 	position: absolute;
 	background: #588fc9;
 	font-size: 14px;
@@ -2267,11 +2269,10 @@ input#edd-discount,
 
 .pricing-container .support-box .price {
 	font-weight: 300;
-	padding: 40px 0;
+	padding: 20px 0;
 	text-align: center;
 	background: #eee;
 	border-bottom: 1px solid #ddd;
-	height: 140px;
 }
 
 .pricing-container .support-box .price-free p {
