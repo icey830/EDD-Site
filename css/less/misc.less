@@ -91,7 +91,13 @@ a:focus { outline: none !important; }
 		}
 	}
 
-	& input[type=text], input[type=url], input[type=email], input[type=tel], input[type=number], input[type=password], textarea {
+	& input[type="text"],
+	input[type="url"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="number"],
+	input[type="password"],
+	textarea {
 		padding: 6px 10px !important;
 		background: #fff;
 		border-radius: 3px;
@@ -115,7 +121,7 @@ a:focus { outline: none !important; }
 		line-height: 24px !important;
 	}
 
-	& input[type=submit] {
+	& input[type="submit"] {
 		background: #fff;
 		background: -webkit-linear-gradient(#ffffff 0%, #efefef 100%);
 		background: -moz-linear-gradient(#ffffff 0%, #efefef 100%);
@@ -156,12 +162,17 @@ a:focus { outline: none !important; }
 	}
 }
 
-.gform_wrapper.gf_browser_chrome .gfield_radio li input[type=radio] {
+.gform_wrapper.gf_browser_chrome .gfield_radio li input[type="radio"] {
 	margin-left: 1px;
 }
 
-.button, .edd-submit, .edd-submit.button,
-.edd-submit.button.blue, .gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit], .gform_wrapper input[type=submit] {
+.button,
+.edd-submit,
+.edd-submit.button,
+.edd-submit.button.blue,
+.gform_wrapper .gform_footer input.button,
+.gform_wrapper .gform_footer input[type="submit"],
+.gform_wrapper input[type="submit"] {
 	margin-top: 2px;
 	padding: 4px 14px;
 	background: #2794da;
@@ -197,6 +208,125 @@ a:focus { outline: none !important; }
 	span {
 		color: #fff !important;
 	}
+}
+
+.gform_fields input[type="radio"] {
+	margin: 3px 5px 3px 2px !important;
+}
+
+/* Support Ticket Form - Gravity Forms */
+#gform_wrapper_4,
+#gform_wrapper_14 {
+	width: 100%;
+	max-width: 100%;
+}
+#gform_4 /* delete - local */,
+#gform_14 {
+	width: 100%;
+}
+.edd-gf-support-tickets-form {
+	margin-top: 40px;
+}
+.edd-gf-support-tickets-form input[type="text"],
+.edd-gf-support-tickets-form input[type="url"],
+.edd-gf-support-tickets-form input[type="email"],
+.edd-gf-support-tickets-form input[type="tel"],
+.edd-gf-support-tickets-form input[type="number"],
+.edd-gf-support-tickets-form input[type="password"],
+.edd-gf-support-tickets-form textarea {
+	padding: 10px !important;
+	margin-bottom: 0 !important;
+}
+.edd-gf-support-tickets-form .ginput_container label,
+.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield_description {
+	color: #999;
+	font-size: 15px;
+	line-height: 1.6;
+}
+.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield.edd-gf-support-tickets-form-email .gfield_description {
+	margin: 15px 0 5px;
+}
+.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield_label {
+	font: 300 24px/1.4 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+	margin: 0;
+}
+.edd-gf-support-tickets-form [class*="edd-gf-support-tickets-form-"] {
+	padding-left: 2.5%;
+	margin-bottom: 30px;
+}
+.edd-gf-support-tickets-form .gfield.edd-gf-support-tickets-form-name {
+	margin-bottom: 15px;
+}
+.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield.edd-gf-support-tickets-form-email .gfield_label {
+	display: none;
+}
+.edd-gf-support-tickets-form .gfield.edd-gf-support-tickets-form-email {
+	padding-bottom: 30px;
+	border-bottom: 2px solid #f2f2f2;
+}
+.edd-gf-support-tickets-form .edd-gf-support-tickets-form-email .gfield_description {
+	background: #f1f1f1;
+	color: #777;
+	font-size: 13px;
+	line-height: 1.6;
+	padding: 10px !important;
+	border-radius: 4px;
+}
+.gform_wrapper .edd-gf-support-tickets-form .top_label .edd-gf-support-tickets-form-subject .gfield_label {
+	margin-bottom: 10px;
+}
+.gform_wrapper .edd-gf-support-tickets-form .edd-gf-support-tickets-form-subject {
+	margin-bottom: 10px;
+}
+.gform_wrapper .edd-gf-support-tickets-form .edd-gf-support-tickets-form-subject li {
+	display: inline-block;
+	width: 48.5%;
+}
+.gform_wrapper .edd-gf-support-tickets-form .gsection {
+	padding: 0;
+	border: none;
+	margin: 0;
+}
+.gform_wrapper .edd-gf-support-tickets-form .gsection h2 {
+	display: none;
+}
+.gform_wrapper .edd-gf-support-tickets-form .gsection .gsection_description {
+	width: 100%;
+}
+.edd-gf-support-tickets-form .edd-gf-divider {
+	clear: both;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 0;
+	border: none;
+	border-top: 2px solid #f2f2f2;
+	margin: 0 0 20px;
+}
+.edd-gf-support-tickets-form .edd-gf-divider:after {
+	content: "\f078";
+	font-family: 'FontAwesome';
+	display: inline-block;
+	position: relative;
+	top: -25px;
+	font-size: 30px;
+	padding: 0 10px;
+	background: white;
+}
+.gform_wrapper .edd-gf-support-tickets-form-subject ul.gfield_radio li input[type="radio"]:checked+label,
+.gform_wrapper .edd-gf-support-tickets-form-subject ul.gfield_checkbox li input[type="checkbox"]:checked+label {
+	color: #666;
+}
+.gform_wrapper .edd-gf-support-tickets-form .gfield_radio {
+	margin-left: 0 !important;
+}
+.gform_wrapper .edd-gf-support-tickets-form .gform_footer {
+	padding-right: 2.5%;
+	padding-left: 2.5%;
+}
+.gform_wrapper .edd-gf-support-tickets-form .gform_footer input[type="submit"] {
+	font-size: 18px;
+	padding: 10px;
+	min-width: 240px;
 }
 
 /* Toggle */
