@@ -7456,7 +7456,7 @@ span.bbp-author-ip {
     padding: 0 20px;
   }
   .pricing-container .support-box {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   }
   #support-people {
     display: none;
@@ -7713,6 +7713,9 @@ span.bbp-author-ip {
   }
   .extensions-search-form input[type="search"] {
     margin-bottom: 10px;
+  }
+  .pricing-container .support-box {
+    width: 100%;
   }
 }
 @media (max-width: 600px) {
@@ -8066,7 +8069,7 @@ span.bbp-author-ip {
     padding: 0 20px;
   }
   .pricing-container .support-box {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   }
   #support-people {
     display: none;
