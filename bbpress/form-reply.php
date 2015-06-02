@@ -17,7 +17,7 @@
 
 <?php endif; ?>
 
-<div class="warning">
+<div class="warning clear">
 	<p>These forums are closed to new replies / tickets. Please open a support ticket from our new <a href="<?php echo esc_url( home_url( '/support' ) ); ?>">Support</a> page.</p>
 </div>
 
