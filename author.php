@@ -24,7 +24,7 @@ get_header();
 				<?php
 				$c = 0; if ( have_posts() ) : while ( have_posts() ) : the_post(); $c++;
 				?>
-					<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?> <?php if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) ) echo ' third-party-extension'; ?>">
+					<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?> <?php if ( has_term( '3rd Party', 'download_category', get_the_ID() ) ) echo ' third-party-extension'; ?>">
 						<a href="<?php echo home_url( '/extensions/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
 							<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
 							<h2><?php the_title(); ?></h2>
@@ -37,7 +37,7 @@ get_header();
 							<?php endif; ?>
 						</div>
 						<?php
-						if ( has_term( '3rd Party', 'extension_category', get_the_ID() ) )
+						if ( has_term( '3rd Party', 'download_category', get_the_ID() ) )
 							echo '<i class="third-party"></i>';
 						?>
 					</div>

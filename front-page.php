@@ -132,7 +132,7 @@ if ( ! $extension_cache->output() ) : ob_start();
 	<div class="feature clearfix">
 		<div class="clearfix">
 			<div id="extensions-intro-box">
-				<h2>Dozens of Extensions <a href="<?php echo home_url( '/extensions' ); ?>">See All Extensions</a></h2>
+				<h2>Dozens of Extensions <a href="<?php echo home_url( '/downloads/' ); ?>">See All Extensions</a></h2>
 				<p>With over 190 extensions, Easy Digital Downloads can be tailored to your exact needs. From payment processors to newsletter signup forms, EDD has extensions to fill the needs of almost every user.</p>
 			</div><!-- /#extensions-intro-box -->
 			<div class="extensions-grid">
@@ -140,16 +140,22 @@ if ( ! $extension_cache->output() ) : ob_start();
 				<?php
 				$extensions = new WP_Query(
 					array(
-						'post_type' => 'extension',
+						'post_type'      => 'download',
 						'posts_per_page' => 6,
-						'post_status' => 'publish',
-						'orderby' => 'menu_order',
-						'order' => 'ASC',
-						'tax_query' => array(
+						'post_status'    => 'publish',
+						'orderby'        => 'menu_order',
+						'order'          => 'ASC',
+						'tax_query'      => array(
+							'relation'   => 'AND',
 							array(
-								'taxonomy' => 'extension_tag',
-								'field' => 'slug',
-								'terms' => 'featured'
+								'taxonomy' => 'download_category',
+								'field'    => 'slug',
+								'terms'    => 'extensions'
+							),
+							array(
+								'taxonomy' => 'download_tag',
+								'field'    => 'slug',
+								'terms'    => 'featured'
 							)
 						)
 					)

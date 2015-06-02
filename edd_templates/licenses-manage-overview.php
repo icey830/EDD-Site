@@ -11,6 +11,7 @@ $color = ( $color == 'inherit' ) ? '' : $color;
 
 ?>
 <style type="text/css">.edd_sl_license_status.expired { color: red; }</style>
+<script type="text/javascript">jQuery(document).ready(function($){ $(".edd_sl_show_key").on("click", function(e) {e.preventDefault();$(this).next().toggle("fast");});});</script>
 <p><a href="<?php echo esc_url( remove_query_arg( array( 'payment_id', 'edd_sl_error' ) ) ); ?>" class="edd-manage-license-back edd-submit button <?php echo esc_attr( $color ); ?>"><?php _e( 'Go back', 'edd_sl' ); ?></a></p>
 <?php
 // Retrieve all license keys for the specified payment
@@ -36,7 +37,8 @@ if ( $keys ) : ?>
 				<?php do_action( 'edd_sl_license_row_start', $license->ID ); ?>
 				<td><?php echo get_the_title( edd_software_licensing()->get_download_id( $license->ID ) ); ?></td>
 				<td>
-					<span style="position:relative;">
+					<span class="view-key-wrapper">
+						<a href="#" class="edd_sl_show_key" title="<?php _e( 'Click to view license key', 'edd_sl' ); ?>"><img src="<?php echo EDD_SL_PLUGIN_URL . '/images/key.png'; ?>"/></a>
 						<span class="edd_sl_license_key"><?php echo edd_software_licensing()->get_license_key( $license->ID ); ?></span>
 					</span>
 				</td>

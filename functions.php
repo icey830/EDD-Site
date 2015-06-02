@@ -54,6 +54,9 @@ function edd_theme_setup() {
 	add_image_size( 'theme-showcase', 460, 280, true );
 	add_image_size( 'featured-showcase', 460, 330, true );
 	add_image_size( 'extension', 180, 150, true );
+	add_image_size( 'edd_download_image', 840, 575, true );
+	add_image_size( 'download-grid-thumb', 600, 411, true );
+	add_image_size( 'featured-download', 760, 507, true );
 
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'edd' ),
@@ -102,7 +105,7 @@ function edd_register_theme_scripts() {
 	wp_enqueue_style(   'lato-font'  );
 	wp_enqueue_style(   'font-awesome' );
 
-	wp_register_script( 'edd-js',         get_template_directory_uri() . '/js/theme.min.js',          array( 'jquery' ), '1.0',   false );
+	wp_register_script( 'edd-js',         get_template_directory_uri() . '/js/theme.min.js',          array( 'jquery' ), '1.1',   false );
 	wp_register_script( 'modernizr-js',   get_template_directory_uri() . '/js/lib/modernizr.min.js',  array( 'jquery' ), '2.6.2', false );
 	wp_register_script( 'nivo-slider-js', get_template_directory_uri() . '/js/lib/nivoslider.min.js', array( 'jquery' ), '3.2',   false );
 	wp_register_script( 'bootstrap-js',   get_template_directory_uri() . '/js/lib/bootstrap.min.js',  array( 'jquery' ), '1.0',   false );
@@ -315,7 +318,7 @@ function eddwp_get_latest_post() {
  */
 function eddwp_author_archive_query( $query ) {
 	if ( $query->is_author ) {
-		$query->set( 'post_type', 'extension' );
+		$query->set( 'post_type', 'download' );
 	}
 	remove_action( 'pre_get_posts', 'eddwp_author_archive_query' );
 }
@@ -329,7 +332,7 @@ function eddwp_extensions_cb() {
 
 	$extensions = new WP_Query(
 		array(
-			'post_type' => 'extension',
+			'post_type' => 'download',
 			'nopaging'  => true,
 			'orderby'   => 'rand'
 		)
@@ -401,7 +404,7 @@ function eddwp_paginate_links() {
 		$sep = '&';
 	}
 
-	echo '<div class="pagination clear">' . paginate_links( array(
+	echo '<div class="pagination clearfix">' . paginate_links( array(
 		'base' => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
 		'format' => $sep . 'paged=%#%',
 		'current' => max( 1, get_query_var( 'paged' ) ),
@@ -413,6 +416,7 @@ function eddwp_paginate_links() {
  * Add the rewrite tag for the extensions search
  */
 function eddwp_add_rewrite_tags() {
+	add_rewrite_tag( '%download_s%', '([^/]+)' );
 	add_rewrite_tag( '%extension_s%', '([^/]+)' );
 }
 add_action( 'init', 'eddwp_add_rewrite_tags' );
@@ -422,6 +426,10 @@ add_action( 'init', 'eddwp_add_rewrite_tags' );
  * correct template is loaded when the extension search is initiated.
  */
 function eddwp_process_rewrites() {
+	if ( isset( $_GET[ 'download_s' ] ) && ! empty ( $_GET['download_s'] ) && isset( $_GET['action'] ) && $_GET['action'] == 'download_search' ) {
+		load_template( dirname( __FILE__ ) . '/search-downloads-extensions.php' );
+		die();
+	}
 	if ( isset( $_GET[ 'extension_s' ] ) && ! empty ( $_GET['extension_s'] ) && isset( $_GET['action'] ) && $_GET['action'] == 'extension_search' ) {
 		load_template( dirname( __FILE__ ) . '/search-extensions.php' );
 		die();
@@ -444,6 +452,9 @@ function eddwp_body_class( $classes ) {
 	if ( isset( $_GET['extension_s'] ) )
 		$classes[] = 'extension-search';
 
+	if ( isset( $_GET['download_s'] ) )
+		$classes[] = 'download-search';
+
 	if ( is_page( 'support' ) )
 		$classes[] = 'bbpress';
 
@@ -461,6 +472,14 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'search';
 		$classes[] = 'documentation';
 		$classes[] = 'documentation-search';
+	}
+	
+	if ( is_page_template( 'template-themes-archive.php' ) ) {
+		$classes[] = 'template-themes';
+	}
+	
+	if ( is_page_template( 'template-site-showcase.php' ) ) {
+		$classes[] = 'template-site-showcase';
 	}
 
 	return $classes;
@@ -1169,10 +1188,10 @@ add_filter( 'generate_rewrite_rules', 'eddwp_feed_rewrite' );
  */
 function eddwp_feed_request($qv) {
 	if ( isset( $qv['feed'] ) && 'extensions' == $qv['feed'] )
-		$qv['post_type'] = 'extension';
+		$qv['post_type'] = 'download';
 
 	if ( isset( $qv['feed'] ) && 'addons' == $qv['feed'] )
-		$qv['post_type'] = 'extension';
+		$qv['post_type'] = 'download';
 
 	return $qv;
 }
@@ -1228,9 +1247,26 @@ function eddwp_feed_query( $query ) {
 }
 add_action( 'pre_get_posts', 'eddwp_feed_query', 99999999 );
 
+
 /* ----------------------------------------------------------- *
  * 10. Misc
  * ----------------------------------------------------------- */
+
+/**
+ * Featured image for downloads grid output
+ */
+function eddwp_downloads_grid_thumbnail() {
+	
+	// replace old featured image programmatically until fully removed
+	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
+	$old_default = home_url( '/wp-content/uploads/2013/07/defaultpng.png' );
+	
+	if( has_post_thumbnail() && $image[0] !== $old_default ) {
+		the_post_thumbnail( 'download-grid-thumb', array( 'class' => 'download-grid-thumb' ) );
+	} else {
+		echo '<img class="download-grid-thumb wp-post-image" src="' . get_template_directory_uri() . '/images/featured-image-default.png" alt="' . get_the_title() . '" />';
+	}
+}
 
 /**
  * Add RSS image
