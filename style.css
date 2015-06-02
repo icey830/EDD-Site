@@ -4696,10 +4696,6 @@ input#edd-discount:focus,
 .pricing-container .support-box .sign-up-buttons p {
   text-align: center;
   padding: 20px;
-  margin-bottom: 10px;
-}
-.pricing-container .support-box .sign-up-buttons p:last-child {
-  margin-bottom: 20px;
 }
 .pricing-container .support-box .sign-up-buttons a {
   font-size: 16px;
