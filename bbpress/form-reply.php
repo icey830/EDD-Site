@@ -7,6 +7,7 @@
  * @subpackage Theme
  */
 
+$status = get_post_meta( get_the_ID(), '_bbps_topic_status', true );
 ?>
 
 <?php if ( bbp_is_reply_edit() ) : ?>
@@ -17,11 +18,12 @@
 
 <?php endif; ?>
 
+<?php if( 2 == $status ) : ?>
 <div class="warning clear">
-	<p>These forums are closed to new replies / tickets. Please open a support ticket from our new <a href="<?php echo esc_url( home_url( '/support' ) ); ?>">Support</a> page.</p>
+	<p>This ticket is resolved. To continue this ticket or to report a similar issue, please open a ticket from our new <a href="<?php echo esc_url( home_url( '/support' ) ); ?>">Support</a> page.</p>
 </div>
-
-<?php if ( bbp_current_user_can_access_create_reply_form() ) : ?>
+<?php endif; ?>
+<?php if ( bbp_current_user_can_access_create_reply_form() && 2 != $status ) : ?>
 
 	<div id="new-reply-<?php bbp_topic_id(); ?>" class="bbp-reply-form">
 
