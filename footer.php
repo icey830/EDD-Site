@@ -23,7 +23,7 @@
 
 					<div class="forum col">
 						<h4>Need help?</h4>
-						<p>If you ever need help with EDD, there is a complete <a href="<?php echo home_url( '/support/' ); ?> ">Support Forum</a> available where you can get your support questions answered. If you'd like to report a bug or have ideas for how to improve the plugin, please post it to our <a href="http://github.com/easydigitaldownloads/Easy-Digital-Downloads/issues">GitHub Issue Tracker</a>.</p>
+						<p>If you ever need help with EDD, you are encouraged to use our <a href="<?php echo home_url( '/support/' ); ?> ">support system</a> where you can always get your support questions answered. If you'd like to report a bug or have ideas for how to improve the plugin, please post it to our <a href="http://github.com/easydigitaldownloads/Easy-Digital-Downloads/issues">GitHub Issue Tracker</a>.</p>
 					</div><!-- /.forum -->
 
 					<div class="consultants col">
