@@ -17,6 +17,10 @@
 
 <?php endif; ?>
 
+<div class="warning">
+	<p>These forums are closed to new replies / tickets. Please open a support ticket from our new <a href="<?php echo esc_url( home_url( '/support' ) ); ?>">Support</a> page.</p>
+</div>
+
 <?php if ( bbp_current_user_can_access_create_reply_form() ) : ?>
 
 	<div id="new-reply-<?php bbp_topic_id(); ?>" class="bbp-reply-form">
