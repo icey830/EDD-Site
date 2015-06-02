@@ -117,20 +117,16 @@ if ( $is_extension && ! $is_bundle ) {
 										endif;
 										echo '</ul>';
 										wp_reset_postdata();
-									endif;							
-									// Display connected posts
-									if ( $forums->have_posts() ) :				
-										echo '<h3>Support</h3>';
-										while ( $forums->have_posts() ) : $forums->the_post(); ?>
-											<div>Need help? Visit the <a href="<?php the_permalink(); ?>">Support Forums</a>.</div>
-											<?php
-										endwhile;
-										wp_reset_postdata();
 									endif;
 								echo '</div>';
 							}
 						endif;
+						$support_form = home_url( '/support/' );
 					?>
+					<div class="support-ticket">
+						<h3>Support</h3>
+						<div>Need help? Feel free to submit a <a href="<?php echo $support_form; ?>">support ticket</a>.</div>
+					</div>
 				</div>
 			</aside><!-- /.sidebar -->
 		</div><!-- /.container -->
