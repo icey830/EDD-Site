@@ -23,7 +23,7 @@ $status = get_post_meta( get_the_ID(), '_bbps_topic_status', true );
 	<p>This ticket is resolved. To continue this ticket or to report a similar issue, please open a ticket from our new <a href="<?php echo esc_url( home_url( '/support' ) ); ?>">Support</a> page.</p>
 </div>
 <?php endif; ?>
-<?php if ( bbp_current_user_can_access_create_reply_form() && 2 != $status ) : ?>
+<?php if ( bbp_current_user_can_access_create_reply_form() && 2 != $status && ! current_user_can( 'moderate' ) ) : ?>
 
 	<div id="new-reply-<?php bbp_topic_id(); ?>" class="bbp-reply-form">
 
