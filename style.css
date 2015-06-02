@@ -769,6 +769,7 @@ html .row {
   width: 100px;
   margin-right: 0;
 }
+/* Better Click To Tweet styles */
 .bctt-ctt-btn {
   display: block;
   padding: 15px 30px 30px 30px;
@@ -784,6 +785,26 @@ html .row {
   color: #555;
   font-weight: 300;
   line-height: 1.4;
+}
+/* EDD core registration form */
+#landing-page #edd_register_form fieldset {
+  padding: 0;
+  border: none;
+  margin: 0;
+}
+#landing-page #edd_register_form fieldset legend {
+  display: none;
+}
+#landing-page #edd_register_form fieldset > p label,
+#landing-page #edd_register_form fieldset > p input {
+  display: block;
+}
+#landing-page #edd_register_form fieldset > p input {
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
 }
 /*
  * Typography
