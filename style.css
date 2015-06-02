@@ -4610,15 +4610,9 @@ input#edd-discount:focus,
   box-shadow: 0 2px 6px rgba(29, 58, 82, 0.4);
   margin-right: 3.5%;
 }
-.pricing-container .support-box:not(.fortyfive-days) {
-  margin-right: 0;
-}
-.pricing-container .fortyfive-days {
+.pricing-container .priority-support:not(.fortyfive-days) {
+  position: relative;
   border: 3px solid #588fc9;
-  z-index: 2;
-  -webkit-box-shadow: 20px 20px 20px -10px rgba(0, 0, 0, 0.15), -20px 20px 20px -10px rgba(0, 0, 0, 0.15);
-  box-shadow: 20px 20px 20px -10px rgba(0, 0, 0, 0.15), -20px 20px 20px -10px rgba(0, 0, 0, 0.15);
-  border-top-width: 3px;
 }
 .pricing-container .priority-support:not(.fortyfive-days) .label {
   position: absolute;
@@ -4628,6 +4622,14 @@ input#edd-discount:focus,
   padding: 0 10px;
   top: -25px;
   right: 10px;
+}
+.pricing-container .support-box.fortyfive-days {
+  margin-right: 0;
+}
+.pricing-container .fortyfive-days {
+  -webkit-box-shadow: 20px 20px 20px -10px rgba(0, 0, 0, 0.15), -20px 20px 20px -10px rgba(0, 0, 0, 0.15);
+  box-shadow: 20px 20px 20px -10px rgba(0, 0, 0, 0.15), -20px 20px 20px -10px rgba(0, 0, 0, 0.15);
+  border-top-width: 3px;
 }
 .pricing-container .support-box h2 {
   font-weight: 300;
@@ -4693,28 +4695,14 @@ input#edd-discount:focus,
 }
 .pricing-container .support-box .sign-up-buttons p {
   text-align: center;
+  padding: 20px;
   margin-bottom: 10px;
 }
 .pricing-container .support-box .sign-up-buttons p:last-child {
   margin-bottom: 20px;
 }
 .pricing-container .support-box .sign-up-buttons a {
-  display: inline-block;
   font-size: 16px;
-  line-height: 24px;
-  font-weight: 300;
-  text-align: center;
-  background: #2794da;
-  color: #fff;
-  border: 1px solid #25597a;
-  padding: 4px 8px;
-  border-radius: 2px;
-  cursor: pointer;
-}
-.pricing-container .support-box .sign-up-buttons a:hover {
-  background: #fff;
-  color: #232527;
-  border: 1px solid #ccc;
 }
 .page-template-template-support-pricing-php .quote {
   float: left;
