@@ -201,11 +201,11 @@ $status = get_post_meta( get_the_ID(), '_bbps_topic_status', true );
 
 <?php else : ?>
 
-	<div id="no-reply-<?php bbp_topic_id(); ?>" class="bbp-no-reply">
+<!--	<div id="no-reply-<?php bbp_topic_id(); ?>" class="bbp-no-reply">
 		<div class="bbp-template-notice">
 			<p><?php is_user_logged_in() ? _e( 'You cannot reply to this topic.', 'bbpress' ) : _e( 'You must be logged in to reply to this topic.', 'bbpress' ); ?></p>
 		</div>
-	</div>
+	</div>-->
 
 <?php endif; ?>
 
