@@ -211,7 +211,7 @@ function eddwp_comment_form() {
 	comment_form(
 		array(
 			'fields' => apply_filters( 'comment_form_default_fields', $fields ),
-			'comment_notes_after' => '<p class="comments-support-notice notice">For support, please open a ticket in the <a href="https://easydigitaldownloads.com/support/">Support Forums</a>.</p><p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>',
+			'comment_notes_after' => '<p class="comments-support-notice notice">If you need assistance, please open a <a href="https://easydigitaldownloads.com/support/">support ticket</a>.</p><p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>',
 		)
 	);
 }
