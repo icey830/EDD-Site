@@ -42,7 +42,7 @@ $no_duplicates = array(); // don't repeat the same theme twice
 								the_excerpt();
 							?>
 							<a class="featured-download-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">See Theme Details</a>
-							<a class="featured-download-secondary-link gray-button" href="<?php echo home_url( '/checkout/?edd_action=add_to_cart&download_id=' . get_the_ID() ); ?>">Purchase <?php the_title(); ?></a>
+							<a class="featured-download-secondary-link gray-button" href="<?php echo home_url( '/checkout/?edd_action=add_to_cart&download_id=' . get_the_ID() ); ?>">Download <?php the_title(); ?></a>
 						</div>
 					</div>
 				</div>
