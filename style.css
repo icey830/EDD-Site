@@ -246,6 +246,7 @@ a:focus {
 }
 .button,
 .edd-submit,
+div.edd-submit span,
 .edd-submit.button,
 .edd-submit.button.blue,
 .gform_wrapper .gform_footer input.button,
