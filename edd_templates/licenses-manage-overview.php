@@ -44,7 +44,13 @@ if ( $keys ) : ?>
 				</td>
 				<td class="edd_sl_license_status <?php echo edd_software_licensing()->get_license_status( $license->ID ); ?>"><?php echo edd_software_licensing()->license_status( $license->ID ); ?></td>
 				<td><span class="edd_sl_limit_used"><?php echo edd_software_licensing()->get_site_count( $license->ID ); ?></span><span class="edd_sl_limit_sep">&nbsp;/&nbsp;</span><span class="edd_sl_limit_max"><?php echo edd_software_licensing()->license_limit( $license->ID ); ?></span></td>
-				<td><?php echo date_i18n( 'F j, Y', edd_software_licensing()->get_license_expiration( $license->ID ) ); ?></td>
+				<td>
+				<?php if ( method_exists( edd_software_licensing(), 'is_lifetime_license' ) && edd_software_licensing()->is_lifetime_license( $license->ID ) ) : ?>
+					<?php _e( 'Lifetime', 'edd_sl' ); ?>
+				<?php else: ?>
+					<?php echo date_i18n( 'F j, Y', edd_software_licensing()->get_license_expiration( $license->ID ) ); ?>
+				<?php endif; ?>
+				</td>
 				<?php if( ! edd_software_licensing()->force_increase() ) : ?>
 				<td><a href="<?php echo esc_url( add_query_arg( 'license_id', $license->ID ) ); ?>"><?php _e( 'Manage Sites', 'edd_sl' ); ?></a></td>
 				<?php endif; ?>
