@@ -97,7 +97,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 							$query = array(
 								's'              => $q['s'],
 								'post_type'      => 'download',
-								'posts_per_page' => 20,
+								'posts_per_page' => 23,
 								'paged'          => isset( $_GET['page'] ) ? (int) $_GET['page'] : 1,
 								'tax_query' => array(
 									'relation'     => 'OR',
@@ -109,7 +109,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 									array(
 										'taxonomy' => 'download_category',
 										'field'    => 'slug',
-										'terms'    => 'bundle',
+										'terms'    => 'bundles',
 									),
 								),
 							);
