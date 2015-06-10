@@ -7,6 +7,7 @@
  * @subpackage Theme
  */
 
+$status = get_post_meta( get_the_ID(), '_bbps_topic_status', true );
 ?>
 
 <?php if ( bbp_is_reply_edit() ) : ?>
@@ -17,7 +18,12 @@
 
 <?php endif; ?>
 
-<?php if ( bbp_current_user_can_access_create_reply_form() ) : ?>
+<?php if( 2 == $status ) : ?>
+<div class="warning clear">
+	<p>This ticket is resolved. To continue this ticket or to report a similar issue, please open a ticket from our new <a href="<?php echo esc_url( home_url( '/support' ) ); ?>">Support</a> page.</p>
+</div>
+<?php endif; ?>
+<?php if ( bbp_current_user_can_access_create_reply_form() && ( 2 != $status || current_user_can( 'moderate' ) ) ) : ?>
 
 	<div id="new-reply-<?php bbp_topic_id(); ?>" class="bbp-reply-form">
 
@@ -195,11 +201,11 @@
 
 <?php else : ?>
 
-	<div id="no-reply-<?php bbp_topic_id(); ?>" class="bbp-no-reply">
+<!--	<div id="no-reply-<?php bbp_topic_id(); ?>" class="bbp-no-reply">
 		<div class="bbp-template-notice">
 			<p><?php is_user_logged_in() ? _e( 'You cannot reply to this topic.', 'bbpress' ) : _e( 'You must be logged in to reply to this topic.', 'bbpress' ); ?></p>
 		</div>
-	</div>
+	</div>-->
 
 <?php endif; ?>
 

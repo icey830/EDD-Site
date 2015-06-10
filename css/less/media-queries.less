@@ -289,6 +289,18 @@
 	}
 }
 
+@media all and (max-width: 1100px) {
+	.full-width .inner {
+		padding: 30px 20px;
+	}
+	.inner .section-header {
+		margin-bottom: 30px;
+	}
+	.featured-download-info {
+		padding-left: 30px;
+	}
+}
+
 /* ----------------------------- *
  * Tablets to regular desktops
  * ----------------------------- */
@@ -870,7 +882,7 @@
 	}
 
 	.pricing-container .support-box {
-		margin-bottom: 60px;
+		margin-bottom: 30px;
 	}
 
 	#support-people {
@@ -1041,6 +1053,25 @@
 	#account-page .nav-tabs > li:not(.active) > a:hover {
 		border-color: #eee;
 	}
+	
+	.edd-downloads .section-header .filter-label,
+	.edd-downloads .section-header .filter {
+		width: 100%;
+	}
+	
+	.edd-downloads .section-header .filter-label {
+		margin-bottom: 20px;
+	}
+	
+	.tax-download_category .extensions-header-area .inner,
+	.tax-download_tag .extensions-header-area .inner {
+		padding-bottom: 20px;
+	}
+	
+	.tax-download_category .extensions-header-area .inner .section-header,
+	.tax-download_tag .extensions-header-area .inner .section-header {
+		margin-bottom: 10px;
+	}
 }
 
 /* ----------------------------- *
@@ -1108,6 +1139,89 @@
 	.edd-downloads-grid ul li:nth-child(even) {
 		width: 49%%;
 		margin-right: 0;
+	}
+	
+	.two-col .download-grid-item,
+	.three-col .download-grid-item {
+		width: 48%;
+		margin-right: 3.2%;
+		margin-bottom: 3.5%;
+	}
+
+	.three-col .download-grid-item:nth-child(3n) {
+		margin-right: 3.2%;
+	}
+
+	.three-col .download-grid-item:nth-child(even) {
+		margin-right: 0;
+	}
+	
+	.featured-download-thumb,
+	.featured-download-info {
+		width: 100%;
+		padding: 0;
+	}
+	
+	.featured-download-img,
+	.featured-download-title {
+		margin-bottom: 20px;
+	}
+
+	.featured-download-title {
+		font-size: 24px;
+	}
+
+	.featured-download-label {
+		vertical-align: text-bottom;
+	}
+
+	.download-grid-item-primary-link,
+	.download-grid-item-secondary-link,
+	.featured-download-primary-link,
+	.featured-download-secondary-link {
+		text-align: center;
+		width: 100%;
+	}
+
+	.download-grid-item-primary-link,
+	.featured-download-primary-link {
+		margin-bottom: 10px;
+	}
+	
+	.extensions-search-form {
+		max-width: 500px;
+	}
+	
+	.extensions-search-form input {
+		font-size: 18px;
+	}
+	
+	.extensions-search-form input[type="search"],
+	.extensions-search-form input[type="submit"] {
+		width: 100%;
+		max-width: 100%;
+	}
+	
+	.extensions-search-form input[type="search"] {
+		margin-bottom: 10px;
+	}
+
+	.pricing-container .support-box {
+		width: 100%;
+	}
+}
+
+@media (max-width: 600px) {
+	.two-col .download-grid-item,
+	.three-col .download-grid-item {
+		width: 100%;
+		margin-right: 0%;
+		margin-bottom: 5%;
+	}
+	
+	.two-col .download-grid-item .download-grid-title,
+	.three-col .download-grid-item .download-grid-title {
+		font-size: 24px;
 	}
 
 	.edd-author-box {
@@ -1527,7 +1641,7 @@
 	}
 
 	.pricing-container .support-box {
-		margin-bottom: 60px;
+		margin-bottom: 30px;
 	}
 
 	#support-people {
@@ -1741,6 +1855,24 @@
 		margin-bottom: 10px !important;
 	}
 	
+	.edd-gf-support-tickets-form [class*="edd-gf-support-tickets-form-"] .ginput_container > span {
+		width: 100% !important;
+	}
+	
+	.gform_wrapper .edd-gf-support-tickets-form .ginput_complex .ginput_right {
+		margin-left: 0;
+	}
+	
+	.gform_wrapper .edd-gf-support-tickets-form .edd-gf-support-tickets-form-subject li {
+		display: block;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	
+	.edd-gf-support-tickets-form .edd-gf-divider {
+		margin-top: 10px;
+	}
+	
 	/* Common Page Templates */
 	#landing-page.main {
 		padding: 0;
@@ -1751,6 +1883,10 @@
 		padding: 20px;
 		border-radius: 0;
 		margin: 0;
+	}
+	
+	.showcase-submission {
+		padding: 20px;
 	}
 	
 	#account-page {

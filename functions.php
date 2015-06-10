@@ -54,6 +54,9 @@ function edd_theme_setup() {
 	add_image_size( 'theme-showcase', 460, 280, true );
 	add_image_size( 'featured-showcase', 460, 330, true );
 	add_image_size( 'extension', 180, 150, true );
+	add_image_size( 'edd_download_image', 840, 575, true );
+	add_image_size( 'download-grid-thumb', 600, 411, true );
+	add_image_size( 'featured-download', 760, 507, true );
 
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'edd' ),
@@ -102,7 +105,7 @@ function edd_register_theme_scripts() {
 	wp_enqueue_style(   'lato-font'  );
 	wp_enqueue_style(   'font-awesome' );
 
-	wp_register_script( 'edd-js',         get_template_directory_uri() . '/js/theme.min.js',          array( 'jquery' ), '1.0',   false );
+	wp_register_script( 'edd-js',         get_template_directory_uri() . '/js/theme.min.js',          array( 'jquery' ), '1.1',   false );
 	wp_register_script( 'modernizr-js',   get_template_directory_uri() . '/js/lib/modernizr.min.js',  array( 'jquery' ), '2.6.2', false );
 	wp_register_script( 'nivo-slider-js', get_template_directory_uri() . '/js/lib/nivoslider.min.js', array( 'jquery' ), '3.2',   false );
 	wp_register_script( 'bootstrap-js',   get_template_directory_uri() . '/js/lib/bootstrap.min.js',  array( 'jquery' ), '1.0',   false );
@@ -208,7 +211,7 @@ function eddwp_comment_form() {
 	comment_form(
 		array(
 			'fields' => apply_filters( 'comment_form_default_fields', $fields ),
-			'comment_notes_after' => '<p class="comments-support-notice notice">For support, please open a ticket in the <a href="https://easydigitaldownloads.com/support/">Support Forums</a>.</p><p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>',
+			'comment_notes_after' => '<p class="comments-support-notice notice">If you need assistance, please open a <a href="https://easydigitaldownloads.com/support/">support ticket</a>.</p><p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>',
 		)
 	);
 }
@@ -315,7 +318,7 @@ function eddwp_get_latest_post() {
  */
 function eddwp_author_archive_query( $query ) {
 	if ( $query->is_author ) {
-		$query->set( 'post_type', 'extension' );
+		$query->set( 'post_type', 'download' );
 	}
 	remove_action( 'pre_get_posts', 'eddwp_author_archive_query' );
 }
@@ -329,7 +332,7 @@ function eddwp_extensions_cb() {
 
 	$extensions = new WP_Query(
 		array(
-			'post_type' => 'extension',
+			'post_type' => 'download',
 			'nopaging'  => true,
 			'orderby'   => 'rand'
 		)
@@ -389,9 +392,21 @@ function eddwp_paginate_links() {
 
 	$big = 999999999;
 
-	echo '<div class="pagination clear">' . paginate_links( array(
-		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-		'format' => '?paged=%#%',
+	if( ! function_exists( 'edd_get_current_page_url' ) ) {
+		return;
+	}
+
+	$url = edd_get_current_page_url();
+
+	if( false === strpos( $url, '?' ) ) {
+		$sep = '?';
+	} else {
+		$sep = '&';
+	}
+
+	echo '<div class="pagination clearfix">' . paginate_links( array(
+		'base' => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+		'format' => $sep . 'paged=%#%',
 		'current' => max( 1, get_query_var( 'paged' ) ),
 		'total' => $wp_query->max_num_pages,
 	) ) . '</div>';
@@ -401,6 +416,7 @@ function eddwp_paginate_links() {
  * Add the rewrite tag for the extensions search
  */
 function eddwp_add_rewrite_tags() {
+	add_rewrite_tag( '%download_s%', '([^/]+)' );
 	add_rewrite_tag( '%extension_s%', '([^/]+)' );
 }
 add_action( 'init', 'eddwp_add_rewrite_tags' );
@@ -410,6 +426,10 @@ add_action( 'init', 'eddwp_add_rewrite_tags' );
  * correct template is loaded when the extension search is initiated.
  */
 function eddwp_process_rewrites() {
+	if ( isset( $_GET[ 'download_s' ] ) && ! empty ( $_GET['download_s'] ) && isset( $_GET['action'] ) && $_GET['action'] == 'download_search' ) {
+		load_template( dirname( __FILE__ ) . '/search-downloads-extensions.php' );
+		die();
+	}
 	if ( isset( $_GET[ 'extension_s' ] ) && ! empty ( $_GET['extension_s'] ) && isset( $_GET['action'] ) && $_GET['action'] == 'extension_search' ) {
 		load_template( dirname( __FILE__ ) . '/search-extensions.php' );
 		die();
@@ -432,6 +452,9 @@ function eddwp_body_class( $classes ) {
 	if ( isset( $_GET['extension_s'] ) )
 		$classes[] = 'extension-search';
 
+	if ( isset( $_GET['download_s'] ) )
+		$classes[] = 'download-search';
+
 	if ( is_page( 'support' ) )
 		$classes[] = 'bbpress';
 
@@ -449,6 +472,14 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'search';
 		$classes[] = 'documentation';
 		$classes[] = 'documentation-search';
+	}
+	
+	if ( is_page_template( 'template-themes-archive.php' ) ) {
+		$classes[] = 'template-themes';
+	}
+	
+	if ( is_page_template( 'template-site-showcase.php' ) ) {
+		$classes[] = 'template-site-showcase';
 	}
 
 	return $classes;
@@ -1157,10 +1188,10 @@ add_filter( 'generate_rewrite_rules', 'eddwp_feed_rewrite' );
  */
 function eddwp_feed_request($qv) {
 	if ( isset( $qv['feed'] ) && 'extensions' == $qv['feed'] )
-		$qv['post_type'] = 'extension';
+		$qv['post_type'] = 'download';
 
 	if ( isset( $qv['feed'] ) && 'addons' == $qv['feed'] )
-		$qv['post_type'] = 'extension';
+		$qv['post_type'] = 'download';
 
 	return $qv;
 }
@@ -1174,42 +1205,80 @@ function eddwp_feed_query( $query ) {
 
 		$query->set( 'posts_per_page', 50 );
 
-		$tax_query = array(
-			'relation' => 'AND',
-			array(
-				'taxonomy' => 'extension_category',
-				'field'    => 'slug',
-				'terms'    => '3rd-party',
-				'operator' => 'NOT IN'
-			),
-			array(
-				'taxonomy' => 'extension_category',
-				'field'    => 'slug',
-				'terms'    => 'popular'
-			)
-		);
+		if( isset( $_GET['display'] ) && 'new' == $_GET['display'] ) {
 
-		$query->set( 'tax_query', $tax_query );
+			$tax_query = array(
+				'relation' => 'AND',
+				array(
+					'taxonomy' => 'extension_category',
+					'field'    => 'slug',
+					'terms'    => '3rd-party',
+					'operator' => 'NOT IN'
+				)
+			);
+
+			$query->set( 'tax_query', $tax_query );
+			$query->set( 'orderby', 'date' );
+			$query->set( 'order', 'DESC' );
+
+		} else {
+
+			$tax_query = array(
+				'relation' => 'AND',
+				array(
+					'taxonomy' => 'extension_category',
+					'field'    => 'slug',
+					'terms'    => array( '3rd-party' ),
+					'operator' => 'NOT IN'
+				),
+				array(
+					'taxonomy' => 'extension_category',
+					'field'    => 'slug',
+					'terms'    => 'popular'
+				)
+			);
+
+			$query->set( 'tax_query', $tax_query );
+			$query->set( 'orderby', 'menu_order' );
+
+		}
 
 	}
-	return $query;
 }
-add_filter( 'pre_get_posts', 'eddwp_feed_query', 999 );
+add_action( 'pre_get_posts', 'eddwp_feed_query', 99999999 );
+
 
 /* ----------------------------------------------------------- *
  * 10. Misc
  * ----------------------------------------------------------- */
 
 /**
- * Add rss image
+ * Featured image for downloads grid output
+ */
+function eddwp_downloads_grid_thumbnail() {
+	
+	// replace old featured image programmatically until fully removed
+	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
+	$old_default = home_url( '/wp-content/uploads/2013/07/defaultpng.png' );
+	
+	if( has_post_thumbnail() && $image[0] !== $old_default ) {
+		the_post_thumbnail( 'download-grid-thumb', array( 'class' => 'download-grid-thumb' ) );
+	} else {
+		echo '<img class="download-grid-thumb wp-post-image" src="' . get_template_directory_uri() . '/images/featured-image-default.png" alt="' . get_the_title() . '" />';
+	}
+}
+
+/**
+ * Add RSS image
  */
 function eddwp_rss_featured_image() {
     global $post;
     
     if ( has_post_thumbnail( $post->ID ) ) {
     	$thumbnail = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
+    	$mime_type = get_post_mime_type( get_post_thumbnail_id( $post->ID ) );
     	?>
-    	<media:content url="<?php echo $thumbnail; ?>" type="image" medium="image" width="600" height="300"></media:content>
+    	<media:content url="<?php echo $thumbnail; ?>" type="<?php echo $mime_type; ?>" medium="image" width="600" height="300"></media:content>
     <?php }
 }
 add_filter( 'rss2_item', 'eddwp_rss_featured_image' );
@@ -1223,6 +1292,53 @@ function eddwp_rss_namespace() {
 }
 add_filter( 'rss2_ns', 'eddwp_rss_namespace' );
 
+/**
+ * RSS
+ * Get an array of excluded category IDs
+ */
+function eddwp_rss_get_excluded_categories() {
+
+	$excluded_categories = array( 
+		'exclude-from-rss'
+	);
+
+	$ids = array();
+
+	if ( $excluded_categories ) {
+		foreach ( $excluded_categories as $category ) {
+			$category = get_category_by_slug( $category );
+			$ids[] = $category->cat_ID;
+		}
+	}
+
+	if ( $ids) {
+		return $ids;
+	}
+	
+	return false;
+}
+
+/**
+ * RSS
+ * Hide blocked categories from being listed on the site
+ */
+function eddwp_get_object_terms( $terms, $object_ids, $taxonomies ) {
+    
+    if ( $terms ) {
+    	foreach ( $terms as $id => $term ) {
+
+    		$term_id = isset( $term->term_id ) ? $term->term_id : '';
+
+    	    if ( in_array( $term_id, eddwp_rss_get_excluded_categories() ) ) {
+    	        unset( $terms[$id] );
+    	    }
+    	}
+    }
+
+    return $terms;
+
+}
+add_filter( 'wp_get_object_terms', 'eddwp_get_object_terms', 10, 3 );
 
 /**
  * Removes styling from Better Click To Tweet plugin
@@ -1333,7 +1449,7 @@ function eddwp_newsletter_form() {
 				<div class="newsletter-submit-container">
 					<input type="hidden" name="redirect" value="<?php echo 'https://' . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>"/>
 					<input type="hidden" name="action" value="pmc_signup"/>
-					<input type="hidden" name="pmc_list_id" value="<?php echo $list_id; ?>"/>
+					<input type="hidden" name="pmc_list_id" value="be2b495923"/>
 					<input type="submit" class="newsletter-submit edd-button button blue" value="Sign Up"/>
 				</div>
 			</form>
@@ -1514,3 +1630,33 @@ add_filter( 'gform_pre_render_11', 'edd_wp_gravity_form_download_options' );
 add_filter( 'gform_pre_validation_11', 'edd_wp_gravity_form_download_options' );
 add_filter( 'gform_pre_submission_filter_11', 'edd_wp_gravity_form_download_options' );
 add_filter( 'gform_admin_pre_render_11', 'edd_wp_gravity_form_download_options' );
+
+function eddwp_facebook_conversion_pixel() {
+
+	if( function_exists( 'edd_is_success_page' ) && ! edd_is_success_page() ) {
+		return;
+	}
+
+	if( function_exists( 'edd_get_purchase_session' ) && ! edd_get_purchase_session() ) {
+		return;
+	}
+?>
+<!-- Facebook Conversion Code for EDD Checkout Success -->
+<script>(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6023481255100', {'value':'0.00','currency':'USD'}]);
+</script>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6023481255100&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+<?php
+}
+add_action( 'wp_footer', 'eddwp_facebook_conversion_pixel' );

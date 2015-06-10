@@ -33,18 +33,23 @@ if ( is_user_logged_in() ) { ?>
 				<?php if ( eddc_user_has_commissions() ) { ?>
 				<li><a href="#tab3" data-toggle="tab">Commissions</a></li>
 				<?php } // end if ?>
-				<li><a href="#support-tickets" data-toggle="tab">Support Tickets</a></li>
 				<li><a href="#tab5" data-toggle="tab">Support Subscription</a></li>
 			</ul><!-- /.nav-tabs -->
 
 			<div class="tab-content">
 
 				<div class="tab-pane active purchases-tab-pane" id="tab1">
-					<?php echo apply_filters( 'the_content', do_shortcode( '[purchase_history]' ) ); ?>
+					<?php
+					if ( isset( $_GET['payment_id'] ) && is_numeric( $_GET['payment_id'] ) ) {
+						echo apply_filters( 'the_content', do_shortcode( '[purchase_history]' ) );
+					} else {
+						echo do_shortcode( '[purchase_history]' );
+					}
+					?>
 				</div><!-- /.tab-pane -->
 
 				<div class="tab-pane downloads-tab-pane" id="downloads-tab">
-					<?php echo apply_filters( 'the_content', do_shortcode( '[download_history]' ) ); ?>
+					<?php echo do_shortcode( '[download_history]' ); ?>
 				</div><!-- /.tab-pane -->
 
 
@@ -59,22 +64,11 @@ if ( is_user_logged_in() ) { ?>
 					<?php if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); } ?>
 				</div><!-- /.tab-pane -->
 
-				<div class="tab-pane support-tickets-tab-pane" id="support-tickets">
-					<?php
-					echo do_shortcode( '[support_tickets]' );
-					?>
-				</div><!-- /.tab-pane -->
-
 				<div class="tab-pane support-subscription-tab-pane" id="tab5">
+
 					<?php
 					echo do_shortcode( '[subscription_details]' );
 					echo do_shortcode( '[card_details]' );
-					?>
-				</div><!-- /.tab-pane -->
-
-				<div class="tab-pane download-history-tab-pane" id="tab6">
-					<?php
-					echo do_shortcode( '[download_history]' );
 					?>
 				</div><!-- /.tab-pane -->
 
@@ -82,7 +76,7 @@ if ( is_user_logged_in() ) { ?>
 		</div><!-- /.container -->
 	</section><!-- /.main -->
 	<?php
-		
+
 } else { ?>
 
 	<section id="landing-page" class="landing main clearfix">

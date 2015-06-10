@@ -44,7 +44,7 @@
 					<ul class="extension-categories clearfix">
 						<li><a href="<?php echo home_url( 'extensions' ); ?>">All</a></li>
 						<?php foreach ( $c as $o )  { ?>
-						<li><a href="<?php echo add_query_arg( 'category', $o->slug ); ?>"><?php echo $o->name; ?></a></li>
+						<li><a href="<?php echo esc_url( add_query_arg( 'category', $o->slug ) ); ?>"><?php echo $o->name; ?></a></li>
 						<?php } ?>
 					</ul>
 				</div>

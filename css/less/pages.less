@@ -638,14 +638,15 @@
 }
 
 .extension i.third-party,
-.edd-download i.third-party {
+.edd-download i.third-party,
+.download-grid-item i.third-party {
 	display: block;
 	background: url(images/ribbon-3rd-party.png) no-repeat;
 	width: 99px;
 	height: 99px;
 	position: absolute;
 	top: -4px;
-	right: -6px;
+	right: -5px;
 }
 
 .extension i.free,
@@ -866,6 +867,16 @@
 	margin-top: 20px;
 }
 
+.single-download .main .sidebar .box .terms {
+	background-color: #f1f1f1;
+	color: #777;
+	font-size: 13px;
+	line-height: 1.6;
+	padding: 10px !important;
+	border-radius: 4px;
+	margin-bottom: 2em;
+}
+
 .single-extension .main .sidebar .box:last-child,
 .single-theme .main .sidebar .box:last-child,
 .single-download .main .sidebar .box:last-child {
@@ -887,9 +898,8 @@
 	float: right;
 }
 
-.single-extension .main .sidebar .box div,
-.single-theme .main .sidebar .box div,
-.single-download .main .sidebar .box div {
+.single-download .main .sidebar .box .author,
+.single-download .main .sidebar .box .version {
 	padding: 5px 0;
 }
 
@@ -1777,7 +1787,7 @@ html.js .edd_download_purchase_form label .edd_price_option_name {
 .page-id-160 .checkout-cart-empty h2.tagline {
 	font-size: 24px;
 	font-size: 2.4rem;
-	color: #aaa;
+	margin-bottom: 30px;
 }
 
 #edd_checkout_wrap {
@@ -2197,11 +2207,11 @@ input#edd-discount,
 
 .pricing-container {
 	width: 1100px;
-	margin: 35px auto 0;
+	margin: 35px auto;
 }
 
 .pricing-container .support-box {
-	width: 333px;
+	width: 48%;
 	float: left;
 	background: #fff;
 	background: -webkit-linear-gradient(#ffffff 0%, #eaeaea 100%);
@@ -2214,20 +2224,15 @@ input#edd-discount,
 	border: 1px solid #bbb;
 	-webkit-box-shadow: 0 2px 6px rgba(29,58,82,0.4);
 	box-shadow: 0 2px 6px rgba(29,58,82,0.4);
-	margin-right: 50px;
+	margin-right: 3.5%;
 }
 
-.pricing-container .fortyfive-days {
-	border: 3px solid #588fc9;
+.pricing-container .priority-support:not(.fortyfive-days) {
 	position: relative;
-	z-index: 2;
-	top: -13px;
-	-webkit-box-shadow: 20px 20px 20px -10px rgba(0, 0, 0, .15), -20px 20px 20px -10px rgba(0, 0, 0, .15);
-	box-shadow: 20px 20px 20px -10px rgba(0, 0, 0, .15), -20px 20px 20px -10px rgba(0, 0, 0, .15);
-	border-top-width: 3px;
+	border: 3px solid #588fc9;
 }
 
-.pricing-container .fortyfive-days .label {
+.pricing-container .priority-support:not(.fortyfive-days) .label {
 	position: absolute;
 	background: #588fc9;
 	font-size: 14px;
@@ -2235,6 +2240,16 @@ input#edd-discount,
 	padding: 0 10px;
 	top: -25px;
 	right: 10px;
+}
+
+.pricing-container .support-box.fortyfive-days {
+	margin-right: 0;
+}
+
+.pricing-container .fortyfive-days {
+	-webkit-box-shadow: 20px 20px 20px -10px rgba(0, 0, 0, .15), -20px 20px 20px -10px rgba(0, 0, 0, .15);
+	box-shadow: 20px 20px 20px -10px rgba(0, 0, 0, .15), -20px 20px 20px -10px rgba(0, 0, 0, .15);
+	border-top-width: 3px;
 }
 
 .pricing-container .support-box h2 {
@@ -2256,11 +2271,10 @@ input#edd-discount,
 
 .pricing-container .support-box .price {
 	font-weight: 300;
-	padding: 40px 0;
+	padding: 20px 0;
 	text-align: center;
 	background: #eee;
 	border-bottom: 1px solid #ddd;
-	height: 140px;
 }
 
 .pricing-container .support-box .price-free p {
@@ -2311,31 +2325,12 @@ input#edd-discount,
 
 .pricing-container .support-box .sign-up-buttons p {
 	text-align: center;
+	padding: 20px;
 	margin-bottom: 10px;
 }
 
-.pricing-container .support-box .sign-up-buttons p:last-child {
-	margin-bottom: 20px;
-}
-
 .pricing-container .support-box .sign-up-buttons a {
-	display: inline-block;
 	font-size: 16px;
-	line-height: 24px;
-	font-weight: 300;
-	text-align: center;
-	background: #2794da;
-	color: #fff;
-	border: 1px solid #25597a;
-	padding: 4px 8px;
-	border-radius: 2px;
-	cursor: pointer;
-
-	&:hover {
-		background: #fff;
-		color: #232527;
-		border: 1px solid #ccc;
-	}
 }
 
 .page-template-template-support-pricing-php .quote {
@@ -2765,6 +2760,219 @@ input#edd-discount,
 	margin-bottom: 30px;
 	padding-bottom: 30px;
 }
+
+
+/* ----------------------------- *
+ * Featured Download Template (theme and extension)
+ * ----------------------------- */
+
+.template-themes .sharedaddy,
+.post-type-archive-download .sharedaddy { display: none; } /* FIND OUT WHY I'M HERE AND REMOVE ME */
+ 
+.template-themes .main,
+.post-type-archive-download .main,
+.template-site-showcase .main,
+.post-type-archive-download .main,
+.tax-download_category .main,
+.tax-download_tag .main {
+	padding: 0; 
+}
+
+.tax-download_category .extensions-header-area .inner,
+.tax-download_tag .extensions-header-area .inner {
+	padding-bottom: 40px;
+}
+
+/* extensions page */
+
+.post-type-archive-download .edd-downloads-area .inner,
+.download-search .edd-downloads-area .inner {
+	padding-top: 30px;
+}
+
+.extensions-header .section-header {
+	margin-bottom: 10px;
+}
+
+.extensions-search-form {
+	padding: 30px 0 0;
+	margin: 0 auto;
+	max-width: 700px;
+}
+
+.extensions-search-form input {
+	display: inline-block;
+	font-size: 24px;
+	padding: 10px;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.extensions-search-form input[type="search"] {
+	border: none;
+	border-radius: 3px;
+	margin-right: 2%;
+	max-width: 80%;
+}
+
+.extensions-search-form input[type="submit"] {
+	width: 15%;
+	min-width: 105px;
+}
+
+.edd-downloads .section-header .filter-label {
+	display: inline-block;
+	font-size: 24px;
+	text-align: left;
+	width: 16%;
+	vertical-align: top;
+}
+
+.edd-downloads .section-header .filter {
+	display: inline-block;
+	background: none;
+	padding: 0;
+	margin: 0;
+	width: 78.5%;
+}
+
+.section-header .filter li {
+	margin: 0 8px 8px 0;
+}
+
+.section-header .filter a {
+	background: #a2acb2;
+	color: #fff;
+	font-size: 13px;
+	line-height: 1;
+	padding: 6px 8px;
+	border: none;
+	margin: 0;
+}
+
+.section-header .filter a:hover {
+	background: #2794DA;
+}
+
+#extensions-bundle-promotion.download-grid-item {
+	background: #2794da;
+	color: #fff;
+}
+
+#extensions-bundle-promotion.download-grid-item .download-grid-thumb {
+	border: none;
+	margin: 11px 0 32px;
+}
+
+#extensions-bundle-promotion.download-grid-item .green-button {
+	padding: 8px 18px;
+	font-size: 18px;
+}
+
+/* themes page */
+
+.featured-download-area {
+	background: #eee;
+}
+
+.featured-download-thumb,
+.featured-download-info {
+	float: left;
+	width: 50%;
+}
+
+.featured-download-thumb .download-grid-thumb {
+	border: 2px solid #E4E4E4;
+}
+
+.featured-download-img {
+	border-radius: 4px;
+}
+
+.featured-download-info {
+	padding-left: 50px;
+}
+
+.featured-download-title {
+	font-size: 30px;
+	line-height: 1.4;
+	margin: 0 0 25px;
+}
+
+.featured-download-label {
+	background: #38C238;
+	color: #fff;
+	display: inline-block;
+	padding: 8px 10px 6px;
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	border-radius: 4px;
+	vertical-align: text-top;
+	margin-right: 10px;
+	line-height: 1;
+	margin-top: 4px;
+}
+
+.featured-download-supported {
+	color: #999;
+	font-size: 13px;
+	font-style: italic;
+}
+
+.featured-download-primary-link {
+	margin-right: 10px;
+}
+
+.featured-download-secondary-link {
+	background: #fff;
+	color: #666;
+	-webkit-transition: all .2s;
+	-moz-transition: all .2s;
+	transition: all .2s;
+}
+
+.featured-download-secondary-link:hover {
+	background: #fafafa;
+}
+
+.recommended-download-area {
+	background: #eee;
+}
+
+.post-type-archive-download .edd-downloads-area,
+.tax-download_category .edd-downloads-area,
+.tax-download_tag .edd-downloads-area,
+.template-themes .edd-downloads-area,
+.download-search .edd-downloads-area {
+	background: #fff;
+}
+
+.theme-forest-edd-link {
+	text-align: center;
+}
+
+/* showcase page */
+
+.site-showcase-area {
+	background: #fff;
+}
+
+.template-site-showcase .download-grid-item {
+	min-height: 340px;
+}
+
+.showcase-submission {
+	max-width: 700px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 50px;
+	border-radius: 4px;
+}
+
 
 /* ----------------------------- *
  * Starter package

@@ -91,7 +91,13 @@ a:focus { outline: none !important; }
 		}
 	}
 
-	& input[type=text], input[type=url], input[type=email], input[type=tel], input[type=number], input[type=password], textarea {
+	& input[type="text"],
+	input[type="url"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="number"],
+	input[type="password"],
+	textarea {
 		padding: 6px 10px !important;
 		background: #fff;
 		border-radius: 3px;
@@ -115,7 +121,7 @@ a:focus { outline: none !important; }
 		line-height: 24px !important;
 	}
 
-	& input[type=submit] {
+	& input[type="submit"] {
 		background: #fff;
 		background: -webkit-linear-gradient(#ffffff 0%, #efefef 100%);
 		background: -moz-linear-gradient(#ffffff 0%, #efefef 100%);
@@ -156,12 +162,18 @@ a:focus { outline: none !important; }
 	}
 }
 
-.gform_wrapper.gf_browser_chrome .gfield_radio li input[type=radio] {
+.gform_wrapper.gf_browser_chrome .gfield_radio li input[type="radio"] {
 	margin-left: 1px;
 }
 
-.button, .edd-submit, .edd-submit.button,
-.edd-submit.button.blue, .gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit], .gform_wrapper input[type=submit] {
+.button,
+.edd-submit,
+.edd-submit.button,
+.edd-submit.button.blue,
+.gform_wrapper .gform_footer input.button,
+.gform_wrapper .gform_footer input[type="submit"],
+.gform_wrapper input[type="submit"],
+.sidebar .widget_edd_cart_widget .cart_item.edd_checkout a {
 	margin-top: 2px;
 	padding: 4px 14px;
 	background: #2794da;
@@ -187,6 +199,204 @@ a:focus { outline: none !important; }
 	&:hover {
 		background: #5ba3cf;
 		color: #fff;
+	}
+
+	&:active {
+		-webkit-box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+		box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+	}
+
+	span {
+		color: #fff !important;
+	}
+}
+
+.gform_fields input[type="radio"] {
+	margin: 3px 5px 3px 2px !important;
+}
+
+/* Support Ticket Form - Gravity Forms */
+#gform_wrapper_4,
+#gform_wrapper_14 {
+	width: 100%;
+	max-width: 100%;
+}
+#gform_4 /* delete - local */,
+#gform_14 {
+	width: 100%;
+}
+.edd-gf-support-tickets-form {
+	margin-top: 40px;
+}
+.edd-gf-support-tickets-form input[type="text"],
+.edd-gf-support-tickets-form input[type="url"],
+.edd-gf-support-tickets-form input[type="email"],
+.edd-gf-support-tickets-form input[type="tel"],
+.edd-gf-support-tickets-form input[type="number"],
+.edd-gf-support-tickets-form input[type="password"],
+.edd-gf-support-tickets-form textarea {
+	padding: 10px !important;
+	margin-bottom: 0 !important;
+}
+.edd-gf-support-tickets-form .ginput_container label,
+.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield_description {
+	color: #999;
+	font-size: 15px;
+	line-height: 1.6;
+}
+.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield.edd-gf-support-tickets-form-email .gfield_description {
+	margin: 15px 0 5px;
+}
+.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield_label {
+	font: 300 24px/1.4 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+	margin: 0;
+}
+.edd-gf-support-tickets-form [class*="edd-gf-support-tickets-form-"] {
+	padding-left: 2.5%;
+	margin-bottom: 30px;
+}
+.edd-gf-support-tickets-form .gfield.edd-gf-support-tickets-form-name {
+	margin-bottom: 15px;
+}
+.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield.edd-gf-support-tickets-form-email .gfield_label {
+	display: none;
+}
+.edd-gf-support-tickets-form .gfield.edd-gf-support-tickets-form-email {
+	padding-bottom: 30px;
+	border-bottom: 2px solid #f2f2f2;
+}
+.edd-gf-support-tickets-form .edd-gf-support-tickets-form-email .gfield_description {
+	background: #f1f1f1;
+	color: #777;
+	font-size: 13px;
+	line-height: 1.6;
+	padding: 10px !important;
+	border-radius: 4px;
+}
+.gform_wrapper .edd-gf-support-tickets-form .top_label .edd-gf-support-tickets-form-subject .gfield_label {
+	margin-bottom: 10px;
+}
+.gform_wrapper .edd-gf-support-tickets-form .edd-gf-support-tickets-form-subject {
+	margin-bottom: 10px;
+}
+.gform_wrapper .edd-gf-support-tickets-form .edd-gf-support-tickets-form-subject li {
+	display: inline-block;
+	width: 48.5%;
+}
+.gform_wrapper .edd-gf-support-tickets-form .gsection {
+	padding: 0;
+	border: none;
+	margin: 0;
+}
+.gform_wrapper .edd-gf-support-tickets-form .gsection h2 {
+	display: none;
+}
+.gform_wrapper .edd-gf-support-tickets-form .gsection .gsection_description {
+	width: 100%;
+}
+.edd-gf-support-tickets-form .edd-gf-divider {
+	clear: both;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 0;
+	border: none;
+	border-top: 2px solid #f2f2f2;
+	margin: 0 0 20px;
+}
+.edd-gf-support-tickets-form .edd-gf-divider:after {
+	content: "\f078";
+	font-family: 'FontAwesome';
+	display: inline-block;
+	position: relative;
+	top: -25px;
+	font-size: 30px;
+	padding: 0 10px;
+	background: white;
+}
+.gform_wrapper .edd-gf-support-tickets-form-subject ul.gfield_radio li input[type="radio"]:checked+label,
+.gform_wrapper .edd-gf-support-tickets-form-subject ul.gfield_checkbox li input[type="checkbox"]:checked+label {
+	color: #666;
+}
+.gform_wrapper .edd-gf-support-tickets-form .gfield_radio {
+	margin-left: 0 !important;
+}
+.gform_wrapper .edd-gf-support-tickets-form .docs-support-link {
+	margin: 30px 0 30px 2.5% !important;
+}
+.gform_wrapper .edd-gf-support-tickets-form .gform_footer {
+	padding-right: 2.5%;
+	padding-left: 2.5%;
+}
+.gform_wrapper .edd-gf-support-tickets-form .gform_footer input[type="submit"] {
+	font-size: 18px;
+	padding: 10px;
+	min-width: 240px;
+}
+
+.green-button {
+	margin-top: 2px;
+	padding: 4px 14px;
+	background: #38C238;
+	display: inline-block;
+	color: #fff;
+	-webkit-box-shadow: inset 0 -2px 0 rgba(0,0,0,0.13);
+	box-shadow: inset 0 -2px 0 rgba(0,0,0,0.13);
+	cursor: pointer;
+	border-radius: 3px;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	line-height: 24px;
+	font-weight: 300;
+	border: 1px solid #279827;
+
+	&:hover {
+		background: #4CD54C;
+		color: #fff;
+	}
+
+	&:active {
+		-webkit-box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+		box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+	}
+
+	span {
+		color: #fff !important;
+	}
+}
+
+.gray-button {
+	margin-top: 2px;
+	padding: 4px 14px;
+	background: #f1f1f1;
+	display: inline-block;
+	color: #555;
+	-webkit-box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
+	box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
+	cursor: pointer;
+	border-radius: 3px;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	line-height: 24px;
+	font-weight: 300;
+	border: 1px solid #d2d2d2;
+
+	&:hover {
+		background: #fafafa;
+		color: #555;
 	}
 
 	&:active {
@@ -495,8 +705,7 @@ html .row {
 	margin-right: 0;
 }
 
-// Better Click To Tweet styles
-
+/* Better Click To Tweet styles */
 .bctt-ctt-btn {
 	display: block;
 	padding: 15px 30px 30px 30px;
@@ -514,4 +723,45 @@ html .row {
 	color: #555;
 	font-weight: 300;
 	line-height: 1.4;
+}
+
+/* EDD core registration form */
+#landing-page #edd_register_form fieldset {
+	padding: 0;
+	border: none;
+	margin: 0;
+}
+#landing-page #edd_register_form fieldset legend {
+	display: none;
+}
+#landing-page #edd_register_form fieldset > p label,
+#landing-page #edd_register_form fieldset > p input {
+	display: block;
+}
+#landing-page #edd_register_form fieldset > p input {
+	font-size: 16px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 100%;
+}
+
+/* Free Downloads Form (modal) */
+[id*=jBoxID] .jBox-content {
+	padding: 30px;
+}
+[id*=jBoxID] #edd-free-downloads-modal label {
+	font-size: 18px;
+	font-weight: 500;
+}
+[id*=jBoxID] #edd-free-downloads-modal input[type='text'],
+[id*=jBoxID] #edd-free-downloads-modal input[type='email'] {
+	padding: 10px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+[id*=jBoxID] #edd-free-downloads-modal input[type='button'] {
+	font-size: 18px;
+	padding: 8px 10px;
+	font-weight: 700;	
 }

@@ -8,42 +8,77 @@ get_header();
 	<section class="main clearfix">
 		
 		<?php $download_term = $wp_query->get_queried_object();	?>
-		
-		<section class="content clearfix">
-			<h1 class="edd-download-tax-title">Category: <?php echo $download_term->name; ?></h1>
-			<?php if ( ! empty( $download_term->description ) ) : ?>
-				<p class="edd-download-tax-description"><?php echo $download_term->description; ?></p>
-			<?php endif; ?>
-			<div class="clearfix"></div>
-		</section><!-- /.content -->
 
-		<section class="edd-downloads-container">
-			<div class="edd-downloads clearfix">
-				<?php $c = 0; while ( have_posts() ) { the_post(); $c++; ?>
-					<div class="edd-download<?php if ( 0 == $c%3 ) echo ' edd-download-clear'; if ( has_term( '3rd Party', 'download_category', get_the_ID() ) ) echo ' third-party-edd-download'; ?>">
-						<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-							<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
-							<h2><?php the_title(); ?></h2>
-							<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
-						</a>
-						<div class="overlay">
-							<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" class="overlay-view-details button">View Details</a>
-							<?php if( ! eddwp_is_external_extension() ) : ?>
-								<a href="<?php echo home_url( '/checkout/?edd_action=add_to_cart&download_id=' . get_the_ID()  ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
-							<?php endif; ?>
-						</div>
+		<div class="extensions-header-area full-width">
+			<div class="inner">
+				<div class="extensions-header clearfix">
+					<div class="section-header">
+						<h2 class="section-title">Category: <strong><?php echo $download_term->name; ?></strong></h2>
+						<?php if ( ! empty( $download_term->description ) ) : ?>
+							<p class="section-subtitle"><?php echo $download_term->description; ?></p>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="edd-downloads-area full-width">
+			<div class="inner">
+				<div class="edd-downloads">
+					<div class="section-header">
+						<div class="filter-label">Categories:</div>
 						<?php
-						if ( has_term( '3rd Party', 'download_category', get_the_ID() ) ) {
-							echo '<i class="third-party"></i>';
-						}
+							$cat_args = array(
+								'exclude'  => array(
+									22 /* extensions */,
+									162 /* themes */,
+									1572 /* child themes */,
+									1571 /* featured theme */,
+								),
+							);
+							$cats = get_terms( 'download_category', $cat_args );
+
+							if ( $cats ) {
+								$cat_list = '<div class="filter clearfix">';
+								$cat_list .= '<ul class="download-categories clearfix">';
+								$cat_list .= '<li><a href="' . home_url('/downloads') . '">All</a></li>';
+								$cat_list .= '<li><a href="' . home_url('/downloads/?display=newest') . '">Newest</a></li>';
+
+								foreach( $cats as $cat ) {
+									$cat_list .= '<li><a href="' . get_term_link( $cat->slug, 'download_category' ) . '">' . $cat->name . '</a></li>';
+								}
+
+								$cat_list .= '</ul>';
+								$cat_list .= '</div>';
+
+								echo $cat_list;
+							}
 						?>
 					</div>
-					<?php
-				}
-
-				eddwp_paginate_links();
-				?>
+					<section class="download-grid three-col clearfix">
+						<?php while ( have_posts() ) : the_post(); ?>
+							<div class="download-grid-item">
+								<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
+									<?php eddwp_downloads_grid_thumbnail(); ?>
+								</a>
+								<div class="download-grid-item-info">
+									<?php
+										the_title( '<h4 class="download-grid-title">', '</h4>' );
+										$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
+										echo $short_desc;
+									?>
+								</div>
+								<div class="download-grid-item-cta">
+									<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
+								</div>
+							</div>
+						<?php endwhile; wp_reset_postdata(); ?>
+					</section><!-- .download-grid three-col -->
+					<?php eddwp_paginate_links(); ?>
+				</div>
 			</div>
-		</section><!-- /.edd-downloads-container -->
+		</div>
+		
 	</section><!-- /.main -->
-<?php get_footer(); ?>
+	<?php
+get_footer();
