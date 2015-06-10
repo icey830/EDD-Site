@@ -68,7 +68,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 							<?php
 								$bundle_promotion = array(
 									0 => array(
-										'url'   => home_url( '/?extension=core-extensions-bundle' ),
+										'url'   => home_url( '/downloads/core-extensions-bundle' ),
 										'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/core-extensions-bundle-featured.png',
 										'title' => 'Core Extensions Bundle',
 										'desc'  => 'With the core extensions bundle, get over $2,000 worth of extensions for only $495.',
