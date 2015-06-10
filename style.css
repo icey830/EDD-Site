@@ -6828,7 +6828,8 @@ span.bbp-author-ip {
   .single-theme .main .content,
   .single-download .main .content,
   .documentation .main .content,
-  #respond {
+  #respond,
+  #comments {
     width: 620px;
     padding: 30px;
   }
@@ -7053,7 +7054,8 @@ span.bbp-author-ip {
   .single-theme .main .content,
   .single-download .main .content,
   .documentation .main .content,
-  #respond {
+  #respond,
+  #comments {
     width: 620px;
     padding: 30px;
   }
@@ -7461,7 +7463,8 @@ span.bbp-author-ip {
   .blog .main .content,
   .documentation .main .content,
   .single-download .main .content,
-  #respond {
+  #respond,
+  #comments {
     width: 100%;
     padding: 30px;
   }
@@ -7798,6 +7801,7 @@ span.bbp-author-ip {
   .documentation .main .content,
   .single-download .main .content,
   #respond,
+  #comments,
   .blog .main .sidebar,
   .documentation .main .sidebar,
   .single-download .main .sidebar {
@@ -7814,6 +7818,13 @@ span.bbp-author-ip {
   }
   .blog .main .content {
     padding: 0;
+  }
+  #comments .comment-body p {
+    font-size: 15px;
+  }
+  .comment-list .children li {
+    padding-left: 0;
+    border-left: none;
   }
   .two-col .download-grid-item,
   .three-col .download-grid-item {
