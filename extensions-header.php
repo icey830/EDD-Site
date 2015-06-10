@@ -20,7 +20,7 @@
 	<?php else :
 	$banners = array(
 		0 => array(
-			'url'   => home_url( '/?extension=core-extensions-bundle' ),
+			'url'   => home_url( '/downloads/core-extensions-bundle' ),
 			'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/banner-ceb.png',
 			'title' => 'Core Extensions Bundle'
 		),
