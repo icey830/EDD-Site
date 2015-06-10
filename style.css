@@ -7813,7 +7813,8 @@ span.bbp-author-ip {
     padding: 0;
   }
   .blog .main .content .hentry,
-  .sidebar .newsletter {
+  .sidebar .newsletter,
+  .sidebar .widget {
     padding: 20px;
   }
   .blog .main .content {
