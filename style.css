@@ -809,6 +809,25 @@ html .row {
   border-radius: 4px;
   width: 100%;
 }
+/* Free Downloads Form (modal) */
+[id*=jBoxID] .jBox-content {
+  padding: 30px;
+}
+[id*=jBoxID] #edd-free-downloads-modal label {
+  font-size: 18px;
+  font-weight: 500;
+}
+[id*=jBoxID] #edd-free-downloads-modal input[type='text'],
+[id*=jBoxID] #edd-free-downloads-modal input[type='email'] {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+[id*=jBoxID] #edd-free-downloads-modal input[type='button'] {
+  font-size: 18px;
+  padding: 8px 10px;
+  font-weight: 700;
+}
 /*
  * Typography
  * Copyright (c) 2013, Sunny Ratilal.
