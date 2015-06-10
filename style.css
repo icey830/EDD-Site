@@ -6827,8 +6827,13 @@ span.bbp-author-ip {
   .single-extension .main .content,
   .single-theme .main .content,
   .single-download .main .content,
-  .documentation .main .content {
+  .documentation .main .content,
+  #respond {
     width: 620px;
+    padding: 30px;
+  }
+  .blog .main .content {
+    padding: 0;
   }
   .single-extension .main .sidebar,
   .single-theme .main .sidebar,
@@ -6957,7 +6962,8 @@ span.bbp-author-ip {
   .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
     background-position-x: 24px;
     font-size: 16px;
-    padding-left: 125px;
+    padding: 20px 50px 20px 155px;
+    margin: -50px -30px 20px;
   }
   .edd-post-footer .newsletter .newsletter-name-container,
   .edd-post-footer .newsletter .newsletter-email-container {
@@ -6965,10 +6971,6 @@ span.bbp-author-ip {
   }
   .edd-post-footer .newsletter-wrap {
     padding: 50px 30px 30px;
-  }
-  .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
-    padding: 20px 50px 20px 155px;
-    margin: -50px -30px 20px;
   }
   #starter-package .entry-title {
     font-size: 26px;
@@ -7028,6 +7030,9 @@ span.bbp-author-ip {
   .featured-download-info {
     padding-left: 30px;
   }
+  .edd-post-footer .newsletter-wrap {
+    padding: 50px 30px 30px;
+  }
 }
 /* ----------------------------- *
  * Tablets to regular desktops
@@ -7047,8 +7052,16 @@ span.bbp-author-ip {
   .single-extension .main .content,
   .single-theme .main .content,
   .single-download .main .content,
-  .documentation .main .content {
+  .documentation .main .content,
+  #respond {
     width: 620px;
+    padding: 30px;
+  }
+  .blog .main .content .hentry {
+    padding: 30px;
+  }
+  .blog .main .content {
+    padding: 0;
   }
   .single-extension .main .sidebar,
   .single-theme .main .sidebar,
@@ -7187,18 +7200,17 @@ span.bbp-author-ip {
     margin: 0 auto 10px;
   }
   .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
+    background-position-x: 24px;
     font-size: 16px;
+    padding: 20px 30px 20px 155px;
+    margin: -50px -30px 20px;
   }
   .edd-post-footer .newsletter .newsletter-name-container,
   .edd-post-footer .newsletter .newsletter-email-container {
     width: 180px;
   }
   .edd-post-footer .newsletter-wrap {
-    padding: 50px 50px 30px;
-  }
-  .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
-    padding: 20px 50px 20px 155px;
-    margin: -50px -50px 20px;
+    padding: 50px 30px 30px;
   }
   #starter-package .entry-title {
     font-size: 26px;
@@ -7383,6 +7395,9 @@ span.bbp-author-ip {
   footer .container img {
     display: none;
   }
+  .main .container {
+    margin-bottom: 0;
+  }
   footer .container .columns {
     padding: 0 20px 20px 20px;
   }
@@ -7443,17 +7458,27 @@ span.bbp-author-ip {
   .main .container {
     width: 100%;
   }
-  .single-extension .main .content,
-  .single-theme .main .content,
-  .single-download .main .content {
+  .blog .main .content,
+  .documentation .main .content,
+  .single-download .main .content,
+  #respond {
     width: 100%;
+    padding: 30px;
   }
-  .single-extension .main .sidebar,
-  .single-theme .main .sidebar,
+  .blog .main .content .hentry {
+    padding: 30px;
+  }
+  .blog .main .content {
+    padding: 0;
+  }
   .single-download .main .sidebar,
-  .blog .sidebar {
+  .blog .main .sidebar {
     width: 100%;
+    padding: 30px;
     margin-left: 0;
+  }
+  .blog .main .sidebar {
+    padding: 0;
   }
   .blog .sidebar,
   .single-theme .main .sidebar,
@@ -7557,7 +7582,15 @@ span.bbp-author-ip {
   }
   .sidebar .newsletter .newsletter-title {
     text-align: left;
-    padding: 20px 50px 20px 155px;
+    font-size: 16px;
+    padding: 20px 30px 20px 155px;
+    margin: -50px -30px 20px;
+  }
+  .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
+    background-position-x: 24px;
+    font-size: 16px;
+    padding: 20px 30px 20px 155px;
+    margin: -50px -30px 20px;
   }
   .sidebar .newsletter-title span {
     display: inline;
@@ -7761,6 +7794,27 @@ span.bbp-author-ip {
   }
 }
 @media (max-width: 600px) {
+  .blog .main .content,
+  .documentation .main .content,
+  .single-download .main .content,
+  #respond,
+  .blog .main .sidebar,
+  .documentation .main .sidebar,
+  .single-download .main .sidebar {
+    width: 100%;
+    padding: 20px;
+    margin-left: 0;
+  }
+  .blog .main .sidebar {
+    padding: 0;
+  }
+  .blog .main .content .hentry,
+  .sidebar .newsletter {
+    padding: 20px;
+  }
+  .blog .main .content {
+    padding: 0;
+  }
   .two-col .download-grid-item,
   .three-col .download-grid-item {
     width: 100%;
@@ -7781,20 +7835,30 @@ span.bbp-author-ip {
   .edd-author-bio {
     width: 100%;
   }
-  .single .newsletter .newsletter-title {
-    text-align: right;
+  .edd-post-footer .newsletter-wrap {
+    padding: 50px 20px 20px;
   }
-  .single .newsletter-title span {
-    display: none;
+  .blog .newsletter .newsletter-title,
+  .single .newsletter .newsletter-title {
+    background-position-x: 16px;
+    font-size: 20px;
+    text-align: right;
+    padding: 20px 20px 20px 125px;
+    margin: -50px -20px 20px;
+  }
+  .newsletter-title span {
+    display: none !important;
   }
   .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
     font-size: 20px;
     text-align: right;
+    padding: 20px 20px 20px 125px;
+    margin: -50px -20px 20px;
   }
-  .single .newsletter .newsletter-name-container,
-  .single .newsletter .newsletter-email-container,
-  .single .newsletter .newsletter-submit-container {
-    width: 100%;
+  .newsletter .newsletter-name-container,
+  .newsletter .newsletter-email-container,
+  .newsletter .newsletter-submit-container {
+    width: 100% !important;
   }
   .single .newsletter form {
     margin-bottom: 20px;
@@ -8055,18 +8119,6 @@ span.bbp-author-ip {
   }
   .main .container {
     width: 100%;
-  }
-  .single-extension .main .content,
-  .single-theme .main .content,
-  .single-download .main .content {
-    width: 100%;
-  }
-  .single-extension .main .sidebar,
-  .single-theme .main .sidebar,
-  .single-download .main .sidebar,
-  .blog .sidebar {
-    width: 100%;
-    margin-left: 0;
   }
   .blog .sidebar,
   .single-theme .main .sidebar,
