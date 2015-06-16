@@ -3427,8 +3427,6 @@ div.sharedaddy .sd-content {
 .single-download .featured-img {
   margin-bottom: 15px;
 }
-.single-extension .main .sidebar,
-.single-theme .main .sidebar,
 .single-download .main .sidebar {
   float: left;
   margin-top: 5px;
@@ -3438,27 +3436,17 @@ div.sharedaddy .sd-content {
   width: 300px;
   padding: 50px;
 }
-.single-extension .main .sidebar h3,
-.single-theme .main .sidebar h3,
+.single-download .main .sidebar .download-info-section:not(:last-child) {
+  margin-bottom: 45px;
+}
 .single-download .main .sidebar h3 {
   margin: 0;
   font-weight: normal;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-size: 18px;
-  text-align: center;
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
-  padding: 10px 0;
-}
-.single-extension .main .sidebar .box,
-.single-theme .main .sidebar .box,
-.single-download .main .sidebar .box {
-  margin-bottom: 40px;
-}
-.single-extension .main .sidebar .box .pricing,
-.single-theme .main .sidebar .box .pricing,
-.single-download .main .sidebar .box .pricing {
-  margin-top: 20px;
+  border-bottom: 3px solid #eaeaea;
+  padding: 0 0 6px;
+  font-weight: 500;
 }
 .single-download .main .sidebar .box .terms {
   background-color: #f1f1f1;
@@ -3467,39 +3455,30 @@ div.sharedaddy .sd-content {
   line-height: 1.6;
   padding: 10px !important;
   border-radius: 4px;
-  margin-bottom: 2em;
 }
-.single-extension .main .sidebar .box:last-child,
-.single-theme .main .sidebar .box:last-child,
 .single-download .main .sidebar .box:last-child {
   margin-bottom: 0;
 }
-.single-extension .main .sidebar .box div .extension-detail-label,
-.single-theme .main .sidebar .box div .extension-detail-label,
 .single-download .main .sidebar .box div .edd-download-detail-label {
   float: left;
   text-transform: uppercase;
   color: #999;
   font-size: 12px;
 }
-.single-extension .main .sidebar .box div .extension-detail,
-.single-theme .main .sidebar .box div .extension-detail,
 .single-download .main .sidebar .box div .edd-download-detail {
   float: right;
 }
-.single-download .main .sidebar .box .author,
-.single-download .main .sidebar .box .version {
-  padding: 5px 0;
+.single-download .main .sidebar .box .author:not(:last-child) {
+  margin-bottom: 10px;
 }
-.single-extension .main .sidebar .related-items,
-.single-theme .main .sidebar .related-items,
-.single-download .main .sidebar .related-items {
-  margin-top: 20px;
+.single-download .main .sidebar .box .version {
+  line-height: 1;
+  margin-bottom: 0;
 }
 .sidebar .related-links {
   list-style: none;
   padding-left: 0;
-  margin-bottom: 25px;
+  margin-bottom: 0;
 }
 .sidebar .related-links li {
   list-style: none;
@@ -3512,20 +3491,14 @@ div.sharedaddy .sd-content {
   border-bottom: none;
   margin-bottom: 0;
 }
-.single-extension .main .sidebar .box.fi h3,
-.single-theme .main .sidebar .box.fi h3,
 .single-download .main .sidebar .box.fi h3 {
   margin-bottom: 0;
 }
-.single-extension .main .sidebar .box.fi ul,
-.single-theme .main .sidebar .box.fi ul,
 .single-download .main .sidebar .box.fi ul {
   margin: 10px 0;
   padding: 0;
   list-style: none;
 }
-.single-extension .main .sidebar .box.fi ul li,
-.single-theme .main .sidebar .box.fi ul li,
 .single-download .main .sidebar .box.fi ul li {
   display: block;
   padding: 4px 0;
@@ -3542,8 +3515,6 @@ div.sharedaddy .sd-content {
   transition: background .2s linear;
   cursor: pointer;
 }
-.single-extension .main .sidebar .box.fi ul li:hover,
-.single-theme .main .sidebar .box.fi ul li:hover,
 .single-download .main .sidebar .box.fi ul li:hover {
   background: rgba(60, 123, 191, 0.88);
 }
