@@ -168,12 +168,12 @@ function edd_comment( $comment, $args, $depth ) {
 			<div class="comment-author vcard">
 				<?php echo get_avatar( $comment, $args['avatar_size'] );?>
 				<cite class="fn"><?php echo get_comment_author_link(); ?></cite>
-		 	</div><!-- /.comment-author -->
+			</div><!-- /.comment-author -->
 
-		 	<div class="comment-meta commentmetadata">
+			<div class="comment-meta commentmetadata">
 				<a class="comment-date" href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php printf( __( '%1$s at %2$s' ), get_comment_date(), get_comment_time() ); ?></a>
 				<?php edit_comment_link( __( '(Edit)' ), '' ); ?>
-		 	</div><!-- /.comment-meta -->
+			</div><!-- /.comment-meta -->
 
 			<?php if ( '0' == $comment->comment_approved ) : ?>
 				<p class="alert"><?php echo apply_filters( 'eddwp_comment_awaiting_moderation', __( 'Your comment is awaiting moderation.', 'edd' ) ); ?></p>
@@ -277,7 +277,7 @@ function edd_wp_title( $title, $sep ) {
 
 	// Add the site description for the home/front page.
 	$site_description = get_bloginfo( 'description', 'display' );
-	
+
 	if ( $site_description && ( is_home() || is_front_page() ) ) {
 		$title = "$title $sep $site_description";
 	}
@@ -473,11 +473,11 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'documentation';
 		$classes[] = 'documentation-search';
 	}
-	
+
 	if ( is_page_template( 'template-themes-archive.php' ) ) {
 		$classes[] = 'template-themes';
 	}
-	
+
 	if ( is_page_template( 'template-site-showcase.php' ) ) {
 		$classes[] = 'template-site-showcase';
 	}
@@ -690,7 +690,7 @@ add_filter( 'the_content', 'eddwp_demo_link' );
 /**
  * Append the changelog to the extension or download content
  */
-function eddwp_product_changelog( $content ) {   
+function eddwp_product_changelog( $content ) {
 	global $post;
 
 	// make sure we're on an extension or a download
@@ -710,10 +710,10 @@ function eddwp_product_changelog( $content ) {
 	// If not an extension or download, or has extension/download category of "bundles," bail.
 	if( !$post_type || $bundles )
 		return $content;
-	
+
 	// check to see if it's an extension we're dealing with and act accordingly
 	if( 'extension' === $post->post_type ) {
-		
+
 		// for extensions, get the ID of the associated download post type
 		$download_id = get_post_meta( get_the_ID(), 'ecpt_downloadid', true );
 
@@ -721,21 +721,21 @@ function eddwp_product_changelog( $content ) {
 		if( empty( $download_id ) ) {
 			return $content;
 		}
-		
+
 		// get the changelog data of the associated download
 		$changelog = get_post_meta( $download_id, '_edd_sl_changelog', true );
-		
+
 	} elseif ( 'download' === $post->post_type ) {
 
 		// get the changelog data of the download
 		$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
 	}
-	
+
 	// if it exists, append the changelog (from either source) to the relevent content output
 	if( !empty( $changelog ) ) {
 		$content = $content . do_shortcode( '[toggle title="Changelog"]' . $changelog . '[/toggle]' );
 	}
-	
+
 	return $content;
 }
 add_filter( 'the_content', 'eddwp_product_changelog' );
@@ -932,14 +932,14 @@ function eddwp_shortcode_box( $atts, $content = null ) {
 	$output = '';
 
 	$default = array(
-        'style' => 'alert'
-    );
+		'style' => 'alert'
+	);
 
-    extract( shortcode_atts( $default, $atts ) );
+	extract( shortcode_atts( $default, $atts ) );
 
-    $output = '<div class="info-box info-box-'.$style.'"><div class="icon">'.do_shortcode( $content ).'</div></div>';
+	$output = '<div class="info-box info-box-'.$style.'"><div class="icon">'.do_shortcode( $content ).'</div></div>';
 
-    return $output;
+	return $output;
 }
 add_shortcode( 'box', 'eddwp_shortcode_box' );
 
@@ -977,7 +977,7 @@ add_shortcode( 'clear', 'eddwp_shortcode_clear' );
  * Divider
  */
 function eddwp_shortcode_divider( $atts, $content = null ) {
-    return '';
+	return '';
 }
 add_shortcode( 'divider', 'eddwp_shortcode_divider' );
 
@@ -985,29 +985,29 @@ add_shortcode( 'divider', 'eddwp_shortcode_divider' );
  * Tabs
  */
 function eddwp_shortcode_tabs( $atts, $content = null ) {
-    $default = array(
-        'style'  => 'framed',
-        'height' => ''
-    );
+	$default = array(
+		'style'  => 'framed',
+		'height' => ''
+	);
 
-    extract( shortcode_atts( $default, $atts ) );
+	extract( shortcode_atts( $default, $atts ) );
 
-    if ( isset( $atts['style'] ) )  unset( $atts['style'] );
-    if ( isset( $atts['height'] ) ) unset( $atts['height'] );
+	if ( isset( $atts['style'] ) )  unset( $atts['style'] );
+	if ( isset( $atts['height'] ) ) unset( $atts['height'] );
 
-    $id = uniqid( 'tabs_'.rand() );
-    $num = count( $atts ) - 1;
+	$id = uniqid( 'tabs_'.rand() );
+	$num = count( $atts ) - 1;
 	$i = 1;
 	$options = array(
-    	'setup' => array(
-    		'num'   => $num,
-    		'style' => $style,
-    		'names' => array()
-    	),
-    	'height' => $height
-    );
+		'setup' => array(
+			'num'   => $num,
+			'style' => $style,
+			'names' => array()
+		),
+		'height' => $height
+	);
 
-    if ( is_array( $atts ) && ! empty( $atts ) ) {
+	if ( is_array( $atts ) && ! empty( $atts ) ) {
 		foreach ( $atts as $key => $tab ) {
 			$options['setup']['names']['tab_'.$i] = $tab;
 			$tab_content = explode( '[/'.$key.']', $content );
@@ -1021,7 +1021,7 @@ function eddwp_shortcode_tabs( $atts, $content = null ) {
 		$output = '<div class="element element-tabs' . eddwp_get_classes( 'element_tabs', true ) . '">' . eddwp_tabs( $id, $options ) . '</div><!-- /.element-tabs -->';
 	}
 
-    return $output;
+	return $output;
 }
 
 /**
@@ -1031,15 +1031,15 @@ function eddwp_shortcode_toggle( $atts, $content = null ) {
 	$last = '';
 	if ( isset( $atts[0] ) && trim( $atts[0] ) == 'last') $last = ' tb-toggle-last';
 	$default = array(
-        'title' => ''
-    );
-    extract( shortcode_atts( $default, $atts ) );
-    $content = wpautop( do_shortcode( stripslashes( $content ) ) );
+		'title' => ''
+	);
+	extract( shortcode_atts( $default, $atts ) );
+	$content = wpautop( do_shortcode( stripslashes( $content ) ) );
 	$output  = '<div class="tb-toggle'.$last.'">';
 	$output .= '<a href="#" title="'.$title.'" class="toggle-trigger"><span></span>'.$title.'</a>';
 	$output .= '<div class="toggle-content">'.$content.'</div>';
 	$output .= '</div>';
-    return $output;
+	return $output;
 }
 add_shortcode( 'toggle', 'eddwp_shortcode_toggle' );
 
@@ -1086,24 +1086,24 @@ function eddwp_get_classes( $element, $start_space = false, $end_space = false, 
  */
 function eddwp_post_grid( $atts ) {
 	$default = array(
-        'categories'    => '',
-        'cat'           => '',
-        'category_name' => '',
-        'tag'           => '',
-        'columns' 		=> 3,
-        'rows' 			=> 3,
-        'orderby' 		=> 'date',
-        'order' 		=> 'DESC',
-        'offset' 		=> 0,
-        'query' 		=> '',
-        'crop'			=> '',
-        'link' 			=> 0,
-        'link_text' 	=> 'View All Posts',
-        'link_url' 		=> 'http://google.com',
-        'link_target' 	=> '_self'
-    );
+		'categories'    => '',
+		'cat'           => '',
+		'category_name' => '',
+		'tag'           => '',
+		'columns' 		=> 3,
+		'rows' 			=> 3,
+		'orderby' 		=> 'date',
+		'order' 		=> 'DESC',
+		'offset' 		=> 0,
+		'query' 		=> '',
+		'crop'			=> '',
+		'link' 			=> 0,
+		'link_text' 	=> 'View All Posts',
+		'link_url' 		=> 'http://google.com',
+		'link_target' 	=> '_self'
+	);
 
-    shortcode_atts( $default, $atts );
+	shortcode_atts( $default, $atts );
 
 	$post__in = explode( ',', $atts['include'] );
 
@@ -1210,7 +1210,7 @@ function eddwp_feed_query( $query ) {
 			$tax_query = array(
 				'relation' => 'AND',
 				array(
-					'taxonomy' => 'extension_category',
+					'taxonomy' => 'download_category',
 					'field'    => 'slug',
 					'terms'    => '3rd-party',
 					'operator' => 'NOT IN'
@@ -1226,13 +1226,13 @@ function eddwp_feed_query( $query ) {
 			$tax_query = array(
 				'relation' => 'AND',
 				array(
-					'taxonomy' => 'extension_category',
+					'taxonomy' => 'download_category',
 					'field'    => 'slug',
 					'terms'    => array( '3rd-party' ),
 					'operator' => 'NOT IN'
 				),
 				array(
-					'taxonomy' => 'extension_category',
+					'taxonomy' => 'download_category',
 					'field'    => 'slug',
 					'terms'    => 'popular'
 				)
@@ -1256,11 +1256,11 @@ add_action( 'pre_get_posts', 'eddwp_feed_query', 99999999 );
  * Featured image for downloads grid output
  */
 function eddwp_downloads_grid_thumbnail() {
-	
+
 	// replace old featured image programmatically until fully removed
 	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
 	$old_default = home_url( '/wp-content/uploads/2013/07/defaultpng.png' );
-	
+
 	if( has_post_thumbnail() && $image[0] !== $old_default ) {
 		the_post_thumbnail( 'download-grid-thumb', array( 'class' => 'download-grid-thumb' ) );
 	} else {
@@ -1272,14 +1272,14 @@ function eddwp_downloads_grid_thumbnail() {
  * Add RSS image
  */
 function eddwp_rss_featured_image() {
-    global $post;
-    
-    if ( has_post_thumbnail( $post->ID ) ) {
-    	$thumbnail = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
-    	$mime_type = get_post_mime_type( get_post_thumbnail_id( $post->ID ) );
-    	?>
-    	<media:content url="<?php echo $thumbnail; ?>" type="<?php echo $mime_type; ?>" medium="image" width="600" height="300"></media:content>
-    <?php }
+	global $post;
+
+	if ( has_post_thumbnail( $post->ID ) ) {
+		$thumbnail = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) );
+		$mime_type = get_post_mime_type( get_post_thumbnail_id( $post->ID ) );
+		?>
+		<media:content url="<?php echo $thumbnail; ?>" type="<?php echo $mime_type; ?>" medium="image" width="600" height="300"></media:content>
+	<?php }
 }
 add_filter( 'rss2_item', 'eddwp_rss_featured_image' );
 
@@ -1287,8 +1287,8 @@ add_filter( 'rss2_item', 'eddwp_rss_featured_image' );
  * Add rss namespaces
  */
 function eddwp_rss_namespace() {
-    echo 'xmlns:media="http://search.yahoo.com/mrss/"
-    xmlns:georss="http://www.georss.org/georss"';
+	echo 'xmlns:media="http://search.yahoo.com/mrss/"
+	xmlns:georss="http://www.georss.org/georss"';
 }
 add_filter( 'rss2_ns', 'eddwp_rss_namespace' );
 
@@ -1298,7 +1298,7 @@ add_filter( 'rss2_ns', 'eddwp_rss_namespace' );
  */
 function eddwp_rss_get_excluded_categories() {
 
-	$excluded_categories = array( 
+	$excluded_categories = array(
 		'exclude-from-rss'
 	);
 
@@ -1307,15 +1307,13 @@ function eddwp_rss_get_excluded_categories() {
 	if ( $excluded_categories ) {
 		foreach ( $excluded_categories as $category ) {
 			$category = get_category_by_slug( $category );
-			$ids[] = $category->cat_ID;
+			if ( is_object( $category ) && property_exists( $category, 'cat_ID' ) ) {
+				$ids[] = $category->cat_ID;
+			}
 		}
 	}
 
-	if ( $ids) {
-		return $ids;
-	}
-	
-	return false;
+	return $ids;
 }
 
 /**
@@ -1323,19 +1321,19 @@ function eddwp_rss_get_excluded_categories() {
  * Hide blocked categories from being listed on the site
  */
 function eddwp_get_object_terms( $terms, $object_ids, $taxonomies ) {
-    
-    if ( $terms ) {
-    	foreach ( $terms as $id => $term ) {
 
-    		$term_id = isset( $term->term_id ) ? $term->term_id : '';
+	if ( $terms ) {
+		foreach ( $terms as $id => $term ) {
 
-    	    if ( in_array( $term_id, eddwp_rss_get_excluded_categories() ) ) {
-    	        unset( $terms[$id] );
-    	    }
-    	}
-    }
+			$term_id = isset( $term->term_id ) ? $term->term_id : '';
 
-    return $terms;
+			if ( in_array( $term_id, eddwp_rss_get_excluded_categories() ) ) {
+				unset( $terms[$id] );
+			}
+		}
+	}
+
+	return $terms;
 
 }
 add_filter( 'wp_get_object_terms', 'eddwp_get_object_terms', 10, 3 );
@@ -1466,14 +1464,14 @@ function eddwp_google_custom_search() {
 	?>
 	<script>
 	  (function() {
-	    var cx = '013364375160530833496:u0gpdnp1z-8';
-	    var gcse = document.createElement('script');
-	    gcse.type = 'text/javascript';
-	    gcse.async = true;
-	    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-	        '//www.google.com/cse/cse.js?cx=' + cx;
-	    var s = document.getElementsByTagName('script')[0];
-	    s.parentNode.insertBefore(gcse, s);
+		var cx = '013364375160530833496:u0gpdnp1z-8';
+		var gcse = document.createElement('script');
+		gcse.type = 'text/javascript';
+		gcse.async = true;
+		gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+			'//www.google.com/cse/cse.js?cx=' + cx;
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(gcse, s);
 	  })();
 	</script>
 	<gcse:search></gcse:search>
@@ -1525,32 +1523,32 @@ function eddc_get_upcoming_commissions(){
 	$from   = '';
 	$to     = '';
 	if ( $day > 15 ){
-	    if ( $month == 1 ){
-	        $year_last = $year - 1;
-	        $from      = '12/15/'.$year_last;
-	        $to        = '01/15/'.$year;
-	    } else {
-	        $last_month = $month - 1;
-	        $from       = $last_month.'/15/'.$year;
-	        $to         =   $month.'/15/'.$year;
-	    }
+		if ( $month == 1 ){
+			$year_last = $year - 1;
+			$from      = '12/15/'.$year_last;
+			$to        = '01/15/'.$year;
+		} else {
+			$last_month = $month - 1;
+			$from       = $last_month.'/15/'.$year;
+			$to         =   $month.'/15/'.$year;
+		}
 
 	} else {
 
-	    if ( $month == 2 ){
-	        $year_last = $year - 1;
-	        $from      = '12/15/'.$year_last;
-	        $to        = '01/15/'.$year;
-	    } else if ( $month == 1 ){
-	        $year_last = $year - 1;
-	        $from      = '11/15/'.$year_last;
-	        $to        = '12/15/'.$year_last;
-	    } else {
-	        $last_month = $month - 1;
-	        $two_months = $month - 2;
-	        $from       = $two_months.'/15/'.$year;
-	        $to         = $last_month.'/15/'.$year;
-	    }
+		if ( $month == 2 ){
+			$year_last = $year - 1;
+			$from      = '12/15/'.$year_last;
+			$to        = '01/15/'.$year;
+		} else if ( $month == 1 ){
+			$year_last = $year - 1;
+			$from      = '11/15/'.$year_last;
+			$to        = '12/15/'.$year_last;
+		} else {
+			$last_month = $month - 1;
+			$two_months = $month - 2;
+			$from       = $two_months.'/15/'.$year;
+			$to         = $last_month.'/15/'.$year;
+		}
 	}
 	$from = explode( '/', $from );
 	$to   = explode( '/', $to );
@@ -1604,27 +1602,27 @@ function eddc_get_upcoming_commissions(){
  */
 function edd_wp_gravity_form_download_options( $form ) {
 
-    foreach ( $form['fields'] as &$field ) {
+	foreach ( $form['fields'] as &$field ) {
 
-        if ( $field->type != 'select' || strpos( $field->cssClass, 'extension-list' ) === false ) {
-            continue;
-        }
+		if ( $field->type != 'select' || strpos( $field->cssClass, 'extension-list' ) === false ) {
+			continue;
+		}
 
-        $downloads = get_posts( array( 'posts_per_page' => -1, 'post_type' => 'download', 'orderby' => 'post_title', 'order' => 'ASC' ) );
+		$downloads = get_posts( array( 'posts_per_page' => -1, 'post_type' => 'download', 'orderby' => 'post_title', 'order' => 'ASC' ) );
 
-        $choices = array();
+		$choices = array();
 
-        foreach ( $downloads as $download ) {
-            $choices[] = array( 'text' => $download->post_title, 'value' => $download->post_title );
-        }
+		foreach ( $downloads as $download ) {
+			$choices[] = array( 'text' => $download->post_title, 'value' => $download->post_title );
+		}
 
-        // update 'Select a Post' to whatever you'd like the instructive option to be
-        $field->placeholder = 'Select extension';
-        $field->choices = $choices;
+		// update 'Select a Post' to whatever you'd like the instructive option to be
+		$field->placeholder = 'Select extension';
+		$field->choices = $choices;
 
-    }
+	}
 
-    return $form;
+	return $form;
 }
 add_filter( 'gform_pre_render_11', 'edd_wp_gravity_form_download_options' );
 add_filter( 'gform_pre_validation_11', 'edd_wp_gravity_form_download_options' );
@@ -1645,12 +1643,12 @@ function eddwp_facebook_conversion_pixel() {
 <script>(function() {
   var _fbq = window._fbq || (window._fbq = []);
   if (!_fbq.loaded) {
-    var fbds = document.createElement('script');
-    fbds.async = true;
-    fbds.src = '//connect.facebook.net/en_US/fbds.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(fbds, s);
-    _fbq.loaded = true;
+	var fbds = document.createElement('script');
+	fbds.async = true;
+	fbds.src = '//connect.facebook.net/en_US/fbds.js';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(fbds, s);
+	_fbq.loaded = true;
   }
 })();
 window._fbq = window._fbq || [];
