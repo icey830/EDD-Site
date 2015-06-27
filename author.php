@@ -17,7 +17,23 @@ global $post, $wp_query;
 get_header();
 ?>
 
-	<?php if ( have_posts() ) : ?>
+	<?php $extension_args = array(
+		'post_type'      => 'download',
+		'paged'          => get_query_var( 'paged' ),
+		'posts_per_page' => 23,
+		'order'          => isset( $_GET['display'] ) ? 'DESC' : 'ASC',
+		'orderby'        => isset( $_GET['display'] ) ? 'date' : 'menu_order',
+		'tax_query'      => array(
+			array(
+				'taxonomy' => 'download_category',
+				'field'    => 'slug',
+				'terms'    => 'extensions',
+			),
+		),
+	);
+	$extensions = new WP_Query( $extension_args );
+
+	if ( have_posts() ) : ?>
 
 		<section class="main clearfix">
 
@@ -64,8 +80,8 @@ get_header();
 									<a class="green-button" href="<?php echo $bundle_promotion[ $num ]['url']; ?>">More Information</a>
 								</div>
 							</div>
-							<?php while ( have_posts() ) : the_post(); ?>
-								<div class="download-grid-item <?php if ( has_term( '3rd Party', 'download_category', get_the_ID() ) ) { echo ' third-party-extension'; } ?>">
+							<?php while ( $extensions->have_posts() ) : $extensions->the_post(); ?>
+								<div class="download-grid-item">
 									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
 										<?php eddwp_downloads_grid_thumbnail(); ?>
 									</a>
@@ -88,7 +104,7 @@ get_header();
 								'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
 								'format'  => '?paged=%#%',
 								'current' => max( 1, get_query_var('paged') ),
-								'total'   => $wp_query->max_num_pages
+								'total'   => $extensions->max_num_pages
 							) );
 						?>
 						<div class="pagination clear">
@@ -110,6 +126,8 @@ get_header();
 						<h1 class="entry-title">
 							<?php echo get_userdata( get_query_var( 'author' ) )->display_name; ?> has no downloads.
 						</h1>
+					</div>
+					<div class="entry-content">
 						<p>But that's okay! Perhaps you'll find a useful tool for your store in our diverse selection of extensions. <a href="<?php echo home_url( '/downloads/' ); ?>">View All Extensions</a>.</p>
 						<p>Need a theme to present your store in logical manner? Have a look at our official themes as well as as our recommendations from the community. <a href="<?php echo home_url( '/themes/' ); ?>">View All Themes</a>.</p>
 					</div>
@@ -119,6 +137,7 @@ get_header();
 		</section><!-- /.main -->
 
 	<?php endif;
+
 	wp_reset_postdata();
 
 get_footer();
