@@ -1173,7 +1173,7 @@ address {
   width: 1100px;
   margin: 0 auto 120px;
 }
-.blog:not(.author) .main .content {
+.blog .main .content {
   background: none;
   padding: 0;
   -webkit-box-shadow: none;
@@ -1183,7 +1183,11 @@ address {
   margin: 5px 0 20px;
   float: left;
 }
-.blog:not(.author) .main .content .hentry {
+.blog.author .main .content {
+  background: #fff;
+  float: none;
+}
+.blog .main .content .hentry {
   background: #fff;
   padding: 30px 50px;
   margin-bottom: 30px;
