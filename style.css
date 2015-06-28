@@ -415,7 +415,7 @@ a:focus {
   margin-left: 0 !important;
 }
 .gform_wrapper .edd-gf-support-tickets-form .docs-support-link {
-  margin-bottom: 30px 0 30px 2.5% !important;
+  margin: 30px 0 30px 2.5% !important;
 }
 .gform_wrapper .edd-gf-support-tickets-form .gform_footer {
   padding-right: 2.5%;
@@ -809,6 +809,25 @@ html .row {
   border-radius: 4px;
   width: 100%;
 }
+/* Free Downloads Form (modal) */
+[id*=jBoxID] .jBox-content {
+  padding: 30px;
+}
+[id*=jBoxID] #edd-free-downloads-modal label {
+  font-size: 18px;
+  font-weight: 500;
+}
+[id*=jBoxID] #edd-free-downloads-modal input[type='text'],
+[id*=jBoxID] #edd-free-downloads-modal input[type='email'] {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+[id*=jBoxID] #edd-free-downloads-modal input[type='button'] {
+  font-size: 18px;
+  padding: 8px 10px;
+  font-weight: 700;
+}
 /*
  * Typography
  * Copyright (c) 2013, Sunny Ratilal.
@@ -1140,7 +1159,7 @@ address {
   width: 1100px;
   margin: 0 auto 120px;
 }
-.blog .main .content {
+.blog:not(.author) .main .content {
   background: none;
   padding: 0;
   -webkit-box-shadow: none;
@@ -1150,7 +1169,7 @@ address {
   margin: 5px 0 20px;
   float: left;
 }
-.blog .main .content .hentry {
+.blog:not(.author) .main .content .hentry {
   background: #fff;
   padding: 30px 50px;
   margin-bottom: 30px;
@@ -1434,8 +1453,8 @@ body.bbpress .sidebar .widget.jetpack_subscription_widget input[type="text"]:hov
 #primary ul ul {
   display: none;
   position: absolute;
-  width: 155px;
-  left: 8px;
+  width: 165px;
+  left: -4px;
   top: -9999em;
   background: #fff;
   border: 1px solid #fff;
@@ -3408,8 +3427,6 @@ div.sharedaddy .sd-content {
 .single-download .featured-img {
   margin-bottom: 15px;
 }
-.single-extension .main .sidebar,
-.single-theme .main .sidebar,
 .single-download .main .sidebar {
   float: left;
   margin-top: 5px;
@@ -3419,27 +3436,17 @@ div.sharedaddy .sd-content {
   width: 300px;
   padding: 50px;
 }
-.single-extension .main .sidebar h3,
-.single-theme .main .sidebar h3,
+.single-download .main .sidebar .download-info-section:not(:last-child) {
+  margin-bottom: 45px;
+}
 .single-download .main .sidebar h3 {
   margin: 0;
   font-weight: normal;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-size: 18px;
-  text-align: center;
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
-  padding: 10px 0;
-}
-.single-extension .main .sidebar .box,
-.single-theme .main .sidebar .box,
-.single-download .main .sidebar .box {
-  margin-bottom: 40px;
-}
-.single-extension .main .sidebar .box .pricing,
-.single-theme .main .sidebar .box .pricing,
-.single-download .main .sidebar .box .pricing {
-  margin-top: 20px;
+  border-bottom: 3px solid #eaeaea;
+  padding: 0 0 6px;
+  font-weight: 500;
 }
 .single-download .main .sidebar .box .terms {
   background-color: #f1f1f1;
@@ -3448,40 +3455,30 @@ div.sharedaddy .sd-content {
   line-height: 1.6;
   padding: 10px !important;
   border-radius: 4px;
-  margin-bottom: 2em;
 }
-.single-extension .main .sidebar .box:last-child,
-.single-theme .main .sidebar .box:last-child,
 .single-download .main .sidebar .box:last-child {
   margin-bottom: 0;
 }
-.single-extension .main .sidebar .box div .extension-detail-label,
-.single-theme .main .sidebar .box div .extension-detail-label,
 .single-download .main .sidebar .box div .edd-download-detail-label {
   float: left;
   text-transform: uppercase;
   color: #999;
   font-size: 12px;
 }
-.single-extension .main .sidebar .box div .extension-detail,
-.single-theme .main .sidebar .box div .extension-detail,
 .single-download .main .sidebar .box div .edd-download-detail {
   float: right;
 }
-.single-extension .main .sidebar .box div,
-.single-theme .main .sidebar .box div,
-.single-download .main .sidebar .box div {
-  padding: 5px 0;
+.single-download .main .sidebar .box .author:not(:last-child) {
+  margin-bottom: 10px;
 }
-.single-extension .main .sidebar .related-items,
-.single-theme .main .sidebar .related-items,
-.single-download .main .sidebar .related-items {
-  margin-top: 20px;
+.single-download .main .sidebar .box .version {
+  line-height: 1;
+  margin-bottom: 0;
 }
 .sidebar .related-links {
   list-style: none;
   padding-left: 0;
-  margin-bottom: 25px;
+  margin-bottom: 0;
 }
 .sidebar .related-links li {
   list-style: none;
@@ -3494,20 +3491,14 @@ div.sharedaddy .sd-content {
   border-bottom: none;
   margin-bottom: 0;
 }
-.single-extension .main .sidebar .box.fi h3,
-.single-theme .main .sidebar .box.fi h3,
 .single-download .main .sidebar .box.fi h3 {
   margin-bottom: 0;
 }
-.single-extension .main .sidebar .box.fi ul,
-.single-theme .main .sidebar .box.fi ul,
 .single-download .main .sidebar .box.fi ul {
   margin: 10px 0;
   padding: 0;
   list-style: none;
 }
-.single-extension .main .sidebar .box.fi ul li,
-.single-theme .main .sidebar .box.fi ul li,
 .single-download .main .sidebar .box.fi ul li {
   display: block;
   padding: 4px 0;
@@ -3524,8 +3515,6 @@ div.sharedaddy .sd-content {
   transition: background .2s linear;
   cursor: pointer;
 }
-.single-extension .main .sidebar .box.fi ul li:hover,
-.single-theme .main .sidebar .box.fi ul li:hover,
 .single-download .main .sidebar .box.fi ul li:hover {
   background: rgba(60, 123, 191, 0.88);
 }
@@ -5104,7 +5093,8 @@ input#edd-discount:focus,
 .template-site-showcase .main,
 .post-type-archive-download .main,
 .tax-download_category .main,
-.tax-download_tag .main {
+.tax-download_tag .main,
+.author .main {
   padding: 0;
 }
 .tax-download_category .extensions-header-area .inner,
@@ -5247,7 +5237,8 @@ input#edd-discount:focus,
 .tax-download_category .edd-downloads-area,
 .tax-download_tag .edd-downloads-area,
 .template-themes .edd-downloads-area,
-.download-search .edd-downloads-area {
+.download-search .edd-downloads-area,
+.author .edd-downloads-area {
   background: #fff;
 }
 .theme-forest-edd-link {
@@ -6809,8 +6800,14 @@ span.bbp-author-ip {
   .single-extension .main .content,
   .single-theme .main .content,
   .single-download .main .content,
-  .documentation .main .content {
+  .documentation .main .content,
+  #respond,
+  #comments {
     width: 620px;
+    padding: 30px;
+  }
+  .blog .main .content {
+    padding: 0;
   }
   .single-extension .main .sidebar,
   .single-theme .main .sidebar,
@@ -6939,7 +6936,8 @@ span.bbp-author-ip {
   .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
     background-position-x: 24px;
     font-size: 16px;
-    padding-left: 125px;
+    padding: 20px 50px 20px 155px;
+    margin: -50px -30px 20px;
   }
   .edd-post-footer .newsletter .newsletter-name-container,
   .edd-post-footer .newsletter .newsletter-email-container {
@@ -6947,10 +6945,6 @@ span.bbp-author-ip {
   }
   .edd-post-footer .newsletter-wrap {
     padding: 50px 30px 30px;
-  }
-  .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
-    padding: 20px 50px 20px 155px;
-    margin: -50px -30px 20px;
   }
   #starter-package .entry-title {
     font-size: 26px;
@@ -7010,6 +7004,9 @@ span.bbp-author-ip {
   .featured-download-info {
     padding-left: 30px;
   }
+  .edd-post-footer .newsletter-wrap {
+    padding: 50px 30px 30px;
+  }
 }
 /* ----------------------------- *
  * Tablets to regular desktops
@@ -7029,8 +7026,17 @@ span.bbp-author-ip {
   .single-extension .main .content,
   .single-theme .main .content,
   .single-download .main .content,
-  .documentation .main .content {
+  .documentation .main .content,
+  #respond,
+  #comments {
     width: 620px;
+    padding: 30px;
+  }
+  .blog .main .content .hentry {
+    padding: 30px;
+  }
+  .blog .main .content {
+    padding: 0;
   }
   .single-extension .main .sidebar,
   .single-theme .main .sidebar,
@@ -7169,18 +7175,17 @@ span.bbp-author-ip {
     margin: 0 auto 10px;
   }
   .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
+    background-position-x: 24px;
     font-size: 16px;
+    padding: 20px 30px 20px 155px;
+    margin: -50px -30px 20px;
   }
   .edd-post-footer .newsletter .newsletter-name-container,
   .edd-post-footer .newsletter .newsletter-email-container {
     width: 180px;
   }
   .edd-post-footer .newsletter-wrap {
-    padding: 50px 50px 30px;
-  }
-  .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
-    padding: 20px 50px 20px 155px;
-    margin: -50px -50px 20px;
+    padding: 50px 30px 30px;
   }
   #starter-package .entry-title {
     font-size: 26px;
@@ -7365,6 +7370,9 @@ span.bbp-author-ip {
   footer .container img {
     display: none;
   }
+  .main .container {
+    margin-bottom: 0;
+  }
   footer .container .columns {
     padding: 0 20px 20px 20px;
   }
@@ -7425,17 +7433,28 @@ span.bbp-author-ip {
   .main .container {
     width: 100%;
   }
-  .single-extension .main .content,
-  .single-theme .main .content,
-  .single-download .main .content {
+  .blog .main .content,
+  .documentation .main .content,
+  .single-download .main .content,
+  #respond,
+  #comments {
     width: 100%;
+    padding: 30px;
   }
-  .single-extension .main .sidebar,
-  .single-theme .main .sidebar,
+  .blog .main .content .hentry {
+    padding: 30px;
+  }
+  .blog .main .content {
+    padding: 0;
+  }
   .single-download .main .sidebar,
-  .blog .sidebar {
+  .blog .main .sidebar {
     width: 100%;
+    padding: 30px;
     margin-left: 0;
+  }
+  .blog .main .sidebar {
+    padding: 0;
   }
   .blog .sidebar,
   .single-theme .main .sidebar,
@@ -7539,7 +7558,15 @@ span.bbp-author-ip {
   }
   .sidebar .newsletter .newsletter-title {
     text-align: left;
-    padding: 20px 50px 20px 155px;
+    font-size: 16px;
+    padding: 20px 30px 20px 155px;
+    margin: -50px -30px 20px;
+  }
+  .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
+    background-position-x: 24px;
+    font-size: 16px;
+    padding: 20px 30px 20px 155px;
+    margin: -50px -30px 20px;
   }
   .sidebar .newsletter-title span {
     display: inline;
@@ -7743,6 +7770,36 @@ span.bbp-author-ip {
   }
 }
 @media (max-width: 600px) {
+  .blog .main .content,
+  .documentation .main .content,
+  .single-download .main .content,
+  #respond,
+  #comments,
+  .blog .main .sidebar,
+  .documentation .main .sidebar,
+  .single-download .main .sidebar {
+    width: 100%;
+    padding: 20px;
+    margin-left: 0;
+  }
+  .blog .main .sidebar {
+    padding: 0;
+  }
+  .blog .main .content .hentry,
+  .sidebar .newsletter,
+  .sidebar .widget {
+    padding: 20px;
+  }
+  .blog .main .content {
+    padding: 0;
+  }
+  #comments .comment-body p {
+    font-size: 15px;
+  }
+  .comment-list .children li {
+    padding-left: 0;
+    border-left: none;
+  }
   .two-col .download-grid-item,
   .three-col .download-grid-item {
     width: 100%;
@@ -7763,20 +7820,30 @@ span.bbp-author-ip {
   .edd-author-bio {
     width: 100%;
   }
-  .single .newsletter .newsletter-title {
-    text-align: right;
+  .edd-post-footer .newsletter-wrap {
+    padding: 50px 20px 20px;
   }
-  .single .newsletter-title span {
-    display: none;
+  .blog .newsletter .newsletter-title,
+  .single .newsletter .newsletter-title {
+    background-position-x: 16px;
+    font-size: 20px;
+    text-align: right;
+    padding: 20px 20px 20px 125px;
+    margin: -50px -20px 20px;
+  }
+  .newsletter-title span {
+    display: none !important;
   }
   .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
     font-size: 20px;
     text-align: right;
+    padding: 20px 20px 20px 125px;
+    margin: -50px -20px 20px;
   }
-  .single .newsletter .newsletter-name-container,
-  .single .newsletter .newsletter-email-container,
-  .single .newsletter .newsletter-submit-container {
-    width: 100%;
+  .newsletter .newsletter-name-container,
+  .newsletter .newsletter-email-container,
+  .newsletter .newsletter-submit-container {
+    width: 100% !important;
   }
   .single .newsletter form {
     margin-bottom: 20px;
@@ -8037,18 +8104,6 @@ span.bbp-author-ip {
   }
   .main .container {
     width: 100%;
-  }
-  .single-extension .main .content,
-  .single-theme .main .content,
-  .single-download .main .content {
-    width: 100%;
-  }
-  .single-extension .main .sidebar,
-  .single-theme .main .sidebar,
-  .single-download .main .sidebar,
-  .blog .sidebar {
-    width: 100%;
-    margin-left: 0;
   }
   .blog .sidebar,
   .single-theme .main .sidebar,

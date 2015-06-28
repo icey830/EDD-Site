@@ -1,7 +1,11 @@
 *~
 *.lock
 *.DS_Store
+<<<<<<< HEAD
 *.idea
+=======
+*.idea/
+>>>>>>> 4bf1583d879dc1e0d4150a378f6376368ccf519a
 *.codekit-config.json
 codekit-config.json
 .ftppass

@@ -37,7 +37,6 @@ the_post();
 								'exclude'  => array(
 									22 /* extensions */,
 									162 /* themes */,
-									1572 /* child themes */,
 									1571 /* featured theme */,
 								),
 							);
@@ -65,7 +64,7 @@ the_post();
 							<?php
 								$bundle_promotion = array(
 									0 => array(
-										'url'   => home_url( '/?extension=core-extensions-bundle' ),
+										'url'   => home_url( '/downloads/core-extensions-bundle' ),
 										'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/core-extensions-bundle-featured.png',
 										'title' => 'Core Extensions Bundle',
 										'desc'  => 'With the core extensions bundle, get over $2,000 worth of extensions for only $495.',
@@ -102,7 +101,7 @@ the_post();
 									array(
 										'taxonomy' => 'download_category',
 										'field'    => 'slug',
-										'terms'    => 'extensions',
+										'terms'    => array( 'extensions', 'bundles' ),
 									),
 									array(
 										'taxonomy' => 'download_category',

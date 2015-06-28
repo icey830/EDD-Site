@@ -38,10 +38,9 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 						<?php
 							$cat_args = array(
 								'exclude'  => array(
-									162 /* live site - themes */,
-									1571 /* live site - featured theme */,
-									11 /* local site - themes (delete) */,
-									187 /* local site - featured theme (delete) */,
+									22 /* extensions */,
+									162 /* themes */,
+									1571 /* featured theme */,
 								),
 							);
 							$cats = get_terms( 'download_category', $cat_args );
@@ -68,7 +67,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 							<?php
 								$bundle_promotion = array(
 									0 => array(
-										'url'   => home_url( '/?extension=core-extensions-bundle' ),
+										'url'   => home_url( '/downloads/core-extensions-bundle' ),
 										'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/core-extensions-bundle-featured.png',
 										'title' => 'Core Extensions Bundle',
 										'desc'  => 'With the core extensions bundle, get over $2,000 worth of extensions for only $495.',
@@ -97,7 +96,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 							$query = array(
 								's'              => $q['s'],
 								'post_type'      => 'download',
-								'posts_per_page' => 20,
+								'posts_per_page' => 23,
 								'paged'          => isset( $_GET['page'] ) ? (int) $_GET['page'] : 1,
 								'tax_query' => array(
 									'relation'     => 'OR',
@@ -109,11 +108,11 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 									array(
 										'taxonomy' => 'download_category',
 										'field'    => 'slug',
-										'terms'    => 'bundle',
+										'terms'    => 'bundles',
 									),
 								),
 							);
-							
+
 							$s_query = new WP_Query( $query );
 
 							while ( $s_query->have_posts() ) : $s_query->the_post();
@@ -141,7 +140,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 					<?php
 						$big = 999999999;
 						$base = home_url( 'extensions-template' ) . '/?' . remove_query_arg( 'page', $_SERVER['QUERY_STRING'] ) . '%_%';
-		
+
 						$links = paginate_links( array(
 							'base'    => $base,
 							'format'  => '&page=%#%',
