@@ -127,6 +127,20 @@ img {
   max-width: 100%;
   height: auto;
 }
+.wp-caption {
+  max-width: 100%;
+  margin-bottom: 25px !important;
+}
+.wp-caption img {
+  vertical-align: bottom;
+}
+.wp-caption .wp-caption-text {
+  padding: 10px 20px;
+  font-size: 13px;
+  text-align: center;
+  font-style: italic;
+  color: #999;
+}
 .fl {
   float: left;
 }
