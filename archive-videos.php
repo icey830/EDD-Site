@@ -23,7 +23,7 @@ get_header();
 			</div>
 		</div>
 
-		<div class="edd-downloads-area full-width">
+		<div class="edd-videos-area full-width">
 			<div class="inner">
 				<div class="edd-downloads">
 
