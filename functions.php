@@ -762,8 +762,6 @@ function eddwp_docs_support_forum_link( $content ) {
 }
 add_filter( 'the_content', 'eddwp_docs_support_forum_link' );
 
-remove_filter( 'edd_after_download_content', Array( $EDDRecommendedDownloads, 'edd_rp_display_single' ), 10, 99 );
-
 /* ----------------------------------------------------------- *
  * 7. Widgets
  * ----------------------------------------------------------- */
