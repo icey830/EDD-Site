@@ -28,8 +28,8 @@ get_header();
 				<div class="edd-downloads">
 
 					<section class="download-grid three-col clearfix">
-						<div class="download-grid-item">
-							<?php while ( have_posts() ) : the_post(); ?>
+						<?php while ( have_posts() ) : the_post(); ?>
+							<div class="download-grid-item">
 								<a href="<?php echo home_url( '/videos/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
 									<?php eddwp_downloads_grid_thumbnail(); ?>
 								</a>
@@ -40,8 +40,8 @@ get_header();
 										echo $short_desc;
 									?>
 								</div>
-							<?php endwhile; wp_reset_postdata(); ?>
-						</div>
+							</div>
+						<?php endwhile; wp_reset_postdata(); ?>
 					</section><!-- /.extensions-container -->
 
 				</div>
