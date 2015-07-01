@@ -5287,6 +5287,7 @@ input#edd-discount:focus,
   background: #eee;
 }
 .post-type-archive-download .edd-downloads-area,
+.edd-videos-area,
 .tax-download_category .edd-downloads-area,
 .tax-download_tag .edd-downloads-area,
 .template-themes .edd-downloads-area,

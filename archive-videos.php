@@ -40,6 +40,9 @@ get_header();
 										echo $short_desc;
 									?>
 								</div>
+								<div class="download-grid-item-cta">
+									<a class="download-grid-item-primary-link button" href="<?php the_permalink(); ?>">View Video</a>
+								</div>
 							</div>
 						<?php endwhile; wp_reset_postdata(); ?>
 					</section><!-- /.extensions-container -->
