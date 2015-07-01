@@ -511,12 +511,14 @@ a:focus {
 /* Toggle */
 .tb-toggle {
   margin-top: 5px;
-  border: 1px solid #e5e5e5;
   margin-bottom: 25px;
 }
-.tb-toggle:last-of-type,
-.tb-toggle-last {
-  border-bottom: 1px solid #e5e5e5;
+.toggle-trigger {
+  background: #f8f8f8;
+  border-radius: 4px;
+}
+.toggle-trigger.active {
+  border-radius: 4px 4px 0 0;
 }
 .tb-toggle a.toggle-trigger {
   color: inherit;
@@ -527,7 +529,7 @@ a:focus {
 }
 .tb-toggle a.toggle-trigger:hover,
 .tb-toggle a.active {
-  background: #f8f8f8;
+  background: #f1f1f1;
 }
 .tb-toggle a.toggle-trigger span {
   background: url(images/toggle.png);
@@ -539,16 +541,14 @@ a:focus {
   width: 15px;
   height: 15px;
 }
-.tb-toggle a.active {
-  border-bottom: 1px solid #e5e5e5;
-  font-weight: bold;
-}
 .tb-toggle a.active span {
   background-position: -15px 0;
 }
 .tb-toggle .toggle-content {
   /* display:none; */
+  background: #fafafa;
   padding: 15px;
+  border-radius: 0 0 4px 4px;
 }
 .twitter-share-button,
 .twitter-follow-button {
