@@ -768,7 +768,9 @@ html .row {
 
 /* Recommended Products */
 #edd-rp-single-wrapper {
-	padding: 0;
+	padding: 0 0 10px;
+	border: 3px solid #eaeaea;
+	border-width: 0 0 3px;
 	margin-bottom: 50px;
 }
 #edd-rp-single-wrapper .edd-rp-item .edd_download_purchase_form {
@@ -777,7 +779,7 @@ html .row {
 #edd-rp-single-wrapper .edd-rp-item {
 	background: #f7f7f7;
 	text-align: left;
-	padding: 30px;
+	padding: 20px;
 	border-radius: 4px;
 	width: 46%;
 	min-height: inherit;
@@ -791,14 +793,30 @@ html .row {
 }
 #edd-rp-single-wrapper #edd-rp-single-header {
 	font-weight: 500;
-	margin: 0 0 25px;
+	margin: 0 0 20px;
 }
-#edd-rp-single-wrapper .edd-rp-item > a {
+#edd-rp-single-wrapper .edd-rp-item .recommended-product-title {
 	display: inline-block;
 	color: #555;
-	font-size: 16px;
-	margin: 0 0 10px;
+	font-size: 18px;
+	font-weight: 400;
+	margin: 0 0 15px;
 }
-#edd-rp-single-wrapper .edd-rp-item > a:hover {
+#edd-rp-single-wrapper .edd-rp-item .recommended-product-title:hover {
 	color: #999;
+}
+#edd-rp-single-wrapper .edd_cart_item_image img {
+	border-radius: 4px;
+	margin-bottom: 10px;
+}
+#edd-rp-single-wrapper .recommended-products-discount-note {
+	color: #777;
+	font-size: 13px;
+	font-style: italic;
+	line-height: 1.6;
+	border-radius: 4px;
+	margin-top: 20px;
+}
+#edd-rp-single-wrapper .recommended-products-discount-note strong {
+	color: #555;
 }
