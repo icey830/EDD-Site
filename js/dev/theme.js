@@ -126,15 +126,16 @@
         });
 
         $('.edd_price_options label').on('click', function () {
-            $('.edd_price_options label').each(function () {
+            var parent = $(this).parent();
+            $(parent).children().each(function () {
                 $(this).removeClass('selected');
             });
             $(this).addClass('selected');
         });
-        
+
         if ($('.edd_price_options input').prop('checked') || $(".edd_price_options input:checked")) {
             $('.edd_price_options input:checked').parent().addClass('selected');
-        }   
+        }
 
 		// Payment Method Radio Buttons
 		$('#edd-payment-mode-wrap label').each(function () {
@@ -148,7 +149,7 @@
             });
             $(this).addClass('selected');
         });
-        
+
         if ($('#edd-payment-mode-wrap input').prop('checked')) {
             $('#edd-payment-mode-wrap input:checked').parent().addClass('selected');
         }
@@ -166,21 +167,21 @@
 	            if ($(document).scrollTop() >= $('.feature-extensions').offset().top - $(window).height() + 400) {
 	                $('.extensions-grid li').each(function(id) {
 	                    var delay = 150 * parseInt(id);
-	
+
 	                    $(this).delay(delay).animate({opacity: 1}, 300);
 	                });
 	            }
-	
+
 	            // iPhone
 	            if ($(document).scrollTop() >= $('.feature-ios').offset().top - $(window).height() + 500) {
 	                $('.featureset.feature-ios .iphone').addClass('iphone-animation');
 	            }
-	
+
 	            // Testimonials
 	            if ($(document).scrollTop() >= $('.feature-customers').offset().top - $(window).height() + 100) {
 	                $('.feature-customers .testimonial').each(function(id) {
 	                    var delay = 200 * parseInt(id);
-	
+
 	                    $(this).delay(delay).animate({opacity: 1}, 300);
 	                });
 	            }
@@ -192,10 +193,10 @@
 	        $(document).scroll(function() { initAnimations(); });
 	        $(document).resize(function() { initAnimations(); });
         }
-        
+
         // Load the mobile nav menu
         $('.header i').on('click', function() {
-	       $('#primary').slideToggle(); 
+	       $('#primary').slideToggle();
         });
 
         $(window).resize(function() {
@@ -204,13 +205,13 @@
             }
         });
 
-		// Toggles        
+		// Toggles
         $('.tb-toggle').each(function(){
 			$(this).find('.toggle-content').hide();
 		});
 		$('.tb-toggle a.toggle-trigger').click(function(){
 			var el = $(this), parent = el.closest('.tb-toggle');
-			
+
 			if( el.hasClass('active') )
 			{
 				parent.find('.toggle-content').hide();
@@ -240,7 +241,7 @@
             $('.bbp-forums-list', this.parent).slideToggle();
             return false;
         });
-        
+
         $('#bbp-forum-3560 .bbp-forum-title').on('click', function() {
             $('#bbp-forum-3560 .bbp-forums-list', this.parent).slideToggle();
             return false;
