@@ -38,10 +38,9 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 						<?php
 							$cat_args = array(
 								'exclude'  => array(
-									162 /* live site - themes */,
-									1571 /* live site - featured theme */,
-									11 /* local site - themes (delete) */,
-									187 /* local site - featured theme (delete) */,
+									22 /* extensions */,
+									162 /* themes */,
+									1571 /* featured theme */,
 								),
 							);
 							$cats = get_terms( 'download_category', $cat_args );
@@ -113,7 +112,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 									),
 								),
 							);
-							
+
 							$s_query = new WP_Query( $query );
 
 							while ( $s_query->have_posts() ) : $s_query->the_post();
@@ -141,7 +140,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 					<?php
 						$big = 999999999;
 						$base = home_url( 'extensions-template' ) . '/?' . remove_query_arg( 'page', $_SERVER['QUERY_STRING'] ) . '%_%';
-		
+
 						$links = paginate_links( array(
 							'base'    => $base,
 							'format'  => '&page=%#%',
