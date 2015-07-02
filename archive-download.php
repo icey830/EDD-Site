@@ -37,7 +37,6 @@ the_post();
 								'exclude'  => array(
 									22 /* extensions */,
 									162 /* themes */,
-									1572 /* child themes */,
 									1571 /* featured theme */,
 								),
 							);
@@ -102,7 +101,7 @@ the_post();
 									array(
 										'taxonomy' => 'download_category',
 										'field'    => 'slug',
-										'terms'    => 'extensions',
+										'terms'    => array( 'extensions', 'bundles' ),
 									),
 									array(
 										'taxonomy' => 'download_category',
