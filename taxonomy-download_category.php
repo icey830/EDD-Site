@@ -6,7 +6,7 @@ global $wp_query;
 get_header();
 ?>
 	<section class="main clearfix">
-		
+
 		<?php $download_term = $wp_query->get_queried_object();	?>
 
 		<div class="extensions-header-area full-width">
@@ -78,7 +78,7 @@ get_header();
 				</div>
 			</div>
 		</div>
-		
+
 	</section><!-- /.main -->
 	<?php
 get_footer();

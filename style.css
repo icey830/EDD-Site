@@ -127,6 +127,20 @@ img {
   max-width: 100%;
   height: auto;
 }
+.wp-caption {
+  max-width: 100%;
+  margin-bottom: 25px !important;
+}
+.wp-caption img {
+  vertical-align: bottom;
+}
+.wp-caption .wp-caption-text {
+  padding: 10px 20px;
+  font-size: 13px;
+  text-align: center;
+  font-style: italic;
+  color: #999;
+}
 .fl {
   float: left;
 }
@@ -497,12 +511,14 @@ a:focus {
 /* Toggle */
 .tb-toggle {
   margin-top: 5px;
-  border: 1px solid #e5e5e5;
   margin-bottom: 25px;
 }
-.tb-toggle:last-of-type,
-.tb-toggle-last {
-  border-bottom: 1px solid #e5e5e5;
+.toggle-trigger {
+  background: #f8f8f8;
+  border-radius: 4px;
+}
+.toggle-trigger.active {
+  border-radius: 4px 4px 0 0;
 }
 .tb-toggle a.toggle-trigger {
   color: inherit;
@@ -513,7 +529,7 @@ a:focus {
 }
 .tb-toggle a.toggle-trigger:hover,
 .tb-toggle a.active {
-  background: #f8f8f8;
+  background: #f1f1f1;
 }
 .tb-toggle a.toggle-trigger span {
   background: url(images/toggle.png);
@@ -525,16 +541,14 @@ a:focus {
   width: 15px;
   height: 15px;
 }
-.tb-toggle a.active {
-  border-bottom: 1px solid #e5e5e5;
-  font-weight: bold;
-}
 .tb-toggle a.active span {
   background-position: -15px 0;
 }
 .tb-toggle .toggle-content {
   /* display:none; */
+  background: #fafafa;
   padding: 15px;
+  border-radius: 0 0 4px 4px;
 }
 .twitter-share-button,
 .twitter-follow-button {
@@ -827,6 +841,60 @@ html .row {
   font-size: 18px;
   padding: 8px 10px;
   font-weight: 700;
+}
+/* Recommended Products */
+#edd-rp-single-wrapper {
+  padding: 20px 0 10px;
+  border: 3px solid #eaeaea;
+  border-width: 3px 0;
+  margin: 50px 0;
+}
+#edd-rp-single-wrapper .edd-rp-item .edd_download_purchase_form {
+  margin-bottom: 0;
+}
+#edd-rp-single-wrapper .edd-rp-item {
+  background: #f7f7f7;
+  text-align: left;
+  padding: 20px;
+  border-radius: 4px;
+  width: 46%;
+  min-height: inherit;
+}
+#edd-rp-single-wrapper .edd-rp-item:nth-child(odd) {
+  float: left;
+  margin-right: 8%;
+}
+#edd-rp-single-wrapper .edd-rp-item:nth-child(even) {
+  float: right;
+}
+#edd-rp-single-wrapper #edd-rp-single-header {
+  font-weight: 500;
+  margin: 0 0 20px;
+}
+#edd-rp-single-wrapper .edd-rp-item .recommended-product-title {
+  display: inline-block;
+  color: #555;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0 0 15px;
+}
+#edd-rp-single-wrapper .edd-rp-item .recommended-product-title:hover {
+  color: #999;
+}
+#edd-rp-single-wrapper .edd_cart_item_image img {
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+#edd-rp-single-wrapper .recommended-products-discount-note {
+  color: #777;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.6;
+  border-radius: 4px;
+  margin-top: 30px;
+}
+#edd-rp-single-wrapper .recommended-products-discount-note strong {
+  color: #555;
 }
 /*
  * Typography
@@ -1159,7 +1227,7 @@ address {
   width: 1100px;
   margin: 0 auto 120px;
 }
-.blog .main .content {
+.blog:not(.author) .main .content {
   background: none;
   padding: 0;
   -webkit-box-shadow: none;
@@ -1169,7 +1237,7 @@ address {
   margin: 5px 0 20px;
   float: left;
 }
-.blog .main .content .hentry {
+.blog:not(.author) .main .content .hentry {
   background: #fff;
   padding: 30px 50px;
   margin-bottom: 30px;
@@ -5093,7 +5161,8 @@ input#edd-discount:focus,
 .template-site-showcase .main,
 .post-type-archive-download .main,
 .tax-download_category .main,
-.tax-download_tag .main {
+.tax-download_tag .main,
+.author .main {
   padding: 0;
 }
 .tax-download_category .extensions-header-area .inner,
@@ -5233,10 +5302,12 @@ input#edd-discount:focus,
   background: #eee;
 }
 .post-type-archive-download .edd-downloads-area,
+.edd-videos-area,
 .tax-download_category .edd-downloads-area,
 .tax-download_tag .edd-downloads-area,
 .template-themes .edd-downloads-area,
-.download-search .edd-downloads-area {
+.download-search .edd-downloads-area,
+.author .edd-downloads-area {
   background: #fff;
 }
 .theme-forest-edd-link {
@@ -7857,6 +7928,11 @@ span.bbp-author-ip {
   #starter-package .edd-gf-payment-method .gfield_radio li {
     margin: 0 0 10px;
     width: 100%;
+  }
+  #edd-rp-single-wrapper .edd-rp-item {
+    float: none;
+    width: 100%;
+    margin: 0 0 25px 0 !important;
   }
 }
 /* ----------------------------- *
