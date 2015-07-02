@@ -2,7 +2,7 @@
 /**
  * The template for displaying the Author Archives
  *
- * This is used to displayed extensions by authors.
+ * This is used to display extensions by authors.
  *
  * @package   EDD
  * @version   1.0
@@ -17,55 +17,127 @@ global $post, $wp_query;
 get_header();
 ?>
 
-	<section class="main clearfix">
-		<section class="extensions-container">
-			<h1>Extensions by <?php echo get_userdata( get_query_var( 'author' ) )->display_name; ?></h1>
-			<div class="extensions clearfix">
-				<?php
-				$c = 0; if ( have_posts() ) : while ( have_posts() ) : the_post(); $c++;
-				?>
-					<div class="extension <?php if ( 0 == $c%3 ) echo ' extension-clear'; ?> <?php if ( has_term( '3rd Party', 'download_category', get_the_ID() ) ) echo ' third-party-extension'; ?>">
-						<a href="<?php echo home_url( '/extensions/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-							<div class="thumbnail-holder"><?php the_post_thumbnail( 'showcase' ); ?></div>
-							<h2><?php the_title(); ?></h2>
-							<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
-						</a>
-						<div class="overlay">
-							<a href="<?php echo home_url( '/extensions/' . $post->post_name ); ?>" class="overlay-view-details button">View Details</a>
-							<?php if( ! eddwp_is_external_extension() ) : ?>
-								<a href="<?php echo home_url( '/checkout/?edd_action=add_to_cart&download_id=' . get_post_meta( get_the_ID(), 'ecpt_downloadid', true ) ); ?>" class="overlay-add-to-cart button">Add to Cart</a>
-							<?php endif; ?>
+	<?php $extension_args = array(
+		'post_type'      => 'download',
+		'paged'          => get_query_var( 'paged' ),
+		'posts_per_page' => 23,
+		'order'          => isset( $_GET['display'] ) ? 'DESC' : 'ASC',
+		'orderby'        => isset( $_GET['display'] ) ? 'date' : 'menu_order',
+		'tax_query'      => array(
+			array(
+				'taxonomy' => 'download_category',
+				'field'    => 'slug',
+				'terms'    => 'extensions',
+			),
+		),
+	);
+	$extensions = new WP_Query( $extension_args );
+
+	if ( have_posts() ) : ?>
+
+		<section class="main clearfix">
+
+			<div class="extensions-header-area full-width">
+				<div class="inner">
+					<div class="extensions-header clearfix">
+						<div class="section-header">
+							<h2 class="section-title">Extensions by <strong><?php echo get_userdata( get_query_var( 'author' ) )->display_name; ?></strong></h2>
 						</div>
-						<?php
-						if ( has_term( '3rd Party', 'download_category', get_the_ID() ) )
-							echo '<i class="third-party"></i>';
-						?>
 					</div>
-					<?php
-				endwhile;
-
-				$big = 999999999;
-
-				$links = paginate_links(
-					array(
-						'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-						'format'  => '?paged=%#%',
-						'current' => max( 1, get_query_var('paged') ),
-						'total'   => $wp_query->max_num_pages
-					)
-				);
-				?>
-				<div class="clear"></div>
-				<div class="pagination">
-					<?php echo $links; ?>
 				</div>
-
-				<?php else : ?>
-					<p>Sorry, no extensions were found.</p>
-				<?php endif; ?>
-				<?php wp_reset_postdata(); ?>
 			</div>
-		</section><!-- /.extensions-container -->
-	</section><!-- /.main -->
 
-<?php get_footer(); ?>
+			<div class="edd-downloads-area full-width">
+				<div class="inner">
+					<div class="edd-downloads">
+						<section class="download-grid three-col clearfix">
+							<div id="extensions-bundle-promotion" class="download-grid-item extensions-bundle-promotion">
+								<?php
+									$bundle_promotion = array(
+										0 => array(
+											'url'   => home_url( '/downloads/core-extensions-bundle' ),
+											'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/core-extensions-bundle-featured.png',
+											'title' => 'Core Extensions Bundle',
+											'desc'  => 'With the core extensions bundle, get over $2,000 worth of extensions for only $495.',
+										),
+										1 => array(
+											'url'   => home_url( '/starter-package' ),
+											'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/starter-package-featured.png',
+											'title' => 'Extension Starter Package',
+											'desc'  => 'Build your own extension starter package and automatically save 30% on our order.',
+										)
+									);
+									$num = rand( 0, 1 );
+								?>
+								<a href="<?php echo $bundle_promotion[ $num ]['url']; ?>" title="<?php echo $bundle_promotion[ $num ]['title']; ?>">
+									<img class="download-grid-thumb" src="<?php echo $bundle_promotion[ $num ]['image']; ?>"  alt="<?php echo $bundle_promotion[ $num ]['title']; ?>">
+								</a>
+								<div class="download-grid-item-info">
+									<h4 class="download-grid-title"><?php echo $bundle_promotion[ $num ]['title']; ?></h4>
+									<p><?php echo $bundle_promotion[ $num ]['desc']; ?></p>
+								</div>
+								<div class="download-grid-item-cta">
+									<a class="green-button" href="<?php echo $bundle_promotion[ $num ]['url']; ?>">More Information</a>
+								</div>
+							</div>
+							<?php while ( $extensions->have_posts() ) : $extensions->the_post(); ?>
+								<div class="download-grid-item">
+									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
+										<?php eddwp_downloads_grid_thumbnail(); ?>
+									</a>
+									<div class="download-grid-item-info">
+										<?php
+											the_title( '<h4 class="download-grid-title">', '</h4>' );
+											$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
+											echo $short_desc;
+										?>
+									</div>
+									<div class="download-grid-item-cta">
+										<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
+									</div>
+								</div>
+							<?php endwhile; ?>
+						</section><!-- /.download-grid -->
+						<?php
+							$big = 999999999;
+							$links = paginate_links( array(
+								'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+								'format'  => '?paged=%#%',
+								'current' => max( 1, get_query_var('paged') ),
+								'total'   => $extensions->max_num_pages
+							) );
+						?>
+						<div class="pagination clear">
+							<?php echo $links; ?>
+						</div>
+					</div>
+				</div>
+			</div><!-- /.edd-downloads-area -->
+
+		</section><!-- /.main -->
+
+	<?php else : ?>
+
+		<section id="landing-page" class="landing main clearfix">
+
+			<article class="content clearfix">
+				<div class="the-content clearfix">
+					<div class="entry-header">
+						<h1 class="entry-title">
+							<?php echo get_userdata( get_query_var( 'author' ) )->display_name; ?> has no downloads.
+						</h1>
+					</div>
+					<div class="entry-content">
+						<p>But that's okay! Perhaps you'll find a useful tool for your store in our diverse selection of extensions. <a href="<?php echo home_url( '/downloads/' ); ?>">View All Extensions</a>.</p>
+						<p>Need a theme to present your store in logical manner? Have a look at our official themes as well as as our recommendations from the community. <a href="<?php echo home_url( '/themes/' ); ?>">View All Themes</a>.</p>
+					</div>
+				</div>
+			</article><!-- /.content -->
+
+		</section><!-- /.main -->
+
+	<?php endif;
+
+	wp_reset_postdata();
+
+get_footer();

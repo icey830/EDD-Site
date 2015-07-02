@@ -127,6 +127,20 @@ img {
   max-width: 100%;
   height: auto;
 }
+.wp-caption {
+  max-width: 100%;
+  margin-bottom: 25px !important;
+}
+.wp-caption img {
+  vertical-align: bottom;
+}
+.wp-caption .wp-caption-text {
+  padding: 10px 20px;
+  font-size: 13px;
+  text-align: center;
+  font-style: italic;
+  color: #999;
+}
 .fl {
   float: left;
 }
@@ -1213,7 +1227,7 @@ address {
   width: 1100px;
   margin: 0 auto 120px;
 }
-.blog .main .content {
+.blog:not(.author) .main .content {
   background: none;
   padding: 0;
   -webkit-box-shadow: none;
@@ -1223,7 +1237,7 @@ address {
   margin: 5px 0 20px;
   float: left;
 }
-.blog .main .content .hentry {
+.blog:not(.author) .main .content .hentry {
   background: #fff;
   padding: 30px 50px;
   margin-bottom: 30px;
@@ -5147,7 +5161,8 @@ input#edd-discount:focus,
 .template-site-showcase .main,
 .post-type-archive-download .main,
 .tax-download_category .main,
-.tax-download_tag .main {
+.tax-download_tag .main,
+.author .main {
   padding: 0;
 }
 .tax-download_category .extensions-header-area .inner,
@@ -5291,7 +5306,8 @@ input#edd-discount:focus,
 .tax-download_category .edd-downloads-area,
 .tax-download_tag .edd-downloads-area,
 .template-themes .edd-downloads-area,
-.download-search .edd-downloads-area {
+.download-search .edd-downloads-area,
+.author .edd-downloads-area {
   background: #fff;
 }
 .theme-forest-edd-link {
