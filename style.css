@@ -265,6 +265,7 @@ a:focus {
 .gform_wrapper .gform_footer input.button,
 .gform_wrapper .gform_footer input[type="submit"],
 .gform_wrapper input[type="submit"],
+div.form_saved_message div.form_saved_message_emailform form input[type="submit"],
 .sidebar .widget_edd_cart_widget .cart_item.edd_checkout a {
   margin-top: 2px;
   padding: 4px 14px;
@@ -295,6 +296,7 @@ a:focus {
 .gform_wrapper .gform_footer input.button:hover,
 .gform_wrapper .gform_footer input[type="submit"]:hover,
 .gform_wrapper input[type="submit"]:hover,
+div.form_saved_message div.form_saved_message_emailform form input[type="submit"]:hover,
 .sidebar .widget_edd_cart_widget .cart_item.edd_checkout a:hover {
   background: #5ba3cf;
   color: #fff;
@@ -306,6 +308,7 @@ a:focus {
 .gform_wrapper .gform_footer input.button:active,
 .gform_wrapper .gform_footer input[type="submit"]:active,
 .gform_wrapper input[type="submit"]:active,
+div.form_saved_message div.form_saved_message_emailform form input[type="submit"]:active,
 .sidebar .widget_edd_cart_widget .cart_item.edd_checkout a:active {
   -webkit-box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
@@ -317,11 +320,16 @@ a:focus {
 .gform_wrapper .gform_footer input.button span,
 .gform_wrapper .gform_footer input[type="submit"] span,
 .gform_wrapper input[type="submit"] span,
+div.form_saved_message div.form_saved_message_emailform form input[type="submit"] span,
 .sidebar .widget_edd_cart_widget .cart_item.edd_checkout a span {
   color: #fff !important;
 }
 .gform_fields input[type="radio"] {
   margin: 3px 5px 3px 2px !important;
+}
+div.form_saved_message div.form_saved_message_emailform form input[type="submit"] {
+  display: block;
+  margin-top: 10px;
 }
 /* Support Ticket Form - Gravity Forms */
 #gform_wrapper_4,
@@ -5796,6 +5804,17 @@ input#edd-discount:focus,
 }
 #starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.gfield_description.validation_message {
   display: none;
+}
+#starter-package .form_saved_message {
+  background: #F5F8FC;
+  border: 2px solid #DAE7F0;
+  margin-top: 50px;
+}
+#starter-package .form_saved_message input[type="text"] {
+  border: 1px solid #DAE7F0;
+  border-radius: 4px;
+  height: 3em;
+  min-width: 230px;
 }
 /* ----------------------------- *
  * Common Page Templates
