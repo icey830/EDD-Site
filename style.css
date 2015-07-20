@@ -1,7 +1,7 @@
 /*!
 Theme Name: Easy Digital Downloads
 Theme URI: http://easydigitaldownloads.com/
-Version: 2.1
+Version: 2.1.1
 Description: Version 2 of Easy Digital Downloads
 Author: Sunny Ratilal
 */
@@ -265,6 +265,7 @@ a:focus {
 .gform_wrapper .gform_footer input.button,
 .gform_wrapper .gform_footer input[type="submit"],
 .gform_wrapper input[type="submit"],
+div.form_saved_message div.form_saved_message_emailform form input[type="submit"],
 .sidebar .widget_edd_cart_widget .cart_item.edd_checkout a {
   margin-top: 2px;
   padding: 4px 14px;
@@ -295,6 +296,7 @@ a:focus {
 .gform_wrapper .gform_footer input.button:hover,
 .gform_wrapper .gform_footer input[type="submit"]:hover,
 .gform_wrapper input[type="submit"]:hover,
+div.form_saved_message div.form_saved_message_emailform form input[type="submit"]:hover,
 .sidebar .widget_edd_cart_widget .cart_item.edd_checkout a:hover {
   background: #5ba3cf;
   color: #fff;
@@ -306,6 +308,7 @@ a:focus {
 .gform_wrapper .gform_footer input.button:active,
 .gform_wrapper .gform_footer input[type="submit"]:active,
 .gform_wrapper input[type="submit"]:active,
+div.form_saved_message div.form_saved_message_emailform form input[type="submit"]:active,
 .sidebar .widget_edd_cart_widget .cart_item.edd_checkout a:active {
   -webkit-box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
@@ -317,11 +320,16 @@ a:focus {
 .gform_wrapper .gform_footer input.button span,
 .gform_wrapper .gform_footer input[type="submit"] span,
 .gform_wrapper input[type="submit"] span,
+div.form_saved_message div.form_saved_message_emailform form input[type="submit"] span,
 .sidebar .widget_edd_cart_widget .cart_item.edd_checkout a span {
   color: #fff !important;
 }
 .gform_fields input[type="radio"] {
   margin: 3px 5px 3px 2px !important;
+}
+div.form_saved_message div.form_saved_message_emailform form input[type="submit"] {
+  display: block;
+  margin-top: 10px;
 }
 /* Support Ticket Form - Gravity Forms */
 #gform_wrapper_4,
@@ -5451,7 +5459,7 @@ input#edd-discount:focus,
   border-width: 4px 0;
   margin-bottom: 30px;
   width: 319px;
-  min-height: 500px;
+  min-height: 521px;
 }
 #starter-package .edd-gf-marketing {
   padding-right: 50px;
@@ -5534,7 +5542,7 @@ input#edd-discount:focus,
   text-align: center;
   padding: 10px 10px 5px;
   border-radius: 4px;
-  width: 20%;
+  width: 33.33%;
 }
 #starter-package .gfield_price .gfield_label {
   display: block;
@@ -5556,6 +5564,7 @@ input#edd-discount:focus,
   font-size: 20px;
   text-align: center;
   margin: 20px 0 0;
+  width: 100%;
 }
 #starter-package .edd-gf-total-price .ginput_container {
   display: inline-block;
@@ -5565,6 +5574,8 @@ input#edd-discount:focus,
   font-size: 30px;
 }
 #starter-package .edd-gf-total-price .gfield_label {
+  display: inline;
+  background: none;
   font-size: 20px;
   margin-right: 10px;
 }
@@ -5714,17 +5725,20 @@ input#edd-discount:focus,
 }
 #starter-package .edd-gf-starter-discount .gfield_description {
   font-size: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 #starter-package .edd-gf-starter-discount input[type="text"],
 #starter-package .edd-gf-starter-discount input[type="text"]:active,
 #starter-package .edd-gf-starter-discount input[type="text"]:hover {
   display: inline;
-  color: #38C238;
+  background: #F5F8FC;
+  color: #555;
   font-size: 24px !important;
   text-align: center;
   border: none;
+  border-radius: 4px;
   box-shadow: none;
+  max-width: 130px;
 }
 #starter-package .gform_footer {
   text-align: center;
@@ -5793,6 +5807,17 @@ input#edd-discount:focus,
 }
 #starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.gfield_description.validation_message {
   display: none;
+}
+#starter-package .form_saved_message {
+  background: #F5F8FC;
+  border: 2px solid #DAE7F0;
+  margin-top: 50px;
+}
+#starter-package .form_saved_message input[type="text"] {
+  border: 1px solid #DAE7F0;
+  border-radius: 4px;
+  height: 3em;
+  min-width: 230px;
 }
 /* ----------------------------- *
  * Common Page Templates
@@ -7063,9 +7088,6 @@ span.bbp-author-ip {
   #starter-package .edd-gf-accounting {
     padding: 30px 30px 0;
   }
-  #starter-package .gfield_price {
-    width: 25%;
-  }
 }
 @media all and (max-width: 1100px) {
   .full-width .inner {
@@ -7303,9 +7325,6 @@ span.bbp-author-ip {
   }
   #starter-package .edd-gf-accounting {
     padding: 30px 30px 0;
-  }
-  #starter-package .gfield_price {
-    width: 25%;
   }
   #starter-package .content {
     border-radius: 0;
@@ -7929,6 +7948,9 @@ span.bbp-author-ip {
   #starter-package .package-discount {
     margin-top: 20px;
   }
+  #starter-package .gfield_price {
+    width: 100%;
+  }
   #starter-package .edd-gf-payment-method .gfield_radio li {
     margin: 0 0 10px;
     width: 100%;
@@ -8381,9 +8403,6 @@ span.bbp-author-ip {
   }
   #starter-package .entry-title {
     margin: -20px -20px 30px;
-  }
-  #starter-package .gfield_price {
-    width: 100%;
   }
   #starter-package .edd-gf-buyer-detail .name_first,
   #starter-package .edd-gf-buyer-detail .name_last,
