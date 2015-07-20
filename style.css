@@ -5459,7 +5459,7 @@ input#edd-discount:focus,
   border-width: 4px 0;
   margin-bottom: 30px;
   width: 319px;
-  min-height: 500px;
+  min-height: 521px;
 }
 #starter-package .edd-gf-marketing {
   padding-right: 50px;
@@ -5542,7 +5542,7 @@ input#edd-discount:focus,
   text-align: center;
   padding: 10px 10px 5px;
   border-radius: 4px;
-  width: 20%;
+  width: 33.33%;
 }
 #starter-package .gfield_price .gfield_label {
   display: block;
@@ -5725,17 +5725,20 @@ input#edd-discount:focus,
 }
 #starter-package .edd-gf-starter-discount .gfield_description {
   font-size: 15px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 #starter-package .edd-gf-starter-discount input[type="text"],
 #starter-package .edd-gf-starter-discount input[type="text"]:active,
 #starter-package .edd-gf-starter-discount input[type="text"]:hover {
   display: inline;
-  color: #38C238;
+  background: #F5F8FC;
+  color: #555;
   font-size: 24px !important;
   text-align: center;
   border: none;
+  border-radius: 4px;
   box-shadow: none;
+  max-width: 130px;
 }
 #starter-package .gform_footer {
   text-align: center;
@@ -7085,9 +7088,6 @@ span.bbp-author-ip {
   #starter-package .edd-gf-accounting {
     padding: 30px 30px 0;
   }
-  #starter-package .gfield_price {
-    width: 25%;
-  }
 }
 @media all and (max-width: 1100px) {
   .full-width .inner {
@@ -7325,9 +7325,6 @@ span.bbp-author-ip {
   }
   #starter-package .edd-gf-accounting {
     padding: 30px 30px 0;
-  }
-  #starter-package .gfield_price {
-    width: 25%;
   }
   #starter-package .content {
     border-radius: 0;
@@ -7951,6 +7948,9 @@ span.bbp-author-ip {
   #starter-package .package-discount {
     margin-top: 20px;
   }
+  #starter-package .gfield_price {
+    width: 100%;
+  }
   #starter-package .edd-gf-payment-method .gfield_radio li {
     margin: 0 0 10px;
     width: 100%;
@@ -8403,9 +8403,6 @@ span.bbp-author-ip {
   }
   #starter-package .entry-title {
     margin: -20px -20px 30px;
-  }
-  #starter-package .gfield_price {
-    width: 100%;
   }
   #starter-package .edd-gf-buyer-detail .name_first,
   #starter-package .edd-gf-buyer-detail .name_last,
