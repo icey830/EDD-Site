@@ -71,7 +71,7 @@ if ( $is_extension && ! $is_bundle ) {
 							 get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) {
 						?>
 						<div class="download-requirements download-info-section">
-							<h3>Requirements</h3>
+							<h3>Minimum Requirements</h3>
 							<?php if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ) { ?>
 								<div class="wordpress-ver clearfix">
 									<p>
@@ -79,7 +79,7 @@ if ( $is_extension && ! $is_bundle ) {
 										<span class="edd-download-detail">
 											<?php
 												if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ) {
-													echo get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) . ' or higher';
+													echo get_post_meta( get_the_ID(), 'ecpt_minimumwp', true );
 												}
 											?>
 										</span>
@@ -93,7 +93,7 @@ if ( $is_extension && ! $is_bundle ) {
 										<span class="edd-download-detail">
 											<?php
 												if ( get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) ) {
-													echo get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) . ' or higher';
+													echo get_post_meta( get_the_ID(), 'ecpt_minimumedd', true );
 												}
 											?>
 										</span>
@@ -107,7 +107,7 @@ if ( $is_extension && ! $is_bundle ) {
 										<span class="edd-download-detail">
 											<?php
 												if ( get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) {
-													echo get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) . ' or higher';
+													echo get_post_meta( get_the_ID(), 'ecpt_minimumphp', true );
 												}
 											?>
 										</span>
