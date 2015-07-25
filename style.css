@@ -776,6 +776,9 @@ html .row {
   padding: 20px 50px 20px 155px;
   margin: -50px -50px 20px;
 }
+.edd-post-footer .newsletter input[type="submit"] {
+  display: inline;
+}
 .newsletter-title span {
   display: none;
 }

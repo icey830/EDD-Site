@@ -24,7 +24,7 @@
 <?php } // end if	?>
 
 
-<?php if ( have_comments() ) { ?>
+<?php if ( have_comments() && 0 != eddwp_get_comments_only_count() ) { ?>
 	<div id="comments" class="clearfix">
 
 		<h3>Comments</h3>
@@ -53,15 +53,6 @@
 
 		<?php } // end if ?>
 	</div><!-- /#comments -->
-
-<?php } else { ?>
-
-	<?php if ( comments_open() ) { ?>
-		<div id="no-comments" class="clearfix">
-			<p class="title"><?php _e( 'No Comments', 'edd' ); ?></p>
-			<p><?php _e( 'Be the first to start the conversation.', 'edd' ); ?></p>
-		</div><!-- /#no-comments -->
-	<?php } // end if ?>
 
 <?php } // end if ?>
 
