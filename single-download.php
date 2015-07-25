@@ -65,6 +65,27 @@ if ( $is_extension && ! $is_bundle ) {
 							</div>
 						<?php } ?>
 					</div>
+					<?php if ( ! eddwp_is_extension_third_party() && ! eddwp_is_external_extension() ) {
+						$license = home_url( '/docs/extensions-terms-conditions/' );
+						?>
+						<div class="download-access download-info-section">
+							<div class="pricing">
+								<h3>Pricing</h3>
+								<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
+							</div>
+							<div class="terms clearfix">
+								<p><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="<?php echo $license; ?>" target="_blank">View license terms</a>.</p>
+							</div>
+						</div>
+					<?php } // end if ?>
+					<?php if ( ! $is_bundle ) {
+						$core_extensions = home_url( '/downloads/core-extensions-bundle/' );
+						?>
+						<div class="core-extensions download-info-section">
+							<h3>Core Extensions</h3>
+							<p>Receive the best discount EDD has to offer when you purchase our Core Extensions Bundle. <a href="<?php echo $core_extensions; ?>">Learn more</a>.</p>
+						</div>
+					<?php } ?>
 					<?php
 						if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ||
 							 get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) ||
@@ -114,27 +135,6 @@ if ( $is_extension && ! $is_bundle ) {
 									</p>
 								</div>
 							<?php } ?>
-						</div>
-					<?php } ?>
-					<?php if ( ! eddwp_is_extension_third_party() && ! eddwp_is_external_extension() ) {
-						$license = home_url( '/docs/extensions-terms-conditions/' );
-						?>
-						<div class="download-access download-info-section">
-							<div class="pricing">
-								<h3>Pricing</h3>
-								<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
-							</div>
-							<div class="terms clearfix">
-								<p><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="<?php echo $license; ?>" target="_blank">View license terms</a>.</p>
-							</div>
-						</div>
-					<?php } // end if ?>
-					<?php if ( ! $is_bundle ) {
-						$core_extensions = home_url( '/downloads/core-extensions-bundle/' );
-						?>
-						<div class="core-extensions download-info-section">
-							<h3>Core Extensions</h3>
-							<p>Receive the best discount EDD has to offer when you purchase our Core Extensions Bundle. <a href="<?php echo $core_extensions; ?>">Learn more</a>.</p>
 						</div>
 					<?php } ?>
 					<?php
