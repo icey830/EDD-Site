@@ -39,12 +39,12 @@ get_header();
 					<p>You want to be able to see all of your sales and earnings presented neatly and in a way that is easy to analyse. We have done exactly that with beautiful graphs and simple data tables.</p>
 				</div>
 				<div class="edd-feature">
-					<img class="edd-feature-image" src="<?php echo get_template_directory_uri() ?>/images/developer-friendly.png" alt="Developer Friendly" />
+					<img class="edd-feature-image" src="<?php echo get_template_directory_uri() ?>/images/welcome-developers.png" alt="Developer Friendly" />
 					<h6>Developer Friendly</h6>
 					<p>Not only does Easy Digital Downloads closely follow the WordPress Coding Standards and provide a myriad of hooks and filters for developers, it's also 100% open-source and welcomes contributors.</p>
 				</div>
 				<div class="edd-feature">
-					<img class="edd-feature-image" src="<?php echo get_template_directory_uri() ?>/images/discount-codes.png" alt="Discount Codes" />
+					<img class="edd-feature-image" src="<?php echo get_template_directory_uri() ?>/images/create-discounts.png" alt="Discount Codes" />
 					<h6>Discount Codes</h6>
 					<p>Celebrating something? Or maybe you just woke up in a good mood! Whatever it is, we have a complete discount system built in, so when you want to provide an offer, it won't even take a minute.</p>
 				</div>
@@ -63,7 +63,7 @@ get_header();
 				<p><a class="secondary-cta-button" href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button"><i class="fa fa-cloud-download"></i>Get Easy Digital Downloads</a></p>
 			</div>
 			<div class="front-page-data-export-left">
-				<img style="border-right: 1px solid #f1f1f1;" src="<?php echo get_template_directory_uri() ?>/images/data-export.png" alt="Data Export" />
+				<img style="border-right: 1px solid #f1f1f1;" src="<?php echo get_template_directory_uri() ?>/images/export-store-data.png" alt="Data Export" />
 			</div>
 		</div>
 	</div>
