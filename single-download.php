@@ -87,6 +87,57 @@ if ( $is_extension && ! $is_bundle ) {
 						</div>
 					<?php } ?>
 					<?php
+						if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ||
+							 get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) ||
+							 get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) {
+						?>
+						<div class="download-requirements download-info-section">
+							<h3>Minimum Requirements</h3>
+							<?php if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ) { ?>
+								<div class="wordpress-ver clearfix">
+									<p>
+										<span class="edd-download-detail-label">WordPress:</span>&nbsp;
+										<span class="edd-download-detail">
+											<?php
+												if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ) {
+													echo get_post_meta( get_the_ID(), 'ecpt_minimumwp', true );
+												}
+											?>
+										</span>
+									</p>
+								</div>
+							<?php } ?>
+							<?php if ( get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) ) { ?>
+								<div class="edd-ver clearfix">
+									<p>
+										<span class="edd-download-detail-label">EDD:</span>&nbsp;
+										<span class="edd-download-detail">
+											<?php
+												if ( get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) ) {
+													echo get_post_meta( get_the_ID(), 'ecpt_minimumedd', true );
+												}
+											?>
+										</span>
+									</p>
+								</div>
+							<?php } ?>
+							<?php if ( get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) { ?>
+								<div class="php-ver clearfix">
+									<p>
+										<span class="edd-download-detail-label">PHP:</span>&nbsp;
+										<span class="edd-download-detail">
+											<?php
+												if ( get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) {
+													echo get_post_meta( get_the_ID(), 'ecpt_minimumphp', true );
+												}
+											?>
+										</span>
+									</p>
+								</div>
+							<?php } ?>
+						</div>
+					<?php } ?>
+					<?php
 						if ( function_exists('p2p_register_connection_type') ) :
 		
 							$external_doc = get_post_meta( get_the_ID(), 'ecpt_documentationlink', true );
