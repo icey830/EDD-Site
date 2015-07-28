@@ -2581,6 +2581,9 @@ html.cssanimations body.firefox .iphone {
 #front-page-data-export .inner {
   padding-top: 0;
 }
+.secondary-export-image {
+  display: none;
+}
 #front-page-extensions {
   background: #fafafa;
   text-align: center;
@@ -7994,16 +7997,26 @@ span.bbp-author-ip {
     margin-bottom: 10px;
   }
   /* Generic Page Elements */
+  .half-split .split-text,
   .half-split .split-image {
-    display: none;
-  }
-  .half-split .split-text {
     float: none !important;
     text-align: center;
-    padding-top: 0 !important;
     margin: 0 auto;
     max-width: 750px;
     width: 100% !important;
+  }
+  .half-split .split-text {
+    padding-top: 0 !important;
+  }
+  .half-split .split-image {
+    padding-top: 30px;
+    max-width: 450px;
+  }
+  .primary-export-image {
+    display: none;
+  }
+  .secondary-export-image {
+    display: inline;
   }
 }
 /* ----------------------------- *
@@ -8707,6 +8720,10 @@ span.bbp-author-ip {
     float: none;
     width: 100%;
     margin-right: 0;
+  }
+  .half-split .split-text,
+  .half-split .split-image {
+    text-align: left;
   }
 }
 /* ----------------------------- *
