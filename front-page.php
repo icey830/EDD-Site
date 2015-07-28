@@ -25,14 +25,14 @@ get_header();
 	</div>
 </div>
 
-<div id="front-page-about-edd" class="front-page-section full-width">
+<div id="front-page-about-edd" class="features-grid-three full-width">
 	<div class="inner">
-		<div class="front-page-about-edd-content">
-			<div class="front-page-about-edd-content-header">
-				<h2 class="front-page-section-title"><strong>Things to Know</strong> About Easy Digital Downloads</h2>
-				<p class="front-page-section-description">Easy Digital Downloads is built to be quick and simple to set up. After installation, you're ready to go in just a couple of minutes! Simply enter your payment information and add your products. The rest is all a dream.</p>
+		<div class="features-grid-three-content">
+			<div class="features-grid-content-header">
+				<h2 class="features-grid-section-title"><strong>Things to Know</strong> About Easy Digital Downloads</h2>
+				<p class="features-grid-section-description">Easy Digital Downloads is built to be quick and simple to set up. After installation, you're ready to go in just a couple of minutes! Simply enter your payment information and add your products. The rest is all a dream.</p>
 			</div>
-			<div class="front-page-about-edd-content-sections">
+			<div class="features-grid-content-sections">
 				<div class="edd-feature">
 					<img class="edd-feature-image" src="<?php echo get_template_directory_uri() ?>/images/best-reporting.png" alt="Reporting" />
 					<h6>Elegant Reporting</h6>
@@ -55,14 +55,14 @@ get_header();
 
 <div id="front-page-data-export" class="front-page-section full-width">
 	<div class="inner">
-		<div class="front-page-data-export-content clearfix">
-			<div class="front-page-data-export-right">
+		<div class="front-page-data-export-content half-split image-left clearfix">
+			<div class="split-text">
 				<h2 class="front-page-section-title">Easily <strong>Export Store Data</strong></h2>
 				<p>Easy Digital Downloads will never lock your data in. With our simple export options, you can easily send all sales, earnings, and customer data to Excel, Google Docs, or any other reporting system of your choice.</p>
 				<p>You also have the freedom to be as specific as you need when exporting your data. Choose a custom start date as well as a custom end date to get just the necessary data for your reporting.</p>
 				<p><a class="secondary-cta-button" href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button"><i class="fa fa-cloud-download"></i>Get Easy Digital Downloads</a></p>
 			</div>
-			<div class="front-page-data-export-left">
+			<div class="split-image">
 				<img style="border-right: 1px solid #f1f1f1;" src="<?php echo get_template_directory_uri() ?>/images/export-store-data.png" alt="Data Export" />
 			</div>
 		</div>
@@ -137,10 +137,10 @@ get_header();
 	</div>
 </div>
 
-<div id="front-page-support" class="front-page-section full-width">
+<div id="front-page-support" class="front-page-section page-section-blue full-width">
 	<div class="inner">
-		<div class="support-content clearfix">
-			<h2 class="front-page-section-title"><strong>Best Support</strong> in the Industry</h2>
+		<div class="support-content page-section clearfix">
+			<h2 class="page-section-title"><strong>Best Support</strong> in the Industry</h2>
 			<p>We love our customers and we're always glad to help you out if you have any problems with the plugin or official extensions. We provide exceptional support and in-depth documentation to alleviate your issues as quickly as possible.</p>
 			<p>Our Support Team will always do their absolute best to help you with your debug and you'll be on your way in no time. Our Support Team comprises of people who work with and understand Easy Digital Downloads to the core.</p>
 		</div>
