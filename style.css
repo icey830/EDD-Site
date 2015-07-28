@@ -2743,7 +2743,6 @@ html.cssanimations body.firefox .iphone {
   border: 1px solid #f1f1f1;
   border-radius: 4px;
   margin: 0 0 30px;
-  min-height: 180px;
   width: 525px;
 }
 .testimonial-content .testimonials:not( :nth-child(even)) {
