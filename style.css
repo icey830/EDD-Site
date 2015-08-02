@@ -2521,18 +2521,17 @@ html.cssanimations body.firefox .iphone {
 .main .content h1 {
   margin: 0;
 }
-/**
- * New Front Page
- */
+/* New Front Page */
+#front-page-hero {
+  border-bottom: 1px solid #215B95;
+}
+#front-page-hero .inner {
+  background: transparent url('images/edd-hero.png') bottom right no-repeat;
+  padding: 100px 0;
+}
 .front-page-section-title {
   line-height: 1.4;
   margin: 0;
-}
-#front-page-hero {
-  background: #2794da url('images/header-bg.png') center no-repeat;
-  background-size: cover;
-  color: #fff;
-  text-align: center;
 }
 .site-headline {
   margin-bottom: 40px;
@@ -2578,6 +2577,18 @@ html.cssanimations body.firefox .iphone {
 .hero-secondary-cta-link:hover {
   color: #fff;
 }
+#front-page-integrations .inner {
+  text-align: center;
+  padding-top: 30px;
+}
+#front-page-integrations .integrations-description {
+  margin: 0 0px 50px;
+  font-weight: 500;
+  font-size: 20px;
+}
+#front-page-integrations img {
+  margin-bottom: 30px;
+}
 #front-page-data-export .inner {
   padding-top: 0;
 }
@@ -2587,9 +2598,6 @@ html.cssanimations body.firefox .iphone {
 #front-page-extensions {
   background: #fafafa;
   text-align: center;
-}
-#front-page-extensions .inner {
-  padding-bottom: 20px;
 }
 #front-page-extensions .front-page-about-edd-content-header {
   text-align: center;
@@ -2604,9 +2612,7 @@ html.cssanimations body.firefox .iphone {
   margin-top: 50px;
 }
 #front-page-extensions .download-grid-item {
-  background: #fff;
-  border: 1px solid #eaeaea;
-  min-height: 330px;
+  min-height: inherit;
 }
 #front-page-extensions .download-grid-thumb {
   border: none;
@@ -2614,6 +2620,7 @@ html.cssanimations body.firefox .iphone {
 #front-page-extensions .download-grid-title a,
 #front-page-extensions .download-grid-title a:hover {
   color: #555;
+  font-weight: 500;
 }
 #front-page-extensions .download-grid-item p {
   margin-bottom: 0;
@@ -2631,31 +2638,6 @@ html.cssanimations body.firefox .iphone {
 .view-all-extensions a:hover {
   background: #fff;
   color: #AFD8F3;
-}
-#front-page-gateways {
-  background: #fafafa;
-  text-align: center;
-}
-#front-page-gateways .inner {
-  padding: 0;
-}
-.front-page-payment-gateways-content {
-  padding-bottom: 50px;
-}
-.front-page-payment-gateways-image {
-  margin: 20px 0;
-  vertical-align: bottom;
-}
-.front-page-testimonial-content-header {
-  text-align: center;
-  max-width: 750px;
-  margin: 0 auto;
-}
-.front-page-testimonial-content-header .front-page-section-title {
-  margin-bottom: 20px;
-}
-.front-page-testimonial-content {
-  margin-top: 50px;
 }
 .testimonial-content .testimonials {
   display: inline-block;
@@ -5915,9 +5897,21 @@ input#edd-discount:focus,
 /* ----------------------------- *
  * Generic Page Elements
  * ----------------------------- */
+.page-section-header {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto;
+}
+.page-section-header .page-section-title {
+  margin: 0 0 20px;
+}
+.page-section-content {
+  margin-top: 50px;
+}
 .page-section-blue {
-  background: #2794da;
+  background: #2794da url('images/blue-bg.png');
   color: #fff;
+  text-align: center;
 }
 .page-section-blue .inner {
   padding: 60px 0;
@@ -6002,21 +5996,22 @@ input#edd-discount:focus,
   -moz-transition: all .2s;
   transition: all .2s;
 }
-.half-split .secondary-cta-button .fa {
-  margin-right: 8px;
-}
-.half-split .secondary-cta-button {
+.half-split .secondary-cta-button,
+#front-page-extensions .view-all-extensions a {
   background: #2794da;
   color: #fff;
   font-size: 16px;
   padding: 10px 20px;
-  border: 2px solid #2794da;
   margin: 0 0 10px;
 }
-.half-split .secondary-cta-button:hover {
+.half-split .secondary-cta-button:hover,
+#front-page-extensions .view-all-extensions a:hover {
   background: #303E4C;
   color: #fff;
-  border: 2px solid #303E4C;
+}
+.half-split .secondary-cta-button .fa,
+#front-page-extensions .view-all-extensions a .fa {
+  margin-right: 8px;
 }
 footer {
   background: #f9f9f9 url(images/edd-footer.png) no-repeat center bottom;

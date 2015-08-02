@@ -3367,10 +3367,29 @@ input#edd-discount,
 /* ----------------------------- *
  * Generic Page Elements
  * ----------------------------- */
+ 
+.page-section {
+	
+}
+
+.page-section-header {
+	text-align: center;
+	max-width: 750px;
+	margin: 0 auto;
+}
+
+.page-section-header .page-section-title {
+	margin: 0 0 20px;
+}
+
+.page-section-content {
+	margin-top: 50px;
+}
 
 .page-section-blue {
-	background: #2794da;
+	background: #2794da url('images/blue-bg.png');
 	color: #fff;
+	text-align: center;
 }
 
 .page-section-blue .inner {
@@ -3475,21 +3494,22 @@ input#edd-discount,
 	transition: all .2s;
 }
 
-.half-split .secondary-cta-button .fa {
-	margin-right: 8px;
-}
-
-.half-split .secondary-cta-button {
+.half-split .secondary-cta-button,
+#front-page-extensions .view-all-extensions a {
 	background: #2794da;
 	color: #fff;
 	font-size: 16px;
 	padding: 10px 20px;
-	border: 2px solid #2794da;
 	margin: 0 0 10px;
 }
 
-.half-split .secondary-cta-button:hover {
+.half-split .secondary-cta-button:hover,
+#front-page-extensions .view-all-extensions a:hover {
 	background: #303E4C;
 	color: #fff;
-	border: 2px solid #303E4C;
+}
+
+.half-split .secondary-cta-button .fa,
+#front-page-extensions .view-all-extensions a .fa {
+	margin-right: 8px;
 }

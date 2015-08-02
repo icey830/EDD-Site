@@ -877,19 +877,20 @@ html.cssanimations body.firefox .iphone { opacity: 1; }
 
 .main .content h1 { margin: 0; }
 
-/**
- * New Front Page
- */
+/* New Front Page */
+
+#front-page-hero {
+	border-bottom: 1px solid #215B95;
+}
+
+#front-page-hero .inner {
+	background: transparent url('images/edd-hero.png') bottom right no-repeat;
+	padding: 100px 0;
+}
+
 .front-page-section-title {
 	line-height: 1.4;
 	margin: 0;
-}
-
-#front-page-hero {
-	background: #2794da url('images/header-bg.png') center no-repeat;
-	background-size: cover;
-	color: #fff;
-	text-align: center;
 }
 
 .site-headline {
@@ -945,6 +946,21 @@ html.cssanimations body.firefox .iphone { opacity: 1; }
 	color: #fff;
 }
 
+#front-page-integrations .inner {
+	text-align: center;
+	padding-top: 30px;
+}
+
+#front-page-integrations .integrations-description {
+	margin: 0 0px 50px;
+	font-weight: 500;
+	font-size: 20px;
+}
+
+#front-page-integrations img {
+	margin-bottom: 30px;
+}
+
 #front-page-data-export .inner {
 	padding-top: 0;
 }
@@ -956,10 +972,6 @@ html.cssanimations body.firefox .iphone { opacity: 1; }
 #front-page-extensions {
 	background: #fafafa;
 	text-align: center;
-}
-
-#front-page-extensions .inner {
-	padding-bottom: 20px;
 }
 
 #front-page-extensions .front-page-about-edd-content-header {
@@ -978,9 +990,7 @@ html.cssanimations body.firefox .iphone { opacity: 1; }
 }
 
 #front-page-extensions .download-grid-item {
-	background: #fff;
-	border: 1px solid #eaeaea;
-	min-height: 330px;
+	min-height: inherit;
 }
 
 #front-page-extensions .download-grid-thumb {
@@ -990,6 +1000,7 @@ html.cssanimations body.firefox .iphone { opacity: 1; }
 #front-page-extensions .download-grid-title a,
 #front-page-extensions .download-grid-title a:hover {
 	color: #555;
+	font-weight: 500;
 }
 
 #front-page-extensions .download-grid-item p {
@@ -1010,38 +1021,6 @@ html.cssanimations body.firefox .iphone { opacity: 1; }
 .view-all-extensions a:hover {
 	background: #fff;
 	color: #AFD8F3;
-}
-
-#front-page-gateways {
-	background: #fafafa;
-	text-align: center;
-}
-
-#front-page-gateways .inner {
-	padding: 0;
-}
-
-.front-page-payment-gateways-content {
-	padding-bottom: 50px;
-}
-
-.front-page-payment-gateways-image {
-	margin: 20px 0;
-	vertical-align: bottom;
-}
-
-.front-page-testimonial-content-header {
-	text-align: center;
-	max-width: 750px;
-	margin: 0 auto;
-}
-
-.front-page-testimonial-content-header .front-page-section-title {
-	margin-bottom: 20px;
-}
-
-.front-page-testimonial-content {
-	margin-top: 50px;
 }
 
 .testimonial-content .testimonials {

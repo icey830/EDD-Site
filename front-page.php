@@ -10,7 +10,7 @@
 get_header();
 ?>
 
-<div id="front-page-hero" class="front-page-section full-width">
+<div id="front-page-hero" class="front-page-section page-section-blue full-width">
 	<div class="inner">
 		<div class="front-page-intro">
 			<div class="site-headline">
@@ -27,10 +27,10 @@ get_header();
 
 <div id="front-page-about-edd" class="features-grid-three full-width">
 	<div class="inner">
-		<div class="features-grid-three-content">
-			<div class="features-grid-content-header">
-				<h2 class="features-grid-section-title"><strong>Things to Know</strong> About Easy Digital Downloads</h2>
-				<p class="features-grid-section-description">Easy Digital Downloads is built to be quick and simple to set up. After installation, you're ready to go in just a couple of minutes! Simply enter your payment information and add your products. The rest is all a dream.</p>
+		<div class="features-grid-three-content page-section">
+			<div class="page-section-header">
+				<h2 class="page-section-title"><strong>Things to Know</strong> About Easy Digital Downloads</h2>
+				<p>Easy Digital Downloads is built to be quick and simple to set up. After installation, you're ready to go in just a couple of minutes! Simply enter your payment information and add your products. The rest is all a dream.</p>
 			</div>
 			<div class="features-grid-content-sections">
 				<div class="edd-feature">
@@ -70,12 +70,21 @@ get_header();
 	</div>
 </div>
 
+<div id="front-page-integrations" class="front-page-section full-width">
+	<div class="inner">
+		<div class="front-page-integrations page-section">
+			<h5 class="integrations-description">Extend Easy Digital Downloads With Your Favorite Services</h5>
+			<img src="<?php echo get_template_directory_uri() ?>/images/edd-integrations.png" alt="Easy Digital Downloads Integrations" />
+		</div>
+	</div>
+</div>
+
 <div id="front-page-extensions" class="front-page-section full-width">
 	<div class="inner">
-		<div class="front-page-extensions-header">
-			<div class="front-page-about-edd-content-header">
-				<h2 class="front-page-section-title">Easy Digital Downloads <strong>Tailored to Your Business</strong></h2>
-				<p class="front-page-section-description">With over 190 extensions, Easy Digital Downloads can be customized to function the way you need. From payment processors to newsletter signup forms, EDD has extensions to fill the needs of almost every user.</p>
+		<div class="front-page-extensions-header page-section">
+			<div class="page-section-header">
+				<h2 class="page-section-title">Easy Digital Downloads <strong>Tailored to Your Business</strong></h2>
+				<p>With over 190 extensions, Easy Digital Downloads can be customized to function the way you need. From payment processors to newsletter signup forms, EDD has extensions to fill the needs of almost every user.</p>
 			</div>
 		</div>
 		<div class="front-page-extensions-content edd-downloads">
@@ -124,16 +133,8 @@ get_header();
 				wp_reset_postdata();
 				?>
 			</div><!-- /.extensions-grid -->
-		</div>
-	</div>
-</div>
-
-<div id="front-page-gateways" class="front-page-section full-width">
-	<div class="inner">
-		<div class="front-page-payment-gateways-content">
-			<h4 class="front-page-section-title">Easy Digital Downloads integrates with several Payment Gateways including:</h4>
-			<img class="front-page-payment-gateways-image" src="<?php echo get_template_directory_uri() ?>/images/front-page-payment-gateways.png" alt="Payment Gateways" />
-			<p class="view-all-extensions"><a href="<?php echo home_url( '/downloads/' ); ?>">view all extensions</a></p>
+			<p class="view-all-extensions"><a href="<?php echo home_url( '/downloads/' ); ?>"><i class="fa fa-cogs"></i>
+view all extensions</a></p>
 		</div>
 	</div>
 </div>
@@ -150,12 +151,12 @@ get_header();
 
 <div id="front-page-testimonials" class="front-page-section full-width">
 	<div class="inner">
-		<div class="testimonial-content clearfix">
-			<div class="front-page-testimonial-content-header">
-				<h2 class="front-page-section-title">Over <strong>700,000 Downloads</strong> and Counting</h2>
+		<div class="testimonial-content page-section clearfix">
+			<div class="page-section-header">
+				<h2 class="page-section-title">Over <strong>700,000 Downloads</strong> and Counting</h2>
 				<p>Have a look at what some of our users have to say about their experience with Easy Digital Downloads.</p>
 			</div>
-			<div class="front-page-testimonial-content">
+			<div class="page-section-content">
 				<?php
 					$testimonials = new WP_Query(
 						array(
