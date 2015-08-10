@@ -13,7 +13,7 @@ the_post();
 					<h1>Brand Assets</h1>
 
                     <p>Thanks for your interest in Easy Digital Downloads!</p>
-                    <p>Below are a few guidelines for using AffiliateWP’s brand resources, please take a moment to familiarize yourself with them. <br/>You can download individual assets in each section, or you can download everything all at once below.</p>
+                    <p>Below are a few guidelines for using our brand resources, please take a moment to familiarize yourself with them. <br/>You can download individual assets in each section, or you can download everything all at once below.</p>
 
                     <a href="<?php echo get_stylesheet_directory_uri() . '/brand-assets/edd-brand-assets.zip'; ?>" class="button">Download all assets</a>
 
