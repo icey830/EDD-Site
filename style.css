@@ -3544,9 +3544,12 @@ div.sharedaddy .sd-content {
   text-transform: uppercase;
   color: #999;
   font-size: 12px;
+  width: 39%;
 }
 .single-download .main .sidebar .box div .edd-download-detail {
   float: right;
+  text-align: right;
+  width: 58%;
 }
 .single-download .main .sidebar .box .author:not(:last-child) {
   margin-bottom: 10px;
