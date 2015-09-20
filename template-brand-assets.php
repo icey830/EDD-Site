@@ -5,50 +5,39 @@
 get_header();
 the_post();
 ?>
-	<section class="main clearfix">
-
-        <div class="container clearfix">
+	<section id="full-width-page" class="full-width-page main clearfix">
+		<div class="container clearfix">
 			<section class="content">
 				<article class="entry">
-					<h1>Brand Assets</h1>
-
-                    <p>Thanks for your interest in Easy Digital Downloads!</p>
-                    <p>Below are a few guidelines for using our brand resources, please take a moment to familiarize yourself with them. <br/>You can download individual assets in each section, or you can download everything all at once below.</p>
-
-                    <a href="<?php echo get_stylesheet_directory_uri() . '/brand-assets/edd-brand-assets.zip'; ?>" class="button">Download all assets</a>
-
+					<div class="entry-header">
+						<h1>Brand Assets</h1>
+					</div>
+					<p>Thanks for your interest in Easy Digital Downloads!</p>
+					<p>Below are a few guidelines for using our brand resources, please take a moment to familiarize yourself with them. <br/>You can download individual assets in each section, or you can download everything all at once below.</p>
+					<a href="<?php echo get_stylesheet_directory_uri() . '/brand-assets/edd-brand-assets.zip'; ?>" class="button">Download all assets</a>
 					<section class="brand-assets">
-
 						<h2>Colors</h2>
-	                    <p>These are the brand colors for Easy Digital Downloads. Copy the HEX codes below.</p>
-
+						<p>These are the brand colors for Easy Digital Downloads. Copy the HEX codes below.</p>
 						<div class="color">
 							<div class="color-1">
 								<p>#1d2428</p>
 							</div>
 						</div>
-
 						<div class="color">
 							<div class="color-2">
 								<p>#2794da</p>
 							</div>
 						</div>
-
 						<div class="color">
 							<div class="color-3">
 								<p>#eeeeee</p>
 							</div>
 						</div>
-
 					</section>
-
 					<section class="brand-assets">
-
-	                    <h2>Logos</h2>
-	                    <p>You can use our logo in either a horizontal or vertical layout. Shown below are the possible variations you may use.</p>
-
+						<h2>Logos</h2>
+						<p>You can use our logo in either a horizontal or vertical layout. Shown below are the possible variations you may use.</p>
 						<div id="logos">
-
 							<div class="logo">
 								<div class="logo-1">
 									<img src="<?php echo get_stylesheet_directory_uri() . '/brand-assets/logos/horizontal/logo-edd-dark.svg'; ?>" />
@@ -60,8 +49,6 @@ the_post();
 									<a href="<?php echo get_stylesheet_directory_uri() . '/brand-assets/logos/horizontal/logo-edd-dark.png'; ?>" target="_blank">.png</a>
 								</p>
 							</div>
-
-
 							<div class="logo">
 								<div class="logo-2">
 									<img src="<?php echo get_stylesheet_directory_uri() . '/brand-assets/logos/horizontal/logo-edd-light.svg'; ?>" />
@@ -73,7 +60,6 @@ the_post();
 									<a href="<?php echo get_stylesheet_directory_uri() . '/brand-assets/logos/horizontal/logo-edd-light.png'; ?>" target="_blank">.png</a>
 								</p>
 							</div>
-
 							<div class="logo">
 								<div class="logo-3">
 									<img src="<?php echo get_stylesheet_directory_uri() . '/brand-assets/logos/vertical/logo-edd-dark.svg'; ?>" />
@@ -85,7 +71,6 @@ the_post();
 									<a href="<?php echo get_stylesheet_directory_uri() . '/brand-assets/logos/vertical/logo-edd-dark.png'; ?>" target="_blank">.png</a>
 								</p>
 							</div>
-
 							<div class="logo">
 								<div class="logo-4">
 									<img src="<?php echo get_stylesheet_directory_uri() . '/brand-assets/logos/vertical/logo-edd-light.svg'; ?>" />
@@ -97,44 +82,35 @@ the_post();
 									<a href="<?php echo get_stylesheet_directory_uri() . '/brand-assets/logos/vertical/logo-edd-light.png'; ?>" target="_blank">.png</a>
 								</p>
 							</div>
-
 						</div>
 					</section>
-
 					<section class="brand-assets">
-                    	<h2>Meet Ed</h2>
+						<h2>Meet Ed</h2>
 						<p>Ed is the mascot for Easy Digital Downloads. Treat him with care!</p>
-                    	<div class="mascots">
+						<div class="mascots">
 							<div class="mascot">
 								<p><a href="<?php echo get_stylesheet_directory_uri() . '/brand-assets/mascots/ed-1-large.png'; ?>" class="button" target="_blank">Download</a></p>
 								<div class="mascot-1">
 									<img src="<?php echo get_stylesheet_directory_uri() . '/brand-assets/mascots/ed-1.png'; ?>" />
 								</div>
 							</div>
-
 							<div class="mascot">
 								<p><a href="<?php echo get_stylesheet_directory_uri() . '/brand-assets/mascots/ed-2-large.png'; ?>" class="button" target="_blank">Download</a></p>
 								<div class="mascot-1">
 									<img src="<?php echo get_stylesheet_directory_uri() . '/brand-assets/mascots/ed-2.png'; ?>" />
 								</div>
 							</div>
-
 							<div class="mascot">
 								<p><a href="<?php echo get_stylesheet_directory_uri() . '/brand-assets/mascots/ed-3-large.png'; ?>" class="button" target="_blank">Download</a></p>
 								<div class="mascot-1">
 									<img src="<?php echo get_stylesheet_directory_uri() . '/brand-assets/mascots/ed-3.png'; ?>" />
 								</div>
-
 							</div>
 						</div>
 					</section>
-
-
-
-                </article>
+				</article>
 			</section>
 		</div>
-
 	</section>
 	<?php
 get_footer();
