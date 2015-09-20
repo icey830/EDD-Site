@@ -3544,9 +3544,12 @@ div.sharedaddy .sd-content {
   text-transform: uppercase;
   color: #999;
   font-size: 12px;
+  width: 39%;
 }
 .single-download .main .sidebar .box div .edd-download-detail {
   float: right;
+  text-align: right;
+  width: 58%;
 }
 .single-download .main .sidebar .box .author:not(:last-child) {
   margin-bottom: 10px;
@@ -5608,7 +5611,7 @@ input#edd-discount:focus,
   font-size: 22px;
   font-weight: 700;
   padding: 20px;
-  border: 2px solid #eee;
+  border: 3px solid #eee;
   border-radius: 4px;
   margin: 0 !important;
   width: 100%;
@@ -5621,16 +5624,23 @@ input#edd-discount:focus,
 #starter-package .edd-gf-payment-method .gfield_radio li label:hover {
   color: #999;
 }
+#starter-package .edd-gf-payment-method .gfield_radio li input + label:before {
+  font-size: 21px;
+  line-height: 1.2;
+  font-family: "FontAwesome";
+  content: "\f10c";
+  margin-right: 10px;
+}
 #starter-package .edd-gf-payment-method .gfield_radio li input:checked + label {
   background: #F5F8FC;
   color: #62a9d7;
   font-weight: 700;
-  border: 2px solid #DAE7F0;
+  border: 3px solid #DAE7F0;
 }
 #starter-package .edd-gf-payment-method .gfield_radio li input:checked + label:before {
   display: inline-block;
   color: #38C238;
-  font-size: 30px;
+  font-size: 21px;
   line-height: 1.2;
   font-family: "FontAwesome";
   content: "\f058";
@@ -5644,6 +5654,7 @@ input#edd-discount:focus,
 #starter-package .edd-gf-credit-debit,
 #starter-package .edd-gf-billing-address,
 #starter-package .edd-gf-starter-discount,
+#starter-package .edd-gf-toc,
 #starter-package .gform_footer {
   max-width: 660px;
   margin: 30px auto !important;
@@ -5818,6 +5829,64 @@ input#edd-discount:focus,
   border-radius: 4px;
   height: 3em;
   min-width: 230px;
+}
+#starter-package .edd-gf-toc {
+  text-align: center;
+  padding-bottom: 20px;
+  margin-bottom: 0 !important;
+}
+#starter-package .edd-gf-toc .gfield_label {
+  margin-bottom: 10px;
+}
+#starter-package .edd-gf-toc .gfield_description {
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+#starter-package .edd-gf-toc .gfield_checkbox li {
+  margin-bottom: 0;
+}
+#starter-package .edd-gf-toc .gfield_checkbox {
+  display: inline-block;
+}
+#starter-package .edd-gf-toc .gfield_checkbox li input {
+  display: none;
+}
+#starter-package .edd-gf-toc .gfield_checkbox li label {
+  background: #fafafa;
+  color: #ccc;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 15px;
+  border: 3px solid #eee;
+  border-radius: 4px;
+  margin: 0 !important;
+  width: 100%;
+  height: 68px;
+  transition: all .2s;
+  -moz-transition: all .2s;
+  -webkit-transition: all .2s;
+  cursor: pointer;
+}
+#starter-package .edd-gf-toc .gfield_checkbox li label:hover {
+  color: #999;
+}
+#starter-package .edd-gf-toc .gfield_checkbox li input + label:before {
+  font-size: 21px;
+  line-height: 1.2;
+  font-family: "FontAwesome";
+  content: "\f10c";
+  margin-right: 10px;
+}
+#starter-package .edd-gf-toc .gfield_checkbox li input:checked + label {
+  background: #F5F8FC;
+  color: #62a9d7;
+  font-weight: 700;
+  border: 3px solid #DAE7F0;
+}
+#starter-package .edd-gf-toc .gfield_checkbox li input:checked + label:before {
+  display: inline-block;
+  color: #38C238;
+  content: "\f058";
 }
 /* ----------------------------- *
  * Common Page Templates
@@ -6859,6 +6928,75 @@ span.bbp-author-ip {
     margin: 0 1rem 0 0;
   }
 }
+.brand-assets {
+  margin-bottom: 4em;
+}
+.brand-assets:after {
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+  height: 0;
+}
+.color {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+.color p {
+  color: #fff;
+  padding: 4rem 6rem;
+  font-size: 1.5em;
+}
+.color-1 {
+  background: #1d2428;
+}
+.color-2 {
+  background: #2794da;
+}
+.color-3 {
+  background: #eee;
+}
+.color .color-3 p {
+  color: #222;
+}
+.logo {
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 2em;
+}
+.logo p {
+  margin-top: 1.5em;
+}
+.logo-4 {
+  background: #1d2428;
+}
+.logo-2 {
+  background: #1d2428;
+}
+.logo {
+  width: 100%;
+}
+.logo div {
+  padding: 4em;
+}
+@media only screen and (min-width: 768px) {
+  .color {
+    width: 33.333333333%;
+    float: left;
+  }
+  .logo {
+    width: 50%;
+    float: left;
+  }
+  .mascot {
+    width: 33.333333333%;
+    float: left;
+    padding: 2em;
+    text-align: center;
+  }
+}
 @-ms-viewport {
   width: device-width;
 }
@@ -7787,6 +7925,7 @@ span.bbp-author-ip {
     width: 100%;
   }
   .contributors h3 {
+    font-size: 2rem;
     line-height: 1.4;
     margin-top: 10px;
   }
