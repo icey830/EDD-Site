@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 				options: {
 					separator: ';'
 				},
-				src: ['js/dev/theme.js'],
+				src: ['js/src/**/*.js', 'js/dev/theme.js'],
 				dest: 'js/theme.min.js'
 			},
 		},
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
 				}
 			},
 			js: {
-				files: ['js/src/**/*.js'],
+				files: ['js/src/**/*.js', 'js/dev/theme.js'],
 				tasks: ['concat:js', 'uglify:js'],
 			},
 			svgstore: {
@@ -86,6 +86,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-svgstore');
 
-	grunt.registerTask('default', ['concat', 'uglify', 'watch', 'svgstore']);
+	grunt.registerTask('default', ['watch', 'less', 'concat', 'uglify', 'svgstore']);
 
 };
