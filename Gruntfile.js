@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 				options: {
 					separator: ';'
 				},
-				src: ['js/src/**/*.js', 'js/dev/theme.js'],
+				src: ['js/dev/theme.js'],
 				dest: 'js/theme.min.js'
 			},
 		},
