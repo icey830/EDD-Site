@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-		
+
 		// concat
 		concat: {
 			js: {
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 				dest: 'js/theme.min.js'
 			},
 		},
-	
+
 		// uglify
 		uglify: {
 			options: {
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-	
+
 		// svg store
 		svgstore: {
 			options: {
@@ -59,7 +59,7 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-	
+
 		watch: {
 			styles: {
 				files: ['css/less/*.less'],
@@ -77,17 +77,17 @@ module.exports = function(grunt) {
 				tasks: ['svgstore:default']
 			}
 		},
-	
+
 		'sftp-deploy': {
 			build: {
-			auth: {
-				host: 'edd.staging.wpengine.com',
-				port: 22,
-				authKey: 'staging'
-			},
-			src: '.',
-			dest: '/wp-content/themes/edd-v2/',
-			exclusions: ['.DS_Store', './git']
+				auth: {
+					host: 'edd.staging.wpengine.com',
+					port: 22,
+					authKey: 'staging'
+				},
+				src: '.',
+				dest: '/wp-content/themes/edd-v2/',
+				exclusions: ['.DS_Store', './git']
 			},
 			css: {
 				auth: {
