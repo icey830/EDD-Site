@@ -361,7 +361,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
   line-height: 1.6;
 }
 .gform_wrapper .edd-gf-support-tickets-form .top_label .gfield.edd-gf-support-tickets-form-email .gfield_description {
-  margin: 15px 0 5px;
+  display: none;
 }
 .gform_wrapper .edd-gf-support-tickets-form .top_label .gfield_label {
   font: 300 24px/1.4 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
