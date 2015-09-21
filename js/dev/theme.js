@@ -248,8 +248,8 @@
 		});
 		
 		// Support Form - Email address notice
-		a( "#input_14_2" ).focus(function() {
-			a(this).parents( ".ginput_container" ).siblings( ".gfield_description" ).slideDown();
+		$( "#input_14_2" ).focus(function() {
+			$(this).parents( ".ginput_container" ).siblings( ".gfield_description" ).slideDown();
 		});
 		
 	});
