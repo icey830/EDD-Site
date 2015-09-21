@@ -78,38 +78,14 @@ module.exports = function(grunt) {
 			}
 		},
 
-		'sftp-deploy': {
-			build: {
-				auth: {
-					host: 'edd.staging.wpengine.com',
-					port: 22,
-					authKey: 'staging'
-				},
-				src: '.',
-				dest: '/wp-content/themes/edd-v2/',
-				exclusions: ['.DS_Store', './git']
-			},
-			css: {
-				auth: {
-					host: 'edd.staging.wpengine.com',
-					port: 22,
-					authKey: 'staging'
-				},
-				src: '.',
-				dest: '/wp-content/themes/edd-v2/',
-				exclusions: ['.DS_Store', './git']
-			}
-		}
-
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-sftp-deploy');
 	grunt.loadNpmTasks('grunt-svgstore');
 
-	grunt.registerTask('default', ['concat', 'uglify', 'watch', 'sftp-deploy', 'svgstore']);
+	grunt.registerTask('default', ['concat', 'uglify', 'watch', 'svgstore']);
 
 };
