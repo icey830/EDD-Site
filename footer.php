@@ -42,7 +42,7 @@
 				</div><!-- /.social -->
 			<?php endif; ?>
 
-			<p class="copyright">Copyright &copy; <?php echo date( 'Y' ); ?>, Easy Digital Downloads. <?php if( ! is_page( 'checkout' ) ) : ?>A project by <a href="<?php echo esc_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.<?php endif; ?></p>
+			<p class="copyright">Copyright &copy; <?php echo date( 'Y' ); ?>, Easy Digital Downloads. <?php if( ! is_page( 'checkout' ) ) : ?>A project by <a href="<?php echo home_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.<?php endif; ?></p>
 		</div><!-- .container -->
 	</footer><!-- #colophon -->
 
