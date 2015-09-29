@@ -65,7 +65,7 @@ if ( is_user_logged_in() ) { ?>
 					<?php if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); } ?>
 				</div><!-- /.tab-pane -->
 
-				<div class="tab-pane license-keys-tab-pane" id="tab5">
+				<div class="tab-pane license-keys-tab-pane" id="license-keys-tab">
 
 					<?php
 					echo do_shortcode( '[edd_license_keys]' );
