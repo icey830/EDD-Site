@@ -28,6 +28,7 @@ if ( is_user_logged_in() ) { ?>
 
 			<ul class="nav nav-tabs nav-append-content">
 				<li class="active"><a href="#tab1" data-toggle="tab">Purchases</a></li>
+				<li><a href="#license-keys-tab" data-toggle="tab">License Keys</a></li>
 				<li><a href="#downloads-tab" data-toggle="tab">Downloads</a></li>
 				<li><a href="#tab2" data-toggle="tab">Profile</a></li>
 				<?php if ( eddc_user_has_commissions() ) { ?>
@@ -62,6 +63,13 @@ if ( is_user_logged_in() ) { ?>
 					<p id="next-payout"><?php if( function_exists( 'eddc_get_upcoming_commissions' ) ) { echo eddc_get_upcoming_commissions(); } ?></p>
 					<?php if( function_exists( 'eddc_user_product_list' ) ) { echo eddc_user_product_list(); } ?>
 					<?php if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); } ?>
+				</div><!-- /.tab-pane -->
+
+				<div class="tab-pane license-keys-tab-pane" id="license-keys-tab">
+
+					<?php
+					echo do_shortcode( '[edd_license_keys]' );
+					?>
 				</div><!-- /.tab-pane -->
 
 				<div class="tab-pane support-subscription-tab-pane" id="tab5">
