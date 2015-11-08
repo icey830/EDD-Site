@@ -1258,6 +1258,7 @@ add_action( 'pre_get_posts', 'eddwp_feed_query', 99999999 );
  * Featured image for downloads grid output
  */
 function eddwp_downloads_grid_thumbnail() {
+	global $post;
 
 	// replace old featured image programmatically until fully removed
 	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );

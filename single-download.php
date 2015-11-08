@@ -73,9 +73,11 @@ if ( $is_extension && ! $is_bundle ) {
 								<h3>Pricing</h3>
 								<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
 							</div>
-							<div class="terms clearfix">
-								<p><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="<?php echo $license; ?>" target="_blank">View license terms</a>.</p>
-							</div>
+							<?php if ( ! $is_theme ) { ?>
+								<div class="terms clearfix">
+									<p><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="<?php echo $license; ?>" target="_blank">View license terms</a>.</p>
+								</div>
+							<?php } ?>
 						</div>
 					<?php } // end if ?>
 					<?php if ( ! $is_bundle ) {
@@ -139,7 +141,7 @@ if ( $is_extension && ! $is_bundle ) {
 					<?php } ?>
 					<?php
 						if ( function_exists('p2p_register_connection_type') ) :
-		
+
 							$external_doc = get_post_meta( get_the_ID(), 'ecpt_documentationlink', true );
 
 							// Find connected docs
@@ -149,7 +151,7 @@ if ( $is_extension && ! $is_bundle ) {
 							  'nopaging' => true,
 							  'post_status' => 'publish'
 							) );
-		
+
 							if ( $docs->have_posts() || $external_doc ) {
 								echo '<div class="related-items download-info-section">';
 									// Display connected posts
