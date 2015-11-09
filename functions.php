@@ -1447,7 +1447,7 @@ function eddwp_newsletter_form() {
 					<input class="newsletter-email" name="pmc_email" id="pmc_email" type="text" placeholder="Email Address"/>
 				</div>
 				<div class="newsletter-submit-container">
-					<input type="hidden" name="redirect" value="<?php echo 'https://' . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>"/>
+					<input type="hidden" name="redirect" value="<?php echo edd_get_current_page_url(); ?>"/>
 					<input type="hidden" name="action" value="pmc_signup"/>
 					<input type="hidden" name="pmc_list_id" value="be2b495923"/>
 					<input type="submit" class="newsletter-submit edd-button button blue" value="Sign Up"/>
