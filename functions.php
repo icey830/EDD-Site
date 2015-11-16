@@ -671,23 +671,21 @@ function eddwp_display_themes() {
 /**
  * Append demo button link to download products
  */
-function eddwp_demo_link( $content ) {
-	global $post;
+function eddwp_demo_link() {
 
 	// bail if there is no demo link
-	$demo_link = get_post_meta( get_the_ID(), 'ecpt_demolink', true );
-	if( empty( $demo_link ) )
+	$get_demo_link = get_post_meta( get_the_ID(), 'ecpt_demolink', true );
+	if( empty( $get_demo_link ) ) {
 		return $content;
+	}
 
 	// build link to the demo
-	$output_demo_link = sprintf( '<p class="edd-demo-link"><a class="edd-submit button blue" href="%s">View Demo</a></p>', $demo_link );
+	$output_demo_link = sprintf( '<p class="edd-demo-link"><a class="edd-submit button blue" href="%s">View Demo</a></p>', $get_demo_link );
 
 	// add the link to demo below the content
-	$content = $content . $output_demo_link;
-
-	return $content;
+	echo $output_demo_link;
 }
-add_filter( 'the_content', 'eddwp_demo_link' );
+add_filter( 'edd_after_download_content', 'eddwp_demo_link', 9, 1 );
 
 /**
  * Append the changelog to the extension or download content
@@ -1258,6 +1256,7 @@ add_action( 'pre_get_posts', 'eddwp_feed_query', 99999999 );
  * Featured image for downloads grid output
  */
 function eddwp_downloads_grid_thumbnail() {
+	global $post;
 
 	// replace old featured image programmatically until fully removed
 	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
