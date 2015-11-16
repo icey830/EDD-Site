@@ -62,6 +62,7 @@ function edd_theme_setup() {
 
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'edd' ),
+		'footer'  => __( 'Footer Menu', 'edd' ),
 	) );
 }
 add_action( 'after_setup_theme', 'edd_theme_setup' );

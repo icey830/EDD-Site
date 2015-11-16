@@ -32,6 +32,12 @@
 					</div><!-- /.consultants -->
 				</div><!-- /.columns -->
 
+				<?php if ( has_nav_menu( 'footer' ) ) : ?>
+					<nav id="footer-menu" class="navigation-footer">
+						<?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
+					</nav><!-- /#primary -->
+				<?php endif; ?>
+
 				<div class="social clearfix">
 					<ul>
 						<li class="facebook"><a href="https://www.facebook.com/eddwp"></a></li>
