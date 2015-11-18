@@ -10,11 +10,11 @@ if ( $current_time >= 1448604000 && $current_time <= 1448863200 ) {
 if ( true === $is_blackfriday ) {
 	echo '<div class="edd-extension edd-starter-package">';
 		echo '<h3 class="edd-extension-title">Black Friday / Cyber Monday Sale!</h3>';
-		echo '<a href="https://easydigitaldownloads.com/starter-package/?utm_source=plugin-addons-page&utm_medium=plugin&utm_campaign=BlackFriday&utm_content=Black+Friday" title="Black Friday / Cyber Monday">';
-			echo '<img width="320" height="200" src="' . trailingslashit( get_stylesheet_directory_uri() ) . 'images/starter-package.png" class="attachment-showcase wp-post-image" alt="Starter Package" title="Starter Package" />';
+		echo '<a href="https://easydigitaldownloads.com/?utm_source=plugin-addons-page&utm_medium=plugin&utm_campaign=BlackFriday&utm_content=Black+Friday" title="Black Friday / Cyber Monday">';
+			echo '<img width="320" height="200" src="' . trailingslashit( get_stylesheet_directory_uri() ) . 'images/cm-bf-extension.png" class="attachment-showcase wp-post-image" alt="Black Friday/Cyber Monday Sale" title="Black Friday/Cyber Monday Sale" />';
 		echo '</a>';
 		echo '<p>Save 30% on <strong>all</strong> purchases, upgrades, and renewals!</p>';
-		echo '<a href="https://easydigitaldownloads.com/starter-package/?utm_source=plugin-addons-page&utm_medium=plugin&utm_campaign=BlackFriday&utm_content=Black+Friday" title="Black Friday / Cyber Monday" class="button-secondary">Get Started!</a>';
+		echo '<a href="https://easydigitaldownloads.com/?utm_source=plugin-addons-page&utm_medium=plugin&utm_campaign=BlackFriday&utm_content=Black+Friday" title="Black Friday / Cyber Monday" class="button-secondary">Get Started!</a>';
 	echo '</div>';
 }
 
