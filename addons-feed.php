@@ -16,9 +16,7 @@ if ( true === $is_blackfriday ) {
 		echo '<p>Save 30% on <strong>all</strong> purchases, upgrades, and renewals!</p>';
 		echo '<a href="https://easydigitaldownloads.com/?utm_source=plugin-addons-page&utm_medium=plugin&utm_campaign=BlackFriday&utm_content=Black+Friday" title="Black Friday / Cyber Monday" class="button-secondary">Get Started!</a>';
 	echo '</div>';
-}
-
-if ( false === $is_blackfriday ) {
+} else {
 	echo '<div class="edd-extension edd-starter-package">';
 		echo '<h3 class="edd-extension-title">Starter Package</h3>';
 		echo '<a href="https://easydigitaldownloads.com/starter-package/?utm_source=plugin-addons-page&utm_medium=plugin&utm_campaign=EDDAddonsPage&utm_content=Starter+Package" title="Starter Package">';
