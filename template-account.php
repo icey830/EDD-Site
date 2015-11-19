@@ -23,6 +23,18 @@ if ( is_user_logged_in() ) { ?>
 			<?php while ( have_posts() ) { the_post(); ?>
 			<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
 				<h1>My Account</h1>
+				<?php
+					/**
+					 * Only show account balance when it's not 0
+					 */
+					if ( class_exists( 'EDD_Wallet' ) ) {
+						$user_id    = get_current_user_id();
+						$value      = edd_wallet()->wallet->balance( $user_id );
+						if ( $value > 0 ) {
+							echo '<div class="edd-wallet-container">Account Balance:<br><span class="edd-wallet-value">' . edd_currency_filter( edd_format_amount( $value ) ) . '</span></div>';
+						}
+					}
+				?>
 			</article><!-- /#post-<?php echo get_the_ID(); ?> -->
 			<?php } ?>
 
