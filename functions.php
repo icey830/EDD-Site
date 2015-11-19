@@ -1511,9 +1511,12 @@ function eddwp_edd_is_activated() {
 /**
  * Remove Help Scout Beacon on checkout page
  */
-if( edd_is_checkout() ) {
-	remove_action( 'wp_enqueue_scripts', 'beacon_scripts', 10 );
+function eddwp_remove_beacon_script() {
+	if( edd_is_checkout() ) {
+		remove_action( 'wp_enqueue_scripts', 'beacon_scripts', 9999 );
+	}
 }
+add_action( 'plugins_loaded', 'eddwp_remove_beacon_script' );
 
 
 /* ----------------------------------------------------------- *
