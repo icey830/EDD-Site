@@ -1508,6 +1508,13 @@ function eddwp_edd_is_activated() {
 	return class_exists( 'Easy_Digital_Downloads' );
 }
 
+/**
+ * Remove Help Scout Beacon on checkout page
+ */
+if( edd_is_checkout() ) {
+	remove_action( 'wp_enqueue_scripts', 'beacon_scripts', 10 );
+}
+
 
 /* ----------------------------------------------------------- *
  * 12. Next Commissions Payout Amount
