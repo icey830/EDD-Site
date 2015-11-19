@@ -1513,10 +1513,10 @@ function eddwp_edd_is_activated() {
  */
 function eddwp_remove_beacon_script() {
 	if( edd_is_checkout() ) {
-		remove_action( 'wp_enqueue_scripts', 'beacon_scripts', 9999 );
+		remove_action( 'wp_enqueue_scripts', 'beacon_scripts', 10 );
 	}
 }
-add_action( 'plugins_loaded', 'eddwp_remove_beacon_script' );
+add_action( 'plugins_loaded', 'eddwp_remove_beacon_script', 9999 );
 
 
 /* ----------------------------------------------------------- *
