@@ -13,7 +13,7 @@ the_post();
 			<div class="inner">
 				<div class="support-header clearfix">
 					<div class="section-header">
-						<h2 class="section-title">We're here to help!</h2>
+						<h2 class="section-title">Having issues? Let us help solve the problem.</h2>
 						<p class="section-subtitle">Use the features below to search our knowledge base or contact us for support.</p>
 					</div>
 				</div>
