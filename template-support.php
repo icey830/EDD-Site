@@ -66,9 +66,6 @@ the_post();
 					</p>
 					<section class="support-docs-form-container clearfix">
 						<div class="the-content clearfix">
-							<div class="support-header">
-								<h1 class="support-title">No luck? No worries. What is your question about?</h1>
-							</div>
 							<div class="entry-content">
 								<?php the_content(); ?>
 							</div>
