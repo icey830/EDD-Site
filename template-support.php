@@ -69,7 +69,7 @@ the_post();
 							<div class="entry-content">
 								<?php the_content(); ?>
 								<p class="support-direct-links">
-									<a href="<?php echo home_url( '/pre-sale-question/' ); ?>">ask a pre-sale question</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="<?php echo home_url( '/request-refund/' ); ?>">request a refund</a>
+									<a href="<?php echo home_url( '/pre-sale-question/' ); ?>">ask a pre-sale question</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="<?php echo home_url( '/refund-request/' ); ?>">request a refund</a>
 								</p>
 							</div>
 						</div>
