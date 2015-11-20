@@ -62,7 +62,7 @@ the_post();
 						</div>
 					</div>
 					<p class="edd-docs-link">
-						<a href="#" class="button">View Full Documentation</a>
+						<a href="http://docs.easydigitaldownloads.com/" class="button">View Full Documentation</a>
 					</p>
 					<section class="support-docs-form-container clearfix">
 						<div class="the-content clearfix">
