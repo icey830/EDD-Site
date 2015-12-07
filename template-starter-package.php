@@ -6,7 +6,7 @@
  */
 get_header();
 the_post();
-	?>	
+	?>
 	<section id="starter-package" class="main clearfix">
 		<article class="content clearfix">
 			<div class="the-content clearfix">
@@ -23,6 +23,6 @@ the_post();
 				</div>
 			</div>
 		</article><!-- /.content -->
-	</section><!-- /.main -->	
-	<?php		
+	</section><!-- /.main -->
+	<?php
 get_footer();
