@@ -241,6 +241,146 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	margin-top: 10px;
 }
 
+/* Support Page Template */
+.support-page .support-title-wrap {
+	text-align: center;
+	margin: 0 !important;
+	max-width: 100% !important;
+}
+.support-page .support-title {
+	font-size: 3.6rem;
+	font-weight: 300;
+	margin: 0 0 1em;
+}
+.support-page .support-section-wrap {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
+.support-page .support-section {
+	width: 31%;
+	margin-bottom: 33px;
+}
+.support-page .support-section-link {
+	display: block;
+	padding: 20px;
+	border: 2px solid #f1f1f1;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+.support-page .support-section-link:hover {
+	border: 2px solid #2794da;
+}
+.support-page .support-section-title {
+	color: #333;
+	font-weight: 500;
+	margin: 0 0 .4em;
+}
+.support-page .support-section-description {
+	color: #999;
+}
+.support-page .edd-docs-link {
+	text-align: center;
+}
+.support-page .edd-docs-link a {
+	font-size: 18px;
+	padding: 10px;
+	min-width: 240px;
+}
+.support-page .support-docs-form-container:not(.pre-sale-support-form-container) {
+	border-top: 2px solid #f2f2f2;
+	margin-top: 50px;
+}
+.support-page .edd-gf-support-docs {
+	text-align: center;
+}
+.support-page .gform_wrapper,
+.support-page .gform_wrapper .gform_page_footer {
+	border: none;
+	margin: 0;
+	width: 100%;
+	max-width: 100%;
+}
+.support-page .helpscout-docs label {
+	display: none !important;
+}
+.support-page .helpscout-docs input[type="text"] {
+	font-size: 24px !important;
+	padding: 10px !important;
+	border: 2px solid #f1f1f1;
+	width: 100% !important;
+	max-width: 520px !important;
+}
+.support-page .gform_wrapper .docs-search-results {
+	text-align: left;
+	padding-left: 0;
+	border: 2px solid #f1f1f1;
+	border-width: 2px 2px 1px 2px;
+	border-radius: 4px;
+	margin: 40px auto !important;
+	max-width: 700px;
+}
+.support-page .gform_wrapper .docs-search-results li {
+	list-style: none !important;
+}
+.support-page .gform_wrapper .docs-search-results li.article {
+	border-bottom: 1px solid #f1f1f1;
+	margin: 0;
+}
+.support-page .gform_wrapper .docs-search-results li.article a {
+	display: block;
+	font-size: 18px;
+	padding: 10px 20px;
+}
+.support-page .gform_wrapper .docs-search-results li.article a:hover {
+	background: #fafafa;
+	color: #2794da;
+}
+.support-page .gform_wrapper .gform_page_footer {
+	text-align: center;
+}
+.support-page .edd-gf-support-form,
+.support-page .edd-gf-pre-sale-question-form,
+.support-page .edd-gf-refund-request-form {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 780px;
+}
+.support-page .gform_wrapper .show-contact-form-wrap a,
+.support-page .gform_wrapper .gform_page_footer input[type="button"],
+.support-page .gform_wrapper .gform_page_footer input[type="submit"] {
+	font-size: 18px;
+	padding: 10px;
+	margin-right: 0 !important;
+	min-width: 240px;
+}
+.support-page .edd-gf-support-form .gform_page_footer {
+	padding-top: 40px;
+	border-top: 2px solid #f2f2f2;
+}
+.support-page .gform_wrapper .gform_page_footer img {
+	display: block;
+	max-width: 40px;
+	margin: 10px auto;
+	clear: both
+}
+.support-page .edd-gf-support-tickets-form {
+	margin-bottom: 10px;
+}
+.support-page .support-direct-links {
+	text-align: center;
+}
+.support-page .support-direct-links a {
+	color: #999;
+}
+.support-page .support-direct-links a:hover {
+	color: #555;
+}
+
 /* Support Ticket Form - Gravity Forms */
 #gform_wrapper_4,
 #gform_wrapper_14 {
@@ -253,6 +393,12 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 }
 .edd-gf-support-tickets-form {
 	margin-top: 40px;
+}
+.pre-sale-support-form-container .edd-gf-support-tickets-form {
+	margin-top: 0;
+}
+.support-page .support-docs-form-container.refund-support-form-container {
+	margin-top: 20px;
 }
 .edd-gf-support-tickets-form input[type="text"],
 .edd-gf-support-tickets-form input[type="url"],
