@@ -14,8 +14,8 @@ the_post();
 				<div class="support-header clearfix">
 					<div class="section-header">
 						<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
-							<h2 class="section-title">Having issues? Let us help solve the problem.</h2>
-							<p class="section-subtitle">Use the features below to search our knowledge base or contact us for support.</p>
+							<h2 class="section-title">Have questions? Let us help.</h2>
+							<p class="section-subtitle">Search our knowledge base, or contact us for pre-sales or support questions.</p>
 						<?php } elseif ( is_page( 'pre-sale-question' ) ) { ?>
 							<h2 class="section-title">Questions before you commit? Let us know.</h2>
 							<p class="section-subtitle">We're happy to answer questions about our extensions, themes, or Easy Digital Downloads itself.</p>
@@ -34,6 +34,12 @@ the_post();
 					<?php if ( ! is_page( 'pre-sale-question' ) ) { ?>
 						<div class="support-section-wrap">
 							<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
+								<div class="support-section pre-sale-question-section special-section">
+									<a href="<?php echo home_url( '/pre-sale-question/' ); ?>" class="support-section-link">
+										<h4 class="support-section-title">Pre-sale Question?</h4>
+										<p class="support-section-description">You are more than welcome to ask questions before committing.</p>
+									</a>
+								</div>
 								<div class="support-section">
 									<a href="http://docs.easydigitaldownloads.com/collection/168-getting-started" class="support-section-link">
 										<h4 class="support-section-title">Getting Started</h4>
@@ -62,12 +68,6 @@ the_post();
 									<a href="http://docs.easydigitaldownloads.com/collection/174-developer-docs" class="support-section-link">
 										<h4 class="support-section-title">Developer Documentation</h4>
 										<p class="support-section-description">See all of Easy Digital Downloads' functions, classes, actions, filters, etc.</p>
-									</a>
-								</div>
-								<div class="support-section pre-sale-question-section special-section">
-									<a href="<?php echo home_url( '/pre-sale-question/' ); ?>" class="support-section-link">
-										<h4 class="support-section-title">Pre-sale Question?</h4>
-										<p class="support-section-description">You are more than welcome to ask questions before committing.</p>
 									</a>
 								</div>
 								<!--
