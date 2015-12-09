@@ -17,8 +17,8 @@ the_post();
 							<h2 class="section-title">Have questions? Let us help.</h2>
 							<p class="section-subtitle">Search our knowledge base, or contact us for pre-sales or support questions.</p>
 						<?php } elseif ( is_page( 'pre-sale-question' ) ) { ?>
-							<h2 class="section-title">Questions before you commit?</h2>
-							<p class="section-subtitle">We're happy to answer questions about our extensions, themes, or Easy Digital Downloads itself.</p>
+							<h2 class="section-title">Ask a Pre-sale Question</h2>
+							<p class="section-subtitle">Be sure you're making the right decisions.</p>
 						<?php } elseif ( is_page( 'refund-request' ) ) { ?>
 							<h2 class="section-title">Need a refund? Submit your request below.</h2>
 							<p class="section-subtitle">Be sure to review our Refund Policy and have your purchase receipt ID or license key handy.</p>
