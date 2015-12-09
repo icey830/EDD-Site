@@ -64,12 +64,20 @@ the_post();
 										<p class="support-section-description">See all of Easy Digital Downloads' functions, classes, actions, filters, etc.</p>
 									</a>
 								</div>
+								<div class="support-section pre-sale-question-section special-section">
+									<a href="<?php echo home_url( '/pre-sale-question/' ); ?>" class="support-section-link">
+										<h4 class="support-section-title">Pre-sale Question?</h4>
+										<p class="support-section-description">You are more than welcome to ask questions before committing.</p>
+									</a>
+								</div>
+								<!--
 								<div class="support-section">
 									<a href="http://docs.easydigitaldownloads.com/collection/292-server-config" class="support-section-link">
 										<h4 class="support-section-title">Server Configuration</h4>
 										<p class="support-section-description">View server-specific documentation for setup and configuration guides.</p>
 									</a>
 								</div>
+								-->
 							<?php } ?>
 							<?php if ( is_page( 'refund-request' ) ) { ?>
 								<div class="support-section">
