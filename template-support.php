@@ -113,7 +113,8 @@ the_post();
 								<?php the_content(); ?>
 								<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
 									<p class="support-direct-links">
-										<a href="<?php echo home_url( '/pre-sale-question/' ); ?>">ask a pre-sale question</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="<?php echo home_url( '/refund-request/' ); ?>">request a refund</a>
+										<span class="support-request-separator">or</span><br>
+										<a class="pre-sale-request" href="<?php echo home_url( '/pre-sale-question/' ); ?>">ask a pre-sale question</a><br><a class="refund-request" href="<?php echo home_url( '/refund-request/' ); ?>">request a refund</a>
 									</p>
 								<?php } ?>
 							</div>
