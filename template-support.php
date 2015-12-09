@@ -83,7 +83,7 @@ the_post();
 								<div class="support-section">
 									<a href="<?php echo home_url( '/support/' ); ?>" class="support-section-link">
 										<h4 class="support-section-title">Need support?</h4>
-										<p class="support-section-description">We're more than happy to provide assistance you if you're having troubles.</p>
+										<p class="support-section-description">We're more than happy to provide assistance if you're having troubles.</p>
 									</a>
 								</div>
 								<div class="support-section">
