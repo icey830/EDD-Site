@@ -14,11 +14,11 @@ the_post();
 				<div class="support-header clearfix">
 					<div class="section-header">
 						<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
-							<h2 class="section-title">Having issues? Let us help solve the problem.</h2>
-							<p class="section-subtitle">Use the features below to search our knowledge base or contact us for support.</p>
+							<h2 class="section-title">Have questions? Let us help.</h2>
+							<p class="section-subtitle">Search our knowledge base, or contact us for pre-sales or support questions.</p>
 						<?php } elseif ( is_page( 'pre-sale-question' ) ) { ?>
-							<h2 class="section-title">Questions before you commit? Let us know.</h2>
-							<p class="section-subtitle">We're happy to answer questions about our extensions, themes, or Easy Digital Downloads itself.</p>
+							<h2 class="section-title">Ask a Pre-sale Question</h2>
+							<p class="section-subtitle">Be sure you're making the right decisions.</p>
 						<?php } elseif ( is_page( 'refund-request' ) ) { ?>
 							<h2 class="section-title">Need a refund? Submit your request below.</h2>
 							<p class="section-subtitle">Be sure to review our Refund Policy and have your purchase receipt ID or license key handy.</p>
@@ -34,6 +34,12 @@ the_post();
 					<?php if ( ! is_page( 'pre-sale-question' ) ) { ?>
 						<div class="support-section-wrap">
 							<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
+								<div class="support-section pre-sale-question-section special-section">
+									<a href="<?php echo home_url( '/pre-sale-question/' ); ?>" class="support-section-link">
+										<h4 class="support-section-title">Pre-sale Question?</h4>
+										<p class="support-section-description">You are more than welcome to ask questions before committing.</p>
+									</a>
+								</div>
 								<div class="support-section">
 									<a href="http://docs.easydigitaldownloads.com/collection/168-getting-started" class="support-section-link">
 										<h4 class="support-section-title">Getting Started</h4>
@@ -64,30 +70,32 @@ the_post();
 										<p class="support-section-description">See all of Easy Digital Downloads' functions, classes, actions, filters, etc.</p>
 									</a>
 								</div>
+								<!--
 								<div class="support-section">
 									<a href="http://docs.easydigitaldownloads.com/collection/292-server-config" class="support-section-link">
 										<h4 class="support-section-title">Server Configuration</h4>
 										<p class="support-section-description">View server-specific documentation for setup and configuration guides.</p>
 									</a>
 								</div>
+								-->
 							<?php } ?>
 							<?php if ( is_page( 'refund-request' ) ) { ?>
 								<div class="support-section">
-									<a href="http://docs.easydigitaldownloads.com/article/942-terms-and-conditions" class="support-section-link">
-										<h4 class="support-section-title">Refund Policy</h4>
-										<p class="support-section-description">Be sure your request meets the necessary criteria for a refund.</p>
-									</a>
-								</div>
-								<div class="support-section">
 									<a href="<?php echo home_url( '/support/' ); ?>" class="support-section-link">
-										<h4 class="support-section-title">Just need help?</h4>
-										<p class="support-section-description">We're more than happy to assist you if you're simply having troubles.</p>
+										<h4 class="support-section-title">Need support?</h4>
+										<p class="support-section-description">We're more than happy to provide assistance if you're having troubles.</p>
 									</a>
 								</div>
 								<div class="support-section">
 									<a href="http://docs.easydigitaldownloads.com/" class="support-section-link">
 										<h4 class="support-section-title">Documentation</h4>
 										<p class="support-section-description">Perhaps one last look at the documentation can resolve your issue?</p>
+									</a>
+								</div>
+								<div class="support-section special-section">
+									<a href="http://docs.easydigitaldownloads.com/article/942-terms-and-conditions" class="support-section-link">
+										<h4 class="support-section-title">Refund Policy</h4>
+										<p class="support-section-description">Be sure your request meets the necessary criteria for a refund.</p>
 									</a>
 								</div>
 							<?php } ?>
@@ -113,7 +121,8 @@ the_post();
 								<?php the_content(); ?>
 								<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
 									<p class="support-direct-links">
-										<a href="<?php echo home_url( '/pre-sale-question/' ); ?>">ask a pre-sale question</a>&nbsp;&nbsp;&middot;&nbsp;&nbsp;<a href="<?php echo home_url( '/refund-request/' ); ?>">request a refund</a>
+										<span class="support-request-separator">or</span><br>
+										<a class="pre-sale-request" href="<?php echo home_url( '/pre-sale-question/' ); ?>">ask a pre-sale question</a><br><a class="refund-request" href="<?php echo home_url( '/refund-request/' ); ?>">request a refund</a>
 									</p>
 								<?php } ?>
 							</div>
