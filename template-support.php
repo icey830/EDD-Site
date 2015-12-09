@@ -81,21 +81,21 @@ the_post();
 							<?php } ?>
 							<?php if ( is_page( 'refund-request' ) ) { ?>
 								<div class="support-section">
-									<a href="http://docs.easydigitaldownloads.com/article/942-terms-and-conditions" class="support-section-link">
-										<h4 class="support-section-title">Refund Policy</h4>
-										<p class="support-section-description">Be sure your request meets the necessary criteria for a refund.</p>
-									</a>
-								</div>
-								<div class="support-section">
 									<a href="<?php echo home_url( '/support/' ); ?>" class="support-section-link">
-										<h4 class="support-section-title">Just need help?</h4>
-										<p class="support-section-description">We're more than happy to assist you if you're simply having troubles.</p>
+										<h4 class="support-section-title">Need support?</h4>
+										<p class="support-section-description">We're more than happy to provide assistance you if you're having troubles.</p>
 									</a>
 								</div>
 								<div class="support-section">
 									<a href="http://docs.easydigitaldownloads.com/" class="support-section-link">
 										<h4 class="support-section-title">Documentation</h4>
 										<p class="support-section-description">Perhaps one last look at the documentation can resolve your issue?</p>
+									</a>
+								</div>
+								<div class="support-section special-section">
+									<a href="http://docs.easydigitaldownloads.com/article/942-terms-and-conditions" class="support-section-link">
+										<h4 class="support-section-title">Refund Policy</h4>
+										<p class="support-section-description">Be sure your request meets the necessary criteria for a refund.</p>
 									</a>
 								</div>
 							<?php } ?>
