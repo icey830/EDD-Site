@@ -119,12 +119,6 @@ the_post();
 						<div class="the-content clearfix">
 							<div class="entry-content">
 								<?php the_content(); ?>
-								<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
-									<p class="support-direct-links">
-										<span class="support-request-separator">or</span><br>
-										<a class="pre-sale-request" href="<?php echo home_url( '/pre-sale-question/' ); ?>">ask a pre-sale question</a><br><a class="refund-request" href="<?php echo home_url( '/refund-request/' ); ?>">request a refund</a>
-									</p>
-								<?php } ?>
 							</div>
 						</div>
 					</section><!-- /.content -->
