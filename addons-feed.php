@@ -34,7 +34,7 @@ if ( have_posts() ) {
 		$url = esc_url( add_query_arg( array(
 			'utm_source'   => 'plugin-addons-page',
 			'utm_medium'   => 'plugin',
-			'utm_campaign' => 'EDD Addons Page',
+			'utm_campaign' => 'EDDAddonsPage',
 			'utm_content'  => get_the_title()
 		), get_permalink() ) );
 
