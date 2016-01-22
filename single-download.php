@@ -65,7 +65,7 @@ if ( $is_extension && ! $is_bundle ) {
 							</div>
 						<?php } ?>
 					</div>
-					<?php if ( ! eddwp_is_extension_third_party() && ! eddwp_is_external_extension() ) {
+					<?php if ( ! eddwp_is_external_extension() ) {
 						$license = home_url( '/docs/extensions-terms-conditions/' );
 						?>
 						<div class="download-access download-info-section">
