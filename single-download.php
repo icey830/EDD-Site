@@ -73,7 +73,7 @@ if ( $is_extension && ! $is_bundle ) {
 								<h3>Pricing</h3>
 								<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
 							</div>
-							<?php if ( ! $is_theme ) { ?>
+							<?php if ( ! $is_theme && ! edd_is_free_download( $download_id ) ) { ?>
 								<div class="terms clearfix">
 									<p><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="<?php echo $license; ?>" target="_blank">View license terms</a>.</p>
 								</div>
