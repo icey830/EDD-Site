@@ -29,7 +29,7 @@ if ( $is_extension && ! $is_bundle ) {
 				<?php
 					the_title( '<h1 class="download-entry-title">', '</h1>' );
 
-					$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
+					$image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) );
 					$old_default = home_url( '/wp-content/uploads/2013/07/defaultpng.png' );
 
 					if ( has_post_thumbnail() && $image[0] !== $old_default ) :
@@ -65,7 +65,7 @@ if ( $is_extension && ! $is_bundle ) {
 							</div>
 						<?php } ?>
 					</div>
-					<?php if ( ! eddwp_is_extension_third_party() && ! eddwp_is_external_extension() ) {
+					<?php if ( ! eddwp_is_external_extension() ) {
 						$license = home_url( '/docs/extensions-terms-conditions/' );
 						?>
 						<div class="download-access download-info-section">
@@ -73,7 +73,7 @@ if ( $is_extension && ! $is_bundle ) {
 								<h3>Pricing</h3>
 								<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
 							</div>
-							<?php if ( ! $is_theme ) { ?>
+							<?php if ( ! $is_theme && ! edd_is_free_download( get_the_ID() ) ) { ?>
 								<div class="terms clearfix">
 									<p><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="<?php echo $license; ?>" target="_blank">View license terms</a>.</p>
 								</div>
