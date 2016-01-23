@@ -248,7 +248,7 @@
 		});
 
 		// Support Form - Email address notice
-		$( "#input_14_2", "#input_16_2" ).focus(function() {
+		$( "#input_16_2" ).focus(function() {
 			$(this).parents( ".ginput_container" ).siblings( ".gfield_description" ).slideDown();
 		});
 
