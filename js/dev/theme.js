@@ -252,5 +252,10 @@
 			$(this).parents( ".ginput_container" ).siblings( ".gfield_description" ).slideDown();
 		});
 
+		// New Support Form - Email address notice
+		$( "#input_16_2" ).focus(function() {
+			$(this).parents( ".ginput_container" ).siblings( ".gfield_description" ).slideDown();
+		});
+
 	});
 }(jQuery));
