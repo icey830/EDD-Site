@@ -3119,12 +3119,22 @@ input#edd-discount,
 	min-height: 560px;
 }
 
-#starter-package .edd-gf-marketing {
+#starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-marketing,
+#starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-accounting {
+	background: #fff;
+	padding: 50px 0 30px;
+	border: 4px solid #fafafa;
+	border-width: 4px 0;
+}
+
+#starter-package .edd-gf-marketing,
+#starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-marketing {
 	padding-right: 50px;
 	border-right: 2px solid #fafafa;
 }
 
-#starter-package .edd-gf-accounting {
+#starter-package .edd-gf-accounting,
+#starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-accounting {
 	padding: 50px 50px 0;
 	border: 2px solid #fafafa;
 	border-width: 4px 2px;
@@ -3182,6 +3192,12 @@ input#edd-discount,
 	padding: 3px 8px;
 	border-radius: 3px;
 	margin: 4px 0 10px;
+}
+
+#starter-package .gfield_error.edd-gf-marketing .edd-gf-label-tip,
+#starter-package .gfield_error.edd-gf-accounting .edd-gf-label-tip,
+#starter-package .gfield_error.edd-gf-misc .edd-gf-label-tip {
+	background: #ffdfe0;
 }
 
 #starter-package .gfield_contains_required .edd-gf-label-tip:after {
@@ -3494,7 +3510,7 @@ input#edd-discount,
 	font-size: 1em;
 	font-weight: 400;
 	padding: 10px 20px;
-	border: 1px solid #790000;
+	border: none;
 	border-radius: 4px;
 	margin: 25px 0;
 }
@@ -3505,10 +3521,15 @@ input#edd-discount,
 	width: 100%;
 }
 
+#starter-package .gform_wrapper li.gfield_error .gfield_label {
+	color: #555;
+}
+
 #starter-package .gform_wrapper li.gfield.gfield_error {
 	padding: 30px;
-	border: 1px solid #790000;
+	border: none;
 	border-radius: 4px;
+	margin-top: 0;
 }
 
 #starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required.edd-gf-marketing {
