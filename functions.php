@@ -1508,12 +1508,6 @@ function eddwp_edd_is_activated() {
 	return class_exists( 'Easy_Digital_Downloads' );
 }
 
-/**
- * Move checkout errors below terms agreement
- */
-remove_action( 'edd_ajax_checkout_errors', 'edd_print_errors' );
-add_action( 'edd_purchase_form_before_submit', 'edd_print_errors', 999 );
-
 
 /* ----------------------------------------------------------- *
  * 12. Next Commissions Payout Amount
