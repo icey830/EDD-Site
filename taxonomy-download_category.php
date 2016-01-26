@@ -34,6 +34,7 @@ get_header();
 									162 /* themes */,
 									1572 /* child themes */,
 									1571 /* featured theme */,
+									1536 /* 3rd party */
 								),
 							);
 							$cats = get_terms( 'download_category', $cat_args );
