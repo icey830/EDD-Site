@@ -154,7 +154,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 					</div>
 					<?php wp_reset_postdata(); ?>
 					<div class="third-party-extensions-section">
-						<p>View more extensions built by talented developers form the EDD community.</p>
+						<p>View more extensions built by talented developers from the EDD community.</p>
 						<a class="edd-subtmi button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>">3rd Party Extensions</a>
 					</div>
 				</div>
