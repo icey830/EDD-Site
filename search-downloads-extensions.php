@@ -41,6 +41,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 									22 /* extensions */,
 									162 /* themes */,
 									1571 /* featured theme */,
+									1536 /* 3rd party */
 								),
 							);
 							$cats = get_terms( 'download_category', $cat_args );
@@ -152,6 +153,10 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 						<?php echo $links; ?>
 					</div>
 					<?php wp_reset_postdata(); ?>
+					<div class="third-party-extensions-section">
+						<p>View more extensions built by talented developers form the EDD community.</p>
+						<a class="edd-subtmi button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>">3rd Party Extensions</a>
+					</div>
 				</div>
 			</div>
 		</div>
