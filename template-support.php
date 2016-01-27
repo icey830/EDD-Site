@@ -103,8 +103,7 @@ the_post();
 					<?php } ?>
 					<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
 						<p class="edd-docs-link-wrap">
-							<a class="edd-docs-link button" href="http://docs.easydigitaldownloads.com/">View Full Documentation</a>
-							<a class="edd-support-ticket-link gray-button" href="#">Submit Support Request</a>
+							<a class="edd-docs-link button" href="http://docs.easydigitaldownloads.com/">View Full Documentation</a><span class="button-break"></span><a class="edd-support-ticket-link gray-button" href="#">Submit Support Request</a>
 						</p>
 					<?php } ?>
 					<?php
