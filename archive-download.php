@@ -38,7 +38,7 @@ the_post();
 									22 /* extensions */,
 									162 /* themes */,
 									1571 /* featured theme */,
-									1536 /* 3rd party */
+									1536 /* 3rd party */,
 								),
 							);
 							$cats = get_terms( 'download_category', $cat_args );
