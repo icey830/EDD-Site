@@ -77,7 +77,7 @@ get_header();
 						<?php eddwp_paginate_links(); ?>
 						<div class="third-party-extensions-section">
 							<p>View more extensions built by talented developers from the EDD community.</p>
-							<a class="edd-subtmi button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>">3rd Party Extensions</a>
+							<a class="edd-submit button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>">3rd Party Extensions</a>
 						</div>
 					</section><!-- .download-grid three-col -->
 				</div>
