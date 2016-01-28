@@ -257,5 +257,11 @@
 			$(this).parents( ".ginput_container" ).siblings( ".gfield_description" ).slideDown();
 		});
 
+		// Click to show support form
+		$( ".edd-support-ticket-link" ).on('click', function() {
+			$(this).parents( ".edd-docs-link-wrap" ).siblings( ".support-docs-form-container" ).slideDown();
+			return false;
+		});
+
 	});
 }(jQuery));

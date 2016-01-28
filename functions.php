@@ -34,7 +34,7 @@
  * 1. Theme Setup
  * ----------------------------------------------------------- */
 
-define( 'EDD_SITE_VERSION', '2.1.8' );
+define( 'EDD_SITE_VERSION', '2.1.8.1' );
 
 /**
  * Set the content width.
