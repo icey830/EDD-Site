@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Documentation */
+/* Template Name: Videos */
 
 /**
  * The template for displaying documentation.
