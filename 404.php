@@ -1,12 +1,6 @@
 <?php
 /**
  * The template for displaying 404 pages.
- *
- * @package   EDD
- * @version   1.0
- * @since     1.0
- * @author	  Sunny Ratilal
- * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 
 get_header(); ?>
@@ -55,7 +49,7 @@ get_header(); ?>
 										)
 									)
 								);
-				
+
 								while ( $extensions->have_posts() ) {
 									$extensions->the_post();
 									?>
@@ -67,7 +61,7 @@ get_header(); ?>
 											<?php echo apply_filters( 'the_excerpt', get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ) ); ?>
 										</li>
 									<?php
-								}				
+								}
 								wp_reset_postdata();
 							?>
 							<p class="extensions-button-404"><a href="<?php echo esc_url( '/downloads/' ); ?>">View All Extensions</a></p>
