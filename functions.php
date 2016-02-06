@@ -311,7 +311,7 @@ function eddwp_get_latest_post() {
 	$items = get_posts( array( 'posts_per_page' => 1 ) );
 	foreach( $items as $item ) {
 		printf( '<h4>%s</h4>', $item->post_title );
-		echo wpautop( wp_trim_words( $item->post_content, 50 ) );
+		echo wpautop( wp_trim_words( $item->post_content, 35 ) );
 		printf( '<a href="%1$s">%2$s</a>', get_permalink( $item->ID ), __( 'Read More...', 'edd' ) );
 	}
 }
@@ -1388,7 +1388,7 @@ function eddwp_get_comments_only_count( $count ) {
         $comments_by_type = &separate_comments(get_comments('status=approve&post_id=' . $id));
         return count($comments_by_type['comment']);
     }
-    
+
     // When in the WP-admin back end, do NOT filter comments (and pings) count.
     else {
         return $count;
