@@ -1385,8 +1385,9 @@ function eddwp_get_comments_only_count( $count ) {
     // Filter the comments count in the front-end only
     if( ! is_admin() ) {
         global $id;
-        $comments_by_type = &separate_comments(get_comments('status=approve&post_id=' . $id));
-        return count($comments_by_type['comment']);
+        $status = get_comments('status=approve&post_id=' . $id );
+        $comments_by_type = separate_comments( $status );
+        return count( $comments_by_type['comment'] );
     }
 
     // When in the WP-admin back end, do NOT filter comments (and pings) count.
@@ -1425,7 +1426,7 @@ function eddwp_post_meta() {
 				$response_count = get_comments_number();
 
 				// total number of comments excluding pings
-				$comment_count = eddwp_get_comments_only_count();
+				$comment_count = eddwp_get_comments_only_count( $response_count );
 
 				if( comments_open() && ( 0 !== $comment_count ) && ! is_single() ) {
 					if( $comment_count >= 2 ) {
