@@ -17,7 +17,7 @@
 get_header(); ?>
 
 	<section class="main clearfix">
-		<div class="container clearfix">
+		<div class="site-container clearfix">
 			<section class="content">
 				<?php while ( have_posts() ) { the_post(); ?>
 				<article class="entry">
@@ -26,7 +26,7 @@ get_header(); ?>
 				</article>
 				<?php } ?>
 			</section><!-- /.content -->
-		</div><!-- /.container -->
+		</div><!-- /.site-container -->
 	</section><!-- /.main -->
 
 <?php get_footer(); ?>

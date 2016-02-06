@@ -6,7 +6,7 @@
 get_header(); ?>
 
 	<section class="main clearfix">
-		<div class="container clearfix">
+		<div class="site-container clearfix">
 			<div class="content-404">
 				<div class="post" id="post-0">
 					<div class="message-404 clearfix">
@@ -72,7 +72,7 @@ get_header(); ?>
 					</div>
 				</div>
 			</div><!-- /.content -->
-		</div><!-- /.container -->
+		</div><!-- /.site-container -->
 	</section><!-- /.main -->
 
 <?php get_footer(); ?>

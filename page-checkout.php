@@ -12,7 +12,7 @@
 get_header(); ?>
 
 	<section class="main clearfix">
-		<div class="container clearfix">
+		<div class="site-container clearfix">
 			<section class="content<?php if ( ! edd_get_cart_contents() ) echo ' checkout-cart-empty'; ?>">
 				<?php while ( have_posts() ) { the_post(); ?>
 					<?php if ( edd_get_cart_contents() ) { ?>
@@ -50,7 +50,7 @@ get_header(); ?>
 										),
 									);
 									$eddwp_ext = new WP_Query( $eddwp_ext_args );
-		
+
 									while ( $eddwp_ext->have_posts() ) : $eddwp_ext->the_post();
 										?>
 										<div class="download-grid-item">
@@ -100,7 +100,7 @@ get_header(); ?>
 										),
 									);
 									$eddwp_themes = new WP_Query( $eddwp_theme_args );
-		
+
 									while ( $eddwp_themes->have_posts() ) : $eddwp_themes->the_post();
 										?>
 										<div class="download-grid-item">
@@ -127,7 +127,7 @@ get_header(); ?>
 					<?php } ?>
 				<?php } ?>
 			</section><!-- /.content -->
-		</div><!-- /.container -->
+		</div><!-- /.site-container -->
 	</section><!-- /.main -->
 
 <?php get_footer(); ?>

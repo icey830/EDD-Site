@@ -45,7 +45,7 @@ get_header();
 								</div>
 							</div>
 						<?php endwhile; wp_reset_postdata(); ?>
-					</section><!-- /.extensions-container -->
+					</section>
 
 				</div>
 			</div>

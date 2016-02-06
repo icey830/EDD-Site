@@ -12,7 +12,7 @@
 get_header(); ?>
 
 	<section class="main clearfix">
-		<div class="container clearfix">
+		<div class="site-container clearfix">
 			<section class="content">
 				<?php if ( have_posts() ) { ?>
 				<h1 class="page-title">

@@ -1,5 +1,6 @@
-// simple notices pro
-
+/*
+ * Simple Notices Pro styles
+ */
 #notification-area {
 	background: #3498db;
 	width: 100%;
@@ -7,6 +8,14 @@
 	vertical-align: middle;
 	text-align: center;
 	position: relative;
+
+	& h3 {
+		display: none;
+	}
+
+	& .remove-notice {
+		margin: 0;
+	}
 }
 
 #notification-area svg,
@@ -29,13 +38,13 @@
 	margin-bottom: 0;
 }
 
-#notification-area.snp-hidden { 
-	display: none; 
+#notification-area.snp-hidden {
+	display: none;
 }
 
-.logged-in #notification-area.snp-hidden { 
-	display: block; 
-} 
+.logged-in #notification-area.snp-hidden {
+	display: block;
+}
 
 #remove-notice {
 	position: absolute;

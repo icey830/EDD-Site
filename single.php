@@ -12,11 +12,11 @@
 get_header(); ?>
 
 	<section class="main clearfix">
-		<div class="container clearfix">
+		<div class="site-container clearfix">
 			<section class="content">
 				<?php while ( have_posts() ) { the_post(); ?>
 				<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
-					<p class="entry-date"><span><?php the_date(); ?></span></p>
+					<span class="entry-date"><?php the_date(); ?></span>
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 					<?php
 						if ( has_post_thumbnail() ) {
@@ -45,7 +45,7 @@ get_header(); ?>
 				<?php eddwp_newsletter_form(); ?>
 				<?php dynamic_sidebar( 'blog-sidebar' ); ?>
 			</aside><!-- /.sidebar -->
-		</div><!-- /.container -->
+		</div><!-- /.site-container -->
 	</section><!-- /.main -->
 
 <?php get_footer(); ?>

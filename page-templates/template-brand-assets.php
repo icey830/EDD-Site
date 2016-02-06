@@ -6,7 +6,7 @@ get_header();
 the_post();
 ?>
 	<section id="full-width-page" class="full-width-page main clearfix">
-		<div class="container clearfix">
+		<div class="site-container clearfix">
 			<section class="content">
 				<article class="entry">
 					<div class="entry-header">

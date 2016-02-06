@@ -24,7 +24,7 @@ if ( $is_extension && ! $is_bundle ) {
 ?>
 
 	<section class="main clearfix">
-		<div class="container clearfix">
+		<div class="site-container clearfix">
 			<section class="content">
 				<?php
 					the_title( '<h1 class="download-entry-title">', '</h1>' );
@@ -179,7 +179,7 @@ if ( $is_extension && ! $is_bundle ) {
 					</div>
 				</div>
 			</aside><!-- /.sidebar -->
-		</div><!-- /.container -->
+		</div><!-- /.site-container -->
 	</section><!-- /.main -->
 
 <?php get_footer(); ?>

@@ -18,7 +18,7 @@ get_header();
 if ( is_user_logged_in() ) { ?>
 
 	<section id="account-page" class="main clearfix">
-		<div class="container clearfix">
+		<div class="site-container clearfix">
 
 			<?php while ( have_posts() ) { the_post(); ?>
 			<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
@@ -93,7 +93,7 @@ if ( is_user_logged_in() ) { ?>
 				</div><!-- /.tab-pane -->
 
 			</div><!-- /.tab-content -->
-		</div><!-- /.container -->
+		</div><!-- /.site-container -->
 	</section><!-- /.main -->
 	<?php
 

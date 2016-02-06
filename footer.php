@@ -11,7 +11,7 @@
 
 	?>
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="container">
+		<div class="site-container">
 			<?php if ( ! is_404() ) : ?>
 				<img class="sitting-edd" src="<?php echo get_template_directory_uri(); ?>/images/edd-sitting.png" />
 			<?php endif; ?>
@@ -54,7 +54,7 @@
 			<?php endif; ?>
 
 			<p class="copyright">Copyright &copy; <?php echo date( 'Y' ); ?>, Easy Digital Downloads. <?php if( ! is_page( 'checkout' ) ) : ?>A project by <a href="<?php echo home_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.<?php endif; ?></p>
-		</div><!-- .container -->
+		</div><!-- .site-container -->
 	</footer><!-- #colophon -->
 
 	<?php wp_footer(); ?>

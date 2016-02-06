@@ -1,12 +1,23 @@
 /*
- * Misc Styles
- * Copyright (c) 2013, Sunny Ratilal.
+ * random CSS styles
  */
+
+
+/* ----------------------------- *
+ * General
+ * ----------------------------- */
 
 * {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
+	word-wrap: break-word;
+	-ms-word-wrap: break-word;
+}
+
+.clearfix {
+	*display: inline-block;
+	height: 1%;
 }
 
 .clearfix:after {
@@ -18,19 +29,9 @@
 	height: 0;
 }
 
-.clearfix {
-	*display: inline-block;
-	height: 1%;
+.clear {
+	clear: both;
 }
-
-.clear { clear: both; }
-
-body * {
-	word-wrap: break-word;
-	-ms-word-wrap: break-word;
-}
-
-html { font-size: 100%; }
 
 img {
 	max-width: 100%;
@@ -93,13 +94,103 @@ img {
 	margin: 8px 0;
 }
 
-.wpengine-promo { display: none; }
+a:focus {
+	outline: none !important;
+}
 
-a:focus { outline: none !important; }
+
+/* ----------------------------- *
+ * Shared
+ * ----------------------------- */
+
+.sidebar input[type="submit"],
+.sidebar .button,
+#google-search-form input.gsc-search-button,
+#google-search-form-sidebar input.gsc-search-button {
+	margin-top: 2px;
+	padding: 4px 14px;
+	background: #2794da;
+	display: inline-block;
+	color: #fff;
+	-webkit-box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
+	box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
+	cursor: pointer;
+	border-radius: 3px;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	line-height: 24px;
+	font-weight: 300;
+	border: 1px solid #287aad;
+
+	&:hover {
+		background: #5ba3cf;
+		color: #fff;
+	}
+
+	&:active {
+		-webkit-box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+		box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
+	}
+}
+
+#google-search-form input.gsc-search-button,
+#google-search-form-sidebar input.gsc-search-button {
+	font-family: 'Roboto', Helvetica, Arial, sans-serif;
+	line-height: 1.2;
+	margin-top: 0;
+	height: auto !important;
+	border: 1px solid #287aad !important;
+}
+
+
+/* ----------------------------- *
+ * Google search above forums
+ * ----------------------------- */
+.cse .gsc-control-cse,
+.gsc-control-cse,
+.cse form.gsc-search-box,
+form.gsc-search-box,
+table.gsc-search-box {
+	padding: 0 !important;
+	margin-bottom: 0 !important;
+}
+.gsc-control-cse {
+	background-color: transparent !important;
+	border: none !important;
+}
+.cse input.gsc-input,
+input.gsc-input {
+	background-position-x: 8px !important;
+}
+#google-search-form input {
+	font-size: 15px;
+	padding: 6px 8px 8px !important;
+	border: none !important;
+}
+#google-search-form-sidebar input {
+	font-size: 13px;
+	padding: 6px 10px !important;
+}
+.gsc-clear-button {
+	display: none !important;
+}
+table.gstl_51.gssb_c,
+table.gstl_50.gssb_c {
+	margin-top: 29px !important;
+}
+
 
 /* ----------------------------- *
  * Gravity Forms
  * ----------------------------- */
+
 .gform_wrapper {
 	& .gfield_label {
 		display: block;
@@ -242,302 +333,6 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	margin-top: 10px;
 }
 
-/* Support Page Template */
-.support-page .support-title-wrap {
-	text-align: center;
-	margin: 0 !important;
-	max-width: 100% !important;
-}
-.support-page .support-title {
-	font-size: 3.6rem;
-	font-weight: 300;
-	margin: 0 0 .7em;
-}
-.support-page .support-section-wrap {
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-flow: row wrap;
-	-ms-flex-flow: row wrap;
-	flex-flow: row wrap;
-	-webkit-justify-content: space-between;
-	justify-content: space-between;
-}
-.support-page .support-section {
-	width: 31%;
-	margin-bottom: 33px;
-}
-.support-page .support-section-link {
-	display: block;
-	padding: 20px;
-	border: 2px solid #f1f1f1;
-	border-radius: 4px;
-	box-sizing: border-box;
-	-webkit-transition: border .2s;
-	-moz-transition: border .2s;
-	transition: border .2s;
-}
-.support-page .special-section .support-section-link {
-	border: 2px solid #ccc;
-}
-.support-page .support-section-link:hover,
-.support-page .special-section .support-section-link:hover {
-	border: 2px solid #2794da;
-}
-.support-page .support-section-title {
-	color: #333;
-	font-weight: 500;
-	margin: 0 0 .4em;
-}
-.support-page .support-section-description {
-	color: #999;
-}
-.support-page .edd-docs-link-wrap {
-	text-align: center;
-	margin-bottom: 50px;
-}
-.support-page .edd-docs-link {
-	font-size: 18px;
-	padding: 10px;
-	min-width: 240px;
-}
-.support-page .button-break {
-	display: inline-block;
-	width: 6px;
-}
-.support-page .edd-support-ticket-link {
-	font-size: 18px;
-	padding: 10px;
-	min-width: 240px;
-}
-.support-page .standard-support-form-container {
-	display: none; /* click .edd-support-ticket-link to open (display: block;) */
-}
-.support-page .support-docs-form-container:not(.pre-sale-support-form-container) {
-	border-top: 2px solid #f2f2f2;
-}
-.support-page .edd-gf-support-docs {
-	text-align: center;
-}
-.support-page .gform_wrapper,
-.support-page .gform_wrapper .gform_page_footer {
-	border: none;
-	margin: 0;
-	width: 100%;
-	max-width: 100%;
-}
-.support-page .helpscout-docs label {
-	display: none !important;
-}
-.support-page .helpscout-docs input[type="text"] {
-	font-size: 24px !important;
-	padding: 10px !important;
-	border: 2px solid #f1f1f1;
-	border-radius: 3px 3px 0 0;
-	width: 100% !important;
-	max-width: 520px !important;
-}
-span.results-found {
-	font-size: 18px;
-	display: block;
-	padding: 10px;
-	margin: 0 auto;
-	color: #999;
-	background: #fafafa;
-	max-width: 520px;
-	border-radius: 0 0 3px 3px;
-	border: 2px solid #f1f1f1;
-	border-width: 1px 2px 2px;
-}
-.support-page .gform_wrapper .docs-search-results {
-	text-align: left;
-	padding-left: 0;
-	border: 2px solid #f1f1f1;
-	border-width: 2px 2px 1px 2px;
-	border-radius: 4px;
-	margin: 30px auto !important;
-	max-width: 700px;
-}
-.support-page .gform_wrapper .docs-search-results:before {
-	content: "Please review our complete list of suggestions to proceed.";
-	display: block;
-	background: #fafafa;
-	color: #999;
-	font-size: 18px;
-	padding: 10px 20px;
-	border-bottom: 3px solid #f1f1f1;
-}
-.support-page .gform_wrapper .docs-search-results li {
-	list-style: none !important;
-}
-.support-page .gform_wrapper .docs-search-results li.article {
-	border-bottom: 1px solid #f1f1f1;
-	margin: 0;
-}
-.support-page .gform_wrapper .docs-search-results li.article a {
-	display: block;
-	font-size: 18px;
-	padding: 10px 20px;
-}
-.support-page .gform_wrapper .docs-search-results li.article a:hover {
-	background: #fafafa;
-	color: #2794da;
-}
-.support-page .gform_wrapper .gform_page_footer {
-	text-align: center;
-}
-.support-page .edd-gf-support-form,
-.support-page .edd-gf-pre-sale-question-form,
-.support-page .edd-gf-refund-request-form {
-	margin-right: auto;
-	margin-left: auto;
-	max-width: 780px;
-}
-.support-page .gform_wrapper .show-contact-form-wrap a,
-.support-page .gform_wrapper .gform_page_footer input[type="button"],
-.support-page .gform_wrapper .gform_page_footer input[type="submit"] {
-	font-size: 18px;
-	padding: 10px;
-	margin-right: 0 !important;
-	min-width: 240px;
-}
-.support-page .edd-gf-support-form .gform_page_footer {
-	padding-top: 40px;
-	border-top: 2px solid #f2f2f2;
-}
-.support-page .gform_wrapper .gform_page_footer img {
-	display: block;
-	max-width: 40px;
-	margin: 10px auto;
-	clear: both
-}
-.support-page .edd-gf-support-tickets-form {
-	margin-bottom: 30px;
-}
-
-/* Support Ticket Form - Gravity Forms */
-#gform_wrapper_4,
-#gform_wrapper_14 {
-	width: 100%;
-	max-width: 100%;
-}
-#gform_4 /* delete - local */,
-#gform_14 {
-	width: 100%;
-}
-.edd-gf-support-tickets-form {
-	margin: 60px 0 100px;
-}
-.pre-sale-support-form-container .edd-gf-support-tickets-form {
-	margin-top: 0;
-}
-.support-page .support-docs-form-container.refund-support-form-container {
-	margin-top: 20px;
-}
-.edd-gf-support-tickets-form input[type="text"],
-.edd-gf-support-tickets-form input[type="url"],
-.edd-gf-support-tickets-form input[type="email"],
-.edd-gf-support-tickets-form input[type="tel"],
-.edd-gf-support-tickets-form input[type="number"],
-.edd-gf-support-tickets-form input[type="password"],
-.edd-gf-support-tickets-form textarea {
-	padding: 10px !important;
-	margin-bottom: 0 !important;
-}
-.edd-gf-support-tickets-form .ginput_container label,
-.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield_description {
-	color: #999;
-	font-size: 15px;
-	line-height: 1.6;
-}
-.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield.edd-gf-support-tickets-form-email .gfield_description {
-	display: none;
-}
-.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield_label {
-	font: 300 24px/1.4 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
-	margin: 0;
-}
-.edd-gf-support-tickets-form [class*="edd-gf-support-tickets-form-"] {
-	padding-left: 2.5%;
-	margin-bottom: 30px;
-}
-.edd-gf-support-tickets-form .gfield.edd-gf-support-tickets-form-name {
-	margin-bottom: 15px;
-}
-.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield.edd-gf-support-tickets-form-email .gfield_label {
-	display: none;
-}
-.edd-gf-support-tickets-form .gfield.edd-gf-support-tickets-form-email {
-	padding-bottom: 30px;
-	border-bottom: 2px solid #f2f2f2;
-}
-.edd-gf-support-tickets-form .edd-gf-support-tickets-form-email .gfield_description {
-	background: #f1f1f1;
-	color: #777;
-	font-size: 13px;
-	line-height: 1.6;
-	padding: 10px !important;
-	border-radius: 4px;
-}
-.gform_wrapper .edd-gf-support-tickets-form .top_label .edd-gf-support-tickets-form-subject .gfield_label {
-	margin-bottom: 10px;
-}
-.gform_wrapper .edd-gf-support-tickets-form .edd-gf-support-tickets-form-subject {
-	margin-bottom: 10px;
-}
-.gform_wrapper .edd-gf-support-tickets-form .edd-gf-support-tickets-form-subject li {
-	display: inline-block;
-	width: 48.5%;
-}
-.gform_wrapper .edd-gf-support-tickets-form .gsection {
-	padding: 0;
-	border: none;
-	margin: 0;
-}
-.gform_wrapper .edd-gf-support-tickets-form .gsection h2 {
-	display: none;
-}
-.gform_wrapper .edd-gf-support-tickets-form .gsection .gsection_description {
-	width: 100%;
-}
-.edd-gf-support-tickets-form .edd-gf-divider {
-	clear: both;
-	color: #f2f2f2;
-	text-align: center;
-	padding: 0;
-	border: none;
-	border-top: 2px solid #f2f2f2;
-	margin: 0 0 20px;
-}
-.edd-gf-support-tickets-form .edd-gf-divider:after {
-	content: "\f078";
-	font-family: 'FontAwesome';
-	display: inline-block;
-	position: relative;
-	top: -25px;
-	font-size: 30px;
-	padding: 0 10px;
-	background: white;
-}
-.gform_wrapper .edd-gf-support-tickets-form-subject ul.gfield_radio li input[type="radio"]:checked+label,
-.gform_wrapper .edd-gf-support-tickets-form-subject ul.gfield_checkbox li input[type="checkbox"]:checked+label {
-	color: #666;
-}
-.gform_wrapper .edd-gf-support-tickets-form .gfield_radio {
-	margin-left: 0 !important;
-}
-.gform_wrapper .edd-gf-support-tickets-form .docs-support-link {
-	margin: 30px 0 30px 2.5% !important;
-}
-.gform_wrapper .edd-gf-support-tickets-form .gform_footer {
-	padding-right: 2.5%;
-	padding-left: 2.5%;
-}
-.gform_wrapper .edd-gf-support-tickets-form .gform_footer input[type="submit"] {
-	font-size: 18px;
-	padding: 10px;
-	min-width: 240px;
-}
-
 .green-button {
 	margin-top: 2px;
 	padding: 4px 14px;
@@ -641,19 +436,6 @@ span.results-found {
 	display: none;
 }
 
-/* Simple Notices */
-
-#notification-area {
-
-	& h3 {
-		display: none;
-	}
-
-	& .remove-notice {
-		margin: 0;
-	}
-}
-
 /* Core extensions bundle */
 #in-bundle-extensions { margin: 0 0 30px; padding: 0; }
 #in-bundle-extensions li {
@@ -751,49 +533,6 @@ html .row {
 	border: 1px solid #f9a2a2;
 }
 
-/* Single post author box */
-.single.blog .post-meta {
-	padding: 0;
-	border: none;
-	margin-top: 30px;
-}
-
-.edd-author-box {
-	padding: 30px 0;
-	border: 1px solid #f1f1f1;
-	border-width: 1px 0;
-	margin-bottom: 30px;
-}
-
-.edd-author-avatar {
-	float: left;
-	margin-right: 30px;
-	width: 90px;
-}
-
-.edd-author-avatar img {
-	border-radius: 50%;
-}
-
-.edd-author-bio {
-	float: left;
-	width: 520px;
-}
-
-.edd-author-bio .edd-author-title,
-.edd-author-bio .edd-author-url {
-	display: inline-block;
-	margin-right: 6px !important;
-}
-
-.edd-author-url a {
-	color: #aaa;
-}
-
-.edd-author-url a:hover {
-	color: #555;
-}
-
 /* EDD Newsletter form */
 .newsletter {
 
@@ -860,7 +599,7 @@ html .row {
 	background: #85c0e5;
 	padding: 30px;
 	color: #fff;
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 }
 
 .sidebar .newsletter-title {

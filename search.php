@@ -12,7 +12,7 @@
 <?php get_header(); ?>
 
 	<section class="main clearfix">
-		<div class="container clearfix">
+		<div class="site-container clearfix">
 			<section class="content">
 				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'edd' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				<?php while ( have_posts() ) { the_post(); ?>
@@ -49,7 +49,7 @@
 				<?php eddwp_newsletter_form(); ?>
 				<?php dynamic_sidebar( 'blog-sidebar' ); ?>
 			</aside><!-- /.sidebar -->
-		</div><!-- /.container -->
+		</div><!-- /.site-container -->
 	</section><!-- /.main -->
 
 <?php get_footer(); ?>

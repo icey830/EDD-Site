@@ -13,7 +13,7 @@ global $user_ID;
 get_header(); ?>
 
 	<section class="main clearfix">
-		<div class="container clearfix">
+		<div class="site-container clearfix">
 			<section class="content">
 				<?php while ( have_posts() ) { the_post(); ?>
 
@@ -41,11 +41,11 @@ get_header(); ?>
 			if ( ! current_user_can( 'moderate' ) && ! bbp_is_single_user() ) {
 				get_sidebar( 'forums' );
 			} elseif ( current_user_can( 'moderate' ) && bbp_is_single_topic() && ! bbp_is_single_user() ) {
-				
+
 
 				echo '<aside class="sidebar edd-moderator-sidebar">';
-					
-			
+
+
 					/*
 					echo '<div class="edd-moderator-sidebar-inside">';
 					?>
@@ -190,7 +190,7 @@ get_header(); ?>
 				get_sidebar( 'forums' );
 			}
 			?>
-		</div><!-- /.container -->
+		</div><!-- /.site-container -->
 	</section><!-- /.main -->
 
 <?php get_footer(); ?>

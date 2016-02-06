@@ -22,7 +22,7 @@ the_post();
 ?>
 
 	<section class="main clearfix">
-		<div class="container clearfix">
+		<div class="site-container clearfix">
 			<aside class="sidebar">
 				<?php dynamic_sidebar( 'documentation-sidebar' ); ?>
 			</aside><!-- /.sidebar -->
@@ -36,7 +36,7 @@ the_post();
 					comments_template();
 				?>
 			</section><!-- /.content -->
-		</div><!-- /.container -->
+		</div><!-- /.site-container -->
 	</section><!-- /.main -->
 
 <?php get_footer(); ?>
