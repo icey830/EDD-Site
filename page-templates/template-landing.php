@@ -6,18 +6,20 @@
  */
 get_header();
 the_post();
-	?>
-	<section id="landing-page" class="landing main clearfix">
-		<article class="content clearfix">
-			<div class="the-content clearfix">
-				<div class="entry-header">
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-				</div>
-				<div class="entry-content">
-					<?php the_content(); ?>
-				</div>
+?>
+
+	<section id="landing-page" class="landing clearfix">
+		<article class="the-content clearfix">
+
+			<div class="entry-header">
+				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 			</div>
-		</article><!-- /.content -->
-	</section><!-- /.main -->
+			<div class="entry-content">
+				<?php the_content(); ?>
+			</div>
+
+		</article>
+	</section>
 	<?php
+
 get_footer();

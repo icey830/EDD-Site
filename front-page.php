@@ -7,8 +7,7 @@
  * @since   1.0
  */
 
-get_header();
-?>
+get_header(); ?>
 
 <div id="front-page-hero" class="front-page-section page-section-blue full-width">
 	<div class="inner">

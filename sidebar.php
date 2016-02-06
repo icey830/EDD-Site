@@ -1,14 +1,9 @@
 <?php
 /**
- * The Sidebar containing the main widget areas.
- *
- * @package   EDD
- * @version   1.0
- * @since     1.0
- * @author	  Sunny Ratilal
- * @copyright Copyright (c) 2013, Sunny Ratilal.
+ * main sidebar
  */
 ?>
 	<aside class="sidebar">
+		<?php eddwp_newsletter_form(); ?>
 		<?php dynamic_sidebar( 'blog-sidebar' ); ?>
 	</aside><!-- /.sidebar -->

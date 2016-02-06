@@ -1401,11 +1401,11 @@ function eddwp_get_comments_only_count( $count ) {
 }
 
 /**
- * Post Meta
+ * Single post meta
  */
 function eddwp_post_meta() {
 	?>
-	<div class="post-meta">
+	<div class="post-meta clearfix">
 		<ul>
 			<?php
 				if( is_single() ) {

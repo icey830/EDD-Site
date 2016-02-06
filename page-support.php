@@ -1,22 +1,17 @@
 <?php
 /**
- * The template for displaying the bbPress forums index.
- *
- * @package   EDD
- * @version   1.0
- * @since     1.0
- * @author	  Sunny Ratilal
- * @copyright Copyright (c) 2013, Sunny Ratilal.
+ * bbPress forums index
  */
 
 get_header(); ?>
 
-	<section class="main clearfix">
-		<div class="site-container clearfix">
+	<div class="site-container">
+		<section class="content">
+
 			<section class="content">
 				<?php while ( have_posts() ) { the_post(); ?>
 				<article class="entry">
-					<h1><?php the_title(); ?></h1>
+					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 					<form role="search" method="get" id="bbp-search-form" class="bbp-main-search" action="<?php bbp_search_url(); ?>">
 						<div id="search-intro">
 							<h3>Having troubles? Try searching for a solution.</h3>
@@ -30,9 +25,10 @@ get_header(); ?>
 					<?php the_content(); ?>
 				</article>
 				<?php } ?>
-			</section><!-- /.content -->
+			</section>
 			<?php get_sidebar( 'forums' ); ?>
-		</div><!-- /.site-container -->
-	</section><!-- /.main -->
+
+		</section>
+	</div>
 
 <?php get_footer(); ?>

@@ -1,42 +1,26 @@
 <?php
-/* Template Name: Videos */
-
 /**
- * The template for displaying documentation.
- *
- * @package   EDD
- * @version   1.0
- * @since     1.0
- * @author	  Sunny Ratilal
- * @copyright Copyright (c) 2013, Sunny Ratilal.
+ * single video template
  */
 
-add_filter( 'body_class', function( $classes ) {
-	$classes[] = 'documentation';
+get_header(); ?>
 
-	return $classes;
-} );
+	<div class="site-container">
+		<section class="content">
 
-get_header();
-the_post();
-?>
+			<?php while ( have_posts() ) : the_post(); ?>
+				<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
+					<div class="entry-header">
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					</div>
+					<div class="entry-content">
+						<?php the_content(); ?>
+					</div>
+				</article>
+			<?php endwhile; ?>
 
-	<section class="main clearfix">
-		<div class="site-container clearfix">
-			<aside class="sidebar">
-				<?php dynamic_sidebar( 'documentation-sidebar' ); ?>
-			</aside><!-- /.sidebar -->
-
-			<section class="content">
-				<h1><?php the_title(); ?></h1>
-				<?php the_content(); ?>
-
-				<?php
-				if ( comments_open() || '0' != get_comments_number() )
-					comments_template();
-				?>
-			</section><!-- /.content -->
-		</div><!-- /.site-container -->
-	</section><!-- /.main -->
+		</section>
+		<?php get_sidebar(); ?>
+	</div>
 
 <?php get_footer(); ?>

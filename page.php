@@ -1,32 +1,26 @@
 <?php
 /**
- * The template for displaying all pages.
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site will use a
- * different template.
- *
- * @package   EDD
- * @version   1.0
- * @since     1.0
- * @author	  Sunny Ratilal
- * @copyright Copyright (c) 2013, Sunny Ratilal.
+ * default template for general pages
  */
 
 get_header(); ?>
 
-	<section class="main clearfix">
-		<div class="site-container clearfix">
-			<section class="content">
-				<?php while ( have_posts() ) { the_post(); ?>
-				<article class="entry">
-					<h1><?php the_title(); ?></h1>
-					<?php the_content(); ?>
+	<div class="site-container">
+		<section class="content">
+
+			<?php while ( have_posts() ) : the_post(); ?>
+				<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
+					<div class="entry-header">
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					</div>
+					<div class="entry-content">
+						<?php the_content(); ?>
+					</div>
 				</article>
-				<?php } ?>
-			</section><!-- /.content -->
-		</div><!-- /.site-container -->
-	</section><!-- /.main -->
+			<?php endwhile; ?>
+
+		</section>
+		<?php get_sidebar(); ?>
+	</div>
 
 <?php get_footer(); ?>

@@ -46,7 +46,7 @@
 					</div>
 
 				<?php endif; ?>
-				<p class="copyright"><strong>Copyright &copy; <?php echo date( 'Y' ); ?></strong> &middot; Easy Digital Downloads &middot; <?php if( ! is_page( 'checkout' ) ) : ?>A project by <a href="<?php echo home_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.<?php endif; ?></p>
+				<p class="copyright"><strong>Copyright &copy; <?php echo date( 'Y' ); ?></strong> &middot; Easy Digital Downloads<?php if( ! is_page( 'checkout' ) ) : ?> &middot; A project by <a href="<?php echo home_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.<?php endif; ?></p>
 			</div>
 		</div>
 	</footer>
