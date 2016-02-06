@@ -2,6 +2,18 @@
  * theme-wide reset
  */
 
+
+/* ----------------------------- *
+ * General
+ * ----------------------------- */
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	word-wrap: break-word;
+	-ms-word-wrap: break-word;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -29,6 +41,28 @@ body {
 	line-height: 26px;
 }
 
+.clearfix {
+	*display: inline-block;
+	height: 1%;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	font-size: 0;
+	height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+
+/* ----------------------------- *
+ * Elements
+ * ----------------------------- */
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
 	line-height: 1.4;
@@ -90,6 +124,15 @@ input[type="submit"] {
 	-moz-transition: color 0.2s ease-in-out;
 	-webkit-transition: color 0.2s ease-in-out;
 	transition: color 0.2s ease-in-out;
+}
+
+a:focus {
+	outline: none !important;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
 }
 
 a img {
@@ -279,21 +322,26 @@ address {
 	margin: 0 0 1.5em;
 	width: 100%;
 }
+
 .content table th {
 	background: #f8f8f8;
 	font-weight: bold;
 }
+
 .content table th,
 .content table td {
 	padding: 4px 10px;
 	border-bottom: 1px solid #eee;
 }
+
 .content table tr:last-child td {
 	border: none;
 }
+
 .content table tr:last-child td:first-child {
 	border-radius: 0 0 0 4px;
 }
+
 .content table tr:last-child td:last-child {
 	border-radius: 0 0 4px 0;
 }
@@ -321,4 +369,66 @@ address {
 	padding: 2px !important;
 	border: none !important;
 	border-radius: 0 !important;
+}
+
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.first {
+	margin-left: 0 !important;
+}
+
+.last {
+	margin-right: 0 !important;
+}
+
+
+/* ----------------------------- *
+ * WordPress
+ * ----------------------------- */
+.wp-caption,
+.frame {
+	background: #f8f8f8;
+	padding: 10px;
+	border-radius: 4px;
+	width: 100% !important;
+	max-width: 100%;
+	margin-bottom: 25px !important;
+}
+
+.wp-caption img {
+	vertical-align: bottom;
+}
+
+.wp-caption .wp-caption-text {
+	padding: 10px 20px;
+	font-size: 13px;
+	text-align: center;
+	font-style: italic;
+	color: #666;
+}
+
+.alignleft {
+	float: left;
+	margin: 8px 20px 8px 0;
+}
+
+.alignright {
+	float: right;
+	margin: 8px 0 8px 20px;
+}
+
+.aligncenter {
+	display: block;
+	float: none;
+	margin: 8px auto;
+}
+
+.alignnone {
+	margin: 8px 0;
 }
