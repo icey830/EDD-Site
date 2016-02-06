@@ -34,6 +34,8 @@
  * 1. Theme Setup
  * ----------------------------------------------------------- */
 
+define( 'EDD_SITE_VERSION', '2.1.9-beta3' );
+
 /**
  * Set the content width.
  */
@@ -60,6 +62,7 @@ function edd_theme_setup() {
 
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'edd' ),
+		'footer'  => __( 'Footer Menu', 'edd' ),
 	) );
 }
 add_action( 'after_setup_theme', 'edd_theme_setup' );
@@ -105,7 +108,7 @@ function edd_register_theme_scripts() {
 	wp_enqueue_style(   'lato-font'  );
 	wp_enqueue_style(   'font-awesome' );
 
-	wp_register_script( 'edd-js',         get_template_directory_uri() . '/js/theme.min.js',          array( 'jquery' ), '1.2',   false );
+	wp_register_script( 'edd-js',         get_template_directory_uri() . '/js/theme.min.js',          array( 'jquery' ), EDD_SITE_VERSION,   false );
 	wp_register_script( 'modernizr-js',   get_template_directory_uri() . '/js/lib/modernizr.min.js',  array( 'jquery' ), '2.6.2', false );
 	wp_register_script( 'nivo-slider-js', get_template_directory_uri() . '/js/lib/nivoslider.min.js', array( 'jquery' ), '3.2',   false );
 	wp_register_script( 'bootstrap-js',   get_template_directory_uri() . '/js/lib/bootstrap.min.js',  array( 'jquery' ), '1.0',   false );
@@ -669,23 +672,21 @@ function eddwp_display_themes() {
 /**
  * Append demo button link to download products
  */
-function eddwp_demo_link( $content ) {
-	global $post;
+function eddwp_demo_link() {
 
 	// bail if there is no demo link
-	$demo_link = get_post_meta( get_the_ID(), 'ecpt_demolink', true );
-	if( empty( $demo_link ) )
+	$get_demo_link = get_post_meta( get_the_ID(), 'ecpt_demolink', true );
+	if( empty( $get_demo_link ) ) {
 		return $content;
+	}
 
 	// build link to the demo
-	$output_demo_link = sprintf( '<p class="edd-demo-link"><a class="edd-submit button blue" href="%s">View Demo</a></p>', $demo_link );
+	$output_demo_link = sprintf( '<p class="edd-demo-link"><a class="edd-submit button blue" href="%s">View Demo</a></p>', $get_demo_link );
 
 	// add the link to demo below the content
-	$content = $content . $output_demo_link;
-
-	return $content;
+	echo $output_demo_link;
 }
-add_filter( 'the_content', 'eddwp_demo_link' );
+add_filter( 'edd_after_download_content', 'eddwp_demo_link', 9, 1 );
 
 /**
  * Append the changelog to the extension or download content
@@ -1256,6 +1257,7 @@ add_action( 'pre_get_posts', 'eddwp_feed_query', 99999999 );
  * Featured image for downloads grid output
  */
 function eddwp_downloads_grid_thumbnail() {
+	global $post;
 
 	// replace old featured image programmatically until fully removed
 	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ) );
@@ -1477,7 +1479,7 @@ function eddwp_newsletter_form() {
 					<input class="newsletter-email" name="pmc_email" id="pmc_email" type="text" placeholder="Email Address"/>
 				</div>
 				<div class="newsletter-submit-container">
-					<input type="hidden" name="redirect" value="<?php echo 'https://' . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]; ?>"/>
+					<input type="hidden" name="redirect" value="<?php if ( function_exists( 'edd_get_current_page_url' ) ) { echo edd_get_current_page_url(); } ?>"/>
 					<input type="hidden" name="action" value="pmc_signup"/>
 					<input type="hidden" name="pmc_list_id" value="be2b495923"/>
 					<input type="submit" class="newsletter-submit edd-button button blue" value="Sign Up"/>
@@ -1537,6 +1539,17 @@ add_action( 'p2p_init', 'temporary_eddwp_connection_types' );
 function eddwp_edd_is_activated() {
 	return class_exists( 'Easy_Digital_Downloads' );
 }
+
+
+/**
+ * reposition checkout page form errors
+ */
+remove_action( 'edd_ajax_checkout_errors', 'edd_print_errors' );
+remove_action( 'edd_purchase_form_before_submit', 'edd_print_errors' );
+function eddwp_reposition_checkout_errors() {
+	add_action( 'edd_purchase_form_before_submit', 'edd_print_errors', 999 );
+}
+add_action( 'init', 'eddwp_reposition_checkout_errors' );
 
 
 /* ----------------------------------------------------------- *

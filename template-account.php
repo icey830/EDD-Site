@@ -23,11 +23,24 @@ if ( is_user_logged_in() ) { ?>
 			<?php while ( have_posts() ) { the_post(); ?>
 			<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
 				<h1>My Account</h1>
+				<?php
+					/**
+					 * Only show account balance when it's not 0
+					 */
+					if ( class_exists( 'EDD_Wallet' ) ) {
+						$user_id    = get_current_user_id();
+						$value      = edd_wallet()->wallet->balance( $user_id );
+						if ( $value > 0 ) {
+							echo '<div class="edd-wallet-container">Account Balance:<br><span class="edd-wallet-value">' . edd_currency_filter( edd_format_amount( $value ) ) . '</span></div>';
+						}
+					}
+				?>
 			</article><!-- /#post-<?php echo get_the_ID(); ?> -->
 			<?php } ?>
 
 			<ul class="nav nav-tabs nav-append-content">
 				<li class="active"><a href="#tab1" data-toggle="tab">Purchases</a></li>
+				<li><a href="#license-keys-tab" data-toggle="tab">License Keys</a></li>
 				<li><a href="#downloads-tab" data-toggle="tab">Downloads</a></li>
 				<li><a href="#tab2" data-toggle="tab">Profile</a></li>
 				<?php if ( eddc_user_has_commissions() ) { ?>
@@ -62,6 +75,13 @@ if ( is_user_logged_in() ) { ?>
 					<p id="next-payout"><?php if( function_exists( 'eddc_get_upcoming_commissions' ) ) { echo eddc_get_upcoming_commissions(); } ?></p>
 					<?php if( function_exists( 'eddc_user_product_list' ) ) { echo eddc_user_product_list(); } ?>
 					<?php if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); } ?>
+				</div><!-- /.tab-pane -->
+
+				<div class="tab-pane license-keys-tab-pane" id="license-keys-tab">
+
+					<?php
+					echo do_shortcode( '[edd_license_keys]' );
+					?>
 				</div><!-- /.tab-pane -->
 
 				<div class="tab-pane support-subscription-tab-pane" id="tab5">

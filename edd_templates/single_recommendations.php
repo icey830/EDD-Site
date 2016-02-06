@@ -31,7 +31,6 @@ if ( is_array( $suggestion_data ) && !empty( $suggestion_data ) ) :
 					</div>
 				<?php endwhile; ?>
 			</div>
-			<p class="recommended-products-discount-note">Purchase 3 or more extensions at once for an instant <strong>10% discount</strong>.</p>
 		</div>
 	<?php endif; ?>
 

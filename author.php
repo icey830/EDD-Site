@@ -64,7 +64,7 @@ get_header();
 											'url'   => home_url( '/starter-package' ),
 											'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/starter-package-featured.png',
 											'title' => 'Extension Starter Package',
-											'desc'  => 'Build your own extension starter package and automatically save 30% on our order.',
+											'desc'  => 'Build your own extension starter package and automatically save 30% on your order.',
 										)
 									);
 									$num = rand( 0, 1 );

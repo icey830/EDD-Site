@@ -38,6 +38,7 @@ the_post();
 									22 /* extensions */,
 									162 /* themes */,
 									1571 /* featured theme */,
+									1536 /* 3rd party */,
 								),
 							);
 							$cats = get_terms( 'download_category', $cat_args );
@@ -73,7 +74,7 @@ the_post();
 										'url'   => home_url( '/starter-package' ),
 										'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/starter-package-featured.png',
 										'title' => 'Extension Starter Package',
-										'desc'  => 'Build your own extension starter package and automatically save 30% on our order.',
+										'desc'  => 'Build your own extension starter package and automatically save 30% on your order.',
 									)
 								);
 								$num = rand( 0, 1 );
@@ -154,6 +155,10 @@ the_post();
 						<?php echo $links; ?>
 					</div>
 					<?php wp_reset_postdata(); ?>
+					<div class="third-party-extensions-section">
+						<p>View more extensions built by talented developers from the EDD community.</p>
+						<a class="edd-submit button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>">3rd Party Extensions</a>
+					</div>
 				</div>
 			</div>
 		</div>

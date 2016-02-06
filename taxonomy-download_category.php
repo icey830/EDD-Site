@@ -34,6 +34,7 @@ get_header();
 									162 /* themes */,
 									1572 /* child themes */,
 									1571 /* featured theme */,
+									1536 /* 3rd party */,
 								),
 							);
 							$cats = get_terms( 'download_category', $cat_args );
@@ -73,8 +74,12 @@ get_header();
 								</div>
 							</div>
 						<?php endwhile; wp_reset_postdata(); ?>
+						<?php eddwp_paginate_links(); ?>
+						<div class="third-party-extensions-section">
+							<p>View more extensions built by talented developers from the EDD community.</p>
+							<a class="edd-submit button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>">3rd Party Extensions</a>
+						</div>
 					</section><!-- .download-grid three-col -->
-					<?php eddwp_paginate_links(); ?>
 				</div>
 			</div>
 		</div>

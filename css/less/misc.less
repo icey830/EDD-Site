@@ -37,7 +37,10 @@ img {
 	height: auto;
 }
 
-.wp-caption {
+.wp-caption,
+.frame {
+	background: #f1f1f1;
+	padding: 10px;
 	max-width: 100%;
 	margin-bottom: 25px !important;
 }
@@ -51,7 +54,7 @@ img {
 	font-size: 13px;
 	text-align: center;
 	font-style: italic;
-	color: #999;
+	color: #666;
 }
 
 .fl {
@@ -190,6 +193,7 @@ a:focus { outline: none !important; }
 .gform_wrapper .gform_footer input.button,
 .gform_wrapper .gform_footer input[type="submit"],
 .gform_wrapper input[type="submit"],
+.support-page .gform_wrapper .gform_page_footer input[type="button"],
 div.form_saved_message div.form_saved_message_emailform form input[type="submit"],
 .sidebar .widget_edd_cart_widget .cart_item.edd_checkout a {
 	margin-top: 2px;
@@ -238,6 +242,178 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	margin-top: 10px;
 }
 
+/* Support Page Template */
+.support-page .support-title-wrap {
+	text-align: center;
+	margin: 0 !important;
+	max-width: 100% !important;
+}
+.support-page .support-title {
+	font-size: 3.6rem;
+	font-weight: 300;
+	margin: 0 0 .7em;
+}
+.support-page .support-section-wrap {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
+.support-page .support-section {
+	width: 31%;
+	margin-bottom: 33px;
+}
+.support-page .support-section-link {
+	display: block;
+	padding: 20px;
+	border: 2px solid #f1f1f1;
+	border-radius: 4px;
+	box-sizing: border-box;
+	-webkit-transition: border .2s;
+	-moz-transition: border .2s;
+	transition: border .2s;
+}
+.support-page .special-section .support-section-link {
+	border: 2px solid #ccc;
+}
+.support-page .support-section-link:hover,
+.support-page .special-section .support-section-link:hover {
+	border: 2px solid #2794da;
+}
+.support-page .support-section-title {
+	color: #333;
+	font-weight: 500;
+	margin: 0 0 .4em;
+}
+.support-page .support-section-description {
+	color: #999;
+}
+.support-page .edd-docs-link-wrap {
+	text-align: center;
+	margin-bottom: 50px;
+}
+.support-page .edd-docs-link {
+	font-size: 18px;
+	padding: 10px;
+	min-width: 240px;
+}
+.support-page .button-break {
+	display: inline-block;
+	width: 6px;
+}
+.support-page .edd-support-ticket-link {
+	font-size: 18px;
+	padding: 10px;
+	min-width: 240px;
+}
+.support-page .standard-support-form-container {
+	display: none; /* click .edd-support-ticket-link to open (display: block;) */
+}
+.support-page .support-docs-form-container:not(.pre-sale-support-form-container) {
+	border-top: 2px solid #f2f2f2;
+}
+.support-page .edd-gf-support-docs {
+	text-align: center;
+}
+.support-page .gform_wrapper,
+.support-page .gform_wrapper .gform_page_footer {
+	border: none;
+	margin: 0;
+	width: 100%;
+	max-width: 100%;
+}
+.support-page .helpscout-docs label {
+	display: none !important;
+}
+.support-page .helpscout-docs input[type="text"] {
+	font-size: 24px !important;
+	padding: 10px !important;
+	border: 2px solid #f1f1f1;
+	border-radius: 3px 3px 0 0;
+	width: 100% !important;
+	max-width: 520px !important;
+}
+span.results-found {
+	font-size: 18px;
+	display: block;
+	padding: 10px;
+	margin: 0 auto;
+	color: #999;
+	background: #fafafa;
+	max-width: 520px;
+	border-radius: 0 0 3px 3px;
+	border: 2px solid #f1f1f1;
+	border-width: 1px 2px 2px;
+}
+.support-page .gform_wrapper .docs-search-results {
+	text-align: left;
+	padding-left: 0;
+	border: 2px solid #f1f1f1;
+	border-width: 2px 2px 1px 2px;
+	border-radius: 4px;
+	margin: 30px auto !important;
+	max-width: 700px;
+}
+.support-page .gform_wrapper .docs-search-results:before {
+	content: "Please review our complete list of suggestions to proceed.";
+	display: block;
+	background: #fafafa;
+	color: #999;
+	font-size: 18px;
+	padding: 10px 20px;
+	border-bottom: 3px solid #f1f1f1;
+}
+.support-page .gform_wrapper .docs-search-results li {
+	list-style: none !important;
+}
+.support-page .gform_wrapper .docs-search-results li.article {
+	border-bottom: 1px solid #f1f1f1;
+	margin: 0;
+}
+.support-page .gform_wrapper .docs-search-results li.article a {
+	display: block;
+	font-size: 18px;
+	padding: 10px 20px;
+}
+.support-page .gform_wrapper .docs-search-results li.article a:hover {
+	background: #fafafa;
+	color: #2794da;
+}
+.support-page .gform_wrapper .gform_page_footer {
+	text-align: center;
+}
+.support-page .edd-gf-support-form,
+.support-page .edd-gf-pre-sale-question-form,
+.support-page .edd-gf-refund-request-form {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 780px;
+}
+.support-page .gform_wrapper .show-contact-form-wrap a,
+.support-page .gform_wrapper .gform_page_footer input[type="button"],
+.support-page .gform_wrapper .gform_page_footer input[type="submit"] {
+	font-size: 18px;
+	padding: 10px;
+	margin-right: 0 !important;
+	min-width: 240px;
+}
+.support-page .edd-gf-support-form .gform_page_footer {
+	padding-top: 40px;
+	border-top: 2px solid #f2f2f2;
+}
+.support-page .gform_wrapper .gform_page_footer img {
+	display: block;
+	max-width: 40px;
+	margin: 10px auto;
+	clear: both
+}
+.support-page .edd-gf-support-tickets-form {
+	margin-bottom: 30px;
+}
+
 /* Support Ticket Form - Gravity Forms */
 #gform_wrapper_4,
 #gform_wrapper_14 {
@@ -249,7 +425,13 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	width: 100%;
 }
 .edd-gf-support-tickets-form {
-	margin-top: 40px;
+	margin: 60px 0 100px;
+}
+.pre-sale-support-form-container .edd-gf-support-tickets-form {
+	margin-top: 0;
+}
+.support-page .support-docs-form-container.refund-support-form-container {
+	margin-top: 20px;
 }
 .edd-gf-support-tickets-form input[type="text"],
 .edd-gf-support-tickets-form input[type="url"],
@@ -268,7 +450,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	line-height: 1.6;
 }
 .gform_wrapper .edd-gf-support-tickets-form .top_label .gfield.edd-gf-support-tickets-form-email .gfield_description {
-	margin: 15px 0 5px;
+	display: none;
 }
 .gform_wrapper .edd-gf-support-tickets-form .top_label .gfield_label {
 	font: 300 24px/1.4 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
@@ -433,7 +615,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 }
 
 /* Toggle */
-.tb-toggle { margin-top: 5px; }
+.tb-toggle { margin-top: 25px; }
 .toggle-trigger { background: #f8f8f8; border-radius: 4px; }
 .toggle-trigger.active { border-radius: 4px 4px 0 0; }
 .tb-toggle a.toggle-trigger { color:inherit; display:block; font-size: 1em; padding:.65em .65em .65em 2.75em; position:relative; }
@@ -614,9 +796,9 @@ html .row {
 
 /* EDD Newsletter form */
 .newsletter {
-	
+
 	& p { margin: 0 0 10px; }
-	
+
 	& input[type="text"] {
 		border: none;
 		padding: 9px 8px 9px 36px;
@@ -625,7 +807,7 @@ html .row {
 		border: 1px solid #fff;
 		border-radius: 3px;
 		outline: none;
-		
+
 		&:focus {
 			border: 1px solid #2c67b0;
 			-webkit-box-shadow: 0px 0px 4px rgba(90,90,90,.6);
@@ -716,7 +898,7 @@ html .row {
 }
 
 .edd-post-footer .newsletter-title span {
-	display: inline;	
+	display: inline;
 }
 
 .edd-post-footer .newsletter .newsletter-name-container,
@@ -739,7 +921,7 @@ html .row {
 }
 
 .bctt-click-to-tweet {
-	border-left: 4px solid #2794da;	
+	border-left: 4px solid #2794da;
 	margin-bottom: 30px;
 }
 
@@ -790,12 +972,12 @@ html .row {
 [id*=jBoxID] #edd-free-downloads-modal input[type='button'] {
 	font-size: 18px;
 	padding: 8px 10px;
-	font-weight: 700;	
+	font-weight: 700;
 }
 
 /* Recommended Products */
 #edd-rp-single-wrapper {
-	padding: 20px 0 10px;
+	padding: 20px 0 30px;
 	border: 3px solid #eaeaea;
 	border-width: 3px 0;
 	margin: 50px 0;
@@ -835,15 +1017,4 @@ html .row {
 #edd-rp-single-wrapper .edd_cart_item_image img {
 	border-radius: 4px;
 	margin-bottom: 10px;
-}
-#edd-rp-single-wrapper .recommended-products-discount-note {
-	color: #777;
-	font-size: 13px;
-	font-style: italic;
-	line-height: 1.6;
-	border-radius: 4px;
-	margin-top: 30px;
-}
-#edd-rp-single-wrapper .recommended-products-discount-note strong {
-	color: #555;
 }
