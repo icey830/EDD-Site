@@ -24,7 +24,7 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="front-page-about-edd" class="features-grid-three full-width">
+<div id="front-page-about-edd" class="features-grid-three page-section-white full-width">
 	<div class="inner">
 		<div class="features-grid-three-content page-section">
 			<div class="page-section-header">
@@ -52,7 +52,7 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="front-page-data-export" class="front-page-section full-width">
+<div id="front-page-data-export" class="front-page-section page-section-white full-width">
 	<div class="inner">
 		<div class="front-page-data-export-content half-split image-left clearfix">
 			<div class="split-text">
@@ -69,7 +69,7 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="front-page-integrations" class="front-page-section full-width">
+<div id="front-page-integrations" class="front-page-section page-section-white full-width">
 	<div class="inner">
 		<div class="front-page-integrations page-section">
 			<h5 class="integrations-description">Extend Easy Digital Downloads With Your Favorite Services</h5>

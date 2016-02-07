@@ -6,7 +6,6 @@
 /* ----------------------------- *
  * Global
  * ----------------------------- */
-
 body {
 	background-color: #f1f1f1;
 }
@@ -20,25 +19,37 @@ body {
 .site-container .content {
 	background: #fff;
 	padding: 0;
+	border-radius: 4px;
 	margin: 0 0 20px;
-	box-shadow: none;
-	width: 740px;
+	width: 750px;
 	float: left;
 }
 
 .site-container .content .hentry {
-	margin-bottom: 30px;
+	background: #fff;
+	padding: 30px 50px;
+	border-radius: 4px;
+}
+
+.blog .site-container .content {
+	background: none;
 }
 
 .blog .site-container .content .hentry {
 	margin-bottom: 60px;
 }
 
+.bbpress .site-container .content {
+	background: #fff;
+	font-size: 1.4rem;
+	padding: 30px 50px;
+	border-radius: 4px;
+}
+
 
 /* ----------------------------- *
  * Full-width structure (not the page template)
  * ----------------------------- */
-
 .full-width {
 	width: 100%;
 }
@@ -68,7 +79,6 @@ body {
 /* ----------------------------- *
  * Download Grid Styles
  * ----------------------------- */
-
  .download-grid-item {
 	display: inline-block;
 	position: relative;

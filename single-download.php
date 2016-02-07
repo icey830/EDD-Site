@@ -12,7 +12,7 @@ the_post();
 	<div class="site-container">
 		<section class="content">
 
-			<article class="single-download-entry" id="post-<?php echo get_the_ID(); ?>">
+			<article class="single-download-entry hentry" id="post-<?php echo get_the_ID(); ?>">
 				<div class="entry-header">
 						<?php the_title( '<h1 class="download-entry-title">', '</h1>' ); ?>
 				</div>

@@ -18,7 +18,7 @@ get_header(); ?>
 						<?php the_excerpt(); ?>
 						<p><a class="edd-button button blue" href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'edd' ); ?></a></p>
 					</div>
-					<div class="entry-summary">
+					<div class="entry-footer">
 						<?php eddwp_post_meta(); ?>
 					</div>
 				</article>

@@ -18,7 +18,7 @@ elseif ( $is_bundle ) :
 endif;
 ?>
 
-	<aside class="sidebar">
+	<aside class="sidebar download-sidebar">
 		<div class="box">
 			<div class="download-details download-info-section">
 				<h3><?php echo ucfirst( $download_type ); ?> Details</h3>
