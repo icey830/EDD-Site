@@ -34,7 +34,7 @@ the_post();
 					</div>
 					<div class="color">
 						<div class="color-3">
-							<p>#eeeeee</p>
+							<p>#f7f7f7</p>
 						</div>
 					</div>
 				</section>
