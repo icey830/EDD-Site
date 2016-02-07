@@ -1,0 +1,171 @@
+/*
+ * basic singular styles
+ */
+
+
+/* ----------------------------- *
+ * entry header
+ * ----------------------------- */
+.entry-header {
+	margin-bottom: 20px;
+}
+
+.entry-date {
+	padding: 0;
+	font-size: 13px;
+	font-size: 1.3rem;
+	margin: 0 0 10px;
+	display: inline-block;
+	color: #aaa;
+}
+
+.entry-title {
+	padding: 0;
+	margin: 0;
+}
+
+.entry-title a {
+	color: #232527;
+}
+
+
+/* ----------------------------- *
+ * entry content/summary
+ * ----------------------------- */
+.entry-content,
+.entry-summary {
+	margin-bottom: 30px;
+}
+
+.content .featured-img {
+	margin-bottom: 30px;
+}
+
+.content .post-meta {
+	padding-top: 10px;
+	border-top: 1px solid #eee;
+
+	& ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	& li {
+		font-size: 13px;
+
+		& i {
+			margin-right: 5px;
+			width: 16px;
+			display: inline-block;
+		}
+	}
+}
+
+
+/* ----------------------------- *
+ * entry footer
+ * ----------------------------- */
+.single.blog .post-meta {
+	padding: 0;
+	border: none;
+	margin: 30px 0;
+}
+
+.edd-author-box {
+	padding: 30px 0;
+	border: 1px solid #f1f1f1;
+	border-width: 1px 0;
+	margin-bottom: 30px;
+}
+
+.edd-author-avatar {
+	float: left;
+	margin-right: 30px;
+	width: 90px;
+}
+
+.edd-author-avatar img {
+	border-radius: 50%;
+}
+
+.edd-author-bio {
+	float: left;
+	width: 520px;
+}
+
+.edd-author-bio .edd-author-title,
+.edd-author-bio .edd-author-url {
+	display: inline-block;
+	margin-right: 6px !important;
+}
+
+.edd-author-url a {
+	color: #aaa;
+}
+
+.edd-author-url a:hover {
+	color: #555;
+}
+
+
+/* ----------------------------- *
+ * Misc
+ * ----------------------------- */
+#page-nav {
+	.paged, .page-numbers {
+		margin: 20px 0;
+		padding: 0;
+		list-style: none;
+
+		& li {
+			display: inline;
+			&.previous {
+				float: left;
+			}
+
+			&.next {
+				float: right;
+
+				& i {
+					margin-right: 0;
+					margin-left: 5px;
+				}
+			}
+
+			& a {
+				display: inline-block;
+				float: left;
+				padding: 3px 12px;
+				background: #fff;
+
+				& i {
+					font-size: 12px;
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+
+	.page-numbers {
+		a {
+			margin-right: 8px;
+			border: 1px solid #fff;
+		}
+
+		.current {
+			border: 1px solid #555;
+			display: inline-block;
+			float: left;
+			padding: 3px 12px;
+			background: #fff;
+			margin-right: 8px;
+		}
+	}
+}
+
+div.sharedaddy .sd-content {
+	width: 100% !important;
+	float: none !important;
+	margin: 0 !important;
+}
