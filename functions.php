@@ -1485,7 +1485,7 @@ function eddwp_newsletter_form() {
 					<input type="hidden" name="redirect" value="<?php if ( function_exists( 'edd_get_current_page_url' ) ) { echo edd_get_current_page_url(); } ?>"/>
 					<input type="hidden" name="action" value="pmc_signup"/>
 					<input type="hidden" name="pmc_list_id" value="be2b495923"/>
-					<input type="submit" class="newsletter-submit edd-button button blue" value="Sign Up"/>
+					<input type="submit" class="newsletter-submit edd-submit button darkblue" value="Sign Up"/>
 				</div>
 			</form>
 			<p class="newsletter-note"><i class="fa fa-lock"></i>We will never send you spam. Your email address is secure.</p>

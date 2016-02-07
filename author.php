@@ -65,7 +65,7 @@ get_header();
 								<p><?php echo $bundle_promotion[ $num ]['desc']; ?></p>
 							</div>
 							<div class="download-grid-item-cta">
-								<a class="green-button" href="<?php echo $bundle_promotion[ $num ]['url']; ?>">More Information</a>
+								<a class="edd-submit button green" href="<?php echo $bundle_promotion[ $num ]['url']; ?>">More Information</a>
 							</div>
 						</div>
 						<?php while ( $extensions->have_posts() ) : $extensions->the_post(); ?>
@@ -108,7 +108,7 @@ get_header();
 		<section id="landing-page" class="landing clearfix">
 
 			<article class="content clearfix">
-				<div class="the-content clearfix">
+				<div class="full-width-content clearfix">
 					<div class="entry-header">
 						<h1 class="entry-title">
 							<?php echo get_userdata( get_query_var( 'author' ) )->display_name; ?> has no downloads.

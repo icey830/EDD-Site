@@ -16,7 +16,7 @@ get_header(); ?>
 					</div>
 					<div class="entry-summary">
 						<?php the_excerpt(); ?>
-						<p><a class="edd-button button blue" href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'edd' ); ?></a></p>
+						<p><a class="edd-submit button blue" href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'edd' ); ?></a></p>
 					</div>
 				</article>
 			<?php endwhile; ?>

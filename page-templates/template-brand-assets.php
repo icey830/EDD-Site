@@ -8,7 +8,7 @@ the_post();
 ?>
 
 	<section id="full-width-page" class="full-width-page clearfix">
-		<div class="the-content clearfix">
+		<div class="full-width-content clearfix">
 
 			<article class="entry">
 				<div class="entry-header">

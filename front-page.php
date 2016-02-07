@@ -59,7 +59,7 @@ get_header(); ?>
 				<h2 class="front-page-section-title">Easily <strong>Export Store Data</strong></h2>
 				<p>Easy Digital Downloads will never lock your data in. With our simple export options, you can easily send all sales, earnings, and customer data to Excel, Google Docs, or any other reporting system of your choice.</p>
 				<p>You also have the freedom to be as specific as you need when exporting your data. Choose a custom start date as well as a custom end date to get just the necessary data for your reporting.</p>
-				<p><a class="secondary-cta-button" href="<?php echo home_url( '/edd-features/' ); ?>"><i class="fa fa-eye"></i>See All Features</a></p>
+				<p><a class="edd-submit button blue" href="<?php echo home_url( '/edd-features/' ); ?>"><i class="fa fa-eye"></i> See All Features</a></p>
 			</div>
 			<div class="split-image">
 				<img class="primary-export-image" style="border-right: 1px solid #f1f1f1;" src="<?php echo get_template_directory_uri() ?>/images/export-store-data.png" alt="Data Export" />
@@ -132,8 +132,7 @@ get_header(); ?>
 				wp_reset_postdata();
 				?>
 			</div><!-- /.extensions-grid -->
-			<p class="view-all-extensions"><a href="<?php echo home_url( '/downloads/' ); ?>"><i class="fa fa-cogs"></i>
-view all extensions</a></p>
+			<p class="view-all-extensions"><a class="edd-submit button blue" href="<?php echo home_url( '/downloads/' ); ?>"><i class="fa fa-cogs"></i> view all extensions</a></p>
 		</div>
 	</div>
 </div>

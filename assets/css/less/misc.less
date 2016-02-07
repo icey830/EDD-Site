@@ -110,9 +110,10 @@
 }
 
 .newsletter .newsletter-title {
-	background: #62A9D7 url(images/edd-newsletter.png) no-repeat 22px bottom;
+	background: rgba(0,0,0,.1) url(images/edd-newsletter.png) no-repeat 22px bottom;
 	font-weight: 400;
 	padding: 18px 30px;
+	border-bottom: 1px solid #215b95;
 	margin: -30px -30px 20px;
 	text-align: right;
 	font-size: 20px;
@@ -133,8 +134,11 @@
 .newsletter input[type="submit"] {
 	display: block;
 	line-height: 2;
-	margin-top: 4px;
 	width: 100%;
+}
+
+.sidebar .newsletter input[type="submit"] {
+	margin-top: 4px;
 }
 
 .newsletter .newsletter-note {
@@ -149,23 +153,23 @@
 }
 
 .sidebar .newsletter {
-	background: #85c0e5;
-	padding: 50px 50px 30px;
+	background:  #2794da;
+	padding: 50px 30px 30px;
 	border-radius: 4px 4px 0 0;
 	color: #fff;
 	margin: -30px -50px 30px;
 }
 
 .sidebar .newsletter-title {
-	border: none;
 	border-radius: 4px 4px 0 0;
-	margin: -50px -50px 20px;
+	margin: -50px -30px 20px;
 }
 
 .edd-post-footer {
 	background: #62A9D7;
 	color: #fff;
-	margin: 0 0 30px;
+	border-radius: 0 0 4px 4px;
+	margin: 0 -50px -30px;
 }
 
 .edd-post-footer .newsletter form {
@@ -173,8 +177,9 @@
 }
 
 .edd-post-footer .newsletter-wrap {
-	background: #85c0e5;
+	background:  #2794da;
 	padding: 50px 50px 30px;
+	border-radius: 0 0 4px 4px;
 }
 
 .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {

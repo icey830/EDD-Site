@@ -9,7 +9,7 @@ the_post();
 ?>
 
 	<section id="landing-page" class="landing clearfix">
-		<article class="the-content clearfix">
+		<article class="full-width-content clearfix">
 
 			<div class="entry-header">
 				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>

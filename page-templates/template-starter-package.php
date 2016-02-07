@@ -11,7 +11,7 @@ the_post();
 
 	<section id="starter-package" class="site-container clearfix">
 
-		<div class="the-content clearfix">
+		<div class="full-width-content clearfix">
 			<div class="entry-header">
 				<h1 class="entry-title">Jump-start your store with the <strong>EDD <?php the_title(); ?></strong></h1>
 				<span class="entry-headline">Let's make this simple.</span>

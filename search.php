@@ -17,7 +17,7 @@ get_header(); ?>
 					<p class="entry-date"><span><?php the_date(); ?></span></p>
 					<h2><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h2>
 					<?php the_excerpt(); ?>
-					<p><a class="edd-button button blue" href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'edd' ); ?></a></p>
+					<p><a class="edd-submit button blue" href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'edd' ); ?></a></p>
 					<?php eddwp_post_meta(); ?>
 				</article>
 			<?php endwhile; ?>

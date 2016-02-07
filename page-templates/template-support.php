@@ -103,7 +103,7 @@ the_post();
 					<?php } ?>
 					<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
 						<p class="edd-docs-link-wrap">
-							<a class="edd-docs-link button" href="http://docs.easydigitaldownloads.com/">View Full Documentation</a><span class="button-break"></span><a class="edd-support-ticket-link gray-button" href="#">Submit Support Request</a>
+							<a class="edd-submit button blue" href="http://docs.easydigitaldownloads.com/">View Full Documentation</a><span class="button-break"></span><a class="edd-support-ticket-link edd-submit button gray" href="#">Submit Support Request</a>
 						</p>
 					<?php } ?>
 					<?php
@@ -116,7 +116,7 @@ the_post();
 						}
 					?>
 					<section class="support-docs-form-container<?php echo $form_container_class; ?> clearfix">
-						<div class="the-content clearfix">
+						<div class="full-width-content clearfix">
 							<div class="entry-content">
 								<?php the_content(); ?>
 							</div>

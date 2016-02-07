@@ -151,7 +151,7 @@
 
 .showcase .site:nth-child(3n+3) { margin-right: 0; }
 
-.page-id-2483 .the-content {
+.page-id-2483 .full-width-content {
 	padding: 30px;
 	background: #fff;
 
@@ -721,6 +721,8 @@
 }
 .support-page .support-section-description {
 	color: #999;
+	font-size: 14px;
+	font-size: 1.4rem;
 }
 .support-page .edd-docs-link-wrap {
 	text-align: center;
@@ -2426,15 +2428,12 @@ input#edd-discount,
 }
 
 .featured-download-secondary-link {
-	background: #fff;
 	color: #666;
-	-webkit-transition: all .2s;
-	-moz-transition: all .2s;
-	transition: all .2s;
+	text-decoration: underline;
 }
 
 .featured-download-secondary-link:hover {
-	background: #fafafa;
+	text-decoration: none;
 }
 
 .recommended-download-area {
@@ -2478,7 +2477,7 @@ input#edd-discount,
 /* ----------------------------- *
  * Starter package
  * ----------------------------- */
-#starter-package .the-content {
+#starter-package .full-width-content {
 	padding: 50px;
 	border-radius: 4px;
 }
@@ -3150,8 +3149,8 @@ input#edd-discount,
 /* ----------------------------- *
  * Common Page Templates
  * ----------------------------- */
-#landing-page .the-content,
-#full-width-page .the-content {
+#landing-page .full-width-content,
+#full-width-page .full-width-content {
 	background: #fff;
 	padding: 50px;
 	border-radius: 4px;
@@ -3160,7 +3159,7 @@ input#edd-discount,
 	margin: 50px auto 120px;
 }
 
-#landing-page .the-content {
+#landing-page .full-width-content {
 	max-width: 640px;
 }
 
@@ -3169,7 +3168,7 @@ input#edd-discount,
 	margin-bottom: 20px;
 }
 
-#full-width-page .the-content {
+#full-width-page .full-width-content {
 	padding: 50px;
 	border-radius: 4px;
 }
@@ -3178,6 +3177,9 @@ input#edd-discount,
 /* ----------------------------- *
  * Generic Page Elements
  * ----------------------------- */
+ .full-width-content {
+	 background: #fff;
+ }
 
 .page-section-header {
 	text-align: center;
@@ -3194,7 +3196,7 @@ input#edd-discount,
 }
 
 .page-section-blue {
-	background: #2794da url('images/blue-bg.png');
+	background: #2794da;
 	color: #fff;
 	text-align: center;
 }
@@ -3297,15 +3299,6 @@ input#edd-discount,
 	margin: 0 0 20px;
 }
 
-.half-split .secondary-cta-button {
-	display: inline-block;
-	border-radius: 4px;
-	-webkit-transition: all .2s;
-	-moz-transition: all .2s;
-	transition: all .2s;
-}
-
-.half-split .secondary-cta-button,
 #front-page-extensions .view-all-extensions a {
 	background: #2794da;
 	color: #fff;
@@ -3318,9 +3311,4 @@ input#edd-discount,
 #front-page-extensions .view-all-extensions a:hover {
 	background: #303E4C;
 	color: #fff;
-}
-
-.half-split .secondary-cta-button .fa,
-#front-page-extensions .view-all-extensions a .fa {
-	margin-right: 8px;
 }

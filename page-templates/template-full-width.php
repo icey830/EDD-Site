@@ -10,7 +10,7 @@ the_post();
 ?>
 
 	<section id="full-width-page" class="full-width-page clearfix">
-			<div class="the-content clearfix">
+			<div class="full-width-content clearfix">
 				<div class="entry-header">
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 				</div>
