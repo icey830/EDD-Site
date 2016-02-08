@@ -8,6 +8,8 @@
  * @author	  Sunny Ratilal
  * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
+
+$response_count = get_comments_number();
 ?>
 
 <?php
@@ -24,7 +26,7 @@
 <?php } // end if	?>
 
 
-<?php if ( have_comments() && 0 != eddwp_get_comments_only_count() ) { ?>
+<?php if ( have_comments() && 0 != eddwp_get_comments_only_count( $response_count ) ) { ?>
 	<div id="comments" class="clearfix">
 
 		<h3>Comments</h3>
