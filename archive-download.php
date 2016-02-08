@@ -79,7 +79,7 @@ the_post();
 							);
 							$num = rand( 0, 1 );
 						?>
-						<a href="<?php echo $bundle_promotion[ $num ]['url']; ?>" title="<?php echo $bundle_promotion[ $num ]['title']; ?>">
+						<a class="promotion-image-link" href="<?php echo $bundle_promotion[ $num ]['url']; ?>" title="<?php echo $bundle_promotion[ $num ]['title']; ?>">
 							<img class="download-grid-thumb" src="<?php echo $bundle_promotion[ $num ]['image']; ?>"  alt="<?php echo $bundle_promotion[ $num ]['title']; ?>">
 						</a>
 						<div class="download-grid-item-info">
@@ -87,7 +87,7 @@ the_post();
 							<p><?php echo $bundle_promotion[ $num ]['desc']; ?></p>
 						</div>
 						<div class="download-grid-item-cta">
-							<a class="edd-submit button green" href="<?php echo $bundle_promotion[ $num ]['url']; ?>">More Information</a>
+							<a class="download-grid-item-primary-link button green" href="<?php echo $bundle_promotion[ $num ]['url']; ?>">More Information</a>
 						</div>
 					</div>
 					<?php

@@ -65,7 +65,7 @@ get_header();
 								<p><?php echo $bundle_promotion[ $num ]['desc']; ?></p>
 							</div>
 							<div class="download-grid-item-cta">
-								<a class="edd-submit button green" href="<?php echo $bundle_promotion[ $num ]['url']; ?>">More Information</a>
+								<a class="download-grid-item-primary-link button green" href="<?php echo $bundle_promotion[ $num ]['url']; ?>">More Information</a>
 							</div>
 						</div>
 						<?php while ( $extensions->have_posts() ) : $extensions->the_post(); ?>
