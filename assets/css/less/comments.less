@@ -4,7 +4,6 @@
 #comments {
 	background: #fff;
 	padding: 50px;
-	margin-top: 40px;
 }
 
 #comments h3 {
@@ -24,7 +23,7 @@
 	width: 100%;
 	padding: 0 0 20px 0;
 	margin: 0 0 25px 0;
-	border-bottom: 1px solid #eee;
+	border-bottom: 3px solid #f7f7f7;
 	position: relative;
 }
 
@@ -45,17 +44,27 @@
 
 .vcard img {
 	border-radius: 50%;
-	border: 3px solid #fff;
-	-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
-	box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 	float: left;
 	margin-right: 10px;
+}
+
+.comment:not(.bypostauthor) .vcard img {
+	margin: 10px 10px 0 0;
+	width: 26px;
 }
 
 .vcard cite {
 	display: inline-block;
 	font-style: normal;
 	font-size: 17px;
+}
+
+.vcard cite a {
+	color: @edddarkblue;
+}
+
+.vcard cite a:hover {
+	color: @edddarkbluehover;
 }
 
 .vcard .says { display: none; }
@@ -77,6 +86,15 @@
 	height: 0;
 }
 
+.comment-meta a {
+	color: #777;
+	text-decoration: none;
+}
+
+.comment-meta a:hover {
+	text-decoration: underline;
+}
+
 .comment-body p {
 	clear: both;
 	font-size: 16px;
@@ -88,8 +106,8 @@
 }
 
 .comment-list .children li {
-	padding-left: 15px;
-	border-left: 1px solid #eee;
+	padding-left: 25px;
+	border-left: 3px solid @eddgray;
 }
 
 .comment-list .children li:last-child {
