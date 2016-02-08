@@ -8,7 +8,7 @@ get_header();
 $download_term = $wp_query->get_queried_object();
 ?>
 
-	<div class="extensions-header-area full-width">
+	<div class="extensions-header-area page-section-blue full-width">
 		<div class="inner">
 			<div class="extensions-header clearfix">
 				<div class="section-header">
@@ -16,6 +16,13 @@ $download_term = $wp_query->get_queried_object();
 					<?php if ( ! empty( $download_term->description ) ) : ?>
 						<p class="section-subtitle"><?php echo $download_term->description; ?></p>
 					<?php endif; ?>
+					<div class="extensions-search-form">
+						<form id="extensions-searchform" class="clearfix" action="<?php echo home_url( 'downloads' ); ?>" method="get">
+							<input class="extensions-search-text" type="search" name="download_s" placeholder="Ex. Payment Gateway" />
+							<input class="extensions-search-submit edd-submit button darkblue" type="submit" value="Search" />
+							<input type="hidden" name="action" value="download_search" />
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
