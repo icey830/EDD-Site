@@ -8,7 +8,7 @@ get_header();
 the_post();
 ?>
 
-	<div id="features-page-intro" class="features-page-section full-width">
+	<div id="features-page-intro" class="features-page-section page-section-blue full-width">
 		<div class="inner">
 			<div class="features-page-intro">
 				<div class="features-page-header">

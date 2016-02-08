@@ -28,7 +28,7 @@ the_post();
 			</div>
 		</div>
 
-		<div class="support-search-area full-width">
+		<div class="support-search-area page-section-white full-width">
 			<div class="inner">
 				<div class="support-search">
 					<?php if ( ! is_page( 'pre-sale-question' ) ) { ?>

@@ -4,172 +4,7 @@
 
 
 /* ----------------------------- *
- * Showcase
- * ----------------------------- */
-.showcase {
-	width: 1100px;
-	margin: 0 auto 20px;
-
-	& .site {
-		background: #fff;
-		float: left;
-		padding: 10px;
-		position: relative;
-		width: 353px;
-		margin-right: 20px;
-		margin-bottom: 20px;
-
-		& img {
-			width: 333px;
-			height: auto;
-		}
-
-		& .text-overlay {
-			background: rgba(34,36,38,0.9);
-			width: 353px;
-			height: 235px;
-			position: absolute;
-			top: 0;
-			left: 0;
-			font-size: 18px;
-			font-weight: 400;
-			text-align: center;
-			line-height: 165px;
-			margin: 0;
-			padding: 0;
-			color: #fff;
-			opacity: 0;
-			-webkit-transition: opacity .18s ease-in-out;
-			-moz-transition: opacity .18s ease-in-out;
-			-o-transition: opacity .18s ease-in-out;
-			-ms-transition: opacity .18s ease-in-out;
-			transition: opacity .18s ease-in-out;
-
-			& span {
-				display: block;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				margin-top: 10px;
-				margin-left: -63px;
-				line-height: 24px;
-				font-size: 14px;
-				font-weight: 300;
-				padding: 6px 14px;
-				background: @eddblue;
-				color: #fff;
-				-webkit-box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
-				box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
-				cursor: pointer;
-				border-radius: 3px;
-				-webkit-transition: all .2s ease-in-out;
-				-moz-transition: all .2s ease-in-out;
-				-o-transition: all .2s ease-in-out;
-				-ms-transition: all .2s ease-in-out;
-				transition: all .2s ease-in-out;
-				-webkit-user-select: none;
-				-moz-user-select: none;
-				-ms-user-select: none;
-				user-select: none;
-			}
-		}
-
-		&:hover .text-overlay { opacity: 1; }
-	}
-
-	& .featured-site {
-		background: #fff;
-		float: left;
-		padding: 10px;
-		position: relative;
-		width: 540px;
-		margin-right: 20px;
-		margin-bottom: 20px;
-
-		&:nth-child(2n+2) {
-			margin-right: 0;
-		}
-
-		& img {
-			width: 540px;
-			height: 370px;
-		}
-
-		& .text-overlay {
-			background: rgba(34,36,38,0.9);
-			width: 540px;
-			height: 397px;
-			position: absolute;
-			top: 0;
-			left: 0;
-			font-size: 18px;
-			font-weight: 400;
-			text-align: center;
-			line-height: 320px;
-			margin: 0;
-			padding: 0;
-			color: #fff;
-			opacity: 0;
-			-webkit-transition: opacity .18s ease-in-out;
-			-moz-transition: opacity .18s ease-in-out;
-			-o-transition: opacity .18s ease-in-out;
-			-ms-transition: opacity .18s ease-in-out;
-			transition: opacity .18s ease-in-out;
-
-			& span {
-				display: block;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				margin-top: 10px;
-				margin-left: -63px;
-				line-height: 24px;
-				font-size: 14px;
-				font-weight: 300;
-				padding: 6px 14px;
-				background: @eddblue;
-				color: #fff;
-				-webkit-box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
-				box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
-				cursor: pointer;
-				border-radius: 3px;
-				-webkit-transition: all .2s ease-in-out;
-				-moz-transition: all .2s ease-in-out;
-				-o-transition: all .2s ease-in-out;
-				-ms-transition: all .2s ease-in-out;
-				transition: all .2s ease-in-out;
-				-webkit-user-select: none;
-				-moz-user-select: none;
-				-ms-user-select: none;
-				user-select: none;
-			}
-		}
-
-		&:hover .text-overlay { opacity: 1; }
-	}
-}
-
-.showcase .site:nth-child(3n+3) { margin-right: 0; }
-
-.page-id-2483 .full-width-content {
-	padding: 30px;
-	background: #fff;
-
-	> p:first-child {
-		font-size: 24px;
-		font-size: 2.4rem;
-		font-weight: 300;
-		line-height: 1.2;
-	}
-
-	.gform_wrapper .gform_footer {
-		padding-bottom: 0;
-	}
-}
-
-
-/* ----------------------------- *
- * Versions
+ * Product Info template
  * ----------------------------- */
 .product-info-content .product-info-list {
 	list-style: none;
@@ -212,13 +47,8 @@
 
 
 /* ----------------------------- *
- * Features
+ * Features template
  * ----------------------------- */
-#features-page-intro {
-	background: @eddblue;
-	color: #fff;
-}
-
 .features-page-section-title {
 	margin: 0 0 20px;
 }
@@ -233,118 +63,6 @@
 /* ----------------------------- *
  * Extensions and Themes (Downloads)
  * ----------------------------- */
-.extensions-offer {
-	border: 2px solid @eddblue;
-	background: #fff;
-	box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
-	margin: 10px;
-	padding: 12px;
-	font-weight: 500;
-	text-align: center;
-}
-
-.extensions-container,
-.themes-container,
-.edd-downloads-container {
-	width: 1100px;
-	margin: 0 auto 20px;
-}
-
-.page-id-13 h1 {
-	float: left;
-}
-
-#extensions_searchform {
-	float: right;
-
-	fieldset {
-		border: none;
-		background: transparent;
-
-		input[type="search"] {
-			width: 226px;
-			text-indent: 0;
-			height: 20px;
-			border-radius: 3px;
-			padding: 5px 10px;
-			display: inline-block;
-			outline: none;
-			border: 1px solid #ccc;
-			-webkit-transition: border .2s ease-in-out;
-			-moz-transition: border .2s ease-in-out;
-			-o-transition: border .2s ease-in-out;
-			-ms-transition: border .2s ease-in-out;
-			transition: border .2s ease-in-out;
-
-			&:focus {
-				border-color: #777;
-			}
-		}
-
-		input[type="submit"] {
-			padding: 8px 13px 8px;
-			text-decoration: none;
-			border-radius: 2px;
-			background: #eee;
-			border: none;
-		}
-	}
-}
-
-.page-template-template-extensions-php .content {
-	padding-bottom: 0;
-}
-
-.filter-title {
-	margin-top: 20px;
-	text-transform: uppercase;
-	display: inline-block;
-	letter-spacing: -1px;
-	background: #eee;
-	padding: 2px 12px;
-	word-spacing: 5px;
-	letter-spacing: -1px;
-	border: 1px solid #ccc;
-}
-
-.filter {
-	background: #f8f8f8;
-	margin-left: -20px;
-	margin-right: -20px;
-	padding: 10px 20px 20px;
-
-	ul {
-		margin: 0;
-		padding: 0;
-	}
-
-	 li {
-		float: left;
-		list-style: none;
-		margin-right: 8px;
-	}
-
-	a {
-		position: relative;
-		background: #fff;
-		color: #232527;
-		border-radius: 3px;
-		display: inline-block;
-		font-size: 14px;
-		font-weight: normal;
-		margin-top: 10px;
-		padding: 3px 8px;
-		.all_transition();
-		border: 1px solid #ccc;
-
-		&:hover {
-			background: @eddblue;
-			color: #fff;
-			border: 1px solid #25597a;
-		}
-	}
-}
-
 .extension,
 .theme,
 .edd-download {
@@ -719,11 +437,13 @@
 	margin: 0 !important;
 	max-width: 100% !important;
 }
+
 .support-page .support-title {
 	font-size: 3.6rem;
 	font-weight: 300;
 	margin: 0 0 .7em;
 }
+
 .support-page .support-section-wrap {
 	display: -webkit-flex;
 	display: flex;
@@ -733,10 +453,12 @@
 	-webkit-justify-content: space-between;
 	justify-content: space-between;
 }
+
 .support-page .support-section {
 	width: 31%;
 	margin-bottom: 33px;
 }
+
 .support-page .support-section-link {
 	display: block;
 	padding: 20px;
@@ -747,50 +469,62 @@
 	-moz-transition: border .2s;
 	transition: border .2s;
 }
+
 .support-page .special-section .support-section-link {
 	border: 2px solid #ccc;
 }
+
 .support-page .support-section-link:hover,
 .support-page .special-section .support-section-link:hover {
 	border: 2px solid @eddblue;
 }
+
 .support-page .support-section-title {
 	color: #333;
 	font-weight: 500;
 	margin: 0 0 .4em;
 }
+
 .support-page .support-section-description {
 	color: #999;
 	font-size: 14px;
 	font-size: 1.4rem;
 }
+
 .support-page .edd-docs-link-wrap {
 	text-align: center;
 	margin-bottom: 50px;
 }
+
 .support-page .edd-docs-link {
 	font-size: 18px;
 	padding: 10px;
 	min-width: 240px;
 }
+
 .support-page .button-break {
 	display: inline-block;
 	width: 6px;
 }
+
 .support-page .edd-support-ticket-link {
 	font-size: 18px;
 	padding: 10px;
 	min-width: 240px;
 }
+
 .support-page .standard-support-form-container {
 	display: none; /* click .edd-support-ticket-link to open (display: block;) */
 }
+
 .support-page .support-docs-form-container:not(.pre-sale-support-form-container) {
 	border-top: 3px solid @eddgray;
 }
+
 .support-page .edd-gf-support-docs {
 	text-align: center;
 }
+
 .support-page .gform_wrapper,
 .support-page .gform_wrapper .gform_page_footer {
 	border: none;
@@ -798,9 +532,11 @@
 	width: 100%;
 	max-width: 100%;
 }
+
 .support-page .helpscout-docs label {
 	display: none !important;
 }
+
 .support-page .helpscout-docs input[type="text"] {
 	background: @eddgray;
 	font-size: 24px !important;
@@ -810,6 +546,7 @@
 	width: 100% !important;
 	max-width: 520px !important;
 }
+
 span.results-found {
 	font-size: 18px;
 	display: block;
@@ -822,6 +559,7 @@ span.results-found {
 	border: 2px solid #f1f1f1;
 	border-width: 1px 2px 2px;
 }
+
 .support-page .gform_wrapper .docs-search-results {
 	text-align: left;
 	padding-left: 0;
@@ -831,6 +569,7 @@ span.results-found {
 	margin: 30px auto !important;
 	max-width: 700px;
 }
+
 .support-page .gform_wrapper .docs-search-results:before {
 	content: "Please review our complete list of suggestions to proceed.";
 	display: block;
@@ -840,25 +579,31 @@ span.results-found {
 	padding: 10px 20px;
 	border-bottom: 3px solid #f1f1f1;
 }
+
 .support-page .gform_wrapper .docs-search-results li {
 	list-style: none !important;
 }
+
 .support-page .gform_wrapper .docs-search-results li.article {
 	border-bottom: 1px solid #f1f1f1;
 	margin: 0;
 }
+
 .support-page .gform_wrapper .docs-search-results li.article a {
 	display: block;
 	font-size: 18px;
 	padding: 10px 20px;
 }
+
 .support-page .gform_wrapper .docs-search-results li.article a:hover {
 	background: @eddgray;
 	color: @eddblue;
 }
+
 .support-page .gform_wrapper .gform_page_footer {
 	text-align: center;
 }
+
 .support-page .edd-gf-support-form,
 .support-page .edd-gf-pre-sale-question-form,
 .support-page .edd-gf-refund-request-form {
@@ -866,6 +611,7 @@ span.results-found {
 	margin-left: auto;
 	max-width: 780px;
 }
+
 .support-page .gform_wrapper .show-contact-form-wrap a,
 .support-page .gform_wrapper .gform_page_footer input[type="button"],
 .support-page .gform_wrapper .gform_page_footer input[type="submit"] {
@@ -874,16 +620,19 @@ span.results-found {
 	margin-right: 0 !important;
 	min-width: 240px;
 }
+
 .support-page .edd-gf-support-form .gform_page_footer {
 	padding-top: 40px;
 	border-top: 3px solid @eddgrayhover;
 }
+
 .support-page .gform_wrapper .gform_page_footer img {
 	display: block;
 	max-width: 40px;
 	margin: 10px auto;
 	clear: both
 }
+
 .support-page .edd-gf-support-tickets-form {
 	margin-bottom: 30px;
 }
@@ -894,19 +643,24 @@ span.results-found {
 	width: 100%;
 	max-width: 100%;
 }
+
 #gform_4 /* delete - local */,
 #gform_14 {
 	width: 100%;
 }
+
 .edd-gf-support-tickets-form {
 	margin: 60px 0 100px;
 }
+
 .pre-sale-support-form-container .edd-gf-support-tickets-form {
 	margin-top: 0;
 }
+
 .support-page .support-docs-form-container.refund-support-form-container {
 	margin-top: 20px;
 }
+
 .edd-gf-support-tickets-form input[type="text"],
 .edd-gf-support-tickets-form input[type="url"],
 .edd-gf-support-tickets-form input[type="email"],
@@ -917,33 +671,41 @@ span.results-found {
 	padding: 10px !important;
 	margin-bottom: 0 !important;
 }
+
 .edd-gf-support-tickets-form .ginput_container label,
 .gform_wrapper .edd-gf-support-tickets-form .top_label .gfield_description {
 	color: #999;
 	font-size: 15px;
 	line-height: 1.6;
 }
+
 .gform_wrapper .edd-gf-support-tickets-form .top_label .gfield.edd-gf-support-tickets-form-email .gfield_description {
 	display: none;
 }
+
 .gform_wrapper .edd-gf-support-tickets-form .top_label .gfield_label {
 	font: 300 24px/1.4 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
 	margin: 0;
 }
+
 .edd-gf-support-tickets-form [class*="edd-gf-support-tickets-form-"] {
 	padding-left: 0;
 	margin-bottom: 30px;
 }
+
 .edd-gf-support-tickets-form .gfield.edd-gf-support-tickets-form-name {
 	margin-bottom: 15px;
 }
+
 .gform_wrapper .edd-gf-support-tickets-form .top_label .gfield.edd-gf-support-tickets-form-email .gfield_label {
 	display: none;
 }
+
 .edd-gf-support-tickets-form .gfield.edd-gf-support-tickets-form-email {
 	padding-bottom: 30px;
 	border-bottom: 3px solid @eddgray;
 }
+
 .edd-gf-support-tickets-form .edd-gf-support-tickets-form-email .gfield_description {
 	background: #f1f1f1;
 	color: #777;
@@ -952,27 +714,34 @@ span.results-found {
 	padding: 10px !important;
 	border-radius: 4px;
 }
+
 .gform_wrapper .edd-gf-support-tickets-form .top_label .edd-gf-support-tickets-form-subject .gfield_label {
 	margin-bottom: 10px;
 }
+
 .gform_wrapper .edd-gf-support-tickets-form .edd-gf-support-tickets-form-subject {
 	margin-bottom: 10px;
 }
+
 .gform_wrapper .edd-gf-support-tickets-form .edd-gf-support-tickets-form-subject li {
 	display: inline-block;
 	width: 48.5%;
 }
+
 .gform_wrapper .edd-gf-support-tickets-form .gsection {
 	padding: 0;
 	border: none;
 	margin: 0;
 }
+
 .gform_wrapper .edd-gf-support-tickets-form .gsection h2 {
 	display: none;
 }
+
 .gform_wrapper .edd-gf-support-tickets-form .gsection .gsection_description {
 	width: 100%;
 }
+
 .edd-gf-support-tickets-form .edd-gf-divider {
 	clear: both;
 	color: @eddgray;
@@ -982,6 +751,7 @@ span.results-found {
 	border-top: 4px solid @eddgray;
 	margin: 0 0 20px;
 }
+
 .edd-gf-support-tickets-form .edd-gf-divider:after {
 	content: "\f078";
 	font-family: 'FontAwesome';
@@ -992,16 +762,20 @@ span.results-found {
 	padding: 0 10px;
 	background: white;
 }
+
 .gform_wrapper .edd-gf-support-tickets-form-subject ul.gfield_radio li input[type="radio"]:checked+label,
 .gform_wrapper .edd-gf-support-tickets-form-subject ul.gfield_checkbox li input[type="checkbox"]:checked+label {
 	color: #666;
 }
+
 .gform_wrapper .edd-gf-support-tickets-form .gfield_radio {
 	margin-left: 0 !important;
 }
+
 .gform_wrapper .edd-gf-support-tickets-form .docs-support-link {
 	margin: 30px 0 30px 2.5% !important;
 }
+
 .gform_wrapper .edd-gf-support-tickets-form .gform_footer input[type="submit"] {
 	font-size: 18px;
 	padding: 10px;
@@ -1773,7 +1547,6 @@ input#edd-discount,
 /* ----------------------------- *
  * Purchase Confirmation
  * ----------------------------- */
-
 #edd_purchase_receipt {
 	width: 100%;
 	border: none;
@@ -1823,49 +1596,59 @@ input#edd-discount,
 /* ----------------------------- *
  * PayPal Checkout Receipt
  * ----------------------------- */
-
- #billing_info {
+#billing_info {
 	margin-bottom: 2em;
 	font-size: 1.6rem;
 	line-height: 1.7;
 }
+
 #billing_info strong {
 	font-size: 3rem;
 	font-weight: 300;
 }
+
 #order_summary {
 	width: 100%;
 	text-align: left;
 	border: 1px solid @eddgray;
 }
+
 #order_summary thead {
 	background: @eddgray;
 	font-size: 1.8rem;
 }
+
 #order_summary td,
 #order_summary th {
 	padding: 6px 10px;
 }
+
 #order_summary thead th {
 	padding: 10px;
 }
+
 #order_summary tbody tr {
 	border-bottom: 1px solid @eddgray;
 }
+
 #order_summary tbody tr:last-child {
 	border-bottom: 5px solid @eddgray;
 }
+
 #order_summary tfoot tr {
 	border-bottom: 1px solid @eddgray;
 }
+
 #order_summary tfoot .edd_cart_total {
 	color: @green;
 	font-size: 1.6rem;
 	font-weight: 500;
 }
+
 #edd-paypal-express-confirm {
 	margin-top: 3em;
 }
+
 #edd-paypal-express-confirm input[type="submit"] {
 	display: block;
 	font-size: 20px;
@@ -1892,10 +1675,12 @@ input#edd-discount,
 	font-weight: 300;
 	border: 1px solid #287aad;
 }
+
 #edd-paypal-express-confirm input[type="submit"]:hover {
 	background: #5ba3cf;
 	color: #fff;
 }
+
 #edd-paypal-express-confirm input[type="submit"]:active {
 	-webkit-box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
 	box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
@@ -1905,7 +1690,6 @@ input#edd-discount,
 /* ----------------------------- *
  * Team
  * ----------------------------- */
-
 .contributors img {
 	border-radius: 50%;
 	width: 90px;
@@ -2270,7 +2054,6 @@ input#edd-discount,
 /* ----------------------------- *
  * Affilaite Area
  * ----------------------------- */
-
 .affwp-creative {
 	border-bottom: 2px solid #eee;
 	margin-bottom: 30px;
@@ -2281,21 +2064,6 @@ input#edd-discount,
 /* ----------------------------- *
  * Featured Download Template (theme and extension)
  * ----------------------------- */
-
-.template-themes .sharedaddy,
-.post-type-archive-download .sharedaddy { display: none; } /* FIND OUT WHY I'M HERE AND REMOVE ME */
-
-.template-themes .main,
-.post-type-archive-download .main,
-.template-site-showcase .main,
-.post-type-archive-download .main,
-.tax-download_category .main,
-.tax-download_tag .main,
-.author .main,
-.support-page {
-	padding: 0;
-}
-
 .tax-download_category .extensions-header-area .inner,
 .tax-download_tag .extensions-header-area .inner {
 	padding-bottom: 40px;
@@ -2353,24 +2121,36 @@ input#edd-discount,
 
 .edd-downloads .section-header .filter {
 	display: inline-block;
-	background: none;
 	padding: 0;
 	margin: 0;
 	width: 78.5%;
 }
 
+.section-header .download-categories {
+	padding: 0;
+	margin: 0;
+}
+
 .section-header .filter li {
+	float: left;
+	list-style: none;
 	margin: 0 8px 8px 0;
 }
 
 .section-header .filter a {
+	display: inline-block;
 	background: #a2acb2;
 	color: #fff;
 	font-size: 13px;
 	line-height: 1;
 	padding: 6px 8px;
-	border: none;
+	border-radius: 3px;
 	margin: 0;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
 }
 
 .section-header .filter a:hover {
@@ -2477,23 +2257,11 @@ input#edd-discount,
 	color: #fff;
 }
 
-.recommended-download-area {
-	background: #eee;
-}
-
-.post-type-archive-download .edd-downloads-area,
-.edd-videos-area,
-.tax-download_category .edd-downloads-area,
-.tax-download_tag .edd-downloads-area,
-.template-themes .edd-downloads-area,
-.download-search .edd-downloads-area,
-.author .edd-downloads-area,
-.support-page .support-search-area {
-	background: #fff;
-}
-
-.theme-forest-edd-link {
+.recommended-downloads .third-party-themes-section {
 	text-align: center;
+	padding: 30px 0;
+	border-top: 2px solid @eddgrayhover;
+	margin-top: 10px;
 }
 
 /* showcase page */
@@ -3242,12 +3010,17 @@ input#edd-discount,
 	text-align: center;
 }
 
-.page-section-white {
-	background: #fff;
+.page-section-darkblue {
+	background: @edddarkblue;
+	color: #fff;
 }
 
 .page-section-gray {
 	background: @eddgray;
+}
+
+.page-section-white {
+	background: #fff;
 }
 
 .page-section-blue .inner {

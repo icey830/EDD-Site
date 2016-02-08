@@ -25,7 +25,7 @@ get_header();
 
 	if ( have_posts() ) : ?>
 
-		<div class="extensions-header-area full-width">
+		<div class="extensions-header-area page-section-blue full-width">
 			<div class="inner">
 				<div class="extensions-header clearfix">
 					<div class="section-header">
@@ -35,7 +35,7 @@ get_header();
 			</div>
 		</div>
 
-		<div class="edd-downloads-area full-width">
+		<div class="edd-downloads-area page-section-white full-width">
 			<div class="inner">
 				<div class="edd-downloads">
 					<section class="download-grid three-col clearfix">

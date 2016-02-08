@@ -146,7 +146,7 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="front-page-testimonials" class="front-page-section full-width">
+<div id="front-page-testimonials" class="front-page-section page-section-gray full-width">
 	<div class="inner">
 		<div class="testimonial-content page-section clearfix">
 			<div class="page-section-header">
@@ -180,7 +180,7 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="front-page-newsletter" class="front-page-section full-width">
+<div id="front-page-newsletter" class="front-page-section page-section-darkblue full-width">
 	<div class="inner">
 		<div class="newsletter-content clearfix">
 			<h3 class="front-page-section-title">Easy Digital Downloads <strong>Email Newsletter</strong></h3>

@@ -112,7 +112,7 @@ $no_duplicates = array(); // don't repeat the same theme twice
 		</div>
 	</div>
 
-	<div class="recommended-downloads-area full-width">
+	<div class="recommended-downloads-area page-section-gray full-width">
 		<div class="inner">
 			<div class="recommended-downloads">
 				<div class="section-header">
@@ -167,9 +167,10 @@ $no_duplicates = array(); // don't repeat the same theme twice
 						endwhile;
 						wp_reset_postdata();
 					?>
-					<p class="theme-forest-edd-link">
-						<a class="edd-submit button blue" href="http://themeforest.net/tags/easy%20digital%20downloads?ref=mordauk">View all EDD Themes on ThemeForest</a>
-					</p>
+					<div class="third-party-themes-section">
+						<p>View more themes built by talented developers from the ThemeForest community.</p>
+						<a class="edd-submit button blue" href="http://themeforest.net/tags/easy%20digital%20downloads?ref=mordauk"><i class="fa fa-paint-brush"></i> EDD Themes on ThemeForest</a>
+					</div>
 				</section><!-- .download-grid three-col -->
 			</div>
 		</div>
