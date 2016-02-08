@@ -6,12 +6,10 @@
 get_header(); ?>
 
 	<div class="site-container">
-		<section class="content">
 
 			<section class="content">
 				<?php while ( have_posts() ) { the_post(); ?>
 				<article class="entry">
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 					<form role="search" method="get" id="bbp-search-form" class="bbp-main-search" action="<?php bbp_search_url(); ?>">
 						<div id="search-intro">
 							<h3>Having troubles? Try searching for a solution.</h3>
@@ -28,7 +26,6 @@ get_header(); ?>
 			</section>
 			<?php get_sidebar( 'forums' ); ?>
 
-		</section>
 	</div>
 
 <?php get_footer(); ?>

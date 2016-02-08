@@ -671,9 +671,8 @@
 
 
 /* ----------------------------- *
- * Support Page Template
+ * Support Page Template (shared Gravity Forms styles in forms.less)
  * ----------------------------- */
-
 .support-page .support-title-wrap {
 	text-align: center;
 	margin: 0 !important;
@@ -700,7 +699,7 @@
 .support-page .support-section-link {
 	display: block;
 	padding: 20px;
-	border: 2px solid #f1f1f1;
+	border: 2px solid @eddgrayhover;
 	border-radius: 4px;
 	box-sizing: border-box;
 	-webkit-transition: border .2s;
@@ -746,7 +745,7 @@
 	display: none; /* click .edd-support-ticket-link to open (display: block;) */
 }
 .support-page .support-docs-form-container:not(.pre-sale-support-form-container) {
-	border-top: 2px solid #f2f2f2;
+	border-top: 3px solid @eddgray;
 }
 .support-page .edd-gf-support-docs {
 	text-align: center;
@@ -762,9 +761,10 @@
 	display: none !important;
 }
 .support-page .helpscout-docs input[type="text"] {
+	background: @eddgray;
 	font-size: 24px !important;
 	padding: 10px !important;
-	border: 2px solid #f1f1f1;
+	border: 3px solid @eddgrayhover;
 	border-radius: 3px 3px 0 0;
 	width: 100% !important;
 	max-width: 520px !important;
@@ -835,7 +835,7 @@ span.results-found {
 }
 .support-page .edd-gf-support-form .gform_page_footer {
 	padding-top: 40px;
-	border-top: 2px solid #f2f2f2;
+	border-top: 3px solid @eddgrayhover;
 }
 .support-page .gform_wrapper .gform_page_footer img {
 	display: block;
@@ -890,7 +890,7 @@ span.results-found {
 	margin: 0;
 }
 .edd-gf-support-tickets-form [class*="edd-gf-support-tickets-form-"] {
-	padding-left: 2.5%;
+	padding-left: 0;
 	margin-bottom: 30px;
 }
 .edd-gf-support-tickets-form .gfield.edd-gf-support-tickets-form-name {
@@ -901,7 +901,7 @@ span.results-found {
 }
 .edd-gf-support-tickets-form .gfield.edd-gf-support-tickets-form-email {
 	padding-bottom: 30px;
-	border-bottom: 2px solid #f2f2f2;
+	border-bottom: 3px solid @eddgray;
 }
 .edd-gf-support-tickets-form .edd-gf-support-tickets-form-email .gfield_description {
 	background: #f1f1f1;
@@ -934,11 +934,11 @@ span.results-found {
 }
 .edd-gf-support-tickets-form .edd-gf-divider {
 	clear: both;
-	color: #f2f2f2;
+	color: @eddgray;
 	text-align: center;
 	padding: 0;
 	border: none;
-	border-top: 2px solid #f2f2f2;
+	border-top: 4px solid @eddgray;
 	margin: 0 0 20px;
 }
 .edd-gf-support-tickets-form .edd-gf-divider:after {
@@ -960,10 +960,6 @@ span.results-found {
 }
 .gform_wrapper .edd-gf-support-tickets-form .docs-support-link {
 	margin: 30px 0 30px 2.5% !important;
-}
-.gform_wrapper .edd-gf-support-tickets-form .gform_footer {
-	padding-right: 2.5%;
-	padding-left: 2.5%;
 }
 .gform_wrapper .edd-gf-support-tickets-form .gform_footer input[type="submit"] {
 	font-size: 18px;
@@ -2369,7 +2365,7 @@ input#edd-discount,
 .edd-downloads .third-party-extensions-section {
 	text-align: center;
 	padding: 30px 0;
-	border-top: 2px solid #f2f2f2;
+	border-top: 2px solid @eddgrayhover;
 	margin-top: 10px;
 }
 
@@ -2552,7 +2548,7 @@ input#edd-discount,
 
 #starter-package .edd-gf-divider {
 	clear: both;
-	color: #f4f4f4;
+	color: @eddgray;
 	text-align: center;
 	padding: 0;
 	border: none;
@@ -2694,7 +2690,7 @@ input#edd-discount,
 #starter-package .gfield_description p {
 	font-size: 13px;
 	padding: 20px 0;
-	border: 1px solid #f1f1f1;
+	border: 1px solid @eddgray;
 	border-width: 1px 0 0;
 }
 
@@ -3124,7 +3120,7 @@ input#edd-discount,
 	font-size: 22px;
 	font-weight: 700;
 	padding: 15px;
-	border: 3px solid #eee;
+	border: 3px solid @eddgrayhover;
 	border-radius: 4px;
 	margin: 0 !important;
 	width: 100%;

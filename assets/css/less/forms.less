@@ -47,7 +47,9 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 }
 
 .button.darkblue,
-.edd-submit.button.darkblue {
+.edd-submit.button.darkblue,
+#google-search-form input.gsc-search-button,
+#google-search-form-sidebar input.gsc-search-button {
 	background: @edddarkblue;
 	border: none;
 	color: #fff;
@@ -90,13 +92,15 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 /* ----------------------------- *
  * Google search & basic input/buttons
  * ----------------------------- */
+.content #google-search-form table tr:last-child td {
+	padding: 0;
+}
 #google-search-form input.gsc-search-button,
 #google-search-form-sidebar input.gsc-search-button {
 	font-family: 'Roboto', Helvetica, Arial, sans-serif;
 	line-height: 1.2;
 	margin-top: 0;
 	height: auto !important;
-	border: 1px solid #287aad !important;
 }
 
 .cse .gsc-control-cse,
@@ -202,7 +206,8 @@ table.gstl_50.gssb_c {
 	input[type="password"],
 	textarea {
 		padding: 6px 10px !important;
-		background: #fff;
+		background: @eddgray;
+		border: 3px solid @eddgrayhover;
 		border-radius: 3px;
 		outline: none;
 		-webkit-transition: all .18s ease-in-out;
@@ -210,14 +215,8 @@ table.gstl_50.gssb_c {
 		-o-transition: all .18s ease-in-out;
 		-ms-transition: all .18s ease-in-out;
 		transition: all .18s ease-in-out;
-		border: 1px solid #ccc;
 		margin-bottom: 10px;
 		font-size: inherit !important;
-
-		&:focus {
-			border: 1px solid #999;
-			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-		}
 	}
 
 	& textarea {
