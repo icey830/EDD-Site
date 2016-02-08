@@ -169,6 +169,49 @@
 
 
 /* ----------------------------- *
+ * Versions
+ * ----------------------------- */
+.product-info-content .product-info-list {
+	list-style: none;
+	padding: 0 0 120px;
+	margin: 0;
+}
+
+.product-info-content .product-info-list li {
+	position: relative;
+	display: inline-block;
+	background: #fff;
+	padding: 10px;
+	border: 2px solid @eddgrayhover;
+	margin: 0 3% 20px 0;
+	width: 31%;
+}
+
+.product-info-content .product-info-list li:nth-child(3n) {
+	margin-right: 0;
+}
+
+.product-info-content .product-version {
+	font-size: 1.3rem;
+	background: @eddgrayhover;
+	display: inline-block;
+	padding: 4px 8px;
+	line-height: 1;
+	border-radius: 3px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+.product-info-content .product-author {
+	display: block;
+	color: #777;
+	font-size: 1.3rem;
+	font-style: italic;
+}
+
+
+/* ----------------------------- *
  * Features
  * ----------------------------- */
 #features-page-intro {
@@ -190,7 +233,6 @@
 /* ----------------------------- *
  * Extensions and Themes (Downloads)
  * ----------------------------- */
-
 .extensions-offer {
 	border: 2px solid @eddblue;
 	background: #fff;
