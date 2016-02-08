@@ -78,7 +78,7 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="front-page-extensions" class="front-page-section page-section-gray full-width">
+<div id="front-page-extensions" class="front-page-section page-section-white full-width">
 	<div class="inner">
 		<div class="front-page-extensions-header page-section">
 			<div class="page-section-header">
@@ -112,8 +112,7 @@ get_header(); ?>
 					)
 				);
 
-				while ( $extensions->have_posts() ) {
-					$extensions->the_post();
+				while ( $extensions->have_posts() ) : $extensions->the_post();
 					?>
 					<div class="download-grid-item">
 						<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
@@ -128,7 +127,7 @@ get_header(); ?>
 						</div>
 					</div>
 					<?php
-				}
+				endwhile;
 				wp_reset_postdata();
 				?>
 			</div><!-- /.extensions-grid -->

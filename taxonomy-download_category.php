@@ -65,7 +65,11 @@ $download_term = $wp_query->get_queried_object();
 							</a>
 							<div class="download-grid-item-info">
 								<?php
-									the_title( '<h4 class="download-grid-title">', '</h4>' );
+									the_title( sprintf(
+										'<h4 class="download-grid-title"><a href="%s">',
+										home_url( '/downloads/' . $post->post_name ) ),
+										'</a></h4>'
+									);
 									$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
 									echo $short_desc;
 								?>

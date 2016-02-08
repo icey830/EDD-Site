@@ -122,7 +122,11 @@ the_post();
 								</a>
 								<div class="download-grid-item-info">
 									<?php
-										the_title( '<h4 class="download-grid-title">', '</h4>' );
+										the_title( sprintf(
+											'<h4 class="download-grid-title"><a href="%s">',
+											home_url( '/downloads/' . $post->post_name ) ),
+											'</a></h4>'
+										);
 										$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
 										echo $short_desc;
 									?>
@@ -130,12 +134,6 @@ the_post();
 								<div class="download-grid-item-cta">
 									<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
 								</div>
-								<?php
-									$thrid_party = has_term( '3rd Party', 'download_category', $post->id );
-									if ( $thrid_party ) :
-										echo '<i class="third-party"></i>';
-									endif;
-								?>
 							</div>
 							<?php
 						endwhile;

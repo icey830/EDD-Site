@@ -83,9 +83,7 @@ body {
 	display: inline-block;
 	position: relative;
 	background: @eddgray;
-	text-align: center;
 	border-radius: 4px;
-	min-height: 390px;
 	vertical-align: top;
  }
 
@@ -110,13 +108,20 @@ body {
 }
 
 .download-grid-thumb {
-	border-radius: 4px;
-	margin-bottom: 20px;
+	border-radius: 4px 4px 0 0;
 	vertical-align: bottom;
 }
 
 .download-grid-title {
 	margin: 0 0 10px;
+}
+
+.download-grid-title a {
+	color: @edddarkblue;
+}
+
+.download-grid-title a:hover {
+	color: @edddarkbluehover;
 }
 
 .two-col .download-grid-item .download-grid-title {
@@ -127,8 +132,17 @@ body {
 	font-size: 20px;
 }
 
+.download-grid-item-info {
+	padding: 20px;
+}
+
+.download-grid-item-cta {
+	padding: 10px 20px 30px;
+}
+
 .download-grid-item-info > p {
-	margin-bottom: 20px;
+	margin-bottom: 0;
+	min-height: 72px;
 }
 
 .checkout-cart-empty .download-grid-item-info > p {

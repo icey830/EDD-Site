@@ -29,7 +29,11 @@ get_header();
 							</a>
 							<div class="download-grid-item-info">
 								<?php
-									the_title( '<h4 class="download-grid-title">', '</h4>' );
+									the_title( sprintf(
+										'<h4 class="download-grid-title"><a href="%s">',
+										home_url( '/videos/' . $post->post_name ) ),
+										'</a></h4>'
+									);
 									$short_desc = the_excerpt();
 									echo $short_desc;
 								?>
