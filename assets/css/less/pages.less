@@ -570,12 +570,12 @@
 .pagination .page-numbers,
 .edd_pagination .current,
 .edd_pagination .page-numbers {
-	background: #fff;
-	color: #232527;
+	background: @eddgray;
+	color: #333;
+	border: none;
 	border-radius: 3px;
 	padding: 1px 8px;
 	font-weight: normal;
-	border: 1px solid #ccc;
 	margin-right: 5px;
 	float: left;
 	display: block;
@@ -587,7 +587,6 @@
 .edd_pagination .current,
 .edd_pagination .page-numbers:hover {
 	background: @eddblue;
-	border: 1px solid #25597a;
 	color: #fff;
 	-webkit-transition: none;
 	-moz-transition: none;
@@ -1007,18 +1006,18 @@ span.results-found {
 .nav-tabs:after, .nav-pills:after { clear: both; }
 
 .nav-tabs {
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid @eddgrayhover;
 }
 
 .nav-tabs {
 	border-bottom-width: 2px;
-	border-bottom-color: #e1e4e7;
+	border-bottom-color: @eddgrayhover;
 }
 
 .nav-tabs.nav-append-content {
 	border-bottom: none;
 	padding: 0;
-	margin-bottom: 0;
+	margin: 0;
 }
 
 .nav {
@@ -1027,7 +1026,7 @@ span.results-found {
 
 .nav-tabs.nav-append-content > li.active:first-child:before {
 	background-color: #fff;
-	border-left: 2px solid #e1e4e7;
+	border-left: 2px solid @eddgrayhover;
 	content: "";
 	height: 6px;
 	left: 0;
@@ -1072,19 +1071,19 @@ span.results-found {
 .nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus {
 	cursor: default;
 	background: #fff;
-	border: 1px solid #ddd;
+	border: 1px solid @eddgrayhover;
 	border-bottom-color: transparent;
 }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-	border-color: #e1e4e7;
+	border-color: @eddgrayhover;
 	border-bottom-color: #fff;
 	border-width: 2px;
 }
 
 .tab-content {
 	overflow: auto;
-	border: 2px solid #ddd;
+	border: 2px solid @eddgrayhover;
 	border-radius: 6px;
 	padding: 20px;
 	position: relative;
@@ -1138,54 +1137,20 @@ span.results-found {
 }
 
 #account-page .commissions-tab-pane .edd-select {
-	border-radius: 4px;
-	margin-bottom: 10px;
-}
-
-#account-page .commissions-tab-pane .edd-submit,
-#account-page .commissions-tab-pane .edd-submit:focus,
-#account-page .commissions-tab-pane .edd-submit:active {
 	display: block;
-	max-width: 140px;
-	margin-top: 2px;
-	padding: 4px 14px;
-	background: @eddblue;
-	color: #fff;
-	-webkit-box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1);
-	box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.1);
-	cursor: pointer;
+	border: 3px solid #eaeaea;
 	border-radius: 3px;
-	-webkit-transition: all 0.2s ease-in-out;
-	-moz-transition: all 0.2s ease-in-out;
-	-o-transition: all 0.2s ease-in-out;
-	-ms-transition: all 0.2s ease-in-out;
-	transition: all 0.2s ease-in-out;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	line-height: 24px;
-	font-weight: 300;
-	border: 1px solid #287aad;
+	margin-bottom: 10px;
+	max-width: 300px;
 }
 
-#account-page .commissions-tab-pane .edd-submit:active {
-	border: 1px solid #287aad;
-	box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-#account-page .commissions-tab-pane .edd-submit:hover,
-#account-page .commissions-tab-pane .edd-submit:focus {
-	background: #5ba3cf;
-	color: #fff;
-	border: 1px solid #287aad;
+#account-page .commissions-tab-pane .edd-submit {
+	display: block;
 }
 
 #account-page .profile-editor-tab-pane .edd-select {
+	border: 3px solid @eddgrayhover;
 	border-radius: 3px;
-	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-	-moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 	max-width: 300px;
 }
 
@@ -1209,7 +1174,7 @@ span.results-found {
 .edd_sl_table tbody > tr.selected-row > td,
 .edd_sl_table tbody > tr:nth-child(even) > th,
 .edd_sl_table tbody > tr.selected-row > th {
-	background: #f9fafb;
+	background: @eddgray;
 }
 
 .filters label {
@@ -1389,50 +1354,17 @@ span.results-found {
 			margin-bottom: 30px;
 		}
 
-		& input[type="text"], input[type="email"], input[type="password"] {
+		& input[type="text"],
+		input[type="email"],
+		input[type="password"] {
 			font-weight: 300;
-			background: #fff;
+			background: @eddgray;
 			padding: 10px;
 			width: 300px;
 			outline: none;
 			margin: 0;
-			border: 1px solid #ccc;
-			-webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
-			box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+			border: 3px solid @eddgrayhover;
 			border-radius: 3px;
-		}
-
-		& input[type="submit"] {
-			margin-top: 2px;
-			padding: 4px 14px;
-			background: @eddblue;
-			display: inline-block;
-			color: #fff;
-			-webkit-box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
-			box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
-			cursor: pointer;
-			border-radius: 3px;
-			-webkit-transition: all .2s ease-in-out;
-			-moz-transition: all .2s ease-in-out;
-			-o-transition: all .2s ease-in-out;
-			-ms-transition: all .2s ease-in-out;
-			transition: all .2s ease-in-out;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-			line-height: 24px;
-			font-weight: 300;
-			border: 1px solid #287aad;
-
-			&:hover {
-				background: #5ba3cf;
-				color: #fff;
-			}
-
-			&:active {
-				box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
-			}
 		}
 	}
 }
@@ -1480,24 +1412,24 @@ span.results-found {
 	margin: 20px 0;
 	padding: 20px 0;
 	text-align: center;
-	border-top: double #232527;
-	border-bottom: double #232527;
+	border-top: 2px solid @eddgrayhover;
+	border-bottom: 2px solid @eddgrayhover;
 }
 
 #edd_commissions_unpaid_pagination,
 #edd_commissions_paid_pagination {
 	display: block;
-	padding-top: 30px;
+	padding: 10px 0 30px;
 	*display: inline-block;
 	height: 1%;
 
 	& .current, .page-numbers {
-		background: #fff;
-		color: #232527;
+		background: @eddgray;
+		color: @edddarkblue;
+		border: none;
 		border-radius: 3px;
 		padding: 1px 8px;
 		font-weight: normal;
-		border: 1px solid #ccc;
 		margin-right: 5px;
 		float: left;
 		display: block;
@@ -1510,7 +1442,6 @@ span.results-found {
 
 	& .current, .page-numbers:hover {
 		background: @eddblue;
-		border: 1px solid #25597a;
 		color: #fff;
 		-webkit-transition: none;
 		-moz-transition: none;
@@ -1555,6 +1486,10 @@ span.results-found {
 
 #edd-support-tickets .notresolved {
 	color: #f00;
+}
+
+#account-page .edd_sl_license_row input.edd_sl_license_key {
+	background: none;
 }
 
 
@@ -1935,7 +1870,7 @@ input#edd-discount,
 	height: 90px;
 	padding: 5px;
 	background: #fff;
-	border: 1px solid #ddd;
+	border: 1px solid @eddgrayhover;
 	float: left;
 	margin-right: 20px;
 }
