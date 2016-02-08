@@ -36,7 +36,7 @@ the_post();
 						$cat_args = array(
 							'exclude'  => array(
 								22 /* extensions */,
-								162 /* themes */,
+								1617 /* themes */,
 								1571 /* featured theme */,
 								1536 /* 3rd party */,
 							),
