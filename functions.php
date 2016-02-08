@@ -1,14 +1,6 @@
 <?php
 /**
- * Easy Digital Downloads
- *
- * This file adds all the core features of the Easy Digital Downloads theme.
- *
- * @package   EDD
- * @version   1.0
- * @since     1.0
- * @author	  Sunny Ratilal
- * @copyright Copyright (c) 2013, Sunny Ratilal.
+ * Easy Digital Downloads core features
  */
 
 /* ------------------------------------------------------------------------------- *
@@ -34,7 +26,7 @@
  * 1. Theme Setup
  * ----------------------------------------------------------- */
 
-define( 'EDD_SITE_VERSION', '2.1.9-beta3' );
+define( 'EDD_SITE_VERSION', '2.3-beta-1' );
 
 /**
  * Set the content width.
