@@ -24,7 +24,7 @@ $no_duplicates = array(); // don't repeat the same theme twice
 ?>
 
 	<?php while ( $featured_theme->have_posts() ) : $featured_theme->the_post(); $no_duplicates[] = $post->ID; ?>
-		<div class="featured-download-area full-width">
+		<div class="featured-download-area page-section-blue full-width">
 			<div class="inner">
 				<div class="featured-download clearfix">
 				<div class="section-header">
@@ -40,9 +40,10 @@ $no_duplicates = array(); // don't repeat the same theme twice
 						<?php
 							the_title( '<h3 class="featured-download-title"><span class="featured-download-label">Featured</span>', '</h3>' );
 							the_excerpt();
+
+							echo edd_get_purchase_link( array( 'id' => get_the_ID() ) );
 						?>
-						<a class="featured-download-primary-link button blue" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">See Theme Details</a>
-						<a class="featured-download-secondary-link" href="<?php echo home_url( '/checkout/?edd_action=add_to_cart&download_id=' . get_the_ID() ); ?>">Download <?php the_title(); ?></a>
+						<a class="featured-download-secondary-link" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">See Theme Details</a>
 					</div>
 				</div>
 			</div>

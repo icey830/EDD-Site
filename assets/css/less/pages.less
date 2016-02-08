@@ -171,7 +171,6 @@
 /* ----------------------------- *
  * Features
  * ----------------------------- */
-
 #features-page-intro {
 	background: @eddblue;
 	color: #fff;
@@ -776,7 +775,7 @@ span.results-found {
 	padding: 10px;
 	margin: 0 auto;
 	color: #999;
-	background: #fafafa;
+	background: @eddgray;
 	max-width: 520px;
 	border-radius: 0 0 3px 3px;
 	border: 2px solid #f1f1f1;
@@ -794,7 +793,7 @@ span.results-found {
 .support-page .gform_wrapper .docs-search-results:before {
 	content: "Please review our complete list of suggestions to proceed.";
 	display: block;
-	background: #fafafa;
+	background: @eddgray;
 	color: #999;
 	font-size: 18px;
 	padding: 10px 20px;
@@ -813,7 +812,7 @@ span.results-found {
 	padding: 10px 20px;
 }
 .support-page .gform_wrapper .docs-search-results li.article a:hover {
-	background: #fafafa;
+	background: @eddgray;
 	color: @eddblue;
 }
 .support-page .gform_wrapper .gform_page_footer {
@@ -1547,7 +1546,7 @@ span.results-found {
 }
 
 #edd-support-tickets li:nth-child(odd) {
-	background: #fafafa;
+	background: @eddgray;
 }
 
 #edd-support-tickets li:last-child {
@@ -1864,10 +1863,10 @@ input#edd-discount,
 #order_summary {
 	width: 100%;
 	text-align: left;
-	border: 1px solid #fafafa;
+	border: 1px solid @eddgray;
 }
 #order_summary thead {
-	background: #fafafa;
+	background: @eddgray;
 	font-size: 1.8rem;
 }
 #order_summary td,
@@ -1878,13 +1877,13 @@ input#edd-discount,
 	padding: 10px;
 }
 #order_summary tbody tr {
-	border-bottom: 1px solid #fafafa;
+	border-bottom: 1px solid @eddgray;
 }
 #order_summary tbody tr:last-child {
-	border-bottom: 5px solid #fafafa;
+	border-bottom: 5px solid @eddgray;
 }
 #order_summary tfoot tr {
-	border-bottom: 1px solid #fafafa;
+	border-bottom: 1px solid @eddgray;
 }
 #order_summary tfoot .edd_cart_total {
 	color: @green;
@@ -2296,8 +2295,8 @@ input#edd-discount,
 
 .extensions-search-form input {
 	display: inline-block;
-	font-size: 24px;
-	padding: 10px;
+	font-size: 24px !important;
+	padding: 10px !important;
 	width: 100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -2312,8 +2311,10 @@ input#edd-discount,
 }
 
 .extensions-search-form input[type="submit"] {
+	line-height: 1.23;
 	width: 15%;
 	min-width: 105px;
+	vertical-align: top;
 }
 
 .edd-downloads .section-header .filter-label {
@@ -2374,18 +2375,23 @@ input#edd-discount,
 
 /* themes page */
 
-.featured-download-area {
-	background: #eee;
+.featured-download-area.page-section-blue {
+	text-align: left;
+}
+
+.featured-download-area.page-section-blue .inner {
+	padding-bottom: 0;
+}
+
+.featured-download-area.page-section-blue .inner .download-grid-thumb {
+	border-radius: 4px 4px 0 0;
+	margin-bottom: 0;
 }
 
 .featured-download-thumb,
 .featured-download-info {
 	float: left;
 	width: 50%;
-}
-
-.featured-download-thumb .download-grid-thumb {
-	border: 2px solid #E4E4E4;
 }
 
 .featured-download-img {
@@ -2424,17 +2430,25 @@ input#edd-discount,
 	font-style: italic;
 }
 
-.featured-download-primary-link {
-	margin-right: 10px;
+.featured-download-info .edd-add-to-cart.edd-submit.button.blue,
+.featured-download-info .edd_go_to_checkout.button.blue.edd-submit {
+	background: @edddarkblue;
+	margin-bottom: 10px;
+	min-width: 200px;
+}
+
+.featured-download-info .edd-add-to-cart.edd-submit.button.blue:hover,
+.featured-download-info .edd_go_to_checkout.button.blue.edd-submit:hover {
+	background: @edddarkbluehover;
 }
 
 .featured-download-secondary-link {
-	color: #666;
+	color: #AFD8F3;
 	text-decoration: underline;
 }
 
 .featured-download-secondary-link:hover {
-	text-decoration: none;
+	color: #fff;
 }
 
 .recommended-download-area {
@@ -2542,7 +2556,7 @@ input#edd-discount,
 	text-align: center;
 	padding: 0;
 	border: none;
-	border-top: 4px solid #fafafa;
+	border-top: 4px solid @eddgray;
 	margin: 30px 0;
 }
 
@@ -2590,19 +2604,19 @@ input#edd-discount,
 #starter-package .edd-gf-email-marketing,
 #starter-package .edd-gf-merchant-processor {
 	padding: 50px 0;
-	border-top: 4px solid #fafafa;
+	border-top: 4px solid @eddgray;
 }
 
 #starter-package .edd-gf-email-marketing {
 	float: left;
 	padding-right: 50px;
-	border-right: 2px solid #fafafa;
+	border-right: 2px solid @eddgray;
 }
 
 #starter-package .edd-gf-merchant-processor {
 	float: right;
 	padding-left: 50px;
-	border-left: 2px solid #fafafa;
+	border-left: 2px solid @eddgray;
 }
 
 #starter-package .edd-gf-marketing,
@@ -2611,7 +2625,7 @@ input#edd-discount,
 	float: left;
 	clear: none;
 	padding: 50px 0 30px;
-	border: 4px solid #fafafa;
+	border: 4px solid @eddgray;
 	border-width: 4px 0;
 	margin-bottom: 30px;
 	width: 319px;
@@ -2622,20 +2636,20 @@ input#edd-discount,
 #starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-accounting {
 	background: #fff;
 	padding: 50px 0 30px;
-	border: 4px solid #fafafa;
+	border: 4px solid @eddgray;
 	border-width: 4px 0;
 }
 
 #starter-package .edd-gf-marketing,
 #starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-marketing {
 	padding-right: 50px;
-	border-right: 2px solid #fafafa;
+	border-right: 2px solid @eddgray;
 }
 
 #starter-package .edd-gf-accounting,
 #starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-accounting {
 	padding: 50px 50px 0;
-	border: 2px solid #fafafa;
+	border: 2px solid @eddgray;
 	border-width: 4px 2px;
 	width: 361px;
 }
@@ -2658,7 +2672,7 @@ input#edd-discount,
 
 #starter-package .edd-gf-misc {
 	padding-left: 50px;
-	border-left: 2px solid #fafafa;
+	border-left: 2px solid @eddgray;
 }
 
 #starter-package .gfield_label,
@@ -2736,7 +2750,7 @@ input#edd-discount,
 
 #starter-package .gfield_price .gfield_label {
 	display: block;
-	background: #fafafa;
+	background: @eddgray;
 	font-size: 13px;
 	font-weight: 400;
 	font-family: 'Roboto', Helvetica, Arial, sans-serif;
@@ -2806,7 +2820,7 @@ input#edd-discount,
 }
 
 #starter-package .edd-gf-payment-method .gfield_radio li label {
-	background: #fafafa;
+	background: @eddgray;
 	color: #ccc;
 	font-size: 22px;
 	font-weight: 700;
@@ -2881,7 +2895,7 @@ input#edd-discount,
 
 #starter-package .edd-gf-billing-address {
 	padding-bottom: 30px;
-	border-bottom: 4px solid #fafafa;
+	border-bottom: 4px solid @eddgray;
 	margin-top: 0 !important;
 }
 
@@ -3105,7 +3119,7 @@ input#edd-discount,
 }
 
 #starter-package .edd-gf-toc .gfield_checkbox li label {
-	background: #fafafa;
+	background: @eddgray;
 	color: #ccc;
 	font-size: 22px;
 	font-weight: 700;
@@ -3206,6 +3220,10 @@ input#edd-discount,
 	background: #fff;
 }
 
+.page-section-gray {
+	background: @eddgray;
+}
+
 .page-section-blue .inner {
 	padding: 60px 0;
 }
@@ -3262,11 +3280,6 @@ input#edd-discount,
 	line-height: 1.6;
 }
 
-.features-page-section:nth-child(even),
-#features-page-docs {
-	background: #fafafa;
-}
-
 .half-split.image-left .split-image {
 	float: left;
 	width: 50%;
@@ -3292,7 +3305,7 @@ input#edd-discount,
 .frame-feature-image {
 	padding: 10px;
 	background: #fff;
-	border: 9px solid #f1f1f1;
+	border: 9px solid @eddgrayhover;
 	border-radius: 4px;
 }
 

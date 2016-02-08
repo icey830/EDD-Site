@@ -19,7 +19,7 @@ the_post();
 		</div>
 	</div>
 
-	<div id="features-page-edd" class="features-page-section full-width">
+	<div id="features-page-edd" class="features-page-section page-section-white full-width">
 		<div class="inner">
 			<div class="features-page-edd-content half-split image-left clearfix">
 				<div class="split-text">
@@ -35,7 +35,7 @@ the_post();
 		</div>
 	</div>
 
-	<div id="features-page-downloads" class="features-page-section full-width">
+	<div id="features-page-downloads" class="features-page-section page-section-gray full-width">
 		<div class="inner">
 			<div class="features-page-downloads half-split image-right clearfix">
 				<div class="split-text">
@@ -52,7 +52,7 @@ the_post();
 		</div>
 	</div>
 
-	<div id="features-page-downloads" class="features-page-section full-width">
+	<div id="features-page-downloads" class="features-page-section page-section-white full-width">
 		<div class="inner">
 			<div class="features-page-downloads half-split image-left clearfix">
 				<div class="split-text">
@@ -68,7 +68,7 @@ the_post();
 		</div>
 	</div>
 
-	<div id="features-page-confirmation" class="features-page-section full-width">
+	<div id="features-page-confirmation" class="features-page-section page-section-gray full-width">
 		<div class="inner">
 			<div class="features-page-confirmation half-split image-right clearfix">
 				<div class="split-text">
@@ -96,7 +96,7 @@ the_post();
 		</div>
 	</div>
 
-	<div class="features-grid-three full-width">
+	<div class="features-grid-three page-section-white full-width">
 		<div class="inner">
 			<div class="features-grid-three-content">
 				<div class="features-grid-content-header">
@@ -124,7 +124,7 @@ the_post();
 		</div>
 	</div>
 
-	<div id="features-page-docs" class="features-page-section full-width">
+	<div id="features-page-docs" class="features-page-section page-section-gray full-width">
 		<div class="inner">
 			<div class="features-page-downloads half-split image-left clearfix">
 				<div class="split-text">
@@ -139,7 +139,7 @@ the_post();
 		</div>
 	</div>
 
-	<div id="front-page-newsletter" class="front-page-section full-width">
+	<div id="front-page-newsletter" class="front-page-section page-section-darkblue full-width">
 		<div class="inner">
 			<div class="newsletter-content clearfix">
 				<h3 class="front-page-section-title">Easy Digital Downloads <strong>Email Newsletter</strong></h3>

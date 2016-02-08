@@ -78,7 +78,7 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="front-page-extensions" class="front-page-section full-width">
+<div id="front-page-extensions" class="front-page-section page-section-gray full-width">
 	<div class="inner">
 		<div class="front-page-extensions-header page-section">
 			<div class="page-section-header">
