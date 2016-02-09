@@ -422,6 +422,10 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'template-account';
 	}
 
+	if ( is_page_template( 'template-product-info.php' ) ) {
+		$classes[] = 'template-product-info';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'eddwp_body_class' );
