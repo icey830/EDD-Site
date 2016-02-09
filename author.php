@@ -35,7 +35,7 @@ get_header();
 			</div>
 		</div>
 
-		<div class="edd-downloads-area page-section-white full-width">
+		<div class="edd-downloads-area page-section-gray full-width">
 			<div class="inner">
 				<div class="edd-downloads">
 					<section class="download-grid three-col clearfix">
