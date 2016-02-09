@@ -151,7 +151,7 @@ add_filter( 'the_content', 'eddwp_content_formatter', 9 );
 /**
  * Append demo button link to download products
  */
-function eddwp_demo_link() {
+function eddwp_demo_link( $content ) {
 
 	// bail if there is no demo link
 	$get_demo_link = get_post_meta( get_the_ID(), 'ecpt_demolink', true );
