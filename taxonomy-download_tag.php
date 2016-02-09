@@ -53,8 +53,12 @@ $download_term = $wp_query->get_queried_object();
 							</div>
 						</div>
 					<?php endwhile; wp_reset_postdata(); ?>
-				</section><!-- .download-grid three-col -->
+				</section>
 				<?php eddwp_paginate_links(); ?>
+				<div class="third-party-extensions-section">
+					<p>View more extensions built by talented developers from the EDD community.</p>
+					<a class="edd-submit button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>"><i class="fa fa-plug"></i>3rd Party Extensions</a>
+				</div>
 			</div>
 		</div>
 	</div>
