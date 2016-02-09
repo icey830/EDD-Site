@@ -90,12 +90,32 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	}
 }
 
+.button.gray,
+.edd-submit.button.gray {
+	background: @eddgray;
+	color: #777;
+
+	&:hover {
+		background: @eddgrayhover;
+		color: #777;
+	}
+
+	&:active {
+		color: #777;
+	}
+}
+
 .button.white,
 .edd-submit.button.white {
 	background: #fff;
 
 	&:hover {
 		background: #f0f0f0;
+		color: #777;
+	}
+
+	&:active {
+		color: #777;
 	}
 
 	span {
