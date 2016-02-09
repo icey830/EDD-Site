@@ -345,7 +345,7 @@ function eddc_get_upcoming_commissions(){
  * This function is used in the footer template to get the latest blog post.
  */
 function eddwp_get_latest_post() {
-	$items = get_posts( array( 'posts_per_page' => 5 ) );
+	$items = get_posts( array( 'posts_per_page' => 3 ) );
 	?>
 	<h4>Latest Blog Posts</h4>
 	<ul>
