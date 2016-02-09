@@ -18,7 +18,7 @@ the_post();
 		</div>
 	</div>
 
-	<div class="site-showcase-area full-width">
+	<div class="site-showcase-area page-section-gray full-width">
 		<div class="inner">
 			<div class="site-showcase">
 				<section class="download-grid two-col clearfix">
@@ -93,7 +93,7 @@ the_post();
 		</div>
 	</div>
 
-	<div class="showcase-submission-area full-width">
+	<div class="showcase-submission-area page-section-white full-width">
 		<div class="inner">
 			<div class="section-header">
 				<h3 class="section-title">Showcase Submission</h3>
