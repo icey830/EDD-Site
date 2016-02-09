@@ -33,7 +33,11 @@ $no_duplicates = array(); // don't repeat the same theme twice
 				</div>
 					<div class="featured-download-thumb">
 						<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-							<?php eddwp_downloads_grid_thumbnail(); ?>
+							<?php
+								if ( has_post_thumbnail() ) :
+									the_post_thumbnail( 'featured-download', array( 'class' => 'featured-download-img' ) );
+								endif;
+							?>
 						</a>
 					</div>
 					<div class="featured-download-info">
