@@ -247,53 +247,49 @@
 /* ----------------------------- *
  * Recommended Products
  * ----------------------------- */
-#edd-rp-single-wrapper {
-	padding: 20px 0 30px;
-	border: 3px solid #f1f1f1;
+#recommended-products {
+	padding: 20px 0 0;
+	border-top: 3px solid @eddgray;
 	border-width: 3px 0;
 	margin: 50px 0;
 }
 
-#edd-rp-single-wrapper .edd-rp-item .edd_download_purchase_form {
-	margin-bottom: 0;
+#recommended-products .recommended-products-header {
+	margin-bottom: 20px;
 }
 
-#edd-rp-single-wrapper .edd-rp-item {
-	background: @eddgray;
-	text-align: left;
-	padding: 20px;
-	border-radius: 4px;
-	width: 46%;
-	min-height: inherit;
+#recommended-products .download-grid-item {
+	width: 47%;
 }
 
-#edd-rp-single-wrapper .edd-rp-item:nth-child(odd) {
+#recommended-products .download-grid-item:nth-child(odd) {
 	float: left;
-	margin-right: 8%;
 }
 
-#edd-rp-single-wrapper .edd-rp-item:nth-child(even) {
+#recommended-products .download-grid-item:nth-child(even) {
 	float: right;
 }
 
-#edd-rp-single-wrapper #edd-rp-single-header {
-	font-weight: 500;
-	margin: 0 0 20px;
+#recommended-products .download-grid-item .edd_cart_item_image img {
+	border-radius: 4px 4px 0 0;
+	vertical-align: bottom;
 }
 
-#edd-rp-single-wrapper .edd-rp-item .recommended-product-title {
-	display: inline-block;
-	color: #555;
-	font-size: 18px;
-	font-weight: 400;
-	margin: 0 0 15px;
+#recommended-products .download-grid-item .download-grid-item-info {
+	padding-bottom: 10px;
 }
 
-#edd-rp-single-wrapper .edd-rp-item .recommended-product-title:hover {
-	color: #999;
+#recommended-products .download-grid-item .download-grid-title {
+	font-size: 20px;
 }
 
-#edd-rp-single-wrapper .edd_cart_item_image img {
-	border-radius: 4px;
+#recommended-products .download-grid-item .download-grid-item-info > p {
+	color: #777;
+	border-bottom: 3px solid @eddgrayhover;
+	min-height: 65px;
 	margin-bottom: 10px;
+}
+
+#recommended-products .download-grid-item .download-grid-item-cta {
+	padding: 0 20px;
 }
