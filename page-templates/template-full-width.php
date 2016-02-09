@@ -9,17 +9,22 @@ get_header();
 the_post();
 ?>
 
-	<section id="full-width-page" class="full-width-page clearfix">
-			<div class="full-width-content clearfix">
-				<div class="entry-header">
-					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-				</div>
-				<div class="entry-content">
-					<?php the_content(); ?>
-				</div>
-			</div>
+	<div id="full-width-page-area" class="full-width clearfix">
+		<div class="inner">
+			<section class="page-content">
 
-	</section><!-- /.main -->
+				<article <?php post_class( 'clearfix' ); ?> id="post-<?php echo get_the_ID(); ?>">
+					<div class="entry-header">
+						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+					</div>
+					<div class="entry-content">
+						<?php the_content(); ?>
+					</div>
+				</article>
+
+			</section>
+		</div>
+	</div>
 	<?php
 
 get_footer();

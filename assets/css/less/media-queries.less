@@ -23,9 +23,7 @@
 		margin-bottom: 30px;
 	}
 
-	.site-container,
-	#landing-page,
-	#full-width-page {
+	.site-container {
 		padding: 0 20px;
 	}
 
@@ -160,6 +158,11 @@
 	.sidebar {
 		float: none;
 		width: 100%;
+	}
+
+	#landing-page-area .page-content,
+	#full-width-page-area .page-content {
+		margin-bottom: 0;
 	}
 
 	.sidebar {
@@ -533,22 +536,6 @@
 	}
 
 	/* Common Page Templates */
-	.main,
-	#landing-page.main {
-		padding-bottom: 25px;
-	}
-
-	#full-width-page.main {
-		padding: 0;
-		margin: 0;
-	}
-
-	#full-width-page .content {
-		padding: 20px;
-		border-radius: 0;
-		margin: 0;
-	}
-
 	#account-page .nav-tabs {
 		margin-bottom: 15px;
 	}
@@ -628,9 +615,7 @@
 @media all and ( max-width: 768px ) {
 
 	/* structure */
-	.site-container,
-	#landing-page .full-width-content,
-	#full-width-page .full-width-content {
+	.site-container {
 		margin: 20px 0;
 	}
 
@@ -640,8 +625,8 @@
 
 	#starter-package .full-width-content,
 	.showcase-submission,
-	#landing-page .full-width-content,
-	#full-width-page .full-width-content,
+	#landing-page-area .page-content,
+	#full-width-page-area .page-content,
 	.site-container .content .hentry,
 	.bbpress .site-container .content {
 		padding: 20px;
@@ -1137,17 +1122,6 @@
 	}
 
 	/* Common Page Templates */
-	#landing-page.main {
-		padding: 0;
-		margin: 0;
-	}
-
-	#landing-page .content {
-		padding: 20px;
-		border-radius: 0;
-		margin: 0;
-	}
-
 	.showcase-submission {
 		padding: 20px;
 	}
