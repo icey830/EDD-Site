@@ -5,24 +5,28 @@
 
 get_header(); ?>
 
-	<div class="site-container">
-
-		<div class="content-404">
-			<div class="post" id="post-0">
-				<div class="message-404 clearfix">
-					<div class="sad-edd-404">
-						<img src="<?php echo get_template_directory_uri(); ?>/images/edd-sad.png" />
-					</div>
-					<div class="search-404">
-						<h3 class="title-404">Bummer. It looks like this link is broken.</h3>
-						<p class="subtext-404">Try using the search form below to find what you were searching for.</p>
-						<div id="google-search-form">
-							<?php eddwp_google_custom_search(); ?>
-						</div>
-						<p class="subtext-404">No luck? There's still hope. Use the resources below to navigate the site.</p>
+<div class="error-404-header-area page-section-blue full-width">
+	<div class="inner">
+		<div class="error-404-header clearfix">
+			<div class="section-header">
+				<h2 class="section-title">Bummer. It looks like this link is broken.</h2>
+				<p class="section-subtitle">Try using the search form below to find what you were looking for.</p>
+				<div class="error-404-search-form">
+					<div id="google-search-form">
+						<?php eddwp_google_custom_search(); ?>
 					</div>
 				</div>
-				<div class="resources-404">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="error-404-area" class="error-404-area page-section-white full-width">
+	<div class="inner">
+
+		<div class="content-404 clearfix">
+			<div class="post" id="post-0">
+				<div class="resources-404 clearfix">
 					<div class="links-404 col-404">
 						<h2 class="widgettitle">Helpful Resources</h2>
 						<p>Looking for assistance with EDD? Try reading the documentation for general EDD instructions, extension and theme configuration resources, and much more.</p>
@@ -64,7 +68,7 @@ get_header(); ?>
 							endwhile;
 							wp_reset_postdata();
 						?>
-						<p class="extensions-button-404"><a href="<?php echo esc_url( '/downloads/' ); ?>">View All Extensions</a></p>
+						<p class="view-all-extensions-404"><a class="edd-submit button blue" href="<?php echo esc_url( '/downloads/' ); ?>"><i class="fa fa-plug"></i>View All Extensions</a></p>
 					</div>
 					<div class="recent-posts-404 col-404">
 						<?php the_widget( 'WP_Widget_Recent_Posts', array( 'title'=> 'Latest Blog Posts', 'number' => 5 ) ); ?>
@@ -74,5 +78,6 @@ get_header(); ?>
 		</div>
 
 	</div>
+</div>
 
 <?php get_footer(); ?>
