@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 					optimization: 2
 				},
 				files: {
-					"style.css": "css/less/style.less"
+					"style.css": "assets/css/less/style.less"
 				}
 			}
 		},
@@ -21,8 +21,8 @@ module.exports = function(grunt) {
 				options: {
 					separator: ';'
 				},
-				src: ['js/src/**/*.js', 'js/dev/theme.js'],
-				dest: 'js/theme.min.js'
+				src: ['assets/js/src/**/*.js', 'assets/js/dev/theme.js'],
+				dest: 'assets/js/theme.min.js'
 			},
 		},
 
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 			},
 			js: {
 				files: {
-					'js/theme.min.js': ['js/theme.min.js']
+					'assets/js/theme.min.js': ['assets/js/theme.min.js']
 				}
 			}
 		},
@@ -55,25 +55,25 @@ module.exports = function(grunt) {
 			},
 			default : {
 				files: {
-					'images/svg-defs.svg': ['svgs/*.svg'],
+					'images/svg-defs.svg': ['assets/svgs/*.svg'],
 				}
 			}
 		},
 
 		watch: {
 			styles: {
-				files: ['css/less/*.less'],
+				files: ['assets/css/less/*.less'],
 				tasks: ['less'],
 				options: {
 					nospawn: true
 				}
 			},
 			js: {
-				files: ['js/src/**/*.js', 'js/dev/theme.js'],
+				files: ['assets/js/src/**/*.js', 'assets/js/dev/theme.js'],
 				tasks: ['concat:js', 'uglify:js'],
 			},
 			svgstore: {
-				files: ['svgs/*.svg'],
+				files: ['assets/svgs/*.svg'],
 				tasks: ['svgstore:default']
 			}
 		},

@@ -9,6 +9,6 @@
  * @copyright Copyright (c) 2013, Sunny Ratilal.
  */
 ?>
-	<aside class="sidebar">
+	<aside class="sidebar forums-sidebar">
 		<?php dynamic_sidebar( 'forum-sidebar' ); ?>
 	</aside><!-- /.sidebar -->

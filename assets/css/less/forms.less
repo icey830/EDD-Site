@@ -1,0 +1,295 @@
+/**
+ * theme-wide form elements
+ */
+
+
+/* ----------------------------- *
+ * Buttons
+ * ----------------------------- */
+.button,
+.edd-submit,
+.edd-submit.button,
+.edd-submit.button.blue,
+.gform_wrapper .gform_footer input.button,
+.gform_wrapper .gform_footer input[type="submit"],
+.gform_wrapper input[type="submit"],
+.support-page .gform_wrapper .gform_page_footer input[type="button"],
+div.form_saved_message div.form_saved_message_emailform form input[type="submit"],
+.sidebar .widget_edd_cart_widget .cart_item.edd_checkout a,
+#google-search-form input.gsc-search-button,
+#google-search-form-sidebar input.gsc-search-button,
+#commentform input[type="submit"],
+#primary li.menu-download a,
+#account-page #edd_profile_editor_submit,
+#account-page .commissions-tab-pane .edd-submit {
+	background: @eddblue;
+	color: #fff;
+	font-size: 1.5rem;
+	font-weight: 400;
+	padding: 10px 14px;
+	border: none !important;
+	border-radius: 4px;
+	-webkit-transition: background .2s ease-in-out;
+	-moz-transition: background .2s ease-in-out;
+	-o-transition: background .2s ease-in-out;
+	-ms-transition: background .2s ease-in-out;
+	transition: background .2s ease-in-out;
+
+	&:hover {
+		background: @eddbluehover;
+		color: #fff;
+	}
+
+	&:active {
+		color: #fff;
+	}
+
+	span {
+		color: #fff !important;
+	}
+
+	& .fa {
+		margin-right: 8px;
+	}
+}
+
+.button.darkblue,
+.edd-submit.button.darkblue,
+#google-search-form input.gsc-search-button,
+#google-search-form-sidebar input.gsc-search-button {
+	background: @edddarkblue;
+	border: none;
+	color: #fff;
+
+	&:hover {
+		background: @edddarkbluehover;
+		color: #fff;
+	}
+
+	&:active {
+		color: #fff;
+	}
+}
+
+.button.green,
+.edd-submit.button.green {
+	background: @green;
+	color: #fff;
+
+	&:hover {
+		background: @greenhover;
+		color: #fff;
+	}
+
+	&:active {
+		color: #fff;
+	}
+
+	span {
+		color: #fff !important;
+	}
+}
+
+.button.gray,
+.edd-submit.button.gray {
+	background: @eddgray;
+	color: #777;
+
+	&:hover {
+		background: @eddgrayhover;
+		color: #777;
+	}
+
+	&:active {
+		color: #777;
+	}
+}
+
+.button.white,
+.edd-submit.button.white {
+	background: #fff;
+
+	&:hover {
+		background: #f0f0f0;
+		color: #777;
+	}
+
+	&:active {
+		color: #777;
+	}
+
+	span {
+		color: #fff !important;
+	}
+}
+
+
+/* ----------------------------- *
+ * Google search & basic input/buttons
+ * ----------------------------- */
+.content #google-search-form table tr:last-child td {
+	padding: 0;
+}
+
+#google-search-form input.gsc-search-button,
+#google-search-form-sidebar input.gsc-search-button {
+	font-family: 'Roboto', Helvetica, Arial, sans-serif;
+	line-height: 1.2;
+	margin-top: 0;
+	height: auto !important;
+}
+
+.cse .gsc-control-cse,
+.gsc-control-cse,
+.cse form.gsc-search-box,
+form.gsc-search-box,
+table.gsc-search-box {
+	padding: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.gsc-control-cse {
+	background-color: transparent !important;
+	border: none !important;
+}
+
+.cse input.gsc-input,
+input.gsc-input {
+	background-position-x: 8px !important;
+}
+
+#google-search-form input {
+	font-size: 15px;
+	padding: 6px 8px 8px !important;
+	border: none !important;
+}
+
+#google-search-form-sidebar input {
+	font-size: 13px;
+	padding: 6px 10px !important;
+}
+
+.gsc-clear-button {
+	display: none !important;
+}
+
+table.gstl_51.gssb_c,
+table.gstl_50.gssb_c {
+	margin-top: 29px !important;
+}
+
+
+/* ----------------------------- *
+ * EDD core registration form
+ * ----------------------------- */
+#landing-page #edd_register_form fieldset {
+	padding: 0;
+	border: none;
+	margin: 0;
+}
+
+#landing-page #edd_register_form fieldset legend {
+	display: none;
+}
+
+#landing-page #edd_register_form fieldset > p label,
+#landing-page #edd_register_form fieldset > p input {
+	display: block;
+}
+
+#landing-page #edd_register_form fieldset > p input {
+	font-size: 16px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 100%;
+}
+
+
+/* ----------------------------- *
+ * Free Downloads Form (modal)
+ * ----------------------------- */
+[id*=jBoxID] .jBox-content {
+	padding: 30px;
+}
+
+[id*=jBoxID] #edd-free-downloads-modal label {
+	font-size: 18px;
+	font-weight: 500;
+}
+
+[id*=jBoxID] #edd-free-downloads-modal input[type='text'],
+[id*=jBoxID] #edd-free-downloads-modal input[type='email'] {
+	background: @eddgray;
+	padding: 10px;
+	border-radius: 4px;
+	border: 3px solid @eddgrayhover;
+}
+
+[id*=jBoxID] #edd-free-downloads-modal input[type='button'] {
+	font-size: 18px;
+	padding: 8px 10px;
+	font-weight: 700;
+}
+
+
+/* ----------------------------- *
+ * Gravity Forms
+ * ----------------------------- */
+.gform_wrapper {
+	& .gfield_label {
+		display: block;
+		margin-bottom: 5px;
+		font-weight: 400;
+
+		& .gfield_required {
+			margin-left: 2px;
+		}
+	}
+
+	& input[type="text"],
+	input[type="url"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="number"],
+	input[type="password"],
+	textarea {
+		padding: 6px 10px !important;
+		background: @eddgray;
+		border: 3px solid @eddgrayhover;
+		border-radius: 3px;
+		outline: none;
+		-webkit-transition: all .18s ease-in-out;
+		-moz-transition: all .18s ease-in-out;
+		-o-transition: all .18s ease-in-out;
+		-ms-transition: all .18s ease-in-out;
+		transition: all .18s ease-in-out;
+		margin-bottom: 10px;
+		font-size: inherit !important;
+	}
+
+	& textarea {
+		line-height: 24px !important;
+	}
+
+	& .gfield_radio {
+		margin-left: 8px !important;
+
+		& li label {
+			margin: 0 0 0 20px !important;
+		}
+	}
+}
+
+.gform_wrapper.gf_browser_chrome .gfield_radio li input[type="radio"] {
+	margin-left: 1px;
+}
+
+.gform_fields input[type="radio"] {
+	margin: 3px 5px 3px 2px !important;
+}
+
+div.form_saved_message div.form_saved_message_emailform form input[type="submit"] {
+	display: block;
+	margin-top: 10px;
+}

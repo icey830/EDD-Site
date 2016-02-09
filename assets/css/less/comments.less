@@ -1,0 +1,147 @@
+/*
+ * theme-wide comment styles
+ */
+
+#comments {
+	background: #fff;
+	padding: 50px;
+}
+
+#comments h3 {
+	margin: 0 0 20px 0;
+	padding: 0;
+}
+
+#comments-list .comment {
+	padding: 0 0 20px 0;
+	margin: 0 0 25px 0;
+	border-bottom: 3px solid #f7f7f7;
+	position: relative;
+}
+
+#comments-list .comment:last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
+#comments-list [class*="depth-"] [class*="depth-"] {
+	margin-top: 20px;
+}
+
+#comments-list [class*="depth-"] [class*="depth-"] {
+	padding-left: 25px;
+	border-left: 3px solid @eddgray;
+}
+
+#comments-list [class*="depth-"] [class*="depth-"]:last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-bottom: none;
+}
+
+.vcard {
+	display: inline-block;
+	margin-right: 10px;
+	height: 48px;
+	line-height: 48px;
+	float: left;
+	margin-bottom: 20px;
+}
+
+.vcard img {
+	border-radius: 50%;
+	float: left;
+	margin-right: 10px;
+}
+
+.comment:not(.bypostauthor) .vcard img {
+	margin: 10px 10px 0 0;
+	width: 26px;
+}
+
+.vcard cite {
+	display: inline-block;
+	font-style: normal;
+	font-size: 17px;
+}
+
+.vcard cite a {
+	color: @edddarkblue;
+}
+
+.vcard cite a:hover {
+	color: @edddarkbluehover;
+}
+
+.vcard .says { display: none; }
+
+.comment-meta {
+	display: inline-block;
+	font-size: 12px;
+	line-height: 21px;
+	margin-top: 16px;
+	float: left;
+}
+
+.comment-meta:after {
+	content: "";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	font-size: 0;
+	height: 0;
+}
+
+.comment-meta a {
+	color: #777;
+	text-decoration: none;
+}
+
+.comment-meta a:hover {
+	text-decoration: underline;
+}
+
+.comment-body p {
+	clear: both;
+	font-size: 16px;
+	overflow: hidden;
+}
+
+.comment-reply-link {
+	color: #777;
+	text-decoration: underline;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+#respond {
+	background: #fff;
+	padding: 50px;
+}
+
+#respond h3 {
+	margin: 0 0 10px 0;
+	padding: 0;
+}
+
+#commentform input[type="text"],
+#commentform textarea {
+	padding: 10px;
+	width: 60%;
+	background: @eddgray;
+	border-radius: 3px;
+	outline: none;
+	border: 3px solid @eddgrayhover;
+	-webkit-transition: all .18s ease-in-out;
+	-moz-transition: all .18s ease-in-out;
+	-o-transition: all .18s ease-in-out;
+	-ms-transition: all .18s ease-in-out;
+	transition: all .18s ease-in-out;
+}
+
+#commentform textarea {
+	width: 100%;
+}
