@@ -17,7 +17,7 @@ get_header(); ?>
 							'post_type'      => 'download',
 							'posts_per_page' => -1,
 							'post_status'    => 'publish',
-							'orderby'        => 'menu_order',
+							'orderby'        => 'title',
 							'order'          => 'ASC',
 						)
 					);

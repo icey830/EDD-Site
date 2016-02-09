@@ -341,10 +341,17 @@
 	-webkit-transition: none;
 }
 
+.page-section-gray .pagination .page-numbers:not(.current),
+.page-section-gray .edd_pagination .page-numbers:not(.current) {
+	background: #fff;
+}
+
 .pagination .current,
 .pagination .page-numbers:hover,
+.page-section-gray .pagination .page-numbers:hover,
 .edd_pagination .current,
-.edd_pagination .page-numbers:hover {
+.edd_pagination .page-numbers:hover,
+.page-section-gray .edd_pagination .page-numbers:hover {
 	background: @eddblue;
 	color: #fff;
 	-webkit-transition: none;
