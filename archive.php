@@ -9,56 +9,50 @@ get_header(); ?>
 		<section class="content">
 
 			<?php if ( have_posts() ) : ?>
-				<h1 class="page-title">
+				<header class="page-header hentry">
+					<h3 class="page-title">
+						<?php
+							if ( is_category() ) :
+								single_cat_title( 'Category: ' );
+
+							elseif ( is_tag() ) :
+								single_tag_title( 'Tag: ' );
+
+							elseif ( is_author() ) :
+								/* Queue the first post, that way we know
+								 * what author we're dealing with (if that is the case).
+								*/
+								the_post();
+								printf( __( 'Author: %s', 'edd' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' );
+								/* Since we called the_post() above, we need to
+								 * rewind the loop back to the beginning that way
+								 * we can run the loop properly, in full.
+								 */
+								rewind_posts();
+
+							elseif ( is_day() ) :
+								printf( __( 'Day: %s', 'edd' ), '<span>' . get_the_date() . '</span>' );
+
+							elseif ( is_month() ) :
+								printf( __( 'Month: %s', 'edd' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
+
+							elseif ( is_year() ) :
+								printf( __( 'Year: %s', 'edd' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
+
+							else :
+								_e( 'Archives', 'edd' );
+
+							endif;
+						?>
+					</h3>
 					<?php
-						if ( is_category() ) :
-							single_cat_title();
-
-						elseif ( is_tag() ) :
-							single_tag_title();
-
-						elseif ( is_author() ) :
-							/* Queue the first post, that way we know
-							 * what author we're dealing with (if that is the case).
-							*/
-							the_post();
-							printf( __( 'Author: %s', 'edd' ), '<span class="vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' );
-							/* Since we called the_post() above, we need to
-							 * rewind the loop back to the beginning that way
-							 * we can run the loop properly, in full.
-							 */
-							rewind_posts();
-
-						elseif ( is_day() ) :
-							printf( __( 'Day: %s', 'edd' ), '<span>' . get_the_date() . '</span>' );
-
-						elseif ( is_month() ) :
-							printf( __( 'Month: %s', 'edd' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
-
-						elseif ( is_year() ) :
-							printf( __( 'Year: %s', 'edd' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
-
-						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-							_e( 'Asides', 'edd' );
-
-						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-								_e( 'Images', 'edd');
-
-						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-							_e( 'Videos', 'edd' );
-
-						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-							_e( 'Quotes', 'edd' );
-
-						elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-							_e( 'Links', 'edd' );
-
-						else :
-							_e( 'Archives', 'edd' );
-
+						// Show an optional term description.
+						$term_description = term_description();
+						if ( ! empty( $term_description ) ) :
+							printf( '<div class="taxonomy-description">%s</div>', $term_description );
 						endif;
 					?>
-				</h1>
+				</header>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
