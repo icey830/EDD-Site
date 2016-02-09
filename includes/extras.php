@@ -402,27 +402,27 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'blog';
 	}
 
-	if ( is_page_template( 'template-support.php' ) ) {
+	if ( is_page_template( 'page-templates/template-support.php' ) ) {
 		$classes[] = 'template-support';
 	}
 
-	if ( is_page_template( 'template-themes-archive.php' ) ) {
+	if ( is_page_template( 'page-templates/template-themes-archive.php' ) ) {
 		$classes[] = 'template-themes';
 	}
 
-	if ( is_page_template( 'template-site-showcase.php' ) ) {
+	if ( is_page_template( 'page-templates/template-site-showcase.php' ) ) {
 		$classes[] = 'template-site-showcase';
 	}
 
-	if ( is_page_template( 'template-starter-package.php' ) ) {
+	if ( is_page_template( 'page-templates/template-starter-package.php' ) ) {
 		$classes[] = 'template-starter-package';
 	}
 
-	if ( is_page_template( 'template-account.php' ) ) {
+	if ( is_page_template( 'page-templates/template-account.php' ) ) {
 		$classes[] = 'template-account';
 	}
 
-	if ( is_page_template( 'template-product-info.php' ) ) {
+	if ( is_page_template( 'page-templates/template-product-info.php' ) ) {
 		$classes[] = 'template-product-info';
 	}
 
