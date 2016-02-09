@@ -139,48 +139,4 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="front-page-support" class="front-page-section page-section-blue full-width">
-	<div class="inner">
-		<div class="support-content page-section clearfix">
-			<h2 class="page-section-title"><strong>Best Support</strong> in the Industry</h2>
-			<p>We love our customers and we're always glad to help you out if you have any problems with the plugin or official extensions. We provide exceptional support and in-depth documentation to alleviate your issues as quickly as possible.</p>
-			<p>Our Support Team will always do their absolute best to help you with your debug and you'll be on your way in no time. Our Support Team comprises of people who work with and understand Easy Digital Downloads to the core.</p>
-		</div>
-	</div>
-</div>
-
-<div id="front-page-testimonials" class="front-page-section page-section-gray full-width">
-	<div class="inner">
-		<div class="testimonial-content page-section clearfix">
-			<div class="page-section-header">
-				<h2 class="page-section-title">Over <strong>700,000 Downloads</strong> and Counting</h2>
-				<p>Have a look at what some of our users have to say about their experience with Easy Digital Downloads.</p>
-			</div>
-			<div class="page-section-content">
-				<?php
-					$testimonials = new WP_Query(
-						array(
-							'posts_per_page' => 4,
-							'post_type' => 'testimonials',
-							'orderby' => 'rand',
-							'post_status' => 'publish',
-						)
-					);
-					while ( $testimonials->have_posts() ) {
-						$testimonials->the_post(); ?>
-						<div class="testimonials">
-							<blockquote>
-								<cite><i class="fa fa-quote-left"></i><?php echo get_post_meta( get_the_ID(), 'ecpt_author', true ); ?></cite>
-								<?php the_content(); ?>
-							</blockquote>
-						</div>
-					<?php
-					}
-					wp_reset_postdata();
-				?>
-			</div>
-		</div>
-	</div>
-</div>
-
 <?php get_footer(); ?>
