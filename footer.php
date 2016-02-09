@@ -2,14 +2,48 @@
 /**
  * theme-wide footer
  */
+
+
+/**
+ * post IDs for conditionals... use IDs for forward compatibility
+ *
+ * 130 - Support Registration
+ * 160 - Checkout
+ * 635 - My Account
+ */
 ?>
+
+	<?php if ( ! is_page( array( 160 ) ) ) : ?>
+		<div id="front-page-newsletter" class="front-page-section page-section-darkblue full-width">
+			<div class="inner">
+				<div class="newsletter-content clearfix">
+					<h3 class="front-page-section-title">Easy Digital Downloads <strong>Email Newsletter</strong></h3>
+					<p>Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads.</p>
+					<form id="pmc_mailchimp" class="clearfix" action="" method="post">
+						<div class="nl-name clearfix">
+							<input class="newsletter-name nl-first-name" name="pmc_fname" id="pmc_fname" type="text" placeholder="First name">
+							<input class="nl-last-name" name="pmc_lname" id="pmc_lname" type="text" placeholder="Last name">
+						</div>
+						<div class="nl-email">
+							<input class="newsletter-email" name="pmc_email" id="pmc_email" type="email" placeholder="Email address">
+							<input class="newsletter-submit" type="submit" value="Sign me up!">
+						</div>
+						<input type="hidden" name="redirect" value="https://easydigitaldownloads.com/">
+						<input type="hidden" name="action" value="pmc_signup">
+						<input type="hidden" name="pmc_list_id" value="be2b495923">
+					</form>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>
+
 	<footer id="colophon" class="footer-area full-width" role="contentinfo">
 		<div class="inner">
 			<div class="site-footer">
 				<?php if ( ! is_404() ) : ?>
 					<img class="sitting-edd" src="<?php echo get_template_directory_uri(); ?>/images/edd-sitting.png" />
 				<?php endif; ?>
-				<?php if ( ! is_page( array( 'checkout', 130, 635 ) ) ) : ?>
+				<?php if ( ! is_page( array( 160, 130 ) ) ) : ?>
 					<div class="footer-columns clearfix">
 						<div class="footer-latest-posts">
 							<?php eddwp_get_latest_post(); ?>
@@ -46,7 +80,7 @@
 					</div>
 
 				<?php endif; ?>
-				<p class="copyright"><strong>Copyright &copy; <?php echo date( 'Y' ); ?></strong> &middot; Easy Digital Downloads<?php if( ! is_page( 'checkout' ) ) : ?> &middot; A project by <a href="<?php echo home_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.<?php endif; ?></p>
+				<p class="copyright"><strong>Copyright &copy; <?php echo date( 'Y' ); ?></strong> &middot; Easy Digital Downloads<?php if ( ! is_page( 'checkout' ) ) : ?> &middot; A project by <a href="<?php echo home_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.<?php endif; ?></p>
 			</div>
 		</div>
 	</footer>

@@ -139,26 +139,4 @@ the_post();
 		</div>
 	</div>
 
-	<div id="front-page-newsletter" class="front-page-section page-section-darkblue full-width">
-		<div class="inner">
-			<div class="newsletter-content clearfix">
-				<h3 class="front-page-section-title">Easy Digital Downloads <strong>Email Newsletter</strong></h3>
-				<p>Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads.</p>
-				<form id="pmc_mailchimp" class="clearfix" action="" method="post">
-					<div class="nl-name clearfix">
-						<input class="newsletter-name nl-first-name" name="pmc_fname" id="pmc_fname" type="text" placeholder="First name">
-						<input class="nl-last-name" name="pmc_lname" id="pmc_lname" type="text" placeholder="Last name">
-					</div>
-					<div class="nl-email">
-						<input class="newsletter-email" name="pmc_email" id="pmc_email" type="email" placeholder="Email address">
-						<input class="newsletter-submit" type="submit" value="Sign me up!">
-					</div>
-					<input type="hidden" name="redirect" value="https://easydigitaldownloads.com/">
-					<input type="hidden" name="action" value="pmc_signup">
-					<input type="hidden" name="pmc_list_id" value="be2b495923">
-				</form>
-			</div>
-		</div>
-	</div>
-
 <?php get_footer(); ?>
