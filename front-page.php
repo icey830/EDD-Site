@@ -78,7 +78,7 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="front-page-extensions" class="front-page-section page-section-gray full-width">
+<div id="front-page-extensions" class="front-page-section page-section-white full-width">
 	<div class="inner">
 		<div class="front-page-extensions-header page-section">
 			<div class="page-section-header">
@@ -126,7 +126,7 @@ get_header(); ?>
 							?>
 						</div>
 						<div class="download-grid-item-cta">
-							<a class="download-grid-item-primary-link button gray" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
+							<a class="download-grid-item-primary-link button blue" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
 						</div>
 					</div>
 					<?php

@@ -28,10 +28,10 @@ $download_term = $wp_query->get_queried_object();
 		</div>
 	</div>
 
-	<div class="edd-downloads-area page-section-gray full-width">
+	<div class="edd-downloads-area page-section-white full-width">
 		<div class="inner">
 			<div class="edd-downloads">
-				<section class="download-grid three-col clearfix">
+				<div class="download-grid three-col clearfix">
 					<?php while ( have_posts() ) : the_post(); ?>
 						<div class="download-grid-item">
 							<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
@@ -53,12 +53,14 @@ $download_term = $wp_query->get_queried_object();
 							</div>
 						</div>
 					<?php endwhile; wp_reset_postdata(); ?>
-				</section>
-				<?php eddwp_paginate_links(); ?>
-				<div class="third-party-extensions-section">
-					<p>View more extensions built by talented developers from the EDD community.</p>
-					<a class="edd-submit button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>"><i class="fa fa-plug"></i>3rd Party Extensions</a>
+					<div class="download-grid-item flex-grid-cheat"></div>
+					<div class="download-grid-item flex-grid-cheat"></div>
 				</div>
+				<?php eddwp_paginate_links(); ?>
+			</div>
+			<div class="third-party-extensions-section">
+				<p>View more extensions built by talented developers from the EDD community.</p>
+				<a class="edd-submit button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>"><i class="fa fa-plug"></i>3rd Party Extensions</a>
 			</div>
 		</div>
 	</div>
