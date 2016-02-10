@@ -79,12 +79,36 @@ body {
 /* ----------------------------- *
  * Download Grid Styles
  * ----------------------------- */
+.download-grid {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-flex-flow: row wrap;
+	justify-content: space-between;
+
+	& .flex-grid-cheat {
+		background: transparent !important;
+		border: none;
+		height: 1px !important;
+		min-height: 1px !important;
+		margin: 0 !important;
+	}
+}
+
 .download-grid-item {
-	display: inline-block;
 	position: relative;
 	background: @eddgray;
+	border: 1px solid @eddgrayhover;
 	border-radius: 4px;
+	min-height: 410px;
 	vertical-align: top;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	-webkit-flex-flow: column;
+	flex-flow: column;
 }
 
 .page-section-gray .download-grid-item {
@@ -93,25 +117,16 @@ body {
 
 .two-col .download-grid-item {
 	width: 48%;
-	margin-right: 3.5%;
 	margin-bottom: 3.5%;
-}
-
-.two-col .download-grid-item:nth-child(even) {
-	margin-right: 0;
 }
 
 .three-col .download-grid-item {
 	width: 31%;
-	margin-right: 3%;
 	margin-bottom: 3%;
 }
 
-.three-col .download-grid-item:nth-child(3n) {
-	margin-right: 0;
-}
-
 .download-grid-thumb {
+	border-bottom: 1px solid @eddgrayhover;
 	border-radius: 4px 4px 0 0;
 	vertical-align: bottom;
 }
@@ -141,6 +156,8 @@ body {
 }
 
 .download-grid-item-cta {
+	position: absolute;
+		bottom: 0;
 	padding: 10px 20px 30px;
 }
 

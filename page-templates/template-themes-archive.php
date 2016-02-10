@@ -54,7 +54,7 @@ $no_duplicates = array(); // don't repeat the same theme twice
 		</div>
 	<?php endwhile; wp_reset_postdata(); ?>
 
-	<div class="edd-downloads-area page-section-gray full-width">
+	<div class="edd-downloads-area page-section-white full-width">
 		<div class="inner">
 			<div class="edd-downloads">
 				<div class="section-header">
@@ -111,6 +111,7 @@ $no_duplicates = array(); // don't repeat the same theme twice
 						endwhile;
 						wp_reset_postdata();
 					?>
+					<div class="download-grid-item flex-grid-cheat"></div>
 				</section><!-- .download-grid two-col -->
 			</div>
 		</div>
@@ -171,11 +172,13 @@ $no_duplicates = array(); // don't repeat the same theme twice
 						endwhile;
 						wp_reset_postdata();
 					?>
-					<div class="third-party-themes-section">
-						<p>View more themes built by talented developers from the ThemeForest community.</p>
-						<a class="edd-submit button blue" href="http://themeforest.net/tags/easy%20digital%20downloads?ref=mordauk"><i class="fa fa-paint-brush"></i> EDD Themes on ThemeForest</a>
-					</div>
+					<div class="download-grid-item flex-grid-cheat"></div>
+					<div class="download-grid-item flex-grid-cheat"></div>
 				</section><!-- .download-grid three-col -->
+				<div class="third-party-themes-section">
+					<p>View more themes built by talented developers from the ThemeForest community.</p>
+					<a class="edd-submit button blue" href="http://themeforest.net/tags/easy%20digital%20downloads?ref=mordauk"><i class="fa fa-paint-brush"></i> EDD Themes on ThemeForest</a>
+				</div>
 			</div>
 		</div>
 	</div>

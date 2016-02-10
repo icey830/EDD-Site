@@ -17,7 +17,7 @@ get_header();
 		</div>
 	</div>
 
-	<div class="edd-videos-area page-section-gray full-width">
+	<div class="edd-videos-area page-section-white full-width">
 		<div class="inner">
 			<div class="edd-downloads">
 
@@ -43,6 +43,8 @@ get_header();
 							</div>
 						</div>
 					<?php endwhile; wp_reset_postdata(); ?>
+					<div class="download-grid-item flex-grid-cheat"></div>
+					<div class="download-grid-item flex-grid-cheat"></div>
 				</section>
 
 			</div>

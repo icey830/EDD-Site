@@ -29,7 +29,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 		</div>
 	</div>
 
-	<div class="edd-downloads-area page-section-gray full-width">
+	<div class="edd-downloads-area page-section-white full-width">
 		<div class="inner">
 			<div class="edd-downloads">
 				<div class="section-header">
@@ -140,6 +140,8 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 						endwhile;
 						wp_reset_postdata();
 					?>
+					<div class="download-grid-item flex-grid-cheat"></div>
+					<div class="download-grid-item flex-grid-cheat"></div>
 				</section><!-- .download-grid three-col -->
 				<?php
 					$big = 999999999;
