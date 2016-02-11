@@ -12,6 +12,15 @@
 	line-height: 24px;
 	margin-left: 50px;
 	width: 300px;
+
+	& a {
+		color: #777;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
 }
 
 .sidebar .widget:not(:last-child),
@@ -19,7 +28,7 @@
 	margin-bottom: 45px;
 }
 
-.sidebar h3 {
+.sidebar .widget-title {
 	margin: 0;
 	font-weight: normal;
 	margin-bottom: 10px;
@@ -29,35 +38,71 @@
 	font-weight: 500;
 }
 
-.sidebar .widget.jetpack_subscription_widget {
-	& input[type="text"] {
-		background: #fff;
-		border: none;
-		padding: 10px 8px;
-		margin: 5px 0;
-		width: 100%;
-		border: 1px solid #fff;
-		outline: none;
-
-		&:focus {
-			border: 1px solid #2c67b0;
-			-webkit-box-shadow: 0px 0px 4px rgba(90,90,90,.6);
-			box-shadow: 0px 0px 4px rgba(90,90,90,.6);
-			outline: none;
-		}
-	}
-}
-
 .sidebar input[type="submit"]
 .sidebar .widget.login p {
 	margin: 0;
 	padding: 0;
 }
 
+/* cart widget */
 .widget_edd_cart_widget .edd-cart {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+}
+
+.sidebar .widget_edd_cart_widget .edd-cart-item {
+	padding-bottom: 10px;
+	border-bottom: 1px solid @eddgrayhover;
+	margin-bottom: 10px;
+}
+
+.sidebar .widget_edd_cart_widget .edd-cart-item,
+.sidebar .widget_edd_cart_widget .edd-cart-number-of-items {
+	font-size: 13px;
+}
+
+.sidebar .widget_edd_cart_widget .edd-cart-item-quantity {
+	margin-left: 10px;
+}
+
+.sidebar .widget_edd_cart_widget .edd-cart-number-of-items {
+	margin-bottom: 10px;
+}
+
+.sidebar .widget_edd_cart_widget .edd-cart-item .edd-cart-item-title {
+	display: block;
+}
+
+.sidebar .widget_edd_cart_widget .edd-cart-item .edd-cart-item-separator {
+	display: none;
+}
+
+.sidebar .widget_edd_cart_widget .edd-cart-meta.edd_total {
+	font-weight: 400;
+	padding-left: 0;
+	margin-bottom: 10px;
+}
+
+.sidebar .widget_edd_cart_widget .edd-cart-meta.edd_total span {
+	color: @green;
+	font-weight: 500;
+}
+
+.sidebar .widget_edd_cart_widget .cart_item.edd_subtotal {
+	padding: 10px 0;
+	border: 1px solid #f2f2f2;
+	border-width: 1px 0;
+	margin: 15px 0;
+}
+
+/* download details widget */
+.sidebar .widget_edd_product_details .edd-meta {
+	font-size: 1.3rem;
+}
+
+.sidebar .widget_edd_product_details .edd_download_purchase_form {
+	margin-bottom: 10px;
 }
 
 .widget select {

@@ -25,7 +25,7 @@ endif;
 				?>
 				<div class="download-access download-info-section">
 					<div class="pricing">
-						<h3>Pricing</h3>
+						<h3 class="widget-title">Pricing</h3>
 						<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
 					</div>
 					<?php if ( ! $is_theme && ! edd_is_free_download( get_the_ID() ) ) { ?>
@@ -36,7 +36,7 @@ endif;
 				</div>
 			<?php } // end if ?>
 			<div class="download-details download-info-section">
-				<h3><?php echo ucfirst( $download_type ); ?> Details</h3>
+				<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
 				<div class="author clearfix">
 					<p><span class="edd-download-detail-label">Developer:</span>&nbsp;
 						<?php if ( get_post_meta( get_the_ID(), 'ecpt_developer', true ) ) : ?>
@@ -62,7 +62,7 @@ endif;
 				$core_extensions = home_url( '/downloads/core-extensions-bundle/' );
 				?>
 				<div class="core-extensions download-info-section">
-					<h3>Core Extensions</h3>
+					<h3 class="widget-title">Core Extensions</h3>
 					<p>Receive the best discount EDD has to offer when you purchase our Core Extensions Bundle. <a href="<?php echo $core_extensions; ?>">Learn more</a>.</p>
 				</div>
 			<?php } ?>
@@ -72,7 +72,7 @@ endif;
 					 get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) {
 				?>
 				<div class="download-requirements download-info-section">
-					<h3>Requirements</h3>
+					<h3 class="widget-title">Requirements</h3>
 					<?php if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ) { ?>
 						<div class="wordpress-ver clearfix">
 							<p>
@@ -133,7 +133,7 @@ endif;
 						echo '<div class="related-items download-info-section">';
 							// Display connected posts
 							if ( $external_doc || $docs->have_posts() ) :
-								echo '<h3>Documentation</h3>';
+								echo '<h3 class="widget-title">Documentation</h3>';
 								echo '<ul class="related-links">';
 								if( empty( $external_doc ) ) :
 									while ( $docs->have_posts() ) : $docs->the_post(); ?>
@@ -152,7 +152,7 @@ endif;
 				$support_form = home_url( '/support/' );
 			?>
 			<div class="support-ticket download-info-section">
-				<h3>Support</h3>
+				<h3 class="widget-title">Support</h3>
 				<div>Need help? Feel free to submit a <a href="<?php echo $support_form; ?>">support ticket</a>.</div>
 			</div>
 		</div>
