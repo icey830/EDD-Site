@@ -42,8 +42,8 @@ if ( have_comments() && 0 != eddwp_get_comments_only_count( $response_count ) ) 
 			<div id="comment-navigation">
 				<nav class="navigation comment-nav" role="navigation">
 					<?php
-						previous_comments_link( '<i class="fa fa-chevron-left"></i>' . __( 'Previous Comments', 'edd' ) );
-						next_comments_link( __( 'Newer Comments', 'edd' ) . '<i class="fa fa-chevron-right"></i>');
+						previous_comments_link( '&larr; ' . __( 'Previous Comments', 'edd' ) );
+						next_comments_link( __( 'Newer Comments', 'edd' ) . ' &rarr;');
 					?>
 				</nav>
 			</div>

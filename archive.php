@@ -73,14 +73,18 @@ get_header(); ?>
 						<div id="page-nav">
 							<ul class="paged">
 								<?php
-									if ( get_next_posts_link() ) : ?>
+									if ( get_next_posts_link() ) :
+										?>
 										<li class="previous">
-											<?php next_posts_link( __( '<span class="nav-previous meta-nav"><i class="fa fa-chevron-left"></i> Older</span>', 'edd' ) ); ?>
+											<?php next_posts_link( __( '<span class="nav-previous meta-nav">&larr; Older Posts</span>', 'edd' ) ); ?>
 										</li>
 										<?php
-									elseif ( get_previous_posts_link() ) : ?>
+									endif;
+
+									if ( get_previous_posts_link() ) :
+										?>
 										<li class="next">
-											<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer <i class="fa fa-chevron-right"></i></span>', 'edd' ) ); ?>
+											<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer Posts &rarr;</span>', 'edd' ) ); ?>
 										</li>
 										<?php
 									endif;

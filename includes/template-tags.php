@@ -108,7 +108,7 @@ function eddwp_post_meta() {
 				$comment_count = eddwp_get_comments_only_count( $response_count );
 
 				if ( comments_open() && ( 0 !== $comment_count ) && ! is_single() ) :
-					if ( $comment_count >= 2 ) :
+					if ( $comment_count >= 1 ) :
 						$comment_total = $comment_count;
 					endif;
 					?>
