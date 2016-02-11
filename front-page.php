@@ -125,9 +125,6 @@ get_header(); ?>
 								echo $short_desc;
 							?>
 						</div>
-						<div class="download-grid-item-cta">
-							<a class="download-grid-item-primary-link button blue" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
-						</div>
 					</div>
 					<?php
 				endwhile;
