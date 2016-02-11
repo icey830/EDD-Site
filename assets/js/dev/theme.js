@@ -145,6 +145,7 @@
 		// Click to show support form
 		$( ".edd-support-ticket-link" ).on('click', function() {
 			$(this).parents( ".edd-docs-link-wrap" ).siblings( ".support-docs-form-container" ).slideDown();
+			$( ".ginput_container_text input" ).focus();
 			return false;
 		});
 
