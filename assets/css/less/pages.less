@@ -463,6 +463,10 @@
 .support-page .support-section {
 	width: 31%;
 	margin-bottom: 33px;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	-webkit-flex-flow: column;
+	flex-flow: column;
 }
 
 .support-page .support-section-link {
@@ -502,10 +506,14 @@
 	margin-bottom: 50px;
 }
 
+.support-page .edd-docs-link-wrap a {
+	min-width: 240px;
+}
+
 .support-page .edd-docs-link {
 	font-size: 18px;
 	padding: 10px;
-	min-width: 240px;
+	margin-bottom: 10px;
 }
 
 .support-page .button-break {
@@ -548,7 +556,7 @@
 	font-size: 24px !important;
 	padding: 10px !important;
 	border: 3px solid @eddgrayhover;
-	border-radius: 3px 3px 0 0;
+	border-radius: 4px;
 	width: 100% !important;
 	max-width: 520px !important;
 }
@@ -556,21 +564,15 @@
 span.results-found {
 	font-size: 18px;
 	display: block;
-	padding: 10px;
+	padding-top: 10px;
 	margin: 0 auto;
 	color: #999;
-	background: @eddgray;
-	max-width: 520px;
-	border-radius: 0 0 3px 3px;
-	border: 2px solid #f1f1f1;
-	border-width: 1px 2px 2px;
 }
 
 .support-page .gform_wrapper .docs-search-results {
 	text-align: left;
 	padding-left: 0;
-	border: 2px solid #f1f1f1;
-	border-width: 2px 2px 1px 2px;
+	border: 3px solid @eddgrayhover;
 	border-radius: 4px;
 	margin: 30px auto !important;
 	max-width: 700px;
