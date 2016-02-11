@@ -2307,6 +2307,7 @@ span.results-found {
 	border: none;
 	border-top: 4px solid @eddgray;
 	margin: 30px 0;
+	height: 0;
 }
 
 #starter-package .edd-gf-divider:after {
@@ -2556,8 +2557,8 @@ span.results-found {
 
 #starter-package .edd-gf-payment-method .gfield_radio li {
 	display: inline-block;
-	margin: 0 50px 0 0;
-	width: 305px;
+	margin: 0 4% 0 0;
+	width: 48%;
 }
 
 #starter-package .edd-gf-payment-method .gfield_radio li:last-child {
@@ -2572,7 +2573,7 @@ span.results-found {
 	background: @eddgray;
 	color: #ccc;
 	font-size: 22px;
-	font-weight: 700;
+	font-weight: 400;
 	padding: 20px;
 	border: 3px solid #eee;
 	border-radius: 4px;
@@ -2600,7 +2601,7 @@ span.results-found {
 #starter-package .edd-gf-payment-method .gfield_radio li input:checked + label {
 	background: #F5F8FC;
 	color: #62a9d7;
-	font-weight: 700;
+	font-weight: 400;
 	border: 3px solid #DAE7F0;
 }
 
@@ -2663,12 +2664,17 @@ span.results-found {
 
 #starter-package .edd-gf-cc select {
 	background: #fff;
-	border: 1px solid #ccc;
-	height: 38px;
+	border: 3px solid @eddgrayhover;
+	height: 44px;
+	margin-left: 0;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	max-width: 100%;
+}
+
+#starter-package .edd-gf-cc .address_country select {
+	width: 100% !important%;
 }
 
 #starter-package .gfield_error.edd-gf-cc select {
@@ -2701,13 +2707,30 @@ span.results-found {
 	width: 48%;
 }
 
-#starter-package .ginput_right {
+#starter-package .ginput_container_name > span {
+	margin-right: 4%;
+	width: 48%;
+}
+
+#starter-package .ginput_container_name > span:nth-child(even) {
 	float: right;
 	margin-right: 0;
 }
 
+#starter-package .gform_wrapper .top_label input.medium,
+#starter-package .gform_wrapper .top_label select.medium {
+	width: 48%;
+}
+
+#starter-package .ginput_container_name > span:nth-child(even),
+#starter-package .ginput_right {
+	margin-right: 0;
+}
+
+#starter-package .ginput_container_name input[type="text"],
 #starter-package .ginput_left input[type="text"],
 #starter-package .ginput_right input[type="text"] {
+	margin-left: 0;
 	width: 100%;
 }
 
@@ -2871,7 +2894,6 @@ span.results-found {
 	background: @eddgray;
 	color: #ccc;
 	font-size: 22px;
-	font-weight: 700;
 	padding: 15px;
 	border: 3px solid @eddgrayhover;
 	border-radius: 4px;
@@ -2899,7 +2921,7 @@ span.results-found {
 #starter-package .edd-gf-toc .gfield_checkbox li input:checked + label {
 	background: #F5F8FC;
 	color: #62a9d7;
-	font-weight: 700;
+	font-weight: 400;
 	border: 3px solid #DAE7F0;
 }
 
