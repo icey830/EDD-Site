@@ -346,11 +346,6 @@ body.bbpress .sidebar .widget.jetpack_subscription_widget input[type="text"]:hov
 }
 
 .edd-moderator-sidebar {
-	.box {
-		background: #fff;
-		padding: 30px 20px;
-	}
-
 	.bbp-user-forum-role {
 		padding-top: 10px;
 		border-top: 1px solid #eee;
@@ -364,7 +359,11 @@ body.bbpress .sidebar .widget.jetpack_subscription_widget input[type="text"]:hov
 		border-bottom: 1px solid #eee;
 	}
 
-	.edd_users_purchases {
+	.edd_users_purchases,
+	.rcp_support_status {
+		font-size: 1.3rem;
+		margin-top: 20px;
+
 		ul {
 			margin: 0;
 			padding: 0;
@@ -373,6 +372,10 @@ body.bbpress .sidebar .widget.jetpack_subscription_widget input[type="text"]:hov
 			strong {
 				display: block;
 				margin: 20px 0 -25px 0;
+			}
+
+			& hr {
+				display: none;
 			}
 		}
 	}
