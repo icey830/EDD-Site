@@ -19,7 +19,7 @@ the_post();
 					</div>
 					<div class="entry-content">
 						<p>Your cart is empty. If this appears to be in error, please clear your browser cookies and try again. If you're interested in extensions for your EDD store, have a look at these popular choices.</p>
-						<section class="download-grid two-col clearfix">
+						<section class="download-grid two-col narrow-grid clearfix">
 							<?php
 								if ( eddwp_edd_is_activated() ) :
 									$cart_contents = edd_get_cart_contents();
@@ -80,7 +80,7 @@ the_post();
 							?>
 						</section>
 						<p>Or perhaps you'd like an official EDD theme to power your store?</p>
-						<section class="download-grid two-col clearfix">
+						<section class="download-grid two-col narrow-grid clearfix">
 							<?php
 								if ( eddwp_edd_is_activated() ) :
 									$cart_contents = edd_get_cart_contents();

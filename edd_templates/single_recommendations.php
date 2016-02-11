@@ -6,7 +6,7 @@ if ( is_array( $suggestion_data ) && !empty( $suggestion_data ) ) :
 	$suggested_downloads = new WP_Query( array( 'post__in' => $suggestions, 'post_type' => 'download' ) );
 	if ( $suggested_downloads->have_posts() ) : ?>
 
-		<div id="recommended-products" class="download-grid two-col clearfix">
+		<div id="recommended-products" class="download-grid two-col narrow-grid clearfix">
 			<h3 class="recommended-products-header"><?php echo sprintf( __( 'Users who purchased %s, also purchased:', 'edd-rp-txt' ), get_the_title() ); ?></h3>
 			<?php while ( $suggested_downloads->have_posts() ) : ?>
 				<?php $suggested_downloads->the_post();	?>

@@ -115,6 +115,10 @@ body {
 	flex-flow: column;
 }
 
+.two-col:not(.narrow-grid) .download-grid-item {
+	min-height: 470px;
+}
+
 #front-page-extensions .download-grid-item {
 	min-height: 300px;
 }
@@ -151,7 +155,7 @@ body {
 	color: @edddarkbluehover;
 }
 
-.two-col .download-grid-item .download-grid-title {
+.two-col:not(.narrow-grid) .download-grid-item .download-grid-title {
 	font-size: 26px;
 }
 
