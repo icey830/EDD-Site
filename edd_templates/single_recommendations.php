@@ -25,7 +25,7 @@ if ( is_array( $suggestion_data ) && !empty( $suggestion_data ) ) :
 							echo $short_desc;
 						?>
 					</div>
-					<div class="download-grid-item-cta">
+					<div class="download-grid-item-cta recommended-products-cta">
 						<?php if ( !edd_has_variable_prices( get_the_ID() ) ) : ?>
 							<?php edd_price( get_the_ID() ); ?>
 						<?php endif; ?>
@@ -36,6 +36,7 @@ if ( is_array( $suggestion_data ) && !empty( $suggestion_data ) ) :
 					</div>
 				</div>
 			<?php endwhile; ?>
+			<div class="download-grid-item flex-grid-cheat"></div>
 		</div>
 
 	<?php endif; ?>

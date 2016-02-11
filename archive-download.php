@@ -139,6 +139,8 @@ the_post();
 						endwhile;
 						wp_reset_postdata();
 					?>
+					<div class="download-grid-item flex-grid-cheat"></div>
+					<div class="download-grid-item flex-grid-cheat"></div>
 				</section><!-- .download-grid three-col -->
 				<?php
 					$big = 999999999;

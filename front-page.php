@@ -133,8 +133,13 @@ get_header(); ?>
 				endwhile;
 				wp_reset_postdata();
 				?>
+				<div class="download-grid-item flex-grid-cheat"></div>
+				<div class="download-grid-item flex-grid-cheat"></div>
 			</div><!-- /.extensions-grid -->
-			<p class="view-all-extensions"><a class="edd-submit button blue" href="<?php echo home_url( '/downloads/' ); ?>"><i class="fa fa-plug"></i>view all extensions</a></p>
+			<div class="view-all-extensions">
+				<p>EDD offers a complete eCommerce solution right out of the box. Use extensions to tailor EDD to your business needs.</p>
+				<a class="edd-submit button blue" href="<?php echo home_url( '/downloads/' ); ?>"><i class="fa fa-plug"></i>view all extensions</a>
+			</div>
 		</div>
 	</div>
 </div>
