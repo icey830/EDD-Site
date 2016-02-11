@@ -17,6 +17,16 @@ function eddwp_edd_is_activated() {
 
 
 /**
+ * Check to see if we're on the checkout page
+ */
+function eddwp_is_checkout() {
+	if ( class_exists( 'Easy_Digital_Downloads' ) && edd_is_checkout() ) {
+		return true;
+	}
+}
+
+
+/**
  * Separate regular comments from pings
  */
 function eddwp_get_comments_only_count( $count ) {
@@ -238,7 +248,18 @@ remove_action( 'edd_purchase_form_after_cc_form', 'edd_checkout_submit', 9999 );
 
 
 /**
- * reposition checkout page form errors
+ * Add heading to checkout form submit button
+ */
+function eddwp_complete_purchase_heading() {
+	?>
+	<h3 class="complete-purchase-title">Complete Purchase</h3>
+	<?php
+}
+add_action( 'edd_purchase_form_before_submit', 'eddwp_complete_purchase_heading', 1 );
+
+
+/**
+ * Reposition checkout page form errors
  */
 remove_action( 'edd_ajax_checkout_errors', 'edd_print_errors' );
 remove_action( 'edd_purchase_form_before_submit', 'edd_print_errors' );
@@ -424,6 +445,13 @@ function eddwp_body_class( $classes ) {
 
 	if ( is_page_template( 'page-templates/template-product-info.php' ) ) {
 		$classes[] = 'template-product-info';
+	}
+
+	if ( eddwp_edd_is_activated() ) {
+		$cart_contents = edd_get_cart_contents();
+		if ( empty( $cart_contents ) ) {
+			$classes[] = 'edd-checkout-cart-empty';
+		}
 	}
 
 	return $classes;

@@ -1,12 +1,6 @@
 <?php
 /**
- * The template for displaying the header.
- *
- * @package   EDD
- * @version   1.0
- * @since     1.0
- * @author	  Sunny Ratilal
- * @copyright Copyright (c) 2013, Sunny Ratilal.
+ * theme-wide header template
  */
 ?>
 <!DOCTYPE html>
@@ -42,23 +36,38 @@
 		<div class="inner">
 			<div class="site-header clearfix">
 
-				<div class="site-title">
-					<?php if( is_page( 'checkout' ) && false !== edd_get_cart_contents() ) : ?>
-						<img src="<?php echo get_template_directory_uri() ?>/images/logo.png" alt="Easy Digital Downloads" />
-					<?php else : ?>
-						<a href="<?php echo get_option( 'siteurl' ); ?>" class="logo-image"><img src="<?php echo get_template_directory_uri() ?>/images/logo.png" alt="Easy Digital Downloads" /></a>
-					<?php endif; ?>
-				</div>
+				<span class="site-title">
+					<?php
+						if ( eddwp_edd_is_activated() ) :
+							$cart_contents = edd_get_cart_contents();
+						endif;
+						if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) || empty( $cart_contents ) ) :
+							?>
+							<a href="<?php echo get_option( 'siteurl' ); ?>" class="logo-image"><img src="<?php echo get_template_directory_uri() ?>/images/logo.png" alt="Easy Digital Downloads" /></a>
+							<?php
+						else :
+							?>
+							<img src="<?php echo get_template_directory_uri() ?>/images/logo.png" alt="Easy Digital Downloads" />
+							<?php
+						endif;
+					?>
+				</span>
 
-				<?php if( ( ! is_page( 'checkout' ) || ( is_page( 'checkout' ) && eddwp_edd_is_activated() && false === edd_get_cart_contents() ) ) || is_page( 130 ) || is_page( 635 ) ) : ?>
+				<?php
+					/**
+					 * 130 - Support Registration
+					 * 635 - My Account
+					 */
+					if ( ( ! eddwp_is_checkout() || ( eddwp_is_checkout() && empty( $cart_contents ) ) ) || is_page( 130 ) || is_page( 635 ) ) : ?>
 					<i class="fa fa-bars menu-toggle"></i>
 					<nav id="primary" class="navigation-main" role="navigation">
 						<?php
 							wp_nav_menu( array( 'theme_location' => 'primary' ) );
 						?>
 					</nav>
-				<?php endif; ?>
-
+					<?php
+					endif;
+				?>
 			</div>
 		</div>
 	</div>

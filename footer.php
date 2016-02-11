@@ -8,12 +8,11 @@
  * post IDs for conditionals... use IDs for forward compatibility
  *
  * 130 - Support Registration
- * 160 - Checkout
  * 635 - My Account
  */
 ?>
 
-	<?php if ( ! is_page( array( 160 ) ) ) : ?>
+	<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) ) : ?>
 		<div id="front-page-newsletter" class="front-page-section page-section-darkblue full-width">
 			<div class="inner">
 				<div class="newsletter-content clearfix">
@@ -40,10 +39,10 @@
 	<footer id="colophon" class="footer-area full-width" role="contentinfo">
 		<div class="inner">
 			<div class="site-footer">
-				<?php if ( ! is_404() ) : ?>
+				<?php if ( ! is_404() && ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) ) : ?>
 					<img class="sitting-edd" src="<?php echo get_template_directory_uri(); ?>/images/edd-sitting.png" />
 				<?php endif; ?>
-				<?php if ( ! is_page( array( 160, 130 ) ) ) : ?>
+				<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) && ! is_page( array( 130 ) ) ) : ?>
 					<div class="footer-columns clearfix">
 						<div class="footer-latest-posts">
 							<?php eddwp_get_latest_post(); ?>
@@ -80,7 +79,7 @@
 					</div>
 
 				<?php endif; ?>
-				<p class="copyright"><strong>Copyright &copy; <?php echo date( 'Y' ); ?></strong> &middot; Easy Digital Downloads<?php if ( ! is_page( 'checkout' ) ) : ?> &middot; A project by <a href="<?php echo home_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.<?php endif; ?></p>
+				<p class="copyright"><strong>Copyright &copy; <?php echo date( 'Y' ); ?></strong> &middot; Easy Digital Downloads<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) ) : ?> &middot; A project by <a href="<?php echo home_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.<?php endif; ?></p>
 			</div>
 		</div>
 	</footer>
