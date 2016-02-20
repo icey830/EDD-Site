@@ -101,6 +101,7 @@ the_post();
 			<div class="features-grid-three-content">
 				<div class="features-grid-content-header">
 					<h2 class="features-grid-section-title">But Wait... There's More to Easy Digital Downloads</h2>
+					<div class="small-divider"></div>
 					<p class="features-grid-section-description">Creating and distributing products is just the beginning. As a true E-Commerce platform, Easy Digital Downloads manages all of the back-end information you'd expect from a store system.</p>
 				</div>
 				<div class="features-grid-content-sections">
