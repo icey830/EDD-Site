@@ -13,10 +13,10 @@
 ?>
 
 	<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) ) : ?>
-		<div id="front-page-newsletter" class="front-page-section page-section-darkblue full-width">
+		<div id="footer-newsletter" class="page-section-darkblue full-width">
 			<div class="inner">
 				<div class="newsletter-content clearfix">
-					<h3 class="front-page-section-title">Easy Digital Downloads <strong>Email Newsletter</strong></h3>
+					<h3 class="footer-section-title">Easy Digital Downloads <strong>Email Newsletter</strong></h3>
 					<p>Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads.</p>
 					<form id="pmc_mailchimp" class="clearfix" action="" method="post">
 						<div class="nl-name clearfix">

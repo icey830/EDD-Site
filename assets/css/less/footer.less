@@ -2,6 +2,80 @@
  * theme footer styles
  */
 
+#footer-newsletter .inner {
+	padding: 60px 0;
+}
+
+#footer-newsletter .newsletter-content {
+	text-align: center;
+	max-width: 750px;
+	margin: 0 auto;
+}
+
+#footer-newsletter .front-page-section-title {
+	margin-bottom: 20px;
+}
+
+#footer-newsletter form {
+	max-width: 450px;
+	margin: 0 auto;
+}
+
+#footer-newsletter .nl-name {
+	margin-bottom: 8px;
+}
+
+#footer-newsletter .nl-email {
+	margin-bottom: 6px;
+}
+
+#footer-newsletter input[type="text"],
+#footer-newsletter input[type="email"] {
+	padding: 14px 12px 14px 40px;
+	border: none;
+	margin: 0;
+	outline: none;
+}
+
+#footer-newsletter input {
+	float: left;
+	width: 50%;
+}
+
+#footer-newsletter input[type="text"].nl-first-name {
+	background: #ffffff url('images/sprite.png') no-repeat 14px -35px;
+	border-radius: 4px 0 0 4px;
+}
+
+#footer-newsletter input[type="text"].nl-last-name {
+	padding: 14px 12px;
+	border: 1px solid @eddgrayhover;
+	border-width: 0 0 0 1px;
+	border-radius: 0 4px 4px 0;
+}
+
+#footer-newsletter .newsletter-email {
+	background: #ffffff url('images/sprite.png') no-repeat 14px -83px;
+	border-radius: 4px 0 0 4px;
+	width: 70%;
+}
+
+#footer-newsletter input[type="submit"] {
+	background: @eddblue;
+	color: #fff;
+	padding: 14px 12px;
+	border: none;
+	border-radius: 0 4px 4px 0;
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	width: 30%;
+}
+
+#footer-newsletter input[type="submit"]:hover {
+	background: @eddbluehover;
+}
+
 .footer-area {
 	background: @eddgray url(images/edd-footer.png) no-repeat center bottom;
 }

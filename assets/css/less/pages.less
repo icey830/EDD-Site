@@ -2202,7 +2202,7 @@ span.results-found {
 }
 
 .featured-download-secondary-link {
-	color: #AFD8F3;
+	color: @lightblue;
 	text-decoration: underline;
 }
 
@@ -2961,9 +2961,9 @@ span.results-found {
 /* ----------------------------- *
  * Generic Page Elements
  * ----------------------------- */
- .full-width-content {
-	 background: #fff;
- }
+.full-width-content {
+ background: #fff;
+}
 
 .page-section-header {
 	max-width: 750px;
@@ -2974,10 +2974,14 @@ span.results-found {
 }
 
 .small-divider {
-	background: @eddgray;
-	height: 3px;
+	background: @eddgrayhover;
+	height: 2px;
 	max-width: 300px;
 	margin: 0 0 30px;
+
+	&.centered {
+		margin: 0 auto 30px;
+	}
 }
 
 .page-section-content {
@@ -3021,7 +3025,12 @@ span.results-found {
 .features-grid-content-header {
 	text-align: center;
 	max-width: 750px;
-	margin: 0 auto;
+	margin: 0 auto 50px;
+
+	& .small-divider {
+		margin-left: auto;
+		margin-right: auto;
+	}
 }
 
 .features-grid-content-header .features-grid-section-title {
@@ -3029,34 +3038,53 @@ span.results-found {
 }
 
 .features-grid-content-sections {
-	margin: 80px 0 30px;
-}
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	justify-content: space-between;
 
-.features-grid-three .edd-feature {
-	display: inline-block;
-	width: 323px;
-	vertical-align: top;
-}
+	& .flex-grid-cheat {
+		background: transparent !important;
+		border: none !important;
+		height: 1px !important;
+		min-height: 1px !important;
+		margin: 0 !important;
+	}
 
-.features-grid-three .edd-feature:not(:nth-child(3n)) {
-	margin-right: 60px;
-}
+	& .edd-feature {
+		position: relative;
+		padding: 20px 0;
+		margin-bottom: 55px;
+		width: 45%;
+		vertical-align: top;
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+		-webkit-flex-flow: column;
+		flex-flow: column;
 
-.features-grid-three .edd-feature-image {
-	border: 3px solid @eddgrayhover;
-	border-radius: 4px;
-	margin-bottom: 10px;
-}
+		& h6 {
+			position: relative;
+			font-weight: 500;
+			text-transform: uppercase;
+			padding-left: 60px;
+			margin: 0 0 10px;
 
-.features-grid-three .edd-feature h6 {
-	display: inline-block;
-	font-weight: 500;
-	text-transform: uppercase;
-	margin: 0 0 10px;
-}
+			& .fa {
+				position: absolute;
+					left: 0;
+				font-size: 200%;
+				margin-right: 20px;
+			}
+		}
 
-.features-grid-three .edd-feature p {
-	line-height: 1.6;
+		& p {
+			line-height: 1.6;
+			margin-left: 60px;
+		}
+	}
 }
 
 .half-split.image-left .split-image {
