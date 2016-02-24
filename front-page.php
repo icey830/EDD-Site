@@ -79,64 +79,7 @@ get_header(); ?>
 <div id="front-page-extensions-area" class="front-page-section page-section-gray full-width">
 	<div class="inner">
 		<div class="front-page-extensions-area">
-			<div class="front-page-extensions-header page-section">
-				<div class="page-section-header">
-					<h2 class="page-section-title">Easy Digital Downloads <strong>Tailored to Your Business</strong></h2>
-					<div class="small-divider centered"></div>
-					<p>With over 190 extensions, Easy Digital Downloads can be customized to function the way you need. From payment processors to newsletter signup forms, EDD has extensions to fill the needs of almost every user.</p>
-				</div>
-			</div>
-			<div class="front-page-extensions-content edd-downloads">
-				<div class="download-grid three-col clearfix">
-					<?php
-					$extensions = new WP_Query(
-						array(
-							'post_type'      => 'download',
-							'posts_per_page' => 6,
-							'post_status'    => 'publish',
-							'orderby'        => 'menu_order',
-							'order'          => 'ASC',
-							'tax_query'      => array(
-								'relation'   => 'AND',
-								array(
-									'taxonomy' => 'download_category',
-									'field'    => 'slug',
-									'terms'    => 'extensions'
-								),
-								array(
-									'taxonomy' => 'download_tag',
-									'field'    => 'slug',
-									'terms'    => 'featured'
-								)
-							)
-						)
-					);
-					while ( $extensions->have_posts() ) : $extensions->the_post();
-						?>
-						<div class="download-grid-item">
-							<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-								<?php eddwp_downloads_grid_thumbnail(); ?>
-							</a>
-							<div class="download-grid-item-info">
-								<?php
-									the_title( '<h4 class="download-grid-title"><a href="' . home_url( '/downloads/' . $post->post_name ) . '" title="' . get_the_title() . '">', '</a></h4>' );
-									$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
-									echo $short_desc;
-								?>
-							</div>
-						</div>
-						<?php
-					endwhile;
-					wp_reset_postdata();
-					?>
-					<div class="download-grid-item flex-grid-cheat"></div>
-					<div class="download-grid-item flex-grid-cheat"></div>
-				</div><!-- /.extensions-grid -->
-				<div class="view-all-extensions">
-					<p>EDD offers a complete eCommerce solution right out of the box. Use extensions to tailor EDD to your business needs.</p>
-					<a class="edd-submit button blue" href="<?php echo home_url( '/downloads/' ); ?>"><i class="fa fa-plug"></i>view all extensions</a>
-				</div>
-			</div>
+			Testing
 		</div>
 	</div>
 </div>
