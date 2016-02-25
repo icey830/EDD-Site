@@ -1630,6 +1630,10 @@ add_filter( 'gform_pre_render_11', 'edd_wp_gravity_form_download_options' );
 add_filter( 'gform_pre_validation_11', 'edd_wp_gravity_form_download_options' );
 add_filter( 'gform_pre_submission_filter_11', 'edd_wp_gravity_form_download_options' );
 add_filter( 'gform_admin_pre_render_11', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_pre_render_16', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_pre_validation_16', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_pre_submission_filter_16', 'edd_wp_gravity_form_download_options' );
+add_filter( 'gform_admin_pre_render_16', 'edd_wp_gravity_form_download_options' );
 
 function eddwp_facebook_conversion_pixel() {
 
