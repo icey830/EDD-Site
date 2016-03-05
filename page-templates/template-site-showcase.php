@@ -7,7 +7,7 @@ get_header();
 the_post();
 ?>
 
-	<div class="extensions-header-area page-section-blue full-width">
+	<div class="extensions-header-area page-section-gray full-width">
 		<div class="inner">
 			<div class="extensions-header clearfix">
 				<div class="section-header">

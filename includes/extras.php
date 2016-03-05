@@ -457,3 +457,37 @@ function eddwp_body_class( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'eddwp_body_class' );
+
+
+/**
+ * Add second bio Textarea to user profile page for The Crew page
+ */
+/**
+ * Show custom user profile fields
+ * @param  obj $user The user object.
+ * @return void
+ */
+function eddwp_crew_enhanced_bio( $user ) {
+?>
+<table class="form-table">
+	<tr>
+		<th>
+			<label for="edd-bio">EDD Crew Bio</label>
+		</th>
+		<td>
+			<textarea rows="5" name="enhanced_bio" id="enhanced_bio" class="regular-text" ><?php echo esc_attr( get_the_author_meta( 'enhanced_bio', $user->ID ) ); ?></textarea><br />
+			<span class="description">This enhanced bio appears on the EDD Crew page. This is <em>not</em> your single blog post footer.</span>
+		</td>
+	</tr>
+</table>
+<?php
+}
+add_action( 'show_user_profile', 'eddwp_crew_enhanced_bio' );
+add_action( 'edit_user_profile', 'eddwp_crew_enhanced_bio' );
+
+add_action( 'personal_options_update', 'save_crew_enhanced_bio' );
+add_action( 'edit_user_profile_update', 'save_crew_enhanced_bio' );
+
+function save_crew_enhanced_bio( $user_id ) {
+	update_user_meta( $user_id, 'enhanced_bio', esc_textarea( $_POST['enhanced_bio'] ) );
+}
