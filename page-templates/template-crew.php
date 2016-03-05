@@ -40,9 +40,9 @@ get_header();
 										if ( ! empty( $member->user_url ) ) :
 											printf( '&nbsp;<a href="%s"><i class="fa fa-link"></i></a>', $member->user_url );
 										endif;
-										//if ( ! empty( $member->twitter ) ) :
-											printf( '&nbsp;&middot;&nbsp;<a href="%s"><i class="fa fa-twitter"></i></a>', $member->twitter );
-										//endif;
+										if ( ! empty( $member->twitter ) ) :
+											printf( '&nbsp;&middot;&nbsp;<a href="https://twitter.com/%s"><i class="fa fa-twitter"></i></a>', $member->twitter );
+										endif;
 										echo '</div>';
 									?>
 								</div>
