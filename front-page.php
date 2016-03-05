@@ -42,6 +42,10 @@ get_header(); ?>
 <div id="front-page-features" class="features-grid-two page-section-white full-width">
 	<div class="inner">
 		<div class="features-grid-two-content">
+			<div class="features-grid-content-header">
+				<h2 class="features-grid-section-title">Essential <strong>Features and Functionality</strong></h2>
+				<div class="small-divider"></div>
+			</div>
 			<div class="features-grid-content-sections">
 				<div class="edd-feature">
 					<h6><i class="fa fa-tag"></i>Discount Codes</h6>

@@ -9,7 +9,7 @@ the_post();
 	?>
 	<section class="support-page main clearfix">
 
-		<div class="support-header-area page-section-gray full-width">
+		<div class="support-header-area page-section-blue full-width">
 			<div class="inner">
 				<div class="support-header clearfix">
 					<div class="section-header">
