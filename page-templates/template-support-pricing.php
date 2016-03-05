@@ -7,12 +7,12 @@
 
 get_header(); ?>
 
-	<div id="support-pricing-page-intro" class="features-page-section page-section-blue full-width">
+	<div id="support-pricing-page-intro" class="features-page-section page-section-gray full-width">
 		<div class="inner">
 			<div class="support-pricing-page-intro">
-				<div class="support-pricing-page-header">
-					<h2 class="support-pricing-page-section-title">Easy Digital Downloads <strong>Priority Support</strong></h2>
-					<p class="support-pricing-page-section-description">Support is free for all users. For those wanting faster, more in-depth support, Priority Support is the answer.</p>
+				<div class="section-header">
+					<h2 class="section-title">Easy Digital Downloads <strong>Priority Support</strong></h2>
+					<p class="section-subtitle">Support is free for all users. For those wanting faster, more in-depth support, Priority Support is the answer.</p>
 				</div>
 			</div>
 		</div>
