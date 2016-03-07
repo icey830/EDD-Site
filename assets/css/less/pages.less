@@ -3047,8 +3047,12 @@ span.results-found {
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+	display: box;
+	-webkit-flex-direction: row;
 	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
 	justify-content: space-between;
+	align-content: flex-start;
 
 	& .flex-grid-cheat {
 		background: transparent !important;
@@ -3060,6 +3064,8 @@ span.results-found {
 
 	& .edd-feature {
 		position: relative;
+		display: inline-block;
+		display: flex;
 		padding: 20px 0;
 		margin-bottom: 55px;
 		width: 45%;
@@ -3067,7 +3073,7 @@ span.results-found {
 		-webkit-justify-content: space-between;
 		justify-content: space-between;
 		-webkit-flex-flow: column;
-		flex-flow: column;
+		flex-flow: column nowrap;
 
 		& h6 {
 			position: relative;
