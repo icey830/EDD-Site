@@ -45,7 +45,7 @@
 				<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) && ! is_page( array( 130 ) ) ) : ?>
 					<div class="footer-columns flex-container clearfix">
 						<div class="footer-latest-posts flex-three">
-							<?php eddwp_get_latest_post( 5 ); ?>
+							<?php eddwp_get_latest_post( 3 ); ?>
 						</div>
 
 						<div class="footer-support flex-three">
