@@ -83,20 +83,19 @@
 								endif;
 							?>
 						</p>
-					</div>
-					<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) ) : ?>
-					<div class="site-info flex-two">
-						<?php if ( has_nav_menu( 'footer' ) ) : ?>
-							<h4>Additional Resources</h4>
-							<nav id="footer-menu" class="navigation-footer">
-								<?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
-							</nav>
-						<?php endif; ?>
-
 						<a class="godaddy-partner" href="https://garage.godaddy.com/wordpress-plugin-partner-program/directory/?cvosrc=advocacy.evangelism.WP3" rel="nofollow">
 							<img src="https://garage.godaddy.com/wp-content/uploads/badges/godaddy-plugin-partner-program-badge.svg" title="GoDaddy Plugin Program Partner" alt="GoDaddy Plugin Program Partner"/>
 						</a>
 					</div>
+					<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) ) : ?>
+						<div class="site-info flex-two">
+							<?php if ( has_nav_menu( 'footer' ) ) : ?>
+								<h4>Additional Resources</h4>
+								<nav id="footer-menu" class="navigation-footer">
+									<?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
+								</nav>
+							<?php endif; ?>
+						</div>
 					<?php endif; ?>
 				</div>
 			</div>
