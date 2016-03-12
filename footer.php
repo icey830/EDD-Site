@@ -79,7 +79,7 @@
 					</div>
 
 				<?php endif; ?>
-				<p class="copyright"><strong>Copyright &copy; <?php echo date( 'Y' ); ?></strong> &middot; Easy Digital Downloads<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) ) : ?> &middot; A project by <a href="<?php echo home_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.<?php endif; ?></p>
+				<p class="copyright">Copyright &copy; <?php echo date( 'Y' ); ?> &middot; Easy Digital Downloads<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) ) : ?> &middot; A project by <a href="<?php echo home_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.<?php endif; ?></p>
 			</div>
 		</div>
 	</footer>
