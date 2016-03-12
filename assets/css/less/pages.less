@@ -1316,6 +1316,11 @@ span.results-found {
 /* ----------------------------- *
  * Checkout
  * ----------------------------- */
+.edd-checkout .site-footer .flex-container .flex-two {
+	text-align: center;
+	width: 100%;
+}
+
 .edd-checkout .checkout-content {
 	background: #fff;
 	padding: 30px 50px;
@@ -1645,74 +1650,79 @@ span.results-found {
 
 
 /* ----------------------------- *
- * Team
+ * The Crew
  * ----------------------------- */
-.contributors img {
-	border-radius: 50%;
-	width: 90px;
-	height: 90px;
-	padding: 5px;
-	background: #fff;
-	border: 1px solid @eddgrayhover;
-	float: left;
-	margin-right: 20px;
+.crew-type-header {
+	text-align: center;
+	margin-bottom: 50px;
 }
 
-.contributors .crew-edd-standing {
-	float: right;
-	border: none;
-	width: auto;
-	height: auto;
-	border-radius: 0;
-	margin-left: 30px;
-	margin-top: 50px;
-}
+.crew-wrap {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	justify-content: space-between;
 
-.contributors h3 {
-	height: 90px;
-	line-height: 90px;
-	margin: 0 0 20px 0;
-	padding: 0;
-}
+	& .flex-grid-cheat {
+		background: transparent !important;
+		border: none !important;
+		height: 1px !important;
+		min-height: 1px !important;
+		margin: 0 !important;
+	}
 
-.contributors .contributor {
-	float: left;
-	width: 49%;
-	margin-right: 2%;
-	border: 1px solid #eee;
-	border-left: 8px solid #eee;
-	padding: 20px;
-	margin-bottom: 20px;
+	& .crew-member {
+		border: 3px solid #eaeaea;
+		border-radius: 4px;
+		margin-bottom: 4%;
+		-webkit-justify-content: space-between;
+		justify-content: space-between;
+		-webkit-flex-flow: column;
+		flex-flow: column;
 
-	p:first-child {
-		display: inline;
+		&.lead-developer {
+			width: 47.5%;
+		}
+
+		& .crew-member-name {
+			background: #f7f7f7;
+			font-size: 20px;
+			padding: 10px 30px;
+			border: 3px solid #eaeaea;
+			border-width: 0 0 3px;
+
+			& h5 {
+				margin-bottom: 0;
+			}
+
+			& .crew-member-urls {
+				float: right;
+				color: #ccc;
+			}
+
+			.fa {
+				color: #aaa;
+				font-size: 85%;
+
+				&:hover {
+					color: @eddblue;
+				}
+			}
+		}
+
+		& .crew-member-info {
+			padding: 30px;
+
+			& .crew-avatar {
+				border-radius: 100%;
+				margin: 0 0 15px 30px;
+			}
+		}
 	}
 }
-
-.contributors .contributor.lead {
-	float: none;
-	width: 100%;
-	margin-bottom: 40px;
-}
-
-.contributors h2 {
-	font-size: 25px;
-}
-
-.contributors .contributor:nth-child(2n+2) { margin-right: 0; }
-
-.contributor.contrib h3 {
-	line-height: 55px;
-	margin: 0;
-	padding: 0;
-	height: 55px;
-}
-
-.contributor.contrib { margin-bottom: 20px; }
-
-.contributors br { display: none; }
-
-.gallery { clear: both; }
 
 
 /* ----------------------------- *
@@ -1720,11 +1730,13 @@ span.results-found {
  * ----------------------------- */
 .support-pricing-table-content {
 	padding: 20px 0 80px;
+	margin: 0 auto;
+	max-width: 980px;
 }
 
 .support-type {
 	text-align: center;
-	padding: 20px 30px 30px;
+	padding: 30px;
 	border: 3px solid @eddgrayhover;
 	border-radius: 4px;
 	width: 47.5%;
@@ -1737,6 +1749,10 @@ span.results-found {
 
 .fortyfive-day-support {
 	float: right;
+}
+
+.support-type-title {
+	margin-bottom: 0;
 }
 
 .support-type-title span {
@@ -1867,7 +1883,7 @@ span.results-found {
 
 .resources-404 .sad-edd {
 	position: absolute;
-		top: -187px;
+		top: -198px;
 		right: 0;
 	z-index: 10;
 }
@@ -2022,8 +2038,7 @@ span.results-found {
 	padding-top: 30px;
 }
 
-.extensions-header .section-header,
-.support-page .section-header {
+.page-section-gray .section-header {
 	margin-bottom: 10px;
 }
 
@@ -2208,6 +2223,10 @@ span.results-found {
 
 .featured-download-secondary-link:hover {
 	color: #fff;
+}
+
+.recommended-downloads .section-header {
+	margin-bottom: 50px;
 }
 
 .recommended-downloads .third-party-themes-section {
@@ -2996,7 +3015,7 @@ span.results-found {
 
 .page-section-darkblue {
 	background: @edddarkblue;
-	color: #fff;
+	color: @darkblue_text;
 }
 
 .page-section-gray {
@@ -3043,8 +3062,12 @@ span.results-found {
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+	display: box;
+	-webkit-flex-direction: row;
 	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
 	justify-content: space-between;
+	align-content: flex-start;
 
 	& .flex-grid-cheat {
 		background: transparent !important;
@@ -3056,6 +3079,8 @@ span.results-found {
 
 	& .edd-feature {
 		position: relative;
+		display: inline-block;
+		display: flex;
 		padding: 20px 0;
 		margin-bottom: 55px;
 		width: 45%;
@@ -3063,7 +3088,7 @@ span.results-found {
 		-webkit-justify-content: space-between;
 		justify-content: space-between;
 		-webkit-flex-flow: column;
-		flex-flow: column;
+		flex-flow: column nowrap;
 
 		& h6 {
 			position: relative;
@@ -3085,37 +3110,4 @@ span.results-found {
 			margin-left: 60px;
 		}
 	}
-}
-
-.half-split.image-left .split-image {
-	float: left;
-	width: 50%;
-}
-
-.half-split.image-right .split-image {
-	float: right;
-	width: 50%;
-}
-
-.half-split.image-left .split-text {
-	float: right;
-	padding-top: 40px;
-	width: 45%;
-}
-
-.half-split.image-right .split-text {
-	float: left;
-	padding-top: 40px;
-	width: 45%;
-}
-
-.frame-feature-image {
-	padding: 10px;
-	background: #fff;
-	border: 9px solid @eddgrayhover;
-	border-radius: 4px;
-}
-
-.half-split .split-text h2 {
-	margin: 0 0 20px;
 }

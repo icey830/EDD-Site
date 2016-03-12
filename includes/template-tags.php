@@ -344,8 +344,8 @@ function eddc_get_upcoming_commissions(){
 /**
  * This function is used in the footer template to get the latest blog post.
  */
-function eddwp_get_latest_post() {
-	$items = get_posts( array( 'posts_per_page' => 3 ) );
+function eddwp_get_latest_post( $count = 3 ) {
+	$items = get_posts( array( 'posts_per_page' => $count ) );
 	?>
 	<h4>Latest Blog Posts</h4>
 	<ul>
@@ -359,4 +359,33 @@ function eddwp_get_latest_post() {
 		?>
 	</ul>
 	<?php
+}
+
+
+/**
+ * Output EDD social networking profile icons
+ */
+function eddwp_social_networking_profiles( $args = array() ) {
+	echo $args['wrap'] ? '<div class="edd-social-profiles">' : '';
+	$square = $args['square'] ? '-square' : '';
+		?>
+			<?php if ( $args['title'] ) : ?>
+				<span class="edd-social-profiles-title">
+					<?php echo $args['title']; ?>
+				</span>
+			<?php endif; ?>
+			<a class="social-icon" href="https://www.facebook.com/eddwp">
+				<i class="fa fa-facebook<?php echo $square; ?>"></i>
+			</a>
+			<a class="social-icon" href="https://twitter.com/eddwp">
+				<i class="fa fa-twitter<?php echo $square; ?>"></i>
+			</a>
+			<a class="social-icon" href="https://plus.google.com/111409933861760783237/posts">
+				<i class="fa fa-google-plus<?php echo $square; ?>"></i>
+			</a>
+			<a class="social-icon" href="https://github.com/easydigitaldownloads/Easy-Digital-Downloads/">
+				<i class="fa fa-github<?php echo $square; ?>"></i>
+			</a>
+		<?php
+	echo $args['wrap'] ? '</div>' : '';
 }

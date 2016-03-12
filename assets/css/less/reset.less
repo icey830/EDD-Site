@@ -35,8 +35,8 @@ html {
 
 body {
 	color: #555;
-	font-size: 15px;
-	font-size: 1.5rem;
+	font-size: 16px;
+	font-size: 1.6rem;
 	font-family: 'Roboto', Helvetica, Arial, sans-serif;
 	line-height: 1.625;
 }
@@ -216,10 +216,15 @@ blockquote {
 blockquote cite {
 	font-style: normal;
 	font-size: 14px;
-	text-transform: uppercase;
 	color: #aaa;
 	display: block;
 	margin-top: 10px;
+
+	&:before {
+		font-family: 'FontAwesome';
+		content: "\f10d";
+		margin-right: 8px;
+	}
 }
 
 blockquote:before,
