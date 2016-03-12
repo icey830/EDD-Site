@@ -63,7 +63,7 @@
 				<div class="footer-site-details flex-container clearfix">
 					<div class="copyright flex-two">
 						<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) ) : ?>
-							<h4>Additional Resources</h4>
+							<h4>Company Information</h4>
 						<?php endif; ?>
 						<p><span class="edd-copyright">Copyright &copy; <?php echo date( 'Y' ); ?> &middot; Easy Digital Downloads</span>
 							<?php
