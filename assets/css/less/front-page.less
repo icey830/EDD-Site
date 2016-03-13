@@ -79,6 +79,7 @@
 }
 
 .integrations-wrap {
+	/* flex properties pulled from .flex-container in the markup */
 	margin: 0 auto;
 	max-width: 1200px;
 
@@ -93,25 +94,18 @@
 		-webkit-flex-flow: column;
 		flex-flow: column nowrap;
 
-		/* grayscale integration icons
-
 		& img {
-			-webkit-filter: grayscale(1);
-			filter: grayscale(1);
-			opacity: .4;
+			opacity: 1;
 			-webkit-transition: all .3s ease-in-out;
 			-moz-transition: all .3s ease-in-out;
 			-o-transition: all .3s ease-in-out;
 			-ms-transition: all .3s ease-in-out;
 			transition: all .3s ease-in-out;
+			vertical-align: top;
 
 			&:hover {
-				-webkit-filter: grayscale(0);
-				filter: grayscale(0);
-				opacity: 1;
+				opacity: .7;
 			}
 		}
-
-		*/
 	}
 }

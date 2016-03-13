@@ -44,14 +44,6 @@
 		width: 27%;
 	}
 
-	/* front page */
-	.integrations-wrap {
-		& .integrations-item {
-			padding: 0;
-			width: 25%;
-		}
-	}
-
 	/* support docs/form */
 	.support-page .support-section-link {
 		min-height: 175px;
@@ -265,6 +257,16 @@
 
 	.sidebar {
 		margin-left: 0;
+	}
+
+	/* front page */
+	.integrations-wrap {
+		padding: 20px 0;
+
+		& .integrations-item {
+			padding: 0;
+			width: 25%;
+		}
 	}
 
 	/* footer */
@@ -893,6 +895,14 @@
 
 
 @media all and ( max-width: 600px ) {
+
+	/* front page */
+	.integrations-wrap {
+		& .integrations-item {
+			padding: 0;
+			width: 50%;
+		}
+	}
 
 	/* downloads display */
 	.download-grid {

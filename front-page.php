@@ -27,11 +27,47 @@ get_header(); ?>
 <div class="integrations-area full-width">
 	<div class="integrations-wrap flex-container page-section-gray">
 		<?php
-			$integrations = array( 'MailChimp', 'Dropbox', 'AffiliateWP', 'Stripe' ,'PayPal' ,'Zapier' ,'Amazon', 'Envato' );
+			$integrations = array(
+				'mailchimp'     => array(
+					'name'      => 'MailChimp',
+					'slug'      => '/mail-chimp',
+				),
+				'dropbox'       => array(
+					'name'      => 'Dropbox',
+					'slug'      => '/dropbox-file-store',
+				),
+				'affilaitewp'   => array(
+					'name'      => 'AffiliateWP',
+					'slug'      => '',
+					'url'       => 'https://affiliatewp.com'
+				),
+				'stripe'        => array(
+					'name'      => 'Stripe',
+					'slug'      => '/stripe-gateway',
+				),
+				'paypal'        => array(
+					'name'      => 'PayPal',
+					'slug'      => '?download_s=paypal&action=download_search',
+				),
+				'zapier'        => array(
+					'name'      => 'Zapier',
+					'slug'      => '/zapier',
+				),
+				'amazon'        => array(
+					'name'      => 'Amazon',
+					'slug'      => '/amazon-s3',
+				),
+				'envato'        => array(
+					'name'      => 'Envato',
+					'slug'      => '/edd-envato-integration',
+				),
+			);
 			foreach ( $integrations as $item ) :
 				?>
-				<div class="integrations-item <?php echo strtolower( $item ); ?>-integration">
-					<img src="<?php echo get_template_directory_uri() . '/images/' . strtolower( $item ) . '-integration-logo.png' ?>" alt="<?php echo $item; ?> Integration" />
+				<div class="integrations-item <?php echo strtolower( $item['name'] ); ?>-integration">
+					<a href="<?php echo isset( $item['url'] ) ? $item['url'] : home_url( '/downloads' ) . $item['slug']; ?>">
+						<img src="<?php echo get_template_directory_uri() . '/images/' . strtolower( $item['name'] ) . '-integration-logo.png' ?>" alt="<?php echo $item['name']; ?> Integration" />
+					</a>
 				</div>
 				<?php
 			endforeach;
