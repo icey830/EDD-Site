@@ -57,7 +57,6 @@ get_header();
 							<?php
 						endforeach;
 					?>
-					<div class="flex-cheat"></div>
 				</div>
 			</div>
 		</div>
