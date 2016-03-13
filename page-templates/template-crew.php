@@ -22,7 +22,7 @@ get_header();
 	<div class="the-crew-area page-section-white full-width">
 		<div class="inner">
 			<div class="the-crew-content">
-				<div class="lead-dev-wrap crew-wrap">
+				<div class="lead-dev-wrap crew-wrap flex-container">
 					<?php
 						// all EDD Crew (user role) members
 						$args = array(
@@ -32,7 +32,7 @@ get_header();
 						$the_crew = $user_query->get_results();
 						foreach ( $the_crew as $member ) :
 							?>
-							<div class="crew-member lead-developer">
+							<div class="crew-member flex-two">
 								<div class="crew-member-name">
 									<?php
 										echo $member->first_name . ' ' . $member->last_name;

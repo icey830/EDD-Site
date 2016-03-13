@@ -32,46 +32,46 @@ the_post();
 			<div class="inner">
 				<div class="support-search">
 					<?php if ( ! is_page( 'pre-sale-question' ) ) { ?>
-						<div class="support-section-wrap">
+						<div class="support-section-wrap flex-container">
 							<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
-								<div class="support-section pre-sale-question-section special-section">
+								<div class="support-section pre-sale-question-section special-section flex-three">
 									<a href="<?php echo home_url( '/pre-sale-question/' ); ?>" class="support-section-link">
 										<h4 class="support-section-title">Pre-sale Question?</h4>
 										<p class="support-section-description">You are more than welcome to ask questions before committing.</p>
 									</a>
 								</div>
-								<div class="support-section">
+								<div class="support-section flex-three">
 									<a href="http://docs.easydigitaldownloads.com/collection/168-getting-started" class="support-section-link">
 										<h4 class="support-section-title">Getting Started</h4>
 										<p class="support-section-description">Find everything to get Easy Digital Downloads you up and running.</p>
 									</a>
 								</div>
-								<div class="support-section">
+								<div class="support-section flex-three">
 									<a href="http://docs.easydigitaldownloads.com/collection/171-faqs" class="support-section-link">
 										<h4 class="support-section-title">Frequently Asked Questions</h4>
 										<p class="support-section-description">Perhaps you've encountered a common issue or have a quick question.</p>
 									</a>
 								</div>
-								<div class="support-section">
+								<div class="support-section flex-three">
 									<a href="http://docs.easydigitaldownloads.com/collection/180-advanced" class="support-section-link">
 										<h4 class="support-section-title">Advanced Documention</h4>
 										<p class="support-section-description">Familiar with code? Use the advanced docs to dig deeper into Easy Digital Downloads.</p>
 									</a>
 								</div>
-								<div class="support-section">
+								<div class="support-section flex-three">
 									<a href="http://docs.easydigitaldownloads.com/collection/139-extensions-themes" class="support-section-link">
 										<h4 class="support-section-title">Extensions & Themes</h4>
 										<p class="support-section-description">Everything you need to know about our extensions and themes.</p>
 									</a>
 								</div>
-								<div class="support-section">
+								<div class="support-section flex-three">
 									<a href="http://docs.easydigitaldownloads.com/collection/174-developer-docs" class="support-section-link">
 										<h4 class="support-section-title">Developer Documentation</h4>
 										<p class="support-section-description">See all of Easy Digital Downloads' functions, classes, actions, filters, etc.</p>
 									</a>
 								</div>
 								<!--
-								<div class="support-section">
+								<div class="support-section flex-three">
 									<a href="http://docs.easydigitaldownloads.com/collection/292-server-config" class="support-section-link">
 										<h4 class="support-section-title">Server Configuration</h4>
 										<p class="support-section-description">View server-specific documentation for setup and configuration guides.</p>
@@ -80,19 +80,19 @@ the_post();
 								-->
 							<?php } ?>
 							<?php if ( is_page( 'refund-request' ) ) { ?>
-								<div class="support-section">
+								<div class="support-section flex-three">
 									<a href="<?php echo home_url( '/support/' ); ?>" class="support-section-link">
 										<h4 class="support-section-title">Need support?</h4>
 										<p class="support-section-description">We're more than happy to provide assistance if you're having troubles.</p>
 									</a>
 								</div>
-								<div class="support-section">
+								<div class="support-section flex-three">
 									<a href="http://docs.easydigitaldownloads.com/" class="support-section-link">
 										<h4 class="support-section-title">Documentation</h4>
 										<p class="support-section-description">Perhaps one last look at the documentation can resolve your issue?</p>
 									</a>
 								</div>
-								<div class="support-section special-section">
+								<div class="support-section special-section flex-three">
 									<a href="http://docs.easydigitaldownloads.com/article/942-terms-and-conditions" class="support-section-link">
 										<h4 class="support-section-title">Refund Policy</h4>
 										<p class="support-section-description">Be sure your request meets the necessary criteria for a refund.</p>

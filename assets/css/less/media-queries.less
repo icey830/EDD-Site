@@ -52,6 +52,11 @@
 		}
 	}
 
+	/* support docs/form */
+	.support-page .support-section-link {
+		min-height: 175px;
+	}
+
 	/* featured download / themes page */
 	.featured-download-area.page-section-blue .featured-download-img {
 		border-radius: 4px;
@@ -324,15 +329,6 @@
 		&.two-col .download-grid-item,
 		&.three-col .download-grid-item {
 			width: 48%;
-			margin-bottom: 3.5%;
-
-			&:nth-child(3n) {
-				margin-right: 3.2%;
-			}
-
-			&:nth-child(even) {
-				margin-right: 0;
-			}
 		}
 	}
 
@@ -519,11 +515,6 @@
 		display: inline;
 	}
 
-	/* support docs/form */
-	.support-page .support-section-link {
-		min-height: 175px;
-	}
-
 	/* bbPress */
 	#bbpress-forums div.bbp-search-form #bbp_search {
 		width: 98%;
@@ -623,7 +614,6 @@
 
 		& .flex-two {
 			width: 100%;
-			margin-bottom: 3.5%;
 		}
 	}
 
@@ -834,7 +824,7 @@
 	}
 
 	.support-page .support-section-link {
-		min-height: 145px;
+		min-height: inherit;
 	}
 
 	.support-page .support-section-title {
@@ -909,12 +899,10 @@
 		&.two-col .download-grid-item,
 		&.three-col .download-grid-item {
 			width: 100%;
-			margin-right: 0%;
-			margin-bottom: 5%;
 
 			& .download-grid-title,
 			& .download-grid-title {
-				font-size: 24px;
+				font-size: 22px;
 			}
 		}
 	}
@@ -935,7 +923,6 @@
 		& .flex-two,
 		& .flex-three {
 			width: 100%;
-			margin-bottom: 5%;
 		}
 	}
 }

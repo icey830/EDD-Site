@@ -90,9 +90,13 @@ body {
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+	display: box;
 
+	-webkit-flex-direction: row;
 	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
 	justify-content: space-between;
+	align-content: flex-start;
 
 	& .flex-cheat {
 		background: transparent !important;
@@ -104,25 +108,23 @@ body {
 
 	& [class*="flex-"] {
 		position: relative;
+		margin-bottom: 36px;
 		-webkit-justify-content: space-between;
 		justify-content: space-between;
 		-webkit-flex-flow: column;
-		flex-flow: column;
+		flex-flow: column nowrap;
 	}
 
 	& .flex-two {
 		width: 47%;
-		margin-bottom: 3.5%;
 	}
 
 	& .flex-three {
 		width: 31%;
-		margin-bottom: 3%;
 	}
 
 	& .flex-four {
 		width: 22%;
-		margin-bottom: 3%;
 	}
 }
 
@@ -136,9 +138,13 @@ body {
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+	display: box;
 
+	-webkit-flex-direction: row;
 	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
 	justify-content: space-between;
+	align-content: flex-start;
 
 	& .flex-grid-cheat {
 		background: transparent !important;
@@ -154,11 +160,12 @@ body {
 		border: 1px solid @eddgrayhover;
 		border-radius: 4px;
 		min-height: 410px;
+		margin-bottom: 36px;
 		vertical-align: top;
 		-webkit-justify-content: space-between;
 		justify-content: space-between;
 		-webkit-flex-flow: column;
-		flex-flow: column;
+		flex-flow: column nowrap;
 
 		& .download-grid-thumb {
 			border-bottom: 1px solid @eddgrayhover;
@@ -189,12 +196,10 @@ body {
 
 	&.two-col .download-grid-item {
 		width: 48%;
-		margin-bottom: 3.5%;
 	}
 
 	&.three-col .download-grid-item {
 		width: 31%;
-		margin-bottom: 3%;
 
 		& .download-grid-title {
 			font-size: 20px;
