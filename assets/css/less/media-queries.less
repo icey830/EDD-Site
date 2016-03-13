@@ -11,8 +11,20 @@
 	width: device-width;
 }
 
-
 @media all and ( max-width: 1100px ) {
+
+	/* navigation */
+	#primary {
+		font-size: 13px;
+		font-size: 1.3rem;
+
+		& ul {
+
+			& a {
+				padding: 0 12px 0 0;
+			}
+		}
+	}
 
 	/* structure */
 	.inner .section-header {
@@ -126,6 +138,109 @@
 
 @media all and ( max-width: 900px ) {
 
+	/* navigation */
+	.site-header {
+
+		& .menu-toggle {
+			display: block;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			cursor: pointer;
+			font-size: 26px;
+			color: #fff;
+		}
+
+		& .site-title {
+			float: none;
+		}
+	}
+
+	.edd-checkout-cart-empty .site-header {
+		text-align: left;
+	}
+
+	#primary {
+		float: none;
+		height: auto;
+		overflow: hidden;
+		display: none;
+		margin-top: 20px;
+		background: rgba(255,255,255,.03);
+		padding: 10px 30px 30px;
+		border-radius: 4px;
+
+		& ul:not(.sub-menu) > li:not(:last-child) {
+			border-bottom: 2px solid #2a3238;
+		}
+
+		& ul {
+
+			& ul {
+				left: 0;
+				border-top: 2px solid #2a3238;
+				border-radius: 0;
+
+				&:before {
+					display: none;
+				}
+
+				& li {
+
+					& a {
+						padding: 0;
+
+						&:before {
+							font-family: "FontAwesome";
+							content: '\f0da';
+							color: #34434e;
+							margin-right: 10px;
+						}
+					}
+
+					&:not(:last-child) {
+						border-bottom: 2px solid #2a3238;
+					}
+				}
+			}
+
+			& li {
+				float: none;
+			}
+
+			& a {
+				font-size: 16px;
+				font-size: 1.6rem;
+				padding: 0 12px 0 0;
+				height: auto;
+			}
+
+			& ul li a {
+				color: @darkblue_text;
+
+				&:hover {
+					color: #fff !important;
+				}
+			}
+		}
+
+		& .menu-download {
+			display: none;
+		}
+	}
+
+	html.cssanimations.csstransitions #primary ul ul,
+	#primary ul ul {
+		opacity: 1;
+		top: 100%;
+		visibility: visible;
+		display: block;
+		background: transparent;
+		box-shadow: none;
+		width: 100%;
+		position: relative;
+	}
+
 	/* structure */
 	.full-width .inner {
 		padding-top: 45px;
@@ -145,61 +260,6 @@
 
 	.sidebar {
 		margin-left: 0;
-	}
-
-	/* header */
-	.menu-toggle {
-		display: block;
-		position: absolute;
-		top: 10px;
-		right: 10px;
-		cursor: pointer;
-		font-size: 20px;
-		color: #fff;
-	}
-
-	#primary {
-		float: none;
-		height: auto;
-		overflow: hidden;
-		display: none;
-
-		& ul li {
-			float: none;
-		}
-	}
-
-	html.cssanimations.csstransitions #primary ul ul,
-	#primary ul ul {
-		opacity: 1;
-		top: 100%;
-		visibility: visible;
-		display: block;
-		background: transparent;
-		border: none;
-		box-shadow: none;
-		width: 100%;
-		position: relative;
-	}
-
-	#primary ul ul:before {
-		display: none;
-	}
-
-	#primary ul a {
-		height: auto;
-	}
-
-	#primary ul ul li a {
-		color: #999;
-
-		&:hover {
-			color: #fff !important;
-		}
-	}
-
-	.menu-download {
-		display: none;
 	}
 
 	/* footer */
@@ -963,13 +1023,7 @@
 
 		& a {
 			display: block;
-			padding-left: 20px;
 			margin: 0;
-			width: 250px;
-
-			& img {
-				max-width: 250px;
-			}
 		}
 	}
 
@@ -1001,7 +1055,6 @@
 		visibility: visible;
 		display: block;
 		background: transparent;
-		border: none;
 		box-shadow: none;
 		width: 100%;
 		position: relative;

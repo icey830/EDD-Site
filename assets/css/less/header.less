@@ -8,12 +8,17 @@
 	.inner {
 		padding: 35px 30px 30px;
 
-		& .site-title {
-			float: left;
-		}
-
-		& .menu-toggle {
-			display: none;
+		& .site-header {
+			position: relative;
 		}
 	}
+}
+
+/* leave un-nested  (for easy override) */
+.site-title {
+	float: left;
+}
+
+.fa.menu-toggle {
+	display: none;
 }
