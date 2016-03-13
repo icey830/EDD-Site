@@ -24,6 +24,21 @@ get_header(); ?>
 	</div>
 </div>
 
+<div class="integrations-area full-width">
+	<div class="integrations-wrap flex-container page-section-gray">
+		<?php
+			$integrations = array( 'MailChimp', 'Dropbox', 'AffiliateWP', 'Stripe' ,'PayPal' ,'Zapier' ,'Amazon', 'Envato' );
+			foreach ( $integrations as $item ) :
+				?>
+				<div class="integrations-item <?php echo strtolower( $item ); ?>-integration">
+					<img src="<?php echo get_template_directory_uri() . '/images/' . strtolower( $item ) . '-integration-logo.png' ?>" alt="<?php echo $item; ?> Integration" />
+				</div>
+				<?php
+			endforeach;
+		?>
+	</div>
+</div>
+
 <div id="front-page-features" class="features-grid-two page-section-white full-width">
 	<div class="inner">
 		<div class="features-grid-two-content">
