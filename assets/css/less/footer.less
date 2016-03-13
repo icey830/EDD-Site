@@ -141,31 +141,34 @@
 					list-style: none;
 					padding: 0 10px 0 0;
 				}
+			}
+
+			& .copyright {
+
+				& .social-icon {
+					display: inline;
+
+					font-size: 17px;
+					font-size: 1.7rem;
+					text-decoration: none;
+					-webkit-transition: all .2s ease-in-out;
+					-moz-transition: all .2s ease-in-out;
+					-o-transition: all .2s ease-in-out;
+					-ms-transition: all .2s ease-in-out;
+					transition: all .2s ease-in-out;
+
+					&:hover {
+						color: @darkblue_text;
+						text-decoration: none;
+					}
+
+					&:not(:first-of-type) {
+						margin-left: 2px;
+					}
+				}
 
 				& .godaddy-partner img {
 					border-radius: 4px;
-				}
-			}
-
-			& .copyright .social-icon {
-				display: inline;
-
-				font-size: 17px;
-				font-size: 1.7rem;
-				text-decoration: none;
-				-webkit-transition: all .2s ease-in-out;
-				-moz-transition: all .2s ease-in-out;
-				-o-transition: all .2s ease-in-out;
-				-ms-transition: all .2s ease-in-out;
-				transition: all .2s ease-in-out;
-
-				&:hover {
-					color: @darkblue_text;
-					text-decoration: none;
-				}
-
-				&:not(:first-of-type) {
-					margin-left: 2px;
 				}
 			}
 		}
