@@ -57,7 +57,7 @@ get_header();
 							<?php
 						endforeach;
 					?>
-					<div class="flex-grid-cheat crew-member lead-developer"></div>
+					<div class="flex-cheat"></div>
 				</div>
 			</div>
 		</div>
