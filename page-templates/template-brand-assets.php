@@ -23,27 +23,29 @@ the_post();
 					<section class="brand-assets">
 						<h2>Colors</h2>
 						<p>These are the brand colors for Easy Digital Downloads. Copy the HEX codes below.</p>
-						<div class="color">
-							<div class="color-1">
-								<p>#1d2428</p>
+						<div id="colors" class="flex-container">
+							<div class="color flex-three">
+								<div class="color-1">
+									#1d2428
+								</div>
 							</div>
-						</div>
-						<div class="color">
-							<div class="color-2">
-								<p>#2794da</p>
+							<div class="color flex-three">
+								<div class="color-2">
+									#2794da
+								</div>
 							</div>
-						</div>
-						<div class="color">
-							<div class="color-3">
-								<p>#f7f7f7</p>
+							<div class="color flex-three">
+								<div class="color-3">
+									#f7f7f7
+								</div>
 							</div>
 						</div>
 					</section>
 					<section class="brand-assets">
 						<h2>Logos</h2>
 						<p>You can use our logo in either a horizontal or vertical layout. Shown below are the possible variations you may use.</p>
-						<div id="logos">
-							<div class="logo">
+						<div id="logos" class="flex-container">
+							<div class="logo flex-two">
 								<div class="logo-1">
 									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/logos/horizontal/logo-edd-dark.svg'; ?>" />
 								</div>
@@ -54,7 +56,7 @@ the_post();
 									<a href="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/logos/horizontal/logo-edd-dark.png'; ?>" target="_blank">.png</a>
 								</p>
 							</div>
-							<div class="logo">
+							<div class="logo flex-two">
 								<div class="logo-2">
 									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/logos/horizontal/logo-edd-light.svg'; ?>" />
 								</div>
@@ -65,7 +67,7 @@ the_post();
 									<a href="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/logos/horizontal/logo-edd-light.png'; ?>" target="_blank">.png</a>
 								</p>
 							</div>
-							<div class="logo">
+							<div class="logo flex-two">
 								<div class="logo-3">
 									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/logos/vertical/logo-edd-dark.svg'; ?>" />
 								</div>
@@ -76,7 +78,7 @@ the_post();
 									<a href="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/logos/vertical/logo-edd-dark.png'; ?>" target="_blank">.png</a>
 								</p>
 							</div>
-							<div class="logo">
+							<div class="logo flex-two">
 								<div class="logo-4">
 									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/logos/vertical/logo-edd-light.svg'; ?>" />
 								</div>
@@ -90,22 +92,22 @@ the_post();
 						</div>
 					</section>
 					<section class="brand-assets">
-						<h2>Meet Ed</h2>
+						<h2>Meet Edd</h2>
 						<p>Ed is the mascot for Easy Digital Downloads. Treat him with care!</p>
-						<div class="mascots">
-							<div class="mascot">
+						<div id="mascots" class="flex-container">
+							<div class="mascot flex-three">
 								<p><a href="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/ed-1-large.png'; ?>" class="button" target="_blank">Download</a></p>
 								<div class="mascot-1">
 									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/ed-1.png'; ?>" />
 								</div>
 							</div>
-							<div class="mascot">
+							<div class="mascot flex-three">
 								<p><a href="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/ed-2-large.png'; ?>" class="button" target="_blank">Download</a></p>
 								<div class="mascot-1">
 									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/ed-2.png'; ?>" />
 								</div>
 							</div>
-							<div class="mascot">
+							<div class="mascot flex-three">
 								<p><a href="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/ed-3-large.png'; ?>" class="button" target="_blank">Download</a></p>
 								<div class="mascot-1">
 									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/ed-3.png'; ?>" />
