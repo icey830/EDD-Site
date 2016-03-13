@@ -930,82 +930,10 @@
 
 @media all and ( max-width: 480px ) {
 
-	/* comments */
-	#comments,
-	#respond {
-		padding-top: 0;
-	}
-
-	#comments .comment-body p {
-		font-size: 15px;
-	}
-
-	.comment-list .children li {
-		padding-left: 0;
-		border-left: none;
-	}
-
-	/* post footer */
-	.edd-author-box {
-		text-align: center;
-	}
-
-	.edd-author-avatar {
-		float: none;
-		margin: 0 auto 10px;
-	}
-
-	.edd-author-bio {
-		width: 100%;
-	}
-
-	.edd-post-footer {
-		margin-bottom: 30px;
-	}
-
-	.edd-post-footer .newsletter-wrap {
-		padding: 50px 20px 20px;
-	}
-
-	.newsletter .newsletter-name-container,
-	.newsletter .newsletter-email-container,
-	.newsletter .newsletter-submit-container {
-		width: 100% !important;
-	}
-
-	.single .newsletter form {
-		margin-bottom: 20px;
-	}
-
-	/* starter package */
-	#starter-package .package-description,
-	#starter-package .package-discount {
-		float: none;
-		width: 100%
-	}
-
-	#starter-package .package-discount {
-		margin-top: 20px;
-	}
-
-	#starter-package .gfield_price,
-	#starter-package .gform_wrapper .top_label input.medium,
-	#starter-package .gform_wrapper .top_label select.medium {
-		width: 100%;
-	}
-
-	#starter-package .edd-gf-payment-method .gfield_radio li {
-		margin: 0 0 10px;
-		width: 100%;
-	}
-}
-
-
-@media (max-width: 480px) {
-
 	/* header */
 	.site-title {
 		float: none;
+		text-align: center;
 		margin: 0 auto;
 
 		& a {
@@ -1014,14 +942,20 @@
 		}
 	}
 
-	.menu-toggle {
+	.site-header .menu-toggle {
 		display: block;
-		position: absolute;
-		top: 10px;
-		right: 10px;
+		position: static !important;
+		text-align: center;
 		cursor: pointer;
-		font-size: 20px;
+		font-size: 26px;
 		color: #fff;
+		margin: 0 auto;
+		min-width: 20px;
+
+		&::selection,
+		&::-moz-selection {
+			background-color: transparent;
+		}
 	}
 
 	#primary {
@@ -1219,7 +1153,75 @@
 		display: none;
 	}
 
+	/* post footer */
+	.edd-author-box {
+		text-align: center;
+	}
+
+	.edd-author-avatar {
+		float: none;
+		margin: 0 auto 10px;
+	}
+
+	.edd-author-bio {
+		width: 100%;
+	}
+
+	.edd-post-footer {
+		margin-bottom: 30px;
+	}
+
+	.edd-post-footer .newsletter-wrap {
+		padding: 50px 20px 20px;
+	}
+
+	.newsletter .newsletter-name-container,
+	.newsletter .newsletter-email-container,
+	.newsletter .newsletter-submit-container {
+		width: 100% !important;
+	}
+
+	.single .newsletter form {
+		margin-bottom: 20px;
+	}
+
+	/* comments */
+	#comments,
+	#respond {
+		padding-top: 0;
+	}
+
+	#comments .comment-body p {
+		font-size: 15px;
+	}
+
+	.comment-list .children li {
+		padding-left: 0;
+		border-left: none;
+	}
+
 	/* starter package */
+	#starter-package .package-description,
+	#starter-package .package-discount {
+		float: none;
+		width: 100%
+	}
+
+	#starter-package .package-discount {
+		margin-top: 20px;
+	}
+
+	#starter-package .gfield_price,
+	#starter-package .gform_wrapper .top_label input.medium,
+	#starter-package .gform_wrapper .top_label select.medium {
+		width: 100%;
+	}
+
+	#starter-package .edd-gf-payment-method .gfield_radio li {
+		margin: 0 0 10px;
+		width: 100%;
+	}
+
 	#starter-package .content,
 	#starter-package .entry-title {
 		padding: 20px;
