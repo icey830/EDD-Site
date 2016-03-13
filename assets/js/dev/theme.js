@@ -15,14 +15,6 @@
 			});
 		});
 
-
-		// Show the sign in form
-		$('.my-account').on('click', function() {
-			$('#sign-in-form').toggle();
-			$(this).toggleClass('current-page-item');
-			return false;
-		});
-
 		$('.nav-tabs a').on('click', function(e) {
 			e.preventDefault();
 			$(this).tab('show');
@@ -76,8 +68,8 @@
 
 
 		// Load the mobile nav menu
-		$('.header i').on('click', function() {
-		   $('#primary').slideToggle();
+		$('.fa.menu-toggle').on('click', function() {
+		    $('#primary').slideToggle();
 		});
 
 		$(window).resize(function() {

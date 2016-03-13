@@ -25,7 +25,7 @@ get_header(); ?>
 </div>
 
 <div class="integrations-area full-width">
-	<div class="integrations-wrap page-section-gray">
+	<div class="integrations-wrap flex-container page-section-gray">
 		<?php
 			$integrations = array( 'MailChimp', 'Dropbox', 'AffiliateWP', 'Stripe' ,'PayPal' ,'Zapier' ,'Amazon', 'Envato' );
 			foreach ( $integrations as $item ) :
@@ -42,28 +42,28 @@ get_header(); ?>
 <div id="front-page-features" class="features-grid-two page-section-white full-width">
 	<div class="inner">
 		<div class="features-grid-two-content">
-			<div class="features-grid-content-sections">
-				<div class="edd-feature">
+			<div class="features-grid-content-sections flex-container">
+				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-tag"></i>Discount Codes</h6>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique erat ac felis accumsan efficitur. Nam quis lorem et quam scelerisque sodales. Integer id ullamcorper magna.</p>
 				</div>
-				<div class="edd-feature">
+				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-shopping-cart"></i>Full Shopping Cart</h6>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique erat ac felis accumsan efficitur. Nam quis lorem et quam scelerisque sodales. Integer id ullamcorper magna.</p>
 				</div>
-				<div class="edd-feature">
+				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-download"></i>Unlimited File Downloads</h6>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique erat ac felis accumsan efficitur. Nam quis lorem et quam scelerisque sodales. Integer id ullamcorper magna.</p>
 				</div>
-				<div class="edd-feature">
+				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-bar-chart"></i>Download Activity Tracking</h6>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique erat ac felis accumsan efficitur. Nam quis lorem et quam scelerisque sodales. Integer id ullamcorper magna.</p>
 				</div>
-				<div class="edd-feature">
+				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-database"></i>WordPress REST API</h6>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique erat ac felis accumsan efficitur. Nam quis lorem et quam scelerisque sodales. Integer id ullamcorper magna.</p>
 				</div>
-				<div class="edd-feature">
+				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-line-chart"></i>Full Data Reporting</h6>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique erat ac felis accumsan efficitur. Nam quis lorem et quam scelerisque sodales. Integer id ullamcorper magna.</p>
 				</div>

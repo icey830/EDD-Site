@@ -446,23 +446,8 @@
 	margin: 0 0 .7em;
 }
 
-.support-page .support-section-wrap {
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-flow: row wrap;
-	-ms-flex-flow: row wrap;
-	flex-flow: row wrap;
-	-webkit-justify-content: space-between;
-	justify-content: space-between;
-}
-
 .support-page .support-section {
-	width: 31%;
 	margin-bottom: 33px;
-	-webkit-justify-content: space-between;
-	justify-content: space-between;
-	-webkit-flex-flow: column;
-	flex-flow: column;
 }
 
 .support-page .support-section-link {
@@ -1658,34 +1643,10 @@ span.results-found {
 }
 
 .crew-wrap {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-flow: row wrap;
-	justify-content: space-between;
-
-	& .flex-grid-cheat {
-		background: transparent !important;
-		border: none !important;
-		height: 1px !important;
-		min-height: 1px !important;
-		margin: 0 !important;
-	}
 
 	& .crew-member {
 		border: 3px solid #eaeaea;
 		border-radius: 4px;
-		margin-bottom: 4%;
-		-webkit-justify-content: space-between;
-		justify-content: space-between;
-		-webkit-flex-flow: column;
-		flex-flow: column;
-
-		&.lead-developer {
-			width: 47.5%;
-		}
 
 		& .crew-member-name {
 			background: #f7f7f7;
@@ -2951,6 +2912,40 @@ span.results-found {
 
 
 /* ----------------------------- *
+ * Features
+ * ----------------------------- */
+.features-grid-two .inner {
+	padding-top: 80px;
+}
+
+.features-grid-content-sections {
+
+	& .edd-feature {
+
+		& h6 {
+			position: relative;
+			font-weight: 500;
+			text-transform: uppercase;
+			padding-left: 60px;
+			margin: 0 0 10px;
+
+			& .fa {
+				position: absolute;
+				left: 0;
+				font-size: 200%;
+				margin-right: 20px;
+			}
+		}
+
+		& p {
+			line-height: 1.6;
+			margin-left: 60px;
+		}
+	}
+}
+
+
+/* ----------------------------- *
  * Common Page Templates
  * ----------------------------- */
 #landing-page-area .page-content,
@@ -3027,7 +3022,8 @@ span.results-found {
 }
 
 .page-section-blue .inner {
-	padding: 60px 0;
+	padding-top: 60px;
+	padding-bottom: 60px;
 }
 
 .page-section-blue .page-section-title {
@@ -3039,75 +3035,4 @@ span.results-found {
 	text-align: center;
 	margin: 0 auto;
 	max-width: 750px;
-}
-
-.features-grid-content-header {
-	text-align: center;
-	max-width: 750px;
-	margin: 0 auto 50px;
-
-	& .small-divider {
-		margin-left: auto;
-		margin-right: auto;
-	}
-}
-
-.features-grid-content-header .features-grid-section-title {
-	margin-bottom: 20px;
-}
-
-.features-grid-content-sections {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	display: box;
-	-webkit-flex-direction: row;
-	-webkit-flex-flow: row wrap;
-	flex-flow: row wrap;
-	justify-content: space-between;
-	align-content: flex-start;
-
-	& .flex-grid-cheat {
-		background: transparent !important;
-		border: none !important;
-		height: 1px !important;
-		min-height: 1px !important;
-		margin: 0 !important;
-	}
-
-	& .edd-feature {
-		position: relative;
-		display: inline-block;
-		display: flex;
-		padding: 20px 0;
-		margin-bottom: 55px;
-		width: 45%;
-		vertical-align: top;
-		-webkit-justify-content: space-between;
-		justify-content: space-between;
-		-webkit-flex-flow: column;
-		flex-flow: column nowrap;
-
-		& h6 {
-			position: relative;
-			font-weight: 500;
-			text-transform: uppercase;
-			padding-left: 60px;
-			margin: 0 0 10px;
-
-			& .fa {
-				position: absolute;
-					left: 0;
-				font-size: 200%;
-				margin-right: 20px;
-			}
-		}
-
-		& p {
-			line-height: 1.6;
-			margin-left: 60px;
-		}
-	}
 }
