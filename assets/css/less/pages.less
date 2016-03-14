@@ -1452,8 +1452,37 @@ span.results-found {
 	text-align: center;
 }
 
+#edd_terms {
+	background: @eddgray;
+	color: #555;
+	font-size: 15px;
+	font-size: 1.5rem;
+	padding: 14px 16px;
+	border: 3px solid @eddgrayhover;
+	border-radius: 4px 4px 4px 0;
+	margin-bottom: 0;
+}
+
 #edd_show_terms {
-	margin-bottom: 10px;
+	background: @eddgrayhover;
+	font-size: 15px;
+	font-size: 1.5rem;
+	padding: 4px 10px 4px 20px;
+	border-radius: 3px;
+	margin-bottom: 28px;
+	max-width: 122px;
+
+	& a {
+		color: #666;
+
+		&:before {
+			font-family: "FontAwesome";
+		}
+	}
+}
+
+#edd_terms:not([style*="none"]) + #edd_show_terms {
+	border-radius: 0 0 3px 3px;
 }
 
 #edd_purchase_submit label {
