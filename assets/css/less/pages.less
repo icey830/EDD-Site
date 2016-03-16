@@ -1455,14 +1455,20 @@ span.results-found {
 #edd_terms {
 	background: @eddgray;
 	color: #555;
-	font-size: 15px;
-	font-size: 1.5rem;
+	font-size: 13px;
+	font-size: 1.3rem;
 	padding: 14px 16px;
 	border: 3px solid @eddgrayhover;
 	border-radius: 4px 4px 4px 0;
 	margin-bottom: 0;
 	max-height: 300px;
 	overflow: scroll;
+
+	& p,
+	& ul,
+	& ol {
+		margin: 20px;
+	}
 }
 
 #edd_show_terms {
