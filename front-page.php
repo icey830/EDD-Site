@@ -20,6 +20,7 @@ get_header(); ?>
 				<a class="hero-primary-cta-button" href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button"><i class="fa fa-cloud-download"></i>Download</a><br>
 				or <a class="hero-secondary-cta-link" href="https://easydigitaldownloads.com/demo/">view the demo</a>
 			</p>
+			<img class="hero-screenshot" src="<?php echo get_template_directory_uri() . '/images/edd-reports-screenshot-edd.png'; ?>">
 		</div>
 	</div>
 </div>

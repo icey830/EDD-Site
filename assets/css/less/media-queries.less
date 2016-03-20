@@ -40,6 +40,25 @@
 		width: 27%;
 	}
 
+	/* front page */
+	#front-page-hero {
+		text-align: center;
+
+		& .inner {
+			background: none;
+			padding-bottom: 0;
+
+			& .site-headline .hero-title {
+				margin: 0 auto;
+				max-width: 700px;
+			}
+
+			& .hero-screenshot {
+				display: block;
+			}
+		}
+	}
+
 	/* support docs/form */
 	.support-page .support-section-link {
 		min-height: 175px;
@@ -138,21 +157,7 @@
 }
 
 
-@media all and ( max-width: 1000px ) {
-	/* front page */
-	#front-page-hero {
-		text-align: center;
-
-		& .inner {
-			background: transparent url('images/edd-reports-screenshot-overlay.png') top center no-repeat;
-			background-size: cover;
-
-			& .site-headline .hero-title {
-				margin: 0 auto;
-				max-width: 700px;
-			}
-		}
-	}
+@media all and ( max-width: 1040px ) {
 }
 
 
@@ -1028,6 +1033,14 @@
 
 	.menu-download {
 		display: none;
+	}
+
+	#front-page-hero .inner {
+		padding-bottom: 30px;
+
+		& .hero-screenshot {
+			display: none;
+		}
 	}
 
 	/* downloads display */
