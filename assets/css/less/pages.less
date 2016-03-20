@@ -51,25 +51,8 @@
 
 
 /* ----------------------------- *
- * Features template
- * ----------------------------- */
-.features-page-section-title {
-	margin: 0 0 20px;
-}
-
-.features-page-header {
-	text-align: center;
-	max-width: 750px;
-	margin: 0 auto;
-}
-
-
-/* ----------------------------- *
  * Extensions and Themes (Downloads)
  * ----------------------------- */
-.extensions-header-area .inner .section-header {
-	margin-bottom: 10px;
-}
 
 .extension,
 .theme,
@@ -781,123 +764,224 @@ span.results-found {
  * ----------------------------- */
 
 /* EDD Wallet */
-#account-page article[class*='post-'] {
-	position: relative;
-}
-
-#account-page .edd-wallet-container {
-	position: absolute;
-		right: 0;
-		top: 0;
-	text-align: right;
-}
-
-#account-page .edd-wallet-value {
-	font-size: 15px;
-	font-weight: 500;
-	color: #fff;
-	background: #3da63d;
-	padding: 4px 6px;
-	border-radius: 4px;
-	vertical-align: middle;
-}
-
-.page-template-template-account .site-container {
-	max-width: 940px;
-}
-
-.nav-tabs:before, .nav-pills:before, .nav-tabs:after, .nav-pills:after {
-	display: table;
-	line-height: 0;
-	content: "";
-}
-
-.nav-tabs:after, .nav-pills:after { clear: both; }
-
-.nav-tabs {
-	border-bottom: 1px solid @eddgrayhover;
-}
-
-.nav-tabs {
-	border-bottom-width: 2px;
-	border-bottom-color: @eddgrayhover;
-}
-
-.nav-tabs.nav-append-content {
-	border-bottom: none;
-	padding: 0;
-	margin: 0;
-}
-
-.nav {
-	list-style: none;
-}
-
-.nav-tabs.nav-append-content > li.active:first-child:before {
-	background-color: #fff;
-	border-left: 2px solid @eddgrayhover;
-	content: "";
-	height: 6px;
-	left: 0;
-	position: absolute;
-	bottom: -4px;
-	width: 6px;
-	z-index: 2;
-}
-
-.nav-tabs > li {
-	float: left;
-	margin-bottom: 1px;
-}
-
-.nav-tabs > li {
-	margin-bottom: -2px !important;
-	position: relative;
-}
-
-.nav-tabs > li.active { z-index: 2; }
-
-.nav > li > a { display: block; }
-
-.nav-tabs > li > a {
-	margin-right: 2px;
-}
-
-.nav-tabs > li > a {
-	padding-top: 8px;
-	padding-bottom: 8px;
-	line-height: 20px;
-	border: 1px solid transparent;
+.my-account-info {
+	font-size: 1.4rem;
+	padding: 10px;
+	border: 3px solid @eddgrayhover;
+	border-width: 3px 3px 0;
 	border-radius: 4px 4px 0 0;
+
+	& .my-account-avatar {
+		display: block;
+		border-radius: 100%;
+		margin: 0 auto 10px;
+	}
 }
 
-.nav-tabs > li > a {
-	border-width: 2px;
-	padding: 7px 21px 8px;
-	border-radius: 6px 6px 0 0;
+.edd-wallet-value {
+	font-weight: 500;
+	color: @green;
 }
 
-.nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus {
-	cursor: default;
-	background: #fff;
-	border: 1px solid @eddgrayhover;
-	border-bottom-color: transparent;
+/* tabs / content */
+.my-account-tabs {
+	float: left;
+	width: 20%;
+
+	& .nav-tabs.nav-append-content {
+		font-size: 14px;
+		font-size: 1.4rem;
+		padding: 0;
+		border: 3px solid @eddgrayhover;
+		border-radius: 0 0 4px 4px;
+		margin: 0;
+
+		& li {
+			float: none;
+			margin-bottom: 0;
+
+			& a {
+				display: block;
+				background: none;
+				color: #555;
+				padding: 10px 10px 10px 6px;
+				border: none;
+				width: 100%;
+				border: 3px solid @eddgrayhover;
+				border-width: 0 0 3px;
+				border-radius: 0;
+
+				&:hover {
+					background: @eddgray;
+					border: 3px solid @eddgrayhover;
+					border-width: 0 0 3px;
+				}
+
+				& .fa {
+					display: inline-block;
+					text-align: center;
+					margin-right: 5px;
+					min-width: 25px;
+				}
+			}
+
+			&:last-child a {
+				border-bottom: none;
+			}
+		}
+
+		& li.active a {
+			background: @eddgray;
+			border: 3px solid @eddgrayhover;
+			border-width: 0 0 3px;
+
+			&:hover {
+				background: @eddgray;
+				border: 3px solid @eddgrayhover;
+				border-width: 0 0 3px;
+			}
+		}
+
+		& li.active:last-of-type a {
+			border-bottom: none;
+
+			&:hover {
+				border-bottom: none;
+			}
+		}
+	}
 }
 
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-	border-color: @eddgrayhover;
-	border-bottom-color: #fff;
-	border-width: 2px;
-}
+.my-account-tab-content {
+	float: right;
+	width: 75%;
 
-.tab-content {
-	overflow: auto;
-	border: 2px solid @eddgrayhover;
-	border-radius: 6px;
-	padding: 20px;
-	position: relative;
-	z-index: 1;
-	background: #fff;
+	& .tab-content {
+		position: relative;
+
+		& input[type="text"],
+		& input[type="email"],
+		& input[type="password"] {
+			font-weight: 300;
+			background: @eddgray;
+			padding: 10px;
+			width: 300px;
+			outline: none;
+			border: 3px solid @eddgrayhover;
+			border-radius: 3px;
+		}
+
+		& #edd_user_history,
+		& #edd_sl_license_keys,
+		& #edd_sl_license_sites,
+		& #edd_profile_editor_form,
+		& .edd_user_commissions,
+		& #edd_commissioned_products_table,
+		& .rcp-table {
+			font-size: 1.4rem;
+			border-collapse: inherit;
+			border: 3px solid @eddgrayhover;
+			border-radius: 4px;
+
+			& th {
+				vertical-align: top;
+			}
+		}
+
+		& #edd_sl_license_add_site_form {
+			& > div > span {
+				display: block;
+				margin-bottom: 10px;
+			}
+
+			& input[type*="text"] {
+				display: block;
+				font-weight: 300;
+				background: @eddgray;
+				padding: 10px;
+				width: 300px;
+				outline: none;
+				border: 3px solid @eddgrayhover;
+				border-radius: 3px;
+				margin-bottom: 10px;
+			}
+		}
+
+		& .edd-manage-license-back {
+			background: none !important;
+			text-decoration: underline;
+			padding: 0;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		& #edd_profile_editor_form {
+			& fieldset {
+				border: none;
+				padding: 0;
+				margin: 0;
+
+				& > span[id*="_label"] {
+					display: block;
+					background: #f5f5f5;
+					padding: 10px;
+					border-bottom: 3px solid @eddgrayhover;
+					margin-bottom: 30px;
+
+					&:not(:first-of-type) {
+						border-top: 3px solid @eddgrayhover;
+						margin-top: 20px;
+					}
+				}
+
+				& legend {
+					color: #555;
+					font-size: 1.6rem;
+					line-height: 20px;
+					font-weight: 500;
+					margin-bottom: 0;
+				}
+
+				& > p {
+					padding: 0 30px;
+					margin-bottom: 0;
+
+					& label {
+						width: 150px;
+						display: inline-block;
+						vertical-align: top;
+					}
+
+					&:last-of-type {
+						margin-bottom: 15px;
+					}
+
+					&.edd_password_change_notice {
+						margin: 10px 0 20px;
+					}
+				}
+
+				& input,
+				& select {
+					margin-bottom: 15px;
+				}
+			}
+		}
+
+		& .rcp-table {
+			& th {
+				background: #f5f5f5;
+			}
+
+			& th,
+			& td {
+				padding: 12px 10px;
+				border: none;
+			}
+		}
+	}
 }
 
 #edd_user_history,
@@ -916,10 +1000,11 @@ span.results-found {
 .rcp-table thead th,
 .edd_sl_table thead th {
 	vertical-align: bottom;
-	padding: 12px 10px;
-	padding-bottom: 14px;
+	background: #f5f5f5;
 	line-height: 20px;
 	text-align: left;
+	padding: 12px 10px;
+	padding-bottom: 14px;
 }
 
 #edd_user_history tbody > tr:nth-child(odd) > td,
@@ -946,7 +1031,6 @@ span.results-found {
 }
 
 #account-page .commissions-tab-pane .edd-select {
-	display: block;
 	border: 3px solid #eaeaea;
 	border-radius: 3px;
 	margin-bottom: 10px;
@@ -960,7 +1044,8 @@ span.results-found {
 #account-page .profile-editor-tab-pane .edd-select {
 	border: 3px solid @eddgrayhover;
 	border-radius: 3px;
-	max-width: 300px;
+	width: 300px;
+	height: 45px;
 }
 
 #account-page table.rcp-table th {
@@ -1070,112 +1155,36 @@ span.results-found {
 
 #loginform,
 #passwordreset {
-	width: 380px;
-	margin: 0 auto;
-	padding: 40px 0;
+	max-width: 380px;
+	margin: 40px auto 0;
 }
-
-#passwordreset { border-bottom: none; }
 
 #loginform fieldset,
 #passwordreset fieldset {
 	width: 100%;
-	border: 1px solid #ccc;
-	-webkit-box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
-	box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
-	border-radius: 3px;
-	padding: 0;
+	border: none;
 }
 
 #loginform fieldset input[type="text"],
 #passwordreset fieldset input[type="text"],
 #loginform fieldset input[type="password"] {
 	font-weight: 300;
-	background: #fff;
+	background: @eddgray;
 	padding: 10px;
-	outline: none;
-	margin: 0;
-	border-radius: 3px 3px 0 0;
-	border: none;
-	border-bottom: 1px solid #ccc;
 	width: 100%;
-}
-
-#loginform fieldset input[type="password"],
-#passwordreset fieldset input[type="password"] {
-	border-radius: 0px 0px 3px 3px;
-}
-
-#loginform input[type="checkbox"],
-#loginform input[type="checkbox"] + label {
-	margin-top: 35px;
-}
-
-#loginform input[type="submit"],
-#passwordreset input[type="submit"] {
-	float: right;
-	display: inline-block;
-	padding: 4px 14px;
-	background: @eddblue;
-	color: #fff;
-	-webkit-box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
-	box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
-	cursor: pointer;
+	outline: none;
+	margin: 0 0 10px;
+	border: 3px solid @eddgrayhover;
 	border-radius: 3px;
-	-webkit-transition: all .2s ease-in-out;
-	-moz-transition: all .2s ease-in-out;
-	-o-transition: all .2s ease-in-out;
-	-ms-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	line-height: 24px;
-	font-weight: 300;
-	border: 1px solid #287aad;
-	margin-top: 23px;
-
-	&:hover {
-		background: #5ba3cf;
-		color: #fff;
-	}
-
-	&:active {
-		-webkit-box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
-		box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
-	}
 }
 
-#edd_profile_editor_form {
-	& fieldset {
-		border: none;
-		padding: 0;
-		margin: 0;
+#loginform input[type="checkbox"] {
+	margin-bottom: 13px;
+}
 
-		& legend {
-			display: none;
-		}
-
-		& label {
-			width: 150px;
-			display: inline-block;
-			margin-bottom: 30px;
-		}
-
-		& input[type="text"],
-		input[type="email"],
-		input[type="password"] {
-			font-weight: 300;
-			background: @eddgray;
-			padding: 10px;
-			width: 300px;
-			outline: none;
-			margin: 0;
-			border: 3px solid @eddgrayhover;
-			border-radius: 3px;
-		}
-	}
+#loginform input[type="submit"] {
+	display: block;
+	margin-top: ;
 }
 
 #edd_commissioned_products {
@@ -1184,21 +1193,24 @@ span.results-found {
 	}
 }
 
-.edd_user_commissions, #edd_commissioned_products_table {
-	width: 100%;
-	max-width: 100%;
+.edd_user_commissions,
+#edd_commissioned_products_table {
 	border-collapse: collapse;
 	background: transparent;
-	border-spacing: 0;
 	text-align: left;
+	border-spacing: 0;
+	margin-bottom: 10px;
+	width: 100%;
+	max-width: 100%;
 
 	& thead {
 		text-align: left;
 
 		& th {
+			background: #f5f5f5;
 			text-align: left;
 			vertical-align: bottom;
-			padding: 8px 25px;
+			padding: 12px 10px;
 			padding-bottom: 14px;
 			line-height: 20px;
 		}
@@ -1206,23 +1218,24 @@ span.results-found {
 
 	& tbody {
 		& td {
-			padding: 8px 25px;
+			padding: 12px 10px;
 			border-top: 2px solid #eef0f0;
 			line-height: 20px;
 			text-align: left;
 			vertical-align: top;
+		}
+
+		& > tr:nth-child(even) > td {
+			background: @eddgray;
 		}
 	}
 }
 
 #edd_user_commissions_unpaid_total,
 #edd_user_commissions_paid_total {
-	font-weight: 400;
-	margin: 20px 0;
-	padding: 20px 0;
-	text-align: center;
-	border-top: 2px solid @eddgrayhover;
-	border-bottom: 2px solid @eddgrayhover;
+	font-size: 20px;
+	font-weight: 500;
+	margin: 0 0 20px;
 }
 
 #edd_commissions_unpaid_pagination,
@@ -1299,6 +1312,13 @@ span.results-found {
 
 #account-page .edd_sl_license_row input.edd_sl_license_key {
 	background: none;
+	color: #777;
+	font-size: 14px;
+	font-size: 1.4rem;
+	font-style: italic;
+	font-weight: 400;
+	padding: 0;
+	border: none;
 }
 
 
@@ -2040,10 +2060,6 @@ span.results-found {
 	padding-top: 30px;
 }
 
-.page-section-gray .section-header {
-	margin-bottom: 10px;
-}
-
 .extensions-search-form {
 	padding: 30px 0 0;
 	margin: 0 auto;
@@ -2080,6 +2096,10 @@ span.results-found {
 	box-sizing: border-box;
 }
 
+.edd-downloads .section-header.extensions-filter {
+	max-width: 100%;
+}
+
 .edd-downloads .section-header .filter-label {
 	display: inline-block;
 	font-size: 24px;
@@ -2091,8 +2111,8 @@ span.results-found {
 .edd-downloads .section-header .filter {
 	display: inline-block;
 	padding: 0;
-	margin: 0;
-	width: 82.5%;
+	margin: 0 0 20px;
+	width: 79%;
 }
 
 .section-header .download-categories {
@@ -2149,6 +2169,9 @@ span.results-found {
 }
 
 /* themes page */
+.section-header.themes-section-header {
+	margin-bottom: 50px;
+}
 
 .featured-download-area.page-section-blue {
 	text-align: left;
@@ -3016,37 +3039,15 @@ span.results-found {
 /* ----------------------------- *
  * Generic Page Elements
  * ----------------------------- */
-.full-width-content {
- background: #fff;
-}
-
-.page-section-header {
-	max-width: 750px;
-}
-
-.page-section-header .page-section-title {
-	margin: 0 0 20px;
-}
-
-.small-divider {
-	background: @eddgrayhover;
-	height: 2px;
-	max-width: 300px;
-	margin: 0 0 30px;
-
-	&.centered {
-		margin: 0 auto 30px;
-	}
-}
-
-.page-section-content {
-	margin-top: 50px;
-}
-
 .page-section-blue {
 	background: @eddblue;
 	color: #fff;
 	text-align: center;
+
+	& .inner {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
 }
 
 .page-section-darkblue {
@@ -3060,20 +3061,4 @@ span.results-found {
 
 .page-section-white {
 	background: #fff;
-}
-
-.page-section-blue .inner {
-	padding-top: 60px;
-	padding-bottom: 60px;
-}
-
-.page-section-blue .page-section-title {
-	line-height: 1.4;
-	margin: 0 0 20px;
-}
-
-.page-section-blue .page-section {
-	text-align: center;
-	margin: 0 auto;
-	max-width: 750px;
 }

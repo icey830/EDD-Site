@@ -27,8 +27,8 @@ $no_duplicates = array(); // don't repeat the same theme twice
 		<div class="featured-download-area page-section-blue full-width">
 			<div class="inner">
 				<div class="featured-download clearfix">
-				<div class="section-header">
-					<h2 class="section-title">Get the most out of Easy Digital Downloads.</h2>
+				<div class="section-header themes-section-header">
+					<h2 class="section-title">Easy Digital Downloads In Style</h2>
 					<p class="section-subtitle">While EDD is designed to work with any theme, the themes below take advantage of more EDD features.</p>
 				</div>
 					<div class="featured-download-thumb">

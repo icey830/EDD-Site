@@ -30,7 +30,7 @@ the_post();
 	<div class="edd-downloads-area page-section-white full-width">
 		<div class="inner">
 			<div class="edd-downloads">
-				<div class="section-header">
+				<div class="section-header extensions-filter">
 					<div class="filter-label">Categories:</div>
 					<?php
 						$cat_args = array(
