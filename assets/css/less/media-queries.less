@@ -626,8 +626,22 @@
 	}
 
 	/* Flexbox */
-	.site-footer .flex-container {
+	.flex-container {
+		&.featured-stats {
+			padding: 0 20px;
 
+			& .flex-four {
+				margin-bottom: 30px;
+				width: 50%;
+			}
+		}
+	}
+
+	#front-page-extensions-area .inner {
+		padding-bottom: 0;
+	}
+
+	.site-footer .flex-container {
 		& .flex-two {
 			width: 100%;
 		}
@@ -1368,5 +1382,17 @@
 
 	#footer-newsletter form input[type="submit"] {
 		width: 45%;
+	}
+
+	/* Flexbox */
+	.flex-container {
+		&.featured-stats {
+			padding: 0;
+
+			& .flex-four {
+				padding: 0;
+				width: 100%;
+			}
+		}
 	}
 }

@@ -3060,20 +3060,27 @@ span.results-found {
 	color: @darkblue_text;
 }
 
+.section-title-alt {
+	padding-bottom: 20px;
+	margin-bottom: 50px;
+}
+
 .page-section-gray {
 	background: @eddgray;
+
+	& .section-title-alt {
+		border-bottom: 3px solid @eddgrayhover;
+	}
 }
 
 .page-section-white {
 	background: #fff;
-}
 
-.section-title-alt {
-	padding-bottom: 20px;
-	border-bottom: 3px solid @eddgray;
-	margin-bottom: 50px;
+	& .section-title-alt {
+		border-bottom: 3px solid @eddgray;
 
-	&.gears {
-		background: transparent url('images/gears-icon.png') bottom right no-repeat;
+		&.gears {
+			background: transparent url('images/gears-icon.png') bottom right no-repeat;
+		}
 	}
 }

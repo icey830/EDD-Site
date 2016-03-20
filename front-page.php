@@ -113,7 +113,32 @@ get_header(); ?>
 <div id="front-page-extensions-area" class="front-page-section page-section-gray full-width">
 	<div class="inner">
 		<div class="front-page-extensions-area">
-			Testing
+			<div class="featured-stats flex-container">
+				<div class="featured-stat flex-four">
+					<span>Downloads & Counting</span>
+					<p>954,107</p>
+				</div>
+				<div class="featured-stat flex-four">
+					<span>User Reviews</span>
+					<p>4.9/5 <small>stars</small></p>
+				</div>
+				<div class="featured-stat flex-four">
+					<span>Extensions + Themes</span>
+					<p>244</p>
+				</div>
+				<div class="featured-stat flex-four">
+					<span>Contributors</span>
+					<p>140 <small>plus</small></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="testimonials-area" class="testimonials-section page-section-white full-width">
+	<div class="inner">
+		<div class="testimonials-content">
+			Testimonials
 		</div>
 	</div>
 </div>
