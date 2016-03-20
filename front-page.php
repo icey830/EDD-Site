@@ -39,8 +39,8 @@ get_header(); ?>
 				),
 				'affilaitewp'   => array(
 					'name'      => 'AffiliateWP',
+					'url'       => 'https://affiliatewp.com',
 					'slug'      => '',
-					'url'       => 'https://affiliatewp.com'
 				),
 				'stripe'        => array(
 					'name'      => 'Stripe',
@@ -79,6 +79,7 @@ get_header(); ?>
 <div id="front-page-features" class="features-grid-two page-section-white full-width">
 	<div class="inner">
 		<div class="features-grid-two-content">
+			<h2 class="section-title-alt gears">Key Features & Highlights</h2>
 			<div class="features-grid-content-sections flex-container">
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-tag"></i>Discount Codes</h6>
