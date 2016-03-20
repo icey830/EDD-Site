@@ -12,7 +12,7 @@ get_header(); ?>
 			<div class="support-pricing-page-intro">
 				<div class="section-header">
 					<h2 class="section-title">Easy Digital Downloads Priority Support</h2>
-					<p class="section-subtitle">Support is free for all users. For those wanting faster, more in-depth support, Priority Support is the answer.</p>
+					<p class="section-subtitle">Support is free for all users. For faster, more in-depth support, Priority Support is the answer.</p>
 				</div>
 			</div>
 		</div>
