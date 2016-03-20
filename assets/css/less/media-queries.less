@@ -138,6 +138,24 @@
 }
 
 
+@media all and ( max-width: 1000px ) {
+	/* front page */
+	#front-page-hero {
+		text-align: center;
+
+		& .inner {
+			background: transparent url('images/edd-reports-screenshot-overlay.png') top center no-repeat;
+			background-size: cover;
+
+			& .site-headline .hero-title {
+				margin: 0 auto;
+				max-width: 700px;
+			}
+		}
+	}
+}
+
+
 @media all and ( max-width: 900px ) {
 
 	/* general */
@@ -888,6 +906,10 @@
 @media all and ( max-width: 600px ) {
 
 	/* front page */
+	#front-page-hero .inner {
+		background: none;
+	}
+
 	.integrations-wrap {
 		& .integrations-item {
 			padding: 0;

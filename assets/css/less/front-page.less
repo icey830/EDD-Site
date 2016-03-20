@@ -6,66 +6,73 @@
 /* ----------------------------- *
  * Hero
  * ----------------------------- */
-#front-page-hero .inner {
-	background: transparent url('images/edd-hero.png') bottom right no-repeat;
-}
+#front-page-hero {
+	text-align: left;
 
-.front-page-section-title {
-	line-height: 1.4;
-	margin: 0;
-}
+	& .inner {
+		background: transparent url('images/edd-reports-screenshot-edd.png') bottom right no-repeat;
 
-.site-headline {
-	margin-bottom: 30px;
-}
+		& .front-page-section-title {
+			line-height: 1.4;
+			margin: 0;
+		}
 
-.hero-title {
-	line-height: 1.4;
-	margin: 10px auto 0;
-	max-width: 800px;
-	font-weight: 500;
-	font-size: 40px;
-}
+		& .site-headline {
+			margin-bottom: 30px;
 
-.hero-subtitle {
-	color: @lightblue;
-	font-size: 20px;
-}
+			& .hero-title {
+				line-height: 1.4;
+				max-width: 450px;
+				font-weight: 500;
+				font-size: 36px;
+			}
 
-.hero-cta a {
-	display: inline-block;
-	border-radius: 4px;
-	-webkit-transition: all .2s;
-	-moz-transition: all .2s;
-	transition: all .2s;
-}
+			& .hero-subtitle {
+				display: inline-block;
+				color: @lightblue;
+				font-size: 20px;
+				margin-bottom: 10px;
+			}
+		}
 
-.hero-cta a .fa {
-	margin-right: 15px;
-}
+		& .hero-cta {
+			& a {
+				display: inline-block;
+				border-radius: 4px;
+				-webkit-transition: all .2s;
+				-moz-transition: all .2s;
+				transition: all .2s;
+			}
 
-.hero-primary-cta-button {
-	background: @edddarkblue;
-	color: #fff;
-	font-size: 20px;
-	padding: 10px 20px;
-	border: 2px solid @edddarkblue;
-	margin: 0 0 10px;
-}
+			& a .fa {
+				margin-right: 15px;
+			}
 
-.hero-primary-cta-button:hover {
-	background: @edddarkbluehover;
-	color: #fff;
-	border: 2px solid @edddarkbluehover;
-}
+			& .hero-primary-cta-button {
+				background: @edddarkblue;
+				color: #fff;
+				font-size: 20px;
+				padding: 10px 20px;
+				border: 2px solid @edddarkblue;
+				margin: 0 0 10px;
 
-.hero-secondary-cta-link {
-	color: @lightblue;
-	text-decoration: underline;
-}
+				&:hover {
+					background: @edddarkbluehover;
+					color: #fff;
+					border: 2px solid @edddarkbluehover;
+				}
+			}
 
-.hero-secondary-cta-link:hover {
-	color: #fff;
+			& .hero-secondary-cta-link {
+				color: @lightblue;
+				text-decoration: underline;
+
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+	}
 }
 
 
@@ -79,7 +86,7 @@
 .integrations-wrap {
 	/* flex properties pulled from .flex-container in the markup */
 	margin: 0 auto;
-	max-width: 1200px;
+	max-width: 1160px;
 
 	& .integrations-item {
 		position: relative;
