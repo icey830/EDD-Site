@@ -27,10 +27,6 @@
 	}
 
 	/* structure */
-	.inner .section-header {
-		margin-bottom: 30px;
-	}
-
 	.site-container {
 		padding: 0 30px;
 	}
@@ -126,6 +122,15 @@
 		width: 33.33333%;
 	}
 
+	/* account */
+	.my-account-tabs {
+		width: 30%;
+	}
+
+	.my-account-tab-content {
+		width: 65%;
+	}
+
 	/* 404 page */
 	.resources-404 .sad-edd {
 		display: none;
@@ -134,6 +139,13 @@
 
 
 @media all and ( max-width: 900px ) {
+
+	/* general */
+	.section-header .section-title,
+	.hero-title {
+		font-size: 30px;
+		font-size: 3rem;
+	}
 
 	/* navigation */
 	.site-header {
@@ -283,10 +295,6 @@
 	.page-section-blue .inner,
 	#front-page-newsletter .inner {
 		padding: 40px 20px;
-	}
-
-	.hero-title {
-		font-size: 30px;
 	}
 
 	.hero-subtitle {
@@ -543,34 +551,52 @@
 		margin-top: 20px;
 	}
 
-	/* Common Page Templates */
-	#account-page .nav-tabs {
-		margin-bottom: 15px;
+	/* account */
+	.my-account-tabs,
+	.my-account-tab-content {
+		width: 100%;
 	}
 
-	#account-page .nav-tabs > li {
-		width: 46%;
-		margin-right: 6%;
+	.my-account-tabs .nav-tabs {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		display: box;
+
+		-webkit-flex-direction: row;
+		-webkit-flex-flow: row wrap;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		align-content: flex-start;
+
+		border-bottom: none !important;
+		margin-bottom: 30px !important;
+
+		& li {
+			position: relative;
+			-webkit-justify-content: space-between;
+			justify-content: space-between;
+			-webkit-flex-flow: column;
+			flex-flow: column nowrap;
+			width: 50%;
+
+			&:last-child a {
+				border-bottom: 3px solid @eddgrayhover !important;
+			}
+
+			&:nth-child(odd) {
+				border-right: 3px solid @eddgrayhover;
+			}
+
+			&.active:last-of-type a {
+				border-bottom: 3px solid @eddgrayhover;
+			}
+		}
 	}
 
-	#account-page .nav-tabs.nav-append-content > li.active:first-child:before {
-		display: none;
-	}
-
-	#account-page .nav-tabs > li:nth-child(even) {
-		float: right;
-		margin-right: 0;
-	}
-
-	#account-page .nav-tabs > li.active > a {
-		border: 2px solid #ddd;
-		border-radius: 6px;
-	}
-
-	#account-page .nav-tabs > li:not(.active) > a:hover {
-		border-color: #eee;
-	}
-
+	/* product display */
 	.edd-downloads .section-header .filter-label,
 	.edd-downloads .section-header .filter {
 		width: 100%;
@@ -1126,15 +1152,19 @@
 	}
 
 	/* account page */
-	.feature-68030 img {
-		margin-left: -182px;
+	.my-account-tabs .nav-tabs {
+		& li {
+			width: 100%;
+		}
+
+		& li:nth-child(odd) {
+			border-right: none;
+		}
 	}
 
-	.tab-pane.purchases-tab-pane {
-		margin-top: -20px;
-		margin-left: -20px;
-		margin-bottom: -20px;
-		margin-right: -20px;
+	.my-account-tab-content {
+		overflow: auto;
+		font-size: 1.3rem;
 	}
 
 	#edd_profile_editor_form fieldset label {
@@ -1142,11 +1172,25 @@
 		margin-bottom: 0;
 	}
 
+	#account-page #edd_profile_editor_form fieldset input[type="text"],
+	#account-page #edd_profile_editor_form fieldset input[type="email"],
+	#account-page #edd_profile_editor_form fieldset input[type="password"],
+	#account-page #edd_profile_editor_form fieldset select {
+		width: 100% !important;
+		margin-bottom: 10px !important;
+	}
+
+	#account-page #edd_profile_editor_form p#edd_profile_display_name_wrap {
+		margin-bottom: 10px;
+	}
+
 	#edd_profile_editor_form #edd_address_country {
 		margin-bottom: 25px;
 	}
 
-	#edd_profile_editor_form fieldset input[type="text"], #edd_profile_editor_form fieldset input[type="email"], #edd_profile_editor_form fieldset input[type="password"] {
+	#edd_profile_editor_form fieldset input[type="text"],
+	#edd_profile_editor_form fieldset input[type="email"],
+	#edd_profile_editor_form fieldset input[type="password"] {
 		margin-bottom: 30px;
 	}
 
@@ -1263,17 +1307,6 @@
 		padding: 20px;
 	}
 
-	#account-page {
-		font-size: 13px;
-	}
-
-	#account-page .nav-tabs > li,
-	#account-page .nav-tabs > li:nth-child(even) {
-		float: none;
-		width: 100%;
-		margin-right: 0;
-	}
-
 	/* support docs/form */
 	.support-page .support-section {
 		width: 100%;
@@ -1310,6 +1343,11 @@
 
 	.edd-gf-support-tickets-form .edd-gf-divider {
 		margin-top: 10px;
+	}
+
+	/* support pricing */
+	.support-type-cta span {
+		display: none;
 	}
 
 	/* featuers */

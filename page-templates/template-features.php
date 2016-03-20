@@ -11,9 +11,9 @@ the_post();
 <div id="features-page-intro" class="features-page-section page-section-gray full-width">
 	<div class="inner">
 		<div class="features-page-intro">
-			<div class="features-page-header">
-				<h2 class="features-page-section-title">Easy Digital Downloads <strong>Core Features</strong></h2>
-				<p class="features-page-section-description">Easy Digital Downloads is a full-featured E-Commerce platform with all the tools and features you need to turn your WordPress website into a a digital store. To see for yourself, check out the features below.</p>
+			<div class="section-header">
+				<h2 class="section-title">Easy Digital Downloads <strong>Core Features</strong></h2>
+				<p class="section-subtitle">Easy Digital Downloads is a full-featured E-Commerce platform with all the tools and features you need to turn your WordPress website into a a digital store. To see for yourself, check out the features below.</p>
 			</div>
 		</div>
 	</div>
