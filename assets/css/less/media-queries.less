@@ -557,45 +557,6 @@
 		width: 100%;
 	}
 
-	.my-account-tabs .nav-tabs {
-		display: -webkit-box;
-		display: -moz-box;
-		display: -ms-flexbox;
-		display: -webkit-flex;
-		display: flex;
-		display: box;
-
-		-webkit-flex-direction: row;
-		-webkit-flex-flow: row wrap;
-		flex-flow: row wrap;
-		justify-content: space-between;
-		align-content: flex-start;
-
-		border-bottom: none !important;
-		margin-bottom: 30px !important;
-
-		& li {
-			position: relative;
-			-webkit-justify-content: space-between;
-			justify-content: space-between;
-			-webkit-flex-flow: column;
-			flex-flow: column nowrap;
-			width: 50%;
-
-			&:last-child a {
-				border-bottom: 3px solid @eddgrayhover !important;
-			}
-
-			&:nth-child(odd) {
-				border-right: 3px solid @eddgrayhover;
-			}
-
-			&.active:last-of-type a {
-				border-bottom: 3px solid @eddgrayhover;
-			}
-		}
-	}
-
 	/* product display */
 	.edd-downloads .section-header .filter-label,
 	.edd-downloads .section-header .filter {
@@ -829,6 +790,46 @@
 
 	#starter-package .edd-gf-payment-method .gfield_radio li label {
 		font-size: 18px;
+	}
+
+	/* account page */
+	.my-account-tabs .nav-tabs {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		display: box;
+
+		-webkit-flex-direction: row;
+		-webkit-flex-flow: row wrap;
+		flex-flow: row wrap;
+		justify-content: space-between;
+		align-content: flex-start;
+
+		border-bottom: none !important;
+		margin-bottom: 30px !important;
+
+		& li {
+			position: relative;
+			-webkit-justify-content: space-between;
+			justify-content: space-between;
+			-webkit-flex-flow: column;
+			flex-flow: column nowrap;
+			width: 50%;
+
+			&:last-child a {
+				border-bottom: 3px solid @eddgrayhover !important;
+			}
+
+			&:nth-child(odd) {
+				border-right: 3px solid @eddgrayhover;
+			}
+
+			&.active:last-of-type a {
+				border-bottom: 3px solid @eddgrayhover;
+			}
+		}
 	}
 
 	/* 404 page */
