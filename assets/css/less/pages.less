@@ -2060,11 +2060,14 @@ span.results-found {
  * ----------------------------- */
 
 /* extensions page */
-
 .post-type-archive-download .edd-downloads-area .inner,
 .download-search .edd-downloads-area .inner,
 .tax-download_category .edd-downloads-area .inner {
 	padding-top: 30px;
+}
+
+.extensions-header-area .section-title {
+	font-weight: 500;
 }
 
 .extensions-search-form {
@@ -2288,6 +2291,7 @@ span.results-found {
  * Starter package
  * ----------------------------- */
 #starter-package .full-width-content {
+	background: #fff;
 	padding: 50px;
 	border-radius: 4px;
 }
@@ -2566,7 +2570,8 @@ span.results-found {
 	display: block;
 	font-size: 20px;
 	text-align: center;
-	margin: 20px 0 0;
+	padding: 0;
+	margin: 0;
 	width: 100%;
 }
 
@@ -2670,12 +2675,12 @@ span.results-found {
 #starter-package .edd-gf-credit-debit,
 #starter-package .edd-gf-billing-address,
 #starter-package .edd-gf-starter-discount,
-#starter-package .edd-gf-toc,
-#starter-package .gform_footer {
+#starter-package .edd-gf-toc {
 	max-width: 660px;
 	margin: 30px auto !important;
 }
 
+#starter-package .gform_footer,
 #starter-package .edd-gf-name-field,
 #starter-package .edd-gf-email-field {
 	margin: 0 auto !important;
@@ -2904,15 +2909,18 @@ span.results-found {
 }
 
 #starter-package .form_saved_message input[type="text"] {
-	border: 1px solid #DAE7F0;
-	border-radius: 4px;
-	height: 3em;
+	background: #fff;
+	font-size: inherit !important;
+	padding: 6px 10px !important;
+	border: 3px solid @eddgrayhover;
+	border-radius: 3px;
+	margin-bottom: 10px;
 	min-width: 230px;
+	outline: none;
 }
 
 #starter-package .edd-gf-toc {
 	text-align: center;
-	padding-bottom: 20px;
 	margin-bottom: 0 !important;
 }
 
