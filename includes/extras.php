@@ -203,16 +203,6 @@ function eddwp_product_changelog( $content ) {
 		return $content;
 	}
 
-	// get the changelog data
-	if ( 'download' === $post->post_type ) {
-		$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
-	}
-
-	// if it exists, append the changelog (from either source) to the relevent content output
-	if ( ! empty( $changelog ) ) {
-		$content = $content . do_shortcode( '[toggle title="Changelog"]' . $changelog . '[/toggle]' );
-	}
-
 	return $content;
 }
 add_filter( 'the_content', 'eddwp_product_changelog' );

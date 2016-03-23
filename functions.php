@@ -106,7 +106,7 @@ function edd_register_theme_scripts() {
 
 	// 635 My Account
 	// 65892 bbPress Support Dashboard
-	if ( is_page( 635 ) || is_page( 65892 ) ) {
+	if ( is_page( 635 ) || is_page( 65892 ) || is_singular( 'download' ) ) {
 		wp_enqueue_style( 'bootstrap' );
 		wp_enqueue_script( 'bootstrap-js' );
 	}

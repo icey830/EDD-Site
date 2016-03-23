@@ -46,12 +46,40 @@ endif;
 						<?php endif; ?>
 					</p>
 				</div>
-				<?php if( $has_license && ! $is_3rd_party && ! $is_bundle ) { ?>
+				<?php
+				if ( $has_license && ! $is_3rd_party && ! $is_bundle ) { ?>
 					<div class="version clearfix">
 						<?php $version = get_post_meta( get_the_ID(), '_edd_sl_version', true ); ?>
-						<p><span class="edd-download-detail-label">Version:</span> <span class="edd-download-detail"><?php echo $version; ?></span></p>
+						<p><span class="edd-download-detail-label">Version:</span> <span class="edd-download-detail"><?php echo $version; ?><a href="#" class="changelog-link" title="View Changelog" data-toggle="modal" data-target="#show-changelog"><i class="fa fa-file-text-o"></i></a></span></p>
 					</div>
-				<?php } // end if  ?>
+					<?php
+						// get the changelog data
+						$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
+
+						// if it exists, append the changelog (from either source) to the relevent content output
+						if ( ! empty( $changelog ) ) {
+							?>
+							<!-- Changelog Modal -->
+							<div class="changelog-modal modal fade" id="show-changelog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											<h5 class="modal-title" id="myModalLabel"><?php the_title(); ?> Changelog</h5>
+										</div>
+										<div class="modal-body">
+											<?php echo $changelog; ?>
+										</div>
+										<div class="modal-footer">
+											<a href="#" data-dismiss="modal">Close</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<?php
+						}
+					?>
+				<?php } // end if ?>
 				<?php if ( eddwp_is_external_extension() ) { ?>
 					<div class="view-download">
 						<a href="<?php echo esc_url( eddwp_get_external_extension_url() ); ?>" title="View Details" class="edd-submit button blue">View <?php echo ucfirst( $download_type ); ?></a>
