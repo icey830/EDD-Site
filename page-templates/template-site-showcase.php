@@ -37,19 +37,22 @@ the_post();
 						$featured = new WP_Query( $featured_showcases );
 
 						while ( $featured->have_posts() ) : $featured->the_post();
-							?>
-							<div class="download-grid-item">
-								<?php eddwp_downloads_grid_thumbnail(); ?>
-								<div class="download-grid-item-info">
-									<?php
-										the_title( '<h4 class="download-grid-title">', '</h4>' );
-									?>
+							$array = shortcode_parse_atts( get_the_content() );
+							if ( ! empty( $array['link'] ) ) {
+								?>
+								<div class="download-grid-item showcase-grid-item">
+									<a href="<?php echo $array['link']; ?>">
+										<?php eddwp_downloads_grid_thumbnail(); ?>
+									</a>
+
+									<div class="download-grid-item-info">
+										<?php
+										the_title('<h4 class="download-grid-title"><a href="' . $array['link'] . '">', '</a></h4>');
+										?>
+									</div>
 								</div>
-								<div class="download-grid-item-cta">
-									<a class="download-grid-item-primary-link button" href="<?php $array = shortcode_parse_atts( get_the_content() ); echo $array['link']; ?>">Visit Site</a>
-								</div>
-							</div>
 							<?php
+							}
 						endwhile;
 						wp_reset_postdata();
 					?>
@@ -73,19 +76,22 @@ the_post();
 						$sites = new WP_Query( $site_showcases );
 
 						while ( $sites->have_posts() ) : $sites->the_post();
-							?>
-							<div class="download-grid-item">
-								<?php eddwp_downloads_grid_thumbnail(); ?>
-								<div class="download-grid-item-info">
-									<?php
-										the_title( '<h4 class="download-grid-title">', '</h4>' );
-									?>
+							$array = shortcode_parse_atts( get_the_content() );
+							if ( ! empty( $array['link'] ) ) {
+								?>
+								<div class="download-grid-item showcase-grid-item">
+									<a href="<?php echo $array['link']; ?>">
+										<?php eddwp_downloads_grid_thumbnail(); ?>
+									</a>
+
+									<div class="download-grid-item-info">
+										<?php
+										the_title('<h4 class="download-grid-title"><a href="' . $array['link'] . '">', '</a></h4>');
+										?>
+									</div>
 								</div>
-								<div class="download-grid-item-cta">
-									<a class="download-grid-item-primary-link button" href="<?php $array = shortcode_parse_atts( get_the_content() ); echo $array['link']; ?>">Visit Site</a>
-								</div>
-							</div>
-							<?php
+								<?php
+							}
 						endwhile;
 						wp_reset_postdata();
 					?>
