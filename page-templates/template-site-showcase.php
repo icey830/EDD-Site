@@ -7,11 +7,11 @@ get_header();
 the_post();
 ?>
 
-	<div class="extensions-header-area page-section-gray full-width">
+	<div class="showcase-header-area page-section-gray full-width">
 		<div class="inner">
-			<div class="extensions-header clearfix">
+			<div class="showcase-header clearfix">
 				<div class="section-header">
-					<h2 class="section-title">Easy Digital Downloads Showcase</h2>
+					<h2 class="section-title">Easy Digital Downloads <strong>Showcase</strong></h2>
 					<p class="section-subtitle">A collection of just some of the great websites running Easy Digital Downloads.</p>
 				</div>
 			</div>

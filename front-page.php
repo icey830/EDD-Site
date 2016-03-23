@@ -138,7 +138,7 @@ get_header(); ?>
 <div id="testimonials-area" class="testimonials-section page-section-white full-width">
 	<div class="inner">
 		<div class="testimonials-content">
-			Testimonials
+			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '538742' ); } ?>
 		</div>
 	</div>
 </div>

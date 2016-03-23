@@ -2060,11 +2060,14 @@ span.results-found {
  * ----------------------------- */
 
 /* extensions page */
-
 .post-type-archive-download .edd-downloads-area .inner,
 .download-search .edd-downloads-area .inner,
 .tax-download_category .edd-downloads-area .inner {
 	padding-top: 30px;
+}
+
+.extensions-header-area .section-title {
+	font-weight: 500;
 }
 
 .extensions-search-form {
@@ -2176,10 +2179,6 @@ span.results-found {
 }
 
 /* themes page */
-.section-header.themes-section-header {
-	margin-bottom: 50px;
-}
-
 .featured-download-area.page-section-blue {
 	text-align: left;
 }
@@ -2194,10 +2193,9 @@ span.results-found {
 	vertical-align: bottom;
 }
 
-.featured-download-thumb,
-.featured-download-info {
+.featured-download-thumb {
 	float: left;
-	width: 50%;
+	width: 55%;
 }
 
 .featured-download-img {
@@ -2205,29 +2203,20 @@ span.results-found {
 }
 
 .featured-download-info {
-	padding-left: 50px;
+	float: right;
+	width: 40%;
 }
 
 .featured-download-title {
-	font-size: 30px;
-	line-height: 1.4;
-	margin: 0 0 25px;
+	font-weight: 500;
+	margin: 0 0 20px;
 }
 
 .featured-download-label {
-	background: @green;
-	color: #fff;
 	display: inline-block;
-	padding: 8px 10px 6px;
-	font-size: 14px;
-	font-weight: 700;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	border-radius: 4px;
-	vertical-align: text-top;
-	margin-right: 10px;
-	line-height: 1;
-	margin-top: 4px;
+	color: @lightblue;
+	font-size: 20px;
+	margin-bottom: 10px;
 }
 
 .featured-download-supported {
@@ -2239,8 +2228,15 @@ span.results-found {
 .featured-download-info .edd-add-to-cart.edd-submit.button.blue,
 .featured-download-info .edd_go_to_checkout.button.blue.edd-submit {
 	background: @edddarkblue;
+	font-size: 20px;
+	padding: 10px 20px;
 	margin-bottom: 10px;
-	min-width: 200px;
+
+	&:before {
+		font-family: "FontAwesome";
+		content: "\f0ed";
+		margin-right: 10px;
+	}
 }
 
 .featured-download-info .edd-add-to-cart.edd-submit.button.blue:hover,
@@ -2255,6 +2251,10 @@ span.results-found {
 
 .featured-download-secondary-link:hover {
 	color: #fff;
+}
+
+.official-themes-area .section-header {
+	margin-bottom: 50px;
 }
 
 .recommended-downloads .section-header {
@@ -2291,6 +2291,7 @@ span.results-found {
  * Starter package
  * ----------------------------- */
 #starter-package .full-width-content {
+	background: #fff;
 	padding: 50px;
 	border-radius: 4px;
 }
@@ -2569,7 +2570,8 @@ span.results-found {
 	display: block;
 	font-size: 20px;
 	text-align: center;
-	margin: 20px 0 0;
+	padding: 0;
+	margin: 0;
 	width: 100%;
 }
 
@@ -2673,12 +2675,12 @@ span.results-found {
 #starter-package .edd-gf-credit-debit,
 #starter-package .edd-gf-billing-address,
 #starter-package .edd-gf-starter-discount,
-#starter-package .edd-gf-toc,
-#starter-package .gform_footer {
+#starter-package .edd-gf-toc {
 	max-width: 660px;
 	margin: 30px auto !important;
 }
 
+#starter-package .gform_footer,
 #starter-package .edd-gf-name-field,
 #starter-package .edd-gf-email-field {
 	margin: 0 auto !important;
@@ -2907,15 +2909,18 @@ span.results-found {
 }
 
 #starter-package .form_saved_message input[type="text"] {
-	border: 1px solid #DAE7F0;
-	border-radius: 4px;
-	height: 3em;
+	background: #fff;
+	font-size: inherit !important;
+	padding: 6px 10px !important;
+	border: 3px solid @eddgrayhover;
+	border-radius: 3px;
+	margin-bottom: 10px;
 	min-width: 230px;
+	outline: none;
 }
 
 #starter-package .edd-gf-toc {
 	text-align: center;
-	padding-bottom: 20px;
 	margin-bottom: 0 !important;
 }
 

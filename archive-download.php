@@ -13,7 +13,7 @@ the_post();
 		<div class="inner">
 			<div class="extensions-header clearfix">
 				<div class="section-header">
-					<h2 class="section-title">Extensions for Easy Digital Downloads</h2>
+					<h1 class="section-title">Extensions for Easy Digital Downloads</h1>
 					<p class="section-subtitle">Use extensions built specifically for EDD to customize the functionality of your online business.</p>
 					<div class="extensions-search-form">
 						<form id="extensions-searchform" class="clearfix" action="<?php echo home_url( 'downloads' ); ?>" method="get">

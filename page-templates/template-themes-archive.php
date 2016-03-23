@@ -27,34 +27,31 @@ $no_duplicates = array(); // don't repeat the same theme twice
 		<div class="featured-download-area page-section-blue full-width">
 			<div class="inner">
 				<div class="featured-download clearfix">
-				<div class="section-header themes-section-header">
-					<h2 class="section-title">Easy Digital Downloads In Style</h2>
-					<p class="section-subtitle">While EDD is designed to work with any theme, the themes below take advantage of more EDD features.</p>
-				</div>
+					<div class="featured-download-info">
+						<span class="featured-download-label">Featured Theme</span>
+						<?php
+						the_title( '<h1 class="featured-download-title">', '</h1>' );
+						the_excerpt();
+
+						echo edd_get_purchase_link( array( 'id' => get_the_ID() ) );
+						?>
+						or <a class="featured-download-secondary-link" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">see <?php the_title(); ?> details</a>
+					</div>
 					<div class="featured-download-thumb">
 						<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
 							<?php
-								if ( has_post_thumbnail() ) :
-									the_post_thumbnail( 'featured-download', array( 'class' => 'featured-download-img' ) );
-								endif;
+							if ( has_post_thumbnail() ) :
+								the_post_thumbnail( 'featured-download', array( 'class' => 'featured-download-img' ) );
+							endif;
 							?>
 						</a>
-					</div>
-					<div class="featured-download-info">
-						<?php
-							the_title( '<h3 class="featured-download-title"><span class="featured-download-label">Featured</span>', '</h3>' );
-							the_excerpt();
-
-							echo edd_get_purchase_link( array( 'id' => get_the_ID() ) );
-						?>
-						<a class="featured-download-secondary-link" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">See Theme Details</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	<?php endwhile; wp_reset_postdata(); ?>
 
-	<div class="edd-downloads-area page-section-white full-width">
+	<div class="edd-downloads-area official-themes-area page-section-white full-width">
 		<div class="inner">
 			<div class="edd-downloads">
 				<div class="section-header">
