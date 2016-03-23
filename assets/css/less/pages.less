@@ -2176,10 +2176,6 @@ span.results-found {
 }
 
 /* themes page */
-.section-header.themes-section-header {
-	margin-bottom: 50px;
-}
-
 .featured-download-area.page-section-blue {
 	text-align: left;
 }
@@ -2194,10 +2190,9 @@ span.results-found {
 	vertical-align: bottom;
 }
 
-.featured-download-thumb,
-.featured-download-info {
+.featured-download-thumb {
 	float: left;
-	width: 50%;
+	width: 55%;
 }
 
 .featured-download-img {
@@ -2205,29 +2200,20 @@ span.results-found {
 }
 
 .featured-download-info {
-	padding-left: 50px;
+	float: right;
+	width: 40%;
 }
 
 .featured-download-title {
-	font-size: 30px;
-	line-height: 1.4;
-	margin: 0 0 25px;
+	font-weight: 500;
+	margin: 0 0 20px;
 }
 
 .featured-download-label {
-	background: @green;
-	color: #fff;
 	display: inline-block;
-	padding: 8px 10px 6px;
-	font-size: 14px;
-	font-weight: 700;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	border-radius: 4px;
-	vertical-align: text-top;
-	margin-right: 10px;
-	line-height: 1;
-	margin-top: 4px;
+	color: @lightblue;
+	font-size: 20px;
+	margin-bottom: 10px;
 }
 
 .featured-download-supported {
@@ -2239,8 +2225,15 @@ span.results-found {
 .featured-download-info .edd-add-to-cart.edd-submit.button.blue,
 .featured-download-info .edd_go_to_checkout.button.blue.edd-submit {
 	background: @edddarkblue;
+	font-size: 20px;
+	padding: 10px 20px;
 	margin-bottom: 10px;
-	min-width: 200px;
+
+	&:before {
+		font-family: "FontAwesome";
+		content: "\f0ed";
+		margin-right: 10px;
+	}
 }
 
 .featured-download-info .edd-add-to-cart.edd-submit.button.blue:hover,
@@ -2255,6 +2248,10 @@ span.results-found {
 
 .featured-download-secondary-link:hover {
 	color: #fff;
+}
+
+.official-themes-area .section-header {
+	margin-bottom: 50px;
 }
 
 .recommended-downloads .section-header {
