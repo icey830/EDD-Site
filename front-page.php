@@ -122,7 +122,15 @@ get_header(); ?>
 		<div class="social-proof-content">
 			<div class="flex-container">
 				<div class="flex-two">
-					<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '604115' ); } ?>
+					<?php
+						// loads different slider for Sean's localhost - delete before live
+						$whitelist = array( '127.0.0.1', '::1' );
+						if ( in_array( $_SERVER['REMOTE_ADDR'], $whitelist) ) {
+							if ( function_exists( 'soliloquy' ) ) { soliloquy( '538742' ); }
+						} else {
+							if ( function_exists( 'soliloquy' ) ) { soliloquy( '604115' ); }
+						}
+					?>
 				</div>
 				<div class="featured-stats flex-two">
 					<div class="flex-container">
