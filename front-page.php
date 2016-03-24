@@ -110,14 +110,7 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="ios-app-area" class="ios-app-section page-section-gray full-width">
-	<div class="inner">
-		<div class="ios-app-content">
-		</div>
-	</div>
-</div>
-
-<div id="social-proof-area" class="social-proof-section page-section-white full-width">
+<div id="social-proof-area" class="social-proof-section page-section-gray full-width">
 	<div class="inner">
 		<div class="social-proof-content">
 			<div class="flex-container">
@@ -161,6 +154,13 @@ get_header(); ?>
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+</div>
+
+<div id="ios-app-area" class="ios-app-section page-section-gray full-width">
+	<div class="inner">
+		<div class="ios-app-content">
 		</div>
 	</div>
 </div>
