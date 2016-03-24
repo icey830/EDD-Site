@@ -44,8 +44,8 @@ if ( is_user_logged_in() ) : ?>
 							</div>
 						</div>
 						<ul class="nav nav-tabs nav-append-content">
-							<li class="active"><a href="#license-keys-tab" data-toggle="tab"><i class="fa fa-key"></i>License Keys</a></li>
-							<li><a href="#tab1" data-toggle="tab"><i class="fa fa-usd"></i>Purchases</a></li>
+							<li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-usd"></i>Purchases</a></li>
+							<li><a href="#license-keys-tab" data-toggle="tab"><i class="fa fa-key"></i>License Keys</a></li>
 							<li><a href="#downloads-tab" data-toggle="tab"><i class="fa fa-cloud-download"></i>Downloads</a></li>
 							<li><a href="#tab2" data-toggle="tab"><i class="fa fa-user"></i>Profile</a></li>
 							<?php if ( eddc_user_has_commissions() ) { ?>
@@ -57,12 +57,7 @@ if ( is_user_logged_in() ) : ?>
 
 					<div class="my-account-tab-content">
 						<div class="tab-content">
-							<div class="tab-pane active license-keys-tab-pane" id="license-keys-tab">
-								<h3>Manage Your License Keys</h3>
-								<p>Below you will find all license keys for you previous purchases. Use the <strong>Manage Sites</strong> links to authorize specific URLs for your license keys. Use the <strong>Extend License</strong> or <strong>Renew License</strong> links to adjust the terms of your license keys.</p>
-								<?php echo do_shortcode( '[edd_license_keys]' ); ?>
-							</div><!-- /.tab-pane -->
-							<div class="tab-pane purchases-tab-pane" id="tab1">
+							<div class="tab-pane active purchases-tab-pane" id="tab1">
 								<h3>Your Purchase History</h3>
 								<p>All purchases below were completed with the following email address: <strong><?php echo $current_user->user_email; ?></strong>. If you have trouble locating purchases, please <a href="<?php echo home_url( 'support' ); ?>">contact support</a> for assistance.</p>
 								<?php
@@ -72,6 +67,11 @@ if ( is_user_logged_in() ) : ?>
 									echo do_shortcode( '[purchase_history]' );
 								}
 								?>
+							</div><!-- /.tab-pane -->
+							<div class="tab-pane license-keys-tab-pane" id="license-keys-tab">
+								<h3>Manage Your License Keys</h3>
+								<p>Below you will find all license keys for you previous purchases. Use the <strong>Manage Sites</strong> links to authorize specific URLs for your license keys. Use the <strong>Extend License</strong> or <strong>Renew License</strong> links to adjust the terms of your license keys.</p>
+								<?php echo do_shortcode( '[edd_license_keys]' ); ?>
 							</div><!-- /.tab-pane -->
 							<div class="tab-pane downloads-tab-pane" id="downloads-tab">
 								<h3>Your Download History</h3>
