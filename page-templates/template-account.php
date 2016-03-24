@@ -18,11 +18,11 @@ if ( is_user_logged_in() ) : ?>
 
 					<div class="my-account-tabs">
 						<div class="my-account-info">
-							<span class="my-account-welcome">
+							<div class="my-account-welcome">
 								<?php
-									echo '<h5>Welcome';
-									echo $current_user->user_firstname ? ', ' . $current_user->user_firstname . '!</h5>' : ', ' . $current_user->user_login . '!</h5>';
-									echo 'Use the links below to navigate your account information.';
+									echo '<h4>Welcome';
+									echo $current_user->user_firstname ? ', ' . $current_user->user_firstname . '!</h4>' : ', ' . $current_user->user_login . '!</h4>';
+									echo '<p>Use the links below to navigate your account information.';
 
 									// get logged in user information
 									get_currentuserinfo();
@@ -34,8 +34,11 @@ if ( is_user_logged_in() ) : ?>
 											echo '<span class="edd-wallet-container"> You currently have <span class="edd-wallet-value">' . edd_currency_filter( edd_format_amount( $wallet_value ) ) . '</span> in your account wallet.</span>';
 										endif;
 									endif;
+									echo '</p>';
 								?>
-							</span>
+								<h6>Account Email:</h6>
+								<?php echo $current_user->user_email; ?>
+							</div>
 						</div>
 						<ul class="nav nav-tabs nav-append-content">
 							<li class="active"><a href="#license-keys-tab" data-toggle="tab"><i class="fa fa-key"></i>License Keys</a></li>
