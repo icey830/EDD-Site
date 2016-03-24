@@ -20,9 +20,14 @@ if ( is_user_logged_in() ) : ?>
 						<div class="my-account-info">
 							<div class="my-account-welcome">
 								<?php
-									echo '<h4>Welcome';
-									echo $current_user->user_firstname ? ', ' . $current_user->user_firstname . '!</h4>' : ', ' . $current_user->user_login . '!</h4>';
-									echo '<p>Use the links below to navigate your account information.';
+									$the_user_title = $current_user->user_firstname ? $current_user->user_firstname  : $current_user->user_login;
+								?>
+								<h4>Welcome, <?php echo $the_user_title; ?>!</h4>
+								<p>Use the links below to navigate your account information.</p>
+								<h6>Account Information:</h6>
+								<?php
+									// user email address
+									echo '<div class="edd-account-info"><span class="account-info-label">Email:</span>' . $current_user->user_email . '</div>';
 
 									// get logged in user information
 									get_currentuserinfo();
@@ -31,13 +36,11 @@ if ( is_user_logged_in() ) : ?>
 									$wallet_value = edd_wallet()->wallet->balance( $current_user->ID );
 									if ( class_exists( 'EDD_Wallet' ) ) :
 										if ( $wallet_value > 0 ) :
-											echo '<span class="edd-wallet-container"> You currently have <span class="edd-wallet-value">' . edd_currency_filter( edd_format_amount( $wallet_value ) ) . '</span> in your account wallet.</span>';
+											$balance = edd_currency_filter( edd_format_amount( $wallet_value ) );
+											echo '<div class="edd-account-info"><span class="account-info-label">Wallet:</span><span class="edd-wallet-value">' . $balance . '</span></div>';
 										endif;
 									endif;
-									echo '</p>';
 								?>
-								<h6>Account Email:</h6>
-								<?php echo $current_user->user_email; ?>
 							</div>
 						</div>
 						<ul class="nav nav-tabs nav-append-content">
