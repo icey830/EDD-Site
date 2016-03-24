@@ -122,7 +122,7 @@ get_header(); ?>
 		<div class="social-proof-content">
 			<div class="flex-container">
 				<div class="flex-two">
-					<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( 'testimonials-home', 'slug' ); } ?>
+					<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '604115' ); } ?>
 				</div>
 				<div class="featured-stats flex-two">
 					<div class="flex-container">
