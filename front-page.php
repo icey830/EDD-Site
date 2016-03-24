@@ -110,35 +110,49 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="front-page-extensions-area" class="front-page-section page-section-gray full-width">
+<div id="ios-app-area" class="ios-app-section page-section-gray full-width">
 	<div class="inner">
-		<div class="front-page-extensions-area">
-			<div class="featured-stats flex-container">
-				<div class="featured-stat flex-four">
-					<span>Downloads & Counting</span>
-					<p>954,107</p>
-				</div>
-				<div class="featured-stat flex-four">
-					<span>User Reviews</span>
-					<p>4.9/5 <small>stars</small></p>
-				</div>
-				<div class="featured-stat flex-four">
-					<span>Extensions + Themes</span>
-					<p>244</p>
-				</div>
-				<div class="featured-stat flex-four">
-					<span>Contributors</span>
-					<p>140 <small>plus</small></p>
-				</div>
-			</div>
+		<div class="ios-app-content">
 		</div>
 	</div>
 </div>
 
-<div id="testimonials-area" class="testimonials-section page-section-white full-width">
+<div id="social-proof-area" class="social-proof-section page-section-white full-width">
 	<div class="inner">
-		<div class="testimonials-content">
-			<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( '538742' ); } ?>
+		<div class="social-proof-content">
+			<div class="flex-container">
+				<div class="flex-two">
+					<?php if ( function_exists( 'soliloquy' ) ) { soliloquy( 'testimonials-home', 'slug' ); } ?>
+				</div>
+				<div class="featured-stats flex-two">
+					<div class="flex-container">
+						<div class="flex-two">
+							<div class="featured-stat">
+								<p>954,000</p>
+								<span>Downloads & Counting</span>
+							</div>
+							<div class="featured-stat">
+								<p>4.9/5 <small><i class="fa fa-star"></i></small></p>
+								<span>User Reviews</span>
+							</div>
+						</div>
+						<div class="flex-two">
+							<div class="featured-stat">
+								<p>240 <small><i class="fa fa-plus"></i></small></p>
+								<span>Extensions & Themes</span>
+							</div>
+							<div class="featured-stat">
+								<p>140 <small><i class="fa fa-plus"></i></small></p>
+								<span>Project Contributors</span>
+							</div>
+						</div>
+					</div>
+					<h4>Download for FREE!</h4>
+					<div class="featured-stats-cta-link">
+						<a class="edd-submit button blue" href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button"><i class="fa fa-cloud-download"></i>Get Easy Digital Downloads</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

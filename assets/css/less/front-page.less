@@ -125,23 +125,93 @@
 
 
 /* ----------------------------- *
- * Featuerd Stats
+ * Social Proof
  * ----------------------------- */
- .featured-stats {
- 	& .featured-stat {
- 		margin-bottom: 0;
+.social-proof-content {
+	padding-top: 20px;
 
- 		& > span {
- 			font-size: 90%;
- 		}
+	& .featured-stats.flex-two {
+		margin-bottom: 0;
 
-		& p {
-			font-size: 200%;
-			font-weight: 700;
+		& .flex-two {
+			margin-bottom: 0;
+		}
 
-			& small {
-				font-size: 60%;
+		& .featured-stat {
+			margin-bottom: 2.5rem;
+
+			& > span {
+				display: inline-block;
+				color: #999;
+				font-size: 1.3rem;
+				font-style: italic;
+				text-transform: uppercase;
+				padding-bottom: 1px;
+			}
+
+			& p {
+				font-size: 4.5rem;
+				line-height: 1;
+				font-weight: 700;
+				margin-bottom: 0;
+
+				& small {
+					font-size: 60%;
+				}
 			}
 		}
- 	}
- }
+
+		& h4 {
+			margin-bottom: 3rem;
+		}
+
+		& .featured-stats-cta-link a {
+			font-size: 2rem;
+			padding: 10px 20px;
+			margin-bottom: 3rem;
+
+			& .fa {
+				margin-right: 1.5rem;
+			}
+		}
+	}
+
+	& .soliloquy-container .soliloquy-caption {
+		position: static;
+
+		& .soliloquy-caption-inside {
+			background: none;
+			padding: 0;
+
+			& .soliloquy-fc-caption {
+
+				& .soliloquy-fc-title,
+				.soliloquy-fc-title a,
+				.soliloquy-fc-content,
+				.soliloquy-fc-content p {
+					color: #555;
+					text-align: left;
+					font-size: inherit;
+					line-height: 1.625;
+					text-shadow: none;
+				}
+
+				& .soliloquy-fc-title {
+					background: transparent url('images/quotes-icon.png') bottom right no-repeat;
+					font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+					font-size: 3rem;
+					font-weight: 300;
+					padding-bottom: 10px;
+					border-bottom: 3px solid @eddgray;
+					margin-bottom: 20px;
+				}
+
+				& .soliloquy-fc-content p {
+					color: #aaa;
+					font-style: italic;
+					max-width: 95%;
+				}
+			}
+		}
+	}
+}
