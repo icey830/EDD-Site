@@ -33,7 +33,7 @@ the_post();
 				</ul>
 			</div>
 			<div class="features-screenshot">
-				<img class="features-image" src="<?php echo get_template_directory_uri() . '/images/features-page/edd-discounts-screenshot.png'; ?>">
+				<img class="features-image" src="<?php echo get_template_directory_uri() . '/images/features-page/edd-checkout-screenshot.png'; ?>">
 			</div>
 		</div>
 	</div>
@@ -43,7 +43,7 @@ the_post();
 	<div class="inner">
 		<div class="customer-management-content clearfix">
 			<div class="features-content">
-				<h6><i class="fa fa-shopping-cart"></i>Customer Management</h6>
+				<h6><i class="fa fa-user"></i>Customer Management</h6>
 				<ul>
 					<li>maintain a separate record for each customer</li>
 					<li>view, edit, or delete any customer record</li>
@@ -53,7 +53,7 @@ the_post();
 				</ul>
 			</div>
 			<div class="features-screenshot">
-				<img class="features-image" src="<?php echo get_template_directory_uri() . '/images/features-page/edd-discounts-screenshot.png'; ?>">
+				<img class="features-image" src="<?php echo get_template_directory_uri() . '/images/features-page/edd-customer-screenshot.png'; ?>">
 			</div>
 		</div>
 	</div>
@@ -83,7 +83,7 @@ the_post();
 	<div class="inner">
 		<div class="data-reporting-content clearfix">
 			<div class="features-content">
-				<h6><i class="fa fa-tag"></i>Data Reporting</h6>
+				<h6><i class="fa fa-line-chart"></i>Data Reporting</h6>
 				<ul>
 					<li>view earnings by date range and category</li>
 					<li>filter reports by specific product</li>
@@ -93,7 +93,7 @@ the_post();
 				</ul>
 			</div>
 			<div class="features-screenshot">
-				<img class="features-image" src="<?php echo get_template_directory_uri() . '/images/features-page/edd-discounts-screenshot.png'; ?>">
+				<img class="features-image" src="<?php echo get_template_directory_uri() . '/images/features-page/edd-reports-screenshot.png'; ?>">
 			</div>
 		</div>
 	</div>
