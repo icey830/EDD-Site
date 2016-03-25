@@ -83,19 +83,19 @@ get_header(); ?>
 			<div class="features-grid-content-sections flex-container">
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-tag"></i>Discount Codes</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique erat ac felis accumsan efficitur. Nam quis lorem et quam scelerisque sodales. Integer id ullamcorper magna.</p>
+					<p>Easily create discounts codes to encourage customers to buy more. Discounts can be offered at flat or percentage rates and include settings for expiration, maximum uses, and more.</p>
 				</div>
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-shopping-cart"></i>Full Shopping Cart</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique erat ac felis accumsan efficitur. Nam quis lorem et quam scelerisque sodales. Integer id ullamcorper magna.</p>
+					<p>Allow your customers to purchase multiple downloads at once using the shopping cart system. With minimum page loads and cleanly designed cart elements, the shopping cart feels seamless.</p>
 				</div>
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-download"></i>Unlimited File Downloads</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique erat ac felis accumsan efficitur. Nam quis lorem et quam scelerisque sodales. Integer id ullamcorper magna.</p>
+					<p>There are no limitations when it comes to distributing your digital products. Allow customers to download their purchased files endlessly or restrict file downloads by time and/or attempt.</p>
 				</div>
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-bar-chart"></i>Download Activity Tracking</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique erat ac felis accumsan efficitur. Nam quis lorem et quam scelerisque sodales. Integer id ullamcorper magna.</p>
+					<p>Monitor all therr is to know about how your product files are being downloaded by your customers. Easily track date, time, and even IP address of all purchased and downloaded files.</p>
 				</div>
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-database"></i>WordPress REST API</h6>
@@ -103,7 +103,7 @@ get_header(); ?>
 				</div>
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-line-chart"></i>Full Data Reporting</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique erat ac felis accumsan efficitur. Nam quis lorem et quam scelerisque sodales. Integer id ullamcorper magna.</p>
+					<p>No business is complete without detailed bookkeeping. Easy Digital Downloads has a built-in reporting platform for easily viewing stats, making custom reports, and much more.</p>
 				</div>
 			</div>
 		</div>
@@ -192,13 +192,13 @@ get_header(); ?>
 							</div>
 						</div>
 					</div>
-					<span class="view-all-extensions">or <a href="<?php echo home_url( '/downloads/' ); ?>">view all extensions</a></span>
+					<span class="view-all-extensions"><a href="<?php echo home_url( '/downloads/' ); ?>">view all extensions</a></span>
 				</div>
 				<div class="front-page-extension-info flex-two">
 					<h4>Make it work for you.</h4>
-					<p>Easy Digital Downloads is a complete eCommerce solution for WordPress. Right out of the box, it is prepared to power your online business without the need of any other dependencies.</p>
+					<p>Without a doubt, Easy Digital Downloads is a complete eCommerce solution for WordPress. Right out of the box, it is prepared to power your online business without the need of any other dependencies.</p>
 					<p>However, we believe that your  system should be tailored to your needs without the added weight of unwanted functionality. We strive to perfect this balance with our add-ons, referred to as extensions.</p>
-					<h4>Need help deciding?</h4>
+					<h4>Need help choosing?</h4>
 					<p>If you are looking for a hassle-free way to get the extensions you need, try using our custom <a href="<?php echo home_url( '/starter-package/' ); ?>">Starter Package</a> builder as a guide.</p>
 				</div>
 			</div>
