@@ -39,7 +39,7 @@ get_header(); ?>
 				),
 				'affilaitewp'   => array(
 					'name'      => 'AffiliateWP',
-					'url'       => 'https://affiliatewp.com',
+					'url'       => 'https://affiliatewp.com/?ref=743',
 					'slug'      => '',
 				),
 				'stripe'        => array(
