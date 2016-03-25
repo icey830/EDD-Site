@@ -4,6 +4,76 @@
 
 
 /* ----------------------------- *
+ * Features Page
+ * ----------------------------- */
+.features-page-section {
+	& .inner {
+		padding-top: 80px;
+		padding-bottom: 0;
+	}
+
+	& .features-content {
+		float: left;
+		padding-top: 50px;
+		width: 40%;
+
+		&:first-child {
+			padding-right: 60px;
+		}
+
+		&:last-child {
+			padding-left: 60px;
+		}
+
+		& h6 {
+			font-size: 2rem;
+			text-transform: uppercase;
+			padding-bottom: 10px;
+			border-bottom: 3px solid @eddgray;
+			margin-bottom: 20px;
+
+			& .fa {
+				font-size: 110%;
+				margin-right: 15px;
+			}
+		}
+
+		& ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			& li {
+				padding: 2px 4px;
+
+				&:before {
+					font-family: "FontAwesome";
+					content: "\f0da";
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+
+	&.page-section-gray {
+		& h6 {
+			border-bottom: 3px solid @eddgrayhover;
+		}
+	}
+
+	& .features-screenshot {
+		float: left;
+		width: 60%;
+
+		& .features-image {
+			border-radius: 4px 4px 0 0;
+			vertical-align: top;
+		}
+	}
+}
+
+
+/* ----------------------------- *
  * Product Info template
  * ----------------------------- */
 .product-info-content .product-info-list {
