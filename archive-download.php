@@ -31,7 +31,9 @@ the_post();
 		<div class="inner">
 			<div class="edd-downloads">
 				<div class="section-header extensions-filter">
-					<div class="filter-label">Categories:</div>
+					<div class="filter-label">
+						Categories:
+					</div>
 					<?php
 						$cat_args = array(
 							'exclude'  => array(

@@ -12,14 +12,14 @@ the_post();
 	<div class="inner">
 		<div class="features-page-intro">
 			<div class="section-header">
-				<h2 class="section-title">Easy Digital Downloads <strong>Core Features</strong></h2>
-				<p class="section-subtitle">Easy Digital Downloads is a full-featured eCommerce platform with all the tools and features you need to turn your WordPress website into a a digital store. Check out the features below and see for yourself.</p>
+				<h2 class="section-title">Features, Functionality, and Extensibility</h2>
+				<p class="section-subtitle">Easy Digital Downloads, nicknamed <strong>EDD</strong>, is a full-featured eCommerce platform with all the tools needed to turn your WordPress website into a a digital store. Check out the features below and see for yourself.</p>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div id="shopping-cart-area" class="features-page-section page-section-white full-width">
+<div id="shopping-cart-area" class="features-page-section content-screenshot page-section-white full-width">
 	<div class="inner">
 		<div class="shopping-cart-content clearfix">
 			<div class="features-content">
@@ -39,12 +39,9 @@ the_post();
 	</div>
 </div>
 
-<div id="customer-management-area" class="features-page-section page-section-gray full-width">
+<div id="customer-management-area" class="features-page-section screenshot-content page-section-gray full-width">
 	<div class="inner">
 		<div class="customer-management-content clearfix">
-			<div class="features-screenshot">
-				<img class="features-image" src="<?php echo get_template_directory_uri() . '/images/features-page/edd-discounts-screenshot.png'; ?>">
-			</div>
 			<div class="features-content">
 				<h6><i class="fa fa-shopping-cart"></i>Customer Management</h6>
 				<ul>
@@ -55,11 +52,14 @@ the_post();
 					<li>create customer account page</li>
 				</ul>
 			</div>
+			<div class="features-screenshot">
+				<img class="features-image" src="<?php echo get_template_directory_uri() . '/images/features-page/edd-discounts-screenshot.png'; ?>">
+			</div>
 		</div>
 	</div>
 </div>
 
-<div id="discount-codes-area" class="features-page-section page-section-white full-width">
+<div id="discount-codes-area" class="features-page-section content-screenshot page-section-white full-width">
 	<div class="inner">
 		<div class="discount-codes-content clearfix">
 			<div class="features-content">
@@ -79,12 +79,9 @@ the_post();
 	</div>
 </div>
 
-<div id="data-reporting-area" class="features-page-section page-section-gray full-width">
+<div id="data-reporting-area" class="features-page-section screenshot-content page-section-gray full-width">
 	<div class="inner">
 		<div class="data-reporting-content clearfix">
-			<div class="features-screenshot">
-				<img class="features-image" src="<?php echo get_template_directory_uri() . '/images/features-page/edd-discounts-screenshot.png'; ?>">
-			</div>
 			<div class="features-content">
 				<h6><i class="fa fa-tag"></i>Data Reporting</h6>
 				<ul>
@@ -94,6 +91,9 @@ the_post();
 					<li>export store data to <abbr title="Comma Separate Values">CSV</abbr> file</li>
 					<li>monitor download, sales, & API request logs</li>
 				</ul>
+			</div>
+			<div class="features-screenshot">
+				<img class="features-image" src="<?php echo get_template_directory_uri() . '/images/features-page/edd-discounts-screenshot.png'; ?>">
 			</div>
 		</div>
 	</div>
@@ -142,47 +142,77 @@ the_post();
 <div id="features-page-features" class="features-grid-two page-section-white full-width">
 	<div class="inner">
 		<div class="features-grid-two-content">
-			<h2 class="section-title-alt gears">Additional Features</h2>
+			<h2 class="section-title-alt gears">Additional Core Features</h2>
 			<div class="features-grid-content-sections flex-container">
 				<div class="edd-feature flex-two">
-					<h6><i class="fa fa-tag"></i>Discount Codes</h6>
-					<p>Easily create discounts codes to encourage customers to buy more. Discounts can be offered at flat or percentage rates and include settings for expiration, maximum uses, and more.</p>
-				</div>
-				<div class="edd-feature flex-two">
-					<h6><i class="fa fa-shopping-cart"></i>Full Shopping Cart</h6>
-					<p>Allow your customers to purchase multiple downloads at once using the shopping cart system. With minimum page loads and cleanly designed cart elements, the shopping cart feels seamless.</p>
-				</div>
-				<div class="edd-feature flex-two">
-					<h6><i class="fa fa-download"></i>Unlimited File Downloads</h6>
-					<p>There are no limitations when it comes to distributing your digital products. Allow customers to download their purchased files endlessly or restrict file downloads by time and/or attempt.</p>
-				</div>
-				<div class="edd-feature flex-two">
-					<h6><i class="fa fa-bar-chart"></i>Download Activity Tracking</h6>
-					<p>Monitor all therr is to know about how your product files are being downloaded by your customers. Easily track date, time, and even IP address of all purchased and downloaded files.</p>
-				</div>
-				<div class="edd-feature flex-two">
-					<h6><i class="fa fa-database"></i>REST API</h6>
+					<h6><i class="fa fa-exchange"></i>Rest API</h6>
 					<p>Developers and external applications can take advantage of a complete RESTful API that provides easy access to sales and product information in either jSON or XML format.</p>
 				</div>
 				<div class="edd-feature flex-two">
-					<h6><i class="fa fa-line-chart"></i>Full Data Reporting</h6>
-					<p>No business is complete without detailed bookkeeping. Easy Digital Downloads has a built-in reporting platform for easily viewing stats, making custom reports, and much more.</p>
+					<h6><i class="fa fa-money"></i>Payment History</h6>
+					<p>Record payment records of every transaction in your system and use the familiar Payment History interface to see key details about payments, resend purchase receipts, and much more.</p>
 				</div>
 				<div class="edd-feature flex-two">
-					<h6><i class="fa fa-download"></i>Unlimited File Downloads</h6>
-					<p>There are no limitations when it comes to distributing your digital products. Allow customers to download their purchased files endlessly or restrict file downloads by time and/or attempt.</p>
+					<h6><i class="fa fa-download"></i>File Download Logs</h6>
+					<p>View everything there is to know about customer file downloads from your system. You will have access to details such as download dates & times, IP address, and attached payment record.</p>
 				</div>
 				<div class="edd-feature flex-two">
-					<h6><i class="fa fa-bar-chart"></i>Download Activity Tracking</h6>
-					<p>Monitor all therr is to know about how your product files are being downloaded by your customers. Easily track date, time, and even IP address of all purchased and downloaded files.</p>
+					<h6><i class="fa fa-times"></i>File Access Control</h6>
+					<p>All product files are restricted to authorized customers only. No configurations is required. You may also set the file download limit and download link expiration.</p>
 				</div>
 				<div class="edd-feature flex-two">
-					<h6><i class="fa fa-database"></i>REST API</h6>
-					<p>Developers and external applications can take advantage of a complete RESTful API that provides easy access to sales and product information in either jSON or XML format.</p>
+					<h6><i class="fa fa-user"></i>Customer Account Page</h6>
+					<p>Through the use of a single shortcode, output an entire purchase history table that is only viewable by logged in customers. Unauthorized users will not have access.</p>
 				</div>
 				<div class="edd-feature flex-two">
-					<h6><i class="fa fa-line-chart"></i>Full Data Reporting</h6>
-					<p>No business is complete without detailed bookkeeping. Easy Digital Downloads has a built-in reporting platform for easily viewing stats, making custom reports, and much more.</p>
+					<h6><i class="fa fa-wrench"></i>Actively Supported</h6>
+					<p>An evolving software tool is only as good as its support. Our dedicated team ensures that all customers have access to free, timely support with no strings attached.</p>
+				</div>
+			</div>
+			<h2 class="section-title-alt">Seamless Integrations</h2>
+			<div class="features-grid-content-sections flex-container">
+				<div class="edd-feature flex-two">
+					<h6><i class="fa fa-plug"></i>Extension Catalog</h6>
+					<p>While Easy Digital Downloads is a full eCommerce platform, the true power lies in its extensibility. With hundreds of available extensions, you can tailor EDD to your needs. <a href="<?php echo home_url( '/downloads/' ); ?>">View all extensions</a>.</p>
+				</div>
+				<div class="edd-feature flex-two">
+					<h6><i class="fa fa-credit-card"></i>Payment Gateways</h6>
+					<p>Payment gateways are an absolute must for eCommerce businesses to securely process payments. EDD supports the industry's most popular payment processors and several more. <a href="<?php echo home_url( '/downloads/category/extensions/gateways/' ); ?>">View payment gateways</a>.</p>
+				</div>
+				<div class="edd-feature flex-two">
+					<h6><i class="fa fa-refresh"></i>Refund Tracking</h6>
+					<p>For most online businesses, refunds are inevitable and processing refunds can be a daunting task. With select payment gateways, EDD makes processing refunds a hassle-free experience.</p>
+				</div>
+				<div class="edd-feature flex-two">
+					<h6><i class="fa fa-thumbs-o-up"></i>Affiliate System Integration</h6>
+					<p>The limitness nature of digital products makes affiliate integration an attractive component. EDD is <strong>fully supported</strong> by AffiliateWP right out of the box. <a href="https://affiliatewp.com/?ref=743">View AffiliateWP</a>.</p>
+				</div>
+				<div class="edd-feature flex-two">
+					<h6><i class="fa fa-envelope-o"></i>Mailing List Integration</h6>
+					<p>Build relationships with your customers by keeping in touch with them after the purchase. Using our newsletter extensions, connect EDD to you favorite email marketing service tool. <a href="<?php echo home_url( '/downloads/category/extensions/newsletters/' ); ?>">View newsletter extensions</a>.</p>
+				</div>
+				<div class="edd-feature flex-two">
+					<h6><i class="fa fa-database"></i>External File Storage</h6>
+					<p>For some, WordPress' Media Library is not enough to host product files. For that reason, EDD supports content delivery tools like <a href="<?php echo home_url( '/downloads/amazon-s3/' ); ?>">Amazon S3</a> and <a href="<?php echo home_url( '/downloads/dropbox-file-store/' ); ?>">Dropbox</a> for hosting product files.</p>
+				</div>
+			</div>
+			<h2 class="section-title-alt">Developers & Contributors</h2>
+			<div class="features-grid-content-sections flex-container">
+				<div class="edd-feature flex-two">
+					<h6><i class="fa fa-code"></i>Actively Developed</h6>
+					<p>Not a day goes by that EDD is not actively developed. Issue logging, bug fixing, and feature enhancements are a daily occurance for the development team and supporting contributors.</p>
+				</div>
+				<div class="edd-feature flex-two">
+					<h6><i class="fa fa-code-fork"></i>Open Sourced & GPL</h6>
+					<p>As a platform built on WordPress, EDD is licensed under <abbr title="GNU General Public License version 3">GPLv3</abbr>. To go a step further, EDD is also an open-source software with a dedicated community of developers and contributors.</p>
+				</div>
+				<div class="edd-feature flex-two">
+					<h6><i class="fa fa-users"></i>Developer Friendly</h6>
+					<p>While there are hundreds of <a href="<?php echo home_url( '/downloads/' ); ?>">extensions</a> available for use, being extensible means the options are limitless. Actions, filters, and smart coding make EDD a developer-friendly platform.</p>
+				</div>
+				<div class="edd-feature flex-two">
+					<h6><i class="fa fa-paint-brush"></i>Intelligently Designed</h6>
+					<p>The effects of site design on customer behavior are well-known. EDD plays its role by including a base style that looks great as-is, but is also ready to integrate with any WordPress theme.</p>
 				</div>
 			</div>
 		</div>

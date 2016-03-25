@@ -95,10 +95,10 @@ get_header(); ?>
 				</div>
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-bar-chart"></i>Download Activity Tracking</h6>
-					<p>Monitor all therr is to know about how your product files are being downloaded by your customers. Easily track date, time, and even IP address of all purchased and downloaded files.</p>
+					<p>Monitor all there is to know about how your product files are being downloaded by your customers. Easily track date, time, and even IP address of all purchased and downloaded files.</p>
 				</div>
 				<div class="edd-feature flex-two">
-					<h6><i class="fa fa-database"></i>REST API</h6>
+					<h6><i class="fa fa-exchange"></i>REST API</h6>
 					<p>Developers and external applications can take advantage of a complete RESTful API that provides easy access to sales and product information in either jSON or XML format.</p>
 				</div>
 				<div class="edd-feature flex-two">

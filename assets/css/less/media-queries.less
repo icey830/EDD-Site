@@ -59,6 +59,17 @@
 		}
 	}
 
+	/* featured page */
+	.features-page-section {
+		& .features-content {
+			font-size: 1.4rem;
+
+			& h6 {
+				font-size: 2rem;
+			}
+		}
+	}
+
 	/* featured download */
 	.featured-download {
 		text-align: center;
@@ -184,10 +195,6 @@
 	.resources-404 .sad-edd {
 		display: none;
 	}
-}
-
-
-@media all and ( max-width: 1040px ) {
 }
 
 
@@ -346,6 +353,34 @@
 				text-align: center;
 				margin-bottom: 2.5rem;
 			}
+		}
+	}
+
+	/* featured page */
+	.features-page-section.content-screenshot,
+	.features-page-section.screenshot-content {
+		& .inner {
+			padding-bottom: 0;
+		}
+
+		& .features-content {
+			float: none;
+			font-size: 1.6rem;
+			padding: 0;
+			margin: 0 auto 30px;
+			width: 100%;
+			max-width: 650px;
+
+			& h6 {
+				font-size: 2.4rem;
+			}
+		}
+
+		& .features-screenshot {
+			float: none;
+			margin: 0 auto;
+			width: 100%;
+			max-width: 650px;
 		}
 	}
 
@@ -1003,6 +1038,18 @@
 			float: none;
 			width: 100%;
 			margin-right: 0;
+		}
+	}
+
+	/* featured page */
+	.features-page-section.content-screenshot,
+	.features-page-section.screenshot-content {
+		& .features-content {
+			font-size: 1.4rem;
+
+			& h6 {
+				font-size: 2rem;
+			}
 		}
 	}
 

@@ -11,22 +11,35 @@
 		padding-bottom: 0;
 	}
 
-	& .features-content {
-		float: left;
-		padding-top: 50px;
-		width: 40%;
-
-		&:first-child {
+	&.content-screenshot {
+		& .features-content {
+			float: left;
 			padding-right: 60px;
 		}
 
-		&:last-child {
+		& .features-screenshot {
+			float: right;
+		}
+	}
+
+	&.screenshot-content {
+		& .features-content {
+			float: right;
 			padding-left: 60px;
 		}
 
+		& .features-screenshot {
+			float: left;
+		}
+	}
+
+	& .features-content {
+		padding-top: 50px;
+		width: 40%;
+
 		& h6 {
-			font-size: 2rem;
-			text-transform: uppercase;
+			font-size: 2.4rem;
+			font-weight: 400;
 			padding-bottom: 10px;
 			border-bottom: 3px solid @eddgray;
 			margin-bottom: 20px;
@@ -61,7 +74,6 @@
 	}
 
 	& .features-screenshot {
-		float: left;
 		width: 60%;
 
 		& .features-image {
@@ -82,8 +94,8 @@
 		& .testimonial-title {
 			background: transparent url('images/quotes-icon.png') bottom right no-repeat;
 			font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
-			font-size: 3rem;
-			font-weight: 300;
+			font-size: 2rem;
+			font-weight: 400;
 			padding-bottom: 10px;
 			border-bottom: 3px solid @eddgray;
 			margin-bottom: 20px;
@@ -3093,6 +3105,7 @@ span.results-found {
 }
 
 .features-grid-content-sections {
+	margin-bottom: 40px;
 
 	& .edd-feature {
 		margin-bottom: 55px;
@@ -3100,8 +3113,7 @@ span.results-found {
 		& h6 {
 			position: relative;
 			font-size: 1.8rem;
-			font-weight: 500;
-			text-transform: uppercase;
+			font-weight: 400;
 			margin: 0 0 20px;
 
 			& .fa {
@@ -3113,8 +3125,21 @@ span.results-found {
 		& p {
 			color: #999;
 			line-height: 1.6;
+
+			& a {
+				color: #999;
+				border-bottom: 1px dotted;
+
+				&:hover {
+					border-style: solid;
+				}
+			}
 		}
 	}
+}
+
+#front-page-features .features-grid-content-sections {
+	margin-bottom: 0;
 }
 
 
@@ -3165,6 +3190,7 @@ span.results-found {
 }
 
 .section-title-alt {
+	font-weight: 500;
 	padding-bottom: 20px;
 	margin-bottom: 50px;
 }
