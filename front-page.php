@@ -98,8 +98,8 @@ get_header(); ?>
 					<p>Monitor all therr is to know about how your product files are being downloaded by your customers. Easily track date, time, and even IP address of all purchased and downloaded files.</p>
 				</div>
 				<div class="edd-feature flex-two">
-					<h6><i class="fa fa-database"></i>WordPress REST API</h6>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tristique erat ac felis accumsan efficitur. Nam quis lorem et quam scelerisque sodales. Integer id ullamcorper magna.</p>
+					<h6><i class="fa fa-database"></i>REST API</h6>
+					<p>Developers and external applications can take advantage of a complete RESTful API that provides easy access to sales and product information in either jSON or XML format.</p>
 				</div>
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-line-chart"></i>Full Data Reporting</h6>
