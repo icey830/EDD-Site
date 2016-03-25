@@ -114,16 +114,8 @@ get_header(); ?>
 	<div class="inner">
 		<div class="social-proof-content">
 			<div class="flex-container">
-				<div class="flex-two">
-					<?php
-						// loads different slider for Sean's localhost - delete before live
-						$whitelist = array( '127.0.0.1', '::1' );
-						if ( in_array( $_SERVER['REMOTE_ADDR'], $whitelist) ) {
-							if ( function_exists( 'soliloquy' ) ) { soliloquy( '538742' ); }
-						} else {
-							if ( function_exists( 'soliloquy' ) ) { soliloquy( '604115' ); }
-						}
-					?>
+				<div class="globe-bg flex-two">
+					<img class="globe-icon" src="<?php echo get_template_directory_uri() . '/images/globe-icon.png'; ?>">
 				</div>
 				<div class="featured-stats flex-two">
 					<div class="flex-container">
@@ -148,7 +140,7 @@ get_header(); ?>
 							</div>
 						</div>
 					</div>
-					<h4>Download for FREE!</h4>
+					<p>While Easy Digital Downloads' primary focus is the distribution of digital downloads, feedback from users and selfless developers from around the world drive the open-source project to many facets of eCommerce.</p>
 					<div class="featured-stats-cta-link">
 						<a class="edd-submit button blue" href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button"><i class="fa fa-cloud-download"></i>Get Easy Digital Downloads</a>
 					</div>
@@ -158,9 +150,58 @@ get_header(); ?>
 	</div>
 </div>
 
-<div id="ios-app-area" class="ios-app-section page-section-gray full-width">
+<div id="front-page-extensions-area" class="front-page-extensions-section page-section-white full-width">
 	<div class="inner">
-		<div class="ios-app-content">
+		<div class="front-page-extensions-content">
+			<h2 class="section-title-alt">Extended Functionality</h2>
+			<div class="front-page-extensions flex-container">
+				<div class="front-page-extensions-display flex-two">
+					<div class="featured-extensions flex-container">
+						<div class="flex-two">
+							<div class="featured-extension featured-extension-stripe">
+								<a href="<?php echo home_url( '/downloads/stripe-gateway/' ); ?>">
+									<img src="<?php echo get_template_directory_uri() . '/images/front-page-featured-extensions/stripe.png'; ?>">
+								</a>
+							</div>
+							<div class="featured-extension featured-extension-software-licensing">
+								<a href="<?php echo home_url( '/downloads/software-licensing/' ); ?>">
+									<img src="<?php echo get_template_directory_uri() . '/images/front-page-featured-extensions/software-licensing.png'; ?>">
+								</a>
+							</div>
+							<div class="featured-extension featured-extension-recurring-payments">
+								<a href="<?php echo home_url( '/downloads/recurring-payments/' ); ?>">
+									<img src="<?php echo get_template_directory_uri() . '/images/front-page-featured-extensions/recurring-payments.png'; ?>">
+								</a>
+							</div>
+						</div>
+						<div class="flex-two">
+							<div class="featured-extension featured-extension-mailchimp">
+								<a href="<?php echo home_url( '/downloads/mail-chimp/' ); ?>">
+									<img src="<?php echo get_template_directory_uri() . '/images/front-page-featured-extensions/mailchimp.png'; ?>">
+								</a>
+							</div>
+							<div class="featured-extension featured-extension-frontend-submissions">
+								<a href="<?php echo home_url( '/downloads/frontend-submissions/' ); ?>">
+									<img src="<?php echo get_template_directory_uri() . '/images/front-page-featured-extensions/frontend-submissions.png'; ?>">
+								</a>
+							</div>
+							<div class="featured-extension featured-extension-free-downloads">
+								<a href="<?php echo home_url( '/downloads/free-downloads/' ); ?>">
+									<img src="<?php echo get_template_directory_uri() . '/images/front-page-featured-extensions/free-downloads.png'; ?>">
+								</a>
+							</div>
+						</div>
+					</div>
+					<span class="view-all-extensions">or <a href="<?php echo home_url( '/downloads/' ); ?>">view all extensions</a></span>
+				</div>
+				<div class="front-page-extension-info flex-two">
+					<h4>Make it work for you.</h4>
+					<p>Easy Digital Downloads is a complete eCommerce solution for WordPress. Right out of the box, it is prepared to power your online business without the need of any other dependencies.</p>
+					<p>However, we believe that your  system should be tailored to your needs without the added weight of unwanted functionality. We strive to perfect this balance with our add-ons, referred to as extensions.</p>
+					<h4>Need help deciding?</h4>
+					<p>If you are looking for a hassle-free way to get the extensions you need, try using our custom <a href="<?php echo home_url( '/starter-package/' ); ?>">Starter Package</a> builder as a guide.</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

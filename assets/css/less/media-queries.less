@@ -335,6 +335,10 @@
 	}
 
 	.social-proof-content > .flex-container {
+		& .testimonial-slider.flex-two {
+			padding-right: 0;
+		}
+
 		& > .flex-two {
 			width: 100%;
 
@@ -380,6 +384,18 @@
 
 	.front-page-payment-gateways-content {
 		padding-bottom: 0;
+	}
+
+	.social-proof-content {
+		& .flex-two {
+			text-align: center;
+		}
+
+		& .globe-bg {
+			& .globe-icon {
+				margin-top: 0;
+			}
+		}
 	}
 
 	.front-page-testimonial-content {
@@ -753,6 +769,25 @@
 		padding-right: 20px;
 	}
 
+	/* front page */
+	.front-page-extensions-content > .flex-container {
+		& .flex-two {
+			width: 100%;
+		}
+
+		& .featured-extension {
+			text-align: center;
+			margin-bottom: 3rem;
+			float: left;
+			width: 30%;
+			margin-right: 5%;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+	}
+
 	/* bbPress */
 	#bbpress-forums .moderator-tools #bbps_support_forum_options form {
 		margin-bottom: 4px;
@@ -955,6 +990,22 @@
 		}
 	}
 
+	.front-page-extensions-content > .flex-container {
+		& .flex-two {
+			width: 100%;
+
+			& .flex-two {
+				width: 47%;
+			}
+		}
+
+		& .featured-extension {
+			float: none;
+			width: 100%;
+			margin-right: 0;
+		}
+	}
+
 	/* downloads display */
 	.download-grid {
 		&.two-col .download-grid-item,
@@ -1073,6 +1124,17 @@
 
 		& .hero-screenshot {
 			display: none;
+		}
+	}
+
+	/* front page */
+	.front-page-extensions-content > .flex-container {
+		& .flex-two {
+			width: 100%;
+
+			& .flex-two {
+				width: 100%;
+			}
 		}
 	}
 
