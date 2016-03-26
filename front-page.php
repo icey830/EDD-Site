@@ -23,7 +23,7 @@ get_header(); ?>
 				</p>
 			</div>
 			<div class="hero-thumb">
-				<img src="<?php echo get_template_directory_uri() . '/images/edd-reports-screenshot-home.png'; ?>">
+				<img src="<?php echo get_template_directory_uri() . '/images/front-page/edd-reports-screenshot-home.png'; ?>">
 			</div>
 		</div>
 	</div>
@@ -71,7 +71,7 @@ get_header(); ?>
 				?>
 				<div class="integrations-item <?php echo strtolower( $item['name'] ); ?>-integration">
 					<a href="<?php echo isset( $item['url'] ) ? $item['url'] : home_url( '/downloads' ) . $item['slug']; ?>">
-						<img src="<?php echo get_template_directory_uri() . '/images/' . strtolower( $item['name'] ) . '-integration-logo.png' ?>" alt="<?php echo $item['name']; ?> Integration" />
+						<img src="<?php echo get_template_directory_uri() . '/images/front-page/integrations/' . strtolower( $item['name'] ) . '-integration-logo.png' ?>" alt="<?php echo $item['name']; ?> Integration" />
 					</a>
 				</div>
 				<?php
@@ -119,7 +119,7 @@ get_header(); ?>
 		<div class="social-proof-content">
 			<div class="flex-container">
 				<div class="globe-bg flex-two">
-					<img class="globe-icon" src="<?php echo get_template_directory_uri() . '/images/globe-icon.png'; ?>">
+					<img class="globe-icon" src="<?php echo get_template_directory_uri() . '/images/front-page/globe-icon.png'; ?>">
 				</div>
 				<div class="featured-stats flex-two">
 					<div class="flex-container">
@@ -164,34 +164,34 @@ get_header(); ?>
 						<div class="flex-two">
 							<div class="featured-extension featured-extension-stripe">
 								<a href="<?php echo home_url( '/downloads/stripe-gateway/' ); ?>">
-									<img src="<?php echo get_template_directory_uri() . '/images/front-page-featured-extensions/stripe.png'; ?>">
+									<img src="<?php echo get_template_directory_uri() . '/images/front-page/featured-extensions/stripe.png'; ?>">
 								</a>
 							</div>
 							<div class="featured-extension featured-extension-software-licensing">
 								<a href="<?php echo home_url( '/downloads/software-licensing/' ); ?>">
-									<img src="<?php echo get_template_directory_uri() . '/images/front-page-featured-extensions/software-licensing.png'; ?>">
+									<img src="<?php echo get_template_directory_uri() . '/images/front-page/featured-extensions/software-licensing.png'; ?>">
 								</a>
 							</div>
 							<div class="featured-extension featured-extension-recurring-payments">
 								<a href="<?php echo home_url( '/downloads/recurring-payments/' ); ?>">
-									<img src="<?php echo get_template_directory_uri() . '/images/front-page-featured-extensions/recurring-payments.png'; ?>">
+									<img src="<?php echo get_template_directory_uri() . '/images/front-page/featured-extensions/recurring-payments.png'; ?>">
 								</a>
 							</div>
 						</div>
 						<div class="flex-two">
 							<div class="featured-extension featured-extension-mailchimp">
 								<a href="<?php echo home_url( '/downloads/mail-chimp/' ); ?>">
-									<img src="<?php echo get_template_directory_uri() . '/images/front-page-featured-extensions/mailchimp.png'; ?>">
+									<img src="<?php echo get_template_directory_uri() . '/images/front-page/featured-extensions/mailchimp.png'; ?>">
 								</a>
 							</div>
 							<div class="featured-extension featured-extension-frontend-submissions">
 								<a href="<?php echo home_url( '/downloads/frontend-submissions/' ); ?>">
-									<img src="<?php echo get_template_directory_uri() . '/images/front-page-featured-extensions/frontend-submissions.png'; ?>">
+									<img src="<?php echo get_template_directory_uri() . '/images/front-page/featured-extensions/frontend-submissions.png'; ?>">
 								</a>
 							</div>
 							<div class="featured-extension featured-extension-free-downloads">
 								<a href="<?php echo home_url( '/downloads/free-downloads/' ); ?>">
-									<img src="<?php echo get_template_directory_uri() . '/images/front-page-featured-extensions/free-downloads.png'; ?>">
+									<img src="<?php echo get_template_directory_uri() . '/images/front-page/featured-extensions/free-downloads.png'; ?>">
 								</a>
 							</div>
 						</div>

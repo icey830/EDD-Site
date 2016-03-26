@@ -27,7 +27,7 @@ get_header(); ?>
 		<div class="content-404 clearfix">
 			<div class="post" id="post-0">
 				<div class="resources-404 clearfix">
-					<img class="sad-edd" src="<?php echo get_template_directory_uri(); ?>/images/edd-sad.png" />
+					<img class="sad-edd" src="<?php echo get_template_directory_uri(); ?>/images/mascot/edd-sad.png" />
 					<div class="links-404 col-404">
 						<h2 class="widgettitle">Helpful Resources</h2>
 						<p>Looking for assistance with EDD? Try reading the documentation for general EDD instructions, extension and theme configuration resources, and much more.</p>
