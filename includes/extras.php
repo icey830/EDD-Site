@@ -413,6 +413,10 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'blog';
 	}
 
+	if ( is_home() ) {
+		$classes[] = 'blog-home';
+	}
+
 	if ( is_page_template( 'page-templates/template-support.php' ) ) {
 		$classes[] = 'template-support';
 	}

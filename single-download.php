@@ -14,7 +14,7 @@ the_post();
 
 			<article class="single-download-entry hentry" id="post-<?php echo get_the_ID(); ?>">
 				<div class="entry-header">
-						<?php the_title( '<h1 class="download-entry-title">', '</h1>' ); ?>
+						<?php the_title( '<h1 class="entry-title download-entry-title">', '</h1>' ); ?>
 				</div>
 				<div class="entry-content">
 					<?php
