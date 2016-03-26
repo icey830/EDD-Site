@@ -1865,39 +1865,35 @@ span.results-found {
  * Support Pricing
  * ----------------------------- */
 .support-pricing-table-content {
-	padding: 20px 0 80px;
-	margin: 0 auto;
-	max-width: 980px;
+	padding-bottom: 40px;
 }
 
 .support-type {
-	text-align: center;
+	background: @eddgray;
 	padding: 30px;
-	border: 3px solid @eddgrayhover;
 	border-radius: 4px;
-	width: 47.5%;
 }
 
 .yearly-support {
 	float: left;
-	border: 3px solid @eddblue;
 }
 
 .fortyfive-day-support {
 	float: right;
+	background: #fff;
 }
 
 .support-type-title {
-	margin-bottom: 0;
+	font-size: 2.6rem;
+	font-weight: 500;
 }
 
 .support-type-title span {
-	background: @green;
-	color: #fff;
 	display: inline-block;
+	background: #a2acb2;
+	color: #fff;
 	padding: 8px 10px 6px;
-	font-size: 14px;
-	font-weight: 700;
+	font-size: 1.1rem;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	border-radius: 4px;
@@ -1908,17 +1904,13 @@ span.results-found {
 }
 
 .support-type-price {
-	background: @eddgray;
-	text-align: center;
-	border: 3px solid @eddgrayhover;
-	padding: 10px 30px;
-	border-width: 3px 0;
-	margin: 30px -30px;
-}
+	margin-bottom: 20px;
 
-.support-type-price span {
-	color: #777;
-	font-size: 4rem;
+	& span {
+		color: #777;
+		font-size: 5rem;
+		margin-bottom: 20px;
+	}
 }
 
 .support-type-description {
