@@ -7,20 +7,10 @@
 
 get_header(); ?>
 
-	<div id="support-pricing-page-intro" class="features-page-section page-section-gray full-width">
-		<div class="inner">
-			<div class="support-pricing-page-intro">
-				<div class="section-header">
-					<h2 class="section-title">Easy Digital Downloads <strong>Priority Support</strong></h2>
-					<p class="section-subtitle">Support is free for all users. For faster, more in-depth support, Priority Support is the answer.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<div id="support-pricing-table-area" class="features-page-section page-section-white full-width">
 		<div class="inner">
 			<div class="support-pricing-table-content clearfix">
+				<h2 class="section-title-alt">Priority Support</h2>
 				<div class="yearly-support support-type">
 					<h2 class="support-type-title">Yearly Access<span>Recommended</span></h2>
 					<div class="support-type-price">

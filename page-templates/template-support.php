@@ -9,28 +9,16 @@ the_post();
 	?>
 	<section class="support-page main clearfix">
 
-		<div class="support-header-area page-section-gray full-width">
-			<div class="inner">
-				<div class="support-header clearfix">
-					<div class="section-header">
-						<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
-							<h2 class="section-title">Have questions? <strong>Let us help.</strong></h2>
-							<p class="section-subtitle">Search our knowledge base, or contact us for pre-sales or support questions.</p>
-						<?php } elseif ( is_page( 'pre-sale-question' ) ) { ?>
-							<h2 class="section-title">Ask a <strong>Pre-sale Question</strong></h2>
-							<p class="section-subtitle">Be sure you're making the right decisions.</p>
-						<?php } elseif ( is_page( 'refund-request' ) ) { ?>
-							<h2 class="section-title">Need a refund? Submit your request below.</h2>
-							<p class="section-subtitle">Be sure to review our Refund Policy and have your purchase receipt ID or license key handy.</p>
-						<?php } ?>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<div class="support-search-area page-section-white full-width">
 			<div class="inner">
 				<div class="support-search">
+					<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
+						<h2 class="section-title-alt">Questions? Let us help.</h2>
+					<?php } elseif ( is_page( 'pre-sale-question' ) ) { ?>
+						<h2 class="section-title-alt">Pres-sale Questions</h2>
+					<?php } elseif ( is_page( 'refund-request' ) ) { ?>
+						<h2 class="section-title-alt">Refund Requests</h2>
+					<?php } ?>
 					<?php if ( ! is_page( 'pre-sale-question' ) ) { ?>
 						<div class="support-section-wrap flex-container">
 							<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>

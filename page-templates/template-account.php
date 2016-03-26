@@ -14,6 +14,7 @@ if ( is_user_logged_in() ) : ?>
 	<div class="my-account-area page-section-white full-width">
 		<div class="inner">
 			<div class="my-account-content">
+				<h2 class="section-title-alt">Your Account</h2>
 				<div id="account-page" class="clearfix">
 
 					<div class="my-account-tabs">

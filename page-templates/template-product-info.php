@@ -10,6 +10,7 @@ get_header(); ?>
 <div id="product-info-area" class="product-info-area page-section-gray full-width">
 	<div class="inner">
 		<div class="product-info-content page-section">
+			<h2 class="section-title-alt">Download Directory</h2>
 			<h4 id="extensions">Extensions</h4>
 			<ul class="product-info-list">
 				<?php

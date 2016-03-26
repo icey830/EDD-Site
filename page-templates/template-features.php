@@ -8,20 +8,10 @@ get_header();
 the_post();
 ?>
 
-<div id="features-page-intro-area" class="features-page-intro-section page-section-gray full-width">
-	<div class="inner">
-		<div class="features-page-intro">
-			<div class="section-header">
-				<h2 class="section-title">Features, Functionality, and Extensibility</h2>
-				<p class="section-subtitle">Easy Digital Downloads, nicknamed <strong>EDD</strong>, is a full-featured eCommerce platform with all the tools needed to turn your WordPress website into a a digital store. Check out the features below and see for yourself.</p>
-			</div>
-		</div>
-	</div>
-</div>
-
 <div id="shopping-cart-area" class="features-page-section content-screenshot page-section-white full-width">
 	<div class="inner">
 		<div class="shopping-cart-content clearfix">
+			<h2 class="section-title-alt">Features, Functionality, and Extensibility</h2>
 			<div class="features-content">
 				<h6><i class="fa fa-shopping-cart"></i>Shopping Cart</h6>
 				<ul>
