@@ -94,10 +94,8 @@ the_post();
 
 <div class="showcase-submission-area page-section-gray full-width">
 	<div class="inner">
-		<div class="section-header">
-			<h3 class="section-title">Showcase Submission</h3>
-		</div>
 		<div class="showcase-submission clearfix">
+			<h2 class="section-title-alt">Showcase Submission</h2>
 			<?php the_content(); ?>
 		</div>
 	</div>
