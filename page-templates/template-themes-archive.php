@@ -85,9 +85,11 @@ $no_duplicates = array(); // don't repeat the same theme twice
 							if ( ! in_array( $post->ID, $no_duplicates ) ) :
 								?>
 								<div class="download-grid-item">
-									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-										<?php eddwp_downloads_grid_thumbnail(); ?>
-									</a>
+									<div class="download-grid-thumb-wrap">
+										<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
+											<?php eddwp_downloads_grid_thumbnail(); ?>
+										</a>
+									</div>
 									<div class="download-grid-item-info">
 										<?php
 											the_title( sprintf(
@@ -147,9 +149,11 @@ $no_duplicates = array(); // don't repeat the same theme twice
 						while ( $eddwp_themes->have_posts() ) : $eddwp_themes->the_post();
 							?>
 							<div class="download-grid-item">
-								<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-									<?php eddwp_downloads_grid_thumbnail(); ?>
-								</a>
+								<div class="download-grid-thumb-wrap">
+									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
+										<?php eddwp_downloads_grid_thumbnail(); ?>
+									</a>
+								</div>
 								<div class="download-grid-item-info">
 									<?php
 										the_title( sprintf(

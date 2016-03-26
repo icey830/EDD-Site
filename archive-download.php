@@ -81,9 +81,11 @@ the_post();
 							);
 							$num = rand( 0, 1 );
 						?>
-						<a class="promotion-image-link" href="<?php echo $bundle_promotion[ $num ]['url']; ?>" title="<?php echo $bundle_promotion[ $num ]['title']; ?>">
-							<img class="download-grid-thumb" src="<?php echo $bundle_promotion[ $num ]['image']; ?>"  alt="<?php echo $bundle_promotion[ $num ]['title']; ?>">
-						</a>
+						<div class="download-grid-thumb-wrap">
+							<a class="promotion-image-link" href="<?php echo $bundle_promotion[ $num ]['url']; ?>" title="<?php echo $bundle_promotion[ $num ]['title']; ?>">
+								<img class="download-grid-thumb" src="<?php echo $bundle_promotion[ $num ]['image']; ?>"  alt="<?php echo $bundle_promotion[ $num ]['title']; ?>">
+							</a>
+						</div>
 						<div class="download-grid-item-info">
 							<h4 class="download-grid-title"><?php echo $bundle_promotion[ $num ]['title']; ?></h4>
 							<p><?php echo $bundle_promotion[ $num ]['desc']; ?></p>
@@ -119,9 +121,11 @@ the_post();
 						while ( $extensions->have_posts() ) : $extensions->the_post();
 							?>
 							<div class="download-grid-item">
-								<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-									<?php eddwp_downloads_grid_thumbnail(); ?>
-								</a>
+								<div class="download-grid-thumb-wrap">
+									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
+										<?php eddwp_downloads_grid_thumbnail(); ?>
+									</a>
+								</div>
 								<div class="download-grid-item-info">
 									<?php
 										the_title( sprintf(

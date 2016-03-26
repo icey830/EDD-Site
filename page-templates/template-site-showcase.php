@@ -31,10 +31,11 @@ the_post();
 						if ( ! empty( $array['link'] ) ) {
 							?>
 							<div class="download-grid-item showcase-grid-item">
-								<a href="<?php echo $array['link']; ?>">
-									<?php eddwp_downloads_grid_thumbnail(); ?>
-								</a>
-
+								<div class="download-grid-thumb-wrap">
+									<a href="<?php echo $array['link']; ?>">
+										<?php eddwp_downloads_grid_thumbnail(); ?>
+									</a>
+								</div>
 								<div class="download-grid-item-info">
 									<?php
 									the_title('<h4 class="download-grid-title"><a href="' . $array['link'] . '">', '</a></h4>');
@@ -70,10 +71,11 @@ the_post();
 						if ( ! empty( $array['link'] ) ) {
 							?>
 							<div class="download-grid-item showcase-grid-item">
-								<a href="<?php echo $array['link']; ?>">
-									<?php eddwp_downloads_grid_thumbnail(); ?>
-								</a>
-
+								<div class="download-grid-thumb-wrap">
+									<a href="<?php echo $array['link']; ?>">
+										<?php eddwp_downloads_grid_thumbnail(); ?>
+									</a>
+								</div>
 								<div class="download-grid-item-info">
 									<?php
 									the_title('<h4 class="download-grid-title"><a href="' . $array['link'] . '">', '</a></h4>');
