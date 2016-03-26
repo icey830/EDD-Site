@@ -41,7 +41,7 @@ get_header(); ?>
 					'name'      => 'Dropbox',
 					'slug'      => '/dropbox-file-store',
 				),
-				'affilaitewp'   => array(
+				'affiliatewp'   => array(
 					'name'      => 'AffiliateWP',
 					'url'       => 'https://affiliatewp.com/?ref=743',
 					'slug'      => '',
