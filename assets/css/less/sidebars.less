@@ -107,11 +107,52 @@
 /* ----------------------------- *
  * Download Sidebar
  * ----------------------------- */
-.single-download .sidebar .box .terms {
-	color: #777;
-	font-size: 13px;
-	line-height: 1.6;
-	font-style: italic;
+.single-download .download-access {
+	background: @eddblue;
+	color: #fff;
+	border-radius: 4px;
+
+	& .pricing-header {
+		background: rgba(0,0,0,.1) url('images/mascot/edd-newsletter.png') no-repeat 22px bottom;
+		text-align: right;
+		padding: 18px 30px;
+		border-bottom: 1px solid #215b95;
+
+		& .widget-title {
+			font-size: 2rem;
+			font-weight: 400;
+			padding: 0;
+			border: none;
+			margin: 0;
+		}
+	}
+
+	& .pricing-info {
+		padding: 30px;
+
+		& .edd-submit.button {
+			width: 100%;
+		}
+
+		& .terms {
+			font-size: 1.3rem;
+			line-height: 1.4;
+			opacity: .75;
+			margin-bottom: 0;
+
+			& a {
+				color: #fff;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+
+			& .fa {
+				margin-right: 6px;
+			}
+		}
+	}
 }
 
 .single-download .sidebar .box:last-child {
@@ -235,13 +276,17 @@
 }
 
 html.js .edd_download_purchase_form label span.bullet {
-	background: url(images/bullets.png) no-repeat;
+	background: url('images/bullets.png') no-repeat;
 	width: 20px;
 	height: 20px;
 	display: block;
 	position: absolute;
-	top: 3px;
+	top: 2px;
 	left: 3px;
+}
+
+html.js .sidebar .edd_download_purchase_form label span.bullet {
+	background: url('images/bullets-dark.png') no-repeat;
 }
 
 html.js .edd_download_purchase_form label {
