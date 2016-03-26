@@ -11,13 +11,13 @@ if ( is_array( $suggestion_data ) && !empty( $suggestion_data ) ) :
 			<?php while ( $suggested_downloads->have_posts() ) : ?>
 				<?php $suggested_downloads->the_post();	?>
 				<div class="download-grid-item">
-					<a href="<?php the_permalink(); ?>">
-						<?php if ( has_post_thumbnail( get_the_ID() ) ) :?>
-							<div class="edd_cart_item_image download-grid-thumb-wrap">
-								<?php echo get_the_post_thumbnail( get_the_ID(), 'download-grid-thumb' ); ?>
-							</div>
+					<div class="download-grid-thumb-wrap">
+						<?php if ( has_post_thumbnail( get_the_ID() ) ) : ?>
+							<a href="<?php the_permalink(); ?>">
+								<?php echo get_the_post_thumbnail( get_the_ID(), 'download-grid-thumb', array( 'class' => 'download-grid-thumb' ) ); ?>
+							</a>
 						<?php endif; ?>
-					</a>
+					</div>
 					<div class="download-grid-item-info">
 						<?php
 							the_title( sprintf( '<h4 class="download-grid-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h4>' );
