@@ -44,18 +44,22 @@
 	#front-page-hero {
 		text-align: center;
 
-		& .inner {
-			background: none;
-			padding-bottom: 0;
+		& .hero-info {
+			float: none;
+			margin: 0 auto 30px;
+			max-width: 700px;
+			width: 100%;
 
 			& .site-headline .hero-title {
-				margin: 0 auto;
-				max-width: 700px;
+				max-width: 100%;
 			}
+		}
 
-			& .hero-screenshot {
-				display: block;
-			}
+		& .hero-thumb {
+			float: none;
+			margin: 0 auto;
+			max-width: 650px;
+			width: 100%;
 		}
 	}
 
@@ -1166,15 +1170,13 @@
 		display: none;
 	}
 
+	/* front page */
 	#front-page-hero .inner {
-		padding-bottom: 30px;
-
-		& .hero-screenshot {
-			display: none;
+		& .hero-info .site-headline .hero-title {
+			font-size: 3rem;
 		}
 	}
 
-	/* front page */
 	.front-page-extensions-content > .flex-container {
 		& .flex-two {
 			width: 100%;

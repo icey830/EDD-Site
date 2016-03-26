@@ -10,7 +10,12 @@
 	text-align: left;
 
 	& .inner {
-		background: transparent url('images/edd-reports-screenshot-edd.png') bottom right no-repeat;
+		padding-bottom: 0;
+	}
+
+	& .hero-info {
+		float: left;
+		width: 40%;
 
 		& .front-page-section-title {
 			line-height: 1.4;
@@ -74,9 +79,18 @@
 		}
 
 		& .hero-screenshot {
-			display: none;
 			margin: 0 auto;
 			vertical-align: bottom;
+		}
+	}
+
+	& .hero-thumb {
+		float: right;
+		margin-right: -4px;
+		width: 55%;
+
+		& img {
+			vertical-align: top;
 		}
 	}
 }
