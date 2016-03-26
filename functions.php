@@ -156,6 +156,3 @@ include( EDD_INC . 'class-fragment-cache.php' );
 include( EDD_INC . 'simple-notices-pro.php' );
 include( EDD_INC . 'shortcodes.php' );
 include( EDD_INC . 'feed-rss.php' );
-
-// get rid of me
-include( EDD_INC . 'deprecated.php' );

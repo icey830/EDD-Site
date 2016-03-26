@@ -80,11 +80,6 @@ endif;
 						}
 					?>
 				<?php } // end if ?>
-				<?php if ( eddwp_is_external_extension() ) { ?>
-					<div class="view-download">
-						<a href="<?php echo esc_url( eddwp_get_external_extension_url() ); ?>" title="View Details" class="edd-submit button blue">View <?php echo ucfirst( $download_type ); ?></a>
-					</div>
-				<?php } ?>
 			</div>
 			<?php if ( ! $is_bundle ) {
 				$core_extensions = home_url( '/downloads/core-extensions-bundle/' );
