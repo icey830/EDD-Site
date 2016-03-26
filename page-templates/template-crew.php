@@ -26,14 +26,14 @@ get_header();
 							<div class="crew-member-name">
 								<?php
 									echo $member->first_name . ' ' . $member->last_name;
-									echo '<div class="crew-member-urls">';
+									echo '<span class="crew-member-urls">';
 									if ( ! empty( $member->user_url ) ) :
 										printf( '&nbsp;<a href="%s"><i class="fa fa-link"></i></a>', $member->user_url );
 									endif;
 									if ( ! empty( $member->twitter ) ) :
 										printf( '&nbsp;&middot;&nbsp;<a href="https://twitter.com/%s"><i class="fa fa-twitter"></i></a>', $member->twitter );
 									endif;
-									echo '</div>';
+									echo '</span>';
 								?>
 							</div>
 							<div class="crew-member-info">
