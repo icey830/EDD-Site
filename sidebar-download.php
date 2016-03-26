@@ -16,25 +16,22 @@ elseif ( $is_theme ) :
 elseif ( $is_bundle ) :
 	$download_type = 'bundle';
 endif;
+$license = home_url( '/docs/extensions-terms-conditions/' );
 ?>
 
 	<aside class="sidebar download-sidebar">
 		<div class="box">
-			<?php if ( ! eddwp_is_external_extension() ) {
-				$license = home_url( '/docs/extensions-terms-conditions/' );
-				?>
-				<div class="download-access download-info-section">
-					<div class="pricing">
-						<h3 class="widget-title">Pricing</h3>
-						<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
-					</div>
-					<?php if ( ! $is_theme && ! edd_is_free_download( get_the_ID() ) ) { ?>
-						<div class="terms clearfix">
-							<p><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="<?php echo $license; ?>" target="_blank">View license terms</a>.</p>
-						</div>
-					<?php } ?>
+			<div class="download-access download-info-section">
+				<div class="pricing">
+					<h3 class="widget-title">Pricing</h3>
+					<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
 				</div>
-			<?php } // end if ?>
+				<?php if ( ! $is_theme && ! edd_is_free_download( get_the_ID() ) ) { ?>
+					<div class="terms clearfix">
+						<p><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="<?php echo $license; ?>" target="_blank">View license terms</a>.</p>
+					</div>
+				<?php } ?>
+			</div>
 			<div class="download-details download-info-section">
 				<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
 				<div class="author clearfix">
