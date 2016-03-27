@@ -42,9 +42,19 @@ if ( $variable_pricing ) {
 				</div>
 				<div class="pricing-info">
 					<div class="pricing">
-						<?php if ( class_exists( 'EDD_Recurring' ) && $recurring ) { ?>
-							<p>All price options are billed yearly. You may cancel your subscription at any time.</p>
-						<?php } ?>
+						<?php
+							if ( class_exists( 'EDD_Recurring' ) && $recurring ) {
+								if ( $is_bundle ) {
+									?>
+									<p>This subscription is billed yearly and can be cancelled at any time.</p>
+									<?php
+								} else {
+									?>
+									<p>All price options are billed yearly. You may cancel your subscription at any time.</p>
+									<?php
+								}
+							}
+						?>
 						<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
 					</div>
 					<div class="terms clearfix">
