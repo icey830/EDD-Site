@@ -17,6 +17,21 @@ elseif ( $is_bundle ) :
 	$download_type = 'bundle';
 endif;
 $license = home_url( '/docs/extensions-terms-conditions/' );
+
+$single_recurring = EDD_Recurring()->is_recurring( get_the_ID() );
+$variable_pricing = edd_has_variable_prices( get_the_ID() );
+$recurring = false;
+if ( $variable_pricing ) {
+
+	$get_prices = edd_get_variable_prices( get_the_ID() );
+	foreach ( $get_prices as $option ) {
+		if ( isset( $option['recurring'] ) && 'yes' === $option['recurring'] ) {
+			$recurring = true;
+		}
+	}
+} elseif ( ! $variable_pricing && $single_recurring ) {
+	$recurring = true;
+}
 ?>
 
 	<aside class="sidebar download-sidebar">
@@ -27,13 +42,23 @@ $license = home_url( '/docs/extensions-terms-conditions/' );
 				</div>
 				<div class="pricing-info">
 					<div class="pricing">
+						<?php if ( class_exists( 'EDD_Recurring' ) && $recurring ) { ?>
+							<p>All price options are billed yearly. You may cancel your subscription at any time.</p>
+						<?php } ?>
 						<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
 					</div>
-					<?php if ( ! $is_theme && ! edd_is_free_download( get_the_ID() ) ) { ?>
-						<div class="terms clearfix">
-							<p><i class="fa fa-info-circle"></i><?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="<?php echo $license; ?>" target="_blank">View terms</a>.</p>
-						</div>
-					<?php } ?>
+					<div class="terms clearfix">
+						<p>
+							<i class="fa fa-info-circle"></i>
+							<?php if ( ! $is_theme && ! edd_is_free_download( get_the_ID() ) ) { ?>
+								<?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="<?php echo $license; ?>" target="_blank">View terms</a>.
+							<?php } elseif ( $is_theme && ! $is_3rd_party ) { ?>
+								Downloading this theme grants you a lifetime license for support and updates.
+							<?php } elseif ( $is_theme && $is_3rd_party ) { ?>
+								This recommended theme is created and supported by a 3rd party developer.
+							<?php } ?>
+						</p>
+					</div>
 				</div>
 			</div>
 			<div class="download-details download-info-section">

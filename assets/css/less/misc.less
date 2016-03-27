@@ -96,7 +96,15 @@
  * ----------------------------- */
 .newsletter {
 
-	& p { margin: 0 0 10px; }
+	& p {
+		margin: 0 0 10px;
+
+		&.newsletter-description {
+			margin-bottom: 20px;
+			border-bottom: 3px solid rgba(0,0,0,.05);
+			padding-bottom: 16px;
+		}
+	}
 
 	& input[type="text"] {
 		border: none;
@@ -295,6 +303,16 @@
 
 #recommended-products .download-grid-item .download-grid-item-cta {
 	padding: 0 20px;
+}
+
+
+/* ----------------------------- *
+ * Recurring Payments
+ * ----------------------------- */
+.eddr-cart-item-notice {
+	text-align: right;
+	font-size: .75em;
+	color: #999;
 }
 
 
