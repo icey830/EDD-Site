@@ -54,7 +54,7 @@ function edd_register_theme_scripts() {
 	$deps = array( 'roboto-font' );
 
 	if ( function_exists( 'is_bbpress' ) ) {
-		if ( is_bbpress() || is_page( 'support' ) ) {
+		if ( is_bbpress() ) {
 			$deps[] = 'bbp-default-bbpress';
 		}
 	}
@@ -99,7 +99,7 @@ function edd_register_theme_scripts() {
 	wp_dequeue_style( 'edd-styles' );
 
 	// load support page bbPress resources
-	if ( function_exists( 'is_bbpress' ) && is_bbpress() || is_page( 'support' ) ) {
+	if ( class_exists( 'bbPress' ) && is_bbpress() ) {
 		wp_enqueue_style( 'bbp-default-bbpress', trailingslashit( bbPress()->themes_url . 'default' ) . 'css/bbpress.css', array(), bbp_get_version(), 'screen' );
 		wp_enqueue_script( 'bootstrap-select' );
 	}
