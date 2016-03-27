@@ -25,7 +25,7 @@ if ( have_comments() && 0 != eddwp_get_comments_only_count( $response_count ) ) 
 	?>
 	<div id="comments" class="clearfix">
 
-		<h3>Comments</h3>
+		<h3 class="comments-title">Comments</h3>
 		<div id="comments-list" class="clearfix">
 			<?php
 				$args = array(
