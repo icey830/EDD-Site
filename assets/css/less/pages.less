@@ -1698,14 +1698,19 @@ span.results-found {
 #edd_purchase_receipt {
 	width: 100%;
 	border: none;
+	border-collapse: inherit;
 	border-spacing: none;
-	border: 1px solid #eee;
-	border-bottom: none;
+	border: 3px solid @eddgrayhover;
+	border-radius: 4px;
 
-	& td {
+	& td, th {
 		padding: 10px;
 		border-bottom: 1px solid #eee;
 		width: 100px;
+	}
+
+	& th {
+		background: @eddgray;
 	}
 
 	& .edd_license_key td {
@@ -1720,9 +1725,10 @@ span.results-found {
 #edd_purchase_receipt_products {
 	width: 100%;
 	border: none;
+	border-collapse: inherit;
 	border-spacing: none;
-	border: 1px solid #eee;
-	border-bottom: none;
+	border: 3px solid @eddgrayhover;
+	border-radius: 4px;
 
 	& td, th {
 		padding: 10px;
@@ -1731,6 +1737,7 @@ span.results-found {
 	}
 
 	& th {
+		background: @eddgray;
 		text-align: left;
 	}
 
