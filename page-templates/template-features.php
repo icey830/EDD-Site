@@ -123,7 +123,7 @@ the_post();
 			<h3>Get Started with Easy Digital Downloads</h3>
 			<p>Download now to start using the world's easiest way to sell digital downloads through WordPress.</p>
 			<div class="download-edd-cta">
-				<a class="edd-submit button darkblue" href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button"><i class="fa fa-cloud-download"></i>Download</a>
+				<a class="edd-submit button darkblue" href="<?php echo get_theme_mod( 'eddwp_download_core' ); ?>"><i class="fa fa-cloud-download"></i>Download</a>
 			</div>
 		</div>
 	</div>

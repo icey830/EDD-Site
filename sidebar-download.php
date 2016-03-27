@@ -20,7 +20,7 @@ elseif ( $is_theme ) :
 elseif ( $is_bundle ) :
 	$download_type = 'bundle';
 endif;
-$license = home_url( '/docs/extensions-terms-conditions/' );
+$license = get_theme_mod( 'eddwp_terms_link' );
 
 // check for recurring pricing
 $single_recurring = EDD_Recurring()->is_recurring( get_the_ID() );

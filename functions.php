@@ -151,6 +151,7 @@ add_action( 'widgets_init', 'edd_register_theme_sidebars' );
  * ----------------------------------------------------------- */
 include( EDD_INC . 'template-tags.php' );
 include( EDD_INC . 'extras.php' );
+include( EDD_INC . 'customizer.php' );
 include( EDD_INC . 'query-filters.php' );
 include( EDD_INC . 'class-fragment-cache.php' );
 include( EDD_INC . 'simple-notices-pro.php' );

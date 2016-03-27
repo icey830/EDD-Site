@@ -18,8 +18,8 @@ get_header(); ?>
 					<h1 class="hero-title">Sell Digital Downloads Through WordPress</h1>
 				</div>
 				<p class="hero-cta">
-					<a class="hero-primary-cta-button" href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button"><i class="fa fa-cloud-download"></i>Download</a><br>
-					or <a class="hero-secondary-cta-link" href="https://easydigitaldownloads.com/demo/">view the demo</a>
+					<a class="hero-primary-cta-button" href="<?php echo get_theme_mod( 'eddwp_download_core' ); ?>"><i class="fa fa-cloud-download"></i>Download</a><br>
+					or <a class="hero-secondary-cta-link" href="<?php echo get_theme_mod( 'eddwp_demo_link' ); ?>">view the demo</a>
 				</p>
 			</div>
 			<div class="hero-thumb">
@@ -146,7 +146,7 @@ get_header(); ?>
 					</div>
 					<p>While Easy Digital Downloads' primary focus is the distribution of digital downloads, feedback from users and selfless developers from around the world drive the open-source project to many facets of eCommerce.</p>
 					<div class="featured-stats-cta-link">
-						<a class="edd-submit button blue" href="http://downloads.wordpress.org/plugin/easy-digital-downloads.latest-stable.zip?utm_source=home&utm_medium=button_2&utm_campaign=Download+Button"><i class="fa fa-cloud-download"></i>Get Easy Digital Downloads</a>
+						<a class="edd-submit button blue" href="<?php echo get_theme_mod( 'eddwp_download_core' ); ?>"><i class="fa fa-cloud-download"></i>Get Easy Digital Downloads</a>
 					</div>
 				</div>
 			</div>
