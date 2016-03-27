@@ -113,7 +113,7 @@ else : ?>
 		<div class="inner">
 			<section class="page-content">
 				<article class="content clearfix">
-					<h1 class="entry-title">You must be logged-in to access your account information.</h1>
+					<h1 class="entry-title">Please log in to access your account information.</h1>
 					<form name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
 						<fieldset>
 								<input type="text" placeholder="Username" id="user_login" size="20" value="" name="log" />
