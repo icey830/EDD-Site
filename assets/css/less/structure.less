@@ -14,33 +14,33 @@ body {
 	width: 100%;
 	max-width: 1100px;
 	margin: 50px auto;
-}
 
-.site-container .content {
-	background: #fff;
-	padding: 0;
-	border-radius: 4px;
-	margin: 0 0 20px;
-	width: 750px;
-	float: left;
-}
+	& .content {
+		background: #fff;
+		padding: 0;
+		border-radius: 4px;
+		margin: 0 0 20px;
+		width: 750px;
+		float: left;
 
-.site-container .content .hentry {
-	background: #fff;
-	padding: 30px 50px;
-	border-radius: 4px;
+		& .hentry {
+			background: #fff;
+			padding: 30px 50px;
+			border-radius: 4px;
+		}
+	}
 }
 
 .blog .site-container .content {
 	background: none;
-}
 
-.blog:not(.single) .site-container .content .hentry {
-	margin-bottom: 60px;
-}
+	&:not(.single) .site-container .content .hentry {
+		margin-bottom: 60px;
 
-.blog:not(.single) .site-container .content .hentry:last-of-type {
-	margin-bottom: 30px;
+		&:last-of-type {
+			margin-bottom: 30px;
+		}
+	}
 }
 
 .bbpress .site-container .content {
@@ -52,33 +52,34 @@ body {
 
 
 /* ----------------------------- *
- * Full-width structure (not the page template)
+ * Full-width HTML structure
+ * (not the page template)
  * ----------------------------- */
 .full-width {
 	width: 100%;
-}
 
-.full-width .inner {
-	position: relative;
-	margin: 0 auto;
-	max-width: 1160px;
-	padding: 60px 30px;
-}
+	& .inner {
+		position: relative;
+		margin: 0 auto;
+		max-width: 1160px;
+		padding: 60px 30px;
 
-.inner .section-title {
-	font-size: 40px;
-	text-align: center;
-	margin: 0 0 15px;
-}
+		& .section-header {
+			text-align: center;
+			max-width: 750px;
+			margin: 0 auto;
+		}
 
-.inner .section-subtitle {
-	margin-bottom: 0;
-}
+		& .section-title {
+			font-size: 40px;
+			text-align: center;
+			margin: 0 0 15px;
+		}
 
-.inner .section-header {
-	text-align: center;
-	max-width: 750px;
-	margin: 0 auto;
+		& .section-subtitle {
+			margin-bottom: 0;
+		}
+	}
 }
 
 
@@ -86,42 +87,19 @@ body {
  * Flexbox (global)
  * ----------------------------- */
 .flex-container {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	display: box;
-
-	-webkit-flex-direction: row;
-	-webkit-flex-flow: row wrap;
-	flex-flow: row wrap;
-	justify-content: space-between;
-	align-content: flex-start;
+	.flex-container;
 
 	& > .flex-cheat {
-		background: transparent !important;
-		border: none !important;
-		height: 1px !important;
-		min-height: 1px !important;
-		margin: 0 !important;
+		.flex-grid-cheat;
 	}
 
 	& > [class*="flex-"] {
-		position: relative;
-		margin-bottom: 36px;
-		-webkit-justify-content: space-between;
-		justify-content: space-between;
-		-webkit-flex-flow: column;
-		flex-flow: column nowrap;
+		.flex-item;
+		margin-bottom: 3.6rem;
 	}
 
 	& > .flex-two {
 		width: 47%;
-	}
-
-	& > .flex-two.flush {
-		width: 50%;
 	}
 
 	& > .flex-three {
@@ -138,38 +116,19 @@ body {
  * Download Grid Styles
  * ----------------------------- */
 .download-grid {
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	display: box;
-
-	-webkit-flex-direction: row;
-	-webkit-flex-flow: row wrap;
-	flex-flow: row wrap;
-	justify-content: space-between;
-	align-content: flex-start;
+	.flex-container;
 
 	& .flex-grid-cheat {
-		background: transparent !important;
-		border: none !important;
-		height: 1px !important;
-		min-height: 1px !important;
-		margin: 0 !important;
+		.flex-grid-cheat;
 	}
 
 	& .download-grid-item {
-		position: relative;
+		.flex-item;
 		background: @eddgray;
 		border-radius: 4px;
 		min-height: 395px;
-		margin-bottom: 36px;
+		margin-bottom: 3.6rem;
 		vertical-align: top;
-		-webkit-justify-content: space-between;
-		justify-content: space-between;
-		-webkit-flex-flow: column;
-		flex-flow: column nowrap;
 
 		& .download-grid-thumb-wrap {
 			background: #ccc;
@@ -214,7 +173,7 @@ body {
 	}
 
 	&.two-col .download-grid-item {
-		width: 48%;
+		width: 47%;
 	}
 
 	&.three-col .download-grid-item {
@@ -242,17 +201,8 @@ body {
 	}
 }
 
-#front-page-extensions .download-grid-item {
-	min-height: 300px;
-}
-
 .page-section-gray .download-grid-item {
 	background: #fff;
-}
-
-.checkout-cart-empty .download-grid-item-info > p {
-	max-width: 300px;
-	margin: 0 auto 20px;
 }
 
 .edd-downloads .pagination {
@@ -260,14 +210,14 @@ body {
 	border: none;
 
 	& .page-numbers,
-	& .page-numbers.dots:hover {
+	.page-numbers.dots:hover {
 		background: @eddgray;
 		color: #555;
 		border: none;
 	}
 
 	& .current,
-	& .page-numbers:hover {
+	.page-numbers:hover {
 		background: @eddblue;
 		color: #fff;
 		border: none;

@@ -105,15 +105,9 @@ add_action( 'init', 'eddwp_process_rewrites' );
  */
 function temporary_eddwp_connection_types() {
 	p2p_register_connection_type( array(
-		'name' => 'downloads_to_docs',
+		'name' => 'downloads_to_posts',
 		'from' => 'download',
-		'to' => 'docs',
-		'reciprocal' => true
-	) );
-	p2p_register_connection_type( array(
-		'name' => 'downloads_to_forums',
-		'from' => 'download',
-		'to' => 'forum',
+		'to' => 'post',
 		'reciprocal' => true
 	) );
 }

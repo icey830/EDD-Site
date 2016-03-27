@@ -64,6 +64,7 @@ $no_duplicates = array(); // don't repeat the same theme twice
 							'post_type' => 'download',
 							'orderby'   => 'menu_order',
 							'order'     => 'ASC',
+							'posts_per_page' => -1,
 							'tax_query' => array(
 								'relation' => 'AND',
 								array(
@@ -129,7 +130,7 @@ $no_duplicates = array(); // don't repeat the same theme twice
 							'post_type' => 'download',
 							'orderby'   => 'menu_order',
 							'order'     => 'ASC',
-							'posts_per_page' => 100,
+							'posts_per_page' => -1,
 							'tax_query' => array(
 								'relation' => 'AND',
 								array(
