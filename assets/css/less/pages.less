@@ -1696,12 +1696,12 @@ span.results-found {
  * Purchase Confirmation
  * ----------------------------- */
 #edd_purchase_receipt {
-	width: 100%;
-	border: none;
+	font-size: 1.4rem;
 	border-collapse: inherit;
 	border-spacing: none;
 	border: 3px solid @eddgrayhover;
 	border-radius: 4px;
+	width: 100%;
 
 	& td, th {
 		padding: 10px;
@@ -1711,6 +1711,7 @@ span.results-found {
 
 	& th {
 		background: @eddgray;
+		font-weight: 500;
 	}
 
 	& .edd_license_key td {
@@ -1723,12 +1724,12 @@ span.results-found {
 }
 
 #edd_purchase_receipt_products {
-	width: 100%;
-	border: none;
+	font-size: 1.4rem;
 	border-collapse: inherit;
 	border-spacing: none;
 	border: 3px solid @eddgrayhover;
 	border-radius: 4px;
+	width: 100%;
 
 	& td, th {
 		padding: 10px;
@@ -1739,6 +1740,11 @@ span.results-found {
 	& th {
 		background: @eddgray;
 		text-align: left;
+		font-weight: 500;
+	}
+
+	& td .edd_purchase_receipt_product_name {
+		font-weight: 500;
 	}
 
 	& ul {
