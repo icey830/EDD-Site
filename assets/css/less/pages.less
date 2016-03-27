@@ -1040,6 +1040,31 @@ span.results-found {
 			}
 		}
 
+		& #subscriptions-tab {
+			& #edd_user_history {
+				& > tbody > tr > td:last-child a {
+					font-size: 90%;
+				}
+			}
+
+			& > a {
+				display: inline-block;
+			}
+
+			& > h3:last-of-type:not(:only-of-type) {
+				color: #999;
+				font-size: 1.6rem;
+				font-weight: 400;
+				margin: 20px 0 30px;
+
+				& em {
+					color: #555;
+					font-style: normal;
+					font-weight: 500;
+				}
+			}
+		}
+
 		& #edd_profile_editor_form {
 			& fieldset {
 				border: none;
@@ -1518,6 +1543,10 @@ span.results-found {
 	border: none;
 }
 
+#edd_checkout_form_wrap label {
+	font-weight: 500;
+}
+
 #edd_sl_show_renewal_form_wrap,
 #edd_checkout_form_wrap #edd_show_discount,
 #edd-login-account-wrap,
@@ -1610,6 +1639,25 @@ span.results-found {
 	top: 100px;
 	right: 20px;
 	text-align: center;
+}
+
+#edd_checkout_form_wrap .edd-alert-warn {
+	background: #fcf8e3;
+	font-weight: 500;
+	padding: 20px;
+	border: none;
+	border-radius: 4px;
+
+	& input[type="checkbox"] {
+		float: none;
+	}
+
+	& label {
+		display: inline;
+		line-height: 1.6;
+		font-weight: 500;
+		margin: 0;
+	}
 }
 
 #edd_terms {

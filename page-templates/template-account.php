@@ -47,6 +47,7 @@ if ( is_user_logged_in() ) : ?>
 						<ul class="nav nav-tabs nav-append-content">
 							<li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-usd"></i>Purchases</a></li>
 							<li><a href="#license-keys-tab" data-toggle="tab"><i class="fa fa-key"></i>License Keys</a></li>
+							<li><a href="#subscriptions-tab" data-toggle="tab"><i class="fa fa-repeat"></i>Subscriptions</a></li>
 							<li><a href="#downloads-tab" data-toggle="tab"><i class="fa fa-cloud-download"></i>Downloads</a></li>
 							<li><a href="#tab2" data-toggle="tab"><i class="fa fa-user"></i>Profile</a></li>
 							<?php if ( eddc_user_has_commissions() ) { ?>
@@ -73,6 +74,11 @@ if ( is_user_logged_in() ) : ?>
 								<h3>Manage Your License Keys</h3>
 								<p>Below you will find all license keys for you previous purchases. Use the <strong>Manage Sites</strong> links to authorize specific URLs for your license keys. Use the <strong>Extend License</strong> or <strong>Renew License</strong> links to adjust the terms of your license keys.</p>
 								<?php echo do_shortcode( '[edd_license_keys]' ); ?>
+							</div><!-- /.tab-pane -->
+							<div class="tab-pane subscriptions-tab-pane" id="subscriptions-tab">
+								<h3>Manage Your Subscriptions</h3>
+								<p>Use the tools below to view subscription details, manage all of your product subscriptions, and view invoices.</p>
+								<?php echo do_shortcode( '[edd_subscriptions]' ); ?>
 							</div><!-- /.tab-pane -->
 							<div class="tab-pane downloads-tab-pane" id="downloads-tab">
 								<h3>Your Download History</h3>
