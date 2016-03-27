@@ -38,24 +38,43 @@ if ( $variable_pricing ) {
 		<div class="box">
 			<div class="download-access download-info-section">
 				<div class="pricing-header">
-					<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Pricing</h3>
+					<?php
+						if ( ! $is_3rd_party ) {
+							?>
+							<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Pricing</h3>
+							<?php
+						} else {
+							?>
+							<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
+						<?php
+						}
+					?>
 				</div>
 				<div class="pricing-info">
 					<div class="pricing">
 						<?php
-							if ( class_exists( 'EDD_Recurring' ) && $recurring ) {
-								if ( $is_bundle ) {
-									?>
-									<p>This subscription is billed yearly and can be cancelled at any time.</p>
+							if ( ! $is_3rd_party ) {
+								if ( class_exists( 'EDD_Recurring' ) && $recurring ) {
+									if ( $is_bundle ) {
+										?>
+										<p>This subscription is billed yearly and can be cancelled at any time.</p>
 									<?php
-								} else {
-									?>
-									<p>All price options are billed yearly. You may cancel your subscription at any time.</p>
+									} else {
+										?>
+										<p>All price options are billed yearly. You may cancel your subscription at any time.</p>
 									<?php
+									}
 								}
+								echo edd_get_purchase_link( array( 'id' => get_the_ID() ) );
+							} else {
+								$developer = get_post_meta( get_the_ID(), 'ecpt_developer', true );
+								$external_url = get_post_meta( get_the_ID(), 'ecpt_externalurl', true );
+								?>
+								<p>Developed by <?php echo $developer; ?>.</p>
+								<a class="external-download-button edd-submit button darkblue" href="<?php echo esc_url( $external_url ); ?>">View <?php echo ucfirst( $download_type ); ?></a>
+								<?php
 							}
 						?>
-						<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
 					</div>
 					<div class="terms clearfix">
 						<p>
@@ -63,60 +82,62 @@ if ( $variable_pricing ) {
 							<?php if ( ! $is_theme && ! edd_is_free_download( get_the_ID() ) ) { ?>
 								<?php echo ucfirst( $download_type ) . 's'; ?> subject to yearly license for support and updates. <a href="<?php echo $license; ?>" target="_blank">View terms</a>.
 							<?php } elseif ( $is_theme && ! $is_3rd_party ) { ?>
-								Downloading this theme grants you a lifetime license for support and updates.
+								Downloading this <?php echo $download_type; ?> grants you a lifetime license for support and updates.
 							<?php } elseif ( $is_theme && $is_3rd_party ) { ?>
-								This recommended theme is created and supported by a 3rd party developer.
+								This <?php echo $download_type; ?> is maintained and supported by a 3rd party developer.
 							<?php } ?>
 						</p>
 					</div>
 				</div>
 			</div>
-			<div class="download-details download-info-section">
-				<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
-				<div class="author clearfix">
-					<p><span class="edd-download-detail-label">Developer:</span>&nbsp;
-						<?php if ( get_post_meta( get_the_ID(), 'ecpt_developer', true ) ) : ?>
-							<span class="edd-download-detail"><?php echo get_post_meta( get_the_ID(), 'ecpt_developer', true ); ?></span>
-						<?php else : ?>
-							<span class="edd-download-detail"><?php echo get_the_author(); ?></span>
-						<?php endif; ?>
-					</p>
-				</div>
-				<?php
-				if ( $has_license && ! $is_3rd_party && ! $is_bundle ) { ?>
-					<div class="version clearfix">
-						<?php $version = get_post_meta( get_the_ID(), '_edd_sl_version', true ); ?>
-						<p><span class="edd-download-detail-label">Version:</span> <span class="edd-download-detail"><?php echo $version; ?><a href="#" class="changelog-link" title="View Changelog" data-toggle="modal" data-target="#show-changelog"><i class="fa fa-file-text-o"></i></a></span></p>
+			<?php if ( ! $is_3rd_party ) { ?>
+				<div class="download-details download-info-section">
+					<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
+					<div class="author clearfix">
+						<p><span class="edd-download-detail-label">Developer:</span>&nbsp;
+							<?php if ( get_post_meta( get_the_ID(), 'ecpt_developer', true ) ) : ?>
+								<span class="edd-download-detail"><?php echo get_post_meta( get_the_ID(), 'ecpt_developer', true ); ?></span>
+							<?php else : ?>
+								<span class="edd-download-detail"><?php echo get_the_author(); ?></span>
+							<?php endif; ?>
+						</p>
 					</div>
 					<?php
-						// get the changelog data
-						$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
+					if ( $has_license && ! $is_bundle ) { ?>
+						<div class="version clearfix">
+							<?php $version = get_post_meta( get_the_ID(), '_edd_sl_version', true ); ?>
+							<p><span class="edd-download-detail-label">Version:</span> <span class="edd-download-detail"><?php echo $version; ?><a href="#" class="changelog-link" title="View Changelog" data-toggle="modal" data-target="#show-changelog"><i class="fa fa-file-text-o"></i></a></span></p>
+						</div>
+						<?php
+							// get the changelog data
+							$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
 
-						// if it exists, append the changelog (from either source) to the relevent content output
-						if ( ! empty( $changelog ) ) {
-							?>
-							<!-- Changelog Modal -->
-							<div class="changelog-modal modal fade" id="show-changelog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-											<h5 class="modal-title" id="myModalLabel"><?php the_title(); ?> Changelog</h5>
-										</div>
-										<div class="modal-body">
-											<?php echo $changelog; ?>
-										</div>
-										<div class="modal-footer">
-											<a href="#" data-dismiss="modal">Close</a>
+							// if it exists, append the changelog (from either source) to the relevent content output
+							if ( ! empty( $changelog ) ) {
+								?>
+								<!-- Changelog Modal -->
+								<div class="changelog-modal modal fade" id="show-changelog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h5 class="modal-title" id="myModalLabel"><?php the_title(); ?> Changelog</h5>
+											</div>
+											<div class="modal-body">
+												<?php echo $changelog; ?>
+											</div>
+											<div class="modal-footer">
+												<a href="#" data-dismiss="modal">Close</a>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<?php
-						}
-					?>
-				<?php } // end if ?>
-			</div>
+								<?php
+							}
+						?>
+					<?php } ?>
+				</div>
+			<?php } ?>
 			<?php if ( ! $is_bundle ) {
 				$core_extensions = home_url( '/downloads/core-extensions-bundle/' );
 				?>
