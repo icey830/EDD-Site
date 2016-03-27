@@ -7,6 +7,9 @@
 
 get_header();
 the_post();
+if ( eddwp_edd_is_activated() ) :
+	$cart_contents = edd_get_cart_contents();
+endif;
 ?>
 
 	<div id="checkout-page-area" class="full-width clearfix">
@@ -15,18 +18,23 @@ the_post();
 
 				<article <?php post_class( 'clearfix' ); ?> id="post-<?php echo get_the_ID(); ?>">
 					<div class="entry-header">
-						<h3 class="entry-title">Checkout Cart</h3>
+						<h3 class="entry-title">
+							<?php
+								if ( ! empty( $cart_contents ) ) :
+									echo 'Checkout Cart';
+								else :
+									echo 'Oops! Your Cart is empty.';
+								endif;
+							?>
+						</h3>
 					</div>
 					<div class="entry-content">
 						<?php
-						if ( eddwp_edd_is_activated() ) :
-							$cart_contents = edd_get_cart_contents();
-						endif;
 						if ( ! empty( $cart_contents ) ) :
 							the_content();
 						else :
 							?>
-							<p>Your cart is empty. If this appears to be in error, please clear your browser cookies and try again. If you're interested in extensions for your EDD store, have a look at these popular choices.</p>
+							<p>If this appears to be in error, please clear your browser cookies and try again. If you're interested in extensions for your EDD store, have a look at these popular choices.</p>
 							<section class="download-grid two-col narrow-grid clearfix">
 								<?php
 								$extension_args = array(
