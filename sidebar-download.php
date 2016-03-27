@@ -9,6 +9,7 @@ $is_bundle    = has_term( 'bundles', 'download_category', get_the_ID() );
 $is_3rd_party = has_term( '3rd-party', 'download_category', get_the_ID() );
 $has_license  = get_post_meta( get_the_ID(), '_edd_sl_enabled', true );
 
+// get the download type
 if ( $is_extension && ! $is_bundle ) :
 	$download_type = 'extension';
 elseif ( $is_theme ) :
@@ -18,11 +19,11 @@ elseif ( $is_bundle ) :
 endif;
 $license = home_url( '/docs/extensions-terms-conditions/' );
 
+// check for recurring pricing
 $single_recurring = EDD_Recurring()->is_recurring( get_the_ID() );
 $variable_pricing = edd_has_variable_prices( get_the_ID() );
 $recurring = false;
 if ( $variable_pricing ) {
-
 	$get_prices = edd_get_variable_prices( get_the_ID() );
 	foreach ( $get_prices as $option ) {
 		if ( isset( $option['recurring'] ) && 'yes' === $option['recurring'] ) {
