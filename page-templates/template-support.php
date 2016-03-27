@@ -12,7 +12,7 @@ the_post();
 		<div class="support-search-area page-section-white full-width">
 			<div class="inner">
 				<div class="support-search">
-					<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
+					<?php if ( is_page( 'support' ) ) { ?>
 						<h2 class="section-title-alt">Questions? Let us help.</h2>
 					<?php } elseif ( is_page( 'pre-sale-question' ) ) { ?>
 						<h2 class="section-title-alt">Pres-sale Questions</h2>
@@ -21,7 +21,7 @@ the_post();
 					<?php } ?>
 					<?php if ( ! is_page( 'pre-sale-question' ) ) { ?>
 						<div class="support-section-wrap flex-container">
-							<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
+							<?php if ( is_page( 'support' ) ) { ?>
 								<div class="support-section pre-sale-question-section special-section flex-three">
 									<a href="<?php echo home_url( '/pre-sale-question/' ); ?>" class="support-section-link">
 										<h4 class="support-section-title">Pre-sale Question?</h4>
@@ -89,7 +89,7 @@ the_post();
 							<?php } ?>
 						</div>
 					<?php } ?>
-					<?php if ( is_page( array( 'support', 'support-request' ) ) ) { ?>
+					<?php if ( is_page( 'support' ) ) { ?>
 						<p class="edd-docs-link-wrap">
 							<a class="edd-submit button blue" href="http://docs.easydigitaldownloads.com/">View Full Documentation</a><span class="button-break"></span><a class="edd-support-ticket-link edd-submit button gray" href="#">Submit Support Request</a>
 						</p>
