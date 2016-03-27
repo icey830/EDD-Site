@@ -9,7 +9,7 @@ $is_bundle    = has_term( 'bundles', 'download_category', get_the_ID() );
 $is_3rd_party = has_term( '3rd-party', 'download_category', get_the_ID() );
 $has_license  = get_post_meta( get_the_ID(), '_edd_sl_enabled', true );
 
-// get the download type
+// get the dw
 if ( $is_extension && ! $is_bundle ) :
 	$download_type = 'extension';
 elseif ( $is_theme ) :
@@ -125,7 +125,7 @@ if ( $variable_pricing ) {
 												<h5 class="modal-title" id="myModalLabel"><?php the_title(); ?> Changelog</h5>
 											</div>
 											<div class="modal-body">
-												<?php echo $changelog; ?>
+												<?php echo wpautop( $changelog ); ?>
 											</div>
 											<div class="modal-footer">
 												<a href="#" data-dismiss="modal">Close</a>
