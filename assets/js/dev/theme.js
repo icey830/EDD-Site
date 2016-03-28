@@ -100,6 +100,13 @@
 		});
 
 
+		// Account page expired license toggle
+        $('.expired-key-toggle').on('click',function(e){
+            e.preventDefault();
+            $('.toggle-keys-container').slideToggle();
+        });
+
+
 		// Support
 		$('#wp-admin-bar-assigned_tickets').click(function(){
 			$('#TB_overlay, #TB_window').toggle();

@@ -690,6 +690,14 @@
 					margin-right: 5px;
 					min-width: 25px;
 				}
+
+				&.has-expired-licenses {
+					background: #fcf8e3;
+
+					&:hover {
+						background: #f9f5df;
+					}
+				}
 			}
 
 			&:last-child a {
@@ -706,6 +714,10 @@
 				background: @eddgray;
 				border: 3px solid @eddgrayhover;
 				border-width: 0 0 3px;
+			}
+
+			&.has-expired-licenses {
+				background: #fcf8e3;
 			}
 		}
 
@@ -730,6 +742,20 @@
 		border-radius: 4px;
 		margin-bottom: 30px;
 
+		& .expired-key-toggle {
+			display: inline-block;
+			text-decoration: underline;
+			margin-bottom: 20px;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		& .toggle-keys-container {
+			display: none;
+		}
+
 		& .section-title-alt {
 			border-color: rgba(0,0,0,.05);
 			margin-bottom: 20px;
@@ -748,7 +774,6 @@
 		}
 
 		& ul {
-			.flex-container;
 			padding: 0;
 			margin: 0 0 10px;
 
