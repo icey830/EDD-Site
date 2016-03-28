@@ -979,6 +979,69 @@ span.results-found {
 	float: right;
 	width: 75%;
 
+	& .license-key-notice {
+		background: #fcf8e3;
+		padding: 20px 30px 30px;
+		border: none;
+		border-radius: 4px;
+		margin-bottom: 30px;
+
+		& .section-title-alt {
+			border-color: rgba(0,0,0,.05);
+			margin-bottom: 20px;
+
+			& .fa {
+				margin-right: 10px;
+			}
+
+			&.renew-all-title {
+				margin-top: 20px;
+			}
+		}
+
+		& p {
+			margin-bottom: 15px;
+		}
+
+		& ul {
+			.flex-container;
+			padding: 0;
+			margin: 0 0 10px;
+
+			& li.flex-two {
+				.flex-item;
+				list-style: none;
+				margin-bottom: 10px;
+
+				& .licensed-product-title {
+					font-weight: 500;
+				}
+
+				& .licensed-product-key {
+					font-size: 90%;
+					color: #777;
+				}
+
+				& .license-actions {
+					font-size: 90%;
+
+					& a {
+						text-decoration: underline;
+
+						&:hover {
+							text-decoration: none;
+						}
+					}
+				}
+			}
+		}
+
+		& .renew-all-licenses {
+			border-top: 1px dotted rgba(0,0,0,.05);
+			padding-top: 20px;
+		}
+	}
+
 	& .tab-content {
 		position: relative;
 
