@@ -11,35 +11,36 @@ get_header();
 
 if ( is_user_logged_in() ) :
 
-// check for expired licenses
-$args = array(
-	'posts_per_page' => - 1,
-	'post_type'      => 'edd_license',
-	'post_status'    => 'any',
-	'meta_query'     => array(
-		'relation' => 'AND',
-		array(
-			'key'     => '_edd_sl_user_id',
-			'value'   => get_current_user_id(),
-			'compare' => '='
-		),
-		array(
-			'relation' => 'OR',
+	// check for expired licenses
+	$args = array(
+		'posts_per_page' => - 1,
+		'post_type'      => 'edd_license',
+		'post_status'    => 'any',
+		'meta_query'     => array(
+			'relation' => 'AND',
 			array(
-				'key'     => '_edd_sl_status',
-				'value'   => 'expired',
+				'key'     => '_edd_sl_user_id',
+				'value'   => get_current_user_id(),
 				'compare' => '='
 			),
 			array(
-				'key'     => '_edd_sl_expiration',
-				'value'   => time(),
-				'compare' => '<'
+				'relation' => 'OR',
+				array(
+					'key'     => '_edd_sl_status',
+					'value'   => 'expired',
+					'compare' => '='
+				),
+				array(
+					'key'     => '_edd_sl_expiration',
+					'value'   => time(),
+					'compare' => '<'
+				),
 			),
 		),
-	),
-);
-$license_keys = get_posts( $args ); // contains an array of license IDS
-?>
+	);
+	$license_keys = get_posts( $args ); // contains an array of license IDS
+	remove_action( 'edd_sl_license_keys_before', array( $edd_sl_renew_all, 'renew_all_button' ) );
+	?>
 
 	<div class="my-account-area page-section-white full-width">
 		<div class="inner">
@@ -121,8 +122,8 @@ $license_keys = get_posts( $args ); // contains an array of license IDS
 									if ( $expired_keys > 1 ) {
 										?>
 										<div class="renew-all-licenses">
-											<p>You may also renew all license keys at once by clicking the button below.</p>
-											<a href="#" class="edd-submit button blue">Renew All License Keys</a>
+											<p>You may also renew license keys in bulk using the form below.</p>
+											<?php echo $edd_sl_renew_all->renew_all_button(); ?>
 										</div>
 										<?php
 									}
