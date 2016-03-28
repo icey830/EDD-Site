@@ -23,7 +23,7 @@ endif;
 								if ( ! empty( $cart_contents ) ) :
 									echo 'Checkout Cart';
 								else :
-									echo 'Oops! Your Cart is empty.';
+									echo 'Oops! Your cart is empty.';
 								endif;
 							?>
 						</h3>
