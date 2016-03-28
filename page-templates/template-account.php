@@ -13,7 +13,7 @@ if ( is_user_logged_in() ) :
 
 	// check for expired licenses
 	$args = array(
-		'posts_per_page' => - 1,
+		'posts_per_page' => -1,
 		'post_type'      => 'edd_license',
 		'post_status'    => 'any',
 		'meta_query'     => array(
@@ -33,8 +33,12 @@ if ( is_user_logged_in() ) :
 			),
 		),
 	);
-	$license_keys = get_posts( $args ); // contains an array of license IDS
-	$expired_keys = count( $license_keys );
+	$license_keys  = get_posts( $args );
+
+	// how many expired licenses are there?
+	$expired_qty = count( $license_keys );
+
+	// get rid of the default license renewal form
 	remove_action( 'edd_sl_license_keys_before', array( $edd_sl_renew_all, 'renew_all_button' ) );
 	?>
 
@@ -101,51 +105,79 @@ if ( is_user_logged_in() ) :
 							<div class="tab-pane license-keys-tab-pane" id="license-keys-tab">
 								<?php if ( ! empty( $license_keys ) ) { ?>
 									<div class="license-key-notice">
-										<h4 class="section-title-alt"><i class="fa fa-exclamation-triangle"></i>The following license keys have expired:</h4>
-										<?php
-											if ( $expired_keys > 2 ) {
-												$expired_key_container = ' toggle-keys-container';
-												?>
-												<a class="expired-key-toggle" href="#">View all expired license keys</a>
-												<?php
-											}
-										?>
-										<ul class="expired-keys<?php echo isset( $expired_key_container ) ? $expired_key_container : ''; ?>">
+										<h4 class="section-title-alt"><i class="fa fa-exclamation-triangle"></i>You have <?php echo $expired_qty; ?> expired license key<?php echo $expired_qty > 1 ? 's' : ''; ?></h4>
+										<div class="expired-keys">
 											<div class="flex-container">
 												<?php
-												foreach ( $license_keys as $key ) {
-													setup_postdata( $key );
+													// get the first two license keys
+													$i = 0;
+													foreach ( $license_keys as $index => $key ) {
+														$i++;
 
-													// get the product title
-													$post_title = explode( "-", $key->post_title, 2 );
-													$the_title = $post_title[0];
+														if ( $i > 2 ) {
+															echo '</div>'; // close the flex container!
+															break;
+														}
 
-													// get the license key
-													$the_key = get_post_meta( $key->ID, '_edd_sl_key', true );
+														// get the product title
+														$post_title = explode( "-", $key->post_title, 2 );
+														$the_title = $post_title[0];
 
-													?>
-													<li class="flex-two">
-														<span class="licensed-product-title"><?php echo $the_title; ?></span><br>
-														<div class="license-actions">
-															<span class="licensed-product-key"><?php echo $the_key; ?></span><br>
-															<a href="<?php echo home_url( '/checkout/?edd_license_key=' ) . $the_key; ?>">Renew license</a>
+														// get the license key
+														$the_key = get_post_meta( $key->ID, '_edd_sl_key', true );
+														?>
+														<div class="expired-key-item flex-two">
+															<span class="licensed-product-title"><?php echo $the_title; ?></span><br>
+															<div class="license-actions">
+																<span class="licensed-product-key"><?php echo $the_key; ?></span><br>
+																<a href="<?php echo home_url( '/checkout/?edd_license_key=' ) . $the_key; ?>">Renew license</a>
+															</div>
 														</div>
-													</li>
-												<?php
-												}
+														<?php
+														unset( $license_keys[ $index ] );
+													}
+
+													// get the rest of the license keys
+													if ( $i > 2 ) {
+														?>
+														<div class="toggle-keys-container flex-container">
+															<?php
+															foreach ( $license_keys as $key ) {
+
+																// get the product title
+																$post_title = explode( "-", $key->post_title, 2 );
+																$the_title = $post_title[0];
+
+																// get the license key
+																$the_key = get_post_meta( $key->ID, '_edd_sl_key', true );
+																?>
+																<div class="expired-key-item flex-two">
+																	<span class="licensed-product-title"><?php echo $the_title; ?></span><br>
+																	<div class="license-actions">
+																		<span class="licensed-product-key"><?php echo $the_key; ?></span><br>
+																		<a href="<?php echo home_url( '/checkout/?edd_license_key=' ) . $the_key; ?>">Renew license</a>
+																	</div>
+																</div>
+																<?php
+															}
+															?>
+														</div>
+														<a class="expired-key-toggle" href="#">Click here to view all expired license keys</a>
+														<?php
+													}
 												?>
 											</div>
-										</ul>
-										<?php
-										if ( $expired_keys > 1 ) {
-											?>
-											<div class="renew-all-licenses">
-												<p>You may also renew license keys in bulk using the form below.</p>
-												<?php echo $edd_sl_renew_all->renew_all_button(); ?>
-											</div>
 											<?php
-										}
-										?>
+											if ( $expired_qty > 1 ) {
+												?>
+												<div class="renew-all-licenses">
+													<p>You may also renew license keys in bulk using the form below.</p>
+													<?php echo $edd_sl_renew_all->renew_all_button(); ?>
+												</div>
+											<?php
+											}
+											?>
+										</div>
 									</div>
 								<?php } ?>
 								<h3>Manage Your License Keys</h3>
