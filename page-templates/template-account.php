@@ -30,11 +30,6 @@ if ( is_user_logged_in() ) :
 					'value'   => 'expired',
 					'compare' => '='
 				),
-				array(
-					'key'     => '_edd_sl_expiration',
-					'value'   => time(),
-					'compare' => '<'
-				),
 			),
 		),
 	);
