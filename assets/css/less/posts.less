@@ -8,39 +8,39 @@
  * ----------------------------- */
 .entry-header {
 	margin-bottom: 20px;
-}
 
-.entry-date {
-	padding: 0;
-	font-size: 13px;
-	font-size: 1.3rem;
-	margin: 0 0 10px;
-	display: inline-block;
-	color: #aaa;
-}
+	& .entry-date {
+		padding: 0;
+		font-size: 13px;
+		font-size: 1.3rem;
+		margin: 0 0 10px;
+		display: inline-block;
+		color: #aaa;
 
-.entry-date i {
-	margin-right: 5px;
-	width: 16px;
-	display: inline-block;
-}
+		& i {
+			margin-right: 5px;
+			width: 16px;
+			display: inline-block;
+		}
+	}
 
-.entry-title {
-	font-size: 2.6rem;
-	font-weight: 500;
-	padding-bottom: 20px;
-	border-bottom: 3px solid @eddgray;
-	margin-bottom: 30px;
+	& .entry-title {
+		font-size: 2.6rem;
+		font-weight: 500;
+		padding-bottom: 20px;
+		border-bottom: 3px solid @eddgray;
+		margin-bottom: 30px;
+
+		& a {
+			color: #555;
+		}
+	}
 }
 
 .blog-home .entry-title {
 	padding-bottom: 0;
 	border-bottom: none;
 	margin-bottom: 0;
-}
-
-.entry-title a {
-	color: #555;
 }
 
 
@@ -53,22 +53,18 @@
 
 	& h1, h2 {
 		font-size: 2.6rem;
-		font-weight: 500;
 	}
 
 	& h3 {
 		font-size: 2.2rem;
-		font-weight: 500;
 	}
 
 	& h4, h5 {
 		font-size: 1.8rem;
-		font-weight: 500;
 	}
 
 	& h6 {
 		font-size: 1.6rem;
-		font-weight: 500;
 	}
 
 	& h4, h6 {
@@ -76,12 +72,12 @@
 	}
 }
 
-.content .featured-img {
+.featured-img {
 	border-radius: 4px;
 	margin-bottom: 30px;
 }
 
-.content .post-meta {
+.post-meta {
 	padding-top: 10px;
 	border-top: 3px solid #f1f1f1;
 
@@ -113,35 +109,35 @@
 	border: 3px solid #f1f1f1;
 	border-width: 3px 0;
 	margin-bottom: 30px;
-}
 
-.edd-author-avatar {
-	float: left;
-	margin-right: 30px;
-	width: 90px;
-}
+	& .edd-author-avatar {
+		float: left;
+		margin-right: 30px;
+		width: 90px;
 
-.edd-author-avatar img {
-	border-radius: 50%;
-}
+		& img {
+			border-radius: 50%;
+		}
+	}
 
-.edd-author-bio {
-	float: left;
-	width: 520px;
-}
+	.edd-author-bio {
+		float: left;
+		width: 520px;
 
-.edd-author-bio .edd-author-title,
-.edd-author-bio .edd-author-url {
-	display: inline-block;
-	margin-right: 6px !important;
-}
+		& .edd-author-title,
+		.edd-author-url {
+			display: inline-block;
+			margin-right: 6px !important;
 
-.edd-author-url a {
-	color: #aaa;
-}
+			& a {
+				color: #aaa;
 
-.edd-author-url a:hover {
-	color: #555;
+				&:hover {
+					color: #555;
+				}
+			}
+		}
+	}
 }
 
 
@@ -198,10 +194,4 @@
 			margin-right: 8px;
 		}
 	}
-}
-
-div.sharedaddy .sd-content {
-	width: 100% !important;
-	float: none !important;
-	margin: 0 !important;
 }

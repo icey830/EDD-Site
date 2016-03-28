@@ -30,7 +30,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 #edd-recurring-update-submit {
 	background: @eddblue;
 	color: #fff;
-	font-size: 1.5rem;
+	font-size: 1.6rem;
 	font-weight: 400;
 	text-decoration: none;
 	padding: 10px 14px;
@@ -49,6 +49,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 
 	&:active {
 		color: #fff;
+		box-shadow: none;
 	}
 
 	span {
@@ -148,7 +149,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 
 #google-search-form input.gsc-search-button,
 #google-search-form-sidebar input.gsc-search-button {
-	font-family: 'Roboto', Helvetica, Arial, sans-serif;
+	font-family: @font-family;
 	line-height: 1.2;
 	margin-top: 0;
 	height: auto !important;
@@ -201,110 +202,50 @@ table.gstl_50.gssb_c {
 	padding: 0;
 	border: none;
 	margin: 0;
-}
 
-#landing-page #edd_register_form fieldset legend {
-	display: none;
-}
+	& legend {
+		display: none;
+	}
 
-#landing-page #edd_register_form fieldset > p label,
-#landing-page #edd_register_form fieldset > p input {
-	display: block;
-}
+	& > p label,
+	& > p input {
+		display: block;
+	}
 
-#landing-page #edd_register_form fieldset > p input {
-	font-size: 16px;
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	width: 100%;
+	& > p input {
+		font-size: 16px;
+		padding: 10px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		width: 100%;
+	}
 }
 
 
 /* ----------------------------- *
  * Free Downloads Form (modal)
  * ----------------------------- */
-[id*=jBoxID] .jBox-content {
-	padding: 30px;
-}
-
-[id*=jBoxID] #edd-free-downloads-modal label {
-	font-size: 18px;
-	font-weight: 500;
-}
-
-[id*=jBoxID] #edd-free-downloads-modal input[type='text'],
-[id*=jBoxID] #edd-free-downloads-modal input[type='email'] {
-	background: @eddgray;
-	padding: 10px;
-	border-radius: 4px;
-	border: 3px solid @eddgrayhover;
-}
-
-[id*=jBoxID] #edd-free-downloads-modal input[type='button'] {
-	font-size: 18px;
-	padding: 8px 10px;
-	font-weight: 700;
-}
-
-
-/* ----------------------------- *
- * Gravity Forms
- * ----------------------------- */
-.gform_wrapper {
-	& .gfield_label {
-		display: block;
-		margin-bottom: 5px;
-		font-weight: 400;
-
-		& .gfield_required {
-			margin-left: 2px;
-		}
+[id*=jBoxID] {
+	& .jBox-content {
+		padding: 30px;
 	}
 
-	& input[type="text"],
-	input[type="url"],
-	input[type="email"],
-	input[type="tel"],
-	input[type="number"],
-	input[type="password"],
-	textarea {
-		padding: 6px 10px !important;
+	& #edd-free-downloads-modal label {
+		font-size: 18px;
+		font-weight: 500;
+	}
+
+	& #edd-free-downloads-modal input[type='text'],
+	#edd-free-downloads-modal input[type='email'] {
 		background: @eddgray;
+		padding: 10px;
+		border-radius: 4px;
 		border: 3px solid @eddgrayhover;
-		border-radius: 3px;
-		outline: none;
-		-webkit-transition: all .18s ease-in-out;
-		-moz-transition: all .18s ease-in-out;
-		-o-transition: all .18s ease-in-out;
-		-ms-transition: all .18s ease-in-out;
-		transition: all .18s ease-in-out;
-		margin-bottom: 10px;
-		font-size: inherit !important;
 	}
 
-	& textarea {
-		line-height: 24px !important;
+	& #edd-free-downloads-modal input[type='button'] {
+		font-size: 18px;
+		padding: 8px 10px;
+		font-weight: 700;
 	}
-
-	& .gfield_radio {
-		margin-left: 8px !important;
-
-		& li label {
-			margin: 0 0 0 20px !important;
-		}
-	}
-}
-
-.gform_wrapper.gf_browser_chrome .gfield_radio li input[type="radio"] {
-	margin-left: 1px;
-}
-
-.gform_fields input[type="radio"] {
-	margin: 3px 5px 3px 2px !important;
-}
-
-div.form_saved_message div.form_saved_message_emailform form input[type="submit"] {
-	display: block;
-	margin-top: 10px;
 }

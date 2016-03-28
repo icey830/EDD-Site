@@ -5,42 +5,41 @@
 #comments {
 	background: #fff;
 	padding: 50px;
+
+	& .comments-title {
+		font-size: 2.6rem;
+		font-weight: 500;
+		padding-bottom: 20px;
+		border-bottom: 3px solid @eddgray;
+		margin-bottom: 30px;
+	}
 }
 
-#comments .comments-title {
-	font-size: 2.6rem;
-	font-weight: 500;
-	padding-bottom: 20px;
-	border-bottom: 3px solid @eddgray;
-	margin-bottom: 30px;
-}
+#comments-list {
+	& .comment {
+		padding: 0 0 20px 0;
+		margin: 0 0 25px 0;
+		border-bottom: 3px solid #f7f7f7;
+		position: relative;
 
-#comments-list .comment {
-	padding: 0 0 20px 0;
-	margin: 0 0 25px 0;
-	border-bottom: 3px solid #f7f7f7;
-	position: relative;
-}
+		&:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: none;
+		}
+	}
 
-#comments-list .comment:last-child {
-	margin-bottom: 0;
-	padding-bottom: 0;
-	border-bottom: none;
-}
+	& [class*="depth-"] [class*="depth-"] {
+		margin-top: 20px;
+		padding-left: 25px;
+		border-left: 3px solid @eddgray;
 
-#comments-list [class*="depth-"] [class*="depth-"] {
-	margin-top: 20px;
-}
-
-#comments-list [class*="depth-"] [class*="depth-"] {
-	padding-left: 25px;
-	border-left: 3px solid @eddgray;
-}
-
-#comments-list [class*="depth-"] [class*="depth-"]:last-child {
-	margin-bottom: 0;
-	padding-bottom: 0;
-	border-bottom: none;
+		&:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: none;
+		}
+	}
 }
 
 .vcard {
@@ -50,12 +49,30 @@
 	line-height: 48px;
 	float: left;
 	margin-bottom: 20px;
-}
 
-.vcard img {
-	border-radius: 50%;
-	float: left;
-	margin-right: 10px;
+	& img {
+		border-radius: 50%;
+		float: left;
+		margin-right: 10px;
+	}
+
+	& cite {
+		display: inline-block;
+		font-style: normal;
+		font-size: 17px;
+
+		& a {
+			color: @edddarkblue;
+
+			&:hover {
+				color: @edddarkbluehover;
+			}
+		}
+	}
+
+	.says {
+		display: none;
+	}
 }
 
 .comment:not(.bypostauthor) .vcard img {
@@ -63,46 +80,30 @@
 	width: 26px;
 }
 
-.vcard cite {
-	display: inline-block;
-	font-style: normal;
-	font-size: 17px;
-}
-
-.vcard cite a {
-	color: @edddarkblue;
-}
-
-.vcard cite a:hover {
-	color: @edddarkbluehover;
-}
-
-.vcard .says { display: none; }
-
 .comment-meta {
 	display: inline-block;
 	font-size: 12px;
 	line-height: 21px;
 	margin-top: 16px;
 	float: left;
-}
 
-.comment-meta:after {
-	content: "";
-	display: block;
-	clear: both;
-	visibility: hidden;
-	font-size: 0;
-	height: 0;
-}
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+		visibility: hidden;
+		font-size: 0;
+		height: 0;
+	}
 
-.comment-meta a {
-	color: #777;
-	text-decoration: none;
-}
+	& a {
+		color: #777;
+		text-decoration: none;
 
-.comment-meta a:hover {
-	text-decoration: underline;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 
 .comment-body p {
@@ -124,14 +125,14 @@
 	background: #fff;
 	padding: 50px;
 	border-radius: 0 0 4px 4px;
-}
 
-#respond .comment-reply-title {
-	font-size: 2.6rem;
-	font-weight: 500;
-	padding-bottom: 20px;
-	border-bottom: 3px solid @eddgray;
-	margin-bottom: 30px;
+	& .comment-reply-title {
+		font-size: 2.6rem;
+		font-weight: 500;
+		padding-bottom: 20px;
+		border-bottom: 3px solid @eddgray;
+		margin-bottom: 30px;
+	}
 }
 
 #commentform input[type="text"],

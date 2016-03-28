@@ -94,7 +94,7 @@
 
 		& .testimonial-title {
 			background: transparent url('images/quotes-icon.png') bottom right no-repeat;
-			font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+			font-family: @font-family;
 			font-size: 2rem;
 			font-weight: 400;
 			padding-bottom: 10px;
@@ -113,63 +113,65 @@
 /* ----------------------------- *
  * Product Info template
  * ----------------------------- */
-.product-info-content .product-info-list {
-	list-style: none;
-	border: 2px solid #eaeaea;
-	max-height: 400px;
-	margin: 0 0 50px;
-	overflow-y: scroll;
-	padding: 20px;
-	background: #fff;
-}
+.product-info-content {
+	& .product-info-list {
+		list-style: none;
+		border: 2px solid #eaeaea;
+		max-height: 400px;
+		margin: 0 0 50px;
+		overflow-y: scroll;
+		padding: 20px;
+		background: #fff;
 
-.product-info-content .product-info-list .product-info-list-item {
-	position: relative;
-	background: @eddgray;
-	padding: 10px;
-	border: 2px solid @eddgrayhover;
-}
-
-.product-meta {
-	display: block;
-}
-
-.product-info-content .product-author {
-	display: block;
-	color: #777;
-	font-size: 1.3rem;
-	font-style: italic;
-	margin-bottom: 4px;
-}
-
-.product-info-content .product-version {
-	display: block;
-	font-size: 1.3rem;
-	display: inline-block;
-	line-height: 1;
-
-	& .changelog-link {
-		display: block;
-		background: #a2acb2;
-		color: #fff;
-		padding: 4px 8px;
-		border-radius: 3px;
-		-webkit-transition: background .2s ease-in-out;
-		-moz-transition: background .2s ease-in-out;
-		-o-transition: background .2s ease-in-out;
-		-ms-transition: background .2s ease-in-out;
-		transition: background .2s ease-in-out;
-
-		&:hover {
-			background: @eddblue;
+		& .product-info-list-item {
+			position: relative;
+			background: @eddgray;
+			padding: 10px;
+			border: 2px solid @eddgrayhover;
 		}
 	}
 
-	& span {
+	& .product-meta {
 		display: block;
-		background: @eddgrayhover;
-		padding: 4px 8px;
-		border-radius: 3px;
+
+		& .product-author {
+			display: block;
+			color: #777;
+			font-size: 1.3rem;
+			font-style: italic;
+			margin-bottom: 4px;
+		}
+	}
+
+	& .product-version {
+		display: block;
+		font-size: 1.3rem;
+		display: inline-block;
+		line-height: 1;
+
+		& .changelog-link {
+			display: block;
+			background: #a2acb2;
+			color: #fff;
+			padding: 4px 8px;
+			border-radius: 3px;
+			-webkit-transition: background .2s ease-in-out;
+			-moz-transition: background .2s ease-in-out;
+			-o-transition: background .2s ease-in-out;
+			-ms-transition: background .2s ease-in-out;
+			transition: background .2s ease-in-out;
+
+			&:hover {
+				background: @eddblue;
+			}
+		}
+
+		& span {
+			display: block;
+			background: @eddgrayhover;
+			padding: 4px 8px;
+			border-radius: 3px;
+		}
 	}
 }
 
@@ -177,38 +179,6 @@
 /* ----------------------------- *
  * Extensions and Themes (Downloads)
  * ----------------------------- */
-
-.extension,
-.theme,
-.edd-download {
-	float: left;
-	width: 345px;
-	margin-top: 10px;
-	margin-bottom: 25px;
-	margin-right: 32px;
-	position: relative;
-	height: 300px;
-	padding-top: 10px;
-	background: #fff;
-}
-
-.extension,
-.edd-download {
-	height: 320px;
-}
-
-.site-container .content .extension,
-.site-container .content .edd-download {
-	width: 47%;
-	padding: 10px 0;
-	margin-right: 0;
-}
-
-.site-container .content .grid-item.column:nth-child(odd) .extension,
-.site-container .content .grid-item.column:nth-child(odd) .edd-download {
-	margin-right: 6%;
-}
-
 .changelog-content {
 	& strong {
 		font-size: 18px;
@@ -220,225 +190,6 @@
 		padding-bottom: 20px;
 		margin-bottom: 20px;
 	}
-}
-
-.theme {
-	height: 220px;
-	padding-bottom: 10px;
-
-	.theme-name {
-		display: block;
-		padding-left: 15px;
-		padding-top: 12px;
-	}
-}
-
-.extension.extension-clear,
-.theme.theme-clear,
-.edd-download.edd-download-clear {
-	margin-right: 0;
-}
-
-.extension h2,
-.theme h2,
-.edd-download h2,
-.extension p,
-.theme p,
-.edd-download p {
-	margin: 0;
-	padding: 10px;
-}
-
-.extension h2,
-.theme h2,
-.edd-download h2 { font-size: 18px; font-weight: normal; }
-
-.extension p,
-.theme p,
-.edd-download p {
-	padding-top: 0;
-	color: #555;
-}
-
-.extension .overlay,
-.edd-download .overlay {
-	background: rgba(0,0,0,0.75);
-	cursor: pointer;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 220px;
-	display: block;
-	opacity: 0;
-	-webkit-transition: opacity .2s ease-in-out;
-	-moz-transition: opacity .2s ease-in-out;
-	-o-transition: opacity .2s ease-in-out;
-	-ms-transition: opacity .2s ease-in-out;
-	transition: opacity .2s ease-in-out;
-}
-
-.extension .overlay a,
-.edd-download .overlay a {
-	display: inline-block;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -10px;
-}
-
-.extension .overlay .overlay-view-details,
-.edd-download .overlay .overlay-view-details {
-	margin-left: -112px;
-}
-
-.theme .overlay span {
-	display: block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-left: -50px;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	margin-top: -10px;
-}
-
-.extension i.third-party,
-.edd-download i.third-party,
-.download-grid-item i.third-party {
-	display: block;
-	background: url(images/ribbon-3rd-party.png) no-repeat;
-	width: 99px;
-	height: 99px;
-	position: absolute;
-	top: -4px;
-	right: -5px;
-}
-
-.extension i.free,
-.edd-download i.free {
-	display: block;
-	background: url(images/ribbon-free.png) no-repeat;
-	width: 99px;
-	height: 99px;
-	position: absolute;
-	top: -4px;
-	right: -6px;
-}
-
-.extension:hover .overlay,
-.theme:hover .overlay,
-.edd-download:hover .overlay { opacity: 1; }
-
-.extensions-grid,
-.edd-downloads-grid {
-	margin: 0;
-	padding: 0;
-}
-
-.extensions-grid ul,
-.edd-downloads-grid ul {
-	list-style: none;
-	margin: 10px 0 0 0;
-	padding: 0;
-
-	& li {
-		width: 32.5%;
-		margin-right: 1%;
-		display: inline-block;
-		margin-bottom: 1%;
-	}
-}
-
-.extensions-grid ul li a,
-.edd-downloads-grid ul li a {
-	display: block;
-	background: #fff;
-	padding: 20px;
-	font-size: 18px;
-	font-weight: 300;
-	-webkit-transition: all .2s linear;
-	-moz-transition: all .2s linear;
-	-o-transition: all .2s linear;
-	-ms-transition: all .2s linear;
-	transition: all .2s linear;
-}
-
-.extensions-grid ul li .preview-image,
-.edd-downloads-grid ul li .preview-image {
-	height: 194px;
-}
-
-.extensions-grid ul li a img,
-.edd-downloads-grid ul li a img {
-	margin-left: -10px;
-	margin-top: -10px;
-	max-width: 290px;
-}
-
-.extensions-grid ul li a .price,
-.edd-downloads-grid ul li a .price,
-.extensions-grid ul li a p,
-.edd-downloads-grid ul li a p {
-	font-size: 14px;
-	display: block;
-	margin: 8px 0;
-	color: #888;
-}
-
-.extensions-grid ul li a p,
-.edd-downloads-grid ul li a p {
-	margin-top: 20px;
-	margin-bottom: 0;
-	padding-bottom: 0;
-	font-size: 16px;
-}
-
-.extensions-grid ul li a:hover,
-.edd-downloads-grid ul li a:hover {
-	background: #f9f9f9;
-	color: #111;
-	box-shadow: 0 0 2px #ccc;
-}
-
-.extension.free-extension,
-.edd-downloads.free-edd-download {
-	.overlay a {
-		margin-left: -54px;
-	}
-}
-
-.extension .thumbnail-holder,
-.edd-download .thumbnail-holder {
-	max-width: 320px;
-	max-height: 200px;
-	margin: 0 auto;
-	vertical-align: middle;
-	overflow: hidden;
-	display: block;
-}
-
-.theme .thumbnail-holder {
-	max-width: 320px;
-	max-height: 160px;
-	margin: 0 auto;
-	vertical-align: middle;
-	overflow: hidden;
-	display: block;
-}
-
-.pagination {
-	display: block;
-	padding-top: 30px;
-	border-top: 1px solid #efefef;
 }
 
 .pagination .current,
@@ -530,212 +281,338 @@
 	padding-bottom: 0 !important;
 }
 
-.theme-preview {
-	background: #fff;
-	margin: 0 auto;
-	text-align: center;
-	padding: 30px 0;
 
-	img {
-		display: inline-block;
+/* ----------------------------- *
+ * Support Page Template
+ * ----------------------------- */
+.support-page {
+	& .support-section {
+		margin-bottom: 33px;
+
+		& .support-section-link {
+			display: block;
+			padding: 20px;
+			border: 2px solid @eddgrayhover;
+			border-radius: 4px;
+			box-sizing: border-box;
+			-webkit-transition: border .2s;
+			-moz-transition: border .2s;
+			transition: border .2s;
+
+			&:hover {
+				border: 2px solid @eddblue;
+			}
+
+			& .support-section-title {
+				color: #333;
+				font-weight: 500;
+				margin: 0 0 .4em;
+			}
+
+			& .support-section-description {
+				color: #999;
+				font-size: 14px;
+				font-size: 1.4rem;
+			}
+		}
+
+		&.special-section .support-section-link {
+			border: 2px solid #ccc;
+
+			&:hover {
+				border: 2px solid @eddblue;
+			}
+		}
+	}
+
+	& .support-title-wrap {
+		text-align: center;
+		margin: 0 !important;
+		max-width: 100% !important;
+
+		& .support-title {
+			font-size: 3rem;
+			margin: 0 0 1em;
+		}
+	}
+
+	& .edd-docs-link-wrap {
+		text-align: center;
+		margin-bottom: 50px;
+
+		& a {
+			min-width: 240px;
+		}
+
+		& .button-break {
+			display: inline-block;
+			width: 6px;
+		}
+
+		& .edd-support-ticket-link {
+			padding: 10px;
+			min-width: 240px;
+		}
+	}
+
+	& .support-docs-form-container {
+		&.pre-sale-support-form-container .edd-gf-support-tickets-form {
+			margin-top: 0;
+		}
+
+		&.refund-support-form-container {
+			margin-top: 20px;
+		}
+	}
+
+	& .standard-support-form-container {
+		display: none; /* click .edd-support-ticket-link to open (display: block;) */
+
+		&:not(.pre-sale-support-form-container) {
+			border-top: 3px solid @eddgray;
+		}
+	}
+
+	& .edd-gf-support-docs {
+		text-align: center;
+
+		& .helpscout-docs {
+			& label {
+				display: none !important;
+			}
+
+			& input[type="text"] {
+				background: @eddgray;
+				font-size: 24px !important;
+				padding: 10px !important;
+				border: 3px solid @eddgrayhover;
+				border-radius: 4px;
+				width: 100% !important;
+				max-width: 520px !important;
+			}
+		}
+
+		& span.results-found {
+			font-size: 18px;
+			display: block;
+			padding-top: 10px;
+			margin: 0 auto;
+			color: #999;
+		}
+
+		& .gform_wrapper .docs-search-results {
+			text-align: left;
+			padding-left: 0;
+			border: 3px solid @eddgrayhover;
+			border-radius: 4px;
+			margin: 30px auto !important;
+			max-width: 700px;
+
+			&:before {
+				content: "Please review our complete list of suggestions to proceed.";
+				display: block;
+				background: @eddgray;
+				color: #999;
+				font-size: 18px;
+				padding: 10px 20px;
+				border-bottom: 3px solid #f1f1f1;
+			}
+
+			& li {
+				list-style: none !important;
+
+				&.article {
+					border-bottom: 1px solid #f1f1f1;
+					margin: 0;
+
+					& a {
+						display: block;
+						font-size: 18px;
+						padding: 10px 20px;
+
+						&:hover {
+							background: @eddgray;
+							color: @eddblue;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	& .gform_wrapper,
+	.gform_wrapper .gform_page_footer {
+		border: none;
+		margin: 0;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	& .gform_wrapper {
+		&.edd-gf-support-tickets-form {
+			margin: 60px 0 100px;
+
+			& input[type="text"],
+			input[type="url"],
+			input[type="email"],
+			input[type="tel"],
+			input[type="number"],
+			input[type="password"],
+			textarea {
+				padding: 10px !important;
+				margin-bottom: 0 !important;
+			}
+
+			& .ginput_container label,
+			.top_label .gfield_description {
+				color: #999;
+				font-size: 15px;
+				line-height: 1.6;
+			}
+
+			& .top_label {
+				& .gfield.edd-gf-support-tickets-form-email .gfield_description {
+					display: none;
+				}
+
+				& .gfield_label {
+					font: 300 24px/1.4 @font-family;
+					margin: 0;
+				}
+
+				& .gfield.edd-gf-support-tickets-form-email .gfield_label {
+					display: none;
+				}
+
+				& .edd-gf-support-tickets-form-subject .gfield_label {
+					margin-bottom: 10px;
+				}
+			}
+
+			& [class*="edd-gf-support-tickets-form-"] {
+				padding-left: 0;
+				margin-bottom: 30px;
+			}
+
+			& .gfield.edd-gf-support-tickets-form-name {
+				margin-bottom: 15px;
+			}
+
+			& .gfield.edd-gf-support-tickets-form-email {
+				padding-bottom: 30px;
+				border-bottom: 3px solid @eddgray;
+			}
+
+			& .edd-gf-support-tickets-form-email .gfield_description {
+				background: #f1f1f1;
+				color: #777;
+				font-size: 13px;
+				line-height: 1.6;
+				padding: 10px !important;
+				border-radius: 4px;
+			}
+
+			& .edd-gf-support-tickets-form-subject {
+				margin-bottom: 10px;
+			}
+
+			& .edd-gf-support-tickets-form-subject li {
+				display: inline-block;
+				width: 48.5%;
+			}
+
+			& .gsection {
+				padding: 0;
+				border: none;
+				margin: 0;
+			}
+
+			& .gsection h2 {
+				display: none;
+			}
+
+			& .gsection .gsection_description {
+				width: 100%;
+			}
+
+			& .edd-gf-divider {
+				clear: both;
+				color: @eddgray;
+				text-align: center;
+				padding: 0;
+				border: none;
+				border-top: 4px solid @eddgray;
+				margin: 0 0 20px;
+				height: 1px;
+			}
+
+			& .edd-gf-divider:after {
+				content: "\f078";
+				font-family: 'FontAwesome';
+				display: inline-block;
+				position: relative;
+				top: -25px;
+				font-size: 30px;
+				padding: 0 10px;
+				background: white;
+			}
+		}
+
+		& .gform_page_footer {
+			text-align: center;
+		}
+
+		& .edd-gf-support-form,
+		.edd-gf-pre-sale-question-form,
+		.edd-gf-refund-request-form {
+			margin-right: auto;
+			margin-left: auto;
+			max-width: 780px;
+		}
+
+		& .edd-gf-support-form {
+			& .gform_page_footer {
+				padding-top: 40px;
+				border-top: 3px solid @eddgrayhover;
+
+				& img {
+					display: block;
+					max-width: 40px;
+					margin: 10px auto;
+					clear: both
+				}
+			}
+		}
+
+		& .show-contact-form-wrap a,
+		.gform_page_footer input[type="button"],
+		.gform_page_footer input[type="submit"] {
+			padding: 10px;
+			margin-right: 0 !important;
+			min-width: 240px;
+		}
+
+		& .edd-gf-support-tickets-form-subject ul.gfield_radio li input[type="radio"]:checked+label,
+		.edd-gf-support-tickets-form-subject ul.gfield_checkbox li input[type="checkbox"]:checked+label {
+			color: #666;
+		}
+
+		& .edd-gf-support-tickets-form .gfield_radio {
+			margin-left: 0 !important;
+		}
+
+		& .edd-gf-support-tickets-form .docs-support-link {
+			margin: 30px 0 30px 2.5% !important;
+		}
+
+		& .edd-gf-support-tickets-form .gform_footer input[type="submit"] {
+			font-size: 18px;
+			padding: 10px;
+			min-width: 240px;
+		}
 	}
 }
 
-
-/* ----------------------------- *
- * Support Page Template (shared Gravity Forms styles in forms.less)
- * ----------------------------- */
-.support-page .support-title-wrap {
-	text-align: center;
-	margin: 0 !important;
-	max-width: 100% !important;
-}
-
-.support-page .support-title {
-	font-size: 3.6rem;
-	font-weight: 300;
-	margin: 0 0 .7em;
-}
-
-.support-page .support-section {
-	margin-bottom: 33px;
-}
-
-.support-page .support-section-link {
-	display: block;
-	padding: 20px;
-	border: 2px solid @eddgrayhover;
-	border-radius: 4px;
-	box-sizing: border-box;
-	-webkit-transition: border .2s;
-	-moz-transition: border .2s;
-	transition: border .2s;
-}
-
-.support-page .special-section .support-section-link {
-	border: 2px solid #ccc;
-}
-
-.support-page .support-section-link:hover,
-.support-page .special-section .support-section-link:hover {
-	border: 2px solid @eddblue;
-}
-
-.support-page .support-section-title {
-	color: #333;
-	font-weight: 500;
-	margin: 0 0 .4em;
-}
-
-.support-page .support-section-description {
-	color: #999;
-	font-size: 14px;
-	font-size: 1.4rem;
-}
-
-.support-page .edd-docs-link-wrap {
-	text-align: center;
-	margin-bottom: 50px;
-}
-
-.support-page .edd-docs-link-wrap a {
-	min-width: 240px;
-}
-
-.support-page .edd-docs-link {
-	font-size: 18px;
-	padding: 10px;
-	margin-bottom: 10px;
-}
-
-.support-page .button-break {
-	display: inline-block;
-	width: 6px;
-}
-
-.support-page .edd-support-ticket-link {
-	font-size: 18px;
-	padding: 10px;
-	min-width: 240px;
-}
-
-.support-page .standard-support-form-container {
-	display: none; /* click .edd-support-ticket-link to open (display: block;) */
-}
-
-.support-page .support-docs-form-container:not(.pre-sale-support-form-container) {
-	border-top: 3px solid @eddgray;
-}
-
-.support-page .edd-gf-support-docs {
-	text-align: center;
-}
-
-.support-page .gform_wrapper,
-.support-page .gform_wrapper .gform_page_footer {
-	border: none;
-	margin: 0;
-	width: 100%;
-	max-width: 100%;
-}
-
-.support-page .helpscout-docs label {
-	display: none !important;
-}
-
-.support-page .helpscout-docs input[type="text"] {
-	background: @eddgray;
-	font-size: 24px !important;
-	padding: 10px !important;
-	border: 3px solid @eddgrayhover;
-	border-radius: 4px;
-	width: 100% !important;
-	max-width: 520px !important;
-}
-
-span.results-found {
-	font-size: 18px;
-	display: block;
-	padding-top: 10px;
-	margin: 0 auto;
-	color: #999;
-}
-
-.support-page .gform_wrapper .docs-search-results {
-	text-align: left;
-	padding-left: 0;
-	border: 3px solid @eddgrayhover;
-	border-radius: 4px;
-	margin: 30px auto !important;
-	max-width: 700px;
-}
-
-.support-page .gform_wrapper .docs-search-results:before {
-	content: "Please review our complete list of suggestions to proceed.";
-	display: block;
-	background: @eddgray;
-	color: #999;
-	font-size: 18px;
-	padding: 10px 20px;
-	border-bottom: 3px solid #f1f1f1;
-}
-
-.support-page .gform_wrapper .docs-search-results li {
-	list-style: none !important;
-}
-
-.support-page .gform_wrapper .docs-search-results li.article {
-	border-bottom: 1px solid #f1f1f1;
-	margin: 0;
-}
-
-.support-page .gform_wrapper .docs-search-results li.article a {
-	display: block;
-	font-size: 18px;
-	padding: 10px 20px;
-}
-
-.support-page .gform_wrapper .docs-search-results li.article a:hover {
-	background: @eddgray;
-	color: @eddblue;
-}
-
-.support-page .gform_wrapper .gform_page_footer {
-	text-align: center;
-}
-
-.support-page .edd-gf-support-form,
-.support-page .edd-gf-pre-sale-question-form,
-.support-page .edd-gf-refund-request-form {
-	margin-right: auto;
-	margin-left: auto;
-	max-width: 780px;
-}
-
-.support-page .gform_wrapper .show-contact-form-wrap a,
-.support-page .gform_wrapper .gform_page_footer input[type="button"],
-.support-page .gform_wrapper .gform_page_footer input[type="submit"] {
-	font-size: 18px;
-	padding: 10px;
-	margin-right: 0 !important;
-	min-width: 240px;
-}
-
-.support-page .edd-gf-support-form .gform_page_footer {
-	padding-top: 40px;
-	border-top: 3px solid @eddgrayhover;
-}
-
-.support-page .gform_wrapper .gform_page_footer img {
-	display: block;
-	max-width: 40px;
-	margin: 10px auto;
-	clear: both
-}
-
-.support-page .edd-gf-support-tickets-form {
-	margin-bottom: 30px;
-}
 
 /* Support Ticket Form - Gravity Forms */
 #gform_wrapper_4,
@@ -747,139 +624,6 @@ span.results-found {
 #gform_4 /* delete - local */,
 #gform_14 {
 	width: 100%;
-}
-
-.edd-gf-support-tickets-form {
-	margin: 60px 0 100px;
-}
-
-.pre-sale-support-form-container .edd-gf-support-tickets-form {
-	margin-top: 0;
-}
-
-.support-page .support-docs-form-container.refund-support-form-container {
-	margin-top: 20px;
-}
-
-.edd-gf-support-tickets-form input[type="text"],
-.edd-gf-support-tickets-form input[type="url"],
-.edd-gf-support-tickets-form input[type="email"],
-.edd-gf-support-tickets-form input[type="tel"],
-.edd-gf-support-tickets-form input[type="number"],
-.edd-gf-support-tickets-form input[type="password"],
-.edd-gf-support-tickets-form textarea {
-	padding: 10px !important;
-	margin-bottom: 0 !important;
-}
-
-.edd-gf-support-tickets-form .ginput_container label,
-.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield_description {
-	color: #999;
-	font-size: 15px;
-	line-height: 1.6;
-}
-
-.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield.edd-gf-support-tickets-form-email .gfield_description {
-	display: none;
-}
-
-.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield_label {
-	font: 300 24px/1.4 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
-	margin: 0;
-}
-
-.edd-gf-support-tickets-form [class*="edd-gf-support-tickets-form-"] {
-	padding-left: 0;
-	margin-bottom: 30px;
-}
-
-.edd-gf-support-tickets-form .gfield.edd-gf-support-tickets-form-name {
-	margin-bottom: 15px;
-}
-
-.gform_wrapper .edd-gf-support-tickets-form .top_label .gfield.edd-gf-support-tickets-form-email .gfield_label {
-	display: none;
-}
-
-.edd-gf-support-tickets-form .gfield.edd-gf-support-tickets-form-email {
-	padding-bottom: 30px;
-	border-bottom: 3px solid @eddgray;
-}
-
-.edd-gf-support-tickets-form .edd-gf-support-tickets-form-email .gfield_description {
-	background: #f1f1f1;
-	color: #777;
-	font-size: 13px;
-	line-height: 1.6;
-	padding: 10px !important;
-	border-radius: 4px;
-}
-
-.gform_wrapper .edd-gf-support-tickets-form .top_label .edd-gf-support-tickets-form-subject .gfield_label {
-	margin-bottom: 10px;
-}
-
-.gform_wrapper .edd-gf-support-tickets-form .edd-gf-support-tickets-form-subject {
-	margin-bottom: 10px;
-}
-
-.gform_wrapper .edd-gf-support-tickets-form .edd-gf-support-tickets-form-subject li {
-	display: inline-block;
-	width: 48.5%;
-}
-
-.gform_wrapper .edd-gf-support-tickets-form .gsection {
-	padding: 0;
-	border: none;
-	margin: 0;
-}
-
-.gform_wrapper .edd-gf-support-tickets-form .gsection h2 {
-	display: none;
-}
-
-.gform_wrapper .edd-gf-support-tickets-form .gsection .gsection_description {
-	width: 100%;
-}
-
-.edd-gf-support-tickets-form .edd-gf-divider {
-	clear: both;
-	color: @eddgray;
-	text-align: center;
-	padding: 0;
-	border: none;
-	border-top: 4px solid @eddgray;
-	margin: 0 0 20px;
-}
-
-.edd-gf-support-tickets-form .edd-gf-divider:after {
-	content: "\f078";
-	font-family: 'FontAwesome';
-	display: inline-block;
-	position: relative;
-	top: -25px;
-	font-size: 30px;
-	padding: 0 10px;
-	background: white;
-}
-
-.gform_wrapper .edd-gf-support-tickets-form-subject ul.gfield_radio li input[type="radio"]:checked+label,
-.gform_wrapper .edd-gf-support-tickets-form-subject ul.gfield_checkbox li input[type="checkbox"]:checked+label {
-	color: #666;
-}
-
-.gform_wrapper .edd-gf-support-tickets-form .gfield_radio {
-	margin-left: 0 !important;
-}
-
-.gform_wrapper .edd-gf-support-tickets-form .docs-support-link {
-	margin: 30px 0 30px 2.5% !important;
-}
-
-.gform_wrapper .edd-gf-support-tickets-form .gform_footer input[type="submit"] {
-	font-size: 18px;
-	padding: 10px;
-	min-width: 240px;
 }
 
 
@@ -1284,132 +1028,6 @@ span.results-found {
 	background: @eddgray;
 }
 
-.filters label {
-	display: block;
-	margin-top: 15px;
-	font-size: 18px;
-	font-weight: 400;
-}
-
-.filters form label {
-	display: inline-block;
-	font-size: 14px;
-	font-size: 1.4rem;
-	font-weight: normal;
-}
-
-.filters input[type="text"] {
-	background: #fff;
-	border: 1px solid #ccc;
-	padding: 6px 8px;
-	margin-top: 10px;
-	width: 350px;
-
-	&:focus {
-		border: 1px solid @eddblue;
-		outline: none;
-		-webkit-box-shadow: 0px 0px 3px rgba(40,149,217,0.4);
-		box-shadow: 0px 0px 3px rgba(40,149,217,0.4);
-	}
-}
-
-.filters .submit {
-	margin-top: 5px;
-}
-
-.filters input[type="submit"] {
-	margin-top: 2px;
-	padding: 4px 14px;
-	margin-right: 6px;
-	background: @eddblue;
-	display: inline-block;
-	color: #fff;
-	-webkit-box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
-	box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
-	cursor: pointer;
-	border-radius: 3px;
-	-webkit-transition: all .2s ease-in-out;
-	-moz-transition: all .2s ease-in-out;
-	-o-transition: all .2s ease-in-out;
-	-ms-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	line-height: 24px;
-	font-weight: 300;
-	border: 1px solid #287aad;
-
-	&:hover {
-		background: #5ba3cf;
-		color: #fff;
-	}
-
-	&:active {
-		-webkit-box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
-		box-shadow: inset 0 2px 6px rgba(0,0,0,0.3);
-	}
-}
-
-.page-id-635.login .content {
-	max-width: 640px;
-}
-
-.login h1,
-.login h3 {
-	text-align: center;
-}
-
-.login h3 {
-	margin: 0 0 10px;
-	padding: 0;
-}
-
-#loginform,
-#passwordreset {
-	max-width: 380px;
-	margin: 40px auto 0;
-
-	& label {
-		font-weight: 400;
-	}
-}
-
-#loginform fieldset,
-#passwordreset fieldset {
-	width: 100%;
-	border: none;
-}
-
-#loginform fieldset input[type="text"],
-#passwordreset fieldset input[type="text"],
-#loginform fieldset input[type="password"] {
-	font-weight: 300;
-	background: @eddgray;
-	padding: 10px;
-	width: 100%;
-	outline: none;
-	margin: 0 0 10px;
-	border: 3px solid @eddgrayhover;
-	border-radius: 3px;
-}
-
-#loginform input[type="checkbox"] {
-	margin-bottom: 13px;
-}
-
-#loginform input[type="submit"] {
-	display: block;
-	margin-top: ;
-}
-
-#edd_commissioned_products {
-	h3 {
-		margin-top: 0;
-	}
-}
-
 .edd_user_commissions,
 #edd_commissioned_products_table {
 	border-collapse: collapse;
@@ -1455,7 +1073,7 @@ span.results-found {
 #edd_user_commissions_unpaid_total,
 #edd_user_commissions_paid_total,
 #edd_user_commissions_revoked_total {
-	font-size: 20px;
+	font-size: 1.8rem;
 	font-weight: 500;
 	margin: 0 0 20px;
 }
@@ -1504,34 +1122,6 @@ span.results-found {
 	}
 }
 
-#edd-support-tickets {
-	list-style: none;
-	padding-left: 0;
-	border-bottom: 1px solid #eee;
-	margin-bottom: 0;
-}
-
-#edd-support-tickets li {
-	border-bottom: 1px solid #eee;
-	padding: 0.3em 1em;
-}
-
-#edd-support-tickets li:nth-child(odd) {
-	background: @eddgray;
-}
-
-#edd-support-tickets li:last-child {
-	border: none;
-}
-
-#edd-support-tickets .resolved {
-	color: #1b7c43;
-}
-
-#edd-support-tickets .notresolved {
-	color: #f00;
-}
-
 #account-page .edd_sl_license_row input.edd_sl_license_key {
 	background: none;
 	color: #777;
@@ -1543,6 +1133,44 @@ span.results-found {
 	border: none;
 }
 
+#loginform,
+#passwordreset {
+	max-width: 380px;
+	margin: 40px auto 0;
+
+	& label {
+		font-weight: 400;
+	}
+}
+
+#loginform fieldset,
+#passwordreset fieldset {
+	width: 100%;
+	border: none;
+}
+
+#loginform fieldset input[type="text"],
+#passwordreset fieldset input[type="text"],
+#loginform fieldset input[type="password"] {
+	font-weight: 300;
+	background: @eddgray;
+	padding: 10px;
+	width: 100%;
+	outline: none;
+	margin: 0 0 10px;
+	border: 3px solid @eddgrayhover;
+	border-radius: 3px;
+}
+
+#loginform input[type="checkbox"] {
+	margin-bottom: 13px;
+}
+
+#loginform input[type="submit"] {
+	display: block;
+	margin-top: ;
+}
+
 
 /* ----------------------------- *
  * Checkout
@@ -1552,254 +1180,261 @@ span.results-found {
 	width: 100%;
 }
 
-.edd-checkout .checkout-content {
+.edd-checkout {
+	&:not(.edd-checkout-cart-empty) .site-header {
+		text-align: center;
+	}
+
+	&:not(.edd-checkout-cart-empty) .header-area .site-title {
+		float: none;
+	}
+}
+
+.checkout-content {
 	background: #fff;
 	padding: 30px 50px;
 	border-radius: 4px;
 	margin: 0 auto;
 	width: 100%;
 	max-width: 750px;
-}
 
-.edd-checkout .entry-title {
-	font-size: 26px;
-}
+	& .entry-title {
+		font-size: 2.6rem;
+	}
 
-.edd-checkout .entry-content {
-	margin-bottom: 0;
-}
+	& .entry-content {
+		margin-bottom: 0;
+	}
 
-.edd-checkout:not(.edd-checkout-cart-empty) .site-header {
-	text-align: center;
-}
+	& #edd_checkout_cart {
+		border-collapse: inherit;
+		border: 1px solid @eddgrayhover;
+		border-width: 0 1px 1px 0;
+	}
 
-.edd-checkout:not(.edd-checkout-cart-empty) .header-area .site-title {
-	float: none;
-}
+	& #edd_checkout_cart .edd_cart_item_image img {
+		border-radius: 2px;
+	}
 
-#edd_checkout_cart {
-	border-collapse: inherit;
-	border: 1px solid @eddgrayhover;
-	border-width: 0 1px 1px 0;
-}
+	& #edd_checkout_cart .edd_cart_header_row th,
+	#edd_checkout_cart td,
+	#edd_checkout_cart th {
+		border-right: none;
+		border-bottom: none;
+	}
 
-#edd_checkout_cart .edd_cart_item_image img {
-	border-radius: 2px;
-}
+	& #edd_checkout_form_wrap fieldset#edd_sl_renewal_fields,
+	#edd_checkout_form_wrap .edd-cart-adjustment,
+	#edd_checkout_form_wrap #edd_show_discount,
+	#edd_checkout_form_wrap #edd-discount-code-wrap,
+	#edd_checkout_form_wrap #edd_payment_mode_select,
+	#edd_checkout_form_wrap #edd_final_total_wrap,
+	#edd_checkout_form_wrap fieldset {
+		background: #fff;
+		padding: 0;
+		border: none;
+	}
 
-#edd_checkout_cart .edd_cart_header_row th,
-#edd_checkout_cart td,
-#edd_checkout_cart th {
-	border-right: none;
-	border-bottom: none;
-}
+	& #edd_checkout_form_wrap label {
+		font-weight: 500;
+	}
 
-.edd-checkout #edd_checkout_form_wrap fieldset#edd_sl_renewal_fields,
-#edd_checkout_form_wrap .edd-cart-adjustment,
-#edd_checkout_form_wrap #edd_show_discount,
-#edd_checkout_form_wrap #edd-discount-code-wrap,
-#edd_checkout_form_wrap #edd_payment_mode_select,
-#edd_checkout_form_wrap #edd_final_total_wrap,
-#edd_checkout_form_wrap fieldset {
-	background: #fff;
-	padding: 0;
-	border: none;
-}
+	& #edd_sl_show_renewal_form_wrap,
+	#edd_checkout_form_wrap #edd_show_discount,
+	#edd-login-account-wrap,
+	#edd-new-account-wrap {
+		color: #333;
+		margin: 0;
+		font-weight: normal;
+		margin-bottom: 10px;
+		font-size: 18px;
+		font-weight: 500;
 
-#edd_checkout_form_wrap label {
-	font-weight: 500;
-}
+		& a {
+			display: block;
+			color: #777;
+			font-size: 1.3rem;
+			line-height: 1.4;
+			font-weight: 400;
+			text-decoration: underline;
 
-#edd_sl_show_renewal_form_wrap,
-#edd_checkout_form_wrap #edd_show_discount,
-#edd-login-account-wrap,
-#edd-new-account-wrap {
-	color: #333;
-	margin: 0;
-	font-weight: normal;
-	margin-bottom: 10px;
-	font-size: 18px;
-	font-weight: 500;
-
-	& a {
-		display: block;
-		color: #777;
-		font-size: 1.3rem;
-		line-height: 1.4;
-		font-weight: 400;
-		text-decoration: underline;
-
-		&:hover {
-			text-decoration: none;
+			&:hover {
+				text-decoration: none;
+			}
 		}
 	}
-}
 
-#edd_sl_renewal_form,
-#edd_sl_cancel_renewal_form {
-	margin-bottom: 20px;
-}
-
-#edd_checkout_form_wrap .edd-cart-adjustment input.edd-submit {
-	display: block !important;
-	padding: 10px 14px;
-	margin-top: 6px;
-}
-
-#edd_checkout_form_wrap #edd-login-account-wrap,
-#edd_checkout_form_wrap #edd-new-account-wrap {
-	background: none;
-}
-
-#edd_checkout_form_wrap #edd_login_fields,
-#edd_checkout_form_wrap #edd_register_fields,
-#edd_checkout_form_wrap fieldset#edd_register_fields #edd_checkout_user_info {
-	margin-bottom: 50px;
-}
-
-#edd_checkout_form_wrap #edd-payment-mode-wrap span.edd-payment-mode-label,
-#edd_checkout_form_wrap #edd-payment-mode-wrap .edd-gateway-option {
-	font-weight: 400;
-}
-
-.edd-checkout .entry-title,
-#edd_checkout_form_wrap legend,
-#edd_checkout_form_wrap fieldset#edd_cc_fields legend,
-.complete-purchase-title {
-	font-size: 24px;
-	font-weight: 500;
-	margin-bottom: 30px;
-	border-bottom: 3px solid #eaeaea;
-	padding: 0 0 6px;
-	font-weight: 500;
-}
-
-#edd_purchase_form_wrap > fieldset,
-#edd_checkout_form_wrap fieldset#edd_cc_fields {
-	background: none;
-	padding: 0;
-	border: none;
-	margin-bottom: 50px;
-}
-
-#edd_checkout_form_wrap input[type=text],
-#edd_checkout_form_wrap input[type=email],
-#edd_checkout_form_wrap input[type=password],
-#edd_checkout_form_wrap textarea {
-	background: @eddgray;
-	padding: 10px;
-	border: 3px solid @eddgrayhover;
-	border-radius: 4px;
-}
-
-#edd_checkout_form_wrap span.card-type {
-	top: 49px;
-	right: 200px;
-}
-
-#ssl-seal {
-	position: absolute;
-	top: 100px;
-	right: 20px;
-	text-align: center;
-}
-
-#edd_checkout_form_wrap .edd-alert-warn {
-	background: #fcf8e3;
-	font-weight: 500;
-	padding: 20px;
-	border: none;
-	border-radius: 4px;
-
-	& input[type="checkbox"] {
-		float: none;
-	}
-
-	& label {
-		display: inline;
-		line-height: 1.6;
-		font-weight: 500;
-		margin: 0;
-	}
-}
-
-#edd_terms {
-	background: @eddgray;
-	color: #555;
-	font-size: 13px;
-	font-size: 1.3rem;
-	padding: 14px 16px;
-	border: 3px solid @eddgrayhover;
-	border-radius: 4px 4px 4px 0;
-	margin-bottom: 0;
-	max-height: 300px;
-	overflow: scroll;
-
-	& p,
-	& ul,
-	& ol {
+	& #edd_sl_renewal_form,
+	#edd_sl_cancel_renewal_form {
 		margin-bottom: 20px;
 	}
-}
 
-#edd_show_terms {
-	background: @eddgrayhover;
-	font-size: 15px;
-	font-size: 1.5rem;
-	padding: 4px 10px 4px 20px;
-	border-radius: 3px;
-	margin-bottom: 28px;
-	max-width: 122px;
+	& #edd_checkout_form_wrap .edd-cart-adjustment input.edd-submit {
+		display: block !important;
+		padding: 10px 14px;
+		margin-top: 6px;
+	}
 
-	& a {
-		color: #666;
+	& #edd_checkout_form_wrap #edd-login-account-wrap,
+	#edd_checkout_form_wrap #edd-new-account-wrap {
+		background: none;
+	}
 
-		&:before {
-			font-family: "FontAwesome";
+	& #edd_checkout_form_wrap #edd_login_fields,
+	#edd_checkout_form_wrap #edd_register_fields,
+	#edd_checkout_form_wrap fieldset#edd_register_fields #edd_checkout_user_info {
+		margin-bottom: 50px;
+	}
+
+	& #edd_checkout_form_wrap #edd-payment-mode-wrap span.edd-payment-mode-label {
+		font-size: 1.8rem;
+		font-weight: 500;
+		margin: 20px 0 10px;
+	}
+
+	#edd_checkout_form_wrap #edd-payment-mode-wrap .edd-gateway-option {
+		font-weight: 400;
+	}
+
+	& .edd-checkout .entry-title,
+	#edd_checkout_form_wrap legend,
+	#edd_checkout_form_wrap fieldset#edd_cc_fields legend,
+	.complete-purchase-title {
+		font-size: 24px;
+		font-weight: 500;
+		margin-bottom: 30px;
+		border-bottom: 3px solid #eaeaea;
+		padding: 0 0 6px;
+		font-weight: 500;
+	}
+
+	& #edd_purchase_form_wrap > fieldset,
+	#edd_checkout_form_wrap fieldset#edd_cc_fields {
+		background: none;
+		padding: 0;
+		border: none;
+		margin-bottom: 50px;
+	}
+
+	& #edd_checkout_form_wrap input[type=text],
+	#edd_checkout_form_wrap input[type=email],
+	#edd_checkout_form_wrap input[type=password],
+	#edd_checkout_form_wrap textarea {
+		background: @eddgray;
+		padding: 10px;
+		border: 3px solid @eddgrayhover;
+		border-radius: 4px;
+	}
+
+	& #edd_checkout_form_wrap span.card-type {
+		top: 49px;
+		right: 200px;
+	}
+
+	& #ssl-seal {
+		position: absolute;
+		top: 100px;
+		right: 20px;
+		text-align: center;
+	}
+
+	& #edd_checkout_form_wrap .edd-alert-warn {
+		background: #fcf8e3;
+		color: #555;
+		padding: 20px;
+		border: none;
+		border-radius: 4px;
+
+		& input[type="checkbox"] {
+			float: none;
+		}
+
+		& label {
+			display: inline;
+			line-height: 1.6;
+			font-weight: 500;
+			margin: 0;
 		}
 	}
-}
 
-#edd_terms:not([style*="none"]) + #edd_show_terms {
-	border-radius: 0 0 3px 3px;
-}
+	& #edd_terms {
+		background: @eddgray;
+		color: #555;
+		font-size: 13px;
+		font-size: 1.3rem;
+		padding: 14px 16px;
+		border: 3px solid @eddgrayhover;
+		border-radius: 4px 4px 4px 0;
+		margin-bottom: 0;
+		max-height: 300px;
+		overflow: scroll;
 
-#edd_purchase_submit label {
-	font-weight: 400;
-}
+		& p,
+		& ul,
+		& ol {
+			margin-bottom: 20px;
+		}
+	}
 
-#edd_final_total_wrap {
-	text-align: center;
-}
+	& #edd_show_terms {
+		background: @eddgrayhover;
+		font-size: 15px;
+		font-size: 1.5rem;
+		padding: 4px 10px 4px 20px;
+		border-radius: 3px;
+		margin-bottom: 28px;
+		max-width: 122px;
 
-#edd_checkout_form_wrap #edd_final_total_wrap {
-	margin-top: 20px;
-}
+		& a {
+			color: #666;
 
-#edd_final_total_wrap strong,
-#edd_final_total_wrap span {
-	font-size: 24px;
-}
+			&:before {
+				font-family: "FontAwesome";
+			}
+		}
+	}
 
-#edd_final_total_wrap strong {
-	font-weight: 400;
-}
+	& #edd_terms:not([style*="none"]) + #edd_show_terms {
+		border-radius: 0 0 3px 3px;
+	}
 
-#edd_final_total_wrap span {
-	color: @green;
-	font-weight: 500;
-}
+	& #edd_purchase_submit label {
+		font-weight: 400;
+	}
 
-#edd_checkout_form_wrap #edd_purchase_submit {
-	margin-bottom: 0;
-}
+	& #edd_final_total_wrap {
+		text-align: center;
+	}
 
-#edd-purchase-button {
-	display: block;
-	font-size: 18px;
-	padding: 14px;
-	margin-top: 20px;
-	width: 100%;
+	& #edd_checkout_form_wrap #edd_final_total_wrap {
+		margin-top: 20px;
+
+		& strong,
+		span {
+			font-size: 24px;
+		}
+
+		& strong {
+			font-weight: 400;
+		}
+
+		& span {
+			color: @green;
+			font-weight: 500;
+		}
+	}
+
+	& #edd_checkout_form_wrap #edd_purchase_submit {
+		margin-bottom: 0;
+	}
+
+	& #edd-purchase-button {
+		display: block;
+		font-size: 18px;
+		padding: 14px;
+		margin-top: 20px;
+		width: 100%;
+	}
 }
 
 
@@ -1925,9 +1560,8 @@ span.results-found {
 	display: block;
 	font-size: 20px;
 	padding: 10px;
-	margin: 0 auto;
+	margin: 2px auto 0;
 	width: 300px;
-	margin-top: 2px;
 	background: @eddblue;
 	color: #fff;
 	-webkit-box-shadow: inset 0 -2px 0 rgba(0,0,0,0.1);
@@ -2134,16 +1768,6 @@ span.results-found {
 
 .card-expiry-month, .card-expiry-year {
 	width: auto !important;
-}
-
-
-/* ----------------------------- *
- * Support Pricing Signup
- * ----------------------------- */
-.page-id-130 {
-	.content {
-		width: 640px;
-	}
 }
 
 
@@ -2426,7 +2050,7 @@ span.results-found {
 .edd-downloads .third-party-extensions-section {
 	text-align: center;
 	padding: 30px 0;
-	border-top: 2px solid @eddgrayhover;
+	border-top: 2px solid @eddgray;
 	margin-top: 10px;
 }
 
@@ -2532,706 +2156,6 @@ span.results-found {
 	background: #fff;
 	padding: 50px;
 	border-radius: 4px;
-}
-
-
-/* ----------------------------- *
- * Starter package
- * ----------------------------- */
-#starter-package .full-width-content {
-	background: #fff;
-	padding: 50px;
-	border-radius: 4px;
-}
-
-#starter-package .entry-title {
-	background: @eddblue url('images/mascot/edd-starter-package-header.png') no-repeat right bottom;
-	color: #fff;
-	padding: 34px 50px;
-	border-radius: 4px 4px 0 0;
-	margin: -50px -50px 50px;
-}
-
-#starter-package .entry-headline {
-	display: block;
-	font: 300 30px/1.4 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
-	margin-bottom: 20px;
-}
-
-#starter-package .package-description {
-	float: left;
-	margin-bottom: 0;
-	width: 50%;
-}
-
-#starter-package .package-discount {
-	float: right;
-	text-align: center;
-	background: #F5F8FC;
-	padding: 30px;
-	border-radius: 4px;
-	margin-top: -55px;
-	width: 45%;
-}
-
-#starter-package .package-discount span {
-	display: block;
-	color: @green;
-	font-weight: 700;
-	font-size: 30px;
-	margin-top: 16px;
-}
-
-#starter-package .edd-gf-section {
-	padding: 0;
-	border: none;
-	margin: 0;
-}
-
-#starter-package .edd-gf-section h2 {
-	display: none;
-}
-
-#starter-package .edd-gf-payment h2 {
-	display: block;
-	margin-bottom: 30px !important;
-}
-
-#starter-package .edd-gf-divider {
-	clear: both;
-	color: @eddgray;
-	text-align: center;
-	padding: 0;
-	border: none;
-	border-top: 4px solid @eddgray;
-	margin: 30px 0;
-	height: 0;
-}
-
-#starter-package .edd-gf-divider:after {
-	content: "\f078";
-	font-family: FontAwesome;
-	display: inline-block;
-	position: relative;
-	top: -25px;
-	font-size: 30px;
-	padding: 0 10px;
-	background: white;
-}
-
-#starter-package .gsection_description {
-	width: 100%;
-}
-
-#starter-package .starter-package-headline {
-	font-weight: 300;
-	text-align: center;
-	padding: 30px 0;
-	margin: 30px 0;
-}
-
-#starter-package .gform_wrapper {
-	max-width: 100%;
-}
-
-#starter-package .gfield {
-	position: relative;
-}
-
-#starter-package .edd-gf-select {
-	float: left;
-	clear: none;
-	width: 500px;
-}
-
-#starter-package select,
-#starter-package .gform_wrapper .chosen-container {
-	max-width: 100%;
-}
-
-#starter-package .edd-gf-email-marketing,
-#starter-package .edd-gf-merchant-processor {
-	padding: 50px 0;
-	border-top: 4px solid @eddgray;
-}
-
-#starter-package .edd-gf-email-marketing {
-	float: left;
-	padding-right: 50px;
-	border-right: 2px solid @eddgray;
-}
-
-#starter-package .edd-gf-merchant-processor {
-	float: right;
-	padding-left: 50px;
-	border-left: 2px solid @eddgray;
-}
-
-#starter-package .edd-gf-marketing,
-#starter-package .edd-gf-accounting,
-#starter-package .edd-gf-misc {
-	float: left;
-	clear: none;
-	padding: 50px 0 30px;
-	border: 4px solid @eddgray;
-	border-width: 4px 0;
-	margin-bottom: 30px;
-	width: 319px;
-	min-height: 560px;
-}
-
-#starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-marketing,
-#starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-accounting {
-	background: #fff;
-	padding: 50px 0 30px;
-	border: 4px solid @eddgray;
-	border-width: 4px 0;
-}
-
-#starter-package .edd-gf-marketing,
-#starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-marketing {
-	padding-right: 50px;
-	border-right: 2px solid @eddgray;
-}
-
-#starter-package .edd-gf-accounting,
-#starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-accounting {
-	padding: 50px 50px 0;
-	border: 2px solid @eddgray;
-	border-width: 4px 2px;
-	width: 361px;
-}
-
-#starter-package .gfield_checkbox input[type="checkbox"]:disabled + label {
-	color: #bbb;
-}
-
-#starter-package .gfield_checkbox li input[type="checkbox"] {
-	margin-top: 4px !important;
-}
-
-#starter-package ul.gform_fields li.edd-gf-accounting input[type="radio"] {
-	margin: 3px 5px 3px 2px !important;
-}
-
-#starter-package ul.gform_fields li.edd-gf-accounting input[type="radio"] + label {
-	margin-left: 26px !important;
-}
-
-#starter-package .edd-gf-misc {
-	padding-left: 50px;
-	border-left: 2px solid @eddgray;
-}
-
-#starter-package .gfield_label,
-#starter-package .edd-gf-payment h2 {
-	font: 300 32px/1.4 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
-	margin: 0;
-}
-
-#starter-package .gfield_required {
-	display: none;
-}
-
-#starter-package .gfield_description {
-	padding-top: 0;
-	margin-bottom: 0;
-	width: 100%;
-}
-
-#starter-package .gfield_description p {
-	font-size: 13px;
-	padding: 20px 0;
-	border: 1px solid @eddgray;
-	border-width: 1px 0 0;
-}
-
-#starter-package .edd-gf-label-tip {
-	display: inline-block;
-	background: #F5F8FC;
-	font-size: 13px;
-	padding: 3px 8px;
-	border-radius: 3px;
-	margin: 4px 0 10px;
-}
-
-#starter-package .gfield_error.edd-gf-marketing .edd-gf-label-tip,
-#starter-package .gfield_error.edd-gf-accounting .edd-gf-label-tip,
-#starter-package .gfield_error.edd-gf-misc .edd-gf-label-tip {
-	background: #ffdfe0;
-}
-
-#starter-package .gfield_contains_required .edd-gf-label-tip:after {
-	display: inline-block;
-	content: "*";
-	color: #EDA3A3;
-	margin-left: 4px;
-}
-
-#starter-package .edd-gf-step {
-	display: none;
-	position: absolute;
-		top: 0;
-		right: 0;
-}
-
-#starter-package .edd-gf-selected-extensions,
-#starter-package .edd-gf-selected-extensions .starter-package-headline {
-	font-size: 20px;
-	padding: 0;
-	border: none;
-	margin: 0;
-}
-
-#starter-package .edd-gf-selected-extensions h2 {
-	display: none;
-}
-
-#starter-package .gfield_price {
-	display: inline-block;
-	font-size: 13px;
-	text-align: center;
-	padding: 10px 10px 5px;
-	border-radius: 4px;
-	width: 33.33%;
-}
-
-#starter-package .gfield_price .gfield_label {
-	display: block;
-	background: @eddgray;
-	font-size: 13px;
-	font-weight: 400;
-	font-family: 'Roboto', Helvetica, Arial, sans-serif;
-	padding: 6px 4px;
-	border-radius: 4px;
-}
-
-#starter-package .ginput_product_price_label {
-	display: none;
-}
-
-#starter-package .ginput_product_price {
-	display: none;
-}
-
-#starter-package .edd-gf-total-price {
-	display: block;
-	font-size: 20px;
-	text-align: center;
-	padding: 0;
-	margin: 0;
-	width: 100%;
-}
-
-#starter-package .edd-gf-total-price .ginput_container {
-	display: inline-block;
-}
-
-#starter-package .edd-gf-total-price .ginput_total {
-	color: @green;
-	font-size: 30px;
-}
-
-#starter-package .edd-gf-total-price .gfield_label {
-	display: inline;
-	background: none;
-	font-size: 20px;
-	margin-right: 10px;
-}
-
-#starter-package .edd-gf-payment,
-#starter-package .edd-gf-payment-method {
-	margin: 0 auto !important;
-	max-width: 660px;
-}
-
-#starter-package .edd-gf-email-field .gfield_label,
-#starter-package .edd-gf-payment-method .gfield_label {
-	display: none;
-}
-
-#starter-package .edd-gf-payment-method .gfield_radio {
-	margin: 0 !important;
-}
-
-#starter-package .edd-gf-payment-method .gfield_radio li {
-	display: inline-block;
-	margin: 0 4% 0 0;
-	width: 48%;
-}
-
-#starter-package .edd-gf-payment-method .gfield_radio li:last-child {
-	margin-right: 0;
-}
-
-#starter-package .edd-gf-payment-method .gfield_radio li input {
-	display: none;
-}
-
-#starter-package .edd-gf-payment-method .gfield_radio li label {
-	background: @eddgray;
-	color: #ccc;
-	font-size: 22px;
-	font-weight: 400;
-	padding: 20px;
-	border: 3px solid #eee;
-	border-radius: 4px;
-	margin: 0 !important;
-	width: 100%;
-	height: 78px;
-	transition: all .2s;
-	-moz-transition: all .2s;
-	-webkit-transition: all .2s;
-	cursor: pointer;
-}
-
-#starter-package .edd-gf-payment-method .gfield_radio li label:hover {
-	color: #999;
-}
-
-#starter-package .edd-gf-payment-method .gfield_radio li input + label:before {
-	font-size: 21px;
-	line-height: 1.2;
-	font-family: "FontAwesome";
-	content: "\f10c";
-	margin-right: 10px;
-}
-
-#starter-package .edd-gf-payment-method .gfield_radio li input:checked + label {
-	background: #F5F8FC;
-	color: #62a9d7;
-	font-weight: 400;
-	border: 3px solid #DAE7F0;
-}
-
-#starter-package .edd-gf-payment-method .gfield_radio li input:checked + label:before {
-	display: inline-block;
-	color: @green;
-	font-size: 21px;
-	line-height: 1.2;
-	font-family: "FontAwesome";
-	content: "\f058";
-	margin-right: 10px;
-}
-
-#starter-package .edd-gf-personal-info .starter-package-headline {
-	margin: 0;
-}
-
-#starter-package .edd-gf-name-field,
-#starter-package .edd-gf-email-field,
-#starter-package .edd-gf-credit-debit,
-#starter-package .edd-gf-billing-address,
-#starter-package .edd-gf-starter-discount,
-#starter-package .edd-gf-toc {
-	max-width: 660px;
-	margin: 30px auto !important;
-}
-
-#starter-package .gform_footer,
-#starter-package .edd-gf-name-field,
-#starter-package .edd-gf-email-field {
-	margin: 0 auto !important;
-}
-
-#starter-package .edd-gf-email-field {
-	margin-bottom: 30px !important;
-}
-
-#starter-package .edd-gf-name-field .gfield_label {
-	margin-bottom: 10px;
-}
-
-#starter-package .edd-gf-billing-address {
-	padding-bottom: 30px;
-	border-bottom: 4px solid @eddgray;
-	margin-top: 0 !important;
-}
-
-#starter-package .edd-gf-billing-address > label {
-	margin-bottom: 10px;
-}
-
-#starter-package input[type="text"] {
-	padding: 10px !important;
-	margin-bottom: 0 !important;
-}
-
-#starter-package .edd-gf-cc .ginput_full input[type="text"] {
-	width: 100% !important;
-}
-
-#starter-package .edd-gf-cc select {
-	background: #fff;
-	border: 3px solid @eddgrayhover;
-	height: 44px;
-	margin-left: 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	max-width: 100%;
-}
-
-#starter-package .edd-gf-cc .address_country select {
-	width: 100% !important%;
-}
-
-#starter-package .gfield_error.edd-gf-cc select {
-	border: 1px solid #790000;
-}
-
-#starter-package .edd-gf-email-field .gfield_description,
-#starter-package .edd-gf-cc .gfield_description,
-#starter-package .edd-gf-cc .ginput_container label {
-	color: #999;
-	font-size: 13px;
-	line-height: 25px;
-}
-
-#starter-package .edd-gf-buyer-detail .ginput_container,
-#starter-package .edd-gf-buyer-detail .ginput_container label {
-	color: #999;
-	font-size: 13px;
-	line-height: 25px;
-	margin: .188em 0 .4em 0;
-}
-
-#starter-package .edd-gf-name-field.edd-gf-buyer-detail .ginput_container {
-	margin-bottom: 0;
-}
-
-#starter-package .ginput_left,
-#starter-package .ginput_right {
-	margin: 0 4% 0 0;
-	width: 48%;
-}
-
-#starter-package .ginput_container_name > span {
-	padding: 0;
-	margin-right: 4%;
-	width: 48%;
-}
-
-#starter-package .ginput_container_name > span:nth-child(even) {
-	float: right;
-	margin-right: 0;
-}
-
-#starter-package .gform_wrapper .top_label input.medium,
-#starter-package .gform_wrapper .top_label select.medium {
-	width: 48%;
-}
-
-#starter-package .ginput_container_name > span:nth-child(even),
-#starter-package .ginput_right {
-	margin-right: 0;
-}
-
-#starter-package .ginput_container_name input[type="text"],
-#starter-package .ginput_left input[type="text"],
-#starter-package .ginput_right input[type="text"] {
-	margin-left: 0;
-	width: 100%;
-}
-
-#starter-package .edd-gf-starter-discount {
-	text-align: center;
-	padding-bottom: 20px;
-	margin-bottom: 0 !important;
-}
-
-#starter-package .edd-gf-starter-discount .gfield_label {
-	margin-bottom: 10px;
-}
-
-#starter-package .edd-gf-starter-discount .gfield_description {
-	font-size: 15px;
-	margin-bottom: 25px;
-}
-
-#starter-package .edd-gf-starter-discount input[type="text"],
-#starter-package .edd-gf-starter-discount input[type="text"]:active,
-#starter-package .edd-gf-starter-discount input[type="text"]:hover {
-	display: inline;
-	background: #F5F8FC;
-	color: #555;
-	font-size: 24px !important;
-	text-align: center;
-	border: none;
-	border-radius: 4px;
-	box-shadow: none;
-	max-width: 130px;
-}
-
-#starter-package .gform_footer {
-	text-align: center;
-}
-
-#starter-package .gform_footer input[type="submit"] {
-	display: block;
-	font-size: 20px;
-	padding: 10px;
-	margin: 0 auto;
-	width: 300px;
-}
-
-#starter-package .gform_ajax_spinner {
-	display: block;
-	margin: 10px auto 0;
-}
-
-#starter-package .gform_footer .gform_save_link {
-	color: #999;
-	margin: 10px 0 0;
-}
-
-#starter-package .gform_footer .gform_save_link:hover {
-	color: #555;
-}
-
-#starter-package .gform_wrapper div.validation_error {
-	background: #FFDFE0;
-	color: #790000;
-	font-size: 1em;
-	font-weight: 400;
-	padding: 10px 20px;
-	border: none;
-	border-radius: 4px;
-	margin: 25px 0;
-}
-
-#starter-package .gform_wrapper div.validation_error,
-#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container,
-#starter-package .gform_wrapper .top_label .gfield_error:not(.edd-gf-marketing) {
-	width: 100%;
-}
-
-#starter-package .gform_wrapper li.gfield_error .gfield_label {
-	color: #555;
-}
-
-#starter-package .gform_wrapper li.gfield.gfield_error {
-	padding: 30px;
-	border: none;
-	border-radius: 4px;
-	margin-top: 0;
-}
-
-#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required.edd-gf-marketing {
-	margin-top: 0 !important;
-	margin-bottom: 0 !important;
-}
-
-#starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-name-field {
-	padding-bottom: 0;
-	border-bottom: none;
-	border-radius: 4px 4px 0 0;
-}
-
-#starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-email-field {
-	padding-top: 10px;
-	border-top: none;
-	border-radius: 0 0 4px 4px;
-}
-
-#starter-package .gfield_description.validation_message {
-	color: #555;
-}
-
-#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.gfield_description,
-#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container,
-#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required label.gfield_label,
-#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required fieldset legend.gfield_label {
-	margin-left: 0;
-	max-width: 100%;
-}
-
-#starter-package .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.gfield_description.validation_message {
-	display: none;
-}
-
-#starter-package .form_saved_message {
-	background: #F5F8FC;
-	border: 2px solid #DAE7F0;
-	margin-top: 50px;
-}
-
-#starter-package .form_saved_message input[type="text"] {
-	background: #fff;
-	font-size: inherit !important;
-	padding: 6px 10px !important;
-	border: 3px solid @eddgrayhover;
-	border-radius: 3px;
-	margin-bottom: 10px;
-	min-width: 230px;
-	outline: none;
-}
-
-#starter-package .edd-gf-toc {
-	text-align: center;
-	margin-bottom: 0 !important;
-}
-
-#starter-package .edd-gf-toc .gfield_label {
-	margin-bottom: 10px;
-}
-
-#starter-package .edd-gf-toc .gfield_description {
-	font-size: 15px;
-	margin-bottom: 25px;
-}
-
-#starter-package .edd-gf-toc .gfield_checkbox li {
-	margin-bottom: 0;
-}
-
-#starter-package .edd-gf-toc .gfield_checkbox {
-	display: inline-block;
-}
-
-#starter-package .edd-gf-toc .gfield_checkbox li input {
-	display: none;
-}
-
-#starter-package .edd-gf-toc .gfield_checkbox li label {
-	background: @eddgray;
-	color: #ccc;
-	font-size: 22px;
-	padding: 15px;
-	border: 3px solid @eddgrayhover;
-	border-radius: 4px;
-	margin: 0 !important;
-	width: 100%;
-	height: 68px;
-	transition: all .2s;
-	-moz-transition: all .2s;
-	-webkit-transition: all .2s;
-	cursor: pointer;
-}
-
-#starter-package .edd-gf-toc .gfield_checkbox li label:hover {
-	color: #999;
-}
-
-#starter-package .edd-gf-toc .gfield_checkbox li input + label:before {
-	font-size: 21px;
-	line-height: 1.2;
-	font-family: "FontAwesome";
-	content: "\f10c";
-	margin-right: 10px;
-}
-
-#starter-package .edd-gf-toc .gfield_checkbox li input:checked + label {
-	background: #F5F8FC;
-	color: #62a9d7;
-	font-weight: 400;
-	border: 3px solid #DAE7F0;
-}
-
-#starter-package .edd-gf-toc .gfield_checkbox li input:checked + label:before {
-	display: inline-block;
-	color: @green;
-	content: "\f058";
 }
 
 

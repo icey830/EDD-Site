@@ -37,7 +37,7 @@ body {
 	color: #555;
 	font-size: 16px;
 	font-size: 1.6rem;
-	font-family: 'Roboto', Helvetica, Arial, sans-serif;
+	font-family: @font-family;
 	line-height: 1.625;
 }
 
@@ -67,8 +67,9 @@ body {
 h1, h2, h3, h4, h5, h6,
 .entry-title,
 .download-entry-title {
-	font-family: 'Roboto', 'Helvetica Neue', Helvetica, sans-serif;
+	font-family: @font-family;
 	line-height: 1.4;
+	font-weight: 500;
 	padding: 0;
 	margin: 0 0 .4em;
 }
@@ -76,38 +77,31 @@ h1, h2, h3, h4, h5, h6,
 h1 {
 	font-size: 36px;
 	font-size: 3.6rem;
-	font-weight: 300;
 }
 
 h2 {
 	font-size: 30px;
 	font-size: 3rem;
-	font-weight: 300;
 }
 
 h3 {
 	font-size: 24px;
 	font-size: 2.4rem;
-	font-weight: 300;
 }
 
 h4 {
 	font-size: 20px;
 	font-size: 2rem;
-	font-weight: 400;
 }
 
 h5 {
 	font-size: 18px;
 	font-size: 1.8rem;
-	font-weight: 500;
-	font-weight: 400;
 }
 
 h6 {
 	font-size: 16px;
 	font-size: 1.6rem;
-	font-weight: 500;
 }
 
 input[type="text"],
@@ -183,9 +177,13 @@ pre {
 	margin-bottom: 25px;
 }
 
-::-moz-placeholder { color: #999; }
+::-moz-placeholder {
+	color: #999;
+}
 
-::-webkit-input-placeholder { color: #999; }
+::-webkit-input-placeholder {
+	color: #999;
+}
 
 ::-moz-selection {
 	background-color: #333;
@@ -210,18 +208,18 @@ p:last-child {
 }
 
 blockquote {
-	padding: 0 0 0 25px;
-	margin: 0 0 25px 0;
-	font-style: italic;
 	color: #777;
-	border-left: 2px solid #eee;
+	font-style: italic;
+	padding: 0 0 0 25px;
+	border-left: 2px solid @eddgrayhover;
+	margin: 0 0 25px 0;
 }
 
 blockquote cite {
-	font-style: normal;
-	font-size: 14px;
-	color: #aaa;
 	display: block;
+	color: #aaa;
+	font-size: 1.4rem;
+	font-style: normal;
 	margin-top: 10px;
 
 	&:before {
@@ -244,7 +242,7 @@ q {
 }
 
 strong {
-	font-weight: 500 !important;
+	font-weight: 500 !important; /* Roboto does NOT look okay at 700 font-weight! */
 }
 
 pre,
@@ -294,12 +292,12 @@ dt {
 	background: #f8f8f8;
 	font-weight: 500;
 	padding: 4px 10px;
-	border: 1px solid #eee;
+	border: 1px solid @eddgrayhover;
 }
 
 dd {
 	padding: 4px 10px;
-	border: 1px solid #eee;
+	border: 1px solid @eddgrayhover;
 	border-radius: 0 0 4px 4px;
 	margin: -1px 0 1.5em;
 }
@@ -310,8 +308,8 @@ pre {
 	margin-bottom: 20px;
 	word-break: break-all;
 	word-wrap: break-word;
-	background-color: #f5f5f5;
-	border: 1px solid #ccc;
+	background-color: @eddgray;
+	border: 1px solid @eddgrayhover;
 	border-radius: 4px;
 
 	& code {
@@ -326,8 +324,8 @@ pre {
 code {
 	padding: 2px 4px;
 	white-space: nowrap;
-	background-color: #f7f8f9;
-	border: 1px solid #eee;
+	background-color: @eddgray;
+	border: 1px solid @eddgrayhover;
 	font-size: 14px !important;
 	border-radius: 4px;
 }
@@ -341,21 +339,21 @@ address {
 .content table {
 	font-size: 1.4rem;
 	text-align: left;
-	border: 1px solid #eee;
+	border: 1px solid @eddgrayhover;
 	border-radius: 0 0 4px 4px;
 	margin: 0 0 1.5em;
 	width: 100%;
 }
 
 .content table th {
-	background: #f8f8f8;
+	background: @eddgray;
 	font-weight: 500;
 }
 
 .content table th,
 .content table td {
 	padding: 4px 10px;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid @eddgrayhover;
 }
 
 .content table tr:last-child td {
@@ -393,22 +391,6 @@ address {
 	padding: 2px !important;
 	border: none !important;
 	border-radius: 0 !important;
-}
-
-.fl {
-	float: left;
-}
-
-.fr {
-	float: right;
-}
-
-.first {
-	margin-left: 0 !important;
-}
-
-.last {
-	margin-right: 0 !important;
 }
 
 

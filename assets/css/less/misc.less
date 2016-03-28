@@ -8,55 +8,56 @@
  * ----------------------------- */
 .tb-toggle {
 	margin: 0 0 25px;
+
+	& .toggle-trigger {
+		display: block;
+		background: @eddgray;
+		color: inherit;
+		font-size: 1em;
+		padding: .65em .65em .65em 2.75em;
+		border-radius: 4px;
+		position: relative;
+		-webkit-transition: background .2s ease-in-out;
+		-moz-transition: background .2s ease-in-out;
+		-o-transition: background .2s ease-in-out;
+		-ms-transition: background .2s ease-in-out;
+		transition: background .2s ease-in-out;
+
+		&.active {
+			border-radius: 4px 4px 0 0;
+
+			& span {
+				background-position:-15px 0;
+			}
+		}
+
+		&:hover {
+			background: @eddgrayhover;
+		}
+
+		& span {
+			background: url('images/toggle.png');
+			display: block;
+			margin: -7px 0 0 0;
+			position: absolute;
+			top: 50%;
+			left: .85em;
+			width: 15px;
+			height: 15px;
+		}
+	}
+
+	& .toggle-content {
+		/* display:none; */
+		background: @eddgray;
+		padding: 15px;
+		border-radius: 0 0 4px 4px;
+	}
 }
 
 .single-download .tb-toggle:last-child {
 	margin-top: 25px;
 	margin-bottom: 0;
-}
-
-.toggle-trigger {
-	background: #f8f8f8;
-	border-radius: 4px;
-}
-
-.toggle-trigger.active {
-	border-radius: 4px 4px 0 0;
-}
-
-.tb-toggle a.toggle-trigger {
-	color: inherit;
-	display: block;
-	font-size: 1em;
-	padding: .65em .65em .65em 2.75em;
-	position: relative;
-}
-
-.tb-toggle a.toggle-trigger:hover,
-.tb-toggle a.active {
-	background: @eddgrayhover;
-}
-
-.tb-toggle a.toggle-trigger span {
-	background: url(images/toggle.png);
-	display: block;
-	margin: -7px 0 0 0;
-	position: absolute;
-		top: 50%;
-		left: .85em;
-	width: 15px;
-	height: 15px;
-}
-
-.tb-toggle a.active span {
-	background-position:-15px 0;
-}
-
-.tb-toggle .toggle-content {
-	/* display:none; */
-	background: @eddgray;
-	padding: 15px;
-	border-radius: 0 0 4px 4px;
 }
 
 
@@ -296,37 +297,37 @@
 	border-top: 3px solid @eddgray;
 	border-width: 3px 0;
 	margin: 50px 0;
-}
 
-#recommended-products .recommended-products-header {
-	margin-bottom: 20px;
-}
+	& .recommended-products-header {
+		margin-bottom: 20px;
+	}
 
-#recommended-products .download-grid-item {
-	margin-bottom: 0;
-}
+	& .download-grid-item {
+		margin-bottom: 0;
 
-#recommended-products .download-grid-item .edd_cart_item_image img {
-	border-bottom: 1px solid @eddgrayhover;
-	border-radius: 4px 4px 0 0;
-	vertical-align: bottom;
-}
+		& .edd_cart_item_image img {
+			border-bottom: 1px solid @eddgrayhover;
+			border-radius: 4px 4px 0 0;
+			vertical-align: bottom;
+		}
 
-#recommended-products .download-grid-item .download-grid-item-info {
-	padding-bottom: 10px;
-}
+		& .download-grid-item-info {
+			padding-bottom: 10px;
 
-#recommended-products .download-grid-item .download-grid-item-info > p {
-	color: #777;
-	font-size: 1.3rem;
-	padding-bottom: 10px;
-	border-bottom: 3px solid @eddgrayhover;
-	min-height: 65px;
-	margin-bottom: 10px;
-}
+			& > p {
+				color: #777;
+				font-size: 1.3rem;
+				padding-bottom: 10px;
+				border-bottom: 3px solid @eddgrayhover;
+				min-height: 65px;
+				margin-bottom: 10px;
+			}
+		}
 
-#recommended-products .download-grid-item .download-grid-item-cta {
-	padding: 0 20px;
+		& .download-grid-item-cta {
+			padding: 0 20px;
+		}
+	}
 }
 
 
@@ -374,4 +375,14 @@
  * ----------------------------- */
 .edd-pr-message {
 	margin-bottom: 20px;
+}
+
+
+/* ----------------------------- *
+ * Jetpack
+ * ----------------------------- */
+div.sharedaddy .sd-content {
+	width: 100% !important;
+	float: none !important;
+	margin: 0 !important;
 }

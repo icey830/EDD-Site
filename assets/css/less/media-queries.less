@@ -121,16 +121,18 @@
 	}
 
 	/* post footer */
-	.edd-author-avatar,
-	.edd-author-bio {
-		float: none;
-		text-align: center;
-		margin: 0 auto 10px;
-	}
+	.edd-author-box {
+		& .edd-author-avatar,
+		.edd-author-bio {
+			float: none;
+			text-align: center;
+			margin: 0 auto 10px;
+		}
 
-	.edd-author-bio {
-		width: 100%;
-		max-width: 520px;
+		& .edd-author-bio {
+			width: 100%;
+			max-width: 520px;
+		}
 	}
 
 	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
@@ -213,8 +215,8 @@
 @media all and ( max-width: 900px ) {
 
 	/* general */
-	.section-header .section-title,
-	.hero-title {
+	.inner .section-header .section-title,
+	.inner .hero-title {
 		font-size: 30px;
 		font-size: 3rem;
 	}
@@ -669,6 +671,13 @@
 	}
 
 	/* product display */
+	.download-grid {
+		&.two-col:not(.narrow-grid) .download-grid-item .download-grid-title,
+		&.three-col .download-grid-item .download-grid-title {
+			font-size: 2.2rem;
+		}
+	}
+
 	.edd-downloads .section-header .filter-label,
 	.edd-downloads .section-header .filter {
 		width: 100%;
@@ -935,7 +944,7 @@
 		font-size: 1.6rem;
 	}
 
-	.support-page .button-break {
+	.support-page .edd-docs-link-wrap .button-break {
 		display: block;
 		height: 6px;
 	}
@@ -1045,14 +1054,9 @@
 
 	/* downloads display */
 	.download-grid {
-		&.two-col .download-grid-item,
+		&.two-col:not(.narrow-grid) .download-grid-item,
 		&.three-col .download-grid-item {
 			width: 100%;
-
-			& .download-grid-title,
-			& .download-grid-title {
-				font-size: 22px;
-			}
 		}
 	}
 
@@ -1157,12 +1161,6 @@
 	}
 
 	/* front page */
-	#front-page-hero .inner {
-		& .hero-info .site-headline .hero-title {
-			font-size: 3rem;
-		}
-	}
-
 	.front-page-extensions-content > .flex-container {
 		& .flex-two {
 			width: 100%;
