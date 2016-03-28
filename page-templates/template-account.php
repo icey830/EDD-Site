@@ -140,27 +140,29 @@ if ( is_user_logged_in() ) :
 													// get the rest of the license keys
 													if ( $i > 2 ) {
 														?>
-														<div class="toggle-keys-container flex-container">
-															<?php
-															foreach ( $license_keys as $key ) {
-
-																// get the product title
-																$post_title = explode( "-", $key->post_title, 2 );
-																$the_title = $post_title[0];
-
-																// get the license key
-																$the_key = get_post_meta( $key->ID, '_edd_sl_key', true );
-																?>
-																<div class="expired-key-item flex-two">
-																	<span class="licensed-product-title"><?php echo $the_title; ?></span><br>
-																	<div class="license-actions">
-																		<span class="licensed-product-key"><?php echo $the_key; ?></span><br>
-																		<a href="<?php echo home_url( '/checkout/?edd_license_key=' ) . $the_key; ?>">Renew license</a>
-																	</div>
-																</div>
+														<div class="toggle-keys-container">
+															<div class="flex-container">
 																<?php
-															}
-															?>
+																foreach ( $license_keys as $key ) {
+
+																	// get the product title
+																	$post_title = explode( "-", $key->post_title, 2 );
+																	$the_title = $post_title[0];
+
+																	// get the license key
+																	$the_key = get_post_meta( $key->ID, '_edd_sl_key', true );
+																	?>
+																	<div class="expired-key-item flex-two">
+																		<span class="licensed-product-title"><?php echo $the_title; ?></span><br>
+																		<div class="license-actions">
+																			<span class="licensed-product-key"><?php echo $the_key; ?></span><br>
+																			<a href="<?php echo home_url( '/checkout/?edd_license_key=' ) . $the_key; ?>">Renew license</a>
+																		</div>
+																	</div>
+																	<?php
+																}
+																?>
+															</div>
 														</div>
 														<a class="expired-key-toggle" href="#">Click here to view all expired license keys</a>
 														<?php
