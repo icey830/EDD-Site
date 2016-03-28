@@ -54,10 +54,7 @@ $no_duplicates = array(); // don't repeat the same theme twice
 	<div class="edd-downloads-area official-themes-area page-section-white full-width">
 		<div class="inner">
 			<div class="edd-downloads">
-				<div class="section-header">
-					<h2 class="section-title">Official Easy Digital Downloads Themes</h2>
-					<p class="section-subtitle">These themes were optimized to work with EDD and its extensions by our team members.</p>
-				</div>
+				<h2 class="section-title-alt">Official Easy Digital Downloads Themes</h2>
 				<section class="download-grid two-col clearfix">
 					<?php
 						$eddwp_theme_args = array(
@@ -120,10 +117,7 @@ $no_duplicates = array(); // don't repeat the same theme twice
 	<div class="recommended-downloads-area page-section-gray full-width">
 		<div class="inner">
 			<div class="recommended-downloads">
-				<div class="section-header">
-					<h2 class="section-title">Recommended Community Themes</h2>
-					<p class="section-subtitle">The following themes were designed by talented developers from the EDD community.</p>
-				</div>
+				<h2 class="section-title-alt">Recommended Community Themes</h2>
 				<section class="download-grid three-col clearfix">
 					<?php
 						$eddwp_theme_args = array(
