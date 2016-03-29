@@ -2,7 +2,5 @@
 *.lock
 *.DS_Store
 *.idea
-*.codekit-config.json
-codekit-config.json
 .ftppass
 /node_modules/
