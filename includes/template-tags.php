@@ -395,7 +395,7 @@ function eddwp_social_networking_profiles( $args = array() ) {
  */
 function eddwp_get_number_of_downloads() {
  	$total = get_transient( 'eddwp_get_number_of_downloads' );
-	if ( empty( $number ) ) {
+	if ( empty( $total ) ) {
 		$download_count = wp_count_posts( 'download' )->publish;
 		$exclude        = 0;
 
