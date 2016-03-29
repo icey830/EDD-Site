@@ -336,7 +336,8 @@ address {
 	font-style: normal;
 }
 
-.content table {
+.content table,
+.page-content table {
 	font-size: 1.4rem;
 	text-align: left;
 	border: 1px solid @eddgrayhover;
@@ -345,26 +346,32 @@ address {
 	width: 100%;
 }
 
-.content table th {
+.content table th,
+.page-content table th {
 	background: @eddgray;
 	font-weight: 500;
 }
 
 .content table th,
-.content table td {
+.content table td,
+.page-content table th,
+.page-content table td {
 	padding: 4px 10px;
 	border-bottom: 1px solid @eddgrayhover;
 }
 
-.content table tr:last-child td {
+.content table tr:last-child td,
+.page-content table tr:last-child td {
 	border: none;
 }
 
+.content table tr:last-child td:first-child,
 .content table tr:last-child td:first-child {
 	border-radius: 0 0 0 4px;
 }
 
-.content table tr:last-child td:last-child {
+.content table tr:last-child td:last-child,
+.page-content table tr:last-child td:last-child {
 	border-radius: 0 0 4px 0;
 }
 
@@ -374,7 +381,8 @@ address {
 	display: inline;
 }
 
-.content pre {
+.content pre,
+.page-content pre {
 	word-break: normal;
 	word-wrap: normal;
 	white-space: pre;
@@ -382,7 +390,8 @@ address {
 	font-size: 12px;
 }
 
-.content code {
+.content code,
+.page-content code {
 	white-space: normal;
 	display: inline !important;
 	color: #7a7a7a;
