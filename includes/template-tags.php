@@ -389,3 +389,28 @@ function eddwp_social_networking_profiles( $args = array() ) {
 		<?php
 	echo $args['wrap'] ? '</div>' : '';
 }
+
+/**
+ * Get the total number of non-third party extensions
+ */
+function eddwp_get_number_of_downloads() {
+ 	$total = get_transient( 'eddwp_get_number_of_downloads' );
+	if ( empty( $total ) ) {
+		$download_count = wp_count_posts( 'download' )->publish;
+		$exclude        = 0;
+
+		$bundles    = get_term( 1524, 'download_category' ); // Bundles
+		if ( ! empty( $bundles ) && ! is_wp_error( $bundles ) ) {
+			$exclude += $bundles->count;	
+		}
+		
+		$thirdparty = get_term( 1536, 'download_category' ); // Third Party
+		if ( ! empty( $thirdparty ) && ! is_wp_error( $thirdparty ) ) {
+			$exclude += $thirdparty->count;	
+		}
+		
+		$total = $download_count - $exclude;
+		set_transient( 'eddwp_get_number_of_downloads', $total, 60 * 60 * 24 );
+	}
+	return $total;
+}
