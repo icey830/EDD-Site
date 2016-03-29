@@ -135,7 +135,6 @@ get_header(); ?>
 						</div>
 						<div class="flex-two">
 							<div class="featured-stat">
-								<?php
 								<p><?php echo eddwp_get_number_of_downloads(); ?></p>
 								<span>Extensions & Themes</span>
 							</div>
