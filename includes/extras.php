@@ -33,7 +33,7 @@ function eddwp_get_comments_only_count( $count ) {
 	// Filter the comments count in the front-end only
 	if( ! is_admin() ) {
 		global $id;
-		$status = get_comments('status=approve&post_id=' . $id );
+		$status = get_comments('status=approve&post_id=' . absint( $id ) );
 		$comments_by_type = separate_comments( $status );
 		return count( $comments_by_type['comment'] );
 	}
@@ -90,7 +90,7 @@ add_action( 'init', 'eddwp_add_rewrite_tags' );
 // Process the rewrite rules added for the extension search and make sure that the
 // correct template is loaded when the extension search is initiated.
 function eddwp_process_rewrites() {
-	if ( isset( $_GET[ 'download_s' ] ) && ! empty ( $_GET['download_s'] ) && isset( $_GET['action'] ) && $_GET['action'] == 'download_search' ) {
+	if ( ! empty ( $_GET['download_s'] ) && isset( $_GET['action'] ) && 'download_search' === $_GET['action'] ) {
 		load_template( dirname( __DIR__ ) . '/search-downloads-extensions.php' );
 		die();
 	}
@@ -452,6 +452,7 @@ add_filter( 'body_class', 'eddwp_body_class' );
  * @return void
  */
 function eddwp_crew_enhanced_bio( $user ) {
+	$user_id =  ! empty( $user->ID ) ? $user->ID : 0;
 ?>
 <table class="form-table">
 	<tr>
@@ -459,7 +460,7 @@ function eddwp_crew_enhanced_bio( $user ) {
 			<label for="edd-bio">EDD Crew Bio</label>
 		</th>
 		<td>
-			<textarea rows="5" name="enhanced_bio" id="enhanced_bio" class="regular-text" ><?php echo esc_attr( get_the_author_meta( 'enhanced_bio', $user->ID ) ); ?></textarea><br />
+			<textarea rows="5" name="enhanced_bio" id="enhanced_bio" class="regular-text" ><?php echo esc_attr( get_the_author_meta( 'enhanced_bio', $user_id ) ); ?></textarea><br />
 			<span class="description">This enhanced bio appears on the EDD Crew page. This is <em>not</em> your single blog post footer.</span>
 		</td>
 	</tr>
