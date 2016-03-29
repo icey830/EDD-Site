@@ -393,8 +393,8 @@ function eddwp_social_networking_profiles( $args = array() ) {
 /**
  * Get the total number of non-third party extensions
  */
-function edd_get_number_of_extensions() {
- 	$number = get_transient( 'edd_get_number_of_extensions' );
+function eddwp_get_number_of_downloads() {
+ 	$number = get_transient( 'eddwp_get_number_of_downloads' );
 	if ( empty( $number ) ) {
 		$download_count = wp_count_posts( 'download' )->publish;
 		$terms          = get_terms( 'download_category', array( 'exclude' => 1536 ) );
@@ -407,7 +407,7 @@ function edd_get_number_of_extensions() {
 			}
 		}
 		$number = $download_count - $thirdparty;
-		set_transient( 'edd_get_number_of_extensions', $number, 60 * 60 * 24 );
+		set_transient( 'eddwp_get_number_of_downloads', $number, 60 * 60 * 24 );
 	}
 	return $number;
 }
