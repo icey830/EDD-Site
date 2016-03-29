@@ -1540,6 +1540,30 @@
 	}
 }
 
+#billing_info { // PayPal Pro confirmation
+	& > h3 {
+		background: @eddgray;
+		padding: 30px;
+		border-radius: 4px;
+		margin-bottom: 20px;
+	}
+
+	& > p > {
+		color: #999;
+
+		& strong {
+			color: #555;
+			font-size: 1.8rem;
+		}
+	}
+
+	& #order_summary {
+		border-collapse: inherit;
+		border: 3px solid @eddgrayhover;
+		border-radius: 4px;
+	}
+}
+
 
 /* ----------------------------- *
  * PayPal Checkout Receipt

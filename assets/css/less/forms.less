@@ -29,7 +29,8 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 #edd_sl_cancel_renewal_form .edd-submit.button,
 #subscriptions-tab > a,
 #edd-recurring-update-submit,
-#rcp_submit {
+#rcp_submit,
+#billing_info ~ form input[type="submit"] /* PayPal Express confirmation */ {
 	background: @eddblue;
 	color: #fff;
 	font-size: 1.6rem;
