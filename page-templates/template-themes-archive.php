@@ -35,7 +35,7 @@ $no_duplicates = array(); // don't repeat the same theme twice
 
 						echo edd_get_purchase_link( array( 'id' => get_the_ID() ) );
 						?>
-						or <a class="featured-download-secondary-link" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">see <?php the_title(); ?> details</a>
+						or <a class="featured-download-secondary-link" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">see more information</a>
 					</div>
 					<div class="featured-download-thumb">
 						<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
