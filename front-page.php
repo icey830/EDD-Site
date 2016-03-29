@@ -136,19 +136,7 @@ get_header(); ?>
 						<div class="flex-two">
 							<div class="featured-stat">
 								<?php
-								$download_count = wp_count_posts( 'download' )->publish;
-								$terms = get_terms( 'download_category', array( 'exclude' => 1536 ) );
-
-								if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-									foreach ( $terms as $term ) {
-										if ( '3rd-party' === $term->slug ) {
-											$thirdparty = $term->count;
-										}
-									}
-								}
-								$total = $download_count - $thirdparty;
-								?>
-								<p><?php echo $total; ?></p>
+								<p><?php echo edd_get_number_of_extensions(); ?></p>
 								<span>Extensions & Themes</span>
 							</div>
 							<div class="featured-stat">
