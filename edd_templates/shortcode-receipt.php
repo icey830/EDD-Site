@@ -6,7 +6,7 @@ global $edd_receipt_args;
 
 $payment   = get_post( $edd_receipt_args['id'] );
 
-if( empty( $payment ) ) : ?>
+if( empty( $payment ) || is_wp_error( $payment) ) : ?>
 
 	<div class="edd_errors edd-alert edd-alert-error">
 		<?php _e( 'The specified receipt ID appears to be invalid', 'easy-digital-downloads' ); ?>
