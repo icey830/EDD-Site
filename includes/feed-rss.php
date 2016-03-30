@@ -69,11 +69,11 @@ add_filter( 'request', 'eddwp_feed_request' );
  * Alter the WordPress Query for the feed
  */
 function eddwp_feed_query( $query ) {
-	if ( $query->is_feed && ( $query->query_vars['feed'] == 'extensions' || $query->query_vars['feed'] == 'addons' ) ) {
+	if ( $query->is_feed && ( $query->query_vars['feed'] === 'extensions' || $query->query_vars['feed'] === 'addons' ) ) {
 
 		$query->set( 'posts_per_page', 50 );
 
-		if( isset( $_GET['display'] ) && 'new' == $_GET['display'] ) {
+		if( isset( $_GET['display'] ) && 'new' === $_GET['display'] ) {
 
 			$tax_query = array(
 				'relation' => 'AND',
