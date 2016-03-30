@@ -403,7 +403,7 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'template-account';
 	}
 
-	if ( is_page_template( 'page-templates/template-product-info.php' ) ) {
+	if ( is_page_template( 'page-templates/template-download-directory.php' ) ) {
 		$classes[] = 'template-product-info';
 	}
 
