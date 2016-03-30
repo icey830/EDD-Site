@@ -22,7 +22,7 @@ get_header(); ?>
 								Get yearly access to Priority Support and always be at the front of the queue. We will provide technical support and even log into your site to solve problems. As a paid member, your responses will be answered as rapidly as possible.
 							</div>
 							<div class="support-type-cta">
-								<a class="button edd-submit blue" href="/support/register/?level=2">Sign up for yearly support</a>
+								<a class="button edd-submit blue" href="/support/register/?level=3">Sign up for yearly support</a>
 							</div>
 						</div>
 					</div>
@@ -36,7 +36,7 @@ get_header(); ?>
 								Get access to 45 days of in-depth setup assistance, trouble shooting, and access to Priority Support.
 							</div>
 							<div class="support-type-cta">
-								<a class="button edd-submit blue" href="/support/register/?level=1">Sign up for 45 days<span> of priority support</span></a>
+								<a class="button edd-submit blue" href="/support/register/?level=2">Sign up for 45 days<span> of priority support</span></a>
 							</div>
 						</div>
 					</div>
