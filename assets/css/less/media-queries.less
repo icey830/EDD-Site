@@ -1098,14 +1098,23 @@
 @media all and ( max-width: 480px ) {
 
 	/* header */
-	.site-title {
-		float: none;
-		text-align: center;
-		margin: 0 auto;
+	.header-area .inner {
+		padding-top: 30px;
+		padding-bottom: 30px;
 
-		& a {
-			display: block;
-			margin: 0;
+		& .site-title {
+			float: none;
+			text-align: center;
+			margin: 0 auto;
+
+			& a {
+				display: block;
+				margin: 0;
+			}
+
+			& .edd-logo {
+				max-width: 260px;
+			}
 		}
 	}
 
@@ -1521,6 +1530,10 @@
 
 
 @media all and ( max-width: 360px ) {
+	.header-area .inner .site-title .edd-logo {
+		max-width: 200px;
+	}
+
 	#front-page-hero .hero-info .site-headline {
 		& .hero-subtitle {
 			font-size: 1.6rem;
