@@ -179,7 +179,7 @@ the_post();
 				</div>
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-envelope-o"></i>Mailing List Integration</h6>
-					<p>Build relationships with your customers by keeping in touch with them after the purchase. Using our newsletter extensions, connect EDD to you favorite email marketing service tool. <a href="<?php echo home_url( '/downloads/category/extensions/newsletters/' ); ?>">View newsletter extensions</a>.</p>
+					<p>Build relationships with your customers by keeping in touch with them after the purchase. Using our newsletter extensions, connect EDD to you favorite email marketing service tool. <a href="<?php echo home_url( '/downloads/tag/newsletters/' ); ?>">View newsletter extensions</a>.</p>
 				</div>
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-database"></i>External File Storage</h6>
