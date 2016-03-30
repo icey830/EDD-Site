@@ -391,3 +391,54 @@ div.sharedaddy .sd-content {
 /* ----------------------------- *
  * Restrict Content Pro
  * ----------------------------- */
+.page-content h3.rcp_header {
+	margin: 40px 0 10px;
+}
+
+#rcp_registration_form {
+	padding: 0;
+
+	& .rcp_subscription_fieldset {
+		margin-bottom: 30px;
+
+		& .rcp_subscription_levels {
+			padding-top: 10px;
+
+			& label[class*="rcp_subscription_level_"] span:not([class*="rcp_level_description"]) {
+				font-weight: 500;
+			}
+		}
+
+		& .rcp_level_description {
+			border-left: none;
+			padding-left: 0;
+			color: #777;
+			font-size: 1.4rem;
+			color: #777;
+			font-style: italic;
+		}
+	}
+
+	& #rcp_registration_total_details {
+		border-collapse: inherit;
+		border: 3px solid @eddgrayhover;
+		border-radius: 4px;
+	}
+
+	& #rcp_payment_gateways label {
+		width: 100%;
+		max-width: 280px;
+	}
+
+	.rcp_form input[type="text"],
+	.rcp_form input[type="password"],
+	.rcp_form input[type="email"] {
+		background: @eddgray;
+		padding: 6px 10px;
+		width: 100%;
+		max-width: 300px;
+		outline: none;
+		border: 3px solid @eddgrayhover;
+		border-radius: 3px;
+	}
+}
