@@ -99,22 +99,6 @@ add_action( 'init', 'eddwp_process_rewrites' );
 
 
 /**
- * Connections for downloads post type
- *
- * Add these connections to the Custom Functions Plugin for EDD Site (then delete)
- */
-function temporary_eddwp_connection_types() {
-	p2p_register_connection_type( array(
-		'name' => 'downloads_to_posts',
-		'from' => 'download',
-		'to' => 'post',
-		'reciprocal' => true
-	) );
-}
-add_action( 'p2p_init', 'temporary_eddwp_connection_types' );
-
-
-/**
  * Remove the default purchase link that's appended after `the_content`
  */
 remove_action( 'edd_after_download_content', 'edd_append_purchase_link' );

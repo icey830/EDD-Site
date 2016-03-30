@@ -202,36 +202,16 @@ if ( $variable_pricing ) {
 		</div>
 	<?php } ?>
 	<?php
-		$external_doc = get_post_meta( get_the_ID(), 'ecpt_documentationlink', true );
-
-		// Find connected docs
-		$docs = new WP_Query( array(
-		  'connected_type' => 'downloads_to_posts',
-		  'connected_items' => get_queried_object(),
-		  'nopaging' => true,
-		  'post_status' => 'publish'
-		) );
-
-		if ( $external_doc || $docs->have_posts() ) {
-			echo '<div class="related-items download-info-section">';
-				// Display connected posts
-				if ( $external_doc || $docs->have_posts() ) :
-					echo '<h3 class="widget-title">Documentation</h3>';
-					echo '<ul class="related-links">';
-
-					// always show manual doc URL first
-					echo '<li><a href="' . esc_url( $external_doc ) . '">View Setup Documentation</a></li>';
-
-					// show P2P doc links if they still exist
-					while ( $docs->have_posts() ) : $docs->the_post(); ?>
-						<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-						<?php
-					endwhile;
-
-					echo '</ul>';
-					wp_reset_postdata();
-				endif;
-			echo '</div>';
+		$doc_url = get_post_meta( get_the_ID(), 'ecpt_documentationlink', true );
+		if ( $doc_url ) {
+			?>
+			<div class="related-items download-info-section">
+				<h3 class="widget-title">Documentation</h3>
+				<ul class="related-links">
+					<li><a href="<?php echo $doc_url; ?>">View Setup Documentation</a></li>
+				</ul>
+			</div>
+			<?php
 		}
 	?>
 	<div class="support-ticket download-info-section">
