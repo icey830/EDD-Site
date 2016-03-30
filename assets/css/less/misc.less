@@ -395,13 +395,13 @@ div.sharedaddy .sd-content {
 	margin: 40px 0 10px;
 }
 
-#rcp_registration_form {
+.entry-content #rcp_registration_form {
 	padding: 0;
 
 	& .rcp_subscription_fieldset {
 		margin-bottom: 30px;
 
-		& .rcp_subscription_levels {
+		& #rcp_subscription_levels {
 			padding-top: 10px;
 
 			& label[class*="rcp_subscription_level_"] span:not([class*="rcp_level_description"]) {
@@ -419,13 +419,13 @@ div.sharedaddy .sd-content {
 		}
 	}
 
-	& #rcp_registration_total_details {
+	& .rcp_registration_total_details {
 		border-collapse: inherit;
 		border: 3px solid @eddgrayhover;
 		border-radius: 4px;
 	}
 
-	& #rcp_payment_gateways label {
+	& .rcp_payment_gateways label {
 		width: 100%;
 		max-width: 280px;
 	}
