@@ -243,17 +243,6 @@ add_action( 'edd_purchase_form_before_submit', 'eddwp_complete_purchase_heading'
 
 
 /**
- * Reposition checkout page form errors
- */
-remove_action( 'edd_ajax_checkout_errors', 'edd_print_errors' );
-remove_action( 'edd_purchase_form_before_submit', 'edd_print_errors' );
-function eddwp_reposition_checkout_errors() {
-	add_action( 'edd_purchase_form_before_submit', 'edd_print_errors', 999 );
-}
-add_action( 'init', 'eddwp_reposition_checkout_errors' );
-
-
-/**
  * Renders the Checkout Submit section
  *
  * @since 1.3.3
