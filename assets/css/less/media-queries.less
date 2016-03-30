@@ -1054,7 +1054,8 @@
 
 	/* downloads display */
 	.download-grid {
-		&.two-col:not(.narrow-grid) .download-grid-item,
+		&.two-col .download-grid-item,
+		&.two-col.narrow-grid .download-grid-item,
 		&.three-col .download-grid-item {
 			width: 100%;
 		}
