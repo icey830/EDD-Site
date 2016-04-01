@@ -93,7 +93,7 @@ the_post();
 					</section>
 					<section class="brand-assets">
 						<h2>Meet Edd</h2>
-						<p>Ed is the mascot for Easy Digital Downloads. Treat him with care!</p>
+						<p>Edd is the mascot for Easy Digital Downloads. Treat him with care!</p>
 						<div id="mascots" class="flex-container">
 							<div class="mascot flex-three">
 								<p><a href="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/ed-1-large.png'; ?>" class="button" target="_blank">Download</a></p>
