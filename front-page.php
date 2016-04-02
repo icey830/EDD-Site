@@ -80,6 +80,14 @@ get_header(); ?>
 	</div>
 </div>
 
+<div id="integrations-title-area" class="page-section-white full-width">
+	<div class="inner">
+		<div class="integrations-title clearfix">
+			<h5><i class="fa fa-cogs"></i>Popular Integrations</h5>
+		</div>
+	</div>
+</div>
+
 <div id="front-page-features" class="features-grid-two page-section-white full-width">
 	<div class="inner">
 		<div class="features-grid-two-content">
