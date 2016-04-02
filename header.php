@@ -35,9 +35,9 @@
 	<div class="header-area page-section-darkblue full-width">
 		<div class="inner">
 			<div class="site-header clearfix">
-
-				<span class="site-title">
-					<?php
+				<div class="site-header-inner">
+					<span class="site-title">
+						<?php
 						if ( eddwp_edd_is_activated() ) :
 							$cart_contents = edd_get_cart_contents();
 						endif;
@@ -46,14 +46,20 @@
 							<a href="<?php echo get_option( 'siteurl' ); ?>">
 								<img class="edd-logo" src="<?php echo get_stylesheet_directory_uri() . '/images/edd-logo.svg'; ?>" alt="Easy Digital Downloads" data-fallback="<?php echo get_stylesheet_directory_uri() . '/images/edd-logo.png'; ?>">
 							</a>
-							<?php
+						<?php
 						else :
 							?>
 							<img class="edd-logo" src="<?php echo get_stylesheet_directory_uri() . '/images/edd-logo.svg'; ?>" alt="Easy Digital Downloads" data-fallback="<?php echo get_stylesheet_directory_uri() . '/images/edd-logo.png'; ?>">
-							<?php
+						<?php
 						endif;
-					?>
-				</span>
+						?>
+					</span>
+					<?php if ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) : ?>
+						<span class="header-cart">
+							<a href="<?php echo home_url( '/checkout/' ); ?>"><i class="fa fa-shopping-cart"></i><span class="cart-qty"><?php echo edd_get_cart_quantity() ? edd_get_cart_quantity() : ''; ?></span></a>
+						</span>
+					<?php endif; ?>
+				</div>
 
 				<?php
 					/**
