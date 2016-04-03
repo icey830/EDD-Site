@@ -455,9 +455,18 @@ function save_crew_enhanced_bio( $user_id ) {
 
 
 /**
- * AffiliateWP functions
+ * AffiliateWP - notice before registration form
  */
 function eddwp_affwp_login_link() {
-	echo '<p class="">Already an affiliate? <a href="#affwp-login-form">Log into your account</a>.</p>';
+	echo '<p>Already an affiliate? <a href="#affwp-login-form">Log into your account</a>.</p>';
 }
 add_action( 'affwp_affiliate_register_form_top', 'eddwp_affwp_login_link' );
+
+
+/**
+ * AffiliateWP - text before creatives
+ */
+function eddwp_affwp_creatives_description() {
+	echo '<p>Use the graphics below to promote Easy Digital Downloads on your website.</p>';
+}
+add_action( 'affwp_before_creatives', 'eddwp_affwp_creatives_description' );

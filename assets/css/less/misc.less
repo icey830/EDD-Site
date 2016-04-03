@@ -637,16 +637,47 @@ div.sharedaddy .sd-content {
 				}
 			}
 		}
+	}
 
-		& #affwp-graphs-filter {
-			& select {
-				background: @eddgray;
-				border: 3px solid @eddgrayhover;
-				height: 40px;
-				margin-left: 0;
-				-webkit-box-sizing: border-box;
-				-moz-box-sizing: border-box;
-				box-sizing: border-box;
+	& #affwp-graphs-filter {
+		& select {
+			background: @eddgray;
+			border: 3px solid @eddgrayhover;
+			height: 40px;
+			margin-left: 0;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+	}
+
+	& #affwp-affiliate-dashboard-creatives {
+		& > h4 + p {
+			padding-bottom: 20px;
+			border-bottom: 3px solid @eddgray;
+			margin-bottom: 30px;
+		}
+
+		& .affwp-creative-desc {
+			font-size: 2.2rem;
+			font-weight: 500;
+
+			& ~ p:last-of-type {
+				font-size: 1.4rem;
+				font-weight: 500;
+				margin-bottom: 4px;
+			}
+		}
+
+		& pre {
+			background: @eddgray;
+			padding: 10px 15px;
+			border: 3px solid @eddgrayhover;
+			border-radius: 4px;
+
+			& code {
+				font-size: 1.3rem !important;
+				line-height: 1.625;
 			}
 		}
 	}
