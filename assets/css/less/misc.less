@@ -447,12 +447,17 @@ div.sharedaddy .sd-content {
 /* ----------------------------- *
  * AffiliateWP
  * ----------------------------- */
-#affwp-register-form {
+#affwp-register-form,
+#affwp-login-form {
 	margin: 0 auto;
 	max-width: 600px;
 
+	&:not(:last-child) {
+		margin-bottom: 50px;
+	}
+
 	& legend {
-		font-size: 2.2rem;
+		font-size: 2.6rem;
 		font-weight: 500;
 	}
 
@@ -460,19 +465,114 @@ div.sharedaddy .sd-content {
 		font-size: 1.4rem;
 		font-weight: 500;
 		width: 100%;
-		max-width: 200px;
+		max-width: 170px;
 		vertical-align: top;
+
+		& #affwp-user-remember {
+			margin-right: 6px;
+		}
+
+		&.affwp-tos {
+			width: 100%;
+			max-width: 100%;
+		}
 	}
 
 	& input[type="text"],
 	input[type="email"],
+	input[type="password"],
 	textarea {
 		background: #f7f7f7;
 		padding: 10px;
 		width: 100%;
-		max-width: 300px;
+		max-width: 330px;
 		outline: none;
 		border: 3px solid #eaeaea;
 		border-radius: 3px;
+	}
+}
+
+#affwp-affiliate-dashboard {
+	& #affwp-affiliate-dashboard-tabs {
+		float: left;
+		width: 20%;
+		border: 3px solid @eddgrayhover;
+		border-radius: 4px;
+		margin-bottom: 30px;
+
+		& li {
+			padding: 0;
+			margin: 0;
+			width: 100%;
+
+			&.active {
+				font-weight: 500;
+
+				& a {
+					background: @eddgray;
+				}
+			}
+
+			&:not(:last-child) {
+				border-bottom: 3px solid @eddgrayhover;
+			}
+
+			& a {
+				display: block;
+				color: #555;
+				font-size: 1.4rem;
+				padding: 8px;
+
+				&:hover {
+					background: @eddgray;
+				}
+
+				&:before {
+					display: inline-block;
+					font-family: "fontawesome";
+					text-align: center;
+					margin-right: 5px;
+					min-width: 25px;
+				}
+			}
+
+			&:nth-child(1) a:before { // Affiliate URLs
+				content: "\f0c1";
+			}
+
+			&:nth-child(2) a:before { // Statistics
+				content: "\f200";
+			}
+
+			&:nth-child(3) a:before { // Graphs
+				content: "\f201";
+			}
+
+			&:nth-child(4) a:before { // Referrals
+				content: "\f08e";
+			}
+
+			&:nth-child(5) a:before { // Visits
+				content: "\f015";
+			}
+
+			&:nth-child(6) a:before { // Creatives
+				content: "\f1c5";
+			}
+
+			&:nth-child(7) a:before { // Settings
+				content: "\f1de";
+			}
+		}
+	}
+
+	& .affwp-tab-content {
+		float: right;
+		width: 75%;
+
+		& h4:first-child {
+			color: #555;
+			font-size: 2.6rem;
+		}
 	}
 }
