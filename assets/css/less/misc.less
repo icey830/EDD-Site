@@ -574,5 +574,80 @@ div.sharedaddy .sd-content {
 			color: #555;
 			font-size: 2.6rem;
 		}
+
+		& input[type="text"],
+		input[type="email"] {
+			background: @eddgray;
+			padding: 10px;
+			outline: none;
+			border: 3px solid #eaeaea;
+			border-radius: 3px;
+		}
+
+		& .affwp-table {
+			font-size: 1.4rem;
+			border-collapse: inherit;
+			border: 3px solid @eddgrayhover;
+			border-radius: 4px;
+
+			& th,
+			td {
+				line-height: 20px;
+				padding: 12px 10px;
+			}
+
+			& th {
+				font-weight: 500;
+			}
+		}
+
+		& #affwp-generate-ref-url {
+			max-width: 500px;
+
+			& .affwp-referral-url-wrap {
+				margin-bottom: 20px;
+
+				& > label {
+					font-weight: 500;
+					width: 100%;
+				}
+
+				& .description {
+					color: #777;
+					font-size: 1.4rem;
+					font-style: italic;
+				}
+			}
+
+			&#affwp-referral-url {
+				background: #CFE8CF;
+				border-color: #B5D6B5;
+			}
+
+			& .affwp-base-url-wrap {
+				& label {
+					font-size: 2rem;
+					font-weight: 500;
+					margin-bottom: 15px;
+				}
+
+				& input[type="submit"] {
+					font-size: 1.6rem;
+					padding: 10px 14px;
+				}
+			}
+		}
+
+		& #affwp-graphs-filter {
+			& select {
+				background: @eddgray;
+				border: 3px solid @eddgrayhover;
+				height: 40px;
+				margin-left: 0;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+		}
 	}
 }
