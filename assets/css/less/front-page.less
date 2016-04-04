@@ -101,6 +101,10 @@
  * ----------------------------- */
 .integrations-area {
 	background: #f7f7f7;
+
+	&:hover + #integrations-title-area h5 { // integrations title
+		color: #999;
+	}
 }
 
 .integrations-wrap {
@@ -140,17 +144,18 @@
 	& h5 {
 		float: right;
 		background: @eddgray;
-		color: #999;
+		color: #bbb;
 		font-size: 1.4rem;
 		line-height: 1;
 		font-weight: 400;
 		padding: 0 12px 10px;
 		border-radius: 0 0 4px 4px;
 		margin-bottom: 0;
-
-		& .fa {
-			margin-right: 10px;
-		}
+		-webkit-transition: all .3s ease-in-out;
+		-moz-transition: all .3s ease-in-out;
+		-o-transition: all .3s ease-in-out;
+		-ms-transition: all .3s ease-in-out;
+		transition: all .3s ease-in-out;
 	}
 }
 

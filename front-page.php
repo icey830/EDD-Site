@@ -83,7 +83,7 @@ get_header(); ?>
 <div id="integrations-title-area" class="page-section-white full-width">
 	<div class="inner">
 		<div class="integrations-title clearfix">
-			<h5><i class="fa fa-cogs"></i>Popular Integrations</h5>
+			<h5>Popular Integrations</h5>
 		</div>
 	</div>
 </div>
