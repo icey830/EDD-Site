@@ -30,7 +30,7 @@ function edd_theme_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 		// used for all uniform product images (all sizes) and single downloads
-		add_image_size( 'download-grid-thumb', 880, 440, true );
+		add_image_size( 'download-grid-thumb', 540, 270, true );
 
 		// featured extension/theme display
 		add_image_size( 'featured-download', 880, 575, array( 'center', 'top' ) );
