@@ -61,7 +61,7 @@ if ( is_user_logged_in() ) :
 								?>
 								<h4>Welcome, <?php echo $the_user_title; ?>!</h4>
 								<p>Use the links below to navigate your account information.</p>
-								<h6>Account Information:</h6>
+								<h6>Account Information</h6>
 								<?php
 									// user email address
 									echo '<div class="edd-account-info"><span class="account-info-label">Email:</span>' . $current_user->user_email . '</div>';
