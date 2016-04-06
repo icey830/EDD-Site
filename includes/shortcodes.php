@@ -30,7 +30,7 @@ function eddwp_button( $atts, $content = null ) {
 			$color = 'blue';
 	endswitch;
 
-	return '<a href="' . esc_url( $link ) . '" target="' . esc_attr( $target ) . '" class="edd-submit button ' . esc_attr( $color ) . '">' . $content . '</a>';
+	return '<p><a href="' . esc_url( $link ) . '" target="' . esc_attr( $target ) . '" class="edd-submit button ' . esc_attr( $color ) . '">' . $content . '</a></p>';
 }
 add_shortcode( 'button', 'eddwp_button' );
 
