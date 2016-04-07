@@ -653,13 +653,19 @@
 	float: left;
 	width: 20%;
 
-	& .nav-tabs.nav-append-content {
+	& .nav-tabs.nav-append-content,
+	.affiliates-list {
+		list-style: none;
 		font-size: 14px;
 		font-size: 1.4rem;
 		padding: 0;
 		border: 3px solid @eddgrayhover;
 		border-radius: 4px;
 		margin: 0;
+
+		&.is-affiliate {
+			border-radius: 4px 4px 0 0;
+		}
 
 		& li {
 			float: none;
@@ -726,6 +732,11 @@
 				border-bottom: none;
 			}
 		}
+	}
+
+	& .affiliates-list {
+		border-top: none;
+		border-radius: 0 0 4px 4px;
 	}
 }
 

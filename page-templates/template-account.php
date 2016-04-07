@@ -58,6 +58,7 @@ if ( is_user_logged_in() ) :
 							<div class="my-account-welcome">
 								<?php
 									$the_user_title = $current_user->user_firstname ? $current_user->user_firstname  : $current_user->user_login;
+									$is_affiliate = function_exists( 'affwp_is_affiliate' ) && affwp_is_affiliate( $current_user->ID ) ? ' is-affiliate' : '';
 								?>
 								<h4>Welcome, <?php echo $the_user_title; ?>!</h4>
 								<p>Use the links below to navigate your account information.</p>
@@ -80,7 +81,7 @@ if ( is_user_logged_in() ) :
 								?>
 							</div>
 						</div>
-						<ul class="nav nav-tabs nav-append-content">
+						<ul class="nav nav-tabs nav-append-content<?php echo $is_affiliate; ?>">
 							<li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-usd"></i>Purchases</a></li>
 							<?php $has_expired_licenses = ! empty( $license_keys ) ? ' class="has-expired-licenses"' : ''; ?>
 							<li><a href="#license-keys-tab" data-toggle="tab"<?php echo $has_expired_licenses; ?>><i class="fa fa-key"></i>License Keys</a></li>
@@ -89,9 +90,14 @@ if ( is_user_logged_in() ) :
 							<li><a href="#tab2" data-toggle="tab"><i class="fa fa-user"></i>Profile</a></li>
 							<?php if ( eddc_user_has_commissions() ) { ?>
 								<li><a href="#tab3" data-toggle="tab"><i class="fa fa-money"></i>Commissions</a></li>
-							<?php } // end if ?>
+							<?php } ?>
 							<li><a href="#tab5" data-toggle="tab"><i class="fa fa-wrench"></i>Support Subscription</a></li>
 						</ul>
+						<?php if ( ! empty( $is_affiliate ) ) { ?>
+							<ul class="affiliates-list">
+								<li><a class="affiliates-tab" href="<?php echo home_url( '/your-account/affiliate-area/' ); ?>"><i class="fa fa-thumbs-o-up"></i>Affiliates</a></li>
+							</ul>
+						<?php } ?>
 					</div>
 
 					<div class="my-account-tab-content">
