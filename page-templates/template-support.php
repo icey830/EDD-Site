@@ -81,7 +81,7 @@ the_post();
 									</a>
 								</div>
 								<div class="support-section special-section flex-three">
-									<a href="http://docs.easydigitaldownloads.com/article/942-terms-and-conditions" class="support-section-link">
+									<a href="<?php echo get_theme_mod( 'eddwp_terms_link' ); ?>" class="support-section-link">
 										<h4 class="support-section-title">Refund Policy</h4>
 										<p class="support-section-description">Be sure your request meets the necessary criteria for a refund.</p>
 									</a>

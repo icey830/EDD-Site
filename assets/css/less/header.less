@@ -10,6 +10,41 @@
 
 		& .site-header {
 			position: relative;
+
+			& .site-header-inner {
+				display: inline-block;
+				position: relative;
+			}
+
+			& .header-cart {
+				position: absolute;
+					top: 13px;
+				color: @darkblue_text;
+				padding-left: 7px;
+				border-left: 1px dotted #2a3238;
+				margin-left: 10px;
+
+				& a {
+					color: @darkblue_text;
+
+					&:hover {
+					 color: #fff;
+					}
+
+					& .fa {
+						display: inline;
+						margin-right: 8px;
+					}
+
+					& .cart-qty {
+						font-size: 1.1rem;
+					}
+				}
+			}
+
+			& .header-cart-mobile {
+				display: none;
+			}
 		}
 	}
 }

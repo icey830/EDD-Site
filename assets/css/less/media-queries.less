@@ -13,6 +13,17 @@
 
 @media all and ( max-width: 1100px ) {
 
+	/* header */
+	.header-area .inner .site-header {
+		& .site-title .edd-logo {
+			max-width: 275px;
+		}
+
+		& .header-cart {
+			top: 10px !important;
+		}
+	}
+
 	/* navigation */
 	#primary {
 		font-size: 13px;
@@ -205,6 +216,23 @@
 		width: 65%;
 	}
 
+	/* affiliates */
+	#affwp-affiliate-dashboard {
+		& #affwp-affiliate-dashboard-tabs {
+			width: 30%;
+		}
+
+		& .affwp-tab-content {
+			width: 65%;
+		}
+
+		& #affwp-affiliate-dashboard-creatives {
+			& .affwp-creative-desc {
+				float: none;
+			}
+		}
+	}
+
 	/* 404 page */
 	.resources-404 .sad-edd {
 		display: none;
@@ -219,6 +247,21 @@
 	.inner .hero-title {
 		font-size: 30px;
 		font-size: 3rem;
+	}
+
+	/* header */
+	.header-area .inner .site-header {
+		& .header-cart {
+			top: 3px !important;
+		}
+	}
+
+	.header-area .inner .site-header .header-cart-mobile {
+		display: inline-block;
+	}
+
+	.edd-checkout-cart-empty .site-header {
+		text-align: left;
 	}
 
 	/* navigation */
@@ -237,10 +280,15 @@
 		& .site-title {
 			float: none;
 		}
-	}
 
-	.edd-checkout-cart-empty .site-header {
-		text-align: left;
+		& .site-header-inner {
+			display: block !important;
+
+			& .header-cart {
+				font-size: 2.2rem;
+				top: 6px !important;
+			}
+		}
 	}
 
 	#primary {
@@ -328,6 +376,10 @@
 	.full-width .inner {
 		padding-top: 45px;
 		padding-bottom: 45px;
+	}
+
+	#front-page-features .inner {
+		padding-top: 30px;
 	}
 
 	.site-container .content,
@@ -668,6 +720,18 @@
 
 	.my-account-tabs {
 		margin-bottom: 30px !important;
+	}
+
+	/* affiliates */
+	#affwp-affiliate-dashboard {
+		& #affwp-affiliate-dashboard-tabs,
+		.affwp-tab-content {
+			width: 100%;
+		}
+
+		& #affwp-affiliate-dashboard-tabs {
+			margin-bottom: 30px !important;
+		}
 	}
 
 	/* product display */
@@ -1103,7 +1167,7 @@
 		padding-top: 30px;
 		padding-bottom: 30px;
 
-		& .site-title {
+		& .site-header .site-title {
 			float: none;
 			text-align: center;
 			margin: 0 auto;
@@ -1133,6 +1197,10 @@
 		&::-moz-selection {
 			background-color: transparent;
 		}
+	}
+
+	& .site-header-inner .header-cart {
+		display: none;
 	}
 
 	#primary {
@@ -1526,6 +1594,13 @@
 				width: 100%;
 			}
 		}
+	}
+
+	/* galleries */
+	[id*="gallery-"].gallery[class*="gallery-columns-"] .gallery-item {
+		margin-bottom: 10px !important;
+		width: 100% !important;
+		max-width: 100%;
 	}
 }
 

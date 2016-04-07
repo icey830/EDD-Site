@@ -244,11 +244,6 @@
 	margin: 0;
 }
 
-.single-download .featured-img {
-	border-radius: 4px;
-	margin-bottom: 15px;
-}
-
 .third-party-extension .overlay .overlay-add-to-cart,
 .third-party-edd-download .overlay .overlay-add-to-cart {
 	display: none;
@@ -476,7 +471,7 @@
 				}
 
 				& .gfield_label {
-					font: 300 24px/1.4 @font-family;
+					font: 500 24px/1.4 @font-family;
 					margin: 0;
 				}
 
@@ -638,8 +633,11 @@
 
 	& .edd-account-info {
 		font-size: 90%;
+		margin-bottom: 6px;
 
 		& .account-info-label {
+			display: block;
+			font-weight: 500;
 			margin-right: 6px;
 		}
 	}
@@ -655,13 +653,19 @@
 	float: left;
 	width: 20%;
 
-	& .nav-tabs.nav-append-content {
+	& .nav-tabs.nav-append-content,
+	.affiliates-list {
+		list-style: none;
 		font-size: 14px;
 		font-size: 1.4rem;
 		padding: 0;
 		border: 3px solid @eddgrayhover;
 		border-radius: 4px;
 		margin: 0;
+
+		&.is-affiliate {
+			border-radius: 4px 4px 0 0;
+		}
 
 		& li {
 			float: none;
@@ -728,6 +732,11 @@
 				border-bottom: none;
 			}
 		}
+	}
+
+	& .affiliates-list {
+		border-top: none;
+		border-radius: 0 0 4px 4px;
 	}
 }
 
@@ -834,7 +843,6 @@
 		& input[type="text"],
 		& input[type="email"],
 		& input[type="password"] {
-			font-weight: 300;
 			background: @eddgray;
 			padding: 10px;
 			width: 300px;
@@ -868,7 +876,6 @@
 
 			& input[type*="text"] {
 				display: block;
-				font-weight: 300;
 				background: @eddgray;
 				padding: 10px;
 				width: 300px;
@@ -948,6 +955,7 @@
 						width: 150px;
 						display: inline-block;
 						vertical-align: top;
+						font-weight: 500;
 					}
 
 					&:last-of-type {
@@ -1193,7 +1201,6 @@
 #loginform fieldset input[type="text"],
 #passwordreset fieldset input[type="text"],
 #loginform fieldset input[type="password"] {
-	font-weight: 300;
 	background: @eddgray;
 	padding: 10px;
 	width: 100%;
@@ -1357,14 +1364,28 @@
 		margin-bottom: 50px;
 	}
 
-	& #edd_checkout_form_wrap input[type=text],
-	#edd_checkout_form_wrap input[type=email],
-	#edd_checkout_form_wrap input[type=password],
+	& #edd_checkout_form_wrap input[type="text"],
+	#edd_checkout_form_wrap input[type="email"],
+	#edd_checkout_form_wrap input[type="password"],
 	#edd_checkout_form_wrap textarea {
 		background: @eddgray;
 		padding: 10px;
 		border: 3px solid @eddgrayhover;
 		border-radius: 4px;
+	}
+
+	& #edd_checkout_form_wrap select {
+		background: @eddgray;
+		border: 3px solid @eddgrayhover;
+		height: 44px;
+		margin-left: 0;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	& #edd_checkout_form_wrap .card-expiration select {
+		max-height: 30px;
 	}
 
 	& #edd_checkout_form_wrap span.card-type {
@@ -1476,6 +1497,14 @@
 		margin-top: 20px;
 		width: 100%;
 	}
+
+	& .edd-alert-error {
+		background: #ffcbcb;
+		padding: 10px 20px;
+		border: none;
+		border-radius: 4px;
+		margin: 25px 0;
+	}
 }
 
 
@@ -1573,7 +1602,6 @@
 
 #billing_info strong {
 	font-size: 3rem;
-	font-weight: 300;
 }
 
 #order_summary {
@@ -1640,7 +1668,6 @@
 	-ms-user-select: none;
 	user-select: none;
 	line-height: 24px;
-	font-weight: 300;
 	border: 1px solid #287aad;
 }
 
