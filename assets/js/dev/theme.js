@@ -29,6 +29,17 @@
 		}
 
 
+        // header cart quantity
+        var body = $(document.body);
+        var header_cart_total = $('.cart-qty');
+        body.on('edd_cart_item_added',function(event, response){
+            header_cart_total.html(response.cart_quantity);
+        });
+        body.on('edd_cart_item_removed',function(event, response){
+            header_cart_total.html (response.cart_quantity);
+        });
+
+
 		// Simple Notices remove notice
 		$('.remove-notice').on('click', function() {
 			$('#notification-area').slideUp();

@@ -403,7 +403,7 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'template-account';
 	}
 
-	if ( is_page_template( 'page-templates/template-product-info.php' ) ) {
+	if ( is_page_template( 'page-templates/template-download-directory.php' ) ) {
 		$classes[] = 'template-product-info';
 	}
 
@@ -452,3 +452,21 @@ add_action( 'edit_user_profile_update', 'save_crew_enhanced_bio' );
 function save_crew_enhanced_bio( $user_id ) {
 	update_user_meta( $user_id, 'enhanced_bio', esc_textarea( $_POST['enhanced_bio'] ) );
 }
+
+
+/**
+ * AffiliateWP - notice before registration form
+ */
+function eddwp_affwp_login_link() {
+	echo '<p>Already an affiliate? <a href="#affwp-login-form">Log into your account</a>.</p>';
+}
+add_action( 'affwp_affiliate_register_form_top', 'eddwp_affwp_login_link' );
+
+
+/**
+ * AffiliateWP - text before creatives
+ */
+function eddwp_affwp_creatives_description() {
+	echo '<p>Use the graphics below to promote Easy Digital Downloads on your website.</p>';
+}
+add_action( 'affwp_before_creatives', 'eddwp_affwp_creatives_description' );

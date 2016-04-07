@@ -38,7 +38,7 @@ $download_term = $wp_query->get_queried_object();
 					<?php
 						$cat_args = array(
 							'exclude'  => array(
-								22 /* extensions */,
+								1592 /* extensions */,
 								1617 /* themes */,
 								1571 /* featured theme */,
 								1536 /* 3rd party */,

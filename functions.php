@@ -7,7 +7,7 @@
 /* ----------------------------------------------------------- *
  * Theme Setup
  * ----------------------------------------------------------- */
-define( 'EDD_SITE_VERSION', '2.3' );
+define( 'EDD_SITE_VERSION', '2.3.1' );
 define( 'EDD_INC', dirname(__FILE__) . '/includes/' );
 
 
@@ -30,7 +30,7 @@ function edd_theme_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 		// used for all uniform product images (all sizes) and single downloads
-		add_image_size( 'download-grid-thumb', 880, 440, true );
+		add_image_size( 'download-grid-thumb', 540, 270, true );
 
 		// featured extension/theme display
 		add_image_size( 'featured-download', 880, 575, array( 'center', 'top' ) );
@@ -106,7 +106,7 @@ function edd_register_theme_scripts() {
 
 	// 635 My Account
 	// 65892 bbPress Support Dashboard
-	if ( is_page( 635 ) || is_page( 65892 ) || is_singular( 'download' ) || is_page_template( 'page-templates/template-product-info.php' ) ) {
+	if ( is_page( 635 ) || is_page( 65892 ) || is_singular( 'download' ) || is_page_template( 'page-templates/template-download-directory.php' ) ) {
 		wp_enqueue_style( 'bootstrap' );
 		wp_enqueue_script( 'bootstrap-js' );
 	}

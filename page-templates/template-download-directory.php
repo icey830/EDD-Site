@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Product Info
+ * Template Name: Download Directory
  *
  * Display quick information about all products
  */

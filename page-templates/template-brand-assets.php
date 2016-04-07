@@ -93,24 +93,24 @@ the_post();
 					</section>
 					<section class="brand-assets">
 						<h2>Meet Edd</h2>
-						<p>Ed is the mascot for Easy Digital Downloads. Treat him with care!</p>
+						<p>Edd is the mascot for Easy Digital Downloads. Treat him with care!</p>
 						<div id="mascots" class="flex-container">
 							<div class="mascot flex-three">
-								<p><a href="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/ed-1-large.png'; ?>" class="button" target="_blank">Download</a></p>
+								<p><a href="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/edd-1-large.png'; ?>" class="button" target="_blank">Download</a></p>
 								<div class="mascot-1">
-									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/ed-1.png'; ?>" />
+									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/edd-1.png'; ?>" />
 								</div>
 							</div>
 							<div class="mascot flex-three">
-								<p><a href="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/ed-2-large.png'; ?>" class="button" target="_blank">Download</a></p>
+								<p><a href="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/edd-2-large.png'; ?>" class="button" target="_blank">Download</a></p>
 								<div class="mascot-1">
-									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/ed-2.png'; ?>" />
+									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/edd-2.png'; ?>" />
 								</div>
 							</div>
 							<div class="mascot flex-three">
-								<p><a href="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/ed-3-large.png'; ?>" class="button" target="_blank">Download</a></p>
+								<p><a href="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/edd-3-large.png'; ?>" class="button" target="_blank">Download</a></p>
 								<div class="mascot-1">
-									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/ed-3.png'; ?>" />
+									<img src="<?php echo get_stylesheet_directory_uri() . '/assets/brand-assets/mascots/edd-3.png'; ?>" />
 								</div>
 							</div>
 						</div>

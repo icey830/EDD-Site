@@ -16,7 +16,7 @@ get_header();
 				<?php
 					// all EDD Crew (user role) members
 					$args = array(
-						'role' => 'edd_crew',
+						'role'    => 'edd_crew',
 					);
 					$user_query = new WP_User_Query( $args );
 					$the_crew = $user_query->get_results();
@@ -25,12 +25,13 @@ get_header();
 						<div class="crew-member flex-two">
 							<div class="crew-member-name">
 								<?php
-									echo $member->first_name . ' ' . $member->last_name;
+									echo isset( $member->first_name ) ? $member->first_name . ' ' : '';
+									echo isset( $member->last_name ) ? $member->last_name : '';
 									echo '<span class="crew-member-urls">';
-									if ( ! empty( $member->user_url ) ) :
+									if ( isset( $member->user_url ) ) :
 										printf( '&nbsp;<a href="%s"><i class="fa fa-link"></i></a>', $member->user_url );
 									endif;
-									if ( ! empty( $member->twitter ) ) :
+									if ( isset( $member->twitter ) ) :
 										printf( '&nbsp;&middot;&nbsp;<a href="https://twitter.com/%s"><i class="fa fa-twitter"></i></a>', $member->twitter );
 									endif;
 									echo '</span>';

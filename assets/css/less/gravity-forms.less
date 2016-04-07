@@ -84,7 +84,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 
 #starter-package .entry-headline {
 	display: block;
-	font: 300 30px/1.4 @font-family;
+	font: 500 26px/1.4 @font-family;
 	margin-bottom: 20px;
 }
 
@@ -154,7 +154,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 }
 
 #starter-package .starter-package-headline {
-	font-weight: 300;
+	font-weight: 500;
 	text-align: center;
 	padding: 30px 0;
 	margin: 30px 0;
@@ -208,6 +208,14 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	margin-bottom: 30px;
 	width: 319px;
 	min-height: 560px;
+
+	& label:not(.gfield_label) {
+		font-size: 1.3rem;
+	}
+
+	& input:checked + label {
+		font-weight: 500;
+	}
 }
 
 #starter-package .gform_wrapper li.gfield.gfield_error.edd-gf-marketing,
@@ -255,7 +263,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 
 #starter-package .gfield_label,
 #starter-package .edd-gf-payment h2 {
-	font: 300 32px/1.4 @font-family;
+	font: 500 26px/1.4 @font-family;
 	margin: 0;
 }
 
@@ -402,7 +410,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	background: @eddgray;
 	color: #ccc;
 	font-size: 22px;
-	font-weight: 400;
+	font-weight: 500;
 	padding: 20px;
 	border: 3px solid #eee;
 	border-radius: 4px;
@@ -430,7 +438,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 #starter-package .edd-gf-payment-method .gfield_radio li input:checked + label {
 	background: #F5F8FC;
 	color: #62a9d7;
-	font-weight: 400;
+	font-weight: 500;
 	border: 3px solid #DAE7F0;
 }
 
@@ -492,7 +500,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 }
 
 #starter-package .edd-gf-cc select {
-	background: #fff;
+	background: @eddgray;
 	border: 3px solid @eddgrayhover;
 	height: 44px;
 	margin-left: 0;
@@ -503,7 +511,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 }
 
 #starter-package .edd-gf-cc .address_country select {
-	width: 100% !important%;
+	width: 100% !important;
 }
 
 #starter-package .gfield_error.edd-gf-cc select {
@@ -727,6 +735,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	background: @eddgray;
 	color: #ccc;
 	font-size: 22px;
+	font-weight: 500;
 	padding: 15px;
 	border: 3px solid @eddgrayhover;
 	border-radius: 4px;
@@ -754,7 +763,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 #starter-package .edd-gf-toc .gfield_checkbox li input:checked + label {
 	background: #F5F8FC;
 	color: #62a9d7;
-	font-weight: 400;
+	font-weight: 500;
 	border: 3px solid #DAE7F0;
 }
 

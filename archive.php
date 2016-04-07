@@ -57,12 +57,17 @@ get_header(); ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
 					<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
-						<p class="entry-date"><span><?php the_date(); ?></span></p>
-						<h2><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-						<?php
-							the_excerpt();
-							eddwp_post_meta();
-						?>
+						<div class="entry-header">
+							<p class="entry-date"><i class="fa fa-calendar"></i> <span><?php the_date(); ?></span></p>
+							<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+						</div>
+						<div class="entry-summary">
+							<?php the_excerpt(); ?>
+							<p><a class="edd-submit button blue" href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'edd' ); ?></a></p>
+						</div>
+						<div class="entry-footer">
+							<?php eddwp_post_meta(); ?>
+						</div>
 					</article>
 
 				<?php endwhile; ?>
