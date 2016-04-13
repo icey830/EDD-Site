@@ -1547,8 +1547,15 @@
 		width: 100% !important;
 	}
 
-	.edd-gf-support-tickets-form [class*="edd-gf-support-tickets-form-"] .ginput_container > span {
-		width: 100% !important;
+	.support-page .gform_wrapper.edd-gf-support-tickets-form [class*="edd-gf-support-tickets-form-"] .ginput_container {
+		& > span,
+		&.ginput_container_website,
+		&.ginput_container_website input,
+		&.ginput_container_text,
+		&.ginput_container_text input,
+		li[class*="gchoice_"] {
+			width: 100% !important;
+		}
 	}
 
 	.gform_wrapper .edd-gf-support-tickets-form .ginput_complex .ginput_right {

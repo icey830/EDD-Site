@@ -447,6 +447,25 @@
 		&.edd-gf-support-tickets-form {
 			margin: 60px 0 100px;
 
+			& .ginput_left,
+			.ginput_right,
+			.name_first,
+			.name_last,
+			[class*="edd-gf-support-tickets-form-"] .ginput_container.ginput_container_website,
+			[class*="edd-gf-support-tickets-form-"] .ginput_container.ginput_container_text {
+				width: 48% !important;
+			}
+
+			& .ginput_complex .ginput_left,
+			.ginput_complex .name_first {
+				float: left;
+			}
+
+			& .ginput_complex .ginput_right,
+			.ginput_complex .name_last {
+				float: right;
+			}
+
 			& input[type="text"],
 			input[type="url"],
 			input[type="email"],
@@ -456,18 +475,37 @@
 			textarea {
 				padding: 10px !important;
 				margin-bottom: 0 !important;
+				width: 100% !important;
 			}
 
 			& .ginput_container label,
 			.top_label .gfield_description {
 				color: #999;
-				font-size: 15px;
-				line-height: 1.6;
+				font-size: 1.5rem;
+			}
+
+			& ul.gfield_checkbox li input[type=checkbox]:checked+label,
+			ul.gfield_radio li input[type=radio]:checked+label {
+				font-weight: 500;
 			}
 
 			& .top_label {
-				& .gfield.edd-gf-support-tickets-form-email .gfield_description {
-					display: none;
+				& .gfield.edd-gf-support-tickets-form-email {
+					& .gfield_description {
+						font-size: 1.6rem;
+						padding: 15px 20px !important;
+						margin-top: 20px;
+						width: 100%;
+						-webkit-transition: all .2s ease-in-out;
+						-moz-transition: all .2s ease-in-out;
+						-o-transition: all .2s ease-in-out;
+						-ms-transition: all .2s ease-in-out;
+						transition: all .2s ease-in-out;
+					}
+
+					&:hover .gfield_description {
+						background: #ffffe0;
+					}
 				}
 
 				& .gfield_label {
@@ -584,7 +622,7 @@
 		.gform_page_footer input[type="submit"] {
 			padding: 10px;
 			margin-right: 0 !important;
-			min-width: 240px;
+			min-width: 208px;
 		}
 
 		& .edd-gf-support-tickets-form-subject ul.gfield_radio li input[type="radio"]:checked+label,
@@ -597,13 +635,16 @@
 		}
 
 		& .edd-gf-support-tickets-form .docs-support-link {
-			margin: 30px 0 30px 2.5% !important;
+			background: #ffffe0;
+			padding: 15px 20px;
+			border-radius: 4px;
+			margin: 30px 0 30px !important;
 		}
 
 		& .edd-gf-support-tickets-form .gform_footer input[type="submit"] {
 			font-size: 18px;
 			padding: 10px;
-			min-width: 240px;
+			min-width: 208px;
 		}
 	}
 }
