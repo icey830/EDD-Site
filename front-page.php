@@ -133,7 +133,7 @@ get_header(); ?>
 					<div class="flex-container">
 						<div class="flex-two">
 							<div class="featured-stat">
-								<p>954,000</p>
+								<p>1,000,000</p>
 								<span>Downloads & Counting</span>
 							</div>
 							<div class="featured-stat">
