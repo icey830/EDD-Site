@@ -228,6 +228,7 @@
 	margin: -50px -50px 20px;
 }
 
+.sidebar .newsletter input[type="submit"],
 .edd-post-footer .newsletter input[type="submit"] {
 	display: inline;
 }
@@ -248,9 +249,15 @@
 	margin-right: 5px;
 }
 
-.edd-post-footer .newsletter .newsletter-submit-container {
-	width: 100px;
-	margin-right: 0;
+.edd-post-footer .newsletter,
+.sidebar .newsletter {
+	& .newsletter-submit-container {
+		margin-right: 0;
+
+		& input[type="submit"] {
+			vertical-align: baseline;
+		}
+	}
 }
 
 

@@ -12,67 +12,68 @@
 		text-align: center;
 		max-width: 750px;
 		margin: 0 auto;
-	}
 
-	&.front-page-section-title {
-		margin-bottom: 20px;
-	}
-
-	& form {
-		max-width: 450px;
-		margin: 0 auto;
-
-		& .nl-name {
-			margin-bottom: 8px;
-
-			& [type="text"].nl-last-name {
-				padding: 14px 12px;
-				border: 1px solid @eddgrayhover;
-				border-width: 0 0 0 1px;
-				border-radius: 0 4px 4px 0;
-			}
+		& .footer-subscriber-count {
+			color: #fff;
+			font-size: 120%;
 		}
 
-		& .nl-email {
-			margin-bottom: 6px;
+		& form {
+			max-width: 450px;
+			margin: 0 auto;
 
-			& .newsletter-email {
-				background: #ffffff url('images/sprite.png') no-repeat 14px -82px;
-				border-radius: 4px 0 0 4px;
-				width: 70%;
-			}
-		}
+			& .nl-name {
+				margin-bottom: 8px;
 
-		& input {
-			float: left;
-			width: 50%;
-
-			&[type="text"],
-			&[type="email"] {
-				padding: 14px 12px 14px 40px;
-				border: none;
-				margin: 0;
-				outline: none;
+				& [type="text"].nl-last-name {
+					padding: 14px 12px;
+					border: 1px solid @eddgrayhover;
+					border-width: 0 0 0 1px;
+					border-radius: 0 4px 4px 0;
+				}
 			}
 
-			&[type="text"].nl-first-name {
-				background: #ffffff url('images/sprite.png') no-repeat 14px -34px;
-				border-radius: 4px 0 0 4px;
+			& .nl-email {
+				margin-bottom: 6px;
+
+				& .newsletter-email {
+					background: #ffffff url('images/sprite.png') no-repeat 14px -82px;
+					border-radius: 4px 0 0 4px;
+					width: 70%;
+				}
 			}
 
-			&[type="submit"] {
-				background: @eddblue;
-				color: #fff;
-				padding: 14px 12px;
-				border: none;
-				border-radius: 0 4px 4px 0;
-				-webkit-transition: all 0.2s ease-in-out;
-				-moz-transition: all 0.2s ease-in-out;
-				transition: all 0.2s ease-in-out;
-				width: 30%;
+			& input {
+				float: left;
+				width: 50%;
 
-				&:hover {
-					background: @eddbluehover;
+				&[type="text"],
+				&[type="email"] {
+					padding: 14px 12px 14px 40px;
+					border: none;
+					margin: 0;
+					outline: none;
+				}
+
+				&[type="text"].nl-first-name {
+					background: #ffffff url('images/sprite.png') no-repeat 14px -34px;
+					border-radius: 4px 0 0 4px;
+				}
+
+				&[type="submit"] {
+					background: @eddblue;
+					color: #fff;
+					padding: 14px 12px;
+					border: none;
+					border-radius: 0 4px 4px 0;
+					-webkit-transition: all 0.2s ease-in-out;
+					-moz-transition: all 0.2s ease-in-out;
+					transition: all 0.2s ease-in-out;
+					width: 30%;
+
+					&:hover {
+						background: @eddbluehover;
+					}
 				}
 			}
 		}

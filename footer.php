@@ -16,7 +16,15 @@
 		<div id="footer-newsletter" class="page-section-darkblue full-width">
 			<div class="inner">
 				<div class="newsletter-content clearfix">
-					<h3 class="footer-section-title">Easy Digital Downloads Email Newsletter</h3>
+					<?php
+						if ( function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
+							$count = mailchimp_subscriber_count()->subscriber_count();
+							$newsletter_title = "Join Our <span class='footer-subscriber-count'>$count</span> Newsletter Subscribers";
+						} else {
+							$newsletter_title = 'Easy Digital Downloads Email Newsletter';
+						}
+					?>
+					<h3 class="footer-section-title"><?php echo $newsletter_title; ?></h3>
 					<p>Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads.</p>
 					<form id="pmc_mailchimp" class="clearfix" action="" method="post">
 						<div class="nl-name clearfix">

@@ -203,6 +203,12 @@ function eddwp_paginate_links() {
  * Universal Newsletter Sign Up Form
  */
 function eddwp_newsletter_form() {
+	if ( function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
+		$count = mailchimp_subscriber_count()->subscriber_count();
+		$subscribe_button = "Join $count subscribers!";
+	} else {
+		$subscribe_button = 'Sign me up!';
+	}
 	?>
 	<div class="newsletter">
 		<h3 class="newsletter-title"><span>Subscribe to the Easy Digital Downloads </span>Email Newsletter</h3>
@@ -219,7 +225,7 @@ function eddwp_newsletter_form() {
 					<input type="hidden" name="redirect" value="<?php if ( function_exists( 'edd_get_current_page_url' ) ) { echo edd_get_current_page_url(); } ?>"/>
 					<input type="hidden" name="action" value="pmc_signup"/>
 					<input type="hidden" name="pmc_list_id" value="be2b495923"/>
-					<input type="submit" class="newsletter-submit edd-submit button darkblue" value="Sign Up"/>
+					<input type="submit" class="newsletter-submit edd-submit button darkblue" value="<?php echo esc_attr( $subscribe_button ); ?>"/>
 				</div>
 			</form>
 			<p class="newsletter-note"><i class="fa fa-lock"></i>We will never send you spam. Your email address is secure.</p>
@@ -401,14 +407,14 @@ function eddwp_get_number_of_downloads() {
 
 		$bundles    = get_term( 1524, 'download_category' ); // Bundles
 		if ( ! empty( $bundles ) && ! is_wp_error( $bundles ) ) {
-			$exclude += $bundles->count;	
+			$exclude += $bundles->count;
 		}
-		
+
 		$thirdparty = get_term( 1536, 'download_category' ); // Third Party
 		if ( ! empty( $thirdparty ) && ! is_wp_error( $thirdparty ) ) {
-			$exclude += $thirdparty->count;	
+			$exclude += $thirdparty->count;
 		}
-		
+
 		$total = $download_count - $exclude;
 		set_transient( 'eddwp_get_number_of_downloads', $total, 60 * 60 * 24 );
 	}
