@@ -87,15 +87,18 @@ function eddwp_add_rewrite_tags() {
 	add_rewrite_tag( '%download_s%', '([^/]+)' );
 }
 add_action( 'init', 'eddwp_add_rewrite_tags' );
-// Process the rewrite rules added for the extension search and make sure that the
-// correct template is loaded when the extension search is initiated.
-function eddwp_process_rewrites() {
+
+
+/**
+ * Load the correct template for extensions search
+ */
+function eddwp_extension_search_results() {
 	if ( ! empty ( $_GET['download_s'] ) && isset( $_GET['action'] ) && 'download_search' === $_GET['action'] ) {
 		load_template( dirname( __DIR__ ) . '/search-downloads-extensions.php' );
 		die();
 	}
 }
-add_action( 'init', 'eddwp_process_rewrites' );
+add_action( 'template_redirect', 'eddwp_extension_search_results' );
 
 
 /**
