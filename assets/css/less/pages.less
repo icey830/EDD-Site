@@ -791,13 +791,11 @@
 		background: #fcf8e3;
 		padding: 20px 30px 30px;
 		border: none;
-		border-radius: 4px;
-		margin-bottom: 30px;
+		border-radius: 4px 4px 0 0;
 
 		& .expired-key-toggle {
 			display: inline-block;
 			text-decoration: underline;
-			margin-bottom: 20px;
 
 			&:hover {
 				text-decoration: none;
@@ -819,10 +817,6 @@
 			&.renew-all-title {
 				margin-top: 20px;
 			}
-		}
-
-		& p {
-			margin-bottom: 15px;
 		}
 
 		& .expired-keys {
@@ -854,29 +848,50 @@
 				}
 			}
 		}
+	}
 
-		& .renew-all-licenses {
-			padding-top: 20px;
-			border-top: 1px dotted rgba(0,0,0,.05);
+	& .renew-all-licenses {
+		background: #fcf8e3;
+		padding: 0 30px 30px;
+		border-radius: 0 0 4px 4px;
+		margin-bottom: 30px;
 
-			& #edd-sl-renew-all {
-				& select {
-					display: block;
-					border: 3px solid rgba(0,0,0,.05);
-					border-radius: 3px;
-					margin-bottom: 10px;
-					max-width: 300px;
-					height: 30px;
-				}
+		&.no-expired {
+			background: #edf8ff;
+			padding: 20px 30px 30px;
+			border-radius: 4px;
 
-				& p {
-					margin-bottom: 0;
-				}
+			& h4.section-title-alt {
+				border-bottom-color: #d1dfe8;
+				margin-bottom: 30px;
 
-				& input[type="submit"] {
-					min-width: 100px;
+				& .fa {
+					margin-right: 10px;
 				}
 			}
+		}
+
+		& #edd-sl-renew-all {
+			& select {
+				display: block;
+				border: 3px solid rgba(0,0,0,.05);
+				border-radius: 3px;
+				margin-bottom: 10px;
+				max-width: 300px;
+				height: 30px;
+			}
+
+			& p {
+				margin-bottom: 0;
+			}
+
+			& input[type="submit"] {
+				min-width: 100px;
+			}
+		}
+
+		& p {
+			margin-bottom: 15px;
 		}
 	}
 

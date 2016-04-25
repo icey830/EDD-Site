@@ -179,17 +179,21 @@ if ( is_user_logged_in() ) :
 													<a class="expired-key-toggle" href="#">Click here to view all expired license keys</a>
 													<?php
 												}
-
-												if ( $expired_qty > 1 ) {
-													?>
-													<div class="renew-all-licenses">
-														<p>You may also renew license keys in bulk using the form below.</p>
-														<?php echo $edd_sl_renew_all->renew_all_button(); ?>
-													</div>
-													<?php
-												}
 											?>
 										</div>
+									</div>
+								<?php } ?>
+								<?php if ( class_exists( 'edd_software_licensing' ) && false != edd_software_licensing()->get_license_keys_of_user() ) {
+									$no_expired = empty( $license_keys ) ? ' no-expired' : '';
+									?>
+									<div class="renew-all-licenses<?php echo $no_expired; ?>">
+										<?php if ( ! empty( $license_keys ) ) { ?>
+											<p>You may also renew license keys in bulk using the form below.</p>
+										<?php } else { ?>
+											<h4 class="section-title-alt"><i class="fa fa-thumbs-up"></i>You do not have any expired license keys</h4>
+											<p>If you would like to renew all of your licenses now, you may do so using the form below.</p>
+										<?php } ?>
+										<?php echo $edd_sl_renew_all->renew_all_button(); ?>
 									</div>
 								<?php } ?>
 								<h3>Manage Your License Keys</h3>
