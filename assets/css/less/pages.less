@@ -854,7 +854,7 @@
 		background: #fcf8e3;
 		padding: 0 30px 30px;
 		border-radius: 0 0 4px 4px;
-		margin-bottom: 30px;
+		margin: -20px 0 30px;
 
 		&.no-expired {
 			background: #edf8ff;
@@ -892,6 +892,15 @@
 
 		& p {
 			margin-bottom: 15px;
+		}
+
+		&:not(.no-expired) > p:first-child {
+			padding-top: 20px;
+			border-top: 3px solid rgba(0,0,0,.05);
+		}
+
+		&.two-or-less {
+			margin-top: -40px;
 		}
 	}
 
