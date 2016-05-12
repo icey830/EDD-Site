@@ -296,3 +296,71 @@ table.gstl_50.gssb_c {
 		margin-top: 20px;
 	}
 }
+
+
+/* ----------------------------- *
+ * Gravity Forms General Styles
+ *
+ * The general styles class to be added to the GF form is edd-gf-styles.
+ * GF itself will add that class to the form element but add an additional
+ * class of edd-gf-styles_wrapper to the div that wraps the GF form.
+ * ----------------------------- */
+.edd-gf-styles_wrapper {
+	margin: 0;
+	width: 100%;
+	max-width: 100%;
+
+	& .gform_heading {
+		margin-bottom: 2em;
+		width: 100%;
+
+		& h3.gform_title {
+			font-weight: 500;
+			margin: 0 0 .4em;
+		}
+	}
+
+	& .gform_body {
+		& ul li.gfield {
+			margin-bottom: 25px;
+		}
+
+		& .gfield_label {
+			font-weight: 500;
+			line-height: 1.6;
+			margin: 0 0 .75em;
+		}
+
+		& li.field_description_above .gfield_description {
+			padding-top: 0;
+		}
+
+		& label.gfield_label + div.ginput_container {
+			margin-top: 0;
+		}
+
+		& ul.gfield_checkbox,
+		ul.gfield_radio {
+			margin: 0 !important;
+			padding: 0;
+		}
+
+		& ul.gfield_checkbox li input[type="checkbox"]:checked+label,
+		ul.gfield_radio li input[type="radio"]:checked+label {
+			font-weight: 500;
+		}
+
+		& textarea {
+			width: 100%;
+		}
+
+		& input.medium,
+		select.medium {
+
+		}
+	}
+
+	& .gform_footer {
+		padding: 0;
+	}
+}
