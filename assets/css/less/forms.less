@@ -30,7 +30,8 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 #subscriptions-tab > a,
 #edd-recurring-update-submit,
 #rcp_submit,
-#billing_info ~ form input[type="submit"] /* PayPal Express confirmation */ {
+#billing_info ~ form input[type="submit"] /* PayPal Express confirmation */,
+#edd-invoices .edd-invoices-div input[type="submit"] {
 	background: @eddblue;
 	color: #fff;
 	font-size: 1.6rem;
@@ -250,5 +251,48 @@ table.gstl_50.gssb_c {
 		font-size: 18px;
 		padding: 8px 10px;
 		font-weight: 500;
+	}
+}
+
+
+/* ----------------------------- *
+ * EDD Invoices Form
+ * ----------------------------- */
+#edd-invoices {
+	& .edd-invoices-div {
+		margin: 1em 0;
+	}
+
+	& .edd-invoices-field {
+		padding-right: 10px;
+		width: 26%;
+	}
+
+	& input[type="text"],
+	textarea,
+	select  {
+		background: @eddgray;
+		padding: 10px;
+		border-radius: 4px;
+		border: 3px solid @eddgrayhover;
+		width: 100%;
+		max-width: 300px;
+	}
+
+	& textarea {
+		font-size: 90%;
+		min-height: 150px;
+	}
+
+	& select {
+		height: 44px;
+		margin-left: 0;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	& input[type="submit"] {
+		margin-top: 20px;
 	}
 }
