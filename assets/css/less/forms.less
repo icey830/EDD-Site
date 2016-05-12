@@ -202,26 +202,38 @@ table.gstl_50.gssb_c {
 /* ----------------------------- *
  * EDD core registration form
  * ----------------------------- */
-#landing-page #edd_register_form fieldset {
-	padding: 0;
-	border: none;
-	margin: 0;
+#edd_register_form {
+	& fieldset {
+		margin: 0 auto;
+		max-width: 380px;
+	}
 
 	& legend {
 		display: none;
 	}
 
-	& > p label,
-	& > p input {
-		display: block;
+	& input[type="text"],
+	input[type="email"],
+	input[type="password"] {
+		background: @eddgray;
+		padding: 10px;
+		border-radius: 4px;
+		border: 3px solid @eddgrayhover;
+		width: 100%;
 	}
 
-	& > p input {
-		font-size: 16px;
-		padding: 10px;
-		border: 1px solid #ccc;
-		border-radius: 4px;
-		width: 100%;
+	& p {
+		margin-bottom: 10px;
+
+		& label {
+			display: block;
+			margin-bottom: 3px;
+			width: 100%;
+		}
+
+		&:last-child {
+			margin-top: 15px;
+		}
 	}
 }
 
@@ -239,15 +251,15 @@ table.gstl_50.gssb_c {
 		font-weight: 500;
 	}
 
-	& #edd-free-downloads-modal input[type='text'],
-	#edd-free-downloads-modal input[type='email'] {
+	& #edd-free-downloads-modal input[type="text"],
+	#edd-free-downloads-modal input[type="email"] {
 		background: @eddgray;
 		padding: 10px;
 		border-radius: 4px;
 		border: 3px solid @eddgrayhover;
 	}
 
-	& #edd-free-downloads-modal input[type='button'] {
+	& #edd-free-downloads-modal input[type="button"] {
 		font-size: 18px;
 		padding: 8px 10px;
 		font-weight: 500;
