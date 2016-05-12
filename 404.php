@@ -3,6 +3,14 @@
  * The template for displaying 404 pages.
  */
 
+// Detect if the 404 is in the forums, and redirect over to the docs landing page
+// Since these are only 404s, we're not concernign ourselves with the search query as the page has been removed anyway
+$requested_path = $_SERVER['REQUEST_URI'];
+if ( false !== strpos( $requested_path, '/forums' ) ) {
+	wp_redirect( 'http://docs.easydigitaldownloads.com', 301 );
+	exit;
+}
+
 get_header(); ?>
 
 <div class="error-404-header-area page-section-blue full-width">
