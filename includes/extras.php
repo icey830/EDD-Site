@@ -301,14 +301,15 @@ add_filter( 'gform_admin_pre_render_16', 'edd_wp_gravity_form_download_options' 
  * Facebook tracking pixel
  */
 function eddwp_facebook_conversion_pixel() {
-
 	if ( function_exists( 'edd_is_success_page' ) && ! edd_is_success_page() ) {
 		return;
 	}
-
 	if ( function_exists( 'edd_get_purchase_session' ) && ! edd_get_purchase_session() ) {
 		return;
 	}
+
+	$payment_id = edd_get_purchase_id_by_key( $session['purchase_key'] );
+	$total = edd_get_payment_amount( $payment_id );
 ?>
 <!-- Facebook Conversion Code for EDD Checkout Success -->
 <script>(function() {
@@ -323,9 +324,9 @@ function eddwp_facebook_conversion_pixel() {
   }
 })();
 window._fbq = window._fbq || [];
-window._fbq.push(['track', '6023481255100', {'value':'0.00','currency':'USD'}]);
+window._fbq.push(['track', '6023481255100', {'value':'<?php echo $total; ?>','currency':'USD'}]);
 </script>
-<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6023481255100&amp;cd[value]=0.00&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6023481255100&amp;cd[value]=<?php echo $total; ?>&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
 <?php
 }
 add_action( 'wp_footer', 'eddwp_facebook_conversion_pixel' );
