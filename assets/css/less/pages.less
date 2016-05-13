@@ -860,6 +860,7 @@
 			background: #edf8ff;
 			padding: 20px 30px 30px;
 			border-radius: 4px;
+			margin-top: 0;
 
 			& h4.section-title-alt {
 				border-bottom-color: #d1dfe8;
@@ -899,7 +900,7 @@
 			border-top: 3px solid rgba(0,0,0,.05);
 		}
 
-		&.two-or-less {
+		&:not(.no-expired).two-or-less {
 			margin-top: -40px;
 		}
 	}
