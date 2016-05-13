@@ -1894,6 +1894,62 @@
 
 
 /* ----------------------------- *
+ * Subscription
+ * ----------------------------- */
+#subscription-header-area {
+	text-align: left;
+
+	& .inner {
+		padding-bottom: 0;
+	}
+
+	& .subscription-info {
+		float: left;
+		width: 40%;
+
+		& .subscription-headline {
+			margin-bottom: 30px;
+
+			& .subscription-title {
+				line-height: 1.4;
+				max-width: 450px;
+				font-weight: 500;
+				font-size: 40px;
+			}
+
+			& .subscription-subtitle {
+				display: inline-block;
+				color: @lightblue;
+				font-size: 20px;
+				margin-bottom: 10px;
+			}
+		}
+	}
+
+	& .subscription-form {
+		float: right;
+		background: #fff;
+		color: #555;
+		padding: 50px;
+		border-radius: 4px 4px 0 0;
+		width: 55%;
+
+		& .subscription-input-fields {
+			& label {
+				display: none;
+			}
+		}
+
+		& ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+	}
+}
+
+
+/* ----------------------------- *
  * 404
  * ----------------------------- */
 .error-404-header-area .inner .section-header {

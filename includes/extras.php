@@ -410,6 +410,10 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'template-product-info';
 	}
 
+	if ( is_page_template( 'page-templates/template-subscribe.php' ) ) {
+		$classes[] = 'template-subscribe';
+	}
+
 	if ( eddwp_edd_is_activated() ) {
 		$cart_contents = edd_get_cart_contents();
 		if ( empty( $cart_contents ) ) {
