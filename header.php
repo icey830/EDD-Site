@@ -56,7 +56,7 @@
 					</span>
 					<?php if ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) : ?>
 						<span class="header-cart">
-							<a href="<?php echo home_url( '/checkout/' ); ?>"><i class="fa fa-shopping-cart"></i><span class="cart-qty"><?php echo edd_get_cart_quantity() ? edd_get_cart_quantity() : ''; ?></span></a>
+							<a href="<?php echo home_url( '/checkout/' ); ?>"><span class="cart-qty"><?php echo edd_get_cart_quantity() ? edd_get_cart_quantity() : ''; ?></span></a>
 						</span>
 					<?php endif; ?>
 				</div>

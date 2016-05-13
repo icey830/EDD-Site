@@ -14,8 +14,8 @@ get_header(); ?>
 		<div class="front-page-intro clearfix">
 			<div class="hero-info">
 				<div class="site-headline">
-					<span class="hero-subtitle">Say hello to the world's easiest way to</span>
-					<h1 class="hero-title">Sell Digital Downloads Through WordPress</h1>
+					<span class="hero-subtitle">Say hello to the easiest way to</span>
+					<h1 class="hero-title">Sell Digital Products With WordPress</h1>
 				</div>
 				<p class="hero-cta">
 					<a class="hero-primary-cta-button" href="<?php echo get_theme_mod( 'eddwp_download_core' ); ?>"><i class="fa fa-cloud-download"></i>Download</a><br>

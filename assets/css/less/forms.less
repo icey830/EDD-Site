@@ -30,7 +30,8 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 #subscriptions-tab > a,
 #edd-recurring-update-submit,
 #rcp_submit,
-#billing_info ~ form input[type="submit"] /* PayPal Express confirmation */ {
+#billing_info ~ form input[type="submit"] /* PayPal Express confirmation */,
+#edd-invoices .edd-invoices-div input[type="submit"] {
 	background: @eddblue;
 	color: #fff;
 	font-size: 1.6rem;
@@ -201,26 +202,38 @@ table.gstl_50.gssb_c {
 /* ----------------------------- *
  * EDD core registration form
  * ----------------------------- */
-#landing-page #edd_register_form fieldset {
-	padding: 0;
-	border: none;
-	margin: 0;
+#edd_register_form {
+	& fieldset {
+		margin: 0 auto;
+		max-width: 380px;
+	}
 
 	& legend {
 		display: none;
 	}
 
-	& > p label,
-	& > p input {
-		display: block;
+	& input[type="text"],
+	input[type="email"],
+	input[type="password"] {
+		background: @eddgray;
+		padding: 10px;
+		border-radius: 4px;
+		border: 3px solid @eddgrayhover;
+		width: 100%;
 	}
 
-	& > p input {
-		font-size: 16px;
-		padding: 10px;
-		border: 1px solid #ccc;
-		border-radius: 4px;
-		width: 100%;
+	& p {
+		margin-bottom: 10px;
+
+		& label {
+			display: block;
+			margin-bottom: 3px;
+			width: 100%;
+		}
+
+		&:last-child {
+			margin-top: 15px;
+		}
 	}
 }
 
@@ -238,17 +251,132 @@ table.gstl_50.gssb_c {
 		font-weight: 500;
 	}
 
-	& #edd-free-downloads-modal input[type='text'],
-	#edd-free-downloads-modal input[type='email'] {
+	& #edd-free-downloads-modal input[type="text"],
+	#edd-free-downloads-modal input[type="email"] {
 		background: @eddgray;
 		padding: 10px;
 		border-radius: 4px;
 		border: 3px solid @eddgrayhover;
 	}
 
-	& #edd-free-downloads-modal input[type='button'] {
+	& #edd-free-downloads-modal input[type="button"] {
 		font-size: 18px;
 		padding: 8px 10px;
 		font-weight: 500;
+	}
+}
+
+
+/* ----------------------------- *
+ * EDD Invoices Form
+ * ----------------------------- */
+#edd-invoices {
+	& .edd-invoices-div {
+		margin: 1em 0;
+	}
+
+	& .edd-invoices-field {
+		padding-right: 10px;
+		width: 26%;
+	}
+
+	& input[type="text"],
+	textarea,
+	select  {
+		background: @eddgray;
+		padding: 10px;
+		border-radius: 4px;
+		border: 3px solid @eddgrayhover;
+		width: 100%;
+		max-width: 300px;
+	}
+
+	& textarea {
+		font-size: 90%;
+		min-height: 150px;
+	}
+
+	& select {
+		height: 44px;
+		margin-left: 0;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	& input[type="submit"] {
+		margin-top: 20px;
+	}
+}
+
+
+/* ----------------------------- *
+ * Gravity Forms General Styles
+ *
+ * The general styles class to be added to the GF form is edd-gf-styles.
+ * GF itself will add that class to the form element but add an additional
+ * class of edd-gf-styles_wrapper to the div that wraps the GF form.
+ * ----------------------------- */
+.edd-gf-styles_wrapper {
+	margin: 0;
+	width: 100%;
+	max-width: 100%;
+
+	& .gform_heading {
+		margin-bottom: 2em;
+		width: 100%;
+
+		& h3.gform_title {
+			font-weight: 500;
+			margin: 0 0 .4em;
+		}
+	}
+
+	& .gform_body {
+		& ul li.gfield {
+			margin-bottom: 25px;
+		}
+
+		& .gfield_label {
+			font-weight: 500;
+			line-height: 1.6;
+			margin: 0 0 .75em;
+		}
+
+		& li.field_description_above .gfield_description {
+			padding-top: 0;
+		}
+
+		& label.gfield_label + div.ginput_container {
+			margin-top: 0;
+		}
+
+		& ul.gfield_checkbox,
+		ul.gfield_radio {
+			margin: 0 !important;
+			padding: 0;
+		}
+
+		& ul.gfield_checkbox li input[type="checkbox"]:checked+label,
+		ul.gfield_radio li input[type="radio"]:checked+label {
+			font-weight: 500;
+		}
+
+		& .gfield_radio li label {
+			margin: 0 0 0 24px !important;
+		}
+
+		& textarea {
+			width: 100%;
+		}
+
+		& input.medium,
+		select.medium {
+
+		}
+	}
+
+	& .gform_footer {
+		padding: 0;
 	}
 }

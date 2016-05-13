@@ -4,7 +4,7 @@
  * "my account" page template
  */
 
-global $rcp_load_css, $rcp_load_scripts, $current_user;
+global $rcp_load_css, $rcp_load_scripts, $current_user, $edd_sl_renew_all;
 $rcp_load_css = $rcp_load_scripts = true;
 
 get_header();
@@ -12,7 +12,7 @@ get_header();
 if ( is_user_logged_in() ) :
 
 	// check for expired licenses
-	$args = array(
+	$license_args = array(
 		'posts_per_page' => -1,
 		'post_type'      => 'edd_license',
 		'post_status'    => 'any',
@@ -38,7 +38,7 @@ if ( is_user_logged_in() ) :
 			),
 		),
 	);
-	$license_keys  = get_posts( $args );
+	$license_keys  = get_posts( $license_args );
 
 	// how many expired licenses are there?
 	$expired_qty = count( $license_keys );
@@ -68,11 +68,11 @@ if ( is_user_logged_in() ) :
 									echo '<div class="edd-account-info"><span class="account-info-label">Email:</span>' . $current_user->user_email . '</div>';
 
 									// get logged in user information
-									get_currentuserinfo();
+									wp_get_current_user();
 
 									// disply wallet balance if it is about $0
-									$wallet_value = edd_wallet()->wallet->balance( $current_user->ID );
 									if ( class_exists( 'EDD_Wallet' ) ) :
+										$wallet_value = edd_wallet()->wallet->balance( $current_user->ID );
 										if ( $wallet_value > 0 ) :
 											$balance = edd_currency_filter( edd_format_amount( $wallet_value ) );
 											echo '<div class="edd-account-info"><span class="account-info-label">Wallet:</span><span class="edd-wallet-value">' . $balance . '</span></div>';
@@ -179,22 +179,36 @@ if ( is_user_logged_in() ) :
 													<a class="expired-key-toggle" href="#">Click here to view all expired license keys</a>
 													<?php
 												}
-
-												if ( $expired_qty > 1 ) {
-													?>
-													<div class="renew-all-licenses">
-														<p>You may also renew license keys in bulk using the form below.</p>
-														<?php echo $edd_sl_renew_all->renew_all_button(); ?>
-													</div>
-													<?php
-												}
+												$license_keys  = get_posts( $license_args );
 											?>
 										</div>
 									</div>
 								<?php } ?>
+								<?php if ( class_exists( 'edd_software_licensing' ) && false != edd_software_licensing()->get_license_keys_of_user() ) {
+									$no_expired  = empty( $license_keys ) ? ' no-expired' : '';
+									$two_or_less = $expired_qty <= 2 ? ' two-or-less' : '';
+									?>
+									<div class="renew-all-licenses<?php echo $no_expired, $two_or_less; ?>">
+										<?php if ( ! empty( $license_keys ) ) { ?>
+											<p>You may also renew license keys in bulk using the form below.</p>
+										<?php } else { ?>
+											<h4 class="section-title-alt"><i class="fa fa-thumbs-up"></i>You do not have any expired license keys</h4>
+											<p>If you would like to renew all of your licenses now, you may do so using the form below.</p>
+										<?php } ?>
+										<?php
+											if ( class_exists( 'EDD_SL_Renew_All' ) ) {
+												echo $edd_sl_renew_all->renew_all_button();
+											}
+										?>
+									</div>
+								<?php } ?>
 								<h3>Manage Your License Keys</h3>
-								<p>Below you will find all license keys for you previous purchases. Use the <strong>Manage Sites</strong> links to authorize specific URLs for your license keys. Use the <strong>Extend License</strong> or <strong>Renew License</strong> links to adjust the terms of your license keys.</p>
-								<?php echo do_shortcode( '[edd_license_keys]' ); ?>
+								<?php if ( class_exists( 'edd_software_licensing' ) && edd_software_licensing()->get_license_keys_of_user() ) { ?>
+									<p>Below you will find all license keys for you previous purchases. Use the <strong>Manage Sites</strong> links to authorize specific URLs for your license keys. Use the <strong>Extend License</strong> or <strong>Renew License</strong> links to adjust the terms of your license keys.</p>
+									<?php echo do_shortcode( '[edd_license_keys]' ); ?>
+								<?php } else { ?>
+									<p>You currently have no licenses.</p>
+								<?php } ?>
 							</div><!-- /.tab-pane -->
 							<div class="tab-pane subscriptions-tab-pane" id="subscriptions-tab">
 								<h3>Manage Your Subscriptions</h3>

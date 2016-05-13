@@ -31,13 +31,15 @@
 					 color: #fff;
 					}
 
-					& .fa {
-						display: inline;
-						margin-right: 8px;
-					}
-
 					& .cart-qty {
 						font-size: 1.1rem;
+
+						&:not(:empty):before {
+							font-family: "FontAwesome";
+							content: "\f07a";
+							font-size: 1.6rem;
+							margin-right: 8px;
+						}
 					}
 				}
 			}

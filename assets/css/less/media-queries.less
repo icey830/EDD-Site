@@ -1093,6 +1093,13 @@
 	.support-type-cta span {
 		display: none;
 	}
+
+	/* Invoices */
+	#edd-invoices {
+		& .edd-invoices-field {
+			width: 30%;
+		}
+	}
 }
 
 
@@ -1171,11 +1178,38 @@
 		}
 	}
 
+	/* Invoices */
+	#edd-invoices {
+		& .edd-invoices-field {
+			float: none;
+			display: block;
+			width: 100%;
+		}
+
+		& input[type="text"],
+		textarea,
+		select {
+			max-width: 100%;
+		}
+
+		& .edd-invoices-div input[type="submit"] {
+			font-size: 1.4rem !important;
+		}
+	}
+
 	/* Flexbox */
 	.flex-container {
 
 		& .flex-two,
 		& .flex-three {
+			width: 100%;
+		}
+	}
+
+	/* Gravity Forms General Styles */
+	.edd-gf-styles_wrapper.gform_wrapper {
+		& input.medium,
+		select.medium {
 			width: 100%;
 		}
 	}
@@ -1649,7 +1683,8 @@
 		}
 	}
 
-	.section-title-alt {
+	.section-title-alt,
+	.featured-download-title {
 		font-size: 2.4rem;
 	}
 
@@ -1677,6 +1712,13 @@
 
 		& h3 {
 			font-size: 2rem;
+		}
+	}
+
+	/* Invoices */
+	#edd-invoices {
+		& .edd-invoices-div input[type="submit"] {
+			font-size: 1.2rem !important;
 		}
 	}
 }
