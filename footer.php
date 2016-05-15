@@ -12,7 +12,7 @@
  */
 ?>
 
-	<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) ) : ?>
+	<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() && ! is_page( 'subscribe' ) ) ) : ?>
 		<div id="footer-newsletter" class="page-section-darkblue full-width">
 			<div class="inner">
 				<div class="newsletter-content clearfix">
@@ -47,8 +47,8 @@
 	<footer id="colophon" class="footer-area page-section-darkblue full-width" role="contentinfo">
 		<div class="inner">
 			<div class="site-footer">
-				<?php if ( ! is_404() && ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) ) : ?>
-					<img class="sitting-edd" src="<?php echo get_template_directory_uri(); ?>/images/mascot/edd-footer-sitting.png" />
+				<?php if ( ! is_404() && ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() && ! is_page( 'subscribe' ) ) ) : ?>
+					<img class="sitting-edd" src="<?php echo get_template_directory_uri(); ?>/images/mascot/edd-sitting.png" />
 				<?php endif; ?>
 				<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) && ! is_page( array( 130 ) ) ) : ?>
 					<div class="footer-columns flex-container clearfix">

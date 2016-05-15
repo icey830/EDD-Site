@@ -246,6 +246,33 @@
 	.resources-404 .sad-edd {
 		display: none;
 	}
+
+	/* subscription */
+	#subscription-header-area {
+		text-align: left;
+
+		& .inner {
+			padding: 0;
+		}
+
+		& .subscription-info {
+			display: none;
+		}
+
+		& .subscription-form {
+			float: none;
+			width: 100%;
+
+			#mc_embed_signup {
+				max-width: 630px;
+				margin: 0 auto;
+
+				& .subscription-mobile {
+					display: block;
+				}
+			}
+		}
+	}
 }
 
 
@@ -1211,6 +1238,13 @@
 		& input.medium,
 		select.medium {
 			width: 100%;
+		}
+	}
+
+	/* subscription */
+	#subscription-header-area {
+		& .subscription-form {
+			padding-bottom: 120px;
 		}
 	}
 }
