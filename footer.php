@@ -48,7 +48,7 @@
 		<div class="inner">
 			<div class="site-footer">
 				<?php if ( ! is_404() && ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() && ! is_page( 'subscribe' ) ) ) : ?>
-					<img class="sitting-edd" src="<?php echo get_template_directory_uri(); ?>/images/mascot/edd-footer-sitting.png" />
+					<img class="sitting-edd" src="<?php echo get_template_directory_uri(); ?>/images/mascot/edd-sitting.png" />
 				<?php endif; ?>
 				<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) && ! is_page( array( 130 ) ) ) : ?>
 					<div class="footer-columns flex-container clearfix">
