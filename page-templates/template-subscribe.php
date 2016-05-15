@@ -55,13 +55,13 @@ the_post();
 							</div>
 							<div class="subscription-groups">
 								<div class="mc-field-group input-group subscription-group blog-updates">
-									<span class="subscription-group-title">Blog Post Updates</span>
+									<span class="subscription-group-title">Additional Newsletter Preferences:</span>
 									<ul>
 										<label for="mce-group[22361]-22361-0">
-											<input type="radio" value="1" name="group[22361]" id="mce-group[22361]-22361-0">I want to receive blog post updates
+											<input type="radio" value="1" name="group[22361]" id="mce-group[22361]-22361-0">I'd like to receive Blog Post updates.
 										</label>
 										<label for="mce-group[22361]-22361-1">
-											<input type="radio" value="2" name="group[22361]" id="mce-group[22361]-22361-1">I do not want to receive blog post updates
+											<input type="radio" value="2" name="group[22361]" id="mce-group[22361]-22361-1">I'd like to receive Developer updates.
 										</label>
 									</ul>
 								</div>
