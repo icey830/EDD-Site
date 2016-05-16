@@ -1755,4 +1755,36 @@
 			font-size: 1.2rem !important;
 		}
 	}
+
+	/* footer newsletter */
+	#footer-newsletter .newsletter-content {
+		& form {
+			& .nl-name {
+				margin-bottom: 0;
+
+				& input[type="text"].nl-first-name {
+					border-radius: 4px 0 0 0;
+					padding-right: 3px;
+				}
+
+				& input[type="text"].nl-last-name {
+					border-left: 1px solid #eaeaea;
+					border-radius: 0 4px 0 0;
+				}
+			}
+
+			& .nl-email {
+				& input[type="email"].newsletter-email {
+					border-radius: 0;
+					border-top: 1px solid #eaeaea;
+					width: 100%;
+				}
+
+				& input[type="submit"].newsletter-submit {
+					border-radius: 0 0 4px 4px;
+					width: 100%;
+				}
+			}
+		}
+	}
 }
