@@ -27,7 +27,7 @@ the_post();
 						<p>By signing up to the newsletter, you will be the first to know about the latest <strong>updates and exclusive promotions</strong> for Easy Digital Downloads and its extensions and themes.</p>
 					</div>
 					<p>Enter your best email address, your name, and selections for any additional updates you would like to receive.</p>
-					<?php echo do_shortcode( '[gravityform id="14" title="false" description="false"]' ); ?>
+					<?php the_content(); // the page should ONLY include the Gravity Forms shortcode ?>
 					<div class="subscription-notes">
 						<i class="fa fa-lock"></i>Your email address is secure. We will never send you spam. You may unsubscribe at any time.
 					</div>
