@@ -431,6 +431,10 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'template-subscribe';
 	}
 
+	if ( is_page_template( 'page-templates/template-barebones.php' ) ) {
+		$classes[] = 'template-barebones';
+	}
+
 	if ( eddwp_edd_is_activated() ) {
 		$cart_contents = edd_get_cart_contents();
 		if ( empty( $cart_contents ) ) {

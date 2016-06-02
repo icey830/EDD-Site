@@ -3,14 +3,15 @@
  * download sidebar (NOT widgetized... for now)
  */
 
-$is_extension = has_term( 'extensions', 'download_category', get_the_ID() );
-$is_theme     = has_term( 'themes', 'download_category', get_the_ID() );
-$is_bundle    = has_term( 'bundles', 'download_category', get_the_ID() );
-$has_license  = get_post_meta( get_the_ID(), '_edd_sl_enabled', true );
+$is_extension  = has_term( 'extensions', 'download_category', get_the_ID() );
+$is_theme      = has_term( 'themes', 'download_category', get_the_ID() );
+$is_bundle     = has_term( 'bundles', 'download_category', get_the_ID() );
+$has_license   = get_post_meta( get_the_ID(), '_edd_sl_enabled', true );
 
-$is_3rd_party = has_term( '3rd-party', 'download_category', get_the_ID() );
-$developer    = get_post_meta( get_the_ID(), 'ecpt_developer', true );
-$external_url = get_post_meta( get_the_ID(), 'ecpt_externalurl', true );
+$is_3rd_party  = has_term( '3rd-party', 'download_category', get_the_ID() );
+$is_unlicensed = has_term( 'unlicensed', 'download_tag', get_the_ID() );
+$developer     = get_post_meta( get_the_ID(), 'ecpt_developer', true );
+$external_url  = get_post_meta( get_the_ID(), 'ecpt_externalurl', true );
 
 // get the download
 if ( $is_extension && ! $is_bundle ) :
@@ -42,7 +43,7 @@ if ( $variable_pricing ) {
 	<div class="download-access download-info-section">
 		<div class="pricing-header">
 			<?php
-				if ( ! $is_3rd_party ) {
+				if ( ! $is_3rd_party && ! $is_unlicensed ) {
 					?>
 					<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Pricing</h3>
 					<?php
@@ -78,7 +79,7 @@ if ( $variable_pricing ) {
 								echo 'All price options are billed yearly. You may cancel your subscription at any time. ';
 							}
 							printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
-						} elseif ( $is_extension && ! $recurring ) { // safety net
+						} elseif ( $is_extension && ! $recurring && ! $is_unlicensed ) { // safety net
 
 							// this should never happen
 							printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
@@ -89,6 +90,11 @@ if ( $variable_pricing ) {
 							printf( 'Downloading this %1$s grants you a lifetime license for support and updates.', $download_type );
 						} elseif ( $is_theme && $is_3rd_party ) {
 							printf( 'This %1$s is maintained and supported by %2$s.', $download_type, $developer );
+						}
+
+						// unlicensed downloads (like .org, iTunes, etc.)
+						if ( $is_unlicensed ) {
+							printf( 'This %1$s is not subject to our licensing terms as it is distributed and maintained by a 3rd party.', $download_type );
 						}
 					?>
 				</p>

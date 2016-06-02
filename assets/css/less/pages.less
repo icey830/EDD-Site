@@ -1287,6 +1287,19 @@
 	margin-top: ;
 }
 
+.lost-password-link {
+	display: inline-block;
+	color: #777;
+	font-size: 1.4rem;
+	text-decoration: underline;
+	margin-top: 10px;
+
+	&:hover {
+		color: #777;
+		text-decoration: none;
+	}
+}
+
 
 /* ----------------------------- *
  * Checkout
@@ -2266,6 +2279,23 @@
 
 
 /* ----------------------------- *
+ * Partners
+ * ----------------------------- */
+.edd-partners {
+	& .download-grid.two-col .download-grid-item {
+		min-height: 500px;
+	}
+}
+
+.become-a-partner-section {
+	text-align: center;
+	padding: 30px 0;
+	border-top: 2px solid @eddgrayhover;
+	margin-top: 10px;
+}
+
+
+/* ----------------------------- *
  * Featured Download Template (theme and extension)
  * ----------------------------- */
 
@@ -2542,6 +2572,25 @@
 
 #front-page-features .features-grid-content-sections {
 	margin-bottom: 0;
+}
+
+
+/* ----------------------------- *
+ * Barebones
+ * ----------------------------- */
+.template-barebones {
+	& .site-header,
+	.site-footer .flex-container .flex-two {
+		text-align: center;
+	}
+
+	& .header-area .site-title {
+		float: none;
+	}
+
+	& .site-footer .flex-container .flex-two {
+		width: 100%;
+	}
 }
 
 

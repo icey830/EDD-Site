@@ -41,7 +41,7 @@
 						if ( eddwp_edd_is_activated() ) :
 							$cart_contents = edd_get_cart_contents();
 						endif;
-						if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) || empty( $cart_contents ) ) :
+						if ( ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) || ( edd_is_checkout() && empty( $cart_contents ) ) ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) :
 							?>
 							<a href="<?php echo get_option( 'siteurl' ); ?>">
 								<img class="edd-logo" src="<?php echo get_stylesheet_directory_uri() . '/images/edd-logo.svg'; ?>" alt="Easy Digital Downloads" data-fallback="<?php echo get_stylesheet_directory_uri() . '/images/edd-logo.png'; ?>">
@@ -54,7 +54,7 @@
 						endif;
 						?>
 					</span>
-					<?php if ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) : ?>
+					<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
 						<span class="header-cart">
 							<a href="<?php echo home_url( '/checkout/' ); ?>"><span class="cart-qty"><?php echo edd_get_cart_quantity() ? edd_get_cart_quantity() : ''; ?></span></a>
 						</span>
@@ -63,10 +63,9 @@
 
 				<?php
 					/**
-					 * 130 - Support Registration
-					 * 635 - My Account
+					 * header navigation menu shown conditionally
 					 */
-					if ( ( ! eddwp_is_checkout() || ( eddwp_is_checkout() && empty( $cart_contents ) ) ) || is_page( 130 ) || is_page( 635 ) ) : ?>
+					if ( ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) || ( edd_is_checkout() && empty( $cart_contents ) ) ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
 					<i class="fa fa-bars menu-toggle"></i>
 					<nav id="primary" class="navigation-main" role="navigation">
 						<?php
