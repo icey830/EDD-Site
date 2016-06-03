@@ -297,6 +297,7 @@ add_filter( 'gform_pre_validation_16', 'edd_wp_gravity_form_download_options' );
 add_filter( 'gform_pre_submission_filter_16', 'edd_wp_gravity_form_download_options' );
 add_filter( 'gform_admin_pre_render_16', 'edd_wp_gravity_form_download_options' );
 
+
 /**
  * Facebook tracking pixel
  */
@@ -356,6 +357,22 @@ add_filter( 'bbp_login_widget_title', 'eddwp_bbp_login_widget_title', 10, 3 );
 
 
 /**
+ * Filter the submit button on the dedicated subscription form (Gravity Forms)
+ */
+function eddwp_gf_subscription_form_submit_button( $content ) {
+	if ( is_page( 'subscribe' ) && function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
+		$count = mailchimp_subscriber_count()->subscriber_count();
+		$button_text = 'Join ' . $count . ' subscribers!';
+		$content = str_replace( 'Sign me up!', $button_text, $content );
+		return $content;
+	} else {
+		return $content;
+	}
+}
+add_filter( 'gform_submit_button', 'eddwp_gf_subscription_form_submit_button' );
+
+
+/**
  * Adds custom body classes based on the page the user is browsing.
  */
 function eddwp_body_class( $classes ) {
@@ -409,6 +426,14 @@ function eddwp_body_class( $classes ) {
 
 	if ( is_page_template( 'page-templates/template-download-directory.php' ) ) {
 		$classes[] = 'template-product-info';
+	}
+
+	if ( is_page_template( 'page-templates/template-subscribe.php' ) ) {
+		$classes[] = 'template-subscribe';
+	}
+
+	if ( is_page_template( 'page-templates/template-barebones.php' ) ) {
+		$classes[] = 'template-barebones';
 	}
 
 	if ( eddwp_edd_is_activated() ) {

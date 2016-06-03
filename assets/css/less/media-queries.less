@@ -246,6 +246,36 @@
 	.resources-404 .sad-edd {
 		display: none;
 	}
+
+	/* subscription */
+	#subscription-header-area {
+		text-align: left;
+
+		& .inner {
+			padding: 0;
+		}
+
+		& .subscription-info {
+			display: none;
+		}
+
+		& .subscription-wrap {
+			float: none;
+			border-radius: 0;
+			padding-right: 30px;
+			padding-left: 30px;
+			width: 100%;
+
+			& .subscription-form {
+				max-width: 630px;
+				margin: 0 auto;
+
+				& .subscription-mobile {
+					display: block;
+				}
+			}
+		}
+	}
 }
 
 
@@ -1213,6 +1243,14 @@
 			width: 100%;
 		}
 	}
+
+	/* subscription */
+	#subscription-header-area {
+		& .subscription-wrap {
+			padding-top: 30px;
+			padding-bottom: 120px;
+		}
+	}
 }
 
 
@@ -1719,6 +1757,38 @@
 	#edd-invoices {
 		& .edd-invoices-div input[type="submit"] {
 			font-size: 1.2rem !important;
+		}
+	}
+
+	/* footer newsletter */
+	#footer-newsletter .newsletter-content {
+		& form {
+			& .nl-name {
+				margin-bottom: 0;
+
+				& input[type="text"].nl-first-name {
+					border-radius: 4px 0 0 0;
+					padding-right: 3px;
+				}
+
+				& input[type="text"].nl-last-name {
+					border-left: 1px solid #eaeaea;
+					border-radius: 0 4px 0 0;
+				}
+			}
+
+			& .nl-email {
+				& input[type="email"].newsletter-email {
+					border-radius: 0;
+					border-top: 1px solid #eaeaea;
+					width: 100%;
+				}
+
+				& input[type="submit"].newsletter-submit {
+					border-radius: 0 0 4px 4px;
+					width: 100%;
+				}
+			}
 		}
 	}
 }

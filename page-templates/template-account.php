@@ -269,6 +269,7 @@ else : ?>
 							<input type="submit" class="edd-submit button blue" name="wp-submit" value="Sign In" />
 							<input type="hidden" name="redirect_to" value="<?php echo ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>" />
 						</div>
+						<a class="lost-password-link" href="<?php echo wp_lostpassword_url( get_permalink() ); ?>" title="Lost Password">Lost Password</a>
 					</form><!-- /#loginform -->
 				</article>
 			</section>

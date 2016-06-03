@@ -724,3 +724,50 @@ div.sharedaddy .sd-content {
 		margin: 0 !important;
 	}
 }
+
+
+/* ----------------------------- *
+ * Modals
+ * ----------------------------- */
+.modal-dialog {
+	& .modal-content {
+		border: none;
+
+		& .modal-header {
+			background: #2386c5;
+			color: #fff;
+			padding: 20px;
+			border-radius: 4px 4px 0 0;
+
+			& .close {
+				margin-top: 2px;
+			}
+
+			& .close span {
+				display: inline;
+				background: none;
+				padding: none;
+				border-radius: 0;
+			}
+		}
+
+		& .modal-footer {
+			padding: 10px 20px;
+			background: @eddgray;
+			padding: 20px;
+			border: none;
+			border-radius: 0 0 4px 4px;
+			margin-top: 0;
+
+			& a {
+				color: #777;
+				text-transform: lowercase;
+				text-decoration: none;
+
+				&:hover {
+					color: #555;
+				}
+			}
+		}
+	}
+}

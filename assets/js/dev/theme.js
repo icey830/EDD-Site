@@ -54,13 +54,13 @@
 		});
 
 
-		// Pricing Options Radio Buttons
+		// Radio Buttons Graphics
 		$('.edd_price_options label').unwrap();
 
-		$('.edd_price_options label').each(function () {
-			$(this).removeClass('selected');
-			$(this).prepend('<span class="bullet" />');
-		});
+        $('.edd_price_options label').each(function () {
+            $(this).removeClass('selected');
+            $(this).prepend('<span class="bullet" />');
+        });
 
 		$('.edd_price_options label').on('click', function () {
 			var parent = $(this).parent();
@@ -74,6 +74,13 @@
 
 			$('.edd_price_options input:checked').parent().addClass('selected');
 		}
+
+
+        // Checkbox Graphics
+        $('.lists-wrap .ginput_container_checkbox label').each(function () {
+            $(this).prepend('<span class="bullet" />');
+        });
+
 
 		// Payment Method Radio Buttons
 		$('#edd-payment-mode-wrap label').each(function () {

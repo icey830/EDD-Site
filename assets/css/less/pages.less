@@ -1287,6 +1287,19 @@
 	margin-top: ;
 }
 
+.lost-password-link {
+	display: inline-block;
+	color: #777;
+	font-size: 1.4rem;
+	text-decoration: underline;
+	margin-top: 10px;
+
+	&:hover {
+		color: #777;
+		text-decoration: none;
+	}
+}
+
 
 /* ----------------------------- *
  * Checkout
@@ -1895,6 +1908,230 @@
 
 
 /* ----------------------------- *
+ * Subscription
+ * ----------------------------- */
+#subscription-header-area {
+	text-align: left;
+
+	& .inner {
+		padding-bottom: 0;
+	}
+
+	& .subscription-info {
+		float: left;
+		width: 40%;
+
+		& .subscription-content {
+			margin-bottom: 30px;
+
+			& .subscription-title {
+				line-height: 1.4;
+				max-width: 450px;
+				font-weight: 500;
+				font-size: 38px;
+			}
+
+			& .section-title-alt {
+				padding-bottom: 10px;
+				margin-bottom: 30px;
+			}
+		}
+	}
+
+	& .subscription-wrap {
+		float: right;
+		position: relative;
+		background: @eddblue;
+		color: #fff;
+		padding: 50px 50px 70px;
+		border-radius: 4px 4px 0 0;
+		width: 55%;
+
+		& ul,
+		li {
+			list-style: none;
+			padding-left: 0;
+			margin-left: 0;
+		}
+
+		& input {
+			text-indent: 0;
+			padding: 10px !important;
+			border: none;
+			border-radius: 4px;
+			width: 100%;
+			margin: 0;
+		}
+
+		& h3 {
+			margin-bottom: 1em;
+		}
+
+		& .gform_wrapper {
+			margin: 0;
+			max-width: 100%;
+
+			& .email-wrap {
+				margin-bottom: 15px;
+			}
+
+			& .name-wrap {
+				margin-bottom: 27px;
+
+				& .ginput_container_name {
+					& > span {
+						padding: 0 !important;
+						margin: 0 !important;
+						width: 48.5%;
+
+						&.name_first {
+							float: left;
+						}
+
+						&.name_last {
+							float: right;
+						}
+
+						& label {
+							display: none;
+						}
+					}
+				}
+			}
+
+			& .email-wrap .gfield_label,
+			.name-wrap .gfield_label {
+				display: none;
+
+				& + .ginput_container {
+					margin-top: 0;
+
+					& input {
+						margin-bottom: 0;
+						width: 100%;
+					}
+				}
+			}
+
+			& .lists-wrap {
+				& .gfield_label {
+					display: block;
+					font-size: 1.5rem;
+					font-weight: 400;
+					margin-bottom: 8px;
+					opacity: .75;
+				}
+
+				& .ginput_container_checkbox {
+					background: rgba(0,0,0,.05);
+					list-style: none;
+					padding: 18px 14px 11px;
+					border-radius: 4px;
+					margin: 0;
+
+					& li {
+						margin-bottom: 6px;
+					}
+
+					& label {
+						position: relative;
+						line-height: 1.625;
+						padding-left: 34px;
+						margin-left: 0;
+						cursor: pointer;
+					}
+
+					& label span.bullet {
+						background: url('images/radio-checkbox-sprite-dark.png') no-repeat;
+						background-position: 0px -65px;
+						width: 20px;
+						height: 20px;
+						display: block;
+						position: absolute;
+						top: 2px;
+						left: 3px;
+					}
+
+					& label:hover span.bullet {
+						background-position: 0px -85px;
+					}
+
+					& input:checked + label span.bullet {
+						background-position: 0px -105px;
+						transition: none;
+					}
+
+					& input[type="checkbox"] {
+						display: none;
+						float: left;
+						outline: none;
+						opacity: 0;
+						filter: alpha(opacity=0);
+						zoom: 1;
+						width: 0;
+
+						&:checked + label {
+							font-weight: 400;
+						}
+					}
+				}
+			}
+
+			& .gform_footer {
+				padding: 0;
+				margin-top: 30px;
+
+				& input[type="submit"] {
+					font-size: 2rem;
+					line-height: 1.428571429;
+					padding: 10px 20px !important;
+					width: auto;
+				}
+			}
+		}
+
+		& .gform_confirmation_wrapper {
+			background: rgba(0,0,0,.05);
+			list-style: none;
+			padding: 20px;
+			border-radius: 4px;
+			margin: 0 0 30px;
+		}
+
+		& .subscription-notes {
+			font-size: 1.4rem;
+			opacity: .75;
+			margin: 16px 0 0;
+			max-width: 320px;
+
+			& .fa {
+				margin-right: 6px;
+			}
+		}
+
+		& .subscription-sitting-edd {
+			position: absolute;
+			bottom: -40px;
+			right: 30px;
+		}
+
+		& .subscription-mobile {
+			display: none;
+
+			& p {
+				margin-bottom: 25px;
+			}
+		}
+	}
+}
+
+.template-subscribe .footer-area .site-footer .footer-columns {
+	padding-top: 0;
+	border-top: none;
+}
+
+
+/* ----------------------------- *
  * 404
  * ----------------------------- */
 .error-404-header-area .inner .section-header {
@@ -2046,6 +2283,23 @@
 	border-bottom: 2px solid #eee;
 	margin-bottom: 30px;
 	padding-bottom: 30px;
+}
+
+
+/* ----------------------------- *
+ * Partners
+ * ----------------------------- */
+.edd-partners {
+	& .download-grid.two-col .download-grid-item {
+		min-height: 500px;
+	}
+}
+
+.become-a-partner-section {
+	text-align: center;
+	padding: 30px 0;
+	border-top: 2px solid @eddgrayhover;
+	margin-top: 10px;
 }
 
 
@@ -2326,6 +2580,25 @@
 
 #front-page-features .features-grid-content-sections {
 	margin-bottom: 0;
+}
+
+
+/* ----------------------------- *
+ * Barebones
+ * ----------------------------- */
+.template-barebones {
+	& .site-header,
+	.site-footer .flex-container .flex-two {
+		text-align: center;
+	}
+
+	& .header-area .site-title {
+		float: none;
+	}
+
+	& .site-footer .flex-container .flex-two {
+		width: 100%;
+	}
 }
 
 
