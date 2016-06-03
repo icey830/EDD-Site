@@ -10,6 +10,7 @@ $has_license   = get_post_meta( get_the_ID(), '_edd_sl_enabled', true );
 
 $is_3rd_party  = has_term( '3rd-party', 'download_category', get_the_ID() );
 $is_unlicensed = has_term( 'unlicensed', 'download_tag', get_the_ID() );
+$is_wporg      = has_term( 'wporg', 'download_tag', get_the_ID() );
 $developer     = get_post_meta( get_the_ID(), 'ecpt_developer', true );
 $external_url  = get_post_meta( get_the_ID(), 'ecpt_externalurl', true );
 
@@ -57,7 +58,7 @@ if ( $variable_pricing ) {
 		<div class="pricing-info">
 			<div class="pricing">
 				<?php
-					if ( ! $is_3rd_party ) {
+					if ( ! $is_3rd_party || ( $is_3rd_party && $is_wporg ) ) {
 						echo edd_get_purchase_link( array( 'id' => get_the_ID() ) );
 					} else {
 						?>
