@@ -64,12 +64,56 @@ function eddwp_feed_request($qv) {
 }
 add_filter( 'request', 'eddwp_feed_request' );
 
+/**
+ * Exclude already installed EDD addons from feed
+ * Returns an array of download IDs that should be excluded
+ */
+function eddwp_feed_exclude_addons( $addons ) {
+	$args = array(
+		'post_type' => 'download',
+		'post_status' => 'publish',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'download_category',
+				'field' => 'slug',
+				'terms' => 'extensions',
+			),
+		),
+	);
+	// Get all downloads
+	$downloads = new WP_Query( $args );
+	$exclude = array();
+	if ( $downloads->have_posts() ) {
+		while ( $downloads->have_posts() ) {
+			$downloads->the_post();
+			$id = get_the_ID();
+			// Get the files for the download
+			$file = get_post_meta( $id, 'edd_download_files' );
+			// Get the string value of the first two files
+			$first_file = ( isset( $file[0][0] ) ) ? $file[0][0]['file'] : '';
+			$second_file = ( isset( $file[0][1] ) ) ? $file[0][1]['file'] : '';
+			if ( is_array( $addons ) ) {
+				foreach ( $addons as $addon ) {
+					// if the file name contains one of the already installed addons
+					// add it to the array
+					if ( strpos( $first_file, $addon ) || strpos( $second_file, $addon ) ) {
+						$exclude[] = $id;
+					}
+				}
+			}
+		}
+	}
+	return $exclude;
+}
 
 /**
  * Alter the WordPress Query for the feed
  */
 function eddwp_feed_query( $query ) {
+
 	if ( $query->is_feed && ( $query->query_vars['feed'] === 'extensions' || $query->query_vars['feed'] === 'addons' ) ) {
+
+		$exclude = ( isset( $_GET['exclude'] ) ) ? eddwp_feed_exclude_addons( explode( ',', $_GET['exclude'] ) ) : '';
 
 		$query->set( 'posts_per_page', 50 );
 
@@ -88,6 +132,7 @@ function eddwp_feed_query( $query ) {
 			$query->set( 'tax_query', $tax_query );
 			$query->set( 'orderby', 'date' );
 			$query->set( 'order', 'DESC' );
+			$query->set( 'post__not_in', $exclude );
 
 		} else {
 
@@ -108,6 +153,7 @@ function eddwp_feed_query( $query ) {
 
 			$query->set( 'tax_query', $tax_query );
 			$query->set( 'orderby', 'menu_order' );
+			$query->set( 'post__not_in', $exclude );
 
 		}
 
