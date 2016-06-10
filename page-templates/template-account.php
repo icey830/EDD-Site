@@ -88,7 +88,7 @@ if ( is_user_logged_in() ) :
 							<li><a href="#subscriptions-tab" data-toggle="tab"><i class="fa fa-repeat"></i>Subscriptions</a></li>
 							<li><a href="#downloads-tab" data-toggle="tab"><i class="fa fa-cloud-download"></i>Downloads</a></li>
 							<li><a href="#tab2" data-toggle="tab"><i class="fa fa-user"></i>Profile</a></li>
-							<?php if ( eddc_user_has_commissions() ) { ?>
+							<?php if ( defined( 'EDD_COMMISSIONS_VERSION' ) && eddc_user_has_commissions() ) { ?>
 								<li><a href="#tab3" data-toggle="tab"><i class="fa fa-money"></i>Commissions</a></li>
 							<?php } ?>
 							<li><a href="#tab5" data-toggle="tab"><i class="fa fa-wrench"></i>Support Subscription</a></li>
