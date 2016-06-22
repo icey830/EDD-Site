@@ -151,7 +151,7 @@ function eddwp_demo_link( $content ) {
 	}
 
 	// build link to the demo
-	$output_demo_link = sprintf( '<p class="edd-demo-link"><a class="edd-submit button blue" href="%s">View Demo</a></p>', $get_demo_link );
+	$output_demo_link = sprintf( '<p class="edd-demo-link"><a class="edd-submit button blue" href="%s" target="_blank">View Demo</a></p>', $get_demo_link );
 
 	// add the link to demo below the content
 	echo $output_demo_link;
