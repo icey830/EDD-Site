@@ -23,11 +23,24 @@
 	input[type="tel"],
 	input[type="number"],
 	input[type="password"],
-	textarea,
+	textarea {
+		padding: 6px 10px !important;
+		background: @eddgray;
+		border: 3px solid @eddgrayhover;
+		border-radius: 3px;
+		outline: none;
+		-webkit-transition: all .18s ease-in-out;
+		-moz-transition: all .18s ease-in-out;
+		-o-transition: all .18s ease-in-out;
+		-ms-transition: all .18s ease-in-out;
+		transition: all .18s ease-in-out;
+		margin-bottom: 10px;
+		font-size: inherit !important;
+	}
 
 	/* GF 2.0 style overrides */
-	.gform_wrapper.gf_browser_chrome input:not([type='radio']):not([type='checkbox']):not([type='submit']):not([type='button']):not([type='file']),
-	.gform_wrapper.gf_browser_chrome textarea {
+	&.gf_browser_chrome input:not([type='radio']):not([type='checkbox']):not([type='submit']):not([type='button']):not([type='file']),
+	.gf_browser_chrome textarea {
 		padding: 6px 10px !important;
 		background: @eddgray;
 		border: 3px solid @eddgrayhover;
