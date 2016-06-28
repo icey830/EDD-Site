@@ -150,6 +150,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 }
 
 #starter-package .gsection_description {
+	padding: 0;
 	width: 100%;
 }
 
@@ -166,6 +167,8 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 
 #starter-package .gfield {
 	position: relative;
+	padding-right: 0;
+	margin-top: 0;
 }
 
 #starter-package .edd-gf-select {
@@ -207,7 +210,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	border-width: 4px 0;
 	margin-bottom: 30px;
 	width: 319px;
-	min-height: 560px;
+	min-height: 575px;
 
 	& label:not(.gfield_label) {
 		font-size: 1.3rem;
@@ -245,7 +248,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 }
 
 #starter-package .gfield_checkbox li input[type="checkbox"] {
-	margin-top: 4px !important;
+	margin: 0 4px 0 0 !important;
 }
 
 #starter-package ul.gform_fields li.edd-gf-accounting input[type="radio"] {
@@ -272,7 +275,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 }
 
 #starter-package .gfield_description {
-	padding-top: 0;
+	padding: 0;
 	margin-bottom: 0;
 	width: 100%;
 }
@@ -315,7 +318,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 
 #starter-package .edd-gf-selected-extensions,
 #starter-package .edd-gf-selected-extensions .starter-package-headline {
-	font-size: 20px;
+	font-size: 16px;
 	padding: 0;
 	border: none;
 	margin: 0;
@@ -381,6 +384,10 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 #starter-package .edd-gf-payment-method {
 	margin: 0 auto !important;
 	max-width: 660px;
+
+	& .gfield_radio {
+		width: 100%;
+	}
 }
 
 #starter-package .edd-gf-email-field .gfield_label,
@@ -416,6 +423,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	border-radius: 4px;
 	margin: 0 !important;
 	width: 100%;
+	max-width: 100%;
 	height: 78px;
 	transition: all .2s;
 	-moz-transition: all .2s;
@@ -469,7 +477,12 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 #starter-package .gform_footer,
 #starter-package .edd-gf-name-field,
 #starter-package .edd-gf-email-field {
+	padding-right: 0 !important;
 	margin: 0 auto !important;
+}
+
+#starter-package .edd-gf-name-field > div {
+	width: 100% !important;
 }
 
 #starter-package .edd-gf-email-field {
@@ -574,12 +587,12 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 
 #starter-package .edd-gf-starter-discount {
 	text-align: center;
-	padding-bottom: 20px;
+	padding: 0 0 20px;
 	margin-bottom: 0 !important;
 }
 
 #starter-package .edd-gf-starter-discount .gfield_label {
-	margin-bottom: 10px;
+	font-weight: 400;
 }
 
 #starter-package .edd-gf-starter-discount .gfield_description {
@@ -591,8 +604,8 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 #starter-package .edd-gf-starter-discount input[type="text"]:active,
 #starter-package .edd-gf-starter-discount input[type="text"]:hover {
 	display: inline;
-	background: #F5F8FC;
-	color: #555;
+	background: #fff;
+	color: @eddblue;
 	font-size: 24px !important;
 	text-align: center;
 	border: none;
