@@ -38,23 +38,6 @@
 		font-size: inherit !important;
 	}
 
-	/* GF 2.0 style overrides */
-	&.gf_browser_chrome input:not([type='radio']):not([type='checkbox']):not([type='submit']):not([type='button']):not([type='file']),
-	.gf_browser_chrome textarea {
-		padding: 6px 10px !important;
-		background: @eddgray;
-		border: 3px solid @eddgrayhover;
-		border-radius: 3px;
-		outline: none;
-		-webkit-transition: all .18s ease-in-out;
-		-moz-transition: all .18s ease-in-out;
-		-o-transition: all .18s ease-in-out;
-		-ms-transition: all .18s ease-in-out;
-		transition: all .18s ease-in-out;
-		margin-bottom: 10px;
-		font-size: inherit !important;
-	}
-
 	& textarea {
 		line-height: 24px !important;
 	}
@@ -167,7 +150,6 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 }
 
 #starter-package .gsection_description {
-	padding: 0;
 	width: 100%;
 }
 
@@ -184,8 +166,6 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 
 #starter-package .gfield {
 	position: relative;
-	padding-right: 0;
-	margin-top: 0;
 }
 
 #starter-package .edd-gf-select {
@@ -227,7 +207,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	border-width: 4px 0;
 	margin-bottom: 30px;
 	width: 319px;
-	min-height: 575px;
+	min-height: 560px;
 
 	& label:not(.gfield_label) {
 		font-size: 1.3rem;
@@ -265,7 +245,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 }
 
 #starter-package .gfield_checkbox li input[type="checkbox"] {
-	margin: 0 4px 0 0 !important;
+	margin-top: 4px !important;
 }
 
 #starter-package ul.gform_fields li.edd-gf-accounting input[type="radio"] {
@@ -292,7 +272,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 }
 
 #starter-package .gfield_description {
-	padding: 0;
+	padding-top: 0;
 	margin-bottom: 0;
 	width: 100%;
 }
@@ -335,7 +315,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 
 #starter-package .edd-gf-selected-extensions,
 #starter-package .edd-gf-selected-extensions .starter-package-headline {
-	font-size: 16px;
+	font-size: 20px;
 	padding: 0;
 	border: none;
 	margin: 0;
@@ -401,10 +381,6 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 #starter-package .edd-gf-payment-method {
 	margin: 0 auto !important;
 	max-width: 660px;
-
-	& .gfield_radio {
-		width: 100%;
-	}
 }
 
 #starter-package .edd-gf-email-field .gfield_label,
@@ -440,7 +416,6 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	border-radius: 4px;
 	margin: 0 !important;
 	width: 100%;
-	max-width: 100%;
 	height: 78px;
 	transition: all .2s;
 	-moz-transition: all .2s;
@@ -494,12 +469,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 #starter-package .gform_footer,
 #starter-package .edd-gf-name-field,
 #starter-package .edd-gf-email-field {
-	padding-right: 0 !important;
 	margin: 0 auto !important;
-}
-
-#starter-package .edd-gf-name-field > div {
-	width: 100% !important;
 }
 
 #starter-package .edd-gf-email-field {
@@ -570,7 +540,6 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 
 #starter-package .ginput_left,
 #starter-package .ginput_right {
-	padding: 0 !important;
 	margin: 0 4% 0 0;
 	width: 48%;
 }
@@ -605,12 +574,12 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 
 #starter-package .edd-gf-starter-discount {
 	text-align: center;
-	padding: 0 0 20px;
+	padding-bottom: 20px;
 	margin-bottom: 0 !important;
 }
 
 #starter-package .edd-gf-starter-discount .gfield_label {
-	font-weight: 400;
+	margin-bottom: 10px;
 }
 
 #starter-package .edd-gf-starter-discount .gfield_description {
@@ -622,8 +591,8 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 #starter-package .edd-gf-starter-discount input[type="text"]:active,
 #starter-package .edd-gf-starter-discount input[type="text"]:hover {
 	display: inline;
-	background: #fff;
-	color: @eddblue;
+	background: #F5F8FC;
+	color: #555;
 	font-size: 24px !important;
 	text-align: center;
 	border: none;
@@ -771,7 +740,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	border: 3px solid @eddgrayhover;
 	border-radius: 4px;
 	margin: 0 !important;
-	width: 175px;
+	width: 100%;
 	height: 68px;
 	transition: all .2s;
 	-moz-transition: all .2s;
