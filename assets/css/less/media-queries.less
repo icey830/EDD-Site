@@ -226,6 +226,11 @@
 			}
 		}
 	}
+
+	/* Starter Package */
+	#starter-package {
+
+	}
 }
 
 
@@ -702,6 +707,39 @@
 		padding-right: 3rem;
 		padding-left: 3rem;
 	}
+
+	/* Starter Package */
+	#starter-package {
+
+		& .package-description,
+		.package-discount {
+			float: none;
+			width: 100%;
+		}
+
+		& .package-discount {
+			padding: 2rem;
+			margin: 25px 0 0;
+
+			& span {
+				margin-top: 0;
+			}
+		}
+
+		& .gform_wrapper {
+
+			& .edd-gf-email-marketing,
+			.edd-gf-merchant-processor,
+			.edd-gf-marketing,
+			.edd-gf-accounting,
+			.edd-gf-misc {
+				padding: 0 0 40px;
+				border: none;
+				width: 100%;
+				min-height: inherit;
+			}
+		}
+	}
 }
 
 
@@ -1056,6 +1094,30 @@
 		& .subscription-wrap {
 			padding-top: 30px;
 			padding-bottom: 120px;
+		}
+	}
+
+	/* Starter Package */
+	#starter-package {
+
+		& .full-width-content {
+			padding-right: 20px;
+			padding-left: 20px;
+
+			& .entry-title {
+				padding-right: 20px;
+				padding-left: 20px;
+				margin-right: -20px;
+				margin-left: -20px;
+			}
+		}
+
+		& .gform_wrapper {
+
+			& .edd-gf-buyer-detail span[class*="name_"],
+			.edd-gf-email-field .ginput_container_email {
+				width: 100%;
+			}
 		}
 	}
 }

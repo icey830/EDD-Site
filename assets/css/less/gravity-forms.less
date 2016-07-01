@@ -81,6 +81,43 @@
 			margin-left: 2px;
 		}
 	}
+
+	& .gfield_description {
+		padding-right: 0 !important;
+	}
+
+	& div.validation_error {
+		background: #FFDFE0;
+		color: #790000;
+		font-size: 1em;
+		font-weight: 400;
+		padding: 10px 20px;
+		border: none;
+		border-radius: 4px;
+		margin: 25px 0;
+	}
+
+	& .validation_message {
+		color: #b33838;
+		font-weight: 500;
+	}
+
+	& .form_saved_message {
+		background: #F5F8FC;
+		border: 2px solid #DAE7F0;
+		margin-top: 50px;
+	}
+
+	& .form_saved_message input[type="text"] {
+		background: #fff;
+		font-size: inherit !important;
+		padding: 6px 10px !important;
+		border: 3px solid @eddgrayhover;
+		border-radius: 3px;
+		margin-bottom: 10px;
+		min-width: 230px;
+		outline: none;
+	}
 }
 
 .gform_wrapper.gf_browser_chrome .gfield_radio li input[type="radio"] {
@@ -174,6 +211,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 
 	& .edd-gf-select,
 	.edd-gf-checkbox { /* covers all extension picker sections */
+
 		& .gfield_required {
 			color: #b33838;
 			font-size: 80%;
@@ -257,10 +295,33 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 		input[type="checkbox"]:checked+label {
 			font-weight: 500;
 		}
+
+		&.gfield_error {
+			background: none;
+			margin-bottom: 0 !important;
+
+			& label.gfield_label,
+			.gfield_description {
+				margin-top: 0 !important;
+			}
+
+			& label.gfield_label {
+				color: #b33838;
+			}
+
+			& ul.gfield_radio li label,
+			ul.gfield_checkbox li label {
+				color: #555;
+			}
+		}
 	}
 
 	& .edd-gf-marketing {
 		padding: 30px 50px 30px 0;
+
+		&.gfield_error {
+			border: none;
+		}
 	}
 
 	& .edd-gf-accounting {
@@ -360,6 +421,32 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 				margin-bottom: 15px;
 			}
 		}
+
+		&.gfield_error {
+			background: none;
+			border: none;
+
+			& label.gfield_label {
+				color: #b33838;
+			}
+
+			& input[type="text"],
+			input[type="url"],
+			input[type="email"],
+			input[type="tel"],
+			input[type="number"],
+			input[type="password"],
+			textarea,
+			select {
+				padding: 10px !important;
+				background: @eddgray;
+				border: 3px solid @eddgrayhover;
+				border-radius: 4px !important;
+				outline: none;
+				margin-bottom: 10px;
+				font-size: inherit !important;
+			}
+		}
 	}
 
 	& .edd-gf-name-field {
@@ -392,6 +479,12 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 			color: #999;
 			font-size: 1.5rem;
 			margin-bottom: 15px;
+
+			&.validation_message {
+				color: #b33838;
+				font-size: 80% !important;
+				font-weight: 500;
+			}
 		}
 	}
 
@@ -577,7 +670,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 			font-size: 20px;
 			padding: 10px;
 			margin: 0 auto;
-			width: 300px;
+			max-width: 300px;
 		}
 
 		& .gform_ajax_spinner {
