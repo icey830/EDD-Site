@@ -444,8 +444,21 @@
 	}
 
 	& .gform_wrapper {
-		&.edd-gf-support-tickets-form {
+		& .edd-gf-support-tickets-form {
 			margin: 60px 0 100px;
+
+			& .top_label div.ginput_complex.ginput_container.gf_name_has_1,
+			.top_label div.ginput_complex.ginput_container.gf_name_has_2,
+			.top_label div.ginput_complex.ginput_container.gf_name_has_3,
+			.top_label .ginput_complex.ginput_container.ginput_container_email {
+				width: 100%;
+			}
+
+			& .ginput_complex.ginput_container.ginput_container_email .ginput_left,
+			.ginput_complex.ginput_container.ginput_container_email .ginput_right {
+				padding-right: 0;
+				width: 49% !important;
+			}
 
 			& .ginput_left,
 			.ginput_right,
@@ -454,7 +467,7 @@
 			[class*="edd-gf-support-tickets-form-"] .ginput_container.ginput_container_website,
 			[class*="edd-gf-support-tickets-form-"] .ginput_container.ginput_container_text {
 				padding-right: 0;
-				width: 48% !important;
+				width: 49% !important;
 			}
 
 			& .ginput_complex .ginput_left,
@@ -482,7 +495,7 @@
 
 			& .ginput_container label,
 			.top_label .gfield_description {
-				color: #999;
+				color: #666;
 				font-size: 1.5rem;
 			}
 
@@ -534,7 +547,7 @@
 			}
 
 			& .gfield.edd-gf-support-tickets-form-email {
-				padding-bottom: 30px;
+				padding: 5px 0 30px;
 				border-bottom: 3px solid @eddgray;
 			}
 
