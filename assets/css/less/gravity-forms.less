@@ -215,13 +215,17 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 			padding: 0;
 		}
 
-		& ul.gfield_checkbox li input[type="checkbox"]:checked+label,
-		ul.gfield_radio li input[type="radio"]:checked+label {
-			font-weight: 500;
+		& .gfield_checkbox li label {
+			margin: 0 0 0 6px !important;
 		}
 
 		& .gfield_radio li label {
 			margin: 0 0 0 4px !important;
+		}
+
+		& ul.gfield_checkbox li input[type="checkbox"]:checked+label,
+		ul.gfield_radio li input[type="radio"]:checked+label {
+			font-weight: 500;
 		}
 
 		& textarea {
