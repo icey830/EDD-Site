@@ -22,12 +22,12 @@ get_header(); ?>
 								Get yearly access to Priority Support and always be at the front of the queue. We will provide technical support and even log into your site to solve problems. As a paid member, your responses will be answered as rapidly as possible.
 							</div>
 							<div class="support-type-cta">
-								<a class="button edd-submit blue" href="/support/register/?level=3">Sign up for yearly support</a>
+								<a class="button edd-submit blue" href="/support/register/?level=1">Sign up for yearly support</a>
 							</div>
 						</div>
 					</div>
 					<div class="fortyfive-day-support support-type flex-two">
-						<h2 class="support-type-title">45 Days Access</h2>
+						<h2 class="support-type-title">45 Day Access</h2>
 						<div class="support-type-info">
 							<div class="support-type-price">
 								<span class="support-price">$99</span>
