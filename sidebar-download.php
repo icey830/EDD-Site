@@ -122,7 +122,7 @@ if ( $variable_pricing ) {
 				</div>
 				<?php
 					// get the changelog data
-					$changelog = get_post_meta( get_the_ID(), '_edd_sl_changelog', true );
+					$changelog = stripslashes( get_post_meta( get_the_ID(), '_edd_sl_changelog', true ) );
 
 					// if it exists, append the changelog (from either source) to the relevent content output
 					if ( ! empty( $changelog ) ) {
