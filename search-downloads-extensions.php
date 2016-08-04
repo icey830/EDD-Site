@@ -29,6 +29,64 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 		</div>
 	</div>
 
+	<?php
+
+		// extensions search query
+		$query = array(
+			's'              => $q['s'],
+			'post_type'      => 'download',
+			'posts_per_page' => 23,
+			'paged'          => isset( $_GET['page'] ) ? (int) $_GET['page'] : 1,
+			'tax_query' => array(
+				'relation'     => 'OR',
+				array(
+					'taxonomy' => 'download_category',
+					'field'    => 'slug',
+					'terms'    => 'extensions',
+				),
+				array(
+					'taxonomy' => 'download_category',
+					'field'    => 'slug',
+					'terms'    => 'bundles',
+				),
+			),
+		);
+		$s_query = new WP_Query( $query );
+
+		// popular extensions query when there are no search results
+		$pop_query = array(
+			'post_type'      => 'download',
+			'posts_per_page' => 23,
+			'paged'          => isset( $_GET['page'] ) ? (int) $_GET['page'] : 1,
+			'tax_query' => array(
+				'relation'     => 'AND',
+				array(
+					'taxonomy' => 'download_category',
+					'field'    => 'slug',
+					'terms'    => 'extensions',
+				),
+				array(
+					'taxonomy' => 'download_category',
+					'field'    => 'slug',
+					'terms'    => 'popular',
+				),
+			),
+		);
+		$popular = new WP_Query( $pop_query );
+
+		if ( ! $s_query->have_posts() ) :
+			?>
+			<div class="edd-no-search-results-area full-width">
+				<div class="inner">
+					<div class="edd-no-search-results">
+						Oops! There are no matches for <em><?php echo stripslashes( $_GET['download_s'] ); ?></em>. Try searching again or browsing the add-ons below.
+					</div>
+				</div>
+			</div>
+			<?php
+		endif;
+	?>
+
 	<div class="edd-downloads-area page-section-white full-width">
 		<div class="inner">
 			<div class="edd-downloads">
@@ -97,38 +155,48 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 						</div>
 					</div>
 					<?php
-						$query = array(
-							's'              => $q['s'],
-							'post_type'      => 'download',
-							'posts_per_page' => 23,
-							'paged'          => isset( $_GET['page'] ) ? (int) $_GET['page'] : 1,
-							'tax_query' => array(
-								'relation'     => 'OR',
-								array(
-									'taxonomy' => 'download_category',
-									'field'    => 'slug',
-									'terms'    => 'extensions',
-								),
-								array(
-									'taxonomy' => 'download_category',
-									'field'    => 'slug',
-									'terms'    => 'bundles',
-								),
-							),
-						);
 
-						$s_query = new WP_Query( $query );
-
-						while ( $s_query->have_posts() ) : $s_query->the_post();
-							?>
-							<div class="download-grid-item">
-								<div class="download-grid-thumb-wrap">
-									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-										<?php eddwp_downloads_grid_thumbnail(); ?>
-									</a>
+						// search results
+						if ( $s_query->have_posts() ) :
+							while ( $s_query->have_posts() ) : $s_query->the_post();
+								?>
+								<div class="download-grid-item">
+									<div class="download-grid-thumb-wrap">
+										<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
+											<?php eddwp_downloads_grid_thumbnail(); ?>
+										</a>
+									</div>
+									<div class="download-grid-item-info">
+										<?php
+											the_title( sprintf(
+												'<h4 class="download-grid-title"><a href="%s">',
+												home_url( '/downloads/' . $post->post_name ) ),
+												'</a></h4>'
+											);
+											$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
+											echo $short_desc;
+										?>
+									</div>
+									<div class="download-grid-item-cta">
+										<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
+									</div>
 								</div>
-								<div class="download-grid-item-info">
-									<?php
+								<?php
+							endwhile;
+							wp_reset_postdata();
+
+						// no search results
+						else :
+							while ( $popular->have_posts() ) : $popular->the_post();
+								?>
+								<div class="download-grid-item">
+									<div class="download-grid-thumb-wrap">
+										<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
+											<?php eddwp_downloads_grid_thumbnail(); ?>
+										</a>
+									</div>
+									<div class="download-grid-item-info">
+										<?php
 										the_title( sprintf(
 											'<h4 class="download-grid-title"><a href="%s">',
 											home_url( '/downloads/' . $post->post_name ) ),
@@ -136,15 +204,16 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 										);
 										$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
 										echo $short_desc;
-									?>
+										?>
+									</div>
+									<div class="download-grid-item-cta">
+										<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
+									</div>
 								</div>
-								<div class="download-grid-item-cta">
-									<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
-								</div>
-							</div>
 							<?php
-						endwhile;
-						wp_reset_postdata();
+							endwhile;
+							wp_reset_postdata();
+						endif;
 					?>
 					<div class="download-grid-item flex-grid-cheat"></div>
 					<div class="download-grid-item flex-grid-cheat"></div>
@@ -157,7 +226,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 						'base'    => $base,
 						'format'  => '&page=%#%',
 						'current' => max( 1, isset( $_GET['page'] ) ? (int) $_GET['page'] : 1 ),
-						'total'   => $s_query->max_num_pages,
+						'total'   => $s_query->have_posts() ? $s_query->max_num_pages : $popular->max_num_pages,
 					) );
 				?>
 				<div class="pagination clearfix">
