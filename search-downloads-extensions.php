@@ -57,6 +57,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 		$pop_query = array(
 			'post_type'      => 'download',
 			'posts_per_page' => 23,
+			'order'          => 'ASC',
 			'paged'          => isset( $_GET['page'] ) ? (int) $_GET['page'] : 1,
 			'tax_query' => array(
 				'relation'     => 'AND',
