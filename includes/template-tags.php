@@ -132,10 +132,10 @@ function eddwp_author_box() {
 			<div class="edd-author-avatar">
 				<?php echo get_avatar( get_the_author_meta( 'ID' ), 85, '', get_the_author_meta( 'display_name' ) ); ?>
 			</div>
-			<div class="edd-author-bio">
-				<h4 class="edd-author-title">Written by <?php echo get_the_author_meta( 'display_name' ); ?></h4>
+			<div class="edd-author-bio vcard author post-author">
+				<h4 class="edd-author-title">Written by <span class="fn"><?php echo get_the_author_meta( 'display_name' ); ?></span></h4>
 				<?php if ( $author_url ) { ?>
-					<span class="edd-author-url"><a href="<?php echo esc_url( $author_url ); ?>" target="_blank"><i class="fa fa-link"></i></a></span>
+					<span class="edd-author-url"><a class="url" href="<?php echo esc_url( $author_url ); ?>" target="_blank"><i class="fa fa-link"></i></a></span>
 				<?php } ?>
 				<?php echo wpautop( get_the_author_meta( 'description' ) ); ?>
 			</div>
