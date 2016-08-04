@@ -52,7 +52,7 @@ get_header(); ?>
 								<?php
 									$product_id = get_the_ID();
 									$version    = get_post_meta( $product_id, '_edd_sl_version', true );
-									$changelog  = get_post_meta( $product_id, '_edd_sl_changelog', true );
+									$changelog  = stripslashes( get_post_meta( $product_id, '_edd_sl_changelog', true ) );
 
 									if ( ! empty( $version ) ) :
 										if ( ! empty( $changelog ) ) :
