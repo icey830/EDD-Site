@@ -12,7 +12,7 @@
  */
 ?>
 
-	<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) && ! is_page( 'subscribe' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
+	<?php if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page( 'subscribe' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
 		<div id="footer-newsletter" class="page-section-darkblue full-width">
 			<div class="inner">
 				<div class="newsletter-content clearfix">
@@ -47,7 +47,7 @@
 	<footer id="colophon" class="footer-area page-section-darkblue full-width" role="contentinfo">
 		<div class="inner">
 			<div class="site-footer">
-				<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
+				<?php if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
 					<?php if ( ! is_404() && ! is_page( 'subscribe' ) ) : ?>
 						<img class="sitting-edd" src="<?php echo get_template_directory_uri(); ?>/images/mascot/edd-sitting.png" />
 					<?php endif; ?>
@@ -72,14 +72,14 @@
 
 				<div class="footer-site-details flex-container clearfix">
 					<div class="copyright flex-two">
-						<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
+						<?php if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
 							<h4>Company Information</h4>
 						<?php endif; ?>
 						<p><span class="edd-copyright">Copyright &copy; <?php echo date( 'Y' ); ?> &middot; Easy Digital Downloads</span>
 							<?php
 
 								// do not show on checkout
-								if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) :
+								if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) :
 									?>
 									&nbsp;&middot;&nbsp;a project by <a href="<?php echo home_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.
 									<?php
@@ -93,13 +93,13 @@
 								endif;
 							?>
 						</p>
-						<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
+						<?php if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
 							<a class="godaddy-partner" href="https://garage.godaddy.com/wordpress-plugin-partner-program/directory/?cvosrc=advocacy.evangelism.WP3" rel="nofollow">
 								<img src="https://garage.godaddy.com/wp-content/uploads/badges/godaddy-plugin-partner-program-badge.svg" title="GoDaddy Plugin Program Partner" alt="GoDaddy Plugin Program Partner"/>
 							</a>
 						<?php endif; ?>
 					</div>
-					<?php if ( ( function_exists( 'edd_is_checkout' ) && ! edd_is_checkout() ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
+					<?php if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
 						<div class="site-info flex-two">
 							<?php if ( has_nav_menu( 'footer' ) ) : ?>
 								<h4>Additional Resources</h4>
