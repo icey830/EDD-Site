@@ -661,6 +661,37 @@
 	}
 }
 
+/* full account page content wrap */
+.my-account-content {
+
+	& #edd_user_history,
+	& #edd_sl_license_keys,
+	& #edd_sl_license_sites,
+	& .edd_sl_table,
+	& #edd_profile_editor_form,
+	& .edd_user_commissions,
+	& #edd_commissioned_products_table,
+	& .rcp-table {
+		font-size: 1.4rem;
+		border-collapse: inherit;
+		border: 3px solid @eddgrayhover;
+		border-radius: 4px;
+
+		& th {
+			vertical-align: top;
+		}
+	}
+
+	& .edd-manage-license-back {
+		text-decoration: underline;
+		padding: 0;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
 /* tabs / content */
 .my-account-tabs {
 	float: left;
@@ -889,23 +920,6 @@
 			border-radius: 3px;
 		}
 
-		& #edd_user_history,
-		& #edd_sl_license_keys,
-		& #edd_sl_license_sites,
-		& #edd_profile_editor_form,
-		& .edd_user_commissions,
-		& #edd_commissioned_products_table,
-		& .rcp-table {
-			font-size: 1.4rem;
-			border-collapse: inherit;
-			border: 3px solid @eddgrayhover;
-			border-radius: 4px;
-
-			& th {
-				vertical-align: top;
-			}
-		}
-
 		& #edd_sl_license_add_site_form {
 			& > div > span {
 				display: block;
@@ -921,15 +935,6 @@
 				border: 3px solid @eddgrayhover;
 				border-radius: 3px;
 				margin-bottom: 10px;
-			}
-		}
-
-		& .edd-manage-license-back {
-			text-decoration: underline;
-			padding: 0;
-
-			&:hover {
-				text-decoration: none;
 			}
 		}
 
