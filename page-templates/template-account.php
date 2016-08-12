@@ -15,16 +15,13 @@ if ( is_user_logged_in() ) : ?>
 			<div class="my-account-content">
 				<?php
 				if ( ! empty( $_GET['action'] ) && 'manage_licenses' === $_GET['action'] && isset( $_GET['license_id'] ) ) {
-					if( isset( $_GET['license_id'] ) && isset( $_GET['view'] ) && 'upgrades' == $_GET['view'] ) {
-
+					if ( isset( $_GET['license_id'] ) && isset( $_GET['view'] ) && 'upgrades' == $_GET['view'] ) {
 						edd_get_template_part( 'licenses', 'upgrades' );
-
 					} else {
-
 						edd_get_template_part( 'licenses', 'manage-single' );
-
 					}
-
+				} elseif ( ! empty( $_GET['action'] ) && 'manage_licenses' === $_GET['action'] && isset( $_GET['payment_id'] ) ) {
+					edd_get_template_part( 'licenses', 'manage-overview' );
 				} else { // Load the normal view
 					// check for expired licenses
 					$license_args = array(
