@@ -64,9 +64,19 @@ $download_term = $wp_query->get_queried_object();
 					?>
 				</div>
 				<?php
-				if ( is_tax( 'download_category', 'gateways' ) ) {
-					echo facetwp_display( 'facet', 'gateway_features' );
-					echo facetwp_display( 'template', 'downloads' );
+				if ( is_tax( 'download_category', 'gateways' ) ) { ?>
+					<div class="flex-container clearfix">
+						<div class="flex-three">
+							<?php echo facetwp_display( 'facet', 'gateway_features' ); ?>
+						</div>
+						<div class="flex-three">
+							<?php echo facetwp_display( 'facet', 'gateway_currencies' ); ?>
+						</div>
+						<div class="flex-three">
+							<?php echo facetwp_display( 'facet', 'gateway_countries' ); ?>
+						</div>
+					</div>
+					<?php echo facetwp_display( 'template', 'downloads' );
 				} else {
 					include( 'edd_templates/download-grid.php' );
 				}
