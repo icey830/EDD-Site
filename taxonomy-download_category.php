@@ -77,10 +77,12 @@ $download_term = $wp_query->get_queried_object();
 						</div>
 					</div>
 					<?php echo facetwp_display( 'template', 'downloads' );
+					echo facetwp_display( 'pager' );
 				} else {
 					include( 'edd_templates/download-grid.php' );
+					eddwp_paginate_links();
 				}
-				eddwp_paginate_links(); ?>
+				?>
 				<div class="third-party-extensions-section">
 					<p>View more extensions built by talented developers from the EDD community.</p>
 					<a class="edd-submit button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>"><i class="fa fa-plug"></i>3rd Party Extensions</a>
