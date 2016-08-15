@@ -145,11 +145,6 @@ function edd_register_theme_sidebars() {
 }
 add_action( 'widgets_init', 'edd_register_theme_sidebars' );
 
-function edd_facets() {
-	echo 'something';
-	echo facetwp_display( 'facet', 'gateway_features' );
-	echo 'something else';
-}
 /* ----------------------------------------------------------- *
  * Additional Functions
  * ----------------------------------------------------------- */
