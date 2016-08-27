@@ -64,7 +64,7 @@ $download_term = $wp_query->get_queried_object();
 					?>
 				</div>
 				<?php
-				if ( is_tax( 'download_category', 'gateways' ) ) { ?>
+				if ( function_exists( 'FWP' ) && is_tax( 'download_category', 'gateways' ) ) { ?>
 					<div class="flex-container clearfix">
 						<div class="flex-three">
 							<?php echo facetwp_display( 'facet', 'gateway_features' ); ?>
