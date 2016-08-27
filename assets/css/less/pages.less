@@ -111,6 +111,133 @@
 
 
 /* ----------------------------- *
+ * Pricing template
+ * ----------------------------- */
+#extension-pricing-area,
+#edd-is-free-area,
+#license-info-area {
+	& .inner {
+		padding-bottom: 20px;
+	}
+}
+
+.edd-is-free-content {
+	& .edd-free {
+		color: @green;
+		font-weight: 500;
+		text-transform: uppercase;
+	}
+
+	& .edd-is-free-content {
+		& .edd-submit.button.blue {
+			font-size: 2rem;
+			padding: 10px 20px;
+			margin: 0 auto 1.5rem;
+		}
+	}
+}
+
+.extension-pricing-content {
+	& .stripe-payment-gateway-pricing {
+		background: @eddblue;
+		border-radius: 4px;
+		margin-bottom: 20px;
+		max-width: 400px;
+
+		& .pricing-header {
+			background: rgba(0,0,0,0.1) url('images/mascot/edd-headshot.png') no-repeat 22px bottom;
+			text-align: right;
+			padding: 20px 35px;
+			border-bottom: 1px solid #215b95;
+
+			& .add-on-title {
+				margin: 0;
+
+				& a {
+					color: #fff;
+					font-size: 2rem;
+					line-height: 1.4;
+					font-weight: 400;
+					padding: 0;
+					border: none;
+					margin: 0;
+				}
+			}
+		}
+
+		& .pricing-info {
+			color: #fff;
+			padding: 30px;
+
+			& .pricing {
+				margin-bottom: 1.387em;
+			}
+
+			& .edd_download_purchase_form label {
+				font-size: 1.6rem;
+
+				& span.bullet {
+					background: url('images/radio-checkbox-sprite-dark.png') no-repeat;
+				}
+
+				&:hover span.bullet {
+					background-position: 0px -20px;
+				}
+
+				&.selected span.bullet {
+					background-position: 0px -40px;
+					transition: none;
+				}
+			}
+
+			& .edd-submit.button {
+				display: block;
+				background: @edddarkblue;
+				width: 100%;
+
+				&:hover {
+					background: @edddarkbluehover;
+				}
+			}
+
+			& .edd-cart-added-alert {
+				position: absolute;
+					right: 4px;
+					left: inherit;
+				color: #fff;
+				font-size: 1.1rem;
+			}
+
+			& .terms {
+				font-size: 1.4rem;
+				opacity: .75;
+				margin-bottom: 0;
+
+				& a {
+					color: #fff;
+					text-decoration: underline;
+
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+
+	& .view-all-extensions a {
+		color: #999;
+		font-size: 1.4rem;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+
+/* ----------------------------- *
  * Product Info template
  * ----------------------------- */
 .product-info-content {
