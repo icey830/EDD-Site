@@ -145,7 +145,6 @@ function edd_register_theme_sidebars() {
 }
 add_action( 'widgets_init', 'edd_register_theme_sidebars' );
 
-
 /* ----------------------------------------------------------- *
  * Additional Functions
  * ----------------------------------------------------------- */
