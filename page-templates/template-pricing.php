@@ -14,7 +14,7 @@ get_header(); ?>
 			<div class="flex-container">
 				<div class="edd-is-free-content flex-two">
 
-					<p>Easy Digital Downloads is a <span class="edd-free">free</span> eCommerce plugin for WordPress. Without paying a dime, you can start building your digital store using our plugin and we won't ask for anything in return.</p>
+					<p>Easy Digital Downloads is a <span class="edd-free">free</span> eCommerce plugin for WordPress. Without opening your wallet, you can start building your digital store using our plugin and we won't ask for anything in return.</p>
 					<p>Because we do not provide an eCommerce service, we will not take a percentage of your sales. There are no monthly fees to use the plugin.</p>
 				</div>
 				<div class="edd-is-free-content flex-two">
@@ -30,10 +30,10 @@ get_header(); ?>
 <div id="extension-pricing-area" class="page-section-gray full-width">
 	<div class="inner">
 		<div class="extension-pricing-content clearfix">
-			<h2 class="section-title-alt">Why is Easy Digital Downloads free?</h2>
+			<h2 class="section-title-alt">Are all Easy Digital Downloads products free?</h2>
 			<div class="extension-pricing-description flex-container">
 				<div class="flex-two">
-					<p>There are several required components needed to build a complete eCommerce system. With Easy Digital Downloads, we aim to provide all of those basic components free of charge.</p>
+					<p>There are several required components needed to build a complete eCommerce system. With the Easy Digital Downloads plugin, we aim to provide all of those basic components free of charge.</p>
 					<p>That said, no two businesses are exactly the same. What you need for your business is not what your neighbor needs for hers. For that reason, Easy Digital Downloads was designed to support additional functionality through other WordPress plugins, referred to as add-ons.</p>
 					<p>Add-ons can be things like invoicing tools, payment gateways, and much more. Though there are several free add-ons, our premium add-ons require that you purchase a license for updates and support. </p>
 					<p>Individual add-ons, like Stripe Payment Gateway, are available in three license variations to fit your business needs.</p>
@@ -89,7 +89,7 @@ get_header(); ?>
 				</div>
 				<div class="flex-two">
 					<h4>Can I request a refund?</h4>
-					<p>You are more than welcome to request a refund within 30 days of purchasing your licenses. However, no refunds are allow on the Core Extensions Bundle. View full <a href="<?php echo get_theme_mod( 'eddwp_terms_link' ); ?>">terms and conditions</a>.</p>
+					<p>You are more than welcome to request a refund within 30 days of purchasing your licenses. However, no refunds are allowed on the Core Extensions Bundle. View full <a href="<?php echo get_theme_mod( 'eddwp_terms_link' ); ?>">terms and conditions</a>.</p>
 				</div>
 			</div>
 		</div>
