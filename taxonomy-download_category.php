@@ -65,15 +65,18 @@ $download_term = $wp_query->get_queried_object();
 				</div>
 				<?php
 				if ( function_exists( 'FWP' ) && is_tax( 'download_category', 'gateways' ) ) { ?>
-					<div class="flex-container clearfix">
-						<div class="flex-three">
-							<?php echo facetwp_display( 'facet', 'gateway_features' ); ?>
-						</div>
-						<div class="flex-three">
-							<?php echo facetwp_display( 'facet', 'gateway_currencies' ); ?>
-						</div>
-						<div class="flex-three">
-							<?php echo facetwp_display( 'facet', 'gateway_countries' ); ?>
+					<div class="fwp-filter-wrap">
+						<span class="fwp-filter-help-text">Use the filters below to find the perfect payment gateway for your business.</span>
+						<div class="fwp-filter-container flex-container clearfix">
+							<div class="fwp-filter flex-three">
+								<?php echo facetwp_display( 'facet', 'gateway_features' ); ?>
+							</div>
+							<div class="fwp-filter flex-three">
+								<?php echo facetwp_display( 'facet', 'gateway_currencies' ); ?>
+							</div>
+							<div class="fwp-filter flex-three">
+								<?php echo facetwp_display( 'facet', 'gateway_countries' ); ?>
+							</div>
 						</div>
 					</div>
 					<?php echo facetwp_display( 'template', 'downloads' );

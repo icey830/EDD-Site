@@ -2392,6 +2392,72 @@
 	background: @eddblue;
 }
 
+.fwp-filter-wrap {
+	background: @eddgray;
+	padding: 20px;
+	border-radius: 4px;
+	margin-bottom: 50px;
+
+	& .fwp-filter-help-text {
+		font-size: 1.4rem;
+		color: #999;
+		font-style: italic;
+		display: block;
+		margin-bottom: 10px;
+	}
+
+	& .fwp-filter-container {
+		& .fwp-filter.flex-three,
+		.facetwp-facet {
+			margin-bottom: 0;
+		}
+
+		& .fwp-filter.flex-three {
+			width: 33.33333%;
+
+			& .fs-wrap {
+				width: 100%;
+
+				& .fs-label-wrap {
+					border: 3px solid @eddgrayhover;
+					border-radius: 4px;
+					padding: 4px 6px;
+				}
+
+				& .fs-dropdown {
+					border: 3px solid @eddgrayhover;
+					border-radius: 4px;
+					width: 100%;
+				}
+			}
+
+			&:first-child {
+				padding: 0 31px 0 0;
+
+				& .fs-dropdown {
+					max-width: 322px;
+				}
+			}
+
+			&:nth-child(2) {
+				padding: 0 5px;
+
+				& .fs-dropdown {
+					max-width: 342px;
+				}
+			}
+
+			&:nth-child(3) {
+				padding: 0 0 0 33px;
+
+				& .fs-dropdown {
+					max-width: 320px;
+				}
+			}
+		}
+	}
+}
+
 #extensions-bundle-promotion.download-grid-item {
 	background: @eddblue;
 	color: #fff;
