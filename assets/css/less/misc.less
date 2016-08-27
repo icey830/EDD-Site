@@ -771,3 +771,110 @@ div.sharedaddy .sd-content {
 		}
 	}
 }
+
+
+/* ----------------------------- *
+ * FacetWP
+ * ----------------------------- */
+.fwp-filter-wrap {
+	background: @eddgray;
+	padding: 20px;
+	border-radius: 4px;
+	margin-bottom: 50px;
+
+	& .fwp-filter-help-text {
+		font-size: 1.4rem;
+		color: #999;
+		font-style: italic;
+		display: block;
+		margin-bottom: 10px;
+	}
+
+	& .fwp-filter-container {
+		& .fwp-filter.flex-three,
+		.facetwp-facet {
+			margin-bottom: 0;
+		}
+
+		& .fwp-filter.flex-three {
+			width: 33.33333%;
+
+			& .fs-wrap {
+				width: 100%;
+
+				& .fs-label-wrap {
+					border: 3px solid @eddgrayhover;
+					border-radius: 4px;
+					padding: 4px 6px;
+				}
+
+				& .fs-dropdown {
+					border: 3px solid @eddgrayhover;
+					border-radius: 4px;
+					width: 100%;
+
+					& .fs-search {
+						border-bottom-width: 3px;
+					}
+
+					& .fs-option {
+						border-bottom-width: 3px;
+
+						&:nth-child(odd) {
+							background: @eddgray;
+						}
+					}
+				}
+			}
+
+			&:first-child {
+				padding: 0 31px 0 0;
+
+				& .fs-dropdown {
+					max-width: 322px;
+				}
+			}
+
+			&:nth-child(2) {
+				padding: 0 5px;
+
+				& .fs-dropdown {
+					max-width: 342px;
+				}
+			}
+
+			&:nth-child(3) {
+				padding: 0 0 0 33px;
+
+				& .fs-dropdown {
+					max-width: 320px;
+				}
+			}
+		}
+	}
+}
+
+.facetwp-pager {
+	padding-bottom: 30px;
+
+	& .facetwp-pager-label,
+	.facetwp-page {
+		background: #f7f7f7;
+		color: #555;
+		border: none;
+		border-radius: 3px;
+		padding: 1px 8px;
+		font-weight: normal;
+		margin-right: 5px;
+		-webkit-transition: color 0s;
+		-moz-transition: color 0s;
+		transition: color 0s;
+	}
+
+	& .facetwp-page.active,
+	.facetwp-page:hover {
+		background: @eddblue;
+		color: #fff;
+		font-weight: normal;
+	}
+}
