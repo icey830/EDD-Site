@@ -13,6 +13,7 @@ $is_unlicensed = has_term( 'unlicensed', 'download_tag', get_the_ID() );
 $is_wporg      = has_term( 'wporg', 'download_tag', get_the_ID() );
 $developer     = get_post_meta( get_the_ID(), 'ecpt_developer', true );
 $external_url  = get_post_meta( get_the_ID(), 'ecpt_externalurl', true );
+$activations   = get_post_meta( get_the_ID(), 'ecpt_licenseactivations', true );
 
 // get the download
 if ( $is_extension && ! $is_bundle ) :
@@ -106,7 +107,8 @@ if ( $variable_pricing ) {
 		<div class="download-details download-info-section">
 			<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
 			<div class="author clearfix">
-				<p><span class="edd-download-detail-label">Developer:</span>&nbsp;
+				<p>
+					<span class="edd-download-detail-label">Developer:</span>&nbsp;
 					<?php if ( get_post_meta( get_the_ID(), 'ecpt_developer', true ) ) : ?>
 						<span class="edd-download-detail"><?php echo $developer; ?></span>
 					<?php else : ?>
@@ -114,6 +116,18 @@ if ( $variable_pricing ) {
 					<?php endif; ?>
 				</p>
 			</div>
+			<?php if ( $is_bundle ) { ?>
+				<div class="license-activations clearfix">
+					<p>
+						<span class="edd-download-detail-label">Number of sites:</span>&nbsp;
+						<?php if ( ! empty( $activations ) ) { ?>
+							<span class="edd-download-detail"><?php echo $activations; ?></span>
+						<?php } else { ?>
+							<span class="edd-download-detail">unlimited</span>
+						<?php } ?>
+					</p>
+				</div>
+			<?php } ?>
 			<?php
 			if ( $has_license && ! $is_bundle ) { ?>
 				<div class="version clearfix">
