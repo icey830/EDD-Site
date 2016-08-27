@@ -89,7 +89,7 @@ get_header(); ?>
 				</div>
 				<div class="flex-two">
 					<h4>Can I request a refund?</h4>
-					<p>You are more than welcome to request a refund within 30 days of purchasing your licenses. However, no refunds are allow on the Core Extensions Bundle. View full <a href="<?php echo get_theme_mod( 'eddwp_terms_link' ); ?>">terms and conditions</a>.</p>
+					<p>You are more than welcome to request a refund within 30 days of purchasing your licenses. However, no refunds are allowed on the Core Extensions Bundle. View full <a href="<?php echo get_theme_mod( 'eddwp_terms_link' ); ?>">terms and conditions</a>.</p>
 				</div>
 			</div>
 		</div>
