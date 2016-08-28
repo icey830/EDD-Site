@@ -824,12 +824,14 @@
 }
 
 /* tabs / content */
-.my-account-tabs {
+.my-account-tabs,
+.tabbed-template-tabs {
 	float: left;
 	width: 20%;
 
 	& .nav-tabs.nav-append-content,
-	.affiliates-list {
+	.affiliates-list,
+	.your-account-link-list {
 		list-style: none;
 		font-size: 14px;
 		font-size: 1.4rem;
@@ -838,7 +840,8 @@
 		border-radius: 4px;
 		margin: 0;
 
-		&.is-affiliate {
+		&.is-affiliate,
+		&.purchase-confirmation-tabs {
 			border-radius: 4px 4px 0 0;
 		}
 
@@ -909,13 +912,15 @@
 		}
 	}
 
-	& .affiliates-list {
+	& .affiliates-list,
+	.your-account-link-list {
 		border-top: none;
 		border-radius: 0 0 4px 4px;
 	}
 }
 
-.my-account-tab-content {
+.my-account-tab-content,
+.tabbed-template-tab-content {
 	float: right;
 	width: 75%;
 
@@ -1698,6 +1703,34 @@
 /* ----------------------------- *
  * Purchase Confirmation
  * ----------------------------- */
+.purchase-confirmation-content {
+	& .social-buttons {
+		& div {
+			display: inline-block;
+			margin-right: 10px;
+			vertical-align: top;
+
+			&:nth-child(2) {
+				& iframe {
+					display: inline-block;
+					margin-right: 10px;
+				}
+
+				& br {
+					display: none;
+				}
+			}
+		}
+	}
+
+	& #documentation-tab {
+		& .documentation-list {
+			list-style-position: inside;
+			margin: 0 0 30px 0;
+		}
+	}
+}
+
 #edd_purchase_receipt {
 	font-size: 1.4rem;
 	border-collapse: inherit;
