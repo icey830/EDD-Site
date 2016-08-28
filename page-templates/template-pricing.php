@@ -34,9 +34,9 @@ get_header(); ?>
 			<div class="extension-pricing-description flex-container">
 				<div class="flex-two">
 					<p>There are several required components needed to build a complete eCommerce system. With the Easy Digital Downloads plugin, we aim to provide all of those basic components free of charge.</p>
-					<p>That said, no two businesses are exactly the same. What you need for your business is not what your neighbor needs for hers. For that reason, Easy Digital Downloads was designed to support additional functionality through other WordPress plugins, referred to as add-ons.</p>
-					<p>Add-ons can be things like invoicing tools, payment gateways, and much more. Though there are several free add-ons, our premium add-ons require that you purchase a license for updates and support. </p>
-					<p>Individual add-ons, like Stripe Payment Gateway, are available in three license variations to fit your business needs.</p>
+					<p>That said, no two businesses are exactly the same. What you need for your business is not what your neighbor needs for hers. For that reason, Easy Digital Downloads was designed to support additional functionality through other WordPress plugins, referred to as <em>add-ons</em> or <em>extensions</em>.</p>
+					<p>Extensions can be things like invoicing tools, payment gateways, and much more. Though there are several free extensions, our premium extensions require that you purchase a license for updates and support. </p>
+					<p>Individual extensions, like Stripe Payment Gateway, are available in three license variations to fit your business needs.</p>
 				</div>
 				<div class="stripe-payment-gateway-wrap flex-two">
 					<div class="stripe-payment-gateway-pricing">
@@ -65,27 +65,27 @@ get_header(); ?>
 <div id="license-info-area" class="page-section-white full-width">
 	<div class="inner">
 		<div class="license-info-content clearfix">
-			<h2 class="section-title-alt">License Key Frequently Asked Questions</h2>
+			<h2 class="section-title-alt">License Keys: Frequently Asked Questions</h2>
 			<div class="features-grid-content-sections flex-container">
 				<div class="flex-two">
 					<h4>What are the license keys used for?</h4>
-					<p>License keys simply connect your site to ours, allowing us to send you automatic updates if your license is in good standing. We also provide add-on support for valid license holders.</p>
+					<p>License keys simply connect your site to ours, allowing us to send you automatic updates if your license is in good standing. We also provide extensions support for valid license holders.</p>
 				</div>
 				<div class="flex-two">
-					<h4>Do license keys restrict add-on functionality?</h4>
-					<p>Absolutely not. Your add-ons will work as expected whether you have your license keys activated or not. You are encouraged to test add-ons on your staging site without activating licenses.</p>
+					<h4>Do license keys restrict extension functionality?</h4>
+					<p>Absolutely not. Your extensions will work as expected whether you have your license keys activated or not. You are encouraged to test extensions on your staging site without activating licenses.</p>
 				</div>
 				<div class="flex-two">
 					<h4>How many sites can I activate my license on?</h4>
-					<p>Premium add-ons can be purchased for single site, 2 - 5 sites, or unlimited sites, which determines your license activation limit. You may deactivate a license and move it to another site at any time.</p>
+					<p>Premium extensions can be purchased for single site, 2 - 5 sites, or unlimited sites, which determines your license activation limit. You may deactivate a license and move it to another site at any time.</p>
 				</div>
 				<div class="flex-two">
 					<h4>What happens if I do not renew my license?</h4>
-					<p>License keys are subscription-based, meaning your license will renew automatically every year. If you decide to cancel, you may still use the add-on but you will not receive updates or support.</p>
+					<p>License keys are subscription-based and will automatically renew every year. If you decide to cancel, you may still use the extension but you will not receive updates or support once the license expires.</p>
 				</div>
 				<div class="flex-two">
 					<h4>How are product bundles licensed?</h4>
-					<p>Our <a href="<?php echo home_url( '/downloads/core-extensions-bundle' ); ?>">Core Extensions Bundle</a> comes with unlimited licenses for all included add-ons. All other product bundles, as well as the <a href="<?php echo home_url( '/starter-package' ); ?>">Starter Package</a>, come with single site licenses for included add-ons.</p>
+					<p>Our <a href="<?php echo home_url( '/downloads/core-extensions-bundle' ); ?>">Core Extensions Bundle</a> comes with unlimited licenses for all included extensions. All other product bundles, as well as the <a href="<?php echo home_url( '/starter-package' ); ?>">Starter Package</a>, come with single site licenses for included extensions.</p>
 				</div>
 				<div class="flex-two">
 					<h4>Can I request a refund?</h4>
