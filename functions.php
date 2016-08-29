@@ -7,7 +7,7 @@
 /* ----------------------------------------------------------- *
  * Theme Setup
  * ----------------------------------------------------------- */
-define( 'EDD_SITE_VERSION', '2.3.4' );
+define( 'EDD_SITE_VERSION', '2.3.5-beta' );
 define( 'EDD_INC', dirname(__FILE__) . '/includes/' );
 
 
