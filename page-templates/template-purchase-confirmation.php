@@ -58,7 +58,7 @@ get_header();
 							</div><!-- /.tab-pane -->
 							<div class="tab-pane documentation-tab-pane" id="documentation-tab">
 								<h3>Easy Digital Downloads Documentation</h3>
-								<p>Thanks again for your purchase. Now it's time for the fun part. We understand the building an eCommerce site takes a lot of work. We encourage you to use our documentation to assist with getting the most out of your plugins.</p>
+								<p>Thanks again for your purchase. Now it's time for the fun part. We understand that building an eCommerce site takes a lot of work. We encourage you to use our documentation to assist with getting the most out of your plugins.</p>
 								<h5>Helpful Documentation</h5>
 								<ul class="documentation-list">
 									<?php
