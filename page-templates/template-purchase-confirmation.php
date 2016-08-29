@@ -62,14 +62,28 @@ get_header();
 								<h5>Helpful Documentation</h5>
 								<ul class="documentation-list">
 									<?php
-										$payment = new EDD_Payment( $edd_receipt_args['id'] );
-										foreach( $payment->downloads as $download ) {
-											$title = get_the_title( $download['id'] );
-											$doc = get_post_meta( $download['id'], 'ecpt_documentationlink', true );
-											if ( $doc ) {
-												echo '<li>';
+										// get the payment key
+										$session = edd_get_purchase_session();
+										$payment_key = '';
+										if ( ! empty( $_GET['payment_key'] ) ) {
+											$payment_key = urldecode( $_GET['payment_key'] );
+										} else if ( $session && ! empty( $session['purchase_key'] ) ) {
+											$payment_key = $session['purchase_key'];
+										} elseif ( ! empty ( $edd_receipt_args['payment_key'] ) ) {
+											$payment_key = $edd_receipt_args['payment_key'];
+										}
+
+										// if payment key exists, output doc links
+										if ( ! empty( $payment_key ) ) {
+											$payment = new EDD_Payment( $edd_receipt_args['id'] );
+											foreach( $payment->downloads as $download ) {
+												$title = get_the_title( $download['id'] );
+												$doc = get_post_meta( $download['id'], 'ecpt_documentationlink', true );
+												if ( $doc ) {
+													echo '<li>';
 													echo '<a href="' . $doc . '">' . $title . ' documentation</a>';
-												echo '</li>';
+													echo '</li>';
+												}
 											}
 										}
 									?>
