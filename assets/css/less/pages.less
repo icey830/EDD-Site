@@ -1705,6 +1705,8 @@
  * ----------------------------- */
 .purchase-confirmation-content {
 	& .social-buttons {
+		margin-bottom: 10px;
+
 		& div {
 			display: inline-block;
 			margin-right: 10px;
@@ -1727,6 +1729,63 @@
 		& .documentation-list {
 			list-style-position: inside;
 			margin: 0 0 30px 0;
+		}
+	}
+
+	& #edd_login_form {
+		max-width: 450px;
+
+		& legend {
+			color: #555;
+			font-weight: 500;
+			border-bottom-width: 3px;
+			border-bottom-color: @eddgray;
+		}
+
+		& label {
+			font-weight: 400;
+		}
+
+		& fieldset {
+			width: 100%;
+			border: none;
+
+			& input[type="text"],
+			input[type="password"] {
+				background: @eddgray;
+				padding: 10px;
+				width: 100%;
+				outline: none;
+				margin: 0 0 10px;
+				border: 3px solid @eddgrayhover;
+				border-radius: 3px;
+			}
+
+			& > p {
+				margin-bottom: 0;
+			}
+		}
+
+		& input[type="checkbox"] {
+			margin-bottom: 13px;
+		}
+
+		& input[type="submit"] {
+			display: block;
+			margin-top: ;
+		}
+
+		& .edd-lost-password a {
+			display: inline-block;
+			color: #777;
+			font-size: 1.4rem;
+			text-decoration: underline;
+			margin-top: 10px;
+
+			&:hover {
+				color: #777;
+				text-decoration: none;
+			}
 		}
 	}
 }
@@ -1788,6 +1847,8 @@
 		padding-bottom: 0;
 	}
 }
+
+
 
 #billing_info { // PayPal Pro confirmation
 	& > h3 {
