@@ -16,12 +16,27 @@ if ( is_user_logged_in() ) : ?>
 				<?php
 				if ( ! empty( $_GET['action'] ) && 'manage_licenses' === $_GET['action'] && isset( $_GET['license_id'] ) ) {
 					if ( isset( $_GET['license_id'] ) && isset( $_GET['view'] ) && 'upgrades' == $_GET['view'] ) {
-						edd_get_template_part( 'licenses', 'upgrades' );
+						?>
+						<h2 class="section-title-alt">Available License Upgrades</h2>
+						<div id="account-page" class="clearfix">
+							<?php edd_get_template_part( 'licenses', 'upgrades' ); ?>
+						</div>
+						<?php
 					} else {
-						edd_get_template_part( 'licenses', 'manage-single' );
+						?>
+						<h2 class="section-title-alt">Manage License Sites</h2>
+						<div id="account-page" class="clearfix">
+							<?php edd_get_template_part( 'licenses', 'manage-single' ); ?>
+						</div>
+						<?php
 					}
 				} elseif ( ! empty( $_GET['action'] ) && 'manage_licenses' === $_GET['action'] && isset( $_GET['payment_id'] ) ) {
-					edd_get_template_part( 'licenses', 'manage-overview' );
+					?>
+					<h2 class="section-title-alt">License Key Overview</h2>
+					<div id="account-page" class="clearfix">
+						<?php edd_get_template_part( 'licenses', 'manage-overview' ); ?>
+					</div>
+					<?php
 				} else { // Load the normal view
 					// check for expired licenses
 					$license_args = array(
