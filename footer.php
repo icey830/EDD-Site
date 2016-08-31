@@ -54,17 +54,22 @@
 					<?php if ( ! is_page( array( 130 ) ) ) : ?>
 						<div class="footer-columns flex-container clearfix">
 							<div class="footer-latest-posts flex-three">
-								<?php eddwp_get_latest_post( 4 ); ?>
+								<?php eddwp_get_latest_post( 5 ); ?>
 							</div>
 
 							<div class="footer-support flex-three">
 								<h4>Need help?</h4>
-								<p>If you ever need help with EDD, you are encouraged to use our <a href="<?php echo home_url( '/support/' ); ?> ">support system</a> where you can always get your support questions answered. If you'd like to report a bug or have ideas for how to improve the plugin, please post it to our <a href="http://github.com/easydigitaldownloads/Easy-Digital-Downloads/issues">GitHub Issue Tracker</a>.</p>
+								<p>We encourage you to contact our <a href="<?php echo home_url( '/support/' ); ?> ">support team</a> where you can always get your questions answered. If you'd like to report a bug or have ideas for how to improve the plugin, please post it to our <a href="http://github.com/easydigitaldownloads/Easy-Digital-Downloads/issues">GitHub Issue Tracker</a>.</p>
+								<h6>Trusted Consultants</h6>
+								<p>We maintain a list of consultants that we recommend working with when it comes to managed support, customization, and setup help. For additional help with EDD, consider these <a href="<?php echo home_url( '/consultants/' ); ?>">trusted consultants</a>.</p>
 							</div>
 
 							<div class="footer-consultants flex-three">
-								<h4>Trusted Consultants</h4>
-								<p>We maintain a list of consultants that we recommend working with when it comes to managed support, customization, and setup help. If you are looking for additional help with EDD, consider these <a href="<?php echo home_url( '/consultants/' ); ?>">trusted consultants</a>.</p>
+								<h4>Our Friends</h4>
+								<h6>AffiliateWP</h6>
+								<p>The best affiliate marketing plugin for WordPress. <a href="https://affiliatewp.com/">Start your affiliate program today</a>.</p>
+								<h6>Restrict Content Pro</h6>
+								<p>A simple, yet powerful membership solution for WordPress. <a href="https://restrictcontentpro.com/">Make your content exclusive</a>.</p>
 							</div>
 						</div>
 					<?php endif; ?>

@@ -7,7 +7,7 @@
 /* ----------------------------------------------------------- *
  * Theme Setup
  * ----------------------------------------------------------- */
-define( 'EDD_SITE_VERSION', '2.3.4' );
+define( 'EDD_SITE_VERSION', '2.3.5' );
 define( 'EDD_INC', dirname(__FILE__) . '/includes/' );
 
 
@@ -106,7 +106,7 @@ function edd_register_theme_scripts() {
 
 	// 635 My Account
 	// 65892 bbPress Support Dashboard
-	if ( is_page( 635 ) || is_page( 65892 ) || is_singular( 'download' ) || is_page_template( 'page-templates/template-download-directory.php' ) ) {
+	if ( is_page( 635 ) || is_page( 65892 ) || is_singular( 'download' ) || is_page_template( 'page-templates/template-download-directory.php' ) || is_page_template( 'page-templates/template-purchase-confirmation.php' ) ) {
 		wp_enqueue_style( 'bootstrap' );
 		wp_enqueue_script( 'bootstrap-js' );
 	}
@@ -144,7 +144,6 @@ function edd_register_theme_sidebars() {
 	) );
 }
 add_action( 'widgets_init', 'edd_register_theme_sidebars' );
-
 
 /* ----------------------------------------------------------- *
  * Additional Functions

@@ -63,34 +63,29 @@ $download_term = $wp_query->get_queried_object();
 						endif;
 					?>
 				</div>
-				<div class="download-grid three-col clearfix">
-					<?php while ( have_posts() ) : the_post(); ?>
-						<div class="download-grid-item">
-							<div class="download-grid-thumb-wrap">
-								<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-									<?php eddwp_downloads_grid_thumbnail(); ?>
-								</a>
+				<?php
+				if ( function_exists( 'FWP' ) && is_tax( 'download_category', 'gateways' ) ) { ?>
+					<div class="fwp-filter-wrap">
+						<span class="fwp-filter-help-text">Use the filters below to find the perfect payment gateway for your business.</span>
+						<div class="fwp-filter-container flex-container clearfix">
+							<div class="fwp-filter flex-three">
+								<?php echo facetwp_display( 'facet', 'gateway_features' ); ?>
 							</div>
-							<div class="download-grid-item-info">
-								<?php
-									the_title( sprintf(
-										'<h4 class="download-grid-title"><a href="%s">',
-										home_url( '/downloads/' . $post->post_name ) ),
-										'</a></h4>'
-									);
-									$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
-									echo $short_desc;
-								?>
+							<div class="fwp-filter flex-three">
+								<?php echo facetwp_display( 'facet', 'gateway_currencies' ); ?>
 							</div>
-							<div class="download-grid-item-cta">
-								<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
+							<div class="fwp-filter flex-three">
+								<?php echo facetwp_display( 'facet', 'gateway_countries' ); ?>
 							</div>
 						</div>
-					<?php endwhile; wp_reset_postdata(); ?>
-					<div class="download-grid-item flex-grid-cheat"></div>
-					<div class="download-grid-item flex-grid-cheat"></div>
-				</div>
-				<?php eddwp_paginate_links(); ?>
+					</div>
+					<?php echo facetwp_display( 'template', 'downloads' );
+					echo facetwp_display( 'pager' );
+				} else {
+					include( 'edd_templates/download-grid.php' );
+					eddwp_paginate_links();
+				}
+				?>
 				<div class="third-party-extensions-section">
 					<p>View more extensions built by talented developers from the EDD community.</p>
 					<a class="edd-submit button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>"><i class="fa fa-plug"></i>3rd Party Extensions</a>
