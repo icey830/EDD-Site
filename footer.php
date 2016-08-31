@@ -69,7 +69,7 @@
 								<h6>AffiliateWP</h6>
 								<p>The best affiliate marketing plugin for WordPress. <a href="https://affiliatewp.com/">Start your affiliate program today</a>.</p>
 								<h6>Restrict Content Pro</h6>
-								<p>A simple, yet powerful membership solution for WordPress. <a href="">Make your content exclusive</a>.</p>
+								<p>A simple, yet powerful membership solution for WordPress. <a href="https://restrictcontentpro.com/">Make your content exclusive</a>.</p>
 							</div>
 						</div>
 					<?php endif; ?>
