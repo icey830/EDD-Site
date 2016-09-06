@@ -7,6 +7,7 @@ global $post;
 
 get_header();
 the_post();
+$is_payment_gateway = has_term( 'gateways', 'download_category', get_the_ID() );
 ?>
 
 	<div class="site-container">
@@ -23,6 +24,13 @@ the_post();
 						if ( has_post_thumbnail() && $image[0] !== $old_default ) :
 							the_post_thumbnail( 'edd_download_image', array( 'class' => 'featured-img' ) );
 						endif;
+						if ( $is_payment_gateway ) {
+							?>
+							<div class="gateway-filter-note download-info-section">
+								<span>Need help choosing the right payment gateway for your business? Use our <a href="<?php echo home_url( '/downloads/category/gateways/' ); ?>">payment gateway filter</a>.</span>
+							</div>
+						<?php
+						}
 						the_content();
 					?>
 				</div>
