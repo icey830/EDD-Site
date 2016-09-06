@@ -68,8 +68,8 @@ $gateway_currency_term = $wp_query->get_queried_object();
 				eddwp_paginate_links();
 				?>
 				<div class="third-party-extensions-section">
-					<p>View more extensions built by talented developers from the EDD community.</p>
-					<a class="edd-submit button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>"><i class="fa fa-plug"></i>3rd Party Extensions</a>
+					<p>View more payment gateway extensions built by talented developers from the EDD community.</p>
+					<a class="edd-submit button blue" href="<?php echo home_url( '3rd-party-extensions#gateways' ); ?>"><i class="fa fa-plug"></i>3rd Party Payment Gateways</a>
 				</div>
 			</div>
 		</div>
