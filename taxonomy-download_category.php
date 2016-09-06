@@ -87,8 +87,13 @@ $download_term = $wp_query->get_queried_object();
 				}
 				?>
 				<div class="third-party-extensions-section">
-					<p>View more extensions built by talented developers from the EDD community.</p>
-					<a class="edd-submit button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>"><i class="fa fa-plug"></i>3rd Party Extensions</a>
+					<?php if ( is_tax( 'download_category', 'gateways' ) ) { ?>
+						<p>View more payment gateway extensions built by talented developers from the EDD community.</p>
+						<a class="edd-submit button blue" href="<?php echo home_url( '3rd-party-extensions#gateways' ); ?>"><i class="fa fa-plug"></i>3rd Party Payment Gateways</a>
+					<?php } else { ?>
+						<p>View more extensions built by talented developers from the EDD community.</p>
+						<a class="edd-submit button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>"><i class="fa fa-plug"></i>3rd Party Extensions</a>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
