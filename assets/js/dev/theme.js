@@ -6,6 +6,13 @@
 
 	$(function () {
 
+		// track FacetWP interactions with Google Analytics
+		$(document).on('facetwp-loaded', function() {
+			if (FWP.loaded) {
+				ga('send', 'pageview', window.location.pathname + window.location.search);
+			}
+		});
+
 		// svg fallback to png for unsupported browsers
 		function svgasimg() {
 			return document.implementation.hasFeature(
@@ -29,15 +36,15 @@
 		}
 
 
-        // header cart quantity
-        var body = $(document.body);
-        var header_cart_total = $('.cart-qty');
-        body.on('edd_cart_item_added',function(event, response){
-            header_cart_total.html(response.cart_quantity);
-        });
-        body.on('edd_cart_item_removed',function(event, response){
-            header_cart_total.html (response.cart_quantity);
-        });
+		// header cart quantity
+		var body = $(document.body);
+		var header_cart_total = $('.cart-qty');
+		body.on('edd_cart_item_added',function(event, response){
+			header_cart_total.html(response.cart_quantity);
+		});
+		body.on('edd_cart_item_removed',function(event, response){
+			header_cart_total.html (response.cart_quantity);
+		});
 
 
 		// Simple Notices remove notice
@@ -57,10 +64,10 @@
 		// Radio Buttons Graphics
 		$('.edd_price_options label').unwrap();
 
-        $('.edd_price_options label').each(function () {
-            $(this).removeClass('selected');
-            $(this).prepend('<span class="bullet" />');
-        });
+		$('.edd_price_options label').each(function () {
+			$(this).removeClass('selected');
+			$(this).prepend('<span class="bullet" />');
+		});
 
 		$('.edd_price_options label').on('click', function () {
 			var parent = $(this).parent();
@@ -76,10 +83,10 @@
 		}
 
 
-        // Checkbox Graphics
-        $('.lists-wrap .ginput_container_checkbox label').each(function () {
-            $(this).prepend('<span class="bullet" />');
-        });
+		// Checkbox Graphics
+		$('.lists-wrap .ginput_container_checkbox label').each(function () {
+			$(this).prepend('<span class="bullet" />');
+		});
 
 
 		// Payment Method Radio Buttons
@@ -141,10 +148,10 @@
 
 
 		// Account page expired license toggle
-        $('.expired-key-toggle').on('click',function(e){
-            e.preventDefault();
-            $('.toggle-keys-container').slideToggle();
-        });
+		$('.expired-key-toggle').on('click',function(e){
+			e.preventDefault();
+			$('.toggle-keys-container').slideToggle();
+		});
 
 
 		// Support
