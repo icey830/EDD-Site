@@ -156,7 +156,63 @@ function eddwp_demo_link( $content ) {
 	// add the link to demo below the content
 	echo $output_demo_link;
 }
-add_filter( 'edd_after_download_content', 'eddwp_demo_link', 9, 1 );
+add_filter( 'edd_after_download_content', 'eddwp_demo_link', 8, 1 );
+
+
+/**
+ * Add payment gateway information on product page
+ */
+function eddwp_payment_gateway_terms( $content ) {
+
+	// bail if it's not a gateway
+	$is_gateway = has_term( 'gateways', 'download_category' );
+	if ( ! $is_gateway ) {
+		return $content;
+	}
+
+	ob_start();
+
+	// output gateway features
+	$features = get_the_terms( get_the_ID(), 'gateway_features' );
+	if ( ! empty( $features ) && ! is_wp_error( $features ) ) {
+		$the_features = array();
+		foreach ( $features as $feature ) {
+			$the_features[] = $feature->name;
+		}
+		$gateway_features = join( ', ', $the_features );
+		echo '<h4>Features</h4><p class="gateway-terms">' . $gateway_features . '</p>';
+	}
+
+	// output gateway currencies
+	$currencies = get_the_terms( get_the_ID(), 'gateway_currencies' );
+	if ( ! empty( $currencies ) && ! is_wp_error( $currencies ) ) {
+		$the_currencies = array();
+		foreach ( $currencies as $currency ) {
+			$the_currencies[] = $currency->name;
+		}
+		$gateway_currencies = join( ', ', $the_currencies );
+		echo '<h4>Currencies</h4><p class="gateway-terms">' . $gateway_currencies . '</p>';
+	}
+
+	// output gateway countries
+	$countries = get_the_terms( get_the_ID(), 'gateway_countries' );
+	if ( ! empty( $countries ) && ! is_wp_error( $countries ) ) {
+		$the_features = array();
+		foreach ( $countries as $country ) {
+			$the_countries[] = $country->name;
+		}
+		$gateway_countries = join( ', ', $the_countries );
+		echo '<h4>Countries</h4><p class="gateway-terms">' . $gateway_countries . '</p>';
+	}
+
+	$all_terms = ob_get_clean();
+	$all_gateways = sprintf(
+		'<p class="view-all-gateways"><a href="%s">View full list of available gateways</a></p>',
+		home_url( '/downloads/category/gateways/' )
+	);
+	echo do_shortcode( '[toggle title="Supported features, currencies, and countries"]' . $all_terms . $all_gateways . '[/toggle]' );
+}
+add_filter( 'edd_after_download_content', 'eddwp_payment_gateway_terms', 9, 1 );
 
 
 /**
