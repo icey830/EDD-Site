@@ -249,11 +249,14 @@ if ( is_user_logged_in() ) : ?>
 									<?php edd_get_template_part( 'shortcode', 'profile-editor' ); ?>
 								</div><!-- /.tab-pane -->
 								<div class="tab-pane commissions-tab-pane" id="tab3">
-									<h3>Next Payout</h3>
-									<p id="next-payout"><?php if( function_exists( 'eddc_get_upcoming_commissions' ) ) { echo eddc_get_upcoming_commissions(); } ?></p>
-									<?php if( function_exists( 'eddc_user_product_list' ) ) { echo eddc_user_product_list(); } ?>
+									<h3>Commissions Overview</h3>
 									<?php if( function_exists( 'eddc_user_commissions_overview' ) ) { echo eddc_user_commissions_overview(); } ?>
+									<p id="next-payout"><?php if( function_exists( 'eddc_get_upcoming_commissions' ) ) { echo eddc_get_upcoming_commissions(); } ?></p>
 									<?php if( function_exists( 'eddc_user_commissions_graph' ) ) { echo eddc_user_commissions_graph(); } ?>
+									<h3>Detailed Commissions Information</h3>
+									<p>The information below is a more detailed overview of your commissions data. </p>
+									<?php if( function_exists( 'eddc_user_product_list' ) ) { echo eddc_user_product_list(); } ?>
+									<?php if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); } ?>
 								</div><!-- /.tab-pane -->
 								<div class="tab-pane support-subscription-tab-pane" id="tab5">
 									<h3>Your Support Subscription</h3>
