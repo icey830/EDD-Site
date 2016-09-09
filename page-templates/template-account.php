@@ -252,7 +252,8 @@ if ( is_user_logged_in() ) : ?>
 									<h3>Next Payout</h3>
 									<p id="next-payout"><?php if( function_exists( 'eddc_get_upcoming_commissions' ) ) { echo eddc_get_upcoming_commissions(); } ?></p>
 									<?php if( function_exists( 'eddc_user_product_list' ) ) { echo eddc_user_product_list(); } ?>
-									<?php if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); } ?>
+									<?php if( function_exists( 'eddc_user_commissions_overview' ) ) { echo eddc_user_commissions_overview(); } ?>
+									<?php if( function_exists( 'eddc_user_commissions_graph' ) ) { echo eddc_user_commissions_graph(); } ?>
 								</div><!-- /.tab-pane -->
 								<div class="tab-pane support-subscription-tab-pane" id="tab5">
 									<h3>Your Support Subscription</h3>
