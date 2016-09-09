@@ -205,6 +205,8 @@ function eddwp_payment_gateway_terms( $content ) {
 		echo '<h4>Countries</h4><p class="gateway-terms">' . $gateway_countries . '</p>';
 	}
 
+	echo '<p class="updated-gateway-info">The countries and currencies shown here may not reflect the most up-to-date supported lists of the merchant processor.</p>';
+
 	$all_terms = ob_get_clean();
 	$all_gateways = sprintf(
 		'<p class="view-all-gateways"><a href="%s">View full list of available gateways</a></p>',
