@@ -16,8 +16,8 @@ get_header();
 
 					<div class="tabbed-template-tabs">
 						<ul class="nav nav-tabs nav-append-content purchase-confirmation-tabs">
-							<li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-list" aria-hidden="true"></i>Purchase Details</a></li>
-							<li><a href="#documentation-tab" data-toggle="tab"><i class="fa fa-file-text-o" aria-hidden="true"></i>Documentation</a></li>
+							<li class="active"><a href="#purchase-details" data-toggle="tab"><i class="fa fa-list" aria-hidden="true"></i>Purchase Details</a></li>
+							<li><a href="#documentation" data-toggle="tab"><i class="fa fa-file-text-o" aria-hidden="true"></i>Documentation</a></li>
 						</ul>
 						<ul class="your-account-link-list">
 							<li><a class="your-account-link" href="<?php echo home_url( '/your-account' ); ?>"><i class="fa fa-user" aria-hidden="true"></i>Your Account</a></li>
@@ -26,7 +26,7 @@ get_header();
 
 					<div class="tabbed-template-tab-content">
 						<div class="tab-content">
-							<div class="tab-pane active purchase-confirmation-tab-pane" id="tab1">
+							<div class="tab-pane active purchase-confirmation-tab-pane" id="purchase-details">
 								<h3>Thank you for your purchase!</h3>
 								<p>You will be sent an email within a few minutes containing download links to the items you purchased. You may also access your license keys and download your purchases from <a href="https://easydigitaldownloads.com/your-account/">your account</a>.</p>
 								<p>Your purchase means a lot to us! If you'd like to tell your friends about us, use the buttons below to share Easy Digital Downloads with the world.</p>
@@ -56,7 +56,7 @@ get_header();
 								</div>
 								<?php echo do_shortcode('[edd_receipt]'); ?>
 							</div><!-- /.tab-pane -->
-							<div class="tab-pane documentation-tab-pane" id="documentation-tab">
+							<div class="tab-pane documentation-tab-pane" id="documentation">
 								<h3>Easy Digital Downloads Documentation</h3>
 								<p>Thanks again for your purchase. Now it's time for the fun part. We understand that building an eCommerce site takes a lot of work, so we put together some documentation to assist with getting the most out of your plugins.</p>
 								<h5>Helpful Documentation</h5>

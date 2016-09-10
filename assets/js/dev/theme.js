@@ -29,15 +29,15 @@
 		}
 
 
-        // header cart quantity
-        var body = $(document.body);
-        var header_cart_total = $('.cart-qty');
-        body.on('edd_cart_item_added',function(event, response){
-            header_cart_total.html(response.cart_quantity);
-        });
-        body.on('edd_cart_item_removed',function(event, response){
-            header_cart_total.html (response.cart_quantity);
-        });
+		// header cart quantity
+		var body = $(document.body);
+		var header_cart_total = $('.cart-qty');
+		body.on('edd_cart_item_added',function(event, response){
+			header_cart_total.html(response.cart_quantity);
+		});
+		body.on('edd_cart_item_removed',function(event, response){
+			header_cart_total.html (response.cart_quantity);
+		});
 
 
 		// Simple Notices remove notice
@@ -48,19 +48,25 @@
 			});
 		});
 
-		$('.nav-tabs a').on('click', function(e) {
-			e.preventDefault();
-			$(this).tab('show');
-		});
+		// enable link to tab
+		var hash = document.location.hash;
+		var prefix = "tab-";
+		if (hash) {
+			$('.nav-tabs a[href='+hash.replace(prefix,"")+']').tab('show');
+		}
 
+		// Change hash for page-reload
+		$('.nav-tabs a').on('shown.bs.tab', function (e) {
+			window.location.hash = e.target.hash.replace("#", "#" + prefix);
+		});
 
 		// Radio Buttons Graphics
 		$('.edd_price_options label').unwrap();
 
-        $('.edd_price_options label').each(function () {
-            $(this).removeClass('selected');
-            $(this).prepend('<span class="bullet" />');
-        });
+		$('.edd_price_options label').each(function () {
+			$(this).removeClass('selected');
+			$(this).prepend('<span class="bullet" />');
+		});
 
 		$('.edd_price_options label').on('click', function () {
 			var parent = $(this).parent();
@@ -76,10 +82,10 @@
 		}
 
 
-        // Checkbox Graphics
-        $('.lists-wrap .ginput_container_checkbox label').each(function () {
-            $(this).prepend('<span class="bullet" />');
-        });
+		// Checkbox Graphics
+		$('.lists-wrap .ginput_container_checkbox label').each(function () {
+			$(this).prepend('<span class="bullet" />');
+		});
 
 
 		// Payment Method Radio Buttons
@@ -141,10 +147,10 @@
 
 
 		// Account page expired license toggle
-        $('.expired-key-toggle').on('click',function(e){
-            e.preventDefault();
-            $('.toggle-keys-container').slideToggle();
-        });
+		$('.expired-key-toggle').on('click',function(e){
+			e.preventDefault();
+			$('.toggle-keys-container').slideToggle();
+		});
 
 
 		// Support
