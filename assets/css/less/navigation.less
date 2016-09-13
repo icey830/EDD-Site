@@ -113,6 +113,28 @@
 	}
 }
 
+.edd-sl-user-has-expired-license.logged-in #primary.navigation-main .has-expired-licenses {
+
+	& > a {
+		color: #fff;
+		font-size: 110%;
+
+		&:after {
+			color: #d05c5c;
+			content: "\f071";
+			font-family: FontAwesome;
+			font-size: 90%;
+			margin-left: 8px;
+		}
+	}
+
+	& .renew-expired-licenses {
+		& a {
+			color: #d05c5c;
+		}
+	}
+}
+
 
 /* animations */
 html.cssanimations.csstransitions #primary ul ul {
