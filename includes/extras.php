@@ -253,6 +253,49 @@ add_filter( 'edd_after_download_content', 'eddwp_payment_gateway_terms', 9, 1 );
 
 
 /**
+ * Site-wide expired license notice
+ */
+function eddwp_user_has_expired_license() {
+
+	$license_keys = array();
+
+	if ( class_exists( 'edd_software_licensing' ) && is_user_logged_in() ) {
+
+		// check for expired licenses
+		$license_args = array(
+			'posts_per_page' => -1,
+			'post_type' => 'edd_license',
+			'post_status' => 'any',
+			'meta_query' => array(
+				'relation' => 'AND',
+				array(
+					'key' => '_edd_sl_user_id',
+					'value' => get_current_user_id(),
+					'compare' => '='
+				),
+				array(
+					'relation' => 'OR',
+					array(
+						'key' => '_edd_sl_status',
+						'value' => 'expired',
+						'compare' => '='
+					),
+					array(
+						'key' => '_edd_sl_expiration',
+						'value' => time(),
+						'compare' => '<'
+					)
+				),
+			),
+		);
+		$license_keys = get_posts($license_args);
+	}
+
+	return $license_keys;
+}
+
+
+/**
  * Append the changelog to the download content
  */
 function eddwp_product_changelog( $content ) {
@@ -534,6 +577,10 @@ function eddwp_body_class( $classes ) {
 		if ( empty( $cart_contents ) ) {
 			$classes[] = 'edd-checkout-cart-empty';
 		}
+	}
+
+	if ( ! empty( eddwp_user_has_expired_license() ) ) {
+		$classes[] = 'edd-sl-user-has-expired-license';
 	}
 
 	return $classes;
