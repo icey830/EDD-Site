@@ -170,10 +170,38 @@ function eddwp_payment_gateway_terms( $content ) {
 		return $content;
 	}
 
+	// get the gateway related terms
+	$features   = get_the_terms( get_the_ID(), 'gateway_features' );
+	$currencies = get_the_terms( get_the_ID(), 'gateway_currencies' );
+	$countries  = get_the_terms( get_the_ID(), 'gateway_countries' );
+
+	$gateway_bundle = '';
+
+	// get the gateway related terms for bundled items (should only be one)
+	$product_type = get_post_meta( get_the_ID(), '_edd_product_type', true );
+	if ( 'bundle' === $product_type ) {
+
+		$get_bundled_items = get_post_meta( get_the_ID(), '_edd_bundled_products', true );
+		foreach ( $get_bundled_items as $item ) {
+
+			$is_bundled_gateway = has_term( 'gateways', 'download_category', $item );
+
+			if ( $is_bundled_gateway ) {
+				$features   = get_the_terms( $item, 'gateway_features' );
+				$currencies = get_the_terms( $item, 'gateway_currencies' );
+				$countries  = get_the_terms( $item, 'gateway_countries' );
+
+				// get the title of the included gateway
+				$the_gateway_title = get_the_title( $item );
+			}
+		}
+
+		$gateway_bundle = true;
+	}
+
 	ob_start();
 
 	// output gateway features
-	$features = get_the_terms( get_the_ID(), 'gateway_features' );
 	if ( ! empty( $features ) && ! is_wp_error( $features ) ) {
 		$the_features = array();
 		foreach ( $features as $feature ) {
@@ -184,7 +212,6 @@ function eddwp_payment_gateway_terms( $content ) {
 	}
 
 	// output gateway currencies
-	$currencies = get_the_terms( get_the_ID(), 'gateway_currencies' );
 	if ( ! empty( $currencies ) && ! is_wp_error( $currencies ) ) {
 		$the_currencies = array();
 		foreach ( $currencies as $currency ) {
@@ -195,7 +222,6 @@ function eddwp_payment_gateway_terms( $content ) {
 	}
 
 	// output gateway countries
-	$countries = get_the_terms( get_the_ID(), 'gateway_countries' );
 	if ( ! empty( $countries ) && ! is_wp_error( $countries ) ) {
 		$the_features = array();
 		foreach ( $countries as $country ) {
@@ -208,11 +234,20 @@ function eddwp_payment_gateway_terms( $content ) {
 	echo '<p class="updated-gateway-info">The countries and currencies shown here may not reflect the most up-to-date supported lists of the merchant processor.</p>';
 
 	$all_terms = ob_get_clean();
+
 	$all_gateways = sprintf(
 		'<p class="view-all-gateways"><a href="%s">View full list of available gateways</a></p>',
 		home_url( '/downloads/category/gateways/' )
 	);
-	echo do_shortcode( '[toggle title="Supported features, currencies, and countries"]' . $all_terms . $all_gateways . '[/toggle]' );
+
+	// adjust toggle title if displayed on gateway bundle
+	if ( $gateway_bundle && ! empty( $the_gateway_title ) ) {
+		$toggle_title = '<strong>' . $the_gateway_title . '</strong> supported features, currencies, and countries';
+	} else {
+		$toggle_title = 'Supported features, currencies, and countries';
+	}
+
+	echo do_shortcode( '[toggle title="' . $toggle_title . '"]' . $all_terms . $all_gateways . '[/toggle]' );
 }
 add_filter( 'edd_after_download_content', 'eddwp_payment_gateway_terms', 9, 1 );
 
