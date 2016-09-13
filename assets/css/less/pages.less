@@ -801,6 +801,7 @@
 	& .edd_sl_table,
 	& #edd_profile_editor_form,
 	& .edd_user_commissions,
+	& #edd_user_commissions_overview table,
 	& #edd_commissioned_products_table,
 	& .rcp-table {
 		font-size: 1.4rem;
@@ -1219,11 +1220,11 @@
 	border: 3px solid #eaeaea;
 	border-radius: 3px;
 	margin-bottom: 10px;
+	height: 40px;
 	max-width: 300px;
-}
-
-#account-page .commissions-tab-pane .edd-submit {
-	display: block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 #account-page .profile-editor-tab-pane .edd-select {
@@ -1257,6 +1258,7 @@
 }
 
 .edd_user_commissions,
+#edd_user_commissions_overview table,
 #edd_commissioned_products_table {
 	border-collapse: collapse;
 	background: transparent;
@@ -1290,6 +1292,33 @@
 
 		& > tr:nth-child(even) > td {
 			background: @eddgray;
+		}
+	}
+}
+
+#edd_user_commissions_overview {
+	margin-bottom: 30px;
+
+	& > h3 {
+		display: none;
+	}
+}
+
+#eddc-dashboard-graphs {
+
+	& h4 {
+		font-size: 2.4rem;
+	}
+
+	& #edd-graphs-filter {
+		& select {
+			background: @eddgray;
+			border: 3px solid @eddgrayhover;
+			height: 40px;
+			margin-left: 0;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
 		}
 	}
 }
@@ -1725,7 +1754,7 @@
 		}
 	}
 
-	& #documentation-tab {
+	& #documentation {
 		& .documentation-list {
 			list-style-position: inside;
 			margin: 0 0 30px 0;

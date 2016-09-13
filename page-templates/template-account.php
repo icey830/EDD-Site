@@ -105,16 +105,16 @@ if ( is_user_logged_in() ) : ?>
 								</div>
 							</div>
 							<ul class="nav nav-tabs nav-append-content<?php echo $is_affiliate; ?>">
-								<li class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-usd"></i>Purchases</a></li>
+								<li class="active"><a href="#purchases" data-toggle="tab"><i class="fa fa-usd"></i>Purchases</a></li>
 								<?php $has_expired_licenses = ! empty( $license_keys ) ? ' class="has-expired-licenses"' : ''; ?>
-								<li><a href="#license-keys-tab" data-toggle="tab"<?php echo $has_expired_licenses; ?>><i class="fa fa-key"></i>License Keys</a></li>
-								<li><a href="#subscriptions-tab" data-toggle="tab"><i class="fa fa-repeat"></i>Subscriptions</a></li>
-								<li><a href="#downloads-tab" data-toggle="tab"><i class="fa fa-cloud-download"></i>Downloads</a></li>
-								<li><a href="#tab2" data-toggle="tab"><i class="fa fa-user"></i>Profile</a></li>
+								<li><a href="#license-keys" data-toggle="tab"<?php echo $has_expired_licenses; ?>><i class="fa fa-key"></i>License Keys</a></li>
+								<li><a href="#subscriptions" data-toggle="tab"><i class="fa fa-repeat"></i>Subscriptions</a></li>
+								<li><a href="#downloads" data-toggle="tab"><i class="fa fa-cloud-download"></i>Downloads</a></li>
+								<li><a href="#profile" data-toggle="tab"><i class="fa fa-user"></i>Profile</a></li>
 								<?php if ( defined( 'EDD_COMMISSIONS_VERSION' ) && eddc_user_has_commissions() ) { ?>
-									<li><a href="#tab3" data-toggle="tab"><i class="fa fa-money"></i>Commissions</a></li>
+									<li><a href="#commissions" data-toggle="tab"><i class="fa fa-money"></i>Commissions</a></li>
 								<?php } ?>
-								<li><a href="#tab5" data-toggle="tab"><i class="fa fa-wrench"></i>Support Subscription</a></li>
+								<li><a href="#support" data-toggle="tab"><i class="fa fa-wrench"></i>Support Subscription</a></li>
 							</ul>
 							<?php if ( ! empty( $is_affiliate ) ) { ?>
 								<ul class="affiliates-list">
@@ -125,7 +125,7 @@ if ( is_user_logged_in() ) : ?>
 
 						<div class="my-account-tab-content">
 							<div class="tab-content">
-								<div class="tab-pane active purchases-tab-pane" id="tab1">
+								<div class="tab-pane active purchases-tab-pane" id="purchases">
 									<h3>Your Purchase History</h3>
 									<p>All purchases below were completed with the following email address: <strong><?php echo $current_user->user_email; ?></strong>. If you have trouble locating purchases, please <a href="<?php echo home_url( 'support' ); ?>">contact support</a> for assistance.</p>
 									<?php
@@ -136,7 +136,7 @@ if ( is_user_logged_in() ) : ?>
 									}
 									?>
 								</div><!-- /.tab-pane -->
-								<div class="tab-pane license-keys-tab-pane" id="license-keys-tab">
+								<div class="tab-pane license-keys-tab-pane" id="license-keys">
 									<?php if ( ! empty( $license_keys ) ) { ?>
 										<div class="license-key-notice">
 											<h4 class="section-title-alt"><i class="fa fa-exclamation-triangle"></i>You have <?php echo $expired_qty; ?> expired license key<?php echo $expired_qty > 1 ? 's' : ''; ?></h4>
@@ -233,28 +233,34 @@ if ( is_user_logged_in() ) : ?>
 										<p>You currently have no licenses.</p>
 									<?php } ?>
 								</div><!-- /.tab-pane -->
-								<div class="tab-pane subscriptions-tab-pane" id="subscriptions-tab">
+								<div class="tab-pane subscriptions-tab-pane" id="subscriptions">
 									<h3>Manage Your Subscriptions</h3>
 									<p>Use the tools below to view subscription details, manage all of your product subscriptions, and view invoices.</p>
 									<?php echo do_shortcode( '[edd_subscriptions]' ); ?>
 								</div><!-- /.tab-pane -->
-								<div class="tab-pane downloads-tab-pane" id="downloads-tab">
+								<div class="tab-pane downloads-tab-pane" id="downloads">
 									<h3>Your Download History</h3>
 									<p>Below you will find a complete history of your file downloads.</p>
 									<?php echo do_shortcode( '[download_history]' ); ?>
 								</div><!-- /.tab-pane -->
-								<div class="tab-pane profile-editor-tab-pane" id="tab2">
+								<div class="tab-pane profile-editor-tab-pane" id="profile">
 									<h3>Edit Your Profile Information</h3>
 									<p>Use the form below to edit the information saved in your user profile. Select information will be used to auto-complete the checkout form for your next purchase.</p>
 									<?php edd_get_template_part( 'shortcode', 'profile-editor' ); ?>
 								</div><!-- /.tab-pane -->
-								<div class="tab-pane commissions-tab-pane" id="tab3">
-									<h3>Next Payout</h3>
+								<div class="tab-pane commissions-tab-pane" id="commissions">
+									<h3>Commissions Overview</h3>
+									<?php if( function_exists( 'eddc_user_commissions_overview' ) ) { echo eddc_user_commissions_overview(); } ?>
 									<p id="next-payout"><?php if( function_exists( 'eddc_get_upcoming_commissions' ) ) { echo eddc_get_upcoming_commissions(); } ?></p>
-									<?php if( function_exists( 'eddc_user_product_list' ) ) { echo eddc_user_product_list(); } ?>
-									<?php if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); } ?>
+									<?php //if( function_exists( 'eddc_user_commissions_graph' ) ) { echo eddc_user_commissions_graph(); } ?>
+									<h3>Detailed Commissions Information</h3>
+									<p>The information below is a more detailed overview of your commissions data. </p>
+									<?php
+										if( function_exists( 'eddc_user_product_list' ) ) { echo eddc_user_product_list(); }
+										if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); }
+									?>
 								</div><!-- /.tab-pane -->
-								<div class="tab-pane support-subscription-tab-pane" id="tab5">
+								<div class="tab-pane support-subscription-tab-pane" id="support">
 									<h3>Your Support Subscription</h3>
 									<p>See the details of your support subscription below.</p>
 									<?php
