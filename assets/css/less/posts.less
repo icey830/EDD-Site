@@ -78,13 +78,11 @@
 }
 
 .gateway-filter-note {
+	clear: both;
 	color: #999;
 	font-size: 1.3rem;
 	line-height: 1.4;
 	font-style: italic;
-	padding-bottom: 6px;
-	border-bottom: 1px solid #f1f1f1;
-	margin-bottom: 20px;
 
 	& a {
 		color: #777;
@@ -240,6 +238,53 @@
 			padding: 3px 12px;
 			background: #fff;
 			margin-right: 8px;
+		}
+	}
+}
+
+
+/* ----------------------------- *
+ * single downloads (standard)
+ * ----------------------------- */
+.single-download .download-data {
+	margin-bottom: 30px;
+
+	& .download-img {
+		float: left;
+		width: 100%;
+		max-width: 55%;
+	}
+
+	& .download-meta-data {
+		color: #777;
+		float: right;
+		font-size: 1.3rem;
+		width: 100%;
+		max-width: 42%;
+
+		& h5 {
+			color: #555;
+		}
+
+		& .download-info-section {
+			margin-bottom: 10px;
+		}
+
+		& .edd-download-detail-label {
+			color: #777;
+			font-weight: 500;
+		}
+
+		& .changelog-link {
+			margin-left: 5px;
+		}
+
+		& .modal-content {
+			color: #555;
+
+			& .modal-title {
+				color: #fff;
+			}
 		}
 	}
 }

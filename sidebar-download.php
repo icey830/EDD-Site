@@ -42,20 +42,12 @@ if ( $variable_pricing ) {
 ?>
 
 <aside class="sidebar download-sidebar">
+	<?php if ( ! $is_3rd_party && ! $is_unlicensed ) { ?>
+		<h3 class="pricing-title"><?php echo ucfirst( $download_type ); ?> Pricing</h3>
+	<?php } else { ?>
+		<h3 class="pricing-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
+	<?php } ?>
 	<div class="download-access download-info-section">
-		<div class="pricing-header">
-			<?php
-				if ( ! $is_3rd_party && ! $is_unlicensed ) {
-					?>
-					<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Pricing</h3>
-					<?php
-				} else {
-					?>
-					<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
-				<?php
-				}
-			?>
-		</div>
 		<div class="pricing-info">
 			<div class="pricing">
 				<?php
@@ -70,7 +62,6 @@ if ( $variable_pricing ) {
 			</div>
 			<div class="terms clearfix">
 				<p>
-					<i class="fa fa-info-circle"></i>
 					<?php
 
 						// terms for paid downloads
@@ -103,130 +94,19 @@ if ( $variable_pricing ) {
 			</div>
 		</div>
 	</div>
-	<?php if ( ! $is_3rd_party ) { ?>
-		<div class="download-details download-info-section">
-			<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
-			<div class="author clearfix">
-				<p>
-					<span class="edd-download-detail-label">Developer:</span>&nbsp;
-					<?php if ( get_post_meta( get_the_ID(), 'ecpt_developer', true ) ) : ?>
-						<span class="edd-download-detail"><?php echo $developer; ?></span>
-					<?php else : ?>
-						<span class="edd-download-detail"><?php echo get_the_author(); ?></span>
-					<?php endif; ?>
-				</p>
-			</div>
-			<?php if ( $is_bundle ) { ?>
-				<div class="license-activations clearfix">
-					<p>
-						<span class="edd-download-detail-label">Number of sites:</span>&nbsp;
-						<?php if ( ! empty( $activations ) ) { ?>
-							<span class="edd-download-detail"><?php echo $activations; ?></span>
-						<?php } else { ?>
-							<span class="edd-download-detail">unlimited</span>
-						<?php } ?>
-					</p>
-				</div>
-			<?php } ?>
-			<?php
-			if ( $has_license && ! $is_bundle ) { ?>
-				<div class="version clearfix">
-					<?php $version = get_post_meta( get_the_ID(), '_edd_sl_version', true ); ?>
-					<p><span class="edd-download-detail-label">Version:</span> <span class="edd-download-detail"><?php echo $version; ?><a href="#" class="changelog-link" title="View Changelog" data-toggle="modal" data-target="#show-changelog"><i class="fa fa-file-text-o"></i></a></span></p>
-				</div>
-				<?php
-					// get the changelog data
-					$changelog = stripslashes( get_post_meta( get_the_ID(), '_edd_sl_changelog', true ) );
-
-					// if it exists, append the changelog (from either source) to the relevent content output
-					if ( ! empty( $changelog ) ) {
-						?>
-						<!-- Changelog Modal -->
-						<div class="changelog-modal modal fade" id="show-changelog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										<h5 class="modal-title" id="myModalLabel"><?php the_title(); ?> Changelog</h5>
-									</div>
-									<div class="modal-body">
-										<?php echo wpautop( $changelog ); ?>
-									</div>
-									<div class="modal-footer">
-										<a href="#" data-dismiss="modal">Close</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<?php
-					}
-				?>
-			<?php } ?>
-		</div>
-	<?php } ?>
 	<?php if ( ! $is_bundle ) {
 		$core_extensions = home_url( '/downloads/core-extensions-bundle/' );
 		?>
-		<div class="core-extensions download-info-section">
+		<div class="core-extensions download-info-section secondary-sidebar-section">
 			<h3 class="widget-title">Core Extensions</h3>
 			<p>Receive the best discount EDD has to offer when you purchase our Core Extensions Bundle. <a href="<?php echo $core_extensions; ?>">Learn more</a>.</p>
-		</div>
-	<?php } ?>
-	<?php
-		if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ||
-			 get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) ||
-			 get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) {
-		?>
-		<div class="download-requirements download-info-section">
-			<h3 class="widget-title">Requirements</h3>
-			<?php if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ) { ?>
-				<div class="wordpress-ver clearfix">
-					<p>
-						<span class="edd-download-detail-label">WordPress:</span>&nbsp;
-						<span class="edd-download-detail">
-							<?php
-								if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ) {
-									echo get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) . ' or higher';
-								}
-							?>
-						</span>
-					</p>
-				</div>
-			<?php } ?>
-			<?php if ( get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) ) { ?>
-				<div class="edd-ver clearfix">
-					<p>
-						<span class="edd-download-detail-label">EDD:</span>&nbsp;
-						<span class="edd-download-detail">
-							<?php
-								if ( get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) ) {
-									echo get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) . ' or higher';												}
-							?>
-						</span>
-					</p>
-				</div>
-			<?php } ?>
-			<?php if ( get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) { ?>
-				<div class="php-ver clearfix">
-					<p>
-						<span class="edd-download-detail-label">PHP:</span>&nbsp;
-						<span class="edd-download-detail">
-							<?php
-								if ( get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) {
-									echo get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) . ' or higher';
-								}
-							?>
-						</span>
-					</p>
-				</div>
-			<?php } ?>
 		</div>
 	<?php } ?>
 	<?php
 		$doc_url = get_post_meta( get_the_ID(), 'ecpt_documentationlink', true );
 		if ( $doc_url ) {
 			?>
-			<div class="related-items download-info-section">
+			<div class="related-items download-info-section secondary-sidebar-section">
 				<h3 class="widget-title">Documentation</h3>
 				<ul class="related-links">
 					<li><a href="<?php echo $doc_url; ?>">View Setup Documentation</a></li>
@@ -235,7 +115,7 @@ if ( $variable_pricing ) {
 			<?php
 		}
 	?>
-	<div class="support-ticket download-info-section">
+	<div class="support-ticket download-info-section secondary-sidebar-section">
 		<h3 class="widget-title">Support</h3>
 		<div>Need help? Feel free to submit a <a href="<?php echo home_url( '/support/' ); ?>">support ticket</a>.</div>
 	</div>
