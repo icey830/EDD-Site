@@ -8,8 +8,8 @@
  * ----------------------------- */
 .sidebar {
 	float: right;
-	font-size: 15px;
-	font-size: 1.5rem;
+	font-size: 14px;
+	font-size: 1.4rem;
 	line-height: 24px;
 	margin-left: 50px;
 	width: 330px;
@@ -111,19 +111,28 @@
 		margin-bottom: 45px;
 	}
 
-	& .pricing-title {
-		font-size: 2.6rem;
-		line-height: 1.4;
-		margin-bottom: 20px;
-	}
-
 	& .download-access {
-		background: #e0ecf4;
-		border-top: 3px solid @eddblue;
-		border-radius: 0 0 4px 4px;
+		background: @eddblue;
+		color: #fff;
+		border-radius: 4px;
+
+		& .pricing-header {
+			background: rgba(0,0,0,.1) url('images/mascot/edd-headshot.png') no-repeat 22px bottom;
+			text-align: right;
+			padding: 18px 30px;
+			border-bottom: 1px solid #215b95;
+
+			& .widget-title {
+				font-size: 2rem;
+				font-weight: 400;
+				padding: 0;
+				border: none;
+				margin: 0;
+			}
+		}
 
 		& .pricing-info {
-			padding: 30px;
+			padding: 20px 30px 30px;
 
 			& .edd_download_purchase_form {
 				position: relative;
@@ -143,16 +152,21 @@
 			}
 
 			& .terms {
-				font-size: 1.3rem;
+				font-size: 1.4rem;
 				line-height: 1.4;
+				opacity: .75;
 				margin-bottom: 0;
 
 				& a {
-					color: #555;
+					color: #fff;
 
 					&:hover {
 						text-decoration: none;
 					}
+				}
+
+				& .fa {
+					margin-right: 4px;
 				}
 			}
 
@@ -213,10 +227,6 @@
 		text-align: right;
 		width: 58%;
 	}
-
-	& .secondary-sidebar-section {
-		font-size: 1.4rem;
-	}
 }
 
 .edd_price_options {
@@ -229,7 +239,8 @@
 			position: relative;
 			font-size: 1.6rem;
 			font-weight: 400;
-			margin-bottom: 12px;
+			margin-bottom: 15px;
+			cursor: pointer;
 
 			& input[type="radio"] {
 				float: left;
@@ -249,7 +260,7 @@
 				position: absolute;
 					top: 0;
 					left: 0;
-				color: #bed1de;
+				color: #b3daf2;
 				font-family: "FontAwesome";
 				content: "\f10c";
 				font-size: 2.4rem;
@@ -259,6 +270,7 @@
 
 			&.selected .radio-button:before {
 				color: @green;
+				color: @edddarkblue;
 				font-family: "FontAwesome";
 				content: "\f058";
 			}
