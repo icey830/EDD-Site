@@ -11,7 +11,7 @@
 	width: device-width;
 }
 
-@media all and ( max-width: 1100px ) {
+@media all and ( max-width: 1160px ) {
 
 	/* header */
 	.header-area .inner .site-header {
@@ -39,7 +39,7 @@
 
 	/* structure */
 	.site-container {
-		padding: 0 30px;
+		max-width: none;
 	}
 
 	.site-container .content {
@@ -228,10 +228,13 @@
 			}
 		}
 	}
+}
 
-	/* Starter Package */
-	#starter-package {
+@media all and ( max-width: 1160px ) {
 
+	/* structure */
+	.site-container {
+		padding: 0 30px;
 	}
 }
 
@@ -457,11 +460,6 @@
 	}
 
 	/* front page */
-	.page-section-blue .inner,
-	#front-page-newsletter .inner {
-		padding: 40px 20px;
-	}
-
 	.hero-subtitle {
 		font-size: 16px;
 	}
@@ -529,10 +527,10 @@
 	}
 
 	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
-		background-position-x: 24px;
+		background-position-x: 44px;
 		font-size: 16px;
-		padding: 20px 30px 20px 155px;
-		margin: -50px -50px 20px;
+		padding: 20px 30px 20px 135px;
+		margin: -50px -30px 20px;
 	}
 
 	.edd-post-footer .newsletter .newsletter-name-container,
@@ -767,29 +765,6 @@
 		margin-bottom: 30px;
 	}
 
-	.showcase-submission,
-	#landing-page-area .page-content,
-	#full-width-page-area .page-content,
-	.site-container .content .hentry,
-	.bbpress .site-container .content,
-	.edd-checkout .checkout-content {
-		padding: 20px;
-	}
-
-	.edd-post-footer .newsletter-wrap,
-	#comments,
-	#respond {
-		padding-right: 20px;
-		padding-left: 20px;
-	}
-
-	.edd-post-footer,
-	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title,
-	.sidebar .newsletter .newsletter-title {
-		margin-right: -20px;
-		margin-left: -20px;
-	}
-
 	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
 		padding-right: 20px;
 	}
@@ -831,23 +806,23 @@
 
 	/* newsletter */
 	.sidebar .newsletter {
-		padding: 50px 20px 30px;
+		padding: 50px 30px 30px;
 	}
 
 	.blog .newsletter .newsletter-title,
 	.single .newsletter .newsletter-title {
-		background-position-x: 16px;
+		background-position-x: 24px;
 		font-size: 20px;
 		text-align: right;
 		padding: 20px 20px 20px 125px;
-		margin: -50px -20px 20px;
+		margin: -50px -30px 20px;
 	}
 
 	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
 		font-size: 20px;
 		text-align: right;
 		padding: 20px 20px 20px 125px;
-		margin: -50px -20px 20px;
+		margin: -50px -30px 20px;
 	}
 
 	.newsletter .edd-newsletter-content-wrap .newsletter-name-container,
@@ -1115,14 +1090,10 @@
 	#starter-package {
 
 		& .full-width-content {
-			padding-right: 20px;
-			padding-left: 20px;
 
 			& .entry-title {
 				padding-right: 20px;
 				padding-left: 20px;
-				margin-right: -20px;
-				margin-left: -20px;
 			}
 		}
 
@@ -1130,7 +1101,7 @@
 
 			& .edd-gf-buyer-detail span[class*="name_"],
 			.edd-gf-email-field .ginput_container_email {
-				width: 100%;
+				width: 100% !important;
 			}
 		}
 	}
@@ -1433,20 +1404,30 @@
 
 	.edd-post-footer {
 		margin-bottom: 30px;
+
+		& .newsletter-wrap {
+			padding: 50px 20px 20px;
+
+			& .newsletter .newsletter-title {
+				margin-right: -20px;
+				margin-left: -20px;
+			}
+		}
 	}
 
-	.edd-post-footer .newsletter-wrap {
-		padding: 50px 20px 20px;
+	.sidebar .newsletter {
+		padding: 50px 20px 30px;
+
+		& .newsletter-title {
+			margin-right: -20px;
+			margin-left: -20px;
+		}
 	}
 
 	.newsletter .newsletter-name-container,
 	.newsletter .newsletter-email-container,
 	.newsletter .newsletter-submit-container {
 		width: 100% !important;
-	}
-
-	.single .newsletter form {
-		margin-bottom: 20px;
 	}
 
 	/* comments */
@@ -1489,12 +1470,14 @@
 		width: 100% !important;
 	}
 
-	.support-page .gform_wrapper.edd-gf-support-tickets-form [class*="edd-gf-support-tickets-form-"] .ginput_container {
+	.support-page .edd-gf-support-tickets-form [class*="edd-gf-support-tickets-form-"] .ginput_container {
 		& > span,
 		&.ginput_container_website,
 		&.ginput_container_website input,
 		&.ginput_container_text,
 		&.ginput_container_text input,
+		&.ginput_complex.ginput_container_email span,
+		&.ginput_complex.ginput_container_email input,
 		li[class*="gchoice_"] {
 			width: 100% !important;
 		}

@@ -17,8 +17,6 @@
 	& .vcard {
 		display: inline-block;
 		margin-right: 10px;
-		height: 48px;
-		line-height: 48px;
 		float: left;
 		margin-bottom: 20px;
 
@@ -26,6 +24,7 @@
 			border-radius: 50%;
 			float: left;
 			margin-right: 10px;
+			width: 26px;
 		}
 
 		& cite {
@@ -75,16 +74,21 @@
 	}
 }
 
-.comment:not(.bypostauthor) .vcard img {
-	margin: 10px 10px 0 0;
-	width: 26px;
+#comments .comment.bypostauthor {
+
+	& > .comment-body > .vcard > img {
+		width: 48px;
+	}
+
+	& > .comment-body > .comment-meta,
+	& > .comment-body > .comment-author > .fn {
+		margin-top: 10px;
+	}
 }
 
 .comment-meta {
 	display: inline-block;
 	font-size: 12px;
-	line-height: 21px;
-	margin-top: 16px;
 	float: left;
 
 	&:after {
@@ -99,6 +103,7 @@
 	& a {
 		color: #777;
 		text-decoration: none;
+		line-height: 29px;
 
 		&:hover {
 			text-decoration: underline;
