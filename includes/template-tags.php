@@ -195,6 +195,36 @@ function eddwp_paginate_links() {
 }
 
 
+/**
+ * adjusted product titles (mainly to respect branding)
+ */
+function eddwp_adjust_product_title( $title, $id = 0 ) {
+	global $post;
+
+	if ( ! is_object( $post ) ) {
+		return $title;
+	}
+
+	switch ( $title ) {
+
+		case 'EDD Dropbox File Store' :
+			$title = 'File Store for Dropbox';
+			break;
+
+		case 'Dropbox Sync' :
+			$title = 'Sync for Dropbox';
+			break;
+
+		case 'Mail Chimp' :
+			$title = 'MailChimp';
+			break;
+	}
+
+	return $title;
+}
+add_filter( 'the_title', 'eddwp_adjust_product_title', 9, 2 );
+
+
 /* ----------------------------------------------------------- *
  * Misc
  * ----------------------------------------------------------- */
