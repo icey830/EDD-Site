@@ -204,6 +204,10 @@ function eddwp_adjust_product_title( $title, $id = 0 ) {
 	if ( ! is_object( $post ) ) {
 		return $title;
 	}
+	
+	if( is_page( array( 160, 161 ) ) ) {
+		return $title;
+	}
 
 	switch ( $title ) {
 
