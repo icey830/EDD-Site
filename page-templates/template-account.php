@@ -104,6 +104,23 @@ if ( is_user_logged_in() ) : ?>
 									?>
 								</div>
 							</div>
+
+							<script type="text/javascript">
+								jQuery(function($) {
+									// enable link to tab
+									var hash = document.location.hash;
+									var prefix = "tab-";
+									if (hash) {
+										$('.nav-tabs a[href="' + hash.replace(prefix, "") + '"]').tab('show');
+									}
+
+									// Change hash for page-reload
+									$('.nav-tabs a').on('shown.bs.tab', function (e) {
+										window.location.hash = e.target.hash.replace("#", "#" + prefix);
+									});
+								});
+							</script>
+
 							<ul class="nav nav-tabs nav-append-content<?php echo $is_affiliate; ?>">
 								<li class="active"><a href="#purchases" data-toggle="tab"><i class="fa fa-usd"></i>Purchases</a></li>
 								<?php $has_expired_licenses = ! empty( $license_keys ) ? ' class="has-expired-licenses"' : ''; ?>
