@@ -8,20 +8,22 @@ global $post;
 get_header();
 the_post();
 
-$the_download_title = get_the_title();
-$is_extension       = has_term( 'extensions', 'download_category', get_the_ID() );
-$is_theme           = has_term( 'themes', 'download_category', get_the_ID() );
-$is_bundle          = has_term( 'bundles', 'download_category', get_the_ID() );
-$developer          = get_post_meta( get_the_ID(), 'ecpt_developer', true );
-$has_license        = get_post_meta( get_the_ID(), '_edd_sl_enabled', true );
-$version            = get_post_meta( get_the_ID(), '_edd_sl_version', true );
-$is_payment_gateway = has_term( 'gateways', 'download_category', get_the_ID() );
-$is_3rd_party       = has_term( '3rd-party', 'download_category', get_the_ID() );
-$is_unlicensed      = has_term( 'unlicensed', 'download_tag', get_the_ID() );
-$is_wporg           = has_term( 'wporg', 'download_tag', get_the_ID() );
-$developer          = get_post_meta( get_the_ID(), 'ecpt_developer', true );
-$external_url       = get_post_meta( get_the_ID(), 'ecpt_externalurl', true );
-$activations        = get_post_meta( get_the_ID(), 'ecpt_licenseactivations', true );
+$the_download_title   = get_the_title();
+$the_download_content = get_the_content();
+$is_extension         = has_term( 'extensions', 'download_category', get_the_ID() );
+$is_theme             = has_term( 'themes', 'download_category', get_the_ID() );
+$is_bundle            = has_term( 'bundles', 'download_category', get_the_ID() );
+$developer            = get_post_meta( get_the_ID(), 'ecpt_developer', true );
+$has_license          = get_post_meta( get_the_ID(), '_edd_sl_enabled', true );
+$version              = get_post_meta( get_the_ID(), '_edd_sl_version', true );
+$is_payment_gateway   = has_term( 'gateways', 'download_category', get_the_ID() );
+$is_3rd_party         = has_term( '3rd-party', 'download_category', get_the_ID() );
+$is_unlicensed        = has_term( 'unlicensed', 'download_tag', get_the_ID() );
+$is_wporg             = has_term( 'wporg', 'download_tag', get_the_ID() );
+$developer            = get_post_meta( get_the_ID(), 'ecpt_developer', true );
+$external_url         = get_post_meta( get_the_ID(), 'ecpt_externalurl', true );
+$activations          = get_post_meta( get_the_ID(), 'ecpt_licenseactivations', true );
+$license              = get_theme_mod( 'eddwp_terms_link' );
 
 // get the download
 if ( $is_extension && ! $is_bundle ) :
@@ -31,7 +33,6 @@ elseif ( $is_theme ) :
 elseif ( $is_bundle ) :
 	$download_type = 'bundle';
 endif;
-$license = get_theme_mod( 'eddwp_terms_link' );
 
 // check for recurring pricing
 $single_recurring = EDD_Recurring()->is_recurring( get_the_ID() );
@@ -155,36 +156,30 @@ $download_id = get_the_ID();
 			</div>
 		</div>
 
-		<div class="download-screenshots-area page-section-gray full-width">
-			<div class="inner">
-				<div class="download-landing-details">
-					<?php
-					// output the [gallery] shortcode from the_content
-					$the_content = get_the_content();
-					if ( preg_match( '/\[gallery[^\]]*]/uis', $the_content , $matches ) ) {
-						?>
-						<div class="download-screenshots clearfix">
-							<div class="screenshots-header">
-								<h2 class="download-landing-title"><?php echo ucfirst( $download_type ); ?> Screenshots</h2>
-								<div class="download-landing-title-description">
-									Have a closer look at <?php echo $the_download_title; ?> functionality.
+		<?php if ( preg_match( '/\[gallery[^\]]*]/uis', $the_download_content , $matches ) ) { ?>
+			<div class="download-screenshots-area page-section-gray full-width">
+				<div class="inner">
+					<div class="download-landing-details">
+							<div class="download-screenshots clearfix">
+								<div class="screenshots-header">
+									<h2 class="download-landing-title"><?php echo ucfirst( $download_type ); ?> Screenshots</h2>
+									<div class="download-landing-title-description">
+										Have a closer look at <?php echo $the_download_title; ?> functionality.
+									</div>
 								</div>
+								<?php echo do_shortcode( $matches[0] ); ?>
 							</div>
-							<?php echo do_shortcode( $matches[0] ); ?>
-						</div>
-						<?php
-					}
-					?>
+					</div>
 				</div>
 			</div>
-		</div>
+		<?php } ?>
 
 		<div class="download-purchase-area page-section-white full-width">
 			<div class="inner">
 				<div class="download-landing-details">
 					<div class="download-purchase-details">
 						<h2 id="purchase-details" class="download-landing-title"><?php echo ucfirst( $download_type ); ?> Pricing</h2>
-						<div class="download-terms clearfix">
+						<div class="download-terms download-landing-title-description clearfix">
 							<p>
 								<?php
 
