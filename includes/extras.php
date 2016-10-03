@@ -261,36 +261,6 @@ function eddwp_user_has_expired_license() {
 
 
 /**
- * Append the changelog to the download content
- */
-function eddwp_product_changelog( $content ) {
-	global $post;
-
-	// make sure we're on a download
-	if ( 'download' === $post->post_type ) {
-		$post_type = true;
-	} else {
-		$post_type = false;
-	}
-
-	// see of the download has a category of "bundles"
-	if ( has_term( 'bundles', 'download_category', get_the_ID() ) ) {
-		$bundles = true;
-	} else {
-		$bundles = false;
-	}
-
-	// If not a download, or has download category of "bundles," bail.
-	if ( ! $post_type || $bundles ) {
-		return $content;
-	}
-
-	return $content;
-}
-add_filter( 'the_content', 'eddwp_product_changelog' );
-
-
-/**
  * Override the default image quality and make sure when images are uploaded that
  * the quality doesn't get degraded.
  */

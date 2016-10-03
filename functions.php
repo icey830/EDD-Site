@@ -15,7 +15,7 @@ define( 'EDD_INC', dirname(__FILE__) . '/includes/' );
  * Set the content width.
  */
 if ( ! isset( $content_width ) ) {
-	$content_width = 750;
+	$content_width = 700;
 }
 
 /**

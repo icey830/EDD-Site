@@ -40,6 +40,37 @@
 		});
 
 
+		// download description teaser
+		var slideHeight = 350;
+		$(".download-long-description").each(function() {
+			var $this = $(this);
+			var $wrap = $this.children(".download-description-content");
+			var defHeight = $wrap.height();
+			if (defHeight >= slideHeight) {
+				var $readMore = $this.find(".read-full-description");
+				$wrap.css("height", slideHeight + "px");
+				$readMore.append("<a class='see-full-description' href='#'>Read full description</a>");
+				$readMore.children(".see-full-description").bind("click", function(event) {
+					var curHeight = $wrap.height();
+					if (curHeight == slideHeight) {
+						$wrap.animate({
+							height: defHeight
+						}, "normal");
+						$(this).text("Hide full description");
+						$wrap.children(".gradient").fadeOut();
+					} else {
+						$wrap.animate({
+							height: slideHeight
+						}, "normal");
+						$(this).text("Read full description");
+						$wrap.children(".gradient").fadeIn();
+					}
+					return false;
+				});
+			}
+		});
+
+
 		// Simple Notices remove notice
 		$('.remove-notice').on('click', function() {
 			$('#notification-area').slideUp();
