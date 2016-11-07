@@ -22,7 +22,7 @@
 	<link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_template_directory_uri() ?>/images/mascot/touch-icon-ipad-retina.png" />
 
 	<?php if ( is_front_page() ) { ?>
-	<meta name="apple-itunes-app" content="app-id=625303275">
+	<meta name="apple-itunes-app" content="app-id=1169488828">
 	<?php } // end if ?>
 
 	<?php wp_head(); ?>
