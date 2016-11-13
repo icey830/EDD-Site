@@ -53,7 +53,7 @@
 
 		$('.edd_price_options label').each(function () {
 			$(this).removeClass('selected');
-			$(this).prepend('<span class="bullet" />');
+			$(this).prepend('<span class="radio-button" />');
 		});
 
 		$('.edd_price_options label').on('click', function () {

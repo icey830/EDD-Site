@@ -45,27 +45,27 @@ if ( $variable_pricing ) {
 	<div class="download-access download-info-section">
 		<div class="pricing-header">
 			<?php
-				if ( ! $is_3rd_party && ! $is_unlicensed ) {
-					?>
-					<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Pricing</h3>
-					<?php
-				} else {
-					?>
-					<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
+			if ( ! $is_3rd_party && ! $is_unlicensed ) {
+				?>
+				<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Pricing</h3>
 				<?php
-				}
+			} else {
+				?>
+				<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
+				<?php
+			}
 			?>
 		</div>
 		<div class="pricing-info">
 			<div class="pricing">
 				<?php
-					if ( ! $is_3rd_party || ( $is_3rd_party && $is_wporg ) ) {
-						echo edd_get_purchase_link( array( 'id' => get_the_ID() ) );
-					} else {
-						?>
-						<a class="external-download-button edd-submit button darkblue" href="<?php echo esc_url( $external_url ); ?>">View <?php echo ucfirst( $download_type ); ?></a>
-						<?php
-					}
+				if ( ! $is_3rd_party || ( $is_3rd_party && $is_wporg ) ) {
+					echo edd_get_purchase_link( array( 'id' => get_the_ID() ) );
+				} else {
+					?>
+					<a class="external-download-button edd-submit button darkblue" href="<?php echo esc_url( $external_url ); ?>">View <?php echo ucfirst( $download_type ); ?></a>
+					<?php
+				}
 				?>
 			</div>
 			<div class="terms clearfix">
@@ -73,31 +73,31 @@ if ( $variable_pricing ) {
 					<i class="fa fa-info-circle"></i>
 					<?php
 
-						// terms for paid downloads
-						if ( class_exists( 'EDD_Recurring' ) && $recurring ) {
-							if ( $is_bundle ) {
-								echo 'This subscription is billed yearly and can be cancelled at any time. ';
-							} else {
-								echo 'All price options are billed yearly. You may cancel your subscription at any time. ';
-							}
-							printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
-						} elseif ( $is_extension && ! $recurring && ! $is_unlicensed ) { // safety net
-
-							// this should never happen
-							printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
+					// terms for paid downloads
+					if ( class_exists( 'EDD_Recurring' ) && $recurring ) {
+						if ( $is_bundle ) {
+							echo 'This subscription is billed yearly and can be cancelled at any time. ';
+						} else {
+							echo 'All price options are billed yearly. You may cancel your subscription at any time. ';
 						}
+						printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
+					} elseif ( $is_extension && ! $recurring && ! $is_unlicensed ) { // safety net
 
-						// terms for free or external downloads
-						if ( $is_theme && ! $is_3rd_party ) {
-							printf( 'Downloading this %1$s grants you a lifetime license for support and updates.', $download_type );
-						} elseif ( $is_theme && $is_3rd_party ) {
-							printf( 'This %1$s is maintained and supported by %2$s.', $download_type, $developer );
-						}
+						// this should never happen
+						printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
+					}
 
-						// unlicensed downloads (like .org, iTunes, etc.)
-						if ( $is_unlicensed ) {
-							printf( 'This %1$s is not subject to our licensing terms as it is distributed and maintained by a 3rd party.', $download_type );
-						}
+					// terms for free or external downloads
+					if ( $is_theme && ! $is_3rd_party ) {
+						printf( 'Downloading this %1$s grants you a lifetime license for support and updates.', $download_type );
+					} elseif ( $is_theme && $is_3rd_party ) {
+						printf( 'This %1$s is maintained and supported by %2$s.', $download_type, $developer );
+					}
+
+					// unlicensed downloads (like .org, iTunes, etc.)
+					if ( $is_unlicensed ) {
+						printf( 'This %1$s is not subject to our licensing terms as it is distributed and maintained by a 3rd party.', $download_type );
+					}
 					?>
 				</p>
 			</div>
@@ -135,32 +135,83 @@ if ( $variable_pricing ) {
 					<p><span class="edd-download-detail-label">Version:</span> <span class="edd-download-detail"><?php echo $version; ?><a href="#" class="changelog-link" title="View Changelog" data-toggle="modal" data-target="#show-changelog"><i class="fa fa-file-text-o"></i></a></span></p>
 				</div>
 				<?php
-					// get the changelog data
-					$changelog = stripslashes( get_post_meta( get_the_ID(), '_edd_sl_changelog', true ) );
+				// get the changelog data
+				$changelog = stripslashes( get_post_meta( get_the_ID(), '_edd_sl_changelog', true ) );
 
-					// if it exists, append the changelog (from either source) to the relevent content output
-					if ( ! empty( $changelog ) ) {
-						?>
-						<!-- Changelog Modal -->
-						<div class="changelog-modal modal fade" id="show-changelog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-							<div class="modal-dialog" role="document">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										<h5 class="modal-title" id="myModalLabel"><?php the_title(); ?> Changelog</h5>
-									</div>
-									<div class="modal-body">
-										<?php echo wpautop( $changelog ); ?>
-									</div>
-									<div class="modal-footer">
-										<a href="#" data-dismiss="modal">Close</a>
-									</div>
+				// if it exists, append the changelog (from either source) to the relevent content output
+				if ( ! empty( $changelog ) ) {
+					?>
+					<!-- Changelog Modal -->
+					<div class="changelog-modal modal fade" id="show-changelog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h5 class="modal-title" id="myModalLabel"><?php the_title(); ?> Changelog</h5>
+								</div>
+								<div class="modal-body">
+									<?php echo wpautop( $changelog ); ?>
+								</div>
+								<div class="modal-footer">
+									<a href="#" data-dismiss="modal">Close</a>
 								</div>
 							</div>
 						</div>
-						<?php
-					}
+					</div>
+					<?php
+				}
 				?>
+			<?php } ?>
+		</div>
+	<?php } ?>
+	<?php
+	if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ||
+		get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) ||
+		get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) {
+		?>
+		<div class="download-requirements download-info-section">
+			<h3 class="widget-title">Requirements</h3>
+			<?php if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ) { ?>
+				<div class="wordpress-ver clearfix">
+					<p>
+						<span class="edd-download-detail-label">WordPress:</span>&nbsp;
+						<span class="edd-download-detail">
+							<?php
+							if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ) {
+								echo get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) . ' or higher';
+							}
+							?>
+						</span>
+					</p>
+				</div>
+			<?php } ?>
+			<?php if ( get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) ) { ?>
+				<div class="edd-ver clearfix">
+					<p>
+						<span class="edd-download-detail-label">EDD:</span>&nbsp;
+						<span class="edd-download-detail">
+							<?php
+							if ( get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) ) {
+								echo get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) . ' or higher';
+							}
+							?>
+						</span>
+					</p>
+				</div>
+			<?php } ?>
+			<?php if ( get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) { ?>
+				<div class="php-ver clearfix">
+					<p>
+						<span class="edd-download-detail-label">PHP:</span>&nbsp;
+						<span class="edd-download-detail">
+							<?php
+							if ( get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) {
+								echo get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) . ' or higher';
+							}
+							?>
+						</span>
+					</p>
+				</div>
 			<?php } ?>
 		</div>
 	<?php } ?>
@@ -173,67 +224,17 @@ if ( $variable_pricing ) {
 		</div>
 	<?php } ?>
 	<?php
-		if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ||
-			 get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) ||
-			 get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) {
+	$doc_url = get_post_meta( get_the_ID(), 'ecpt_documentationlink', true );
+	if ( $doc_url ) {
 		?>
-		<div class="download-requirements download-info-section">
-			<h3 class="widget-title">Requirements</h3>
-			<?php if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ) { ?>
-				<div class="wordpress-ver clearfix">
-					<p>
-						<span class="edd-download-detail-label">WordPress:</span>&nbsp;
-						<span class="edd-download-detail">
-							<?php
-								if ( get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) ) {
-									echo get_post_meta( get_the_ID(), 'ecpt_minimumwp', true ) . ' or higher';
-								}
-							?>
-						</span>
-					</p>
-				</div>
-			<?php } ?>
-			<?php if ( get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) ) { ?>
-				<div class="edd-ver clearfix">
-					<p>
-						<span class="edd-download-detail-label">EDD:</span>&nbsp;
-						<span class="edd-download-detail">
-							<?php
-								if ( get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) ) {
-									echo get_post_meta( get_the_ID(), 'ecpt_minimumedd', true ) . ' or higher';												}
-							?>
-						</span>
-					</p>
-				</div>
-			<?php } ?>
-			<?php if ( get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) { ?>
-				<div class="php-ver clearfix">
-					<p>
-						<span class="edd-download-detail-label">PHP:</span>&nbsp;
-						<span class="edd-download-detail">
-							<?php
-								if ( get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) ) {
-									echo get_post_meta( get_the_ID(), 'ecpt_minimumphp', true ) . ' or higher';
-								}
-							?>
-						</span>
-					</p>
-				</div>
-			<?php } ?>
+		<div class="related-items download-info-section">
+			<h3 class="widget-title">Documentation</h3>
+			<ul class="related-links">
+				<li><a href="<?php echo $doc_url; ?>">View Setup Documentation</a></li>
+			</ul>
 		</div>
-	<?php } ?>
-	<?php
-		$doc_url = get_post_meta( get_the_ID(), 'ecpt_documentationlink', true );
-		if ( $doc_url ) {
-			?>
-			<div class="related-items download-info-section">
-				<h3 class="widget-title">Documentation</h3>
-				<ul class="related-links">
-					<li><a href="<?php echo $doc_url; ?>">View Setup Documentation</a></li>
-				</ul>
-			</div>
-			<?php
-		}
+		<?php
+	}
 	?>
 	<div class="support-ticket download-info-section">
 		<h3 class="widget-title">Support</h3>

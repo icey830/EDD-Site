@@ -178,19 +178,9 @@
 			}
 
 			& .edd_download_purchase_form label {
-				font-size: 1.6rem;
 
-				& span.bullet {
-					background: url('images/radio-checkbox-sprite-dark.png') no-repeat;
-				}
-
-				&:hover span.bullet {
-					background-position: 0px -20px;
-				}
-
-				&.selected span.bullet {
-					background-position: 0px -40px;
-					transition: none;
+				& .radio-button:before {
+					top: -4px;
 				}
 			}
 
@@ -248,15 +238,15 @@
 	& .product-info-list {
 		list-style: none;
 		border: 2px solid #eaeaea;
-		max-height: 400px;
+		max-height: 360px;
 		margin: 0 0 50px;
 		overflow-y: scroll;
 		padding: 20px;
-		background: #fff;
+		background: #f7f7f7;
 
 		& .product-info-list-item {
 			position: relative;
-			background: @eddgray;
+			background: #fff;
 			padding: 10px;
 			border: 2px solid @eddgrayhover;
 		}
@@ -1461,11 +1451,9 @@
 
 .checkout-content {
 	background: #fff;
-	padding: 30px 50px;
-	border-radius: 4px;
 	margin: 0 auto;
 	width: 100%;
-	max-width: 750px;
+	max-width: 700px;
 
 	& .entry-title {
 		font-size: 2.6rem;
@@ -2974,14 +2962,12 @@
 #landing-page-area .page-content,
 #full-width-page-area .page-content {
 	background: #fff;
-	padding: 50px;
-	border-radius: 4px;
 	width: 100%;
 	margin: 0 auto;
 }
 
 #landing-page-area .page-content {
-	max-width: 750px;
+	max-width: 700px;
 }
 
 #landing-page-area .entry-header,
