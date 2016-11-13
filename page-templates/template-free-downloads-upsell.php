@@ -42,7 +42,7 @@ the_post();
 						}
 						$ids = implode(',', $purchased);
 					} else {
-						// Stripe, Recurring Productions
+						// Stripe, Recurring Payments
 						$ids = '167,28530';
 					}
 
