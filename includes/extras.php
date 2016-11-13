@@ -673,9 +673,9 @@ add_action( 'edd_rp_item_after_thumbnail', 'eddwp_rp_add_short_description', 20 
  * adjust Recommended Products purchase link text on Free Downloads Thanks page
  */
 function eddwp_rp_purchase_link_text( $purchase_link_args ) {
-	if ( is_page( 'free-download-thanks' ) ) {
+	if ( is_page( 'free-download-thanks' ) || is_single( 'download' ) ) {
 		$new_args = array(
-			'text' => "Add to Cart"
+			'text' => 'Add to Cart'
 		);
 		$purchase_link_args = array_merge( $new_args, $purchase_link_args );
 		return $purchase_link_args;
