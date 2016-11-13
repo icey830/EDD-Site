@@ -14,6 +14,22 @@ get_header();
 				<h2 class="section-title-alt">Purchase Confirmation</h2>
 				<div id="purchase-confirmation-page" class="clearfix">
 
+					<script type="text/javascript">
+						jQuery(function($) {
+							// enable link to tab
+							var hash = document.location.hash;
+							var prefix = "tab-";
+							if (hash) {
+								$('.nav-tabs a[href="' + hash.replace(prefix, "") + '"]').tab('show');
+							}
+
+							// Change hash for page-reload
+							$('.nav-tabs a').on('shown.bs.tab', function (e) {
+								window.location.hash = e.target.hash.replace("#", "#" + prefix);
+							});
+						});
+					</script>
+
 					<div class="tabbed-template-tabs">
 						<ul class="nav nav-tabs nav-append-content purchase-confirmation-tabs">
 							<li class="active"><a href="#purchase-details" data-toggle="tab"><i class="fa fa-list" aria-hidden="true"></i>Purchase Details</a></li>
