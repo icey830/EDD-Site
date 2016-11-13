@@ -604,3 +604,81 @@ function eddwp_affwp_creatives_description() {
 	echo '<p>Use the graphics below to promote Easy Digital Downloads on your website.</p>';
 }
 add_action( 'affwp_before_creatives', 'eddwp_affwp_creatives_description' );
+
+
+/**
+ * used in template-free-downloads-upsell.php to get the downloads
+ * from the customer's last two purchases
+ */
+function eddwp_alter_purchased_products_payment_count( $count ) {
+	return 2;
+}
+
+
+/**
+ * show 3 recommendations per product on Free Downloads Thanks page
+ */
+function eddwp_rp_results_count( $number ) {
+	if ( is_page( 'free-download-thanks' ) ) {
+		$number = 3;
+	}
+	return $number;
+}
+add_filter( 'edd_rp_single_recommendation_count', 'eddwp_rp_results_count' );
+
+
+/**
+ * adjust Recommended Products thumbnail size on Free Downloads Thanks page
+ */
+function eddwp_rp_thumbnail_size( $size ) {
+	if ( is_page( 'free-download-thanks' ) ) {
+		$size = array( 540,270 );
+	}
+	return $size;
+}
+add_filter( 'edd_checkout_image_size', 'eddwp_rp_thumbnail_size' );
+
+
+/**
+ * add short description to Recommended Products output on Free Downloads Thanks page
+ */
+function eddwp_rp_move_title() {
+	if ( is_page( 'free-download-thanks' ) ) {
+		?>
+		<div class="edd-rp-item-title-wrap">
+			<?php the_title( '<a href="' . get_permalink() . '" class="edd-rp-item-title-alt">', '</a>' ); ?>
+		</div>
+		<?php
+	}
+}
+add_action( 'edd_rp_item_after_thumbnail', 'eddwp_rp_move_title', 10 );
+
+
+/**
+ * move Recommended Products title location on Free Downloads Thanks page
+ */
+function eddwp_rp_add_short_description() {
+	if ( is_page( 'free-download-thanks' ) ) {
+		?>
+		<div class="rp-short-description">
+			<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
+		</div>
+		<?php
+	}
+}
+add_action( 'edd_rp_item_after_thumbnail', 'eddwp_rp_add_short_description', 20 );
+
+
+/**
+ * adjust Recommended Products purchase link text on Free Downloads Thanks page
+ */
+function eddwp_rp_purchase_link_text( $purchase_link_args ) {
+	if ( is_page( 'free-download-thanks' ) || is_single( 'download' ) ) {
+		$new_args = array(
+			'text' => 'Add to Cart'
+		);
+		$purchase_link_args = array_merge( $new_args, $purchase_link_args );
+		return $purchase_link_args;
+	}
+}
+add_filter( 'edd_rp_purchase_link_args', 'eddwp_rp_purchase_link_text' );

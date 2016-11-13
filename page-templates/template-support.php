@@ -15,7 +15,7 @@ the_post();
 					<?php if ( is_page( 'support' ) ) { ?>
 						<h2 class="section-title-alt">Questions? Let us help.</h2>
 					<?php } elseif ( is_page( 'pre-sale-question' ) ) { ?>
-						<h2 class="section-title-alt">Pres-sale Questions</h2>
+						<h2 class="section-title-alt">Pre-sale Questions</h2>
 					<?php } elseif ( is_page( 'refund-request' ) ) { ?>
 						<h2 class="section-title-alt">Refund Requests</h2>
 					<?php } ?>
