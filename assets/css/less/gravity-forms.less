@@ -417,6 +417,16 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 				margin-top: 0 !important;
 			}
 
+			& .gfield_description:not(.validation_message) {
+				background: #ffdfe0;
+				padding: 20px 20px 0 !important;
+				border-radius: 4px;
+
+				& .edd-gf-label-tip {
+					background: #b33838;
+				}
+			}
+
 			& label.gfield_label {
 				color: #b33838;
 			}
@@ -535,8 +545,10 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 		}
 
 		&.gfield_error {
-			background: none;
+			background: #ffdfe0;
+			padding: 10px 20px !important;
 			border: none;
+			border-radius: 4px;
 
 			& label.gfield_label {
 				color: #b33838;
@@ -552,11 +564,15 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 			select {
 				padding: 10px !important;
 				background: @eddgray;
-				border: 3px solid @eddgrayhover;
+				border: 3px solid #b33838;
 				border-radius: 4px !important;
 				outline: none;
 				margin-bottom: 10px;
 				font-size: inherit !important;
+
+				& ~ label {
+					color: #555;
+				}
 			}
 		}
 	}
@@ -564,6 +580,10 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	& .edd-gf-name-field {
 		& .ginput_container {
 			width: 100%;
+		}
+
+		&.gfield_error {
+			margin-bottom: 30px !important;
 		}
 	}
 
@@ -597,6 +617,10 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 				font-size: 80% !important;
 				font-weight: 500;
 			}
+		}
+
+		&.gfield_error .gfield_description:not(.validation_message) {
+			color: #555;
 		}
 	}
 
@@ -676,6 +700,20 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 		}
 	}
 
+	& .edd-gf-credit-debit {
+		&.gfield_error.gfield_creditcard_warning {
+			background: #ffdfe0 !important;
+			padding: 20px !important;
+			border: none;
+			border-radius: 4px;
+		}
+
+		& .gfield_creditcard_warning_message {
+			padding: 0 !important;
+			min-height: 0 !important;
+		}
+	}
+
 	& .edd-gf-billing-address {
 
 		& .address_country {
@@ -743,6 +781,10 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 					}
 				}
 			}
+		}
+
+		&.gfield_error .gfield_checkbox li {
+			border-color: #b33838;
 		}
 	}
 
