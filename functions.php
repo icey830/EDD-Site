@@ -157,3 +157,4 @@ include( EDD_INC . 'class-fragment-cache.php' );
 include( EDD_INC . 'simple-notices-pro.php' );
 include( EDD_INC . 'shortcodes.php' );
 include( EDD_INC . 'feed-rss.php' );
+include( EDD_INC . 'analytics.php' );
