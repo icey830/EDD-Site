@@ -171,5 +171,17 @@
 			return false;
 		});
 
+		// Send GA Action on Renew Licenses
+		$( ".renew-expired-licenses" ).on('click', function() {
+			if ( typeof ga !== 'undefined' ) {
+				ga('send', {
+					hitType      : 'event',
+					eventCategory: 'ecommerce',
+					eventAction  : 'renew_licenses_click',
+					eventLabel   : 'Renew Licenses Menu Click'
+				});
+			}
+		});
+
 	});
 }(jQuery));
