@@ -40,10 +40,13 @@ the_post();
 						foreach ($downloads as $ids) {
 							$purchased[] = $ids->ID;
 						}
-						$ids = implode(',', $purchased);
+						$purchased_ids = implode(',', $purchased);
+
+						// pad results with Stripe, Recurring Payments, FES, Software Licensing, MailChimp
+						$ids = $purchased_ids . ',167,28530,54874,4916,746';
 					} else {
-						// Stripe, Recurring Payments
-						$ids = '167,28530';
+						// Stripe, Recurring Payments, FES, Software Licensing, MailChimp
+						$ids = '167,28530,54874,4916,746';
 					}
 
 					// build Recommended Products output based on the recent free download
