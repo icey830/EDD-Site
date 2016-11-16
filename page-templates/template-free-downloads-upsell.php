@@ -37,13 +37,16 @@ the_post();
 					if ( ! empty( $downloads ) ) {
 						// list the product IDs for the returned purchases
 						$purchased = array();
-						foreach ($downloads as $ids) {
+						foreach ( $downloads as $ids ) {
 							$purchased[] = $ids->ID;
 						}
-						$ids = implode(',', $purchased);
+
+						// pad results with Stripe, Recurring Payments, FES, Software Licensing, MailChimp
+						$ids = array_unique( array_merge( $purchased, array( 167,28530,54874,4916,746 ) ) );
+						$ids = implode( ',', $ids );
 					} else {
-						// Stripe, Recurring Payments
-						$ids = '167,28530';
+						// Stripe, Recurring Payments, FES, Software Licensing, MailChimp
+						$ids = '167,28530,54874,4916,746';
 					}
 
 					// build Recommended Products output based on the recent free download
