@@ -227,7 +227,7 @@
 .edd-post-footer {
 	background: #62A9D7;
 	color: #fff;
-	margin: 0 -50px -30px;
+	border-radius: 4px;
 }
 
 .edd-post-footer .newsletter form {
@@ -236,15 +236,15 @@
 
 .edd-post-footer .newsletter-wrap {
 	background:  #2794da;
-	padding: 50px 50px 30px;
-	border-radius: 0 0 4px 4px;
+	padding: 50px 30px 30px;
+	border-radius: 4px;
 }
 
 .edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
-	background-position-x: 43px;
+	background-position-x: 24px;
 	text-align: left;
-	padding: 20px 50px 20px 155px;
-	margin: -50px -50px 20px;
+	padding: 20px 50px 20px 135px;
+	margin: -50px -30px 20px;
 }
 
 .sidebar .newsletter input[type="submit"],
@@ -264,7 +264,7 @@
 .edd-post-footer .newsletter .newsletter-email-container,
 .edd-post-footer .newsletter .newsletter-submit-container {
 	display: inline-block;
-	width: 210px;
+	width: 200px;
 	margin-right: 5px;
 }
 
@@ -342,9 +342,7 @@
 
 			& > p {
 				color: #777;
-				font-size: 1.3rem;
-				padding-bottom: 10px;
-				border-bottom: 3px solid @eddgrayhover;
+				font-size: 1.5rem;
 				min-height: 65px;
 				margin-bottom: 10px;
 			}
@@ -352,6 +350,22 @@
 
 		& .download-grid-item-cta {
 			padding: 0 20px;
+		}
+	}
+}
+
+#recommended-products,
+#edd-rp-single-wrapper {
+	& .edd_price_options {
+		line-height: 24px;
+		margin-bottom: 25px;
+
+		& .radio-button:before {
+			color: #dcdcdc;
+		}
+
+		& .selected .radio-button:before {
+			color: @eddblue;
 		}
 	}
 }

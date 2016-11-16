@@ -25,7 +25,7 @@ function eddwp_pre_get_posts( $query ) {
 		return;
 	}
 
-	if( $query->is_main_query() && is_tax( 'download_category' ) ) {
+	if( $query->is_main_query() && ( is_tax( 'download_category' ) || is_tax( 'download_tag' ) || is_tax( 'gateway_features' ) || is_tax( 'gateway_currencies' ) || is_tax( 'gateway_countries' ) ) ) {
 
 		$query->set( 'orderby', 'menu_order' );
 		$query->set( 'order', 'ASC' );

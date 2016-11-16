@@ -11,7 +11,7 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
 					<div class="entry-header">
-						<span class="entry-date"><?php the_date(); ?></span>
+						<span class="entry-date"><?php echo get_the_date(); ?></span>
 						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 					</div>
 					<div class="entry-summary">

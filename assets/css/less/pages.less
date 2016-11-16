@@ -171,6 +171,10 @@
 
 			& .pricing {
 				margin-bottom: 1.387em;
+
+				& .edd_price_options {
+					margin-bottom: 25px;
+				}
 			}
 
 			& .edd_purchase_submit_wrapper {
@@ -178,19 +182,13 @@
 			}
 
 			& .edd_download_purchase_form label {
-				font-size: 1.6rem;
 
-				& span.bullet {
-					background: url('images/radio-checkbox-sprite-dark.png') no-repeat;
+				& .radio-button:before {
+					top: -4px;
 				}
 
-				&:hover span.bullet {
-					background-position: 0px -20px;
-				}
-
-				&.selected span.bullet {
-					background-position: 0px -40px;
-					transition: none;
+				& .edd_price_option_name {
+					vertical-align: bottom;
 				}
 			}
 
@@ -248,15 +246,15 @@
 	& .product-info-list {
 		list-style: none;
 		border: 2px solid #eaeaea;
-		max-height: 400px;
+		max-height: 360px;
 		margin: 0 0 50px;
 		overflow-y: scroll;
 		padding: 20px;
-		background: #fff;
+		background: #f7f7f7;
 
 		& .product-info-list-item {
 			position: relative;
-			background: @eddgray;
+			background: #fff;
 			padding: 10px;
 			border: 2px solid @eddgrayhover;
 		}
@@ -1461,11 +1459,9 @@
 
 .checkout-content {
 	background: #fff;
-	padding: 30px 50px;
-	border-radius: 4px;
 	margin: 0 auto;
 	width: 100%;
-	max-width: 750px;
+	max-width: 700px;
 
 	& .entry-title {
 		font-size: 2.6rem;
@@ -2267,30 +2263,27 @@
 
 					& label {
 						position: relative;
+						font-size: 15px;
 						line-height: 1.625;
-						padding-left: 34px;
+						padding-left: 30px;
 						margin-left: 0;
 						cursor: pointer;
-					}
 
-					& label span.bullet {
-						background: url('images/radio-checkbox-sprite-dark.png') no-repeat;
-						background-position: 0px -65px;
-						width: 20px;
-						height: 20px;
-						display: block;
-						position: absolute;
-						top: 2px;
-						left: 3px;
-					}
-
-					& label:hover span.bullet {
-						background-position: 0px -85px;
-					}
-
-					& input:checked + label span.bullet {
-						background-position: 0px -105px;
-						transition: none;
+						& .bullet:before {
+							display: block;
+							position: absolute;
+							top: 0;
+							left: 0;
+							color: #b3daf2;
+							font-size: 2.4rem;
+							line-height: 1;
+							font-family: "FontAwesome";
+							content: "\f0c8";
+							width: 25px;
+							height: 24px;
+							padding-left: 1px;
+							margin-left: 1px;
+						}
 					}
 
 					& input[type="checkbox"] {
@@ -2304,6 +2297,12 @@
 
 						&:checked + label {
 							font-weight: 400;
+
+							& span:before {
+								color: @edddarkblue;
+								font-family: "FontAwesome";
+								content: "\f14a";
+							}
 						}
 					}
 				}
@@ -2509,7 +2508,7 @@
 
 
 /* ----------------------------- *
- * Affilaite Area
+ * Affiliate Area
  * ----------------------------- */
 .affwp-creative {
 	border-bottom: 2px solid #eee;
@@ -2532,6 +2531,126 @@
 	padding: 30px 0;
 	border-top: 2px solid @eddgrayhover;
 	margin-top: 10px;
+}
+
+
+/* ----------------------------- *
+ * Free Downloads Thanks
+ * ----------------------------- */
+#free-downloads-header-area {
+	& .inner {
+		background: transparent url(./images/mascot/edd-headshot-large.png) no-repeat bottom right;
+
+		& .free-downloads-header {
+			max-width: 68.2%;
+
+			& .section-title-alt {
+				margin-bottom: 30px;
+			}
+		}
+	}
+}
+
+#recommended-products-thanks-area {
+	& .section-title-alt {
+		margin-bottom: 30px;
+	}
+
+	& .recommended-products-thanks-intro {
+		max-width: 750px;
+	}
+
+	& #edd-rp-single-wrapper {
+		margin-top: 40px;
+
+		& #edd-rp-single-header {
+			font-size: 2.2rem;
+			margin-bottom: 20px;
+			display: none;
+		}
+
+		& #edd-rp-items-wrapper {
+			text-align: left;
+
+			& .edd-rp-item {
+				text-align: left;
+				width: 100%;
+				max-width: 31%;
+				min-height: 485px;
+				margin-right: 3.5%;
+				margin-bottom: 30px;
+
+				&:nth-child(3n+3) {
+					margin-right: 0;
+				}
+
+				& .edd-rp-item-title {
+					display: none;
+				}
+
+				& .edd-rp-item-title-alt {
+					color: #555;
+					font-size: 2.4rem;
+					font-weight: 500;
+
+					&:hover {
+						color: #777;
+					}
+				}
+
+				& .edd_cart_item_image {
+					margin-top: 6px;
+
+					& img {
+						border-radius: 4px 4px 0 0;
+					}
+				}
+
+				& .edd-rp-item-title-wrap {
+					background: @eddgray;
+					padding: 20px 20px 0;
+
+					& .edd-rp-item-title-alt {
+						font-size: 1.8rem;
+						margin: 0 0 10px;
+					}
+				}
+
+				& .rp-short-description {
+					background: @eddgray;
+					color: #777;
+					font-size: 1.5rem;
+					padding: 10px 20px 0;
+
+					& p {
+						min-height: 60px;
+					}
+				}
+
+				& .edd_price {
+					display: block;
+					background: @eddgray;
+					padding: 20px 20px 10px;
+				}
+
+				& > form {
+					background: @eddgray;
+					padding: 20px;
+					border-radius: 0 0 4px 4px;
+
+					& label {
+						font-size: 1.6rem;
+						cursor: pointer;
+					}
+
+					& .edd-add-to-cart-label,
+					.edd_go_to_checkout {
+						font-size: 1.8rem;
+					}
+				}
+			}
+		}
+	}
 }
 
 
@@ -2654,7 +2773,10 @@
 #extensions-bundle-promotion.download-grid-item {
 	background: @eddblue;
 	color: #fff;
-	border: 1px solid @eddbluehover;
+
+	& .download-grid-thumb-wrap {
+		background: #3992ca;
+	}
 }
 
 #extensions-bundle-promotion.download-grid-item .download-grid-thumb {
@@ -2851,14 +2973,12 @@
 #landing-page-area .page-content,
 #full-width-page-area .page-content {
 	background: #fff;
-	padding: 50px;
-	border-radius: 4px;
 	width: 100%;
 	margin: 0 auto;
 }
 
 #landing-page-area .page-content {
-	max-width: 750px;
+	max-width: 700px;
 }
 
 #landing-page-area .entry-header,

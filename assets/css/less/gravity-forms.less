@@ -85,7 +85,7 @@
 
 	& select {
 		margin: 0 0 4px !important;
-		height: 44px;
+		height: 47px;
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		box-sizing: border-box;
@@ -249,8 +249,6 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
  * ----------------------------- */
 #starter-package .full-width-content {
 	background: #fff;
-	padding: 50px;
-	border-radius: 4px;
 
 	& .entry-content {
 		margin-top: 50px;
@@ -261,8 +259,9 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	background: @eddblue url('images/mascot/edd-starter-package-header.png') no-repeat right bottom;
 	color: #fff;
 	padding: 34px 50px;
-	border-radius: 4px 4px 0 0;
-	margin: -50px -50px 50px;
+	border-radius: 4px;
+	border-bottom: none;
+	margin-bottom: 50px;
 }
 
 #starter-package .entry-headline {
@@ -297,6 +296,10 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 }
 
 #starter-package .gform_wrapper {
+
+	& .gform_body {
+		max-width: 100% !important;
+	}
 
 	& .gsection {
 		padding: 0;
@@ -414,6 +417,16 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 				margin-top: 0 !important;
 			}
 
+			& .gfield_description:not(.validation_message) {
+				background: #ffdfe0;
+				padding: 20px 20px 0 !important;
+				border-radius: 4px;
+
+				& .edd-gf-label-tip {
+					background: #b33838;
+				}
+			}
+
 			& label.gfield_label {
 				color: #b33838;
 			}
@@ -508,7 +521,7 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	.edd-gf-total-price,
 	.gform_footer {
 		margin: 30px auto !important;
-		max-width: 660px;
+		max-width: 700px;
 
 		& .gfield_label {
 			font-size: 2.6rem;
@@ -532,8 +545,10 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 		}
 
 		&.gfield_error {
-			background: none;
+			background: #ffdfe0;
+			padding: 10px 20px !important;
 			border: none;
+			border-radius: 4px;
 
 			& label.gfield_label {
 				color: #b33838;
@@ -549,11 +564,15 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 			select {
 				padding: 10px !important;
 				background: @eddgray;
-				border: 3px solid @eddgrayhover;
+				border: 3px solid #b33838;
 				border-radius: 4px !important;
 				outline: none;
 				margin-bottom: 10px;
 				font-size: inherit !important;
+
+				& ~ label {
+					color: #555;
+				}
 			}
 		}
 	}
@@ -561,6 +580,10 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 	& .edd-gf-name-field {
 		& .ginput_container {
 			width: 100%;
+		}
+
+		&.gfield_error {
+			margin-bottom: 30px !important;
 		}
 	}
 
@@ -594,6 +617,10 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 				font-size: 80% !important;
 				font-weight: 500;
 			}
+		}
+
+		&.gfield_error .gfield_description:not(.validation_message) {
+			color: #555;
 		}
 	}
 
@@ -630,6 +657,10 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 					display: none;
 				}
 
+				& select {
+					height: 59px;
+				}
+
 				& label {
 					color: #999;
 					font-size: 1.8rem;
@@ -656,13 +687,6 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 					margin-right: 10px;
 				}
 
-				&  nput:checked + label {
-					background: #F5F8FC;
-					color: #62a9d7;
-					font-weight: 500;
-					border: 3px solid #DAE7F0;
-				}
-
 				& input:checked + label:before {
 					display: inline-block;
 					color: @green;
@@ -673,6 +697,20 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 					margin-right: 10px;
 				}
 			}
+		}
+	}
+
+	& .edd-gf-credit-debit {
+		&.gfield_error.gfield_creditcard_warning {
+			background: #ffdfe0 !important;
+			padding: 20px !important;
+			border: none;
+			border-radius: 4px;
+		}
+
+		& .gfield_creditcard_warning_message {
+			padding: 0 !important;
+			min-height: 0 !important;
 		}
 	}
 
@@ -743,6 +781,10 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 					}
 				}
 			}
+		}
+
+		&.gfield_error .gfield_checkbox li {
+			border-color: #b33838;
 		}
 	}
 

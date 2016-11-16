@@ -264,9 +264,10 @@ var {
 	font-style: italic;
 }
 
-
 ul,
-ol {
+ol,
+.hentry ul,
+.hentry ol {
 	margin: 0 0 1.5em 3em;
 }
 
@@ -492,6 +493,27 @@ address {
 			padding: 10px 6px;
 			border: none;
 			margin-bottom: 0;
+		}
+	}
+}
+
+#searchform {
+	& label {
+		display: none;
+	}
+
+	& input[type="search"] {
+		background: @eddgray;
+		padding: 10px;
+		border-radius: 4px;
+		border: 3px solid @eddgrayhover;
+	}
+
+	& input[type="submit"]#searchsubmit {
+		border: 3px solid @eddblue !important;
+
+		&:hover {
+			border: 3px solid @eddbluehover !important;
 		}
 	}
 }
