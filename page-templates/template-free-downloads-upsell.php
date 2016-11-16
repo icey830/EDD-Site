@@ -56,6 +56,6 @@ the_post();
 			</div>
 		</div>
 	</div>
-
+	<script>if ( ga ) { ga('send', { hitType: 'event', eventCategory: 'PurchaseConfirmation', eventAction: 'free_downloads', eventLabel: 'Free Downloads Upsell' }); }</script>
 <?php
 get_footer();
