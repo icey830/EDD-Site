@@ -15,7 +15,7 @@ if ( !empty( $suggestion_data ) && is_array( $suggestion_data ) ) :
 						<div class="download-grid-thumb-wrap">
 							<?php if ( has_post_thumbnail( get_the_ID() ) ) : ?>
 								<a href="<?php the_permalink(); ?>">
-									<?php echo get_the_post_thumbnail( get_the_ID(), 'download-grid-thumb', array( 'class' => 'download-grid-thumb' ) ); ?>
+									<?php echo get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'download-grid-thumb' ) ); ?>
 								</a>
 							<?php endif; ?>
 						</div>
