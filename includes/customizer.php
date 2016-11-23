@@ -97,6 +97,25 @@ function eddwp_customize_register( $wp_customize ) {
 		'section'   => 'eddwp_direct_links',
 		'priority'  => 30,
 	) ) );
+
+
+	/** =============
+	 * Theme Settings
+	 */
+	$wp_customize->add_section( 'eddwp_theme_settings', array(
+		'title'         => 'Various Theme Settings',
+	) );
+
+	// Starter Package discount percentage
+	$wp_customize->add_setting( 'eddwp_starter_package_discount_percentage', array(
+		'default'           => null,
+		'sanitize_callback' => 'eddwp_sanitize_integer'
+	) );
+	$wp_customize->add_control( new EDDWP_WP_Customize_Text_Control( $wp_customize, 'eddwp_starter_package_discount_percentage', array(
+		'label'     => 'Starter Package Discount Percentage',
+		'section'   => 'eddwp_theme_settings',
+		'priority'  => 10,
+	) ) );
 }
 add_action( 'customize_register', 'eddwp_customize_register' );
 
@@ -266,7 +285,8 @@ function eddwp_customizer_styles() { ?>
 		.customize-control-text + .customize-control-checkbox,
 		.customize-control-customtext + .customize-control-checkbox,
 		.customize-control-image + .customize-control-checkbox { margin-top: 12px; }
-		#customize-control-eddwp_empty_cart_downloads_count input { width: 50px; }
+		#customize-control-eddwp_empty_cart_downloads_count input,
+		#customize-control-eddwp_starter_package_discount_percentage input { width: 50px; }
 	</style>
 <?php }
 add_action( 'customize_controls_print_styles', 'eddwp_customizer_styles' );
