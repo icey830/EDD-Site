@@ -228,6 +228,11 @@
 			}
 		}
 	}
+
+	/* purchase confirmation */
+	.bctt-purchase-confirmation .bctt-click-to-tweet {
+		background-position-x: 490px;
+	}
 }
 
 @media all and ( max-width: 1160px ) {
@@ -1004,6 +1009,12 @@
 			width: 30%;
 		}
 	}
+
+	/* purchase confirmation */
+	.bctt-purchase-confirmation .bctt-click-to-tweet {
+		background-image: url('images/mascot/edd-headshot-large.png');
+		background-position-x: right;
+	}
 }
 
 
@@ -1149,13 +1160,18 @@
 	}
 
 	/* Free Downloads Thanks */
-	#recommended-products-thanks-area #edd-rp-single-wrapper #edd-rp-items-wrapper {
+	#recommended-products-thanks-area #edd-rp-single-wrapper #edd-rp-items-wrapper,
+	#purchase-confirmation-page #edd-rp-single-wrapper #edd-rp-items-wrapper {
 		& .edd-rp-item {
 			max-width: 100%;
 			min-height: auto;
 			margin-right: 0;
 
 			&:nth-child(3n+3) {
+				margin-right: 0;
+			}
+
+			&:nth-child(even) {
 				margin-right: 0;
 			}
 		}
@@ -1576,6 +1592,16 @@
 		margin-bottom: 10px !important;
 		width: 100% !important;
 		max-width: 100%;
+	}
+
+	/* purchase confirmation */
+	.bctt-purchase-confirmation .bctt-click-to-tweet {
+		background-image: none;
+
+		& .bctt-ctt-btn {
+			display: block;
+			text-align: center;
+		}
 	}
 }
 

@@ -26,36 +26,7 @@ the_post();
 			<div class="recommended-products-thanks clearfix">
 				<h2 class="section-title-alt">Don't leave just yet! There's more.</h2>
 				<p class="recommended-products-thanks-intro">Based on your past activity, we've created a list of extensions that you may find useful. Have a look! If you're just getting started, we also have a handy tool for building a <a href="<?php echo home_url( '/starter-package/' ); ?>">custom starter package</a>.</p>
-				<?php
-				if ( is_user_logged_in() ) :
-
-					// adjust/readjust the returned results
-					add_filter( 'edd_users_purchased_products_payments', 'eddwp_alter_purchased_products_payment_count', 10, 1 );
-					$downloads = edd_get_users_purchased_products();
-					remove_filter( 'edd_users_purchased_products_payments', 'eddwp_alter_purchased_products_payment_count', 10, 1 );
-
-					if ( ! empty( $downloads ) ) {
-						// list the product IDs for the returned purchases
-						$purchased = array();
-						foreach ( $downloads as $ids ) {
-							$purchased[] = $ids->ID;
-						}
-
-						// pad results with Stripe, Recurring Payments, FES, Software Licensing, MailChimp
-						$ids = array_unique( array_merge( $purchased, array( 167,28530,54874,4916,746 ) ) );
-						$ids = implode( ',', $ids );
-					} else {
-						// Stripe, Recurring Payments, FES, Software Licensing, MailChimp
-						$ids = '167,28530,54874,4916,746';
-					}
-
-					// build Recommended Products output based on the recent free download
-					// and the products from the customer's last purchase
-					echo do_shortcode('[recommended_products ids="' . $ids . '" user="true" count="6"]');
-				else :
-					echo do_shortcode('[recommended_products ids="167,28530" user="true" count="6"]');
-				endif;
-				?>
+				<?php echo eddwp_rp_shortcode( 6 ); ?>
 			</div>
 		</div>
 	</div>

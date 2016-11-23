@@ -204,7 +204,7 @@ function eddwp_adjust_product_title( $title, $id = 0 ) {
 	if ( ! is_object( $post ) ) {
 		return $title;
 	}
-	
+
 	if( is_page( array( 160, 161 ) ) ) {
 		return $title;
 	}
@@ -227,6 +227,41 @@ function eddwp_adjust_product_title( $title, $id = 0 ) {
 	return $title;
 }
 add_filter( 'the_title', 'eddwp_adjust_product_title', 9, 2 );
+
+
+/**
+ * Recommended Products shortcode
+ */
+function eddwp_rp_shortcode( $count = 6 ) {
+	if ( is_user_logged_in() ) :
+
+		// adjust/readjust the returned results
+		add_filter( 'edd_users_purchased_products_payments', 'eddwp_alter_purchased_products_payment_count', 10, 1 );
+		$downloads = edd_get_users_purchased_products();
+		remove_filter( 'edd_users_purchased_products_payments', 'eddwp_alter_purchased_products_payment_count', 10, 1 );
+
+		if ( ! empty( $downloads ) ) {
+
+			// list the product IDs for the returned purchases
+			$purchased = array();
+			foreach ( $downloads as $ids ) {
+				$purchased[] = $ids->ID;
+			}
+
+			// pad results with Stripe, Recurring Payments, FES, Software Licensing, MailChimp
+			$ids = array_unique( array_merge( $purchased, array( 167,28530,54874,4916,746 ) ) );
+			$ids = implode( ',', $ids );
+		} else {
+
+			// Stripe, Recurring Payments, FES, Software Licensing, MailChimp
+			$ids = '167,28530,54874,4916,746';
+		}
+	else :
+		$ids = '167,28530';
+	endif;
+
+	return do_shortcode( '[recommended_products ids="' . $ids . '" user="true" count="' . $count . '"]' );
+}
 
 
 /* ----------------------------------------------------------- *

@@ -22,6 +22,20 @@ $user      = edd_get_payment_meta_user_info( $payment->ID );
 $email     = edd_get_payment_user_email( $payment->ID );
 $status    = edd_get_payment_status( $payment, true );
 ?>
+
+<?php
+	if ( filter_var( $edd_receipt_args['discount'], FILTER_VALIDATE_BOOLEAN ) && isset( $user['discount'] ) && $user['discount'] != 'none' ) : ;
+		$the_discounts = array_map( 'trim', explode( ',', $user['discount'] ) );
+		if ( in_array( "BFCM2016", $the_discounts ) ) :
+			?>
+			<div class="bctt-purchase-confirmation">
+				<?php echo do_shortcode('[bctt tweet="I just saved 30% on @eddwp for Black Friday and Cyber Monday!" url="https://easydigitaldownloads.com/downloads/" via="no"]'); ?>
+			</div>
+			<?php
+		endif;
+	endif;
+?>
+
 <table id="edd_purchase_receipt">
 	<thead>
 		<?php do_action( 'edd_payment_receipt_before', $payment, $edd_receipt_args ); ?>

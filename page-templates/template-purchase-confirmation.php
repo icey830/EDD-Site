@@ -34,6 +34,7 @@ get_header();
 						<ul class="nav nav-tabs nav-append-content purchase-confirmation-tabs">
 							<li class="active"><a href="#purchase-details" data-toggle="tab"><i class="fa fa-list" aria-hidden="true"></i>Purchase Details</a></li>
 							<li><a href="#documentation" data-toggle="tab"><i class="fa fa-file-text-o" aria-hidden="true"></i>Documentation</a></li>
+							<li><a href="#recommendations" data-toggle="tab"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Recommendations</a></li>
 						</ul>
 						<ul class="your-account-link-list">
 							<li><a class="your-account-link" href="<?php echo home_url( '/your-account' ); ?>"><i class="fa fa-user" aria-hidden="true"></i>Your Account</a></li>
@@ -72,6 +73,7 @@ get_header();
 								</div>
 								<?php echo do_shortcode('[edd_receipt]'); ?>
 							</div><!-- /.tab-pane -->
+
 							<div class="tab-pane documentation-tab-pane" id="documentation">
 								<h3>Easy Digital Downloads Documentation</h3>
 								<p>Thanks again for your purchase. Now it's time for the fun part. We understand that building an eCommerce site takes a lot of work, so we put together some documentation to assist with getting the most out of your plugins.</p>
@@ -108,6 +110,12 @@ get_header();
 									<li><a href="http://docs.easydigitaldownloads.com/article/1002-can-i-upgrade-my-licenses">Can I upgrade my licenses?</a></li>
 								</ul>
 								<p><a class="edd-submit button blue" href="http://docs.easydigitaldownloads.com/">View Full Documentation</a></p>
+							</div><!-- /.tab-pane -->
+
+							<div class="tab-pane recommendations-tab-pane" id="recommendations">
+								<h3>Extension Recommendations</h3>
+								<p>Based on your purchase, we've created a list of extensions that may help you customize your eCommerce business even more. Take a look and <a href="<?php echo home_url( '/support/' ); ?>">let us know</a> if you have any questions.</p>
+								<?php echo eddwp_rp_shortcode( 4 ); ?>
 							</div><!-- /.tab-pane -->
 						</div>
 					</div>
