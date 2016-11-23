@@ -108,7 +108,7 @@ function eddwp_customize_register( $wp_customize ) {
 
 	// Starter Package discount percentage
 	$wp_customize->add_setting( 'eddwp_starter_package_discount_percentage', array(
-		'default'           => null,
+		'default'           => '30',
 		'sanitize_callback' => 'eddwp_sanitize_integer'
 	) );
 	$wp_customize->add_control( new EDDWP_WP_Customize_Text_Control( $wp_customize, 'eddwp_starter_package_discount_percentage', array(
