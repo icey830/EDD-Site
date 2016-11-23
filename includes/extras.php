@@ -313,13 +313,6 @@ add_action( 'edd_after_cc_expiration', 'eddwp_add_security_info' );
 
 
 /**
- * Shows the final purchase total at the bottom of the checkout page
- */
-remove_action( 'edd_purchase_form_before_submit', 'edd_checkout_final_total', 999 );
-remove_action( 'edd_purchase_form_after_cc_form', 'edd_checkout_submit', 9999 );
-
-
-/**
  * Add heading to checkout form submit button
  */
 function eddwp_complete_purchase_heading() {
@@ -328,37 +321,6 @@ function eddwp_complete_purchase_heading() {
 	<?php
 }
 add_action( 'edd_purchase_form_before_submit', 'eddwp_complete_purchase_heading', 1 );
-
-
-/**
- * Renders the Checkout Submit section
- *
- * @since 1.3.3
- * @return void
- */
-function eddwp_checkout_submit() {
-?>
-	<fieldset id="edd_purchase_submit">
-		<?php do_action( 'edd_purchase_form_before_submit' ); ?>
-
-		<?php edd_checkout_hidden_fields(); ?>
-
-		<p id="edd_final_total_wrap">
-			<strong><?php _e( 'Purchase Total:', 'edd' ); ?></strong>
-			<span class="edd_cart_amount" data-subtotal="<?php echo edd_get_cart_subtotal(); ?>" data-total="<?php echo edd_get_cart_subtotal(); ?>"><?php edd_cart_total(); ?></span>
-
-			<?php echo edd_checkout_button_purchase(); ?>
-		</p>
-
-		<?php do_action( 'edd_purchase_form_after_submit' ); ?>
-
-		<?php if ( edd_is_ajax_disabled() ) { ?>
-			<p class="edd-cancel"><a href="javascript:history.go(-1)"><?php _e( 'Go back', 'edd' ); ?></a></p>
-		<?php } ?>
-	</fieldset>
-<?php
-}
-add_action( 'edd_purchase_form_after_cc_form', 'eddwp_checkout_submit', 9999 );
 
 
 /**

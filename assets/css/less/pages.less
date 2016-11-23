@@ -1701,7 +1701,21 @@
 		& span {
 			color: @green;
 			font-weight: 500;
+
+			&.edd_recurring_trial_total_sep {
+				display: none;
+			}
+
+			&.edd_recurring_trial_total_note {
+				display: block;
+				color: #777;
+				font-size: 1.6rem;
+				font-weight: 400;
+				margin-top: 10px;
+			}
 		}
+
+
 	}
 
 	& #edd_checkout_form_wrap #edd_purchase_submit {
@@ -1722,6 +1736,30 @@
 		border: none;
 		border-radius: 4px;
 		margin: 25px 0;
+	}
+}
+
+.edd-wallet-applied-discount {
+	display: block;
+	font-size: .8em;
+	line-height: 1;
+	font-weight: 500;
+	padding: 4px 0;
+	margin-top: 6px;
+	width: auto;
+
+	&:before {
+		color: @green;
+		font-size: 15px;
+		line-height: 1;
+		font-family: "FontAwesome";
+		content: "\f058";
+		margin-right: 5px;
+		vertical-align: text-bottom;
+	}
+
+	& span {
+		font-weight: 400;
 	}
 }
 
