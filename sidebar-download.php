@@ -26,7 +26,9 @@ endif;
 $license = get_theme_mod( 'eddwp_terms_link' );
 
 // check for recurring pricing
-$single_recurring = EDD_Recurring()->is_recurring( get_the_ID() );
+if ( class_exists( 'EDD_Recurring' ) ) {
+	$single_recurring = EDD_Recurring()->is_recurring( get_the_ID() );
+}
 $variable_pricing = edd_has_variable_prices( get_the_ID() );
 $recurring = false;
 if ( $variable_pricing ) {
