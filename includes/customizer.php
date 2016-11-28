@@ -100,6 +100,131 @@ function eddwp_customize_register( $wp_customize ) {
 
 
 	/** =============
+	 * Purchase Confirmation
+	 */
+	$wp_customize->add_section( 'eddwp_purchase_confirmation_settings', array(
+		'title'         => 'Purchase Confirmation Settings',
+	) );
+
+	// show Click to Tweet
+	$wp_customize->add_setting( 'eddwp_click_to_tweet_purchase_confirmation', array(
+		'default'			=> 0,
+		'sanitize_callback'	=> 'eddwp_sanitize_checkbox'
+	) );
+	$wp_customize->add_control( 'eddwp_click_to_tweet_purchase_confirmation', array(
+		'label'     => 'Show Click to Tweet',
+		'section'   => 'eddwp_purchase_confirmation_settings',
+		'priority'  => 10,
+		'type'      => 'checkbox',
+	) );
+
+	// Click to Tweet text
+	$wp_customize->add_setting( 'eddwp_ctt_text_purchase_confirmation', array(
+		'default'           => "I've just purchased extensions from @eddwp for #WordPress!",
+		'sanitize_callback' => 'eddwp_sanitize_textarea',
+	) );
+	$wp_customize->add_control( new EDDWP_WP_Customize_Textarea_Control( $wp_customize, 'eddwp_ctt_text_purchase_confirmation', array(
+		'label'         => 'Click to Tweet Text',
+		'section'       => 'eddwp_purchase_confirmation_settings',
+		'description'   => 'This is the value of a shortcode attribute. You are not allowed to enter HTML here. Keep it short... tweet size.',
+		'priority'      => 20,
+	) ) );
+
+	// Click to Tweet tweet URL
+	$wp_customize->add_setting( 'eddwp_ctt_url_purchase_confirmation', array(
+		'default'           => 'https://easydigitaldownloads.com/downloads/',
+		'sanitize_callback' => 'eddwp_sanitize_text'
+	) );
+	$wp_customize->add_control( new EDDWP_WP_Customize_Text_Control( $wp_customize, 'eddwp_ctt_url_purchase_confirmation', array(
+		'label'     => 'URL attached to the tweet',
+		'section'   => 'eddwp_purchase_confirmation_settings',
+		'priority'  => 30,
+	) ) );
+
+	// Click to Tweet discount code
+	$wp_customize->add_setting( 'eddwp_ctt_discount_code_purchase_confirmation', array(
+		'default'           => null,
+		'sanitize_callback' => 'eddwp_sanitize_textarea_lite'
+	) );
+	$wp_customize->add_control( new EDDWP_WP_Customize_Text_Control( $wp_customize, 'eddwp_ctt_discount_code_purchase_confirmation', array(
+		'label'       => 'Discount Code',
+		'section'     => 'eddwp_purchase_confirmation_settings',
+		'description' => 'If you want the tweet text to change based on the use of a specific discount code, enter the discount code here. Leave blank to disable.',
+		'priority'    => 31,
+	) ) );
+
+	// Alternate Click to Tweet text
+	$wp_customize->add_setting( 'eddwp_alt_ctt_text_purchase_confirmation', array(
+		'default'           => 'I just saved big on @eddwp extensions! Check it out! #WordPress',
+		'sanitize_callback' => 'eddwp_sanitize_textarea',
+	) );
+	$wp_customize->add_control( new EDDWP_WP_Customize_Textarea_Control( $wp_customize, 'eddwp_alt_ctt_text_purchase_confirmation', array(
+		'label'         => 'DISCOUNT: Click to Tweet Text',
+		'section'       => 'eddwp_purchase_confirmation_settings',
+		'description'   => 'This text will override the above "Click to Tweet Text" if there is a VALID discount code in the "Discount Code" section, meaning it can disable itself if the entered discount is no longer valid.',
+		'priority'      => 32,
+	) ) );
+
+	// show cross-site promotions
+	$wp_customize->add_setting( 'eddwp_cross_site_promotion_purchase_confirmation', array(
+		'default'			=> 1,
+		'sanitize_callback'	=> 'eddwp_sanitize_checkbox'
+	) );
+	$wp_customize->add_control( 'eddwp_cross_site_promotion_purchase_confirmation', array(
+		'label'     => 'Show Cross-site Promotions',
+		'section'   => 'eddwp_purchase_confirmation_settings',
+		'priority'  => 40,
+		'type'      => 'checkbox',
+	) );
+
+	// AffiliateWP title
+	$wp_customize->add_setting( 'eddwp_cross_site_affwp_title_purchase_confirmation', array(
+		'default'           => 'Need an affiliate program?',
+		'sanitize_callback' => 'eddwp_sanitize_textarea_lite'
+	) );
+	$wp_customize->add_control( new EDDWP_WP_Customize_Text_Control( $wp_customize, 'eddwp_cross_site_affwp_title_purchase_confirmation', array(
+		'label'     => 'Title for AffiliateWP section',
+		'section'   => 'eddwp_purchase_confirmation_settings',
+		'priority'  => 50,
+	) ) );
+
+	// AffiliateWP text
+	$wp_customize->add_setting( 'eddwp_cross_site_affwp_text_purchase_confirmation', array(
+		'default'           => 'The best affiliate marketing plugin for WordPress.',
+		'sanitize_callback' => 'eddwp_sanitize_textarea',
+	) );
+	$wp_customize->add_control( new EDDWP_WP_Customize_Textarea_Control( $wp_customize, 'eddwp_cross_site_affwp_text_purchase_confirmation', array(
+		'label'         => 'Text for AffiliateWP section',
+		'section'       => 'eddwp_purchase_confirmation_settings',
+		'description'   => 'Unless we have a very specific reason, this should probably match the AffiliateWP site tagline.',
+		'priority'      => 60,
+	) ) );
+
+	// Restrict Content Pro title
+	$wp_customize->add_setting( 'eddwp_cross_site_rcp_title_purchase_confirmation', array(
+		'default'           => 'How about a membership site?',
+		'sanitize_callback' => 'eddwp_sanitize_textarea_lite'
+	) );
+	$wp_customize->add_control( new EDDWP_WP_Customize_Text_Control( $wp_customize, 'eddwp_cross_site_rcp_title_purchase_confirmation', array(
+		'label'     => 'Title for Restrict Content Pro section',
+		'section'   => 'eddwp_purchase_confirmation_settings',
+		'priority'  => 70,
+	) ) );
+
+	// Restrict Content Pro text
+	$wp_customize->add_setting( 'eddwp_cross_site_rcp_text_purchase_confirmation', array(
+		'default'           => 'A full-featured, powerful membership solution for WordPress.',
+		'sanitize_callback' => 'eddwp_sanitize_textarea',
+	) );
+	$wp_customize->add_control( new EDDWP_WP_Customize_Textarea_Control( $wp_customize, 'eddwp_cross_site_rcp_text_purchase_confirmation', array(
+		'label'         => 'Text for Restrict Content Pro section',
+		'section'       => 'eddwp_purchase_confirmation_settings',
+		'description'   => 'Unless we have a very specific reason, this should probably match the Restrict Content Pro site tagline.',
+		'priority'      => 80,
+	) ) );
+
+
+	/** =============
 	 * Theme Settings
 	 */
 	$wp_customize->add_section( 'eddwp_theme_settings', array(
@@ -114,7 +239,7 @@ function eddwp_customize_register( $wp_customize ) {
 	$wp_customize->add_control( new EDDWP_WP_Customize_Text_Control( $wp_customize, 'eddwp_starter_package_discount_percentage', array(
 		'label'     => 'Starter Package Discount Percentage',
 		'section'   => 'eddwp_theme_settings',
-		'priority'  => 10,
+		'priority'  => 30,
 	) ) );
 }
 add_action( 'customize_register', 'eddwp_customize_register' );
@@ -262,6 +387,15 @@ function eddwp_sanitize_hex_color( $color ) {
 	endif;
 	return null;
 }
+
+
+/**
+ * Enqueue script for custom customize control.
+ */
+function eddwp_custom_customizer_enqueue() {
+	wp_enqueue_script( 'eddwp_custom_customizer', get_template_directory_uri() . '/assets/js/custom-customizer.js', array( 'jquery', 'customize-controls' ), EDD_SITE_VERSION, true );
+}
+add_action( 'customize_controls_enqueue_scripts', 'eddwp_custom_customizer_enqueue' );
 
 
 /**

@@ -21,46 +21,80 @@ $cart      = edd_get_payment_meta_cart_details( $payment->ID, true );
 $user      = edd_get_payment_meta_user_info( $payment->ID );
 $email     = edd_get_payment_user_email( $payment->ID );
 $status    = edd_get_payment_status( $payment, true );
-?>
 
-<?php
-	if ( filter_var( $edd_receipt_args['discount'], FILTER_VALIDATE_BOOLEAN ) && isset( $user['discount'] ) && $user['discount'] != 'none' ) :
+if ( 1 == get_theme_mod( 'eddwp_click_to_tweet_purchase_confirmation' ) ) :
 
-		$bfcm_discount_id = edd_get_discount_id_by_code( 'BFCM2016' );
+	$ctt_text = get_theme_mod(
+		'eddwp_ctt_text_purchase_confirmation',
+		"I've just purchased extensions from @eddwp for #WordPress!"
+	);
+	$ctt_url = get_theme_mod(
+		'eddwp_ctt_url_purchase_confirmation',
+		'https://easydigitaldownloads.com/downloads/'
+	);
 
-		if ( edd_is_discount_active( $bfcm_discount_id, '', false ) ) :
-
+	// adjust text based on discount code
+	if ( filter_var( $edd_receipt_args['discount'], FILTER_VALIDATE_BOOLEAN ) && isset( $user['discount'] ) && $user['discount'] != 'none' && '' != get_theme_mod( 'eddwp_ctt_discount_code_purchase_confirmation' ) ) :
+		$discount_code = get_theme_mod( 'eddwp_ctt_discount_code_purchase_confirmation' );
+		$discount_id   = edd_get_discount_id_by_code( $discount_code );
+		if ( edd_is_discount_active( $discount_id, '', false ) ) :
 			$the_discounts = array_map( 'trim', explode( ',', $user['discount'] ) );
-
-			if ( in_array( "BFCM2016", $the_discounts ) ) :
-				?>
-				<div class="bctt-purchase-confirmation">
-					<?php echo do_shortcode('[bctt tweet="I just saved 30% on @eddwp for Black Friday and Cyber Monday!" url="https://easydigitaldownloads.com/downloads/" via="no"]'); ?>
-				</div>
-				<div class="cross-promote-sales">
-					<div class="sale-sites flex-container">
-						<a href="https://affiliatewp.com/?ref=743" class="sale-site flex-two">
-							<div class="rcp-sale">
-								<img src="<?php echo get_template_directory_uri() . '/images/affwp-mascot.png'; ?>">
-								<h6>Save 30% on AffiliateWP!</h6>
-								<p>The best affiliate marketing plugin for WordPress.</p>
-							</div>
-						</a>
-						<a href="https://restrictcontentpro.com/?ref=4579" class="sale-site flex-two">
-							<div class="affwp-sale flex-two">
-								<img src="<?php echo get_template_directory_uri() . '/images/rcp-mascot.png'; ?>">
-								<h6>Save 30% on Restrict Content Pro!</h6>
-								<p>A full-featured, powerful membership solution for WordPress.</p>
-							</div>
-						</a>
-					</div>
-				</div>
-				<?php
+			if ( in_array( $discount_code, $the_discounts ) ) :
+				$ctt_text = get_theme_mod(
+					'eddwp_alt_ctt_text_purchase_confirmation',
+					'I just saved big on @eddwp extensions! Check it out! #WordPress'
+				);
 			endif;
-
 		endif;
 
 	endif;
+	?>
+	<div class="bctt-purchase-confirmation">
+		<?php echo do_shortcode('[bctt tweet="' . $ctt_text . '" url="' . $ctt_url . '" via="no"]'); ?>
+	</div>
+	<?php
+
+endif;
+
+if ( 1 == get_theme_mod( 'eddwp_cross_site_promotion_purchase_confirmation', 1 ) ) :
+	$affwp_title = get_theme_mod(
+		'eddwp_cross_site_affwp_title_purchase_confirmation',
+		'Need an affiliate program?'
+	);
+	$affwp_text = get_theme_mod(
+		'eddwp_cross_site_affwp_text_purchase_confirmation',
+		'The best affiliate marketing plugin for WordPress.'
+	);
+	$rcp_title = get_theme_mod(
+		'eddwp_cross_site_rcp_title_purchase_confirmation',
+		'How about a membership site?'
+	);
+	$rcp_text = get_theme_mod(
+		'eddwp_cross_site_rcp_text_purchase_confirmation',
+		'A full-featured, powerful membership solution for WordPress.'
+	);
+	?>
+	<div class="cross-promote-sales">
+		<div class="sale-sites flex-container">
+			<a href="https://affiliatewp.com/?ref=743" class="sale-site flex-two">
+				<div class="rcp-sale">
+					<img src="<?php echo get_template_directory_uri() . '/images/affwp-mascot.png'; ?>">
+					<h6><?php echo $affwp_title; ?></h6>
+					<p><?php echo $affwp_text; ?></p>
+				</div>
+			</a>
+			<a href="https://restrictcontentpro.com/?ref=4579" class="sale-site flex-two">
+				<div class="affwp-sale flex-two">
+					<img src="<?php echo get_template_directory_uri() . '/images/rcp-mascot.png'; ?>">
+					<h6><?php echo $rcp_title; ?></h6>
+					<p><?php echo $rcp_text; ?></p>
+				</div>
+			</a>
+		</div>
+	</div>
+	<?php
+endif;
+
 ?>
 
 <table id="edd_purchase_receipt">
