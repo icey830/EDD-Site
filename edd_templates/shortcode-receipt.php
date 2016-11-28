@@ -46,7 +46,6 @@ if ( 1 == get_theme_mod( 'eddwp_click_to_tweet_purchase_confirmation' ) ) :
 				);
 			endif;
 		endif;
-
 	endif;
 	?>
 	<div class="bctt-purchase-confirmation">
