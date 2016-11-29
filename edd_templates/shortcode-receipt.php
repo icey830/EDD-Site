@@ -23,46 +23,6 @@ $email     = edd_get_payment_user_email( $payment->ID );
 $status    = edd_get_payment_status( $payment, true );
 ?>
 
-<?php
-	if ( filter_var( $edd_receipt_args['discount'], FILTER_VALIDATE_BOOLEAN ) && isset( $user['discount'] ) && $user['discount'] != 'none' ) :
-
-		$bfcm_discount_id = edd_get_discount_id_by_code( 'BFCM2016' );
-
-		if ( edd_is_discount_active( $bfcm_discount_id, '', false ) ) :
-
-			$the_discounts = array_map( 'trim', explode( ',', $user['discount'] ) );
-
-			if ( in_array( "BFCM2016", $the_discounts ) ) :
-				?>
-				<div class="bctt-purchase-confirmation">
-					<?php echo do_shortcode('[bctt tweet="I just saved 30% on @eddwp for Black Friday and Cyber Monday!" url="https://easydigitaldownloads.com/downloads/" via="no"]'); ?>
-				</div>
-				<div class="cross-promote-sales">
-					<div class="sale-sites flex-container">
-						<a href="https://affiliatewp.com/?ref=743" class="sale-site flex-two">
-							<div class="rcp-sale">
-								<img src="<?php echo get_template_directory_uri() . '/images/affwp-mascot.png'; ?>">
-								<h6>Save 30% on AffiliateWP!</h6>
-								<p>The best affiliate marketing plugin for WordPress.</p>
-							</div>
-						</a>
-						<a href="https://restrictcontentpro.com/?ref=4579" class="sale-site flex-two">
-							<div class="affwp-sale flex-two">
-								<img src="<?php echo get_template_directory_uri() . '/images/rcp-mascot.png'; ?>">
-								<h6>Save 30% on Restrict Content Pro!</h6>
-								<p>A full-featured, powerful membership solution for WordPress.</p>
-							</div>
-						</a>
-					</div>
-				</div>
-				<?php
-			endif;
-
-		endif;
-
-	endif;
-?>
-
 <table id="edd_purchase_receipt">
 	<thead>
 		<?php do_action( 'edd_payment_receipt_before', $payment, $edd_receipt_args ); ?>
