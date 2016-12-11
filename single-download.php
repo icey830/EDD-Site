@@ -38,6 +38,7 @@ $is_payment_gateway = has_term( 'gateways', 'download_category', get_the_ID() );
 
 		</section>
 		<?php get_sidebar( 'download' ); ?>
+		<?php edd_get_template_part( 'single_recommendations' ); ?>
 	</div>
 
 <?php get_footer(); ?>
