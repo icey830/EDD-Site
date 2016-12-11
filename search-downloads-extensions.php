@@ -221,7 +221,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 				</section><!-- .download-grid three-col -->
 				<?php
 					$big = 999999999;
-					$base = home_url( 'extensions-template' ) . '/?' . remove_query_arg( 'page', $_SERVER['QUERY_STRING'] ) . '%_%';
+					$base = home_url( 'downloads' ) . '/?' . remove_query_arg( 'page', $_SERVER['QUERY_STRING'] ) . '%_%';
 
 					$links = paginate_links( array(
 						'base'    => $base,
