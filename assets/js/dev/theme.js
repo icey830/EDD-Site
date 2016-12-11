@@ -79,18 +79,6 @@
 			});
 		});
 
-		// enable link to tab
-		var hash = document.location.hash;
-		var prefix = "tab-";
-		if (hash) {
-			$('.nav-tabs a[href='+hash.replace(prefix,"")+']').tab('show');
-		}
-
-		// Change hash for page-reload
-		$('.nav-tabs a').on('shown.bs.tab', function (e) {
-			window.location.hash = e.target.hash.replace("#", "#" + prefix);
-		});
-
 		// Radio Buttons Graphics
 		$('.edd_price_options label').unwrap();
 

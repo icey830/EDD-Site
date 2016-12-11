@@ -171,6 +171,10 @@
 
 			& .pricing {
 				margin-bottom: 1.387em;
+
+				& .edd_price_options {
+					margin-bottom: 25px;
+				}
 			}
 
 			& .edd_purchase_submit_wrapper {
@@ -181,6 +185,10 @@
 
 				& .radio-button:before {
 					top: -4px;
+				}
+
+				& .edd_price_option_name {
+					vertical-align: bottom;
 				}
 			}
 
@@ -1576,6 +1584,7 @@
 	& #edd_checkout_form_wrap input[type="text"],
 	#edd_checkout_form_wrap input[type="email"],
 	#edd_checkout_form_wrap input[type="password"],
+	#edd_checkout_form_wrap input[type="tel"],
 	#edd_checkout_form_wrap textarea {
 		background: @eddgray;
 		padding: 10px;
@@ -1692,7 +1701,21 @@
 		& span {
 			color: @green;
 			font-weight: 500;
+
+			&.edd_recurring_trial_total_sep {
+				display: none;
+			}
+
+			&.edd_recurring_trial_total_note {
+				display: block;
+				color: #777;
+				font-size: 1.6rem;
+				font-weight: 400;
+				margin-top: 10px;
+			}
 		}
+
+
 	}
 
 	& #edd_checkout_form_wrap #edd_purchase_submit {
@@ -1713,6 +1736,30 @@
 		border: none;
 		border-radius: 4px;
 		margin: 25px 0;
+	}
+}
+
+.edd-wallet-applied-discount {
+	display: block;
+	font-size: .8em;
+	line-height: 1;
+	font-weight: 500;
+	padding: 4px 0;
+	margin-top: 6px;
+	width: auto;
+
+	&:before {
+		color: @green;
+		font-size: 15px;
+		line-height: 1;
+		font-family: "FontAwesome";
+		content: "\f058";
+		margin-right: 5px;
+		vertical-align: text-bottom;
+	}
+
+	& span {
+		font-weight: 400;
 	}
 }
 
@@ -1885,6 +1932,60 @@
 		border-collapse: inherit;
 		border: 3px solid @eddgrayhover;
 		border-radius: 4px;
+	}
+}
+
+.cross-promote-sales {
+	margin-bottom: 30px;
+
+	& > p {
+		margin-bottom: 15px;
+
+		& em {
+			font-style: normal;
+			font-size: 120%;
+			font-weight: 500;
+		}
+	}
+
+	& .sale-sites {
+
+		& img {
+			float: left;
+		}
+
+		& p {
+			margin-bottom: 0;
+		}
+
+		& .sale-site {
+			display: inline-block;
+			background: #fafafa;
+			color: #777;
+			font-size: 14px;
+			padding: 15px;
+			border: 3px solid @eddgrayhover;
+			border-radius: 4px;
+			margin-bottom: 0;
+			width: 48%;
+			-webkit-transition: all .2s ease-in-out;
+			-moz-transition: all .2s ease-in-out;
+			-o-transition: all .2s ease-in-out;
+			-ms-transition: all .2s ease-in-out;
+			transition: all .2s ease-in-out;
+
+			& img {
+				margin-right: 15px;
+			}
+
+			& h6 {
+				color: #555;
+			}
+
+			&:hover {
+				border-color: @eddblue;
+			}
+		}
 	}
 }
 
@@ -2255,30 +2356,27 @@
 
 					& label {
 						position: relative;
+						font-size: 15px;
 						line-height: 1.625;
-						padding-left: 34px;
+						padding-left: 30px;
 						margin-left: 0;
 						cursor: pointer;
-					}
 
-					& label span.bullet {
-						background: url('images/radio-checkbox-sprite-dark.png') no-repeat;
-						background-position: 0px -65px;
-						width: 20px;
-						height: 20px;
-						display: block;
-						position: absolute;
-						top: 2px;
-						left: 3px;
-					}
-
-					& label:hover span.bullet {
-						background-position: 0px -85px;
-					}
-
-					& input:checked + label span.bullet {
-						background-position: 0px -105px;
-						transition: none;
+						& .bullet:before {
+							display: block;
+							position: absolute;
+							top: 0;
+							left: 0;
+							color: #b3daf2;
+							font-size: 2.4rem;
+							line-height: 1;
+							font-family: "FontAwesome";
+							content: "\f0c8";
+							width: 25px;
+							height: 24px;
+							padding-left: 1px;
+							margin-left: 1px;
+						}
 					}
 
 					& input[type="checkbox"] {
@@ -2292,6 +2390,12 @@
 
 						&:checked + label {
 							font-weight: 400;
+
+							& span:before {
+								color: @edddarkblue;
+								font-family: "FontAwesome";
+								content: "\f14a";
+							}
 						}
 					}
 				}
@@ -2497,7 +2601,7 @@
 
 
 /* ----------------------------- *
- * Affilaite Area
+ * Affiliate Area
  * ----------------------------- */
 .affwp-creative {
 	border-bottom: 2px solid #eee;
@@ -2520,6 +2624,24 @@
 	padding: 30px 0;
 	border-top: 2px solid @eddgrayhover;
 	margin-top: 10px;
+}
+
+
+/* ----------------------------- *
+ * Free Downloads Thanks
+ * ----------------------------- */
+#free-downloads-header-area {
+	& .inner {
+		background: transparent url(./images/mascot/edd-headshot-large.png) no-repeat bottom right;
+
+		& .free-downloads-header {
+			max-width: 68.2%;
+
+			& .section-title-alt {
+				margin-bottom: 30px;
+			}
+		}
+	}
 }
 
 
@@ -2642,7 +2764,10 @@
 #extensions-bundle-promotion.download-grid-item {
 	background: @eddblue;
 	color: #fff;
-	border: 1px solid @eddbluehover;
+
+	& .download-grid-thumb-wrap {
+		background: #3992ca;
+	}
 }
 
 #extensions-bundle-promotion.download-grid-item .download-grid-thumb {

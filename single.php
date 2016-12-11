@@ -11,7 +11,7 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
 					<div class="entry-header">
-						<span class="entry-date"><i class="fa fa-calendar"></i> <span class="post-date updated"><?php the_date(); ?></span></span>
+						<span class="entry-date"><i class="fa fa-calendar"></i> <span class="post-date updated"><?php echo get_the_date(); ?></span></span>
 						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 					</div>
 					<div class="entry-content">

@@ -256,7 +256,10 @@ $download_id = get_the_ID();
 				</article>
 
 			</section>
-			<?php get_sidebar( 'download' ); ?>
+			<?php
+				get_sidebar( 'download' );
+				edd_get_template_part( 'single_recommendations' );
+			?>
 		</div>
 
 	<?php } ?>

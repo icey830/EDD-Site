@@ -7,7 +7,8 @@
 /* ----------------------------------------------------------- *
  * Theme Setup
  * ----------------------------------------------------------- */
-define( 'EDD_SITE_VERSION', '2.3.6' );
+
+define( 'EDD_SITE_VERSION', '2.3.7.2' );
 define( 'EDD_INC', dirname(__FILE__) . '/includes/' );
 
 
@@ -156,3 +157,4 @@ include( EDD_INC . 'class-fragment-cache.php' );
 include( EDD_INC . 'simple-notices-pro.php' );
 include( EDD_INC . 'shortcodes.php' );
 include( EDD_INC . 'feed-rss.php' );
+include( EDD_INC . 'analytics.php' );

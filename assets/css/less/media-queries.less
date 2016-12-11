@@ -228,6 +228,11 @@
 			}
 		}
 	}
+
+	/* purchase confirmation */
+	.bctt-purchase-confirmation .bctt-click-to-tweet {
+		background-position-x: 490px;
+	}
 }
 
 @media all and ( max-width: 1160px ) {
@@ -235,6 +240,32 @@
 	/* structure */
 	.site-container {
 		padding: 0 30px;
+	}
+}
+
+
+@media all and ( max-width: 1000px ) {
+
+	/* Free Downloads Thanks */
+	#free-downloads-header-area {
+		& .inner {
+			background: none;
+
+			& .free-downloads-header {
+				max-width: 100%;
+			}
+		}
+	}
+
+	/* purchase confirmation */
+	.cross-promote-sales {
+		& .sale-site.flex-two {
+			width: 100%;
+
+			&:nth-child(1) {
+				margin-bottom: 20px;
+			}
+		}
 	}
 }
 
@@ -521,6 +552,14 @@
 		width: 46%;
 	}
 
+	.single-download .content .recommended-products-wrap {
+		display: none;
+	}
+
+	.single-download .site-container > .recommended-products-wrap { // reveal mobile recommendations
+		display: block;
+	}
+
 	/* post footer */
 	.edd-author-box {
 		text-align: center;
@@ -751,6 +790,33 @@
 			}
 		}
 	}
+
+	/* Free Downloads Thanks */
+	#recommended-products-thanks-area #edd-rp-single-wrapper #edd-rp-items-wrapper {
+		& .edd-rp-item {
+			max-width: 48%;
+			margin-right: 3.5%;
+
+			&:nth-child(3n+3) {
+				margin-right: 3.5%;
+			}
+
+			&:nth-child(even) {
+				margin-right: 0;
+			}
+		}
+	}
+
+	/* purchase confirmation */
+	.cross-promote-sales {
+		& .sale-site.flex-two {
+			width: 47%;
+
+			&:nth-child(1) {
+				margin-bottom: 0;
+			}
+		}
+	}
 }
 
 
@@ -973,6 +1039,22 @@
 			width: 30%;
 		}
 	}
+
+	/* purchase confirmation */
+	.bctt-purchase-confirmation .bctt-click-to-tweet {
+		background-image: url('images/mascot/edd-headshot-large.png');
+		background-position-x: right;
+	}
+
+	.cross-promote-sales {
+		& .sale-site.flex-two {
+			width: 100%;
+
+			&:nth-child(1) {
+				margin-bottom: 20px;
+			}
+		}
+	}
 }
 
 
@@ -1088,9 +1170,7 @@
 
 	/* Starter Package */
 	#starter-package {
-
 		& .full-width-content {
-
 			& .entry-title {
 				padding-right: 20px;
 				padding-left: 20px;
@@ -1100,7 +1180,8 @@
 		& .gform_wrapper {
 
 			& .edd-gf-buyer-detail span[class*="name_"],
-			.edd-gf-email-field .ginput_container_email {
+			.edd-gf-email-field .ginput_container_email,
+			.edd-gf-billing-address span[class*="address_"] {
 				width: 100% !important;
 			}
 		}
@@ -1114,6 +1195,24 @@
 				margin-bottom: 10px;
 				width: 100%;
 				max-width: 100% !important;
+			}
+		}
+	}
+
+	/* Free Downloads Thanks */
+	#recommended-products-thanks-area #edd-rp-single-wrapper #edd-rp-items-wrapper,
+	#purchase-confirmation-page #edd-rp-single-wrapper #edd-rp-items-wrapper {
+		& .edd-rp-item {
+			max-width: 100%;
+			min-height: auto;
+			margin-right: 0;
+
+			&:nth-child(3n+3) {
+				margin-right: 0;
+			}
+
+			&:nth-child(even) {
+				margin-right: 0;
 			}
 		}
 	}
@@ -1533,6 +1632,16 @@
 		margin-bottom: 10px !important;
 		width: 100% !important;
 		max-width: 100%;
+	}
+
+	/* purchase confirmation */
+	.bctt-purchase-confirmation .bctt-click-to-tweet {
+		background-image: none;
+
+		& .bctt-ctt-btn {
+			display: block;
+			text-align: center;
+		}
 	}
 }
 

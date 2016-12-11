@@ -283,13 +283,6 @@ add_action( 'edd_after_cc_expiration', 'eddwp_add_security_info' );
 
 
 /**
- * Shows the final purchase total at the bottom of the checkout page
- */
-remove_action( 'edd_purchase_form_before_submit', 'edd_checkout_final_total', 999 );
-remove_action( 'edd_purchase_form_after_cc_form', 'edd_checkout_submit', 9999 );
-
-
-/**
  * Add heading to checkout form submit button
  */
 function eddwp_complete_purchase_heading() {
@@ -298,37 +291,6 @@ function eddwp_complete_purchase_heading() {
 	<?php
 }
 add_action( 'edd_purchase_form_before_submit', 'eddwp_complete_purchase_heading', 1 );
-
-
-/**
- * Renders the Checkout Submit section
- *
- * @since 1.3.3
- * @return void
- */
-function eddwp_checkout_submit() {
-?>
-	<fieldset id="edd_purchase_submit">
-		<?php do_action( 'edd_purchase_form_before_submit' ); ?>
-
-		<?php edd_checkout_hidden_fields(); ?>
-
-		<p id="edd_final_total_wrap">
-			<strong><?php _e( 'Purchase Total:', 'edd' ); ?></strong>
-			<span class="edd_cart_amount" data-subtotal="<?php echo edd_get_cart_subtotal(); ?>" data-total="<?php echo edd_get_cart_subtotal(); ?>"><?php edd_cart_total(); ?></span>
-
-			<?php echo edd_checkout_button_purchase(); ?>
-		</p>
-
-		<?php do_action( 'edd_purchase_form_after_submit' ); ?>
-
-		<?php if ( edd_is_ajax_disabled() ) { ?>
-			<p class="edd-cancel"><a href="javascript:history.go(-1)"><?php _e( 'Go back', 'edd' ); ?></a></p>
-		<?php } ?>
-	</fieldset>
-<?php
-}
-add_action( 'edd_purchase_form_after_cc_form', 'eddwp_checkout_submit', 9999 );
 
 
 /**
@@ -574,3 +536,91 @@ function eddwp_affwp_creatives_description() {
 	echo '<p>Use the graphics below to promote Easy Digital Downloads on your website.</p>';
 }
 add_action( 'affwp_before_creatives', 'eddwp_affwp_creatives_description' );
+
+
+/**
+ * used in template-free-downloads-upsell.php to get the downloads
+ * from the customer's last two purchases
+ */
+function eddwp_alter_purchased_products_payment_count( $count ) {
+	return 2;
+}
+
+
+/**
+ * show 3 recommendations per product on Free Downloads Thanks page
+ */
+function eddwp_rp_results_count( $number ) {
+	if ( is_page( array( 'free-download-thanks', 'purchase-confirmation' ) ) ) {
+		$number = 3;
+	}
+	return $number;
+}
+add_filter( 'edd_rp_single_recommendation_count', 'eddwp_rp_results_count' );
+
+
+/**
+ * adjust Recommended Products thumbnail size on Free Downloads Thanks page
+ */
+function eddwp_rp_thumbnail_size( $size ) {
+	if ( is_page( array( 'free-download-thanks', 'purchase-confirmation' ) ) ) {
+		$size = array( 540,270 );
+	}
+	return $size;
+}
+add_filter( 'edd_checkout_image_size', 'eddwp_rp_thumbnail_size' );
+
+
+/**
+ * add short description to Recommended Products output on Free Downloads Thanks page
+ */
+function eddwp_rp_move_title() {
+	if ( is_page( array( 'free-download-thanks', 'purchase-confirmation' ) ) ) {
+		?>
+		<div class="edd-rp-item-title-wrap">
+			<?php the_title( '<a href="' . get_permalink() . '" class="edd-rp-item-title-alt">', '</a>' ); ?>
+		</div>
+		<?php
+	}
+}
+add_action( 'edd_rp_item_after_thumbnail', 'eddwp_rp_move_title', 10 );
+
+
+/**
+ * move Recommended Products title location on Free Downloads Thanks page
+ */
+function eddwp_rp_add_short_description() {
+	if ( is_page( array( 'free-download-thanks', 'purchase-confirmation' ) ) ) {
+		?>
+		<div class="rp-short-description">
+			<?php echo get_post_meta( get_the_ID(), 'ecpt_shortdescription', true ); ?>
+		</div>
+		<?php
+	}
+}
+add_action( 'edd_rp_item_after_thumbnail', 'eddwp_rp_add_short_description', 20 );
+
+
+/**
+ * adjust Recommended Products purchase link text on Free Downloads Thanks page
+ */
+function eddwp_rp_purchase_link_text( $purchase_link_args ) {
+	if ( is_page( array( 'free-download-thanks', 'purchase-confirmation' ) ) || is_single( 'download' ) ) {
+		$new_args = array(
+			'text' => 'Add to Cart'
+		);
+		$purchase_link_args = array_merge( $new_args, $purchase_link_args );
+		return $purchase_link_args;
+	}
+}
+add_filter( 'edd_rp_purchase_link_args', 'eddwp_rp_purchase_link_text' );
+
+
+/**
+ * wrap embedded videos in HTML for styling
+ */
+function eddwp_video_embed_wrapper( $html ) {
+	return '<div class="edd-embedded-video-wrapper">' . $html . '</div>';
+}
+add_filter( 'embed_oembed_html', 'eddwp_video_embed_wrapper', 10, 3 );
+add_filter( 'video_embed_html', 'eddwp_video_embed_wrapper' ); // Jetpack
