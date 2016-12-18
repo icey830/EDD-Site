@@ -13,7 +13,7 @@ function eddwp_author_archive_query( $query ) {
 	}
 	remove_action( 'pre_get_posts', 'eddwp_author_archive_query' );
 }
-add_action( 'pre_get_posts', 'eddwp_author_archive_query' );
+//add_action( 'pre_get_posts', 'eddwp_author_archive_query' );
 
 
 /**
