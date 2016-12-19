@@ -131,13 +131,13 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 									'url'   => home_url( '/downloads/core-extensions-bundle' ),
 									'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/core-extensions-bundle-featured.png',
 									'title' => 'Core Extensions Bundle',
-									'desc'  => 'With the core extensions bundle, get over $2,000 worth of extensions for only $495.',
+									'desc'  => 'With the Core Extensions Bundle, get over $3,000 worth of extensions for only $799.',
 								),
 								1 => array(
 									'url'   => home_url( '/starter-package' ),
 									'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/starter-package-featured.png',
 									'title' => 'Extension Starter Package',
-									'desc'  => 'Build your own extension starter package and automatically save 30% on your order.',
+									'desc'  => 'Build your own extension starter package and automatically save ' . get_theme_mod( 'eddwp_starter_package_discount_percentage', '30' ) . '% on your order.',
 								)
 							);
 							$num = rand( 0, 1 );
