@@ -269,7 +269,7 @@ if ( is_user_logged_in() ) : ?>
 									<h3>Commissions Overview</h3>
 									<?php if( function_exists( 'eddc_user_commissions_overview' ) ) { echo eddc_user_commissions_overview(); } ?>
 									<p id="next-payout"><?php if( function_exists( 'eddc_get_upcoming_commissions' ) ) { echo eddc_get_upcoming_commissions(); } ?></p>
-									<?php if( function_exists( 'eddc_user_commissions_graph' ) ) { echo eddc_user_commissions_graph(); } ?>
+									<?php //if( function_exists( 'eddc_user_commissions_graph' ) ) { echo eddc_user_commissions_graph(); } ?>
 									<h3>Detailed Commissions Information</h3>
 									<p>The information below is a more detailed overview of your commissions data. </p>
 									<?php
