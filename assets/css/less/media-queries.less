@@ -552,6 +552,14 @@
 		width: 46%;
 	}
 
+	.single-download .content .recommended-products-wrap {
+		display: none;
+	}
+
+	.single-download .site-container > .recommended-products-wrap { // reveal mobile recommendations
+		display: block;
+	}
+
 	/* post footer */
 	.edd-author-box {
 		text-align: center;
@@ -1439,9 +1447,18 @@
 		}
 	}
 
-	#edd_profile_editor_form fieldset label {
-		width: 100%;
-		margin-bottom: 0;
+	.my-account-tab-content .tab-content #edd_profile_editor_form fieldset {
+		& > p label,
+		& > div label {
+			display: block;
+			font-size: 120%;
+			margin-bottom: 5px;
+			width: 100%;
+		}
+
+		& #edd_profile_editor_submit {
+			width: 100%;
+		}
 	}
 
 	#account-page #edd_profile_editor_form fieldset input[type="text"],

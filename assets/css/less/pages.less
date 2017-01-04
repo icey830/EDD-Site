@@ -1125,7 +1125,8 @@
 					margin-bottom: 0;
 				}
 
-				& > p {
+				& > p,
+				& > div {
 					padding: 0 30px;
 					margin-bottom: 0;
 
@@ -1138,6 +1139,17 @@
 
 					&:last-of-type {
 						margin-bottom: 15px;
+					}
+
+					&#edd_profile_submit_wrap {
+						background: @eddgray;
+						padding: 30px !important;
+						border-top: 3px solid @eddgrayhover;
+						margin: 20px 0 0;
+
+						& #edd_profile_editor_submit {
+							margin-bottom: 0;
+						}
 					}
 
 					&.edd_password_change_notice {
@@ -1303,6 +1315,7 @@
 }
 
 #eddc-dashboard-graphs {
+	margin-bottom: 30px;
 
 	& h4 {
 		font-size: 2.4rem;

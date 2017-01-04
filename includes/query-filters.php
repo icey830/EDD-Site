@@ -5,18 +5,6 @@
 
 
 /**
- * Modify Author archive query to display extensions only
- */
-function eddwp_author_archive_query( $query ) {
-	if ( $query->is_author ) {
-		$query->set( 'post_type', 'download' );
-	}
-	remove_action( 'pre_get_posts', 'eddwp_author_archive_query' );
-}
-add_action( 'pre_get_posts', 'eddwp_author_archive_query' );
-
-
-/**
  * product display filtering
  */
 function eddwp_pre_get_posts( $query ) {

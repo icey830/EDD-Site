@@ -644,3 +644,13 @@ function eddwp_rp_purchase_link_text( $purchase_link_args ) {
 	}
 }
 add_filter( 'edd_rp_purchase_link_args', 'eddwp_rp_purchase_link_text' );
+
+
+/**
+ * wrap embedded videos in HTML for styling
+ */
+function eddwp_video_embed_wrapper( $html ) {
+	return '<div class="edd-embedded-video-wrapper">' . $html . '</div>';
+}
+add_filter( 'embed_oembed_html', 'eddwp_video_embed_wrapper', 10, 3 );
+add_filter( 'video_embed_html', 'eddwp_video_embed_wrapper' ); // Jetpack
