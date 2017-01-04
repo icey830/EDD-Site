@@ -11,7 +11,7 @@ the_post();
 	<div id="free-downloads-header-area" class="free-downloads-header-area page-section-gray full-width">
 		<div class="inner">
 			<div class="free-downloads-header clearfix">
-				<h2 class="section-title-alt">Thanks! Your download will begin momentarily.</h2>
+				<h2 class="section-title-alt">Thank you!</h2>
 				<div class="free-downloads-header-content">
 					<p>For your personal records, you will receive a confirmation email to the address you provided. If you have any issues with your download, please feel free to <a href="<?php echo home_url( '/support/' ); ?>">contact our support</a> for assistance. You may also use the <a href="http://docs.easydigitaldownloads.com/">documentation</a> to assist with setup and configuration. Enjoy!</p>
 				</div>
