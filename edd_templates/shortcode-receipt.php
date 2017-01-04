@@ -21,7 +21,6 @@ $cart      = edd_get_payment_meta_cart_details( $payment->ID, true );
 $user      = edd_get_payment_meta_user_info( $payment->ID );
 $email     = edd_get_payment_user_email( $payment->ID );
 $status    = edd_get_payment_status( $payment, true );
-<<<<<<< HEAD
 
 if ( 1 == get_theme_mod( 'eddwp_click_to_tweet_purchase_confirmation' ) ) :
 
@@ -94,9 +93,6 @@ if ( 1 == get_theme_mod( 'eddwp_cross_site_promotion_purchase_confirmation', 1 )
 	</div>
 	<?php
 endif;
-
-=======
->>>>>>> @{-1}
 ?>
 
 <table id="edd_purchase_receipt">
