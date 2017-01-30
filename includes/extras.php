@@ -305,17 +305,17 @@ add_filter( 'wp_editor_set_quality', 'edd_image_full_quality' );
  * Place checkout login form behind a toggle link
  */
 function eddwp_checkout_login_toggle() {
-	if ( is_user_logged_in() ) {
-		return;
-	}
-	?>
+	$show_login_form = edd_get_option( 'show_register_form', 'none' ) ;
+	if ( !is_user_logged_in() && ( 'login' === $show_login_form || 'both' === $show_login_form ) ) {
+		?>
 		<div class="edd-show-login-wrap">
 			<p id="edd-show-login">
 				<span class="edd-checkout-login-title">Do you already have an account?</span>
 				<span class="edd-checkout-login-toggle"><a href="#" class="edd-checkout-show-login-form">Click to log in</a></span>
 			</p>
 		</div>
-	<?php
+		<?php
+	}
 }
 add_action( 'edd_checkout_form_top', 'eddwp_checkout_login_toggle', 1 );
 remove_action( 'edd_purchase_form_login_fields', 'edd_get_login_fields' );
