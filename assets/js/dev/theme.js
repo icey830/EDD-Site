@@ -65,7 +65,6 @@
 		});
 
 		if ($('.edd_price_options input').prop('checked') || $(".edd_price_options input:checked")) {
-
 			$('.edd_price_options input:checked').parent().addClass('selected');
 		}
 
@@ -134,10 +133,19 @@
 		});
 
 
+		// Checkout form login toggle
+		$('.edd-checkout-show-login-form').on('click',function(e){
+			e.preventDefault();
+			$(this).parents( ".edd-show-login-wrap" ).siblings( "#edd_login_fields" ).show();
+			$( "#edd_login_fields #edd_user_login" ).focus();
+		});
+
+
 		// Account page expired license toggle
 		$('.expired-key-toggle').on('click',function(e){
 			e.preventDefault();
 			$('.toggle-keys-container').slideToggle();
+			return false;
 		});
 
 
