@@ -31,7 +31,7 @@ the_post();
 								<div class="support-section flex-three">
 									<a href="http://docs.easydigitaldownloads.com/collection/168-getting-started" class="support-section-link">
 										<h4 class="support-section-title">Getting Started</h4>
-										<p class="support-section-description">Find everything to get Easy Digital Downloads you up and running.</p>
+										<p class="support-section-description">Find everything you need to get Easy Digital Downloads up and running.</p>
 									</a>
 								</div>
 								<div class="support-section flex-three">
