@@ -262,7 +262,7 @@ function eddwp_user_has_expired_license() {
 /**
  * Site-wide subscription payment method update notice
  */
-function eddwp_user_must_update_subscription_info() {
+function eddwp_user_must_update_payment_info() {
 
 	$failing_subs = array();
 
@@ -544,6 +544,10 @@ function eddwp_body_class( $classes ) {
 
 	if ( ! empty( eddwp_user_has_expired_license() ) ) {
 		$classes[] = 'edd-sl-user-has-expired-license';
+	}
+
+	if ( ! empty( eddwp_user_must_update_payment_info() ) ) {
+		$classes[] = 'edd-user-must-update-payment-info';
 	}
 
 	return $classes;
