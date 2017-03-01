@@ -73,9 +73,53 @@ if ( is_user_logged_in() ) : ?>
 					// get rid of the default license renewal form
 					remove_action( 'edd_sl_license_keys_before', array( $edd_sl_renew_all, 'renew_all_button' ) );
 					?>
-					<h2 class="section-title-alt">Your Account</h2>
-					<div id="account-page" class="clearfix">
 
+					<h2 class="section-title-alt">Your Account</h2>
+
+					<?php
+					$subscriber = new EDD_Recurring_Subscriber( get_current_user_id(), true );
+					$failing_subs = $subscriber->get_subscriptions( 0, 'failing' );
+
+					if ( is_array( $failing_subs ) && ! empty( $failing_subs ) ) {
+						?>
+						<div class="update-subscription-info warning">
+
+							<?php
+							if ( count( $failing_subs ) > 1 ) {
+								?>
+								<div class="failing-subs">
+									<span class="failing-sub-header"><i class="fa fa-exclamation-triangle"></i> The following subscriptions could not be renewed:</span>
+									<ul>
+										<?php foreach ( $failing_subs as $failing_sub ) :
+											$product_id = $failing_sub->product_id;
+											$sub_id     = $failing_sub->id;
+											?>
+											<li>
+												<?php echo get_the_title( $product_id ); ?> - <a href="<?php echo home_url( 'your-account' ) . '?action=update&amp;subscription_id=' . $sub_id . '#tab-subscriptions'; ?>">update payment information</a>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								</div>
+
+								<?php
+							} else {
+								$sub_id = $failing_subs[0]->id;
+								?>
+								<div class="failing-sub">
+									<span class="failing-sub-header">
+										<i class="fa fa-exclamation-triangle"></i> Your subscription could not be renewed.
+									</span>
+									<span>
+										Please <a href="<?php echo home_url( 'your-account' ) . '?action=update&amp;subscription_id=' . $sub_id . '#tab-subscriptions'; ?>">update your payment information</a> for <strong><?php echo get_the_title( $failing_subs[0]->product_id ); ?></strong>.
+									</span>
+								</div>
+								<?php
+							}
+							?>
+						</div>
+					<?php } ?>
+
+					<div id="account-page" class="clearfix">
 						<div class="my-account-tabs">
 							<div class="my-account-info">
 								<div class="my-account-welcome">
@@ -123,9 +167,11 @@ if ( is_user_logged_in() ) : ?>
 
 							<ul class="nav nav-tabs nav-append-content<?php echo $is_affiliate; ?>">
 								<li class="active"><a href="#purchases" data-toggle="tab"><i class="fa fa-usd"></i>Purchases</a></li>
-								<?php $has_expired_licenses = ! empty( $license_keys ) ? ' class="has-expired-licenses"' : ''; ?>
+								<?php $has_expired_licenses = ! empty( $license_keys ) ? ' class="account-tab-highlight"' : ''; ?>
 								<li><a href="#license-keys" data-toggle="tab"<?php echo $has_expired_licenses; ?>><i class="fa fa-key"></i>License Keys</a></li>
-								<li><a href="#subscriptions" data-toggle="tab"><i class="fa fa-repeat"></i>Subscriptions</a></li>
+
+								<?php $payment_info_update = ! empty( $failing_subs ) ? ' class="account-tab-highlight"' : ''; ?>
+								<li><a href="#subscriptions" data-toggle="tab"<?php echo $payment_info_update; ?>><i class="fa fa-repeat"></i>Subscriptions</a></li>
 								<li><a href="#downloads" data-toggle="tab"><i class="fa fa-cloud-download"></i>Downloads</a></li>
 								<li><a href="#profile" data-toggle="tab"><i class="fa fa-user"></i>Profile</a></li>
 								<?php if ( defined( 'EDD_COMMISSIONS_VERSION' ) && eddc_user_has_commissions() ) { ?>
@@ -154,12 +200,15 @@ if ( is_user_logged_in() ) : ?>
 									?>
 								</div><!-- /.tab-pane -->
 								<div class="tab-pane license-keys-tab-pane" id="license-keys">
-									<?php if ( ! empty( $license_keys ) ) { ?>
-										<div class="license-key-notice">
-											<h4 class="section-title-alt"><i class="fa fa-exclamation-triangle"></i>You have <?php echo $expired_qty; ?> expired license key<?php echo $expired_qty > 1 ? 's' : ''; ?></h4>
-											<div class="expired-keys">
-												<div class="flex-container">
-													<?php
+									<h3>Manage Your License Keys</h3>
+									<?php if ( class_exists( 'edd_software_licensing' ) && edd_software_licensing()->get_license_keys_of_user() ) { ?>
+										<p>Below you will find all license keys for you previous purchases. Use the <strong>Manage Sites</strong> links to authorize specific URLs for your license keys. Use the <strong>Extend License</strong> or <strong>Renew License</strong> links to adjust the terms of your license keys.</p>
+										<?php if ( ! empty( $license_keys ) ) { ?>
+											<div class="license-key-notice">
+												<h4 class="section-title-alt"><i class="fa fa-exclamation-triangle"></i>You have <?php echo $expired_qty; ?> expired license key<?php echo $expired_qty > 1 ? 's' : ''; ?></h4>
+												<div class="expired-keys">
+													<div class="flex-container">
+														<?php
 														// get the first two license keys
 														$i = 0;
 														foreach ( $license_keys as $index => $key ) {
@@ -186,9 +235,9 @@ if ( is_user_logged_in() ) : ?>
 															<?php
 															unset( $license_keys[ $index ] );
 														}
-													?>
-												</div>
-												<?php
+														?>
+													</div>
+													<?php
 													// get the rest of the license keys
 													if ( $i > 2 ) {
 														?>
@@ -220,31 +269,28 @@ if ( is_user_logged_in() ) : ?>
 														<?php
 													}
 													$license_keys  = get_posts( $license_args );
-												?>
+													?>
+												</div>
 											</div>
-										</div>
-									<?php } ?>
-									<?php if ( class_exists( 'edd_software_licensing' ) && false != edd_software_licensing()->get_license_keys_of_user() ) {
-										$no_expired  = empty( $license_keys ) ? ' no-expired' : '';
-										$two_or_less = $expired_qty <= 2 ? ' two-or-less' : '';
-										?>
-										<div class="renew-all-licenses<?php echo $no_expired, $two_or_less; ?>">
-											<?php if ( ! empty( $license_keys ) ) { ?>
-												<p>You may also renew license keys in bulk using the form below.</p>
-											<?php } else { ?>
-												<h4 class="section-title-alt"><i class="fa fa-thumbs-up"></i>You do not have any expired license keys</h4>
-												<p>If you would like to renew all of your licenses now, you may do so using the form below.</p>
-											<?php } ?>
-											<?php
+										<?php } ?>
+										<?php if ( class_exists( 'edd_software_licensing' ) && false != edd_software_licensing()->get_license_keys_of_user() ) {
+											$no_expired  = empty( $license_keys ) ? ' no-expired' : '';
+											$two_or_less = $expired_qty <= 2 ? ' two-or-less' : '';
+											?>
+											<div class="renew-all-licenses<?php echo $no_expired, $two_or_less; ?>">
+												<?php if ( ! empty( $license_keys ) ) { ?>
+													<p>You may also renew license keys in bulk using the form below.</p>
+												<?php } else { ?>
+													<h4 class="section-title-alt"><i class="fa fa-thumbs-up"></i>You do not have any expired license keys</h4>
+													<p>If you would like to renew all of your licenses now, you may do so using the form below.</p>
+												<?php } ?>
+												<?php
 												if ( class_exists( 'EDD_SL_Renew_All' ) ) {
 													echo $edd_sl_renew_all->renew_all_button();
 												}
-											?>
-										</div>
-									<?php } ?>
-									<h3>Manage Your License Keys</h3>
-									<?php if ( class_exists( 'edd_software_licensing' ) && edd_software_licensing()->get_license_keys_of_user() ) { ?>
-										<p>Below you will find all license keys for you previous purchases. Use the <strong>Manage Sites</strong> links to authorize specific URLs for your license keys. Use the <strong>Extend License</strong> or <strong>Renew License</strong> links to adjust the terms of your license keys.</p>
+												?>
+											</div>
+										<?php } ?>
 										<?php echo do_shortcode( '[edd_license_keys]' ); ?>
 									<?php } else { ?>
 										<p>You currently have no licenses.</p>

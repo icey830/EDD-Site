@@ -410,8 +410,9 @@ address {
 .wp-caption,
 .frame {
 	background: @eddgray;
-	padding: 10px;
+	border: 1px solid rgba(0,0,0,.08) !important;
 	border-radius: 4px;
+	box-shadow: 3px 3px rgba(0,0,0,.1);
 	margin-bottom: 25px !important;
 
 	& img {
@@ -425,6 +426,7 @@ address {
 }
 
 .wp-caption img {
+	border-radius: 4px 4px 0 0;
 	vertical-align: bottom;
 }
 

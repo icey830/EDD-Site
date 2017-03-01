@@ -259,6 +259,21 @@ function eddwp_user_has_expired_license() {
 	return $license_keys;
 }
 
+/**
+ * Site-wide subscription payment method update notice
+ */
+function eddwp_user_must_update_payment_info() {
+
+	$failing_subs = array();
+
+	if ( class_exists( 'EDD_Recurring' ) && is_user_logged_in() ) {
+		$subscriber = new EDD_Recurring_Subscriber( get_current_user_id(), true );
+		$failing_subs = $subscriber->get_subscriptions( 0, 'failing' );
+	}
+
+	return $failing_subs;
+}
+
 
 /**
  * Append the changelog to the download content
@@ -529,6 +544,10 @@ function eddwp_body_class( $classes ) {
 
 	if ( ! empty( eddwp_user_has_expired_license() ) ) {
 		$classes[] = 'edd-sl-user-has-expired-license';
+	}
+
+	if ( ! empty( eddwp_user_must_update_payment_info() ) ) {
+		$classes[] = 'edd-user-must-update-payment-info';
 	}
 
 	return $classes;

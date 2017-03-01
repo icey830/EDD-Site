@@ -865,19 +865,19 @@
 					border-width: 0 0 3px;
 				}
 
-				& .fa {
-					display: inline-block;
-					text-align: center;
-					margin-right: 5px;
-					min-width: 25px;
-				}
-
-				&.has-expired-licenses {
+				&.account-tab-highlight {
 					background: #fcf8e3;
 
 					&:hover {
 						background: #f9f5df;
 					}
+				}
+
+				& .fa {
+					display: inline-block;
+					text-align: center;
+					margin-right: 5px;
+					min-width: 25px;
 				}
 			}
 
@@ -915,6 +915,43 @@
 	.your-account-link-list {
 		border-top: none;
 		border-radius: 0 0 4px 4px;
+	}
+}
+
+.update-subscription-info {
+	padding: 20px 30px;
+	margin-bottom: 50px;
+
+	& .fa {
+		font-size: 110%;
+		margin-right: 8px;
+	}
+
+	& a {
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	& .failing-subs {
+
+		& .failing-sub-header {
+			display: block;
+			font-size: 20px;
+			font-size: 2rem;
+			font-weight: 500;
+			padding-bottom: 20px;
+			border-bottom: 3px solid rgba(0,0,0,0.05);
+			margin-bottom: 20px;
+		}
+
+		& ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
 	}
 }
 
@@ -1220,6 +1257,23 @@
 	line-height: 20px;
 	text-align: left;
 	vertical-align: top;
+}
+
+#account-page .subscriptions-tab-pane a:nth-child(3) {
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+#account-page .subscriptions-tab-pane h3:nth-child(4) {
+	font-size: 1.6rem;
+	font-weight: 400;
+	margin-bottom: 16px;
+
+	& em {
+		font-size: 1.8rem;
+		font-weight: 500;
+		font-style: normal;
+	}
 }
 
 #account-page .downloads-tab-pane .edd_download_file .edd_download_file_link:first-child br {
