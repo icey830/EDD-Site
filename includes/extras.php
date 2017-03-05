@@ -550,6 +550,10 @@ function eddwp_body_class( $classes ) {
 		$classes[] = 'edd-user-must-update-payment-info';
 	}
 
+	if ( eddwp_theme_sale_notice_active() ) {
+		$classes[] = 'eddwp-notice-is-sale';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'eddwp_body_class' );

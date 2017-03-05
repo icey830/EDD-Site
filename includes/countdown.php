@@ -112,7 +112,7 @@ function eddwp_theme_get_countdown( $end_date = '' ) {
 
 	ob_start();
 	?>
-	<span id="countdown"><span id="countdown-text">Sale ends in</span><br><span id="countdown-date"></span></span><script type="text/javascript">
+	<span id="countdown"><span id="countdown-text">Sale ends in </span><span id="countdown-date"></span></span><script type="text/javascript">
 		jQuery('#countdown-date').countdown('<?php echo $end_date; ?>').on('update.countdown', function(event) {
 
 			var format = '%H:%M:%S';
