@@ -39,25 +39,27 @@ function eddwp_display_notice() {
 
 			if($can_view) {
 				if(pippin_check_notice_is_read($notice->ID, $user_ID) != true) { ?>
-					<div id="notification-area" class="snp-hidden">
+					<div id="notification-area" class="snp-hidden full-width">
+						<div class="inner">
 
-							<div class="notice-content">
+							<div class="notice-content clearfix">
 
 								<svg id="announcement" width="32px" height="32px">
-								   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-announcement'; ?>"></use>
+									<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-announcement'; ?>"></use>
 								</svg>
 
 								<?php echo do_shortcode( wpautop( $notice->post_content ) ); ?>
 							</div>
 
 							<?php if(!get_post_meta($notice->ID, '_hide_close', true)) { ?>
-							<a class="remove-notice" href="#" id="remove-notice" rel="<?php echo $notice->ID; ?>">
-								<svg width="24px" height="24px">
-								   <use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-remove'; ?>"></use>
-								</svg>
-							</a>
-
+								<a class="remove-notice" href="#" id="remove-notice" rel="<?php echo $notice->ID; ?>">
+									<svg width="24px" height="24px">
+										<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-remove'; ?>"></use>
+									</svg>
+								</a>
 							<?php } ?>
+
+						</div>
 					</div>
 				<?php }
 			}
