@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 function eddwp_theme_enqueue_countdown_scripts() {
 
 	// Register countdown script.
-	wp_register_script( 'countdown', get_stylesheet_directory_uri() . '/assets/js/lib/jquery.countdown.min.js', array( 'jquery' ), EDDWP_THEME_VERSION );
+	wp_register_script( 'countdown', get_stylesheet_directory_uri() . '/assets/js/lib/jquery.countdown.min.js', array( 'jquery' ), EDD_SITE_VERSION );
 
 	// Only enqueue script if a sale notice is published.
 	if ( eddwp_theme_sale_notice_active() ) {
