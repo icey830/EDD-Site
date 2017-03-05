@@ -277,21 +277,29 @@ div.form_saved_message div.form_saved_message_emailform form input[type="submit"
 }
 
 #starter-package .package-discount {
+	position: relative;
 	float: right;
 	text-align: center;
 	background: #fafafa;
-	padding: 3rem;
+	padding: 3rem 3rem 1rem;
 	border: 4px solid #f1f1f1;
 	border-radius: 4px;
 	margin-top: -55px;
 	width: 45%;
 
-	& span {
+	& .discount-amount {
 		display: block;
 		color: @green;
 		font-weight: 500;
 		font-size: 30px;
-		margin-top: 16px;
+	}
+
+	& .discount-note {
+		left: 1em;
+		bottom: 6px;
+		font-size: 13px;
+		color: #aaa;
+		font-style: italic;
 	}
 }
 
