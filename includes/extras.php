@@ -276,6 +276,16 @@ function eddwp_user_must_update_payment_info() {
 
 
 /**
+ * Adjust subscription payment info update URL to target subscriptions tab
+ */
+function eddwp_add_fragment( $url, $sub_obj ) {
+	$url .= '#tab-subscriptions';
+	return $url;
+}
+add_filter( 'edd_subscription_update_url', 'eddwp_add_fragment', 99, 2 );
+
+
+/**
  * Append the changelog to the download content
  */
 function eddwp_product_changelog( $content ) {
