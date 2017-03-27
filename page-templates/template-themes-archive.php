@@ -24,20 +24,23 @@ $no_duplicates = array(); // don't repeat the same theme twice
 ?>
 
 	<?php while ( $featured_theme->have_posts() ) : $featured_theme->the_post(); $no_duplicates[] = $post->ID; ?>
-		<div class="featured-download-area page-section-blue full-width">
+		<div class="featured-download-area hero-area page-section-blue full-width">
 			<div class="inner">
-				<div class="featured-download clearfix">
-					<div class="featured-download-info">
-						<span class="featured-download-label">Featured Theme</span>
-						<?php
-						the_title( '<h1 class="featured-download-title">', '</h1>' );
-						the_excerpt();
-
-						echo edd_get_purchase_link( array( 'id' => get_the_ID() ) );
-						?>
-						or <a class="featured-download-secondary-link" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">see more information</a>
+				<div class="featured-download hero-content clearfix">
+					<div class="featured-download-info hero-info">
+						<div class="hero-headline">
+							<span class="featured-download-label hero-subtitle">Featured Theme</span>
+							<?php the_title( '<h1 class="featured-download-title hero-title">', '</h1>' ); ?>
+						</div>
+						<p class="hero-excerpt">
+							<?php the_excerpt(); ?>
+						</p>
+						<p class="hero-cta">
+							<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
+							or <a class="hero-secondary-cta-link" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">see more information</a>
+						</p>
 					</div>
-					<div class="featured-download-thumb">
+					<div class="featured-download-thumb hero-thumb">
 						<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
 							<?php
 							if ( has_post_thumbnail() ) :
