@@ -489,3 +489,25 @@ function eddwp_get_number_of_downloads() {
 	}
 	return $total;
 }
+
+/**
+ * standard login form template
+ */
+function eddwp_login_form() {
+	?>
+	<form name="loginform" id="loginform" action="<?php echo esc_url( site_url( 'wp-login.php', 'login_post' ) ); ?>" method="post">
+		<fieldset>
+				<input type="text" placeholder="Username" id="user_login" size="20" value="" name="log" />
+				<input type="password" placeholder="Password" id="user_pass" size="20" value="" name="pwd" />
+		</fieldset>
+
+		<div class="clearfix">
+			<input type="checkbox" name="rememberme" id="rememberme" value="forever" checked="checked" />
+			<label for="rememberme">Remember my password</label>
+			<input type="submit" class="edd-submit button blue" name="wp-submit" value="Sign In" />
+			<input type="hidden" name="redirect_to" value="<?php echo ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; ?>" />
+		</div>
+		<a class="lost-password-link" href="<?php echo wp_lostpassword_url( get_permalink() ); ?>" title="Lost Password">Lost Password</a>
+	</form><!-- /#loginform -->
+	<?php
+}
