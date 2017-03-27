@@ -623,6 +623,22 @@ add_action( 'affwp_before_creatives', 'eddwp_affwp_creatives_description' );
 
 
 /**
+ * All built-in theme redirects
+ */
+function eddwp_redirects() {
+
+	// redirect logged in affiliates to the affiliate area
+	if ( is_user_logged_in() && function_exists( 'affwp_is_affiliate' ) && affwp_is_affiliate() && affwp_is_active_affiliate() ) {
+		if ( is_page( 'affiliates' ) ) {
+			//wp_redirect( site_url( 'your-account/affiliate-area' ) );
+			//exit;
+		}
+	}
+}
+add_action( 'template_redirect', 'eddwp_redirects' );
+
+
+/**
  * used in template-free-downloads-upsell.php to get the downloads
  * from the customer's last two purchases
  */
