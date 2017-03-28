@@ -16,7 +16,11 @@ get_header(); ?>
 				</div>
 				<p class="hero-cta">
 					<a class="hero-primary-cta-button" href="<?php echo get_theme_mod( 'eddwp_download_core' ); ?>"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Become an affiliate</a><br>
-					Already an affiliate? <a class="hero-secondary-cta-link" href="<?php echo home_url( '/your-account/affiliate-area/' ); ?>" title="<?php get_the_title(); ?>">Log in</a>
+					<?php if ( is_user_logged_in() && function_exists( 'affwp_is_affiliate' ) && ! affwp_is_affiliate() ) { ?>
+						view our <a class="hero-secondary-cta-link" href="<?php echo home_url( '/affiliate-agreement/' ); ?>" title="<?php get_the_title(); ?>">affiliate agreement</a>
+					<?php } else { ?>
+	Already an affiliate? <a class="hero-secondary-cta-link" href="<?php echo home_url( '/your-account/affiliate-area/' ); ?>" title="<?php get_the_title(); ?>">Log in</a>
+					<?php } ?>
 				</p>
 			</div>
 			<div class="hero-thumb">
@@ -63,7 +67,7 @@ get_header(); ?>
 				</div>
 
 				<p class="become-an-affiliate-secondary-links">
-					<span>View our <a href="<?php echo home_url( '/affiliate-agreement/' ); ?>" title="<?php get_the_title(); ?>">affiliate agreement</a></span>
+					<span>view our <a href="<?php echo home_url( '/affiliate-agreement/' ); ?>" title="<?php get_the_title(); ?>">affiliate agreement</a></span>
 				</p>
 			</div>
 		</div>
