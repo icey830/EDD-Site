@@ -15,7 +15,7 @@ get_header(); ?>
 					<h1 class="hero-title">Easy Digital Downloads Affiliate Program</h1>
 				</div>
 				<p class="hero-cta">
-					<a class="hero-primary-cta-button" href="<?php echo get_theme_mod( 'eddwp_download_core' ); ?>"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Become an affiliate</a><br>
+					<a class="hero-primary-cta-button" href="<?php echo home_url( 'affiliates/join/' ); ?>"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Become an affiliate</a><br>
 					<?php if ( is_user_logged_in() && function_exists( 'affwp_is_affiliate' ) && ! affwp_is_affiliate() ) { ?>
 						view our <a class="hero-secondary-cta-link" href="#" data-toggle="modal" data-target="#affiliate-agreement">affiliate agreement</a>
 					<?php } else { ?>
@@ -63,7 +63,7 @@ get_header(); ?>
 			<div class="become-an-affiliate-content clearfix">
 				<h2 class="become-an-affiliate-title">Start earning cash for referrals!</h2>
 				<div class="become-an-affiliate-cta-link">
-					<a class="edd-submit button blue" href="<?php echo get_theme_mod( 'eddwp_download_core' ); ?>"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Become an affiliate</a>
+					<a class="edd-submit button blue" href="<?php echo home_url( 'affiliates/join/' ); ?>"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Become an affiliate</a>
 				</div>
 
 				<p class="become-an-affiliate-secondary-links">
