@@ -623,19 +623,32 @@ add_action( 'affwp_before_creatives', 'eddwp_affwp_creatives_description' );
 
 
 /**
- * All built-in theme redirects
+ * affiliate related redirects
  */
-function eddwp_redirects() {
+function eddwp_affiliate_redirects() {
 
-	// redirect logged in affiliates to the affiliate area
-	if ( is_user_logged_in() && function_exists( 'affwp_is_affiliate' ) && affwp_is_affiliate() && affwp_is_active_affiliate() ) {
-		if ( is_page( 'affiliates' ) ) {
-			//wp_redirect( site_url( 'your-account/affiliate-area' ) );
-			//exit;
+	if ( function_exists( 'affwp_is_affiliate' ) ) {
+
+		// from the affiliate area,  redirect non-affiliate registered users to affiliates page
+		if ( is_user_logged_in() && ! affwp_is_affiliate() ) {
+
+			if ( is_page( 'your-account/affiliate-area' ) ) {
+				wp_redirect( site_url( 'affiliates' ) );
+				exit;
+			}
+		}
+
+		// from affiliates page, redirect logged in affiliates to the affiliate area
+		if ( is_user_logged_in() && affwp_is_affiliate() && affwp_is_active_affiliate() ) {
+
+			if ( is_page( 'affiliates' ) ) {
+				wp_redirect( site_url( 'your-account/affiliate-area' ) );
+				exit;
+			}
 		}
 	}
 }
-add_action( 'template_redirect', 'eddwp_redirects' );
+add_action( 'template_redirect', 'eddwp_affiliate_redirects' );
 
 
 /**
