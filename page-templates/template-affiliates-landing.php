@@ -24,7 +24,7 @@ get_header(); ?>
 				</p>
 			</div>
 			<div class="hero-thumb">
-				<img src="<?php echo get_template_directory_uri() . '/images/front-page/edd-reports-screenshot-home.png'; ?>">
+				<img src="<?php echo get_template_directory_uri() . '/images/screenshots/edd-affiliates-graph.png'; ?>">
 			</div>
 		</div>
 	</div>
