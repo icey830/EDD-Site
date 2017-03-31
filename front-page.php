@@ -9,13 +9,13 @@
 
 get_header(); ?>
 
-<div id="front-page-hero" class="front-page-section page-section-blue full-width">
+<div id="front-page-hero" class="front-page-section hero-area page-section-blue full-width">
 	<div class="inner">
-		<div class="front-page-intro clearfix">
+		<div class="front-page-intro hero-content clearfix">
 			<div class="hero-info">
-				<div class="site-headline">
-					<span class="hero-subtitle">Say hello to the easiest way to</span>
-					<h1 class="hero-title"><?php bloginfo( 'description' ); ?></h1>
+				<div class="site-headline hero-headline">
+					<span class="hero-subtitle hero-subtitle">Say hello to the easiest way to</span>
+					<h1 class="hero-title hero-title"><?php bloginfo( 'description' ); ?></h1>
 				</div>
 				<p class="hero-cta">
 					<a class="hero-primary-cta-button" href="<?php echo get_theme_mod( 'eddwp_download_core' ); ?>"><i class="fa fa-cloud-download"></i>Download</a><br>

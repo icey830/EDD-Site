@@ -2682,6 +2682,71 @@
 
 
 /* ----------------------------- *
+ * Affiliates Landing Page
+ * ----------------------------- */
+.affiliate-program-features .features-grid-content-sections {
+	margin-bottom: 0;
+}
+
+.become-an-affiliate-content {
+	text-align: center;
+	padding: 80px 0 30px;
+	border-top: 2px solid #f7f7f7;
+
+	& .become-an-affiliate-title {
+		margin-bottom: 3rem;
+	}
+
+	& .become-an-affiliate-cta-link .edd-submit.button.blue {
+		font-size: 2.4rem;
+		padding: 12px 24px;
+		margin-bottom: 2rem;
+
+		& .fa {
+			margin-right: 1.6rem;
+		}
+	}
+
+	& .become-an-affiliate-secondary-links {
+		color: #999;
+		font-size: 90%;
+
+		& a {
+			color: #999;
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+/* Gravity Forms */
+.edd-affiliate-registration-form_wrapper.edd-gf-styles_wrapper .gform_body {
+	& .gfield_label {
+		font-size: 2.6rem;
+		font-weight: 500;
+		margin-bottom: 5px;
+
+		& .gfield_required {
+			color: #b33838;
+			font-size: 80%;
+			margin-left: 4px;
+		}
+	}
+
+	& .ginput_container span[id*="input_"] label[for*="input_"],
+	.gfield_description {
+		color: #999;
+		font-size: 1.5rem;
+		padding: 0;
+		margin-bottom: 15px;
+	}
+}
+
+
+/* ----------------------------- *
  * Affiliate Area
  * ----------------------------- */
 .affwp-creative {
@@ -2868,48 +2933,6 @@
 }
 
 /* themes page */
-.featured-download-area.page-section-blue {
-	text-align: left;
-}
-
-.featured-download-area.page-section-blue .inner {
-	padding-bottom: 0;
-	min-height: 380px;
-}
-
-.featured-download-area.page-section-blue .featured-download-img {
-	border-radius: 4px 4px 0 0;
-	margin-bottom: 0;
-	vertical-align: bottom;
-}
-
-.featured-download-thumb {
-	float: left;
-	width: 55%;
-}
-
-.featured-download-img {
-	border-radius: 4px;
-}
-
-.featured-download-info {
-	float: right;
-	width: 40%;
-}
-
-.featured-download-title {
-	font-size: 40px;
-	font-weight: 500;
-	margin: 0 0 20px;
-}
-
-.featured-download-label {
-	display: inline-block;
-	color: @lightblue;
-	font-size: 20px;
-	margin-bottom: 10px;
-}
-
 .featured-download-supported {
 	color: #999;
 	font-size: 13px;
@@ -2933,15 +2956,6 @@
 .featured-download-info .edd-add-to-cart.edd-submit.button.blue:hover,
 .featured-download-info .edd_go_to_checkout.button.blue.edd-submit:hover {
 	background: @edddarkbluehover;
-}
-
-.featured-download-secondary-link {
-	color: @lightblue;
-	text-decoration: underline;
-}
-
-.featured-download-secondary-link:hover {
-	color: #fff;
 }
 
 .recommended-downloads .section-header {
@@ -3133,4 +3147,88 @@
 hr.divider-shortcode {
 	border-top: 3px solid @eddgray;
 	margin: 35px 0;
+}
+
+/* site-wide hero structure */
+.hero-area {
+	text-align: left;
+
+	.inner {
+		padding-bottom: 0;
+		min-height: 380px;
+	}
+
+	& .hero-info {
+		float: right;
+		width: 40%;
+
+		& .hero-headline {
+			margin-bottom: 30px;
+
+			& .hero-title {
+				font-size: 40px;
+				line-height: 1.4;
+				font-weight: 500;
+				margin: 0 0 20px;
+				max-width: 450px;
+			}
+
+			& .hero-subtitle {
+				display: inline-block;
+				color: @lightblue;
+				font-size: 20px;
+				margin-bottom: 10px;
+			}
+		}
+
+		& .hero-cta {
+			margin-bottom: 0;
+
+			& a {
+				display: inline-block;
+				border-radius: 4px;
+				-webkit-transition: all .2s;
+				-moz-transition: all .2s;
+				transition: all .2s;
+			}
+
+			& a .fa {
+				margin-right: 15px;
+			}
+
+			& .hero-primary-cta-button {
+				background: @edddarkblue;
+				color: #fff;
+				font-size: 20px;
+				padding: 10px 20px;
+				margin: 0 0 10px;
+
+				&:hover {
+					background: @edddarkbluehover;
+					color: #fff;
+				}
+			}
+
+			& .hero-secondary-cta-link {
+				color: @lightblue;
+				text-decoration: underline;
+
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	& .hero-thumb {
+		float: left;
+		margin-right: -4px;
+		width: 55%;
+
+		& img {
+			border-radius: 4px 4px 0 0;
+			margin-bottom: 0;
+			vertical-align: bottom;
+		}
+	}
 }
