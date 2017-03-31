@@ -86,7 +86,7 @@ $affiliate_agreement = get_posts( $args );
 
 <!-- Affiliate Agreement modal -->
 <div class="affiliate-agreement-modal modal fade" id="affiliate-agreement" tabindex="-1" role="dialog" aria-labelledby="affiliate-agreement-label">
-	<div class="modal-dialog" role="document">
+	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
