@@ -14,14 +14,14 @@ get_header(); ?>
 					<span class="hero-subtitle">Refer customers and earn cash with the</span>
 					<h1 class="hero-title">Easy Digital Downloads Affiliate Program</h1>
 				</div>
-				<p class="hero-cta">
+				<div class="hero-cta">
 					<a class="hero-primary-cta-button" href="<?php echo home_url( 'affiliates/join/' ); ?>"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Become an affiliate</a><br>
 					<?php if ( is_user_logged_in() && function_exists( 'affwp_is_affiliate' ) && ! affwp_is_affiliate() ) { ?>
 						view our <a class="hero-secondary-cta-link" href="#" data-toggle="modal" data-target="#affiliate-agreement">affiliate agreement</a>
 					<?php } else { ?>
 	Already an affiliate? <a class="hero-secondary-cta-link" href="<?php echo home_url( '/your-account/affiliate-area/' ); ?>" title="<?php get_the_title(); ?>">Log in</a>
 					<?php } ?>
-				</p>
+				</div>
 			</div>
 			<div class="hero-thumb">
 				<img src="<?php echo get_template_directory_uri() . '/images/screenshots/edd-affiliates-graph.png'; ?>">

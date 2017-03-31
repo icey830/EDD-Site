@@ -35,10 +35,10 @@ $no_duplicates = array(); // don't repeat the same theme twice
 						<p class="hero-excerpt">
 							<?php the_excerpt(); ?>
 						</p>
-						<p class="hero-cta">
+						<div class="hero-cta">
 							<?php echo edd_get_purchase_link( array( 'id' => get_the_ID() ) ); ?>
 							or <a class="hero-secondary-cta-link" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">see more information</a>
-						</p>
+						</div>
 					</div>
 					<div class="featured-download-thumb hero-thumb">
 						<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
