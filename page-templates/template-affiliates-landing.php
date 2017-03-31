@@ -17,7 +17,7 @@ get_header(); ?>
 				<div class="hero-cta">
 					<a class="hero-primary-cta-button" href="<?php echo home_url( 'affiliates/join/' ); ?>"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Become an affiliate</a><br>
 					<?php if ( is_user_logged_in() && function_exists( 'affwp_is_affiliate' ) && ! affwp_is_affiliate() ) { ?>
-						view our <a class="hero-secondary-cta-link" href="#" data-toggle="modal" data-target="#affiliate-agreement">affiliate agreement</a>
+						Read our <a class="hero-secondary-cta-link" href="#" data-toggle="modal" data-target="#affiliate-agreement">affiliate agreement</a>
 					<?php } else { ?>
 	Already an affiliate? <a class="hero-secondary-cta-link" href="<?php echo home_url( '/your-account/affiliate-area/' ); ?>" title="<?php get_the_title(); ?>">Log in</a>
 					<?php } ?>
@@ -67,7 +67,7 @@ get_header(); ?>
 				</div>
 
 				<p class="become-an-affiliate-secondary-links">
-					<span>view our <a href="#" data-toggle="modal" data-target="#affiliate-agreement">affiliate agreement</a></span>
+					<span>Read our <a href="#" data-toggle="modal" data-target="#affiliate-agreement">affiliate agreement</a></span>
 				</p>
 			</div>
 		</div>
