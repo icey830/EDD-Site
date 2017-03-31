@@ -49,7 +49,7 @@ get_header(); ?>
 				</div>
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-calendar" aria-hidden="true"></i>30-day cookie lifetime</h6>
-					<p>After clicking your referral link, a cookie is stored in a potential customer's browser. This allows 30 days to come back and complete a purchase, increasing the liklihood of a successful conversion.</p>
+					<p>After clicking your referral link, a cookie is stored in a potential customer's browser. This allows 30 days to come back and complete a purchase, increasing the likelihood of a successful conversion.</p>
 				</div>
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-link" aria-hidden="true"></i>Direct Link Tracking</h6>
