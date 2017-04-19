@@ -51,7 +51,7 @@ if ( is_user_logged_in() ) : ?>
 								'compare' => '='
 							),
 							array(
-								'relation' => 'OR',
+								'relation' => 'AND',
 								array(
 									'key'     => '_edd_sl_status',
 									'value'   => 'expired',
