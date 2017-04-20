@@ -5,10 +5,10 @@
 
 global $post, $wp_query;
 get_header();
-?>
 
-	<?php $extension_args = array(
+	$extension_args = array(
 		'post_type'      => 'download',
+		'author'         => get_userdata( get_query_var( 'author' ) )->ID,
 		'paged'          => get_query_var( 'paged' ),
 		'posts_per_page' => 23,
 		'order'          => isset( $_GET['display'] ) ? 'DESC' : 'ASC',
