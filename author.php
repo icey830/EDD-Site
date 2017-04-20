@@ -92,7 +92,7 @@ get_header();
 									<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
 								</div>
 							</div>
-						<?php endwhile; ?>
+						<?php endwhile; wp_reset_postdata(); ?>
 						<div class="download-grid-item flex-grid-cheat"></div>
 						<div class="download-grid-item flex-grid-cheat"></div>
 					</section>
@@ -112,29 +112,9 @@ get_header();
 			</div>
 		</div>
 		<?php
-
-	else : ?>
-
-		<section id="landing-page" class="landing clearfix">
-
-			<article class="content clearfix">
-				<div class="full-width-content clearfix">
-					<div class="entry-header">
-						<h1 class="entry-title">
-							<?php echo get_userdata( get_query_var( 'author' ) )->display_name; ?> has no downloads.
-						</h1>
-					</div>
-					<div class="entry-content">
-						<p>But that's okay! Perhaps you'll find a useful tool for your store in our diverse selection of extensions. <a href="<?php echo home_url( '/downloads/' ); ?>">View All Extensions</a>.</p>
-						<p>Need a theme to present your store in logical manner? Have a look at our official themes as well as as our recommendations from the community. <a href="<?php echo home_url( '/themes/' ); ?>">View All Themes</a>.</p>
-					</div>
-				</div>
-			</article>
-
-		</section>
-		<?php
-
+	else :
+		wp_redirect( site_url( 'downloads' ) );
+		exit;
 	endif;
-	wp_reset_postdata();
 
 get_footer();
