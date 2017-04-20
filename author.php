@@ -25,9 +25,9 @@ get_header();
 
 	if ( have_posts() ) : ?>
 
-		<div class="extensions-header-area page-section-blue full-width">
+		<div class="author-header-area page-section-blue full-width">
 			<div class="inner">
-				<div class="extensions-header clearfix">
+				<div class="extensions-header author-header clearfix">
 					<div class="section-header">
 						<h2 class="section-title">Extensions by <strong><?php echo get_userdata( get_query_var( 'author' ) )->display_name; ?></strong></h2>
 					</div>
