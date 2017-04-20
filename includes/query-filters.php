@@ -55,5 +55,11 @@ function eddwp_pre_get_posts( $query ) {
 		$query->set( 'order', 'ASC' );
 	}
 
+	// Modify Author archive query to display extensions only
+	if( $query->is_author ) {
+		$query->set( 'post_type', 'download' );
+	}
+	remove_action( 'pre_get_posts', 'eddwp_author_archive_query' );
+
 }
 add_action( 'pre_get_posts', 'eddwp_pre_get_posts', 99999999 );

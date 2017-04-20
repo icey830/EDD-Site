@@ -111,7 +111,7 @@ if ( $variable_pricing ) {
 			<div class="author clearfix">
 				<p>
 					<span class="edd-download-detail-label">Developer:</span>&nbsp;
-					<?php if ( get_post_meta( get_the_ID(), 'ecpt_developer', true ) ) : ?>
+					<?php if ( $developer ) : ?>
 						<span class="edd-download-detail"><?php echo $developer; ?></span>
 					<?php else : ?>
 						<span class="edd-download-detail"><?php echo get_the_author(); ?></span>
