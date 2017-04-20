@@ -55,10 +55,7 @@ $popular = new WP_Query( $pop_query ); ?>
 	</div>
 </div>
 
-<?php
-
-if ( ! $extensions->have_posts() ) :
-	?>
+<?php if ( ! $extensions->have_posts() ) : ?>
 	<div class="edd-no-search-results-area full-width">
 		<div class="inner">
 			<div class="edd-no-search-results">
@@ -66,18 +63,14 @@ if ( ! $extensions->have_posts() ) :
 			</div>
 		</div>
 	</div>
-	<?php
-endif;
-
-?>
+<?php endif; ?>
 
 <div class="edd-downloads-area page-section-white full-width">
 	<div class="inner">
 		<div class="edd-downloads">
 
-			<?php if ( $extensions->have_posts() ) : ?>
-
 				<section class="download-grid three-col clearfix">
+
 					<div id="extensions-bundle-promotion" class="download-grid-item extensions-bundle-promotion">
 						<?php
 							$bundle_promotion = array(
@@ -109,15 +102,47 @@ endif;
 							<a class="download-grid-item-primary-link button green" href="<?php echo $bundle_promotion[ $num ]['url']; ?>">More Information</a>
 						</div>
 					</div>
-					<?php while ( $extensions->have_posts() ) : $extensions->the_post(); ?>
-						<div class="download-grid-item">
-							<div class="download-grid-thumb-wrap">
-								<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-									<?php eddwp_downloads_grid_thumbnail(); ?>
-								</a>
+
+					<?php if ( $extensions->have_posts() ) : ?>
+
+						<?php while ( $extensions->have_posts() ) : $extensions->the_post(); ?>
+							<div class="download-grid-item">
+								<div class="download-grid-thumb-wrap">
+									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
+										<?php eddwp_downloads_grid_thumbnail(); ?>
+									</a>
+								</div>
+								<div class="download-grid-item-info">
+									<?php
+										the_title( sprintf(
+											'<h4 class="download-grid-title"><a href="%s">',
+											home_url( '/downloads/' . $post->post_name ) ),
+											'</a></h4>'
+										);
+										$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
+										echo $short_desc;
+									?>
+								</div>
+								<div class="download-grid-item-cta">
+									<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
+								</div>
 							</div>
-							<div class="download-grid-item-info">
-								<?php
+						<?php endwhile; wp_reset_postdata(); ?>
+						<div class="download-grid-item flex-grid-cheat"></div>
+						<div class="download-grid-item flex-grid-cheat"></div>
+
+					<?php else :
+
+						while ( $popular->have_posts() ) : $popular->the_post();
+							?>
+							<div class="download-grid-item">
+								<div class="download-grid-thumb-wrap">
+									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
+										<?php eddwp_downloads_grid_thumbnail(); ?>
+									</a>
+								</div>
+								<div class="download-grid-item-info">
+									<?php
 									the_title( sprintf(
 										'<h4 class="download-grid-title"><a href="%s">',
 										home_url( '/downloads/' . $post->post_name ) ),
@@ -125,17 +150,22 @@ endif;
 									);
 									$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
 									echo $short_desc;
-								?>
+									?>
+								</div>
+								<div class="download-grid-item-cta">
+									<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
+								</div>
 							</div>
-							<div class="download-grid-item-cta">
-								<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
-							</div>
-						</div>
-					<?php endwhile; wp_reset_postdata(); ?>
-					<div class="download-grid-item flex-grid-cheat"></div>
-					<div class="download-grid-item flex-grid-cheat"></div>
+							<?php
+						endwhile; wp_reset_postdata(); ?>
+						<div class="download-grid-item flex-grid-cheat"></div>
+						<div class="download-grid-item flex-grid-cheat"></div>
+
+					<?php endif; ?>
+
 				</section>
-				<?php
+
+				<?php if ( $extensions->have_posts() ) :
 					$big = 999999999;
 					$links = paginate_links( array(
 						'base'    => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
@@ -143,47 +173,11 @@ endif;
 						'current' => max( 1, get_query_var('paged') ),
 						'total'   => $extensions->max_num_pages,
 					) );
-				?>
-				<div class="pagination clearfix">
-					<?php echo $links; ?>
-				</div>
-
-			<?php else : ?>
-
-				<section class="download-grid three-col clearfix">
-					<?php
-					while ( $popular->have_posts() ) : $popular->the_post();
-						?>
-						<div class="download-grid-item">
-							<div class="download-grid-thumb-wrap">
-								<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-									<?php eddwp_downloads_grid_thumbnail(); ?>
-								</a>
-							</div>
-							<div class="download-grid-item-info">
-								<?php
-								the_title( sprintf(
-									'<h4 class="download-grid-title"><a href="%s">',
-									home_url( '/downloads/' . $post->post_name ) ),
-									'</a></h4>'
-								);
-								$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
-								echo $short_desc;
-								?>
-							</div>
-							<div class="download-grid-item-cta">
-								<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
-							</div>
-						</div>
-						<?php
-					endwhile;
-					wp_reset_postdata();
 					?>
-					<div class="download-grid-item flex-grid-cheat"></div>
-					<div class="download-grid-item flex-grid-cheat"></div>
-				</section><!-- .download-grid three-col -->
-
-			<?php endif; ?>
+					<div class="pagination clearfix">
+						<?php echo $links; ?>
+					</div>
+				<?php endif; ?>
 
 		</div>
 	</div>
