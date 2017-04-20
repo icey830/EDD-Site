@@ -5,10 +5,10 @@
 
 global $post, $wp_query;
 get_header();
-?>
 
-	<?php $extension_args = array(
+	$extension_args = array(
 		'post_type'      => 'download',
+		'author'         => get_userdata( get_query_var( 'author' ) )->ID,
 		'paged'          => get_query_var( 'paged' ),
 		'posts_per_page' => 23,
 		'order'          => isset( $_GET['display'] ) ? 'DESC' : 'ASC',
@@ -25,9 +25,9 @@ get_header();
 
 	if ( have_posts() ) : ?>
 
-		<div class="extensions-header-area page-section-blue full-width">
+		<div class="author-header-area page-section-blue full-width">
 			<div class="inner">
-				<div class="extensions-header clearfix">
+				<div class="extensions-header author-header clearfix">
 					<div class="section-header">
 						<h2 class="section-title">Extensions by <strong><?php echo get_userdata( get_query_var( 'author' ) )->display_name; ?></strong></h2>
 					</div>
