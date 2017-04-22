@@ -466,6 +466,17 @@ add_filter( 'bbp_login_widget_title', 'eddwp_bbp_login_widget_title', 10, 3 );
 
 
 /**
+ * Get ID of Gravity Forms newsletter form
+ */
+function eddwp_newsletter_form_id() {
+	if ( ! class_exists( 'RGFormsModel' ) ) {
+		return;
+	}
+	return RGFormsModel::get_form_id( 'Newsletter Subscribe' );
+}
+
+
+/**
  * Filter the submit button on the dedicated subscription form (Gravity Forms)
  */
 function eddwp_gf_subscription_form_submit_button( $content ) {
@@ -478,7 +489,7 @@ function eddwp_gf_subscription_form_submit_button( $content ) {
 		return $content;
 	}
 }
-add_filter( 'gform_submit_button_8', 'eddwp_gf_subscription_form_submit_button' );
+add_filter( 'gform_submit_button_' . eddwp_newsletter_form_id(), 'eddwp_gf_subscription_form_submit_button' );
 
 
 /**

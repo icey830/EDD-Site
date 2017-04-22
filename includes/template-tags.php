@@ -282,13 +282,6 @@ function eddwp_newsletter_form( $args = array() ) {
 		'notes_content'       => isset( $args['notes_content'] ) ? $args['notes_content'] : '<i class="fa fa-lock"></i>Your email address is secure. We will never send you spam. You may unsubscribe at any time.',
 	);
 
-	if ( function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
-		$count = mailchimp_subscriber_count()->subscriber_count();
-		$subscribe_button = "Join $count subscribers!";
-	} else {
-		$subscribe_button = 'Sign me up!';
-	}
-
 	?>
 	<div class="subscription-form-wrap">
 		<?php if ( $args['heading'] ) { ?>
@@ -298,7 +291,7 @@ function eddwp_newsletter_form( $args = array() ) {
 			<?php if ( $args['description'] ) { ?>
 				<p class="newsletter-description"><?php echo $args['description_content']; ?></p>
 			<?php } ?>
-			<?php echo do_shortcode( '[gravityform id="8" title="false" description="false"]' ); ?>
+			<?php gravity_form( eddwp_newsletter_form_id(), false, false, false, '', false ); ?>
 			<?php if ( $args['notes'] ) { ?>
 				<div class="subscription-notes">
 					<?php echo $args['notes_content']; ?>
