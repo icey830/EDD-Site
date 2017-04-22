@@ -512,6 +512,17 @@ add_filter( 'gform_validation_message_' . eddwp_newsletter_form_id(), 'eddwp_new
 
 
 /**
+ * Gravity Forms - change spinner
+ *
+ * thanks, Andrew
+ */
+function eddwp_newsletter_form_gform_ajax_spinner_url( $uri, $form ) {
+	return get_stylesheet_directory_uri() . '/assets/svgs/loading.svg';
+}
+add_filter( 'gform_ajax_spinner_url', 'eddwp_newsletter_form_gform_ajax_spinner_url', 10, 2 );
+
+
+/**
  * Adds custom body classes based on the page the user is browsing.
  */
 function eddwp_body_class( $classes ) {
