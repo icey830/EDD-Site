@@ -3,83 +3,6 @@
  */
 
 
-/* ----------------------------- *
- * Footer Newsletter
- * ----------------------------- */
-#footer-newsletter {
-
-	& .newsletter-content {
-		text-align: center;
-		max-width: 750px;
-		margin: 0 auto;
-
-		& .footer-subscriber-count {
-			color: #fff;
-			font-size: 120%;
-		}
-
-		& form {
-			max-width: 450px;
-			margin: 0 auto;
-
-			& .nl-name {
-				margin-bottom: 8px;
-
-				& [type="text"].nl-last-name {
-					padding: 14px 12px;
-					border: 1px solid @eddgrayhover;
-					border-width: 0 0 0 1px;
-					border-radius: 0 4px 4px 0;
-				}
-			}
-
-			& .nl-email {
-				margin-bottom: 6px;
-
-				& .newsletter-email {
-					background: #ffffff url('images/sprite.png') no-repeat 14px -82px;
-					border-radius: 4px 0 0 4px;
-					width: 63%;
-				}
-			}
-
-			& input {
-				float: left;
-				width: 50%;
-
-				&[type="text"],
-				&[type="email"] {
-					padding: 14px 12px 14px 40px;
-					border: none;
-					margin: 0;
-					outline: none;
-				}
-
-				&[type="text"].nl-first-name {
-					background: #ffffff url('images/sprite.png') no-repeat 14px -34px;
-					border-radius: 4px 0 0 4px;
-				}
-
-				&[type="submit"] {
-					background: @eddblue;
-					color: #fff;
-					padding: 14px 12px;
-					border: none;
-					border-radius: 0 4px 4px 0;
-					-webkit-transition: all 0.2s ease-in-out;
-					-moz-transition: all 0.2s ease-in-out;
-					transition: all 0.2s ease-in-out;
-					width: 37%;
-
-					&:hover {
-						background: @eddbluehover;
-					}
-				}
-			}
-		}
-	}
-}
-
 
 /* ----------------------------- *
  * Full Footer
@@ -192,4 +115,68 @@
 .edd-checkout .footer-area .inner,
 .template-barebones .footer-area .inner {
 	padding: 0 30px;
+}
+
+
+/* ----------------------------- *
+ * Footer Newsletter
+ * ----------------------------- */
+#footer-newsletter .subscription-form-wrap {
+	background: none;
+	text-align: center;
+	max-width: 750px;
+	margin: 0 auto;
+
+	& .newsletter-title {
+		margin-bottom: 16px;
+	}
+
+	& .gform_wrapper {
+		max-width: 450px;
+		margin: 0 auto;
+
+		& .lists-wrap {
+
+			& .gfield_label {
+				font-size: 1.3rem;
+				font-weight: 400;
+				margin: 16px 0 8px;
+				opacity: .75;
+			}
+
+			& .ginput_container_checkbox ul label {
+				font-size: 1.3rem;
+				padding-left: 20px;
+
+				& .bullet:before {
+					font-size: 1.6rem;
+					width: 25px;
+					height: 24px;
+					padding-left: 0;
+					margin-left: 0;
+					top: 2px;
+				}
+
+				& .extended-list-label {
+					display: none;
+				}
+			}
+		}
+
+		& input[type="submit"][id*="gform_submit_button_"] {
+			display: block;
+			background: @eddblue;
+			margin-bottom: 16px;
+			width: 100%;
+
+			&:hover {
+				background: @eddbluehover;
+			}
+		}
+	}
+
+	& .subscription-notes {
+		max-width: 450px;
+		margin: 0 auto;
+	}
 }

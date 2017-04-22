@@ -308,3 +308,62 @@
 		}
 	}
 }
+
+
+/* ----------------------------- *
+ * Post Footer Newsletter
+ * ----------------------------- */
+.edd-post-footer .subscription-form-wrap {
+	padding: 30px;
+	border-radius: 4px;
+	margin-bottom: 50px;
+
+	& .newsletter-title {
+		margin-bottom: 16px;
+	}
+
+	& .gform_wrapper {
+
+		& .lists-wrap {
+
+			& .gfield_label {
+				display: none;
+			}
+
+			& .ginput_container_checkbox {
+
+				& ul {
+					padding-top: 20px;
+
+					& label {
+						font-size: 1.4rem;
+						padding-left: 24px;
+
+						& .bullet:before {
+							font-size: 2rem;
+							width: 25px;
+							height: 24px;
+							padding-left: 0;
+							margin-left: 0;
+							top: 1px;
+						}
+					}
+				}
+			}
+		}
+
+		& input[type="submit"][id*="gform_submit_button_"] {
+			display: block;
+			width: 100%;
+		}
+
+		.gform_footer {
+			margin-top: 24px;
+		}
+	}
+
+	& .subscription-notes {
+		margin-top: 8px;
+		max-width: 100%;
+	}
+}

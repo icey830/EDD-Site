@@ -26,7 +26,13 @@ get_header(); ?>
 						<?php eddwp_post_meta(); ?>
 						<div class="edd-post-footer clearfix">
 							<div class="newsletter-wrap">
-								<?php eddwp_newsletter_form(); ?>
+								<?php
+									$args = array(
+										'heading_content'     => 'Easy Digital Downloads Email Newsletter',
+										'description_content' => 'If you enjoyed that content or found it useful for your business, consider entering your name and email address below to receive Easy Digital Downloads news and updates directly to your inbox!',
+									);
+									eddwp_newsletter_form( $args );
+								?>
 							</div>
 						</div>
 					</div>

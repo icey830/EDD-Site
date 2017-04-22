@@ -271,33 +271,39 @@ function eddwp_rp_shortcode( $count = 6 ) {
 /**
  * Universal Newsletter Sign Up Form
  */
-function eddwp_newsletter_form() {
+function eddwp_newsletter_form( $args = array() ) {
+
+	$args = array(
+		'heading'             => isset( $args['heading'] ) ? $args['heading'] : true,
+		'heading_content'     => isset( $args['heading_content'] ) ? $args['heading_content'] : 'Email Newsletter',
+		'description'         => isset( $args['description'] ) ? $args['description'] : true,
+		'description_content' => isset( $args['description_content'] ) ? $args['description_content'] : 'Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads by submitting your information below.',
+		'notes'               => isset( $args['notes'] ) ? $args['notes'] : true,
+		'notes_content'       => isset( $args['notes_content'] ) ? $args['notes_content'] : '<i class="fa fa-lock"></i>Your email address is secure. We will never send you spam. You may unsubscribe at any time.',
+	);
+
 	if ( function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
 		$count = mailchimp_subscriber_count()->subscriber_count();
 		$subscribe_button = "Join $count subscribers!";
 	} else {
 		$subscribe_button = 'Sign me up!';
 	}
+
 	?>
-	<div class="newsletter">
-		<h3 class="newsletter-title"><span>Subscribe to the Easy Digital Downloads </span>Email Newsletter</h3>
+	<div class="subscription-form-wrap">
+		<?php if ( $args['heading'] ) { ?>
+			<h3 class="newsletter-title"><?php echo $args['heading_content']; ?></h3>
+		<?php } ?>
 		<div class="edd-newsletter-content-wrap">
-			<p class="newsletter-description">Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads by submitting your information below.</p>
-			<form class="newsletter-form" id="pmc_mailchimp" action="" method="post">
-				<div class="newsletter-name-container">
-					<input class="newsletter-name" name="pmc_fname" id="pmc_fname" type="text" placeholder="First Name"/>
+			<?php if ( $args['description'] ) { ?>
+				<p class="newsletter-description"><?php echo $args['description_content']; ?></p>
+			<?php } ?>
+			<?php echo do_shortcode( '[gravityform id="8" title="false" description="false"]' ); ?>
+			<?php if ( $args['notes'] ) { ?>
+				<div class="subscription-notes">
+					<?php echo $args['notes_content']; ?>
 				</div>
-				<div class="newsletter-email-container">
-					<input class="newsletter-email" name="pmc_email" id="pmc_email" type="text" placeholder="Email Address"/>
-				</div>
-				<div class="newsletter-submit-container">
-					<input type="hidden" name="redirect" value="<?php if ( function_exists( 'edd_get_current_page_url' ) ) { echo edd_get_current_page_url(); } ?>"/>
-					<input type="hidden" name="action" value="pmc_signup"/>
-					<input type="hidden" name="pmc_list_id" value="be2b495923"/>
-					<input type="submit" class="newsletter-submit edd-submit button darkblue" value="<?php echo esc_attr( $subscribe_button ); ?>"/>
-				</div>
-			</form>
-			<p class="newsletter-note"><i class="fa fa-lock"></i>We will never send you spam. Your email address is secure.</p>
+			<?php } ?>
 		</div>
 	</div>
 	<?php
@@ -329,7 +335,7 @@ function eddwp_google_custom_search() {
 /**
  * query upcoming commissions
  */
-function eddc_get_upcoming_commissions(){
+function eddc_get_upcoming_commissions() {
 	global $user_ID;
 
 	if( ! is_user_logged_in() ) {

@@ -469,7 +469,7 @@ add_filter( 'bbp_login_widget_title', 'eddwp_bbp_login_widget_title', 10, 3 );
  * Filter the submit button on the dedicated subscription form (Gravity Forms)
  */
 function eddwp_gf_subscription_form_submit_button( $content ) {
-	if ( is_page( 'subscribe' ) && function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
+	if ( function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
 		$count = mailchimp_subscriber_count()->subscriber_count();
 		$button_text = 'Join ' . $count . ' subscribers!';
 		$content = str_replace( 'Sign me up!', $button_text, $content );
@@ -478,7 +478,7 @@ function eddwp_gf_subscription_form_submit_button( $content ) {
 		return $content;
 	}
 }
-add_filter( 'gform_submit_button', 'eddwp_gf_subscription_form_submit_button' );
+add_filter( 'gform_submit_button_8', 'eddwp_gf_subscription_form_submit_button' );
 
 
 /**
