@@ -479,7 +479,7 @@ function eddwp_newsletter_form_id() {
 /**
  * Filter the submit button on the dedicated subscription form (Gravity Forms)
  */
-function eddwp_gf_subscription_form_submit_button( $content ) {
+function eddwp_newsletter_form_submit_button( $content ) {
 	if ( function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
 		$count = mailchimp_subscriber_count()->subscriber_count();
 		$button_text = 'Join ' . $count . ' subscribers!';
@@ -489,7 +489,26 @@ function eddwp_gf_subscription_form_submit_button( $content ) {
 		return $content;
 	}
 }
-add_filter( 'gform_submit_button_' . eddwp_newsletter_form_id(), 'eddwp_gf_subscription_form_submit_button' );
+add_filter( 'gform_submit_button_' . eddwp_newsletter_form_id(), 'eddwp_newsletter_form_submit_button' );
+
+
+/**
+ * Prevent newsletter form from jumping to anchor when submitted
+ *
+ * thanks, Andrew
+ */
+add_filter( 'gform_confirmation_anchor_' . eddwp_newsletter_form_id(), '__return_false' );
+
+
+/**
+ * remove Gravity Forms validation message on newsletter form
+ *
+ * thanks, Andrew
+ */
+function eddwp_newsletter_form_validation_message( $validation_message, $form ) {
+	return '<p class="newsletter-validation-error"><i class="fa fa-exclamation-triangle"></i> Please enter your email address below.</p>';
+}
+add_filter( 'gform_validation_message_' . eddwp_newsletter_form_id(), 'eddwp_newsletter_form_validation_message', 10, 2 );
 
 
 /**

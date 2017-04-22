@@ -20,7 +20,8 @@
 						$args = array(
 							'heading_content'     => 'Easy Digital Downloads Email Newsletter',
 							'description_content' => 'Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads.',
-							'secure'              => false
+							'notes'               => false,
+							'tabindex'            => 40
 						);
 						eddwp_newsletter_form( $args );
 					?>

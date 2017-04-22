@@ -121,62 +121,108 @@
 /* ----------------------------- *
  * Footer Newsletter
  * ----------------------------- */
-#footer-newsletter .subscription-form-wrap {
-	background: none;
-	text-align: center;
-	max-width: 750px;
-	margin: 0 auto;
 
-	& .newsletter-title {
-		margin-bottom: 16px;
+#footer-newsletter {
+
+	& .inner {
+		padding-bottom: 0;
 	}
 
-	& .gform_wrapper {
-		max-width: 450px;
+	& .subscription-form-wrap {
+		background: none;
+		color: #c4d0d6;
+		text-align: center;
+		max-width: 750px;
 		margin: 0 auto;
 
-		& .lists-wrap {
+		& .newsletter-title {
+			margin-bottom: 16px;
+		}
 
-			& .gfield_label {
-				font-size: 1.3rem;
-				font-weight: 400;
-				margin: 16px 0 8px;
-				opacity: .75;
+		& .newsletter-description {
+			margin-bottom: 24px;
+		}
+
+		& .newsletter-validation-error {
+			background: rgba(255,255,255,.05);
+		}
+
+		& .gform_wrapper {
+			max-width: 450px;
+			margin: 0 auto;
+
+			& input[type="text"],
+			input[type="email"] {
+				padding: 15px !important;
 			}
 
-			& .ginput_container_checkbox ul label {
-				font-size: 1.3rem;
-				padding-left: 20px;
+			& .lists-wrap {
 
-				& .bullet:before {
-					font-size: 1.6rem;
-					width: 25px;
-					height: 24px;
-					padding-left: 0;
-					margin-left: 0;
-					top: 2px;
-				}
-
-				& .extended-list-label {
+				& .gfield_label {
 					display: none;
 				}
+
+				& .ginput_container_checkbox {
+
+					& ul {
+						padding-top: 10px;
+
+						& li {
+							display: inline;
+							margin-right: 20px;
+						}
+
+						& label {
+							font-size: 1.3rem;
+							padding-left: 20px;
+
+							& .bullet:before {
+								color: rgba(255,255,255,.25);
+								font-size: 1.6rem;
+								width: 25px;
+								height: 24px;
+								padding-left: 0;
+								margin-left: 0;
+								top: 2px;
+							}
+
+							& .extended-list-label {
+								display: none;
+							}
+						}
+
+						& input[type="checkbox"] {
+
+							&:checked + label {
+
+								& .bullet:before {
+									color: @eddblue;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			& input[type="submit"][id*="gform_submit_button_"] {
+				display: block;
+				background: @eddblue;
+				margin-bottom: 16px;
+				width: 100%;
+
+				&:hover {
+					background: @eddbluehover;
+				}
+			}
+
+			.gform_footer {
+				margin-top: 12px;
 			}
 		}
 
-		& input[type="submit"][id*="gform_submit_button_"] {
-			display: block;
-			background: @eddblue;
-			margin-bottom: 16px;
-			width: 100%;
-
-			&:hover {
-				background: @eddbluehover;
-			}
+		& .subscription-notes {
+			max-width: 450px;
+			margin: 0 auto;
 		}
-	}
-
-	& .subscription-notes {
-		max-width: 450px;
-		margin: 0 auto;
 	}
 }

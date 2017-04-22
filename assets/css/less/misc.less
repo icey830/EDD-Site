@@ -159,8 +159,19 @@
 	}
 
 	& .newsletter-description {
-		opacity: .8;
 		margin-bottom: 16px;
+	}
+
+	& .newsletter-validation-error {
+		background: rgba(0,0,0,0.05);
+		list-style: none;
+		padding: 20px;
+		border-radius: 4px;
+		margin: 0 0 30px;
+
+		& .fa {
+			margin-right: 8px;
+		}
 	}
 
 	& ul,
@@ -190,6 +201,33 @@
 
 		& .email-wrap {
 			margin-bottom: 15px;
+
+			&.gfield_error.gfield_contains_required {
+				background-color: transparent;
+				border: none !important;
+				padding: 0 !important;
+				margin-bottom: 10px !important;
+
+				& .gfield_description.validation_message {
+					display: none !important;
+				}
+
+				& .gfield_label+.ginput_container input {
+
+					&::-webkit-input-placeholder {
+						color: red;
+					}
+					&::-moz-placeholder {
+						color: red;
+					}
+					&:-ms-input-placeholder {
+						color: red;
+					}
+					&:-moz-placeholder {
+						color: red;
+					}
+				}
+			}
 		}
 
 		& .name-wrap {

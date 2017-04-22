@@ -333,22 +333,26 @@
 		& .lists-wrap {
 
 			& .gfield_label {
-				font-size: 1.3rem;
-				font-weight: 400;
-				margin: 16px 0 8px;
-				opacity: .75;
+				display: none;
 			}
 
-			& .ginput_container_checkbox ul label {
-				font-size: 1.3rem;
-				padding-left: 24px;
+			& .ginput_container_checkbox {
 
-				& .bullet:before {
-					font-size: 2rem;
-					width: 25px;
-					height: 24px;
-					padding-left: 0;
-					margin-left: 0;
+				& ul {
+					padding-top: 20px;
+
+					& label {
+						font-size: 1.3rem;
+						padding-left: 24px;
+
+						& .bullet:before {
+							font-size: 2rem;
+							width: 25px;
+							height: 24px;
+							padding-left: 0;
+							margin-left: 0;
+						}
+					}
 				}
 			}
 		}
