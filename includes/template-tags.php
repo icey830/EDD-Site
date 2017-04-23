@@ -76,48 +76,76 @@ function eddwp_comment_form() {
  * ----------------------------------------------------------- */
 
 /**
- * Single post meta
+ * post top byline
  */
-function eddwp_post_meta() {
+function eddwp_post_byline() {
+	global $post;
 	?>
 	<div class="post-meta clearfix">
-		<ul>
+
+		<?php
+			printf( '<span class="entry-author author vcard"><span class="author-avatar">%1$s</span> by <strong>%2$s</strong></span> &middot; ',
+				get_avatar( get_the_author_meta( 'ID', $post->post_author ), 25, null ),
+				esc_html( get_the_author() )
+			);
+
+
+			?>
+			<span class="entry-date">published on <span><?php echo get_the_date(); ?></span></span>
 			<?php
-				if ( is_single() ) :
-					eddwp_author_box();
-				endif;
+
+		?>
+
+	</div><!-- /.post-meta-->
+	<?php
+}
+
+/**
+ * post terms
+ */
+function eddwp_post_terms() {
+	?>
+	<div class="post-meta clearfix">
+
+		<?php
+			if ( is_single() ) :
+				eddwp_author_box();
+			endif;
+
+			echo '<div class="entry-terms">';
 
 				$categories = get_the_category_list( __( ', ', 'edd' ) );
 				if ( $categories ) :
 					?>
-					<li><i class="fa fa-list-ul"></i> <?php echo $categories; ?></li>
+					<span class="entry-categories">Filed under <?php echo $categories; ?></span>
 					<?php
 				endif;
 
 				$tags = get_the_tag_list( '', __( ', ', 'edd' ) );
 				if ( $tags ) :
 					?>
-					<li><i class="fa fa-tag"></i> <?php echo get_the_tag_list( '', __( ', ', 'edd' ) ); ?></li>
+					<span class="entry-tags"> with focus on <?php echo $tags; ?></span>
 					<?php
 				endif;
 
-				// total number of comments including pings
-				$response_count = get_comments_number();
+			echo '</div>';
 
-				// total number of comments excluding pings
-				$comment_count = eddwp_get_comments_only_count( $response_count );
+			// total number of comments including pings
+			$response_count = get_comments_number();
 
-				if ( comments_open() && ( 0 !== $comment_count ) && ! is_single() ) :
-					if ( $comment_count >= 1 ) :
-						$comment_total = $comment_count;
-					endif;
-					?>
-					<li><i class="fa fa-comments-o"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), $comment_total . ' ' . __( 'Comments', 'edd' ), '', ''); ?></span></li>
-					<?php
+			// total number of comments excluding pings
+			$comment_count = eddwp_get_comments_only_count( $response_count );
+
+			if ( comments_open() && ( 0 !== $comment_count ) && ! is_single() ) :
+				if ( $comment_count >= 1 ) :
+					$comment_total = $comment_count;
 				endif;
-			?>
-		</ul>
-	</div><!-- /.post-meta-->
+				?>
+				<span class="entry-comments"><i class="fa fa-comments-o"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), $comment_total . ' ' . __( 'Comments', 'edd' ), '', ''); ?></span></span>
+				<?php
+			endif;
+		?>
+	</div>
 	<?php
 }
 

@@ -22,7 +22,7 @@ get_header(); ?>
 							<p><a class="edd-submit button blue" href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'edd' ); ?></a></p>
 						</div>
 						<div class="entry-footer">
-							<?php eddwp_post_meta(); ?>
+							<?php eddwp_post_byline(); ?>
 						</div>
 					</article>
 

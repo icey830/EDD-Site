@@ -23,7 +23,7 @@ get_header(); ?>
 						?>
 					</div>
 					<div class="entry-footer">
-						<?php eddwp_post_meta(); ?>
+						<?php eddwp_post_byline(); ?>
 						<div class="edd-post-footer clearfix">
 							<div class="newsletter-wrap">
 								<?php eddwp_newsletter_form(); ?>
