@@ -81,7 +81,7 @@ function eddwp_comment_form() {
 function eddwp_post_byline() {
 	global $post;
 	?>
-	<div class="post-meta clearfix">
+	<div class="post-meta post-meta-byline clearfix">
 
 		<?php
 			printf( '<span class="entry-author author vcard"><span class="author-avatar">%1$s</span> by <strong>%2$s</strong></span> &middot; ',
@@ -101,49 +101,46 @@ function eddwp_post_byline() {
 }
 
 /**
+ * post byline just date
+ */
+function eddwp_post_byline_lite() {
+	?>
+	<div class="post-meta post-meta-lite clearfix">
+		<span class="entry-date">published on <span><?php echo get_the_date(); ?></span></span>
+	</div>
+	<?php
+}
+
+/**
  * post terms
  */
 function eddwp_post_terms() {
+	if ( is_single() ) :
+		eddwp_author_box();
+	endif;
 	?>
-	<div class="post-meta clearfix">
+	<div class="post-meta post-terms clearfix">
 
 		<?php
-			if ( is_single() ) :
-				eddwp_author_box();
-			endif;
 
-			echo '<div class="entry-terms">';
+			echo '<span class="entry-terms">';
 
 				$categories = get_the_category_list( __( ', ', 'edd' ) );
+				$tags = get_the_tag_list( '', __( ', ', 'edd' ) );
+
 				if ( $categories ) :
 					?>
-					<span class="entry-categories">Filed under <?php echo $categories; ?></span>
+					<span class="entry-categories">Filed under <?php echo $categories; echo $tags ? '' : '.'; ?></span>
 					<?php
 				endif;
 
-				$tags = get_the_tag_list( '', __( ', ', 'edd' ) );
 				if ( $tags ) :
 					?>
-					<span class="entry-tags"> with focus on <?php echo $tags; ?></span>
+					<span class="entry-tags"> with focus on <?php echo $tags; ?></span>.
 					<?php
 				endif;
 
-			echo '</div>';
-
-			// total number of comments including pings
-			$response_count = get_comments_number();
-
-			// total number of comments excluding pings
-			$comment_count = eddwp_get_comments_only_count( $response_count );
-
-			if ( comments_open() && ( 0 !== $comment_count ) && ! is_single() ) :
-				if ( $comment_count >= 1 ) :
-					$comment_total = $comment_count;
-				endif;
-				?>
-				<span class="entry-comments"><i class="fa fa-comments-o"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), $comment_total . ' ' . __( 'Comments', 'edd' ), '', ''); ?></span></span>
-				<?php
-			endif;
+			echo '</span>';
 		?>
 	</div>
 	<?php
@@ -169,6 +166,38 @@ function eddwp_author_box() {
 			</div>
 		</div>
 	<?php
+}
+
+
+/**
+ * blog pagination
+ */
+function eddwp_blog_paginate_links() {
+	global $wp_query;
+	if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : ?>
+		<div id="page-nav">
+			<ul class="paged">
+				<?php
+				if ( get_next_posts_link() ) :
+					?>
+					<li class="previous">
+						<?php next_posts_link( __( '<span class="nav-previous meta-nav">&larr; Older Posts</span>', 'edd' ) ); ?>
+					</li>
+					<?php
+				endif;
+
+				if ( get_previous_posts_link() ) :
+					?>
+					<li class="next">
+						<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer Posts &rarr;</span>', 'edd' ) ); ?>
+					</li>
+					<?php
+				endif;
+				?>
+			</ul>
+		</div>
+		<?php
+	endif;
 }
 
 
@@ -537,5 +566,30 @@ function eddwp_login_form() {
 		</div>
 		<a class="lost-password-link" href="<?php echo wp_lostpassword_url( get_permalink() ); ?>" title="Lost Password">Lost Password</a>
 	</form><!-- /#loginform -->
+	<?php
+}
+
+
+/**
+ * blog categories output
+ */
+function eddwp_blog_categories() {
+	?>
+	<div class="blog-categories clearfix">
+
+		<ul>
+			<li class="cat-item"><a href="<?php echo home_url( 'blog' ); ?>">All Posts</a>
+			<?php
+			wp_list_categories( array(
+				'orderby'    => 'count',
+				'order'      => 'DESC',
+				'show_count' => 1,
+				'title_li'   => '',
+				'show_count' => false
+			) );
+			?>
+		</ul>
+
+	</div>
 	<?php
 }

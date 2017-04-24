@@ -5,52 +5,65 @@
 
 get_header(); ?>
 
-	<div class="site-container">
-		<section class="content">
+<div class="blog-home-area page-section-white full-width">
+	<div class="inner">
+		<div class="blog-home-content clearfix">
 
-			<?php while ( have_posts() ) : the_post(); ?>
-				<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
-					<div class="entry-header">
-						<span class="entry-date"><?php echo get_the_date(); ?></span>
-						<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-					</div>
-					<div class="entry-summary">
-						<?php the_excerpt(); ?>
-						<p><a class="edd-submit button blue" href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'edd' ); ?></a></p>
-					</div>
-				</article>
-			<?php endwhile; ?>
+			<div class="continue-search-form">
+				<?php get_search_form(); ?>
+			</div>
+
+			<h2 class="section-title-alt">Recent posts<a href="#" class="subscribe-to-blog"><i class="fa fa-envelope" aria-hidden="true"></i> Sign up for email updates!</a></h2>
+
+			<section class="download-grid three-col clearfix">
+
+				<?php if ( have_posts() ) : ?>
+
+					<?php while ( have_posts() ) : the_post(); ?>
+						<div <?php post_class( 'download-grid-item' ); ?> id="post-<?php echo get_the_ID(); ?>">
+
+							<div class="entry-header">
+								<?php if ( has_post_thumbnail() ) { ?>
+									<div class="download-grid-thumb-wrap">
+										<a href="<?php echo get_permalink(); ?>" title="<?php get_the_title(); ?>">
+											<?php the_post_thumbnail( 'full', array( 'class' => 'download-grid-thumb' ) ); ?>
+										</a>
+									</div>
+								<?php } ?>
+							</div>
+
+							<div class="download-grid-item-info">
+								<?php
+								eddwp_post_byline_lite();
+								the_title( sprintf( '<h1 class="entry-title download-grid-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h1>' );
+								?>
+							</div>
+
+							<div class="entry-footer">
+								<?php //eddwp_post_terms(); ?>
+							</div>
+
+						</div>
+					<?php endwhile; wp_reset_postdata(); ?>
+					<div class="download-grid-item flex-grid-cheat"></div>
+					<div class="download-grid-item flex-grid-cheat"></div>
+
+				<?php endif; ?>
+
+			</section>
 
 			<?php
-				global $wp_query;
-				if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : ?>
-					<div id="page-nav">
-						<ul class="paged">
-							<?php
-								if ( get_next_posts_link() ) :
-									?>
-									<li class="previous">
-										<?php next_posts_link( __( '<span class="nav-previous meta-nav">&larr; Older Posts</span>', 'edd' ) ); ?>
-									</li>
-									<?php
-								endif;
-
-								if ( get_previous_posts_link() ) :
-									?>
-									<li class="next">
-										<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer Posts &rarr;</span>', 'edd' ) ); ?>
-									</li>
-									<?php
-								endif;
-							?>
-						</ul>
-					</div>
-					<?php
-				endif;
+			$big = 999999999;
+			echo '<div class="pagination clearfix">' . paginate_links( array(
+					'base'    => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+					'format'  => 'paged=%#%',
+					'current' => max( 1, get_query_var( 'paged' ) ),
+					'total'   => $wp_query->max_num_pages,
+				) ) . '</div>';
 			?>
 
-		</section>
-		<?php get_sidebar(); ?>
+		</div>
 	</div>
+</div>
 
 <?php get_footer(); ?>

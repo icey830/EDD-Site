@@ -54,6 +54,14 @@ function eddwp_pre_get_posts( $query ) {
 		$query->set( 'orderby', 'menu_order' );
 		$query->set( 'order', 'ASC' );
 	}
+
+	// remove downloads from blog search
+	if( $query->is_main_query() && ( $query->is_search() || is_category() || is_tag() ) ) {
+		$query->set( 'post_type', 'post' );
+		$query->set( 'posts_per_page', 15 );
+		$query->set( 'orderby', 'post_date' );
+		$query->set( 'order', 'DESC' );
+	}
 }
 add_action( 'pre_get_posts', 'eddwp_pre_get_posts', 99999999 );
 
