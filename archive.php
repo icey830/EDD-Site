@@ -9,10 +9,6 @@ get_header(); ?>
 	<div class="inner">
 		<div class="blog-home-content clearfix">
 
-			<div class="continue-search-form">
-				<?php get_search_form(); ?>
-			</div>
-
 			<?php if ( have_posts() ) : ?>
 				<header class="page-header hentry">
 					<h2 class="section-title-alt">
@@ -54,6 +50,10 @@ get_header(); ?>
 						endif;
 						?>
 					</h2>
+
+					<div class="continue-search-form">
+						<?php get_search_form(); ?>
+					</div>
 				</header>
 
 			<?php endif; ?>

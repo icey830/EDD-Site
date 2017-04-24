@@ -12,11 +12,12 @@ get_header(); ?>
 	<div class="blog-home-area blog-home-recent-posts page-section-white full-width">
 		<div class="inner">
 			<div class="blog-home-content clearfix">
+
+				<h2 class="section-title-alt">Most recent posts &nbsp;<a href="#" class="subscribe-to-blog"><i class="fa fa-envelope" aria-hidden="true"></i> Sign up for email updates!</a></h2>
+
 				<div class="continue-search-form">
 					<?php get_search_form(); ?>
 				</div>
-
-				<h2 class="section-title-alt">Most recent posts<a href="#" class="subscribe-to-blog"><i class="fa fa-envelope" aria-hidden="true"></i> Sign up for email updates!</a></h2>
 
 				<section class="recent-blog-posts download-grid two-col clearfix">
 

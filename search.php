@@ -10,10 +10,6 @@ get_header();
 	<div class="inner">
 		<div class="blog-home-content clearfix">
 
-			<div class="continue-search-form">
-				<?php get_search_form(); ?>
-			</div>
-
 			<?php if ( have_posts() ) : ?>
 
 				<h2 class="section-title-alt">Search results: <span class="queried-term"><?php echo sanitize_text_field( stripslashes( $_GET['s'] ) ); ?></span></h2>
@@ -25,6 +21,10 @@ get_header();
 				<p class="alert">Oops! That keyword phrase returns no results. Try searching again or browsing the posts below.</p>
 
 			<?php endif; ?>
+
+			<div class="continue-search-form">
+				<?php get_search_form(); ?>
+			</div>
 
 			<section class="download-grid three-col clearfix">
 

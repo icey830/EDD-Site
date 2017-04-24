@@ -9,11 +9,11 @@ get_header(); ?>
 	<div class="inner">
 		<div class="blog-home-content clearfix">
 
+			<h2 class="section-title-alt">Recent posts<a href="#" class="subscribe-to-blog"><i class="fa fa-envelope" aria-hidden="true"></i> Sign up for email updates!</a></h2>
+
 			<div class="continue-search-form">
 				<?php get_search_form(); ?>
 			</div>
-
-			<h2 class="section-title-alt">Recent posts<a href="#" class="subscribe-to-blog"><i class="fa fa-envelope" aria-hidden="true"></i> Sign up for email updates!</a></h2>
 
 			<section class="download-grid three-col clearfix">
 
