@@ -17,28 +17,14 @@
 			<div class="inner">
 				<div class="newsletter-content clearfix">
 					<?php
-						if ( function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
-							$count = mailchimp_subscriber_count()->subscriber_count();
-							$newsletter_title = "Join Our <span class='footer-subscriber-count'>$count</span> Newsletter Subscribers";
-						} else {
-							$newsletter_title = 'Easy Digital Downloads Email Newsletter';
-						}
+						$args = array(
+							'heading_content'     => 'Easy Digital Downloads Email Newsletter',
+							'description_content' => 'Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads.',
+							'notes'               => false,
+							'tabindex'            => 40
+						);
+						eddwp_newsletter_form( $args );
 					?>
-					<h3 class="footer-section-title"><?php echo $newsletter_title; ?></h3>
-					<p>Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads.</p>
-					<form id="pmc_mailchimp" class="clearfix" action="" method="post">
-						<div class="nl-name clearfix">
-							<input class="newsletter-name nl-first-name" name="pmc_fname" id="pmc_fname" type="text" placeholder="First name">
-							<input class="nl-last-name" name="pmc_lname" id="pmc_lname" type="text" placeholder="Last name">
-						</div>
-						<div class="nl-email">
-							<input class="newsletter-email" name="pmc_email" id="pmc_email" type="email" placeholder="Email address">
-							<input class="newsletter-submit" type="submit" value="Sign me up!">
-						</div>
-						<input type="hidden" name="redirect" value="https://easydigitaldownloads.com/">
-						<input type="hidden" name="action" value="pmc_signup">
-						<input type="hidden" name="pmc_list_id" value="be2b495923">
-					</form>
 				</div>
 			</div>
 		</div>

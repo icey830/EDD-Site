@@ -302,3 +302,65 @@
 		padding: 0;
 	}
 }
+
+
+/* ----------------------------- *
+ * Sidebar Newsletter
+ * ----------------------------- */
+.sidebar .subscription-form-wrap {
+	padding: 30px;
+	border-radius: 4px;
+	margin-bottom: 50px;
+
+	& .newsletter-title {
+		margin-bottom: 16px;
+	}
+
+	& .gform_wrapper {
+
+		& .name_first,
+		.name_last {
+			width: 100% !important;
+		}
+
+		& .name_first {
+
+			& input {
+				margin-bottom: 10px !important;
+			}
+		}
+
+		& .lists-wrap {
+
+			& .gfield_label {
+				display: none;
+			}
+
+			& .ginput_container_checkbox {
+
+				& ul {
+					padding-top: 20px;
+
+					& label {
+						font-size: 1.3rem;
+						padding-left: 24px;
+
+						& .bullet:before {
+							font-size: 2rem;
+							width: 25px;
+							height: 24px;
+							padding-left: 0;
+							margin-left: 0;
+						}
+					}
+				}
+			}
+		}
+
+		& input[type="submit"][id*="gform_submit_button_"] {
+			display: block;
+			margin-bottom: 8px;
+			width: 100%;
+		}
+	}
+}
