@@ -585,7 +585,11 @@ function eddwp_blog_categories() {
 				'order'      => 'DESC',
 				'show_count' => 1,
 				'title_li'   => '',
-				'show_count' => false
+				'show_count' => false,
+				'exclude'    => array(
+					1573 /* exclude from EDD */,
+					1404 /* contributor highlights */
+				),
 			) );
 			?>
 		</ul>
