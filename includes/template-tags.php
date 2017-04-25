@@ -584,6 +584,7 @@ function eddwp_blog_categories() {
 			wp_list_categories( array(
 				'orderby'    => 'count',
 				'order'      => 'DESC',
+				'depth'      => 1,
 				'show_count' => 1,
 				'title_li'   => '',
 				'show_count' => false,
