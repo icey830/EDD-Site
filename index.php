@@ -5,9 +5,9 @@
 
 get_header(); ?>
 
-<div class="blog-home-area page-section-white full-width">
+<div class="blog-home-area blog-posts-display-area page-section-white full-width">
 	<div class="inner">
-		<div class="blog-home-content clearfix">
+		<div class="blog-posts-display-content clearfix">
 
 			<h2 class="section-title-alt">Recent posts<a href="#" class="subscribe-to-blog"><i class="fa fa-envelope" aria-hidden="true"></i> Sign up for email updates!</a></h2>
 
