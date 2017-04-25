@@ -88,10 +88,6 @@ get_header(); ?>
 								?>
 							</div>
 
-							<div class="entry-footer">
-								<?php //eddwp_post_terms(); ?>
-							</div>
-
 						</div>
 					<?php endwhile; wp_reset_postdata(); ?>
 					<div class="download-grid-item flex-grid-cheat"></div>
