@@ -2,12 +2,10 @@
 /**
  * blog home template
  */
-$top_args = array(
-	'posts_per_page' => 2,
-);
-$top_query = new WP_query ( $top_args );
-
+$blog_front = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 get_header(); ?>
+
+<?php if ( 1 === $blog_front ) : ?>
 
 	<div class="blog-home-area blog-home-recent-posts page-section-white full-width">
 		<div class="inner">
@@ -21,7 +19,7 @@ get_header(); ?>
 
 				<section class="recent-blog-posts download-grid two-col clearfix">
 
-					<?php while ( $top_query->have_posts() ) : $top_query->the_post(); ?>
+					<?php while ( have_posts() ) : the_post(); ?>
 						<div <?php post_class( 'download-grid-item' ); ?> id="post-<?php echo get_the_ID(); ?>">
 
 							<div class="entry-header">
@@ -57,28 +55,36 @@ get_header(); ?>
 		</div>
 	</div>
 
-	<div class="blog-home-area blog-home-browse-posts page-section-white full-width">
+<?php endif; ?>
+
+	<div class="blog-home-area <?php echo ( 1 === $blog_front ) ? 'blog-home-browse-posts' : ''; ?> page-section-white full-width">
 		<div class="inner">
 			<div class="blog-home-content clearfix">
 
-				<div class="all-posts-header">
+				<?php if ( 1 === $blog_front ) : ?>
 					<h2 class="section-title-alt">Browse categories</h2>
-				</div>
+				<?php else : ?>
+					<h2 class="section-title-alt">Browse posts &nbsp;<a href="#" class="subscribe-to-blog"><i class="fa fa-envelope" aria-hidden="true"></i> Sign up for email updates!</a></h2>
+
+					<div class="continue-search-form">
+						<?php get_search_form(); ?>
+					</div>
+				<?php endif; ?>
 
 				<?php eddwp_blog_categories(); ?>
 
 				<?php
 				// middle set of blog posts
-				$middle_args = array(
+				$args = array(
 					'posts_per_page' => 15,
-					'offset'         => 2,
+					'paged' => get_query_var( 'paged' )
 				);
-				$middle_query = new WP_query ( $middle_args );
+				$main_blog = new WP_query ( $args );
 				?>
 
 				<section class="download-grid three-col clearfix">
 
-					<?php while ( $middle_query->have_posts() ) : $middle_query->the_post(); ?>
+					<?php while ( $main_blog->have_posts() ) : $main_blog->the_post(); ?>
 						<div <?php post_class( array( 'download-grid-item', 'secondary-posts' ) ); ?> id="post-<?php echo get_the_ID(); ?>">
 
 							<div class="entry-header">
@@ -105,6 +111,16 @@ get_header(); ?>
 					<div class="download-grid-item flex-grid-cheat"></div>
 
 				</section>
+
+				<?php
+				$big = 999999999;
+				echo '<div class="pagination clearfix">' . paginate_links( array(
+						'base' => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+						'format' => 'paged=%#%',
+						'current' => max( 1, get_query_var( 'paged' ) ),
+						'total' => $main_blog->max_num_pages,
+					) ) . '</div>';
+				?>
 
 			</div>
 		</div>
