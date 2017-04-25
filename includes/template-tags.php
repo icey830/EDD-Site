@@ -581,7 +581,7 @@ function eddwp_blog_categories() {
 		<ul>
 			<?php
 			// make the 'All Posts" link behave like a category
-			if ( is_home() && $blog_front ) {
+			if ( is_home() ) {
 				$current_cat = 'current-cat';
 			}
 			?>
