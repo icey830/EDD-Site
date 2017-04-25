@@ -55,7 +55,7 @@ function eddwp_pre_get_posts( $query ) {
 		$query->set( 'order', 'ASC' );
 	}
 
-	if ( $query->is_home() ) {
+	if ( $query->is_main_query() && $query->is_home() ) {
 		if ( $query->is_main_query() ) {
 			$query->set( 'posts_per_page', 2 );
 			$query->set( 'ignore_sticky_posts', true );
@@ -71,6 +71,26 @@ function eddwp_pre_get_posts( $query ) {
 			} else {
 				$query->set( 'offset', $offset );
 			}
+		}
+	}
+
+	if ( $query->is_main_query() && $query->is_home() ) {
+
+		$query->set( 'posts_per_page', 2 );
+		$query->set( 'ignore_sticky_posts', true );
+
+	// modify blog home queries - part 1
+	// https://codex.wordpress.org/Making_Custom_Queries_using_Offset_and_Pagination
+	} elseif ( ! $query->is_main_query() ) {
+
+		$offset        = 2;
+		$post_per_page = 15;
+
+		if ( $query->is_paged ) {
+			$blog_offset = $offset + ( ( $query->query_vars['paged']-1 ) * $post_per_page );
+			$query->set( 'offset', $blog_offset );
+		} else {
+			$query->set( 'offset', $offset );
 		}
 	}
 
