@@ -579,13 +579,7 @@ function eddwp_blog_categories() {
 	<div class="blog-categories clearfix">
 
 		<ul>
-			<?php
-			// make the 'All Posts" link behave like a category
-			if ( is_home() ) {
-				$current_cat = 'current-cat';
-			}
-			?>
-			<li class="cat-item <?php echo ! empty( $current_cat ) ? $current_cat : ''; ?>"><a href="<?php echo home_url( 'blog' ); ?>">All Posts</a>
+			<li class="cat-item <?php echo is_home() ? 'current-cat' : ''; ?>"><a href="<?php echo home_url( 'blog' ); ?>">All Posts</a>
 			<?php
 			wp_list_categories( array(
 				'orderby'    => 'count',
