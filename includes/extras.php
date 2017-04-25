@@ -523,6 +523,19 @@ add_filter( 'gform_ajax_spinner_url', 'eddwp_newsletter_form_gform_ajax_spinner_
 
 
 /**
+ * Limit 'Gravity Forms - Multiple Forms Instances' to only where it's needed
+ * Watch for real fixes: https://github.com/tyxla/Gravity-Forms-Multiple-Form-Instances
+ */
+function eddwp_selective_gf_multiple_instances() {
+	if ( ! is_single() ) { // only allow plugin to run on single posts
+		global $gravity_forms_multiple_form_instances;
+		remove_filter( 'gform_get_form_filter', array( $gravity_forms_multiple_form_instances, 'gform_get_form_filter' ), 10, 2 );
+	}
+}
+add_action( 'wp', 'eddwp_selective_gf_multiple_instances' );
+
+
+/**
  * Adds custom body classes based on the page the user is browsing.
  */
 function eddwp_body_class( $classes ) {
