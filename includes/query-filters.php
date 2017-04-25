@@ -58,6 +58,7 @@ function eddwp_pre_get_posts( $query ) {
 	if ( $query->is_home() ) {
 		if ( $query->is_main_query() ) {
 			$query->set( 'posts_per_page', 2 );
+			$query->set( 'ignore_sticky_posts', true );
 
 		// modify blog home queries - part 1
 		// https://codex.wordpress.org/Making_Custom_Queries_using_Offset_and_Pagination
