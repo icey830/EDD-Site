@@ -522,6 +522,41 @@ function eddwp_social_networking_profiles( $args = array() ) {
 	echo $args['wrap'] ? '</div>' : '';
 }
 
+
+/**
+ * Output EDD social networking follow buttons
+ */
+function eddwp_social_networking_follow() {
+	?>
+	<div class="social-buttons">
+		<div>
+			<script type="text/javascript">
+				// <![CDATA[
+				!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+				// ]]>
+			</script>
+		</div>
+		<div>
+			<?php if ( is_page( 'purchase-confirmation' ) ) { ?>
+				<a class="twitter-share-button" href="https://twitter.com/share" data-url="https://easydigitaldownloads.com/extensions" data-text="I've just purchased extensions from @eddwp for #WordPress">Tweet</a>
+			<?php } ?>
+			<a class="twitter-follow-button" href="https://twitter.com/eddwp" data-show-count="false">Follow @eddwp</a>
+		</div>
+		<div>
+			<div class="g-plusone" data-size="tall" data-annotation="none" data-href="https://easydigitaldownloads.com"></div>
+			<script type="text/javascript">
+				// <![CDATA[
+				(function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();
+				// ]]>
+			</script>
+		</div>
+		<div>
+			<iframe style="border: none; overflow: hidden; width: 450px; height: 21px;" src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Feasydigitaldownloads.com%2F&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=411242818920331" width="300" height="150" frameborder="0" scrolling="no"></iframe>
+		</div>
+	</div>
+	<?php
+}
+
 /**
  * Get the total number of non-third party extensions
  */
