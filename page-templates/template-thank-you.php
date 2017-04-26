@@ -50,7 +50,7 @@ the_post();
 			<div class="inner">
 				<div class="blog-posts-display-content clearfix">
 
-					<h2 class="section-title-alt">Browse articles</h2>
+					<h2 class="section-title-alt">Browse categories</h2>
 
 					<div class="continue-search-form">
 						<?php get_search_form(); ?>
@@ -94,6 +94,8 @@ the_post();
 						<div class="download-grid-item flex-grid-cheat"></div>
 
 					</section>
+
+					<a class="visit-the-blog" href="<?php echo home_url( 'blog' ); ?>">Visit the blog</a>
 
 				</div>
 			</div>
