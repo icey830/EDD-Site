@@ -614,7 +614,7 @@ function eddwp_blog_categories() {
 	<div class="blog-categories clearfix">
 
 		<ul>
-			<li class="cat-item <?php echo is_home() ? 'current-cat' : ''; ?>"><a href="<?php echo home_url( 'blog' ); ?>">All Posts</a>
+			<li class="cat-item <?php echo is_home() || is_page_template( 'page-templates/template-thank-you.php' ) ? 'current-cat' : ''; ?>"><a href="<?php echo home_url( 'blog' ); ?>">All Posts</a>
 			<?php
 			wp_list_categories( array(
 				'orderby'    => 'count',
