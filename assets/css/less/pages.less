@@ -1849,26 +1849,6 @@
  * Purchase Confirmation
  * ----------------------------- */
 .purchase-confirmation-content {
-	& .social-buttons {
-		margin-bottom: 10px;
-
-		& div {
-			display: inline-block;
-			margin-right: 10px;
-			vertical-align: top;
-
-			&:nth-child(2) {
-				& iframe {
-					display: inline-block;
-					margin-right: 10px;
-				}
-
-				& br {
-					display: none;
-				}
-			}
-		}
-	}
 
 	& #documentation {
 		& .documentation-list {
@@ -1992,8 +1972,6 @@
 		padding-bottom: 0;
 	}
 }
-
-
 
 #billing_info { // PayPal Pro confirmation
 	& > h3 {
@@ -2891,6 +2869,16 @@
 #landing-page-area .entry-content,
 #full-width-page-area .entry-content {
 	margin-bottom: 0;
+}
+
+
+/* ----------------------------- *
+ * Thank You template
+ * ----------------------------- */
+.gray-edd-headshot-content {
+	& .social-buttons {
+		margin: 0 0 10px -14px;
+	}
 }
 
 

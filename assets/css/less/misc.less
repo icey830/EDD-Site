@@ -146,6 +146,31 @@
 
 
 /* ----------------------------- *
+ * Social media follow buttons
+ * ----------------------------- */
+.social-buttons {
+	margin-bottom: 10px;
+
+	& div {
+		display: inline-block;
+		margin-right: 10px;
+		vertical-align: top;
+
+		&:nth-child(2) {
+			& iframe {
+				display: inline-block;
+				margin-right: 10px;
+			}
+
+			& br {
+				display: none;
+			}
+		}
+	}
+}
+
+
+/* ----------------------------- *
  * EDD Newsletter form
  * ----------------------------- */
 .subscription-form-wrap {
