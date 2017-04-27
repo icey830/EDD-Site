@@ -742,7 +742,7 @@ add_filter( 'video_embed_html', 'eddwp_video_embed_wrapper' ); // Jetpack
 /*
  * Ouput Perfect Audience conversion tracking script
  */
-function edd_perfect_audience_tracking() {
+function eddwp_perfect_audience_tracking() {
 ?>
 <script type="text/javascript">
   (function() {
@@ -758,4 +758,4 @@ function edd_perfect_audience_tracking() {
 </script>
 <?php
 }
-add_action( 'wp_footer', 'edd_perfect_audience_tracking' );
+add_action( 'wp_footer', 'eddwp_perfect_audience_tracking' );
