@@ -174,6 +174,7 @@ if ( is_user_logged_in() ) : ?>
 								<li><a href="#subscriptions" data-toggle="tab"<?php echo $payment_info_update; ?>><i class="fa fa-repeat"></i>Subscriptions</a></li>
 								<li><a href="#downloads" data-toggle="tab"><i class="fa fa-cloud-download"></i>Downloads</a></li>
 								<li><a href="#profile" data-toggle="tab"><i class="fa fa-user"></i>Profile</a></li>
+								<li><a href="#manage-cards" data-toggle="tab"><i class="fa fa-credit-card" aria-hidden="true"></i>Payment Methods</a></li>
 								<?php if ( defined( 'EDD_COMMISSIONS_VERSION' ) && eddc_user_has_commissions() ) { ?>
 									<li><a href="#commissions" data-toggle="tab"><i class="fa fa-money"></i>Commissions</a></li>
 								<?php } ?>
@@ -310,6 +311,11 @@ if ( is_user_logged_in() ) : ?>
 									<h3>Edit Your Profile Information</h3>
 									<p>Use the form below to edit the information saved in your user profile. Select information will be used to auto-complete the checkout form for your next purchase.</p>
 									<?php edd_get_template_part( 'shortcode', 'profile-editor' ); ?>
+								</div><!-- /.tab-pane -->
+								<div class="tab-pane manage-cards-tab-pane" id="manage-cards">
+									<h3>Your Saved Payment Methods</h3>
+									<p>Manage your saved cards using the tools below. Edit, delete, or set cards as default for use when making purchases.</p>
+									<?php if ( function_exists( 'edd_stripe_manage_cards' ) ) { edd_stripe_manage_cards(); } ?>
 								</div><!-- /.tab-pane -->
 								<div class="tab-pane commissions-tab-pane" id="commissions">
 									<h3>Commissions Overview</h3>

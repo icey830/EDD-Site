@@ -115,6 +115,11 @@ function eddwp_remove_bctt_styling() {
 }
 add_action( 'template_redirect', 'eddwp_remove_bctt_styling' );
 
+/**
+ * Remove card management from user profile editor
+ */
+remove_action( 'edd_profile_editor_after', 'edd_stripe_manage_cards' );
+
 
 /**
  * Content formatter
