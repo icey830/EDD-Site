@@ -32,19 +32,24 @@ the_post();
 		</div>
 	</div>
 
-	<?php if ( is_page( 'free-download-thanks' ) ) { ?>
+	<?php if ( is_page( 'free-download-thanks' ) ) {
 
-		<div id="recommended-products-thanks-area" class="recommended-products-thanks-area page-section-white full-width">
-			<div class="inner">
-				<div class="recommended-products-thanks clearfix">
-					<h2 class="section-title-alt">Don't leave just yet! There's more.</h2>
-					<p class="recommended-products-thanks-intro">Based on your past activity, we've created a list of extensions that you may find useful. Have a look! If you're just getting started, we also have a handy tool for building a <a href="<?php echo home_url( '/starter-package/' ); ?>">custom starter package</a>.</p>
-					<?php echo eddwp_rp_shortcode( 6 ); ?>
+		if ( function_exists( 'edd_rp_get_suggestions' ) ) {
+			?>
+
+			<div id="recommended-products-thanks-area" class="recommended-products-thanks-area page-section-white full-width">
+				<div class="inner">
+					<div class="recommended-products-thanks clearfix">
+						<h2 class="section-title-alt">Don't leave just yet! There's more.</h2>
+						<p class="recommended-products-thanks-intro">Based on your past activity, we've created a list of extensions that you may find useful. Have a look! If you're just getting started, we also have a handy tool for building a <a href="<?php echo home_url( '/starter-package/' ); ?>">custom starter package</a>.</p>
+						<?php echo eddwp_rp_shortcode( 6 ); ?>
+					</div>
 				</div>
 			</div>
-		</div>
+			<?php
+		}
 
-	<?php } elseif ( is_page( 'thank-you-for-subscribing' ) ) { ?>
+	} elseif ( is_page( 'thank-you-for-subscribing' ) ) { ?>
 
 		<div class="blog-posts-display-area page-section-white full-width">
 			<div class="inner">

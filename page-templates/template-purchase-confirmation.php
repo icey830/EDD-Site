@@ -34,7 +34,9 @@ get_header();
 						<ul class="nav nav-tabs nav-append-content purchase-confirmation-tabs">
 							<li class="active"><a href="#purchase-details" data-toggle="tab"><i class="fa fa-list" aria-hidden="true"></i>Purchase Details</a></li>
 							<li><a href="#documentation" data-toggle="tab"><i class="fa fa-file-text-o" aria-hidden="true"></i>Documentation</a></li>
-							<li><a href="#recommendations" data-toggle="tab"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Recommendations</a></li>
+							<?php if ( function_exists( 'edd_rp_get_suggestions' ) ) { ?>
+								<li><a href="#recommendations" data-toggle="tab"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Recommendations</a></li>
+							<?php } ?>
 						</ul>
 						<ul class="your-account-link-list">
 							<li><a class="your-account-link" href="<?php echo home_url( '/your-account' ); ?>"><i class="fa fa-user" aria-hidden="true"></i>Your Account</a></li>

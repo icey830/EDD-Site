@@ -1,6 +1,8 @@
 <?php
 global $post;
-$suggestion_data = edd_rp_get_suggestions( $post->ID );
+if ( function_exists( 'edd_rp_get_suggestions' ) ) {
+	$suggestion_data = edd_rp_get_suggestions( $post->ID );
+}
 if ( !empty( $suggestion_data ) && is_array( $suggestion_data ) ) :
 	$suggestions = array_keys( $suggestion_data );
 	$suggested_downloads = new WP_Query( array( 'post__in' => $suggestions, 'post_type' => 'download' ) );
