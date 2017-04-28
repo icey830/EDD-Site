@@ -177,6 +177,14 @@
 		width: 65%;
 	}
 
+	.my-account-tab-content .tab-content {
+		& #edd_profile_editor_form {
+			& fieldset > p label {
+				display: block;
+			}
+		}
+	}
+
 	/* affiliates */
 	#affwp-affiliate-dashboard {
 		& #affwp-affiliate-dashboard-tabs {
@@ -1554,6 +1562,12 @@
 
 	#edd_profile_editor_form p#edd_profile_display_name_wrap {
 		margin-bottom: 30px;
+	}
+
+	#edd_profile_editor_form #edd_profile_emails_wrap,
+	#edd_profile_editor_form .edd-profile-emails {
+		width: 100%;
+		padding: 0 30px;
 	}
 
 	.my-account-tab-content .tab-content #edd-stripe-manage-cards {
