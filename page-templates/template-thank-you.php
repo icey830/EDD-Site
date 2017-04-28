@@ -86,7 +86,7 @@ the_post();
 									<?php } ?>
 								</div>
 
-								<div class="download-grid-item-info entry-content">
+								<div class="download-grid-item-info">
 									<?php
 									eddwp_post_byline_lite();
 									the_title( sprintf( '<h1 class="entry-title download-grid-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h1>' );
