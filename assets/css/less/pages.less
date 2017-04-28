@@ -801,6 +801,7 @@
 	& .edd_user_commissions,
 	& #edd_user_commissions_overview table,
 	& #edd_commissioned_products_table,
+	& #edd-stripe-manage-cards fieldset,
 	& .rcp-table {
 		font-size: 1.4rem;
 		border-collapse: inherit;
@@ -1081,15 +1082,50 @@
 	& .tab-content {
 		position: relative;
 
-		& input[type="text"],
-		& input[type="email"],
-		& input[type="password"] {
-			background: @eddgray;
-			padding: 10px;
-			width: 300px;
-			outline: none;
-			border: 3px solid @eddgrayhover;
-			border-radius: 3px;
+		& #edd-recurring-form {
+			margin-top: 30px;
+			width: 100%;
+			max-width: 100%;
+
+			& #edd_checkout_form_wrap #edd_cc_fields > legend,
+			#edd_checkout_form_wrap #edd_cc_address > legend {
+				display: block;
+				color: inherit;
+				font-size: 120%;
+				line-height: 1;
+				font-weight: bold;
+				width: 100%;
+				padding: 0;
+				border: none;
+				margin: 0 0 21px;
+			}
+		}
+
+		& #edd_checkout_form_wrap,
+		#edd-stripe-manage-cards {
+			& input[type="text"],
+			& input[type="email"],
+			& input[type="password"],
+			& input[type="tel"] {
+				background: @eddgray;
+				font-size: 1.6rem;
+				padding: 10px;
+				width: 100%;
+				max-width: 490px;
+				outline: none;
+				border: 3px solid @eddgrayhover;
+				border-radius: 3px;
+			}
+
+			& select {
+				background: @eddgray;
+				font-size: 1.6rem;
+				width: 100%;
+				max-width: 490px;
+				border: 3px solid @eddgrayhover;
+				border-radius: 3px;
+				height: 45px;
+			}
 		}
 
 		& #edd_sl_license_add_site_form {
@@ -1101,8 +1137,10 @@
 			& input[type*="text"] {
 				display: block;
 				background: @eddgray;
+				font-size: 1.6rem;
 				padding: 10px;
-				width: 300px;
+				width: 100%;
+				max-width: 490px;
 				outline: none;
 				border: 3px solid @eddgrayhover;
 				border-radius: 3px;
@@ -1200,10 +1238,195 @@
 				}
 			}
 		}
-		
+
 		& #edd-stripe-manage-cards {
-			& > fieldset legend {
-				display: none;
+			& > fieldset {
+				background: #fff;
+
+				& legend {
+					display: none;
+				}
+			}
+
+			& .edd-stripe-card-item {
+				position: relative;
+				border: none;
+				border-bottom: 2px solid #eef0f0;
+				border-radius: 0;
+				margin-bottom: 0;
+
+				& .card-brand,
+				.card-last-4 {
+					font-size: 18px;
+					font-weight: 500;
+				}
+
+				.default-card-sep {
+					display: none;
+				}
+
+				& .card-is-default {
+					display: inline-block;
+					background: #a2acb2;
+					color: #fff;
+					font-size: 13px;
+					font-style: normal;
+					line-height: 1;
+					padding: 6px 8px;
+					border-radius: 3px;
+					margin: 0 0 0 6px;
+				}
+
+				& .card-update-form {
+					margin-top: 10px;
+
+					& label {
+						margin-bottom: 6px;
+						font-size: 16px;
+					}
+
+					& .card-address-fields {
+						margin-bottom: 10px;
+					}
+
+					& input[type="text"],
+					input[type="email"],
+					input[type="password"],
+					input[type="tel"] {
+						display: inline-block;
+						width: 48%;
+						max-width: auto;
+					}
+
+					& select {
+						display: inline-block;
+						width: 48%;
+						max-width: auto;
+					}
+
+					& > p:last-child {
+						margin: 10px 0;
+
+						& .edd-stripe-cancel-update {
+							display: inline-block;
+							color: #999;
+							text-decoration: underline;
+							margin-left: 5px;
+
+							&:hover {
+								text-decoration: none;
+							}
+						}
+					}
+				}
+
+				&:nth-child(odd) {
+					background: @eddgray;
+
+					& .card-update-form {
+
+						& input[type="text"],
+						input[type="email"],
+						input[type="password"],
+						input[type="tel"],
+						select {
+							background: #fff;
+							border: 3px solid @eddgrayhover;
+						}
+					}
+				}
+
+				&:nth-child(even) {
+					& .card-update-form {
+
+						& input[type="text"],
+						input[type="email"],
+						input[type="password"],
+						input[type="tel"],
+						select {
+							background: @eddgray;
+							border: 3px solid @eddgrayhover;
+						}
+					}
+				}
+
+				&:last-child {
+					border-bottom: none;
+				}
+
+				& .card-actions {
+					& a {
+						color: #999;
+						text-decoration: underline;
+
+						&:hover {
+							text-decoration: none;
+						}
+					}
+
+					& .card-delete a {
+						color: red;
+					}
+				}
+			}
+
+			& .edd-stripe-add-new-card {
+				& > label {
+					font-size: 20px;
+					padding: 0 10px 15px;
+					border: none;
+					margin: 0 0 5px;
+				}
+
+				& > fieldset {
+					padding: 10px;
+					border: none;
+
+					&#edd_cc_address {
+						margin-bottom: 0;
+					}
+
+					& input[type="text"],
+					input[type="email"],
+					input[type="password"],
+					input[type="tel"] {
+						font-size: 1.6rem;
+						width: 100%;
+						max-width: 490px;
+					}
+
+					& select {
+						display: block;
+						font-size: 1.6rem;
+						border: 3px solid rgba(0,0,0,.05);
+						border-radius: 3px;
+						margin-bottom: 10px;
+						width: 100%;
+						max-width: 490px;
+						height: 45px;
+					}
+
+					& .card-expiration select,
+					.card-expiration .exp-divider {
+						display: inline !important;
+					}
+				}
+			}
+
+			& .edd-stripe-add-card-actions {
+				background: #fff;
+				padding: 20px 10px;
+
+				& #edd-stripe-add-new-cancel {
+					display: inline-block;
+					color: #999;
+					text-decoration: underline;
+					margin-left: 5px;
+
+					&:hover {
+						text-decoration: none;
+					}
+				}
 			}
 		}
 
@@ -1530,7 +1753,8 @@
 	}
 }
 
-.checkout-content {
+.checkout-content,
+#edd-recurring-form /* Account page update payment details */ {
 	background: #fff;
 	margin: 0 auto;
 	width: 100%;
@@ -1698,109 +1922,6 @@
 		right: 200px;
 	}
 
-	& #edd_checkout_form_wrap {
-		& .edd-stripe-card-selector {
-			& .edd-stripe-card-radio-item {
-				position: relative;
-				background: #fafafa;
-				color: #777;
-				font-size: 14px;
-				padding: 0;
-				border: 1px solid #eaeaea;
-				border-radius: 4px;
-				margin-bottom: 10px;
-				cursor: pointer;
-				-webkit-transition: all .2s ease-in-out;
-				-moz-transition: all .2s ease-in-out;
-				-o-transition: all .2s ease-in-out;
-				-ms-transition: all .2s ease-in-out;
-				transition: all .2s ease-in-out;
-
-				& > label {
-					display: block;
-					padding: 15px 15px 15px 40px;
-					margin-bottom: 0;
-					cursor: pointer;
-				}
-
-				&.selected,
-				&:first-child.selected {
-					background: #edf8ff;
-					border-color: @eddblue;
-				}
-
-				&:hover:not(.selected) {
-					border-color: #999;
-				}
-
-				&:nth-child(even) {
-					margin-right: 0;
-				}
-
-				& div.card-label {
-					width: 100%;
-					cursor: pointer;
-				}
-
-				& input[type="radio"] {
-					position: absolute;
-					left: 16px;
-					top: 20px;
-					border: none;
-					margin-right: 5px;
-				}
-
-				& .card-brand,
-				.card-last-4 {
-					font-size: 16px;
-					font-weight: 500;
-				}
-
-				.default-card-sep {
-					display: none;
-				}
-
-				& .card-is-default {
-					display: inline-block;
-					background: #a2acb2;
-					color: #fff;
-					font-size: 13px;
-					font-style: normal;
-					line-height: 1;
-					padding: 6px 8px;
-					border-radius: 3px;
-					margin: 0 0 0 6px;
-				}
-
-				& .card-expires-on {
-					position: absolute;
-					right: 16px;
-					display: inline-block;
-					background: #a2acb2;
-					color: #fff;
-					font-size: 13px;
-					line-height: 1;
-					padding: 6px 8px;
-					border-radius: 3px;
-					margin: 0 0 2px 0;
-
-					& .default-card-sep {
-						display: none;
-					}
-				}
-
-				&.selected .card-expires-on,
-				&:first-child.selected .card-expires-on {
-					background: @eddblue;
-				}
-			}
-		}
-
-		& .edd-stripe-new-card {
-			position: relative;
-		}
-	}
-
 	& #ssl-seal {
 		position: absolute;
 		top: 100px;
@@ -1926,6 +2047,113 @@
 		border: none;
 		border-radius: 4px;
 		margin: 25px 0;
+	}
+}
+
+/* Shared saved card styles (checkout and Recurring update payment details */
+.checkout-content,
+#edd-recurring-form {
+	& #edd_checkout_form_wrap {
+		& .edd-stripe-card-selector {
+			& .edd-stripe-card-radio-item {
+				position: relative;
+				background: #fafafa;
+				color: #777;
+				font-size: 14px;
+				padding: 0;
+				border: 1px solid #eaeaea;
+				border-radius: 4px;
+				margin-bottom: 10px;
+				cursor: pointer;
+				-webkit-transition: all .2s ease-in-out;
+				-moz-transition: all .2s ease-in-out;
+				-o-transition: all .2s ease-in-out;
+				-ms-transition: all .2s ease-in-out;
+				transition: all .2s ease-in-out;
+
+				& > label {
+					display: block;
+					padding: 15px 15px 15px 40px;
+					margin-bottom: 0;
+					cursor: pointer;
+				}
+
+				&.selected,
+				&:first-child.selected {
+					background: #edf8ff;
+					border-color: @eddblue;
+				}
+
+				&:hover:not(.selected) {
+					border-color: #999;
+				}
+
+				&:nth-child(even) {
+					margin-right: 0;
+				}
+
+				& div.card-label {
+					width: 100%;
+					cursor: pointer;
+				}
+
+				& input[type="radio"] {
+					position: absolute;
+					left: 16px;
+					top: 20px;
+					border: none;
+					margin: 0 5px 0 0;
+				}
+
+				& .card-brand,
+				.card-last-4 {
+					font-size: 16px;
+					font-weight: 500;
+				}
+
+				.default-card-sep {
+					display: none;
+				}
+
+				& .card-is-default {
+					display: inline-block;
+					background: #a2acb2;
+					color: #fff;
+					font-size: 13px;
+					font-style: normal;
+					line-height: 1;
+					padding: 6px 8px;
+					border-radius: 3px;
+					margin: 0 0 0 6px;
+				}
+
+				& .card-expires-on {
+					position: absolute;
+					right: 16px;
+					display: inline-block;
+					background: #a2acb2;
+					color: #fff;
+					font-size: 13px;
+					line-height: 1;
+					padding: 6px 8px;
+					border-radius: 3px;
+					margin: 0 0 2px 0;
+
+					& .default-card-sep {
+						display: none;
+					}
+				}
+
+				&.selected .card-expires-on,
+				&:first-child.selected .card-expires-on {
+					background: @eddblue;
+				}
+			}
+		}
+
+		& .edd-stripe-new-card {
+			position: relative;
+		}
 	}
 }
 

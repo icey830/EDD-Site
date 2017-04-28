@@ -1323,7 +1323,8 @@
 	}
 
 	/*  checkout */
-	.checkout-content #edd_checkout_form_wrap {
+	.checkout-content #edd_checkout_form_wrap,
+	#edd-recurring-form #edd_checkout_form_wrap {
 		& .edd-stripe-card-radio-item.existing-card-wrapper {
 			& .card-expires-on {
 				background: transparent;
@@ -1553,6 +1554,31 @@
 
 	#edd_profile_editor_form p#edd_profile_display_name_wrap {
 		margin-bottom: 30px;
+	}
+
+	.my-account-tab-content .tab-content #edd-stripe-manage-cards {
+		& .edd-stripe-card-item {
+			& .card-update-form {
+				& input[type="text"],
+				input[type="email"],
+				input[type="password"],
+				input[type="tel"],
+				select {
+					width: 100%;
+					max-width: 100%;
+					margin-bottom: 6px;
+				}
+
+				& .card-expiration-fields > label {
+					display: block;
+				}
+			}
+		}
+	}
+
+	#edd-stripe-manage-cards .edd-stripe-card-item .card-update-form input[type="text"],
+	#edd-stripe-manage-cards .edd-stripe-card-item:nth-child(odd) .card-update-form select {
+
 	}
 
 	/* checkout */
