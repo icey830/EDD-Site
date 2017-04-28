@@ -1325,22 +1325,25 @@
 	/*  checkout */
 	.checkout-content #edd_checkout_form_wrap {
 		& .edd-stripe-card-radio-item.existing-card-wrapper {
-			& > label {
-				min-height: 75px;
-			}
 			& .card-expires-on {
 				background: transparent;
-				color: #999;
-				font-style: italic;
+				color: #999 !important;
 				padding: 0;
-				right: auto;
-				bottom: 16px;
-				left: 16px;
+				position: static;
 			}
 			&.selected .card-expires-on,
 			&:first-child.selected .card-expires-on {
 				background: transparent;
 				color: @eddblue;
+			}
+			& .card-is-default {
+				background: transparent;
+				color: inherit;
+				padding: 0;
+				margin: 0;
+			}
+			& .default-card-sep {
+				display: inline !important;
 			}
 		}
 		& .edd-stripe-card-selector {
