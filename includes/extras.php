@@ -541,18 +541,6 @@ add_action( 'wp', 'eddwp_selective_gf_multiple_instances' );
 
 
 /**
- * Fix Gravity Form Tabindex Conflicts
- */
-function eddwp_gform_tabindexer( $tab_index, $form = false ) {
-	$starting_index = 1000;
-	if ( $form )
-		add_filter( 'gform_tabindex_' . $form['id'], 'eddwp_gform_tabindexer' );
-	return GFCommon::$tab_index >= $starting_index ? GFCommon::$tab_index : $starting_index;
-}
-add_filter( 'gform_tabindex', 'eddwp_gform_tabindexer', 10, 2 );
-
-
-/**
  * Adds custom body classes based on the page the user is browsing.
  */
 function eddwp_body_class( $classes ) {
