@@ -174,7 +174,11 @@ if ( is_user_logged_in() ) : ?>
 								<li><a href="#subscriptions" data-toggle="tab"<?php echo $payment_info_update; ?>><i class="fa fa-repeat"></i>Subscriptions</a></li>
 								<li><a href="#downloads" data-toggle="tab"><i class="fa fa-cloud-download"></i>Downloads</a></li>
 								<li><a href="#profile" data-toggle="tab"><i class="fa fa-user"></i>Profile</a></li>
-								<?php $existing_cards = edd_stripe_get_existing_cards( get_current_user_id() ); ?>
+								<?php
+								if ( function_exists( 'edd_stripe_get_existing_cards' ) ) {
+									$existing_cards = edd_stripe_get_existing_cards( get_current_user_id() );
+								}
+								?>
 								<?php if ( ! empty( $existing_cards ) ) { ?>
 									<li><a href="#payment-methods" data-toggle="tab"><i class="fa fa-credit-card" aria-hidden="true"></i>Payment Methods</a></li>
 								<?php } ?>
