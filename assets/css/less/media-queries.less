@@ -1322,6 +1322,31 @@
 		}
 	}
 
+	/*  checkout */
+	.checkout-content #edd_checkout_form_wrap {
+		& .edd-stripe-card-radio-item.existing-card-wrapper {
+			& > label {
+				min-height: 75px;
+			}
+			& .card-expires-on {
+				background: transparent;
+				color: #999;
+				font-style: italic;
+				padding: 0;
+				right: auto;
+				bottom: 16px;
+				left: 16px;
+			}
+			&.selected .card-expires-on,
+			&:first-child.selected .card-expires-on {
+				background: transparent;
+				color: @eddblue;
+			}
+		}
+		& .edd-stripe-card-selector {
+		}
+	}
+
 	/* downloads display */
 	.pagination,
 	.edd_pagination {
