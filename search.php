@@ -3,73 +3,115 @@
  * template for displaying the search results
  */
 
-get_header(); ?>
+get_header();
+?>
 
-	<div class="site-container">
-		<section class="content">
+<div class="blog-home-area blog-posts-display-area page-section-white full-width">
+	<div class="inner">
+		<div class="blog-posts-display-content clearfix">
 
 			<?php if ( have_posts() ) : ?>
 
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<article <?php post_class(); ?> id="post-<?php echo get_the_ID(); ?>">
-						<div class="entry-header">
-							<p class="entry-date"><i class="fa fa-calendar"></i> <span class="post-date updated"><?php echo get_the_date(); ?></span></p>
-							<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
-						</div>
-						<div class="entry-summary">
-							<?php the_excerpt(); ?>
-							<p><a class="edd-submit button blue" href="<?php echo get_permalink(); ?>"><?php _e( 'Continue Reading...', 'edd' ); ?></a></p>
-						</div>
-						<div class="entry-footer">
-							<?php eddwp_post_meta(); ?>
-						</div>
-					</article>
-
-				<?php endwhile; ?>
-
-				<?php
-					global $wp_query;
-					if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : ?>
-						<div id="page-nav">
-							<ul class="paged">
-								<?php
-									if ( get_next_posts_link() ) :
-										?>
-										<li class="previous">
-											<?php next_posts_link( __( '<span class="nav-previous meta-nav">&larr; Older Posts</span>', 'edd' ) ); ?>
-										</li>
-										<?php
-									endif;
-
-									if ( get_previous_posts_link() ) :
-										?>
-										<li class="next">
-											<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer Posts &rarr;</span>', 'edd' ) ); ?>
-										</li>
-										<?php
-									endif;
-								?>
-							</ul>
-						</div>
-						<?php
-					endif;
-				?>
+				<h2 class="section-title-alt">Search results: <span class="queried-term"><?php echo sanitize_text_field( stripslashes( $_GET['s'] ) ); ?></span></h2>
 
 			<?php else : ?>
 
-				<header class="page-header hentry">
-					<h3 class="page-title">
-						Oops! No search results for: <em><?php echo get_search_query(); ?></em>
-					</h3>
-					<p>Perhaps there is a typo in your search query. Feel free to try again.</p>
-					<?php echo get_search_form(); ?>
-				</header>
+				<h2 class="section-title-alt">No results found for: <span class="queried-term"><?php echo sanitize_text_field( stripslashes( $_GET['s'] ) ); ?></span></h2>
 
-			<?php endif; // end if - have_posts() ?>
+				<p class="alert">Oops! That keyword phrase returns no results. Try searching again or browsing the posts below.</p>
 
-		</section>
-		<?php get_sidebar(); ?>
+			<?php endif; ?>
+
+			<div class="continue-search-form">
+				<?php get_search_form(); ?>
+			</div>
+
+			<section class="download-grid three-col clearfix">
+
+				<?php if ( have_posts() ) : ?>
+
+					<?php while ( have_posts() ) : the_post(); ?>
+						<div <?php post_class( 'download-grid-item' ); ?> id="post-<?php echo get_the_ID(); ?>">
+
+							<div class="entry-header">
+								<?php if ( has_post_thumbnail() ) { ?>
+									<div class="download-grid-thumb-wrap">
+										<a href="<?php echo get_permalink(); ?>" title="<?php get_the_title(); ?>">
+											<?php the_post_thumbnail( 'full', array( 'class' => 'download-grid-thumb' ) ); ?>
+										</a>
+									</div>
+								<?php } ?>
+							</div>
+
+							<div class="download-grid-item-info">
+								<?php
+								eddwp_post_byline_lite();
+								the_title( sprintf( '<h1 class="entry-title download-grid-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h1>' );
+								?>
+							</div>
+
+						</div>
+					<?php endwhile; wp_reset_postdata(); ?>
+					<div class="download-grid-item flex-grid-cheat"></div>
+					<div class="download-grid-item flex-grid-cheat"></div>
+
+				<?php else : ?>
+
+					<?php
+					// no results query
+					$n_query = array(
+						'post_type'      => 'post',
+						'posts_per_page' => 15,
+						'paged'          => isset( $_GET['page'] ) ? (int) $_GET['page'] : 1,
+					);
+					$nr_query = new WP_Query( $n_query );
+					?>
+
+					<?php while ( $nr_query->have_posts() ) : $nr_query->the_post(); ?>
+						<div <?php post_class( 'download-grid-item' ); ?> id="post-<?php echo get_the_ID(); ?>">
+
+							<div class="entry-header">
+								<?php if ( has_post_thumbnail() ) { ?>
+									<div class="download-grid-thumb-wrap">
+										<a href="<?php echo get_permalink(); ?>" title="<?php get_the_title(); ?>">
+											<?php the_post_thumbnail( 'full', array( 'class' => 'download-grid-thumb' ) ); ?>
+										</a>
+									</div>
+								<?php } ?>
+							</div>
+
+							<div class="download-grid-item-info">
+								<?php
+								eddwp_post_byline_lite();
+								the_title( sprintf( '<h1 class="entry-title download-grid-title"><a href="%s">', esc_url( get_permalink() ) ), '</a></h1>' );
+								?>
+							</div>
+
+							<div class="entry-footer">
+								<?php //eddwp_post_terms(); ?>
+							</div>
+
+						</div>
+					<?php endwhile; wp_reset_postdata(); ?>
+					<div class="download-grid-item flex-grid-cheat"></div>
+					<div class="download-grid-item flex-grid-cheat"></div>
+
+				<?php endif; ?>
+
+			</section>
+
+			<?php
+			$big = 999999999;
+			echo '<div class="pagination clearfix">' . paginate_links( array(
+					'base'    => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+					'format'  => 'paged=%#%',
+					'current' => max( 1, get_query_var( 'paged' ) ),
+					'total'   => $wp_query->have_posts() ? $wp_query->max_num_pages : $nr_query->max_num_pages,
+				) ) . '</div>';
+			?>
+
+		</div>
 	</div>
+</div>
 
 <?php get_footer(); ?>

@@ -115,6 +115,11 @@ function eddwp_remove_bctt_styling() {
 }
 add_action( 'template_redirect', 'eddwp_remove_bctt_styling' );
 
+/**
+ * Remove card management from user profile editor
+ */
+remove_action( 'edd_profile_editor_after', 'edd_stripe_manage_cards' );
+
 
 /**
  * Content formatter
@@ -466,10 +471,21 @@ add_filter( 'bbp_login_widget_title', 'eddwp_bbp_login_widget_title', 10, 3 );
 
 
 /**
+ * Get ID of Gravity Forms newsletter form
+ */
+function eddwp_newsletter_form_id() {
+	if ( ! class_exists( 'RGFormsModel' ) ) {
+		return;
+	}
+	return RGFormsModel::get_form_id( 'Newsletter Subscribe' );
+}
+
+
+/**
  * Filter the submit button on the dedicated subscription form (Gravity Forms)
  */
-function eddwp_gf_subscription_form_submit_button( $content ) {
-	if ( is_page( 'subscribe' ) && function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
+function eddwp_newsletter_form_submit_button( $content ) {
+	if ( function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
 		$count = mailchimp_subscriber_count()->subscriber_count();
 		$button_text = 'Join ' . $count . ' subscribers!';
 		$content = str_replace( 'Sign me up!', $button_text, $content );
@@ -478,7 +494,50 @@ function eddwp_gf_subscription_form_submit_button( $content ) {
 		return $content;
 	}
 }
-add_filter( 'gform_submit_button', 'eddwp_gf_subscription_form_submit_button' );
+add_filter( 'gform_submit_button_' . eddwp_newsletter_form_id(), 'eddwp_newsletter_form_submit_button' );
+
+
+/**
+ * Prevent newsletter form from jumping to anchor when submitted
+ *
+ * thanks, Andrew
+ */
+add_filter( 'gform_confirmation_anchor_' . eddwp_newsletter_form_id(), '__return_false' );
+
+
+/**
+ * remove Gravity Forms validation message on newsletter form
+ *
+ * thanks, Andrew
+ */
+function eddwp_newsletter_form_validation_message( $validation_message, $form ) {
+	return '<p class="newsletter-validation-error"><i class="fa fa-exclamation-triangle"></i> Please enter your email address below.</p>';
+}
+add_filter( 'gform_validation_message_' . eddwp_newsletter_form_id(), 'eddwp_newsletter_form_validation_message', 10, 2 );
+
+
+/**
+ * Gravity Forms - change spinner
+ *
+ * thanks, Andrew
+ */
+function eddwp_newsletter_form_gform_ajax_spinner_url( $uri, $form ) {
+	return get_stylesheet_directory_uri() . '/assets/svgs/loading.svg';
+}
+add_filter( 'gform_ajax_spinner_url', 'eddwp_newsletter_form_gform_ajax_spinner_url', 10, 2 );
+
+
+/**
+ * Limit 'Gravity Forms - Multiple Forms Instances' to only where it's needed
+ * Watch for real fixes: https://github.com/tyxla/Gravity-Forms-Multiple-Form-Instances
+ */
+function eddwp_selective_gf_multiple_instances() {
+	if ( ! is_single() ) { // only allow plugin to run on single posts
+		global $gravity_forms_multiple_form_instances;
+		remove_filter( 'gform_get_form_filter', array( $gravity_forms_multiple_form_instances, 'gform_get_form_filter' ), 10, 2 );
+	}
+}
+add_action( 'wp', 'eddwp_selective_gf_multiple_instances' );
 
 
 /**

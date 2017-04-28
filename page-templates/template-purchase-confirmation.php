@@ -34,7 +34,9 @@ get_header();
 						<ul class="nav nav-tabs nav-append-content purchase-confirmation-tabs">
 							<li class="active"><a href="#purchase-details" data-toggle="tab"><i class="fa fa-list" aria-hidden="true"></i>Purchase Details</a></li>
 							<li><a href="#documentation" data-toggle="tab"><i class="fa fa-file-text-o" aria-hidden="true"></i>Documentation</a></li>
-							<li><a href="#recommendations" data-toggle="tab"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Recommendations</a></li>
+							<?php if ( function_exists( 'edd_rp_get_suggestions' ) ) { ?>
+								<li><a href="#recommendations" data-toggle="tab"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Recommendations</a></li>
+							<?php } ?>
 						</ul>
 						<ul class="your-account-link-list">
 							<li><a class="your-account-link" href="<?php echo home_url( '/your-account' ); ?>"><i class="fa fa-user" aria-hidden="true"></i>Your Account</a></li>
@@ -47,31 +49,10 @@ get_header();
 								<h3>Thank you for your purchase!</h3>
 								<p>You will be sent an email within a few minutes containing download links to the items you purchased. You may also access your license keys and download your purchases from <a href="https://easydigitaldownloads.com/your-account/">your account</a>.</p>
 								<p>Your purchase means a lot to us! If you'd like to tell your friends about us, use the buttons below to share Easy Digital Downloads with the world.</p>
-								<div class="social-buttons">
-									<div>
-										<script type="text/javascript">
-											// <![CDATA[
-											!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-											// ]]>
-										</script>
-									</div>
-									<div>
-										<a class="twitter-share-button" href="https://twitter.com/share" data-url="https://easydigitaldownloads.com/extensions" data-text="I've just purchased extensions from @eddwp for #WordPress">Tweet</a>
-										<a class="twitter-follow-button" href="https://twitter.com/eddwp" data-show-count="false">Follow @eddwp</a>
-									</div>
-									<div>
-										<div class="g-plusone" data-size="tall" data-annotation="none" data-href="https://easydigitaldownloads.com"></div>
-										<script type="text/javascript">
-											// <![CDATA[
-											(function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();
-											// ]]>
-										</script>
-									</div>
-									<div>
-										<iframe style="border: none; overflow: hidden; width: 450px; height: 21px;" src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Feasydigitaldownloads.com%2F&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=411242818920331" width="300" height="150" frameborder="0" scrolling="no"></iframe>
-									</div>
-								</div>
-								<?php echo do_shortcode('[edd_receipt]'); ?>
+								<?php
+									eddwp_social_networking_follow();
+									echo do_shortcode('[edd_receipt]');
+								?>
 							</div><!-- /.tab-pane -->
 
 							<div class="tab-pane documentation-tab-pane" id="documentation">

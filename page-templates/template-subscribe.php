@@ -20,17 +20,20 @@ the_post();
 					<p>Are you building an extension or theme for Easy Digital Downloads? Perhaps you've done custom work for your site? Our <strong>Developer Updates</strong> list is an absolute must to follow.</p>
 				</div>
 			</div>
-			<div class="subscription-wrap">
+			<div class="subscription-form-wrap subscription-form-container">
 				<div class="subscription-form">
 					<div class="subscription-mobile">
 						<h3>Stay Connected With Easy Digital Downloads</h3>
 						<p>By signing up to the newsletter, you will be the first to know about the latest <strong>updates and exclusive promotions</strong> for Easy Digital Downloads and its extensions and themes.</p>
 					</div>
 					<p>Enter your best email address, your name, and selections for any additional updates you would like to receive.</p>
-					<?php the_content(); // the page should ONLY include the Gravity Forms shortcode ?>
-					<div class="subscription-notes">
-						<i class="fa fa-lock"></i>Your email address is secure. We will never send you spam. You may unsubscribe at any time.
-					</div>
+					<?php
+						$args = array(
+							'heading'     => false,
+							'description' => false
+						);
+						eddwp_newsletter_form( $args );
+					?>
 				</div>
 				<img class="subscription-sitting-edd" src="<?php echo get_template_directory_uri(); ?>/images/mascot/edd-sitting.png" />
 			</div>

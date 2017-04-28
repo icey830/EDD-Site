@@ -76,48 +76,73 @@ function eddwp_comment_form() {
  * ----------------------------------------------------------- */
 
 /**
- * Single post meta
+ * post top byline
  */
-function eddwp_post_meta() {
+function eddwp_post_byline() {
+	global $post;
 	?>
-	<div class="post-meta clearfix">
-		<ul>
+	<div class="post-meta post-meta-byline clearfix">
+
+		<?php
+			printf( '<span class="entry-author author vcard"><span class="author-avatar">%1$s</span> by <strong>%2$s</strong></span> &middot; ',
+				get_avatar( get_the_author_meta( 'ID', $post->post_author ), 25, null ),
+				esc_html( get_the_author() )
+			);
+
+
+			?>
+			<span class="entry-date">published on <span><?php echo get_the_date(); ?></span></span>
 			<?php
-				if ( is_single() ) :
-					eddwp_author_box();
-				endif;
+
+		?>
+
+	</div><!-- /.post-meta-->
+	<?php
+}
+
+/**
+ * post byline just date
+ */
+function eddwp_post_byline_lite() {
+	?>
+	<div class="post-meta post-meta-lite clearfix">
+		<span class="entry-date">published on <span><?php echo get_the_date(); ?></span></span>
+	</div>
+	<?php
+}
+
+/**
+ * post terms
+ */
+function eddwp_post_terms() {
+	if ( is_single() ) :
+		eddwp_author_box();
+	endif;
+	?>
+	<div class="post-meta post-terms clearfix">
+
+		<?php
+
+			echo '<span class="entry-terms">';
 
 				$categories = get_the_category_list( __( ', ', 'edd' ) );
+				$tags = get_the_tag_list( '', __( ', ', 'edd' ) );
+
 				if ( $categories ) :
 					?>
-					<li><i class="fa fa-list-ul"></i> <?php echo $categories; ?></li>
+					<span class="entry-categories">Filed under <?php echo $categories; echo $tags ? '' : '.'; ?></span>
 					<?php
 				endif;
 
-				$tags = get_the_tag_list( '', __( ', ', 'edd' ) );
 				if ( $tags ) :
 					?>
-					<li><i class="fa fa-tag"></i> <?php echo get_the_tag_list( '', __( ', ', 'edd' ) ); ?></li>
+					<span class="entry-tags"> with focus on <?php echo $tags; ?></span>.
 					<?php
 				endif;
 
-				// total number of comments including pings
-				$response_count = get_comments_number();
-
-				// total number of comments excluding pings
-				$comment_count = eddwp_get_comments_only_count( $response_count );
-
-				if ( comments_open() && ( 0 !== $comment_count ) && ! is_single() ) :
-					if ( $comment_count >= 1 ) :
-						$comment_total = $comment_count;
-					endif;
-					?>
-					<li><i class="fa fa-comments-o"></i> <span class="the-comment-link"><?php comments_popup_link( __( 'Leave a comment', 'edd' ), __( '1 Comment', 'edd' ), $comment_total . ' ' . __( 'Comments', 'edd' ), '', ''); ?></span></li>
-					<?php
-				endif;
-			?>
-		</ul>
-	</div><!-- /.post-meta-->
+			echo '</span>';
+		?>
+	</div>
 	<?php
 }
 
@@ -141,6 +166,38 @@ function eddwp_author_box() {
 			</div>
 		</div>
 	<?php
+}
+
+
+/**
+ * blog pagination
+ */
+function eddwp_blog_paginate_links() {
+	global $wp_query;
+	if ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : ?>
+		<div id="page-nav">
+			<ul class="paged">
+				<?php
+				if ( get_next_posts_link() ) :
+					?>
+					<li class="previous">
+						<?php next_posts_link( __( '<span class="nav-previous meta-nav">&larr; Older Posts</span>', 'edd' ) ); ?>
+					</li>
+					<?php
+				endif;
+
+				if ( get_previous_posts_link() ) :
+					?>
+					<li class="next">
+						<?php previous_posts_link( __( '<span class="nav-next meta-nav">Newer Posts &rarr;</span>', 'edd' ) ); ?>
+					</li>
+					<?php
+				endif;
+				?>
+			</ul>
+		</div>
+		<?php
+	endif;
 }
 
 
@@ -271,33 +328,33 @@ function eddwp_rp_shortcode( $count = 6 ) {
 /**
  * Universal Newsletter Sign Up Form
  */
-function eddwp_newsletter_form() {
-	if ( function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
-		$count = mailchimp_subscriber_count()->subscriber_count();
-		$subscribe_button = "Join $count subscribers!";
-	} else {
-		$subscribe_button = 'Sign me up!';
-	}
+function eddwp_newsletter_form( $args = array() ) {
+
+	$args = array(
+		'heading'             => isset( $args['heading'] ) ? $args['heading'] : true,
+		'heading_content'     => isset( $args['heading_content'] ) ? $args['heading_content'] : 'Email Newsletter',
+		'description'         => isset( $args['description'] ) ? $args['description'] : true,
+		'description_content' => isset( $args['description_content'] ) ? $args['description_content'] : 'Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads by submitting your information below.',
+		'notes'               => isset( $args['notes'] ) ? $args['notes'] : true,
+		'notes_content'       => isset( $args['notes_content'] ) ? $args['notes_content'] : '<i class="fa fa-lock"></i>Your email address is secure. We will never send you spam. You may unsubscribe at any time.',
+		'tabindex'            => isset( $args['tabindex'] ) ? $args['tabindex'] : 10,
+	);
+
 	?>
-	<div class="newsletter">
-		<h3 class="newsletter-title"><span>Subscribe to the Easy Digital Downloads </span>Email Newsletter</h3>
+	<div class="subscription-form-wrap">
+		<?php if ( $args['heading'] ) { ?>
+			<h3 class="newsletter-title"><?php echo $args['heading_content']; ?></h3>
+		<?php } ?>
 		<div class="edd-newsletter-content-wrap">
-			<p class="newsletter-description">Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads by submitting your information below.</p>
-			<form class="newsletter-form" id="pmc_mailchimp" action="" method="post">
-				<div class="newsletter-name-container">
-					<input class="newsletter-name" name="pmc_fname" id="pmc_fname" type="text" placeholder="First Name"/>
+			<?php if ( $args['description'] ) { ?>
+				<p class="newsletter-description"><?php echo $args['description_content']; ?></p>
+			<?php } ?>
+			<?php gravity_form( eddwp_newsletter_form_id(), false, false, false, '', true, $args['tabindex'] ); ?>
+			<?php if ( $args['notes'] ) { ?>
+				<div class="subscription-notes">
+					<?php echo $args['notes_content']; ?>
 				</div>
-				<div class="newsletter-email-container">
-					<input class="newsletter-email" name="pmc_email" id="pmc_email" type="text" placeholder="Email Address"/>
-				</div>
-				<div class="newsletter-submit-container">
-					<input type="hidden" name="redirect" value="<?php if ( function_exists( 'edd_get_current_page_url' ) ) { echo edd_get_current_page_url(); } ?>"/>
-					<input type="hidden" name="action" value="pmc_signup"/>
-					<input type="hidden" name="pmc_list_id" value="be2b495923"/>
-					<input type="submit" class="newsletter-submit edd-submit button darkblue" value="<?php echo esc_attr( $subscribe_button ); ?>"/>
-				</div>
-			</form>
-			<p class="newsletter-note"><i class="fa fa-lock"></i>We will never send you spam. Your email address is secure.</p>
+			<?php } ?>
 		</div>
 	</div>
 	<?php
@@ -329,7 +386,7 @@ function eddwp_google_custom_search() {
 /**
  * query upcoming commissions
  */
-function eddc_get_upcoming_commissions(){
+function eddc_get_upcoming_commissions() {
 	global $user_ID;
 
 	if( ! is_user_logged_in() ) {
@@ -465,6 +522,41 @@ function eddwp_social_networking_profiles( $args = array() ) {
 	echo $args['wrap'] ? '</div>' : '';
 }
 
+
+/**
+ * Output EDD social networking follow buttons
+ */
+function eddwp_social_networking_follow() {
+	?>
+	<div class="social-buttons">
+		<div>
+			<script type="text/javascript">
+				// <![CDATA[
+				!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+				// ]]>
+			</script>
+		</div>
+		<div>
+			<?php if ( is_page( 'purchase-confirmation' ) ) { ?>
+				<a class="twitter-share-button" href="https://twitter.com/share" data-url="https://easydigitaldownloads.com/extensions" data-text="I've just purchased extensions from @eddwp for #WordPress">Tweet</a>
+			<?php } ?>
+			<a class="twitter-follow-button" href="https://twitter.com/eddwp" data-show-count="false">Follow @eddwp</a>
+		</div>
+		<div>
+			<div class="g-plusone" data-size="tall" data-annotation="none" data-href="https://easydigitaldownloads.com"></div>
+			<script type="text/javascript">
+				// <![CDATA[
+				(function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();
+				// ]]>
+			</script>
+		</div>
+		<div>
+			<iframe style="border: none; overflow: hidden; width: 450px; height: 21px;" src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Feasydigitaldownloads.com%2F&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21&amp;appId=411242818920331" width="300" height="150" frameborder="0" scrolling="no"></iframe>
+		</div>
+	</div>
+	<?php
+}
+
 /**
  * Get the total number of non-third party extensions
  */
@@ -509,5 +601,36 @@ function eddwp_login_form() {
 		</div>
 		<a class="lost-password-link" href="<?php echo wp_lostpassword_url( get_permalink() ); ?>" title="Lost Password">Lost Password</a>
 	</form><!-- /#loginform -->
+	<?php
+}
+
+
+/**
+ * blog categories output
+ */
+function eddwp_blog_categories() {
+	$blog_front = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+	?>
+	<div class="blog-categories clearfix">
+
+		<ul>
+			<li class="cat-item <?php echo is_home() || is_page_template( 'page-templates/template-thank-you.php' ) ? 'current-cat' : ''; ?>"><a href="<?php echo home_url( 'blog' ); ?>">All Posts</a>
+			<?php
+			wp_list_categories( array(
+				'orderby'    => 'count',
+				'order'      => 'DESC',
+				'depth'      => 1,
+				'show_count' => 1,
+				'title_li'   => '',
+				'show_count' => false,
+				'exclude'    => array(
+					1573 /* exclude from EDD */,
+					1404 /* contributor highlights */
+				),
+			) );
+			?>
+		</ul>
+
+	</div>
 	<?php
 }

@@ -1,5 +1,5 @@
 /*
- * basic singular styles
+ * basic blog, archive, and singular styles
  */
 
 
@@ -37,10 +37,12 @@
 	}
 }
 
-.blog-home .entry-title {
-	padding-bottom: 0;
-	border-bottom: none;
+.blog-posts-display-content .entry-header {
 	margin-bottom: 0;
+
+	& .entry-title.download-grid-title {
+		font-size: 2.2rem;
+	}
 }
 
 
@@ -117,19 +119,12 @@
 }
 
 .post-meta {
+	color: #999;
+	font-size: 13px;
 
-	& ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-
-	& li {
-		color: #999;
-		font-size: 13px;
+	& span[class*="entry-"] {
 
 		& i {
-			margin-right: 5px;
 			width: 16px;
 			display: inline-block;
 		}
@@ -143,12 +138,24 @@
 			}
 		}
 	}
+
+	& .avatar {
+		border-radius: 50%;
+		margin-right: 3px;
+		vertical-align: bottom;
+	}
 }
 
 .single.blog .post-meta {
 	padding: 0;
 	border: none;
-	margin: 30px 0;
+	margin: 0 0 25px;
+
+	& .avatar {
+		border-radius: 50%;
+		margin-right: 3px;
+		vertical-align: middle;
+	}
 }
 
 .edd-author-box {
@@ -185,6 +192,62 @@
 			}
 		}
 	}
+}
+
+.blog-posts-display-content .download-grid.two-col .download-grid-item {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+
+	& .download-grid-item-info {
+		padding-bottom: 0;
+		margin-bottom: 0;
+
+		& .entry-title.download-grid-title {
+			font-size: 2.6rem;
+		}
+
+		& .post-meta {
+			margin-bottom: 30px;
+		}
+
+		& > p {
+			font-size: 1.6rem;
+			margin-bottom: 12px;
+			min-height: auto;
+		}
+	}
+}
+
+.blog-posts-display-content .entry-more-link {
+	font-size: 1.3rem !important;
+	margin: auto 0 0 !important;
+
+	& a {
+		color: #999;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+.blog-posts-display-content .download-grid.three-col .download-grid-item {
+	min-height: 100px;
+
+	& .download-grid-item-info {
+		padding: 20px 20px 0;
+
+		& .post-meta {
+			margin-bottom: 16px;
+		}
+	}
+}
+
+.blog-posts-display-content .entry-footer {
+	padding: 20px;
+	margin: auto 0 0;
 }
 
 
@@ -262,6 +325,93 @@
 	height: 100%;
 }
 
+.blog-posts-display-area.blog-home-browse-posts .inner {
+	padding-top: 0;
+}
+
+.blog-posts-display-content {
+	position: relative;
+
+	& .blog-categories li {
+
+		& a {
+			display: inline-block;
+			background: #a2acb2;
+			color: #fff;
+			font-size: 13px;
+			line-height: 1;
+			padding: 6px 8px;
+			border-radius: 3px;
+			margin: 0 0 2px 20px;
+			-webkit-transition: all .2s ease-in-out;
+			-moz-transition: all .2s ease-in-out;
+			-o-transition: all .2s ease-in-out;
+			-ms-transition: all .2s ease-in-out;
+			transition: all .2s ease-in-out;
+			vertical-align: middle;
+
+			&:hover {
+				background: #2794da;
+			}
+		}
+
+		&.current-cat a {
+			background: @eddblue;
+		}
+	}
+
+	& .section-title-alt .subscribe-to-blog {
+		display: inline-block;
+		background: #a2acb2;
+		color: #fff;
+		font-size: 13px;
+		line-height: 1;
+		padding: 6px 8px;
+		border-radius: 3px;
+		margin: 0 0 2px 0;
+		-webkit-transition: all .2s ease-in-out;
+		-moz-transition: all .2s ease-in-out;
+		-o-transition: all .2s ease-in-out;
+		-ms-transition: all .2s ease-in-out;
+		transition: all .2s ease-in-out;
+		vertical-align: middle;
+
+		& .fa {
+			margin-right: 3px;
+		}
+
+		&:hover {
+			background: #2794da;
+		}
+	}
+
+	& .continue-search-form {
+		position: absolute;
+		right: 0;
+		top: -2px;
+	}
+
+	& .blog-categories {
+		margin-bottom: 25px;
+
+		& ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+
+			& li {
+				float: left;
+				list-style: none;
+				margin: 0 8px 8px 0;
+
+				& a {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
+
 
 /* ----------------------------- *
  * single downloads (standard)
@@ -306,5 +456,72 @@
 				color: #fff;
 			}
 		}
+	}
+}
+
+
+/* ----------------------------- *
+ * blog search
+ * ----------------------------- */
+.section-title-alt .queried-term {
+	color: #777;
+}
+
+
+/* ----------------------------- *
+ * Post Footer Newsletter
+ * ----------------------------- */
+.edd-post-footer .subscription-form-wrap {
+	padding: 30px;
+	border-radius: 4px;
+	margin-bottom: 50px;
+
+	& .newsletter-title {
+		margin-bottom: 16px;
+	}
+
+	& .gform_wrapper {
+
+		& .lists-wrap {
+
+			& .gfield_label {
+				display: none;
+			}
+
+			& .ginput_container_checkbox {
+
+				& ul {
+					padding-top: 20px;
+
+					& label {
+						font-size: 1.4rem;
+						padding-left: 24px;
+
+						& .bullet:before {
+							font-size: 2rem;
+							width: 25px;
+							height: 24px;
+							padding-left: 0;
+							margin-left: 0;
+							top: 1px;
+						}
+					}
+				}
+			}
+		}
+
+		& input[type="submit"][id*="gform_submit_button_"] {
+			display: block;
+			margin-bottom: 8px;
+			width: 100%;
+		}
+
+		.gform_footer {
+			margin-top: 24px;
+		}
+	}
+
+	& .subscription-notes {
+		max-width: 100%;
 	}
 }
