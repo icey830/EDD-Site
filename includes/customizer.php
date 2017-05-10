@@ -241,6 +241,50 @@ function eddwp_customize_register( $wp_customize ) {
 		'section'   => 'eddwp_theme_settings',
 		'priority'  => 30,
 	) ) );
+
+	/** =============
+	 * Support Page
+	 */
+	$wp_customize->add_section( 'eddwp_support_page_settings', array(
+		'title'         => 'Support Page Settings',
+	) );
+
+	// Show Customer Notice
+	$wp_customize->add_setting( 'eddwp_show_customer_notice_support_page', array(
+		'default'           => 0,
+		'sanitize_callback' => 'eddwp_sanitize_checkbox',
+	) );
+	$wp_customize->add_control( 'eddwp_show_customer_notice_support_page', array(
+		'label'     => 'Show Customer Notice',
+		'section'   => 'eddwp_support_page_settings',
+		'priority'  => 10,
+		'type'      => 'checkbox',
+	) );
+
+	// Notice Text
+	$wp_customize->add_setting( 'eddwp_customer_notice_text_support_page', array(
+		'default'           => '',
+		'sanitize_callback' => 'eddwp_sanitize_textarea',
+	) );
+	$wp_customize->add_control( new EDDWP_WP_Customize_Textarea_Control( $wp_customize, 'eddwp_customer_notice_text_support_page', array(
+		'label'         => 'Text for the customer notice',
+		'section'       => 'eddwp_support_page_settings',
+		'description'   => 'Display a notice to customers on the support page alerting them of known issues or relevant information.',
+		'priority'      => 80,
+	) ) );
+
+	// Notice class
+	$wp_customize->add_setting( 'eddwp_customer_notice_class_support_page', array(
+		'default'           => '',
+	) );
+	$wp_customize->add_control( 'eddwp_customer_notice_class_support_page', array(
+		'label'         => 'Class for the notice to use.',
+		'section'       => 'eddwp_support_page_settings',
+		'description'   => 'Choose from one of the base EDD Alert classes.',
+		'priority'      => 80,
+		'type'          => 'select',
+		'choices'       => array( 'error' => 'Error (Red)', 'success' => 'Success (Green)', 'warn' => 'Warning (Yellow)', 'info' => 'Info (Blue)' ),
+	) );
 }
 add_action( 'customize_register', 'eddwp_customize_register' );
 
