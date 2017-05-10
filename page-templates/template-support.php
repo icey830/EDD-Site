@@ -11,6 +11,7 @@ the_post();
 
 		<div class="support-search-area page-section-white full-width">
 			<div class="inner">
+
 				<div class="support-search">
 					<?php if ( is_page( 'support' ) ) { ?>
 						<h2 class="section-title-alt">Questions? Let us help.</h2>
@@ -90,6 +91,12 @@ the_post();
 						</div>
 					<?php } ?>
 					<?php if ( is_page( 'support' ) ) { ?>
+						<?php if ( get_theme_mod( 'eddwp_show_customer_notice_support_page' ) ) : ?>
+						<p class="edd-alert edd-alert-<?php echo get_theme_mod( 'eddwp_customer_notice_class_support_page' ); ?>">
+							<?php echo get_theme_mod( 'eddwp_customer_notice_text_support_page' ); ?>
+						</p>
+						<?php endif; ?>
+
 						<p class="edd-docs-link-wrap">
 							<a class="edd-submit button blue" href="http://docs.easydigitaldownloads.com/">View Full Documentation</a><span class="button-break"></span><a class="edd-support-ticket-link edd-submit button gray" href="#">Submit Support Request</a>
 						</p>
