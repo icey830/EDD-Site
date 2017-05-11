@@ -12,6 +12,7 @@ function eddwp_button( $atts, $content = null ) {
 			'link' 	 => '',
 			'color'  => 'blue',
 			'target' => '_blank',
+			'icon'   => '',
 		),
 		$atts, 'eddwp_button' )
 	);
@@ -29,8 +30,14 @@ function eddwp_button( $atts, $content = null ) {
 		default :
 			$color = 'blue';
 	endswitch;
+	
+	if ( ! empty( $icon ) ) :
+		$fontawesome = '<i class="fa fa-' . $icon . '" aria-hidden="true"></i>';
+	else :
+		$fontawesome = '';
+	endif;
 
-	return '<p><a href="' . esc_url( $link ) . '" target="' . esc_attr( $target ) . '" class="edd-submit button ' . esc_attr( $color ) . '">' . $content . '</a></p>';
+	return '<p><a href="' . esc_url( $link ) . '" target="' . esc_attr( $target ) . '" class="edd-submit button ' . esc_attr( $color ) . '">' . $fontawesome . $content . '</a></p>';
 }
 add_shortcode( 'button', 'eddwp_button' );
 
