@@ -448,29 +448,6 @@ add_action( 'wp_footer', 'eddwp_facebook_conversion_pixel' );
 
 
 /**
- * Filter the admin reply links to remove extra &nbsp; add by bbPress
- */
-function eddwp_get_reply_admin_links( $retval, $r, $args ) {
-	$retval = str_replace("&nbsp;", '', $retval);
-	echo trim($retval);
-}
-add_filter( 'bbp_get_reply_admin_links', 'eddwp_get_reply_admin_links', 10, 3 );
-
-
-/**
- * Change the bbPress Login Widget if the user is logged in or out
- */
-function eddwp_bbp_login_widget_title( $title, $instance, $id_base ) {
-	if ( ! is_user_logged_in() ) {
-		return $title;
-	} else {
-		return __( 'Logged in as', 'eddwp' );
-	}
-}
-add_filter( 'bbp_login_widget_title', 'eddwp_bbp_login_widget_title', 10, 3 );
-
-
-/**
  * Get ID of Gravity Forms newsletter form
  */
 function eddwp_newsletter_form_id() {
