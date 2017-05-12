@@ -1718,7 +1718,6 @@
 
 #loginform input[type="submit"] {
 	display: block;
-	margin-top: ;
 }
 
 .lost-password-link {
@@ -1731,6 +1730,61 @@
 	&:hover {
 		color: #777;
 		text-decoration: none;
+	}
+}
+
+/* standard EDD login form */
+#edd_login_form {
+	max-width: 380px;
+	margin: 40px auto 0;
+
+	& fieldset {
+		width: 100%;
+		border: none;
+
+		& > legend {
+			display: none;
+		}
+
+		& > p {
+			margin-bottom: 0;
+
+			& label {
+				font-weight: 400;
+			}
+		}
+
+		& input[type="text"],
+		input[type="password"] {
+			background: @eddgray;
+			padding: 10px;
+			width: 100%;
+			outline: none;
+			margin: 0 0 10px;
+			border: 3px solid @eddgrayhover;
+			border-radius: 3px;
+		}
+	}
+
+	& input[type="checkbox"] {
+		margin-bottom: 13px;
+	}
+
+	& input[type="submit"] {
+		display: block;
+	}
+
+	& .edd-lost-password a {
+		display: inline-block;
+		color: #777;
+		font-size: 1.4rem;
+		text-decoration: underline;
+		margin-top: 10px;
+
+		&:hover {
+			color: #777;
+			text-decoration: none;
+		}
 	}
 }
 
