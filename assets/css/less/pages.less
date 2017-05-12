@@ -242,17 +242,57 @@
 /* ----------------------------- *
  * Pricing template (new)
  * ----------------------------- */
+#pricing-table-area {
+	& .inner {
+		padding-top: 100px
+	}
+}
+
 .pricing-table-content {
 	& .pricing-table-column.flex-four {
 		width: 25%;
-
-		& .table-heading {
-			background: @eddblue;
-			background: -moz-linear-gradient(5deg, @eddbluehover 73%, @eddbluehover 73%, @eddbluehover 73%);
-			background: -webkit-linear-gradient(5deg, @eddbluehover 73%, @eddbluehover 73%, @eddblue 73%);
-			background: linear-gradient(5deg, @eddbluehover 73%, @eddbluehover 73%, @eddblue 73%);
+		
+		&:not(.free-column) {
+			background: @eddgray;
+		}
+		
+		&.starter-package-column {
+			background: @edddarkblue;
 			color: #fff;
-			font-size: 2rem;
+			border-radius: 4px 4px 0 0;
+			margin-top: -40px;
+			
+			& .column-heading {
+				padding-top: 70px;
+			}
+		}
+		
+		&.core-bundle-column {
+			background: @eddblue;
+			background: -moz-linear-gradient(5deg, @eddbluehover 54%, @eddbluehover 54%, @eddbluehover 54%);
+			background: -webkit-linear-gradient(5deg, @eddbluehover 54%, @eddbluehover 54%, @eddblue 54%);
+			background: linear-gradient(5deg, @eddbluehover 54%, @eddbluehover 54%, @eddblue 54%);
+			color: #fff;
+			border-radius: 0 4px 0 0;
+			margin-top: -20px;
+			
+			& .column-heading {
+				border-radius: 0 4px 0 0;
+				padding-top: 50px;
+			}
+		}
+		
+		&.a-la-carte-column {
+			background: @eddgray;
+			border-radius: 0 4px 0 0;
+			
+			& .column-heading {
+				border-radius: 0 4px 0 0;
+			}
+		}
+
+		& .column-heading {
+			font-size: 2.6rem;
 			font-weight: 500;
 			text-align: center;
 			padding: 30px;
