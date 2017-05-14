@@ -78,7 +78,7 @@
 		font-size: 4rem;
 	}
 
-	/* featured page */
+	/* features page */
 	.features-page-section {
 		& .features-content {
 			font-size: 1.4rem;
@@ -87,6 +87,38 @@
 				font-size: 2rem;
 			}
 		}
+	}
+
+	/* pricing page */
+	.pricing-table-content {
+		max-width: 750px;
+		margin: 0 auto;
+
+		& .pricing-table-column.flex-four {
+			width: 48%;
+
+			&.free-column .column-content {
+				& .column-description {
+					border-radius: 4px 4px 0 0;
+					min-height: 345px;
+
+					& .mobile-display-hack {
+						display: inline;
+					}
+				}
+			}
+
+			&.starter-package-column,
+			&.core-bundle-column,
+			&.a-la-carte-column {
+				border-radius: 4px 4px 0 0 !important;
+			}
+		}
+	}
+
+	.pricing-table-notes {
+		margin: 0 auto;
+		max-width: 750px;
 	}
 
 	/* hero area */
@@ -153,20 +185,17 @@
 		}
 	}
 
-	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
-		background-position-x: 24px;
-		font-size: 16px;
-		padding: 20px 50px 20px 155px;
-	}
+	/* newsletter forms */
+	.sidebar .subscription-form-wrap {
+		& .gform_wrapper {
+			& .extended-list-label {
+				display: none;
+			}
 
-	.edd-post-footer .newsletter .newsletter-name-container,
-	.edd-post-footer .newsletter .newsletter-email-container {
-		margin-bottom: 6px;
-		width: 48%;
-	}
-
-	.edd-post-footer .newsletter .newsletter-submit-container {
-		margin-bottom: 6px;
+			& input[type="submit"][id*="gform_submit_button_"] {
+				font-size: 14px;
+			}
+		}
 	}
 
 	/* account */
@@ -178,6 +207,14 @@
 	.my-account-tab-content,
 	.tabbed-template-tab-content {
 		width: 65%;
+	}
+
+	.my-account-tab-content .tab-content {
+		& #edd_profile_editor_form {
+			& fieldset > p label {
+				display: block;
+			}
+		}
 	}
 
 	/* affiliates */
@@ -214,7 +251,7 @@
 			display: none;
 		}
 
-		& .subscription-wrap {
+		& .subscription-form-container {
 			float: none;
 			border-radius: 0;
 			padding-right: 30px;
@@ -249,12 +286,12 @@
 
 @media all and ( max-width: 1000px ) {
 
-	/* Free Downloads Thanks */
-	#free-downloads-header-area {
+	/* gray header EDD headshot */
+	.gray-edd-headshot-area {
 		& .inner {
 			background: none;
 
-			& .free-downloads-header {
+			& .gray-edd-headshot-content {
 				max-width: 100%;
 			}
 		}
@@ -459,7 +496,7 @@
 		}
 	}
 
-	/* featured page */
+	/* features page */
 	.features-page-section.content-screenshot,
 	.features-page-section.screenshot-content {
 		& .inner {
@@ -567,66 +604,40 @@
 		display: block;
 	}
 
+	/* blog/search/archive */
+	.blog-posts-display-content {
+		& .section-title-alt {
+			margin-bottom: 30px;
+		}
+
+		& .continue-search-form {
+			position: static;
+			margin-bottom: 30px;
+		}
+	}
+
 	/* post footer */
 	.edd-author-box {
 		text-align: center;
 	}
 
-	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
-		background-position-x: 44px;
-		font-size: 16px;
-		padding: 20px 30px 20px 135px;
-		margin: -50px -30px 20px;
+	/* newsletter forms */
+	.sidebar .subscription-form-wrap {
+		display: none;
 	}
 
-	.edd-post-footer .newsletter .newsletter-name-container,
-	.edd-post-footer .newsletter .newsletter-email-container {
-		width: 180px;
-	}
+	.edd-post-footer .subscription-form-wrap {
+		& .gform_wrapper {
 
-	/* newsletter form */
-	.sidebar .newsletter .newsletter-name-container,
-	.sidebar .newsletter .newsletter-email-container,
-	.sidebar .newsletter .newsletter-submit-container {
-		display: inline-block;
-		width: 210px;
-		margin-right: 5px;
-	}
+			& .name_first,
+			.name_last {
+				width: 100% !important;
+			}
 
-	.sidebar .newsletter .newsletter-submit-container {
-		margin-right: 0;
-	}
-
-	.sidebar .newsletter .newsletter-title {
-		text-align: left;
-		font-size: 16px;
-		padding: 20px 30px 20px 155px;
-		margin: -50px -30px 20px;
-	}
-
-	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
-		background-position-x: 24px;
-		font-size: 16px;
-		padding: 20px 30px 20px 155px;
-	}
-
-	.sidebar .newsletter-title span {
-		display: inline;
-	}
-
-	/* bbPress */
-	#bbpress-forums div.bbp-search-form #bbp_search {
-		width: 98%;
-		margin-bottom: 10px;
-	}
-
-	#bbpress-forums div.bbp-reply-content {
-		margin-left: 105px;
-	}
-
-	#bbpress-forums div.bbp-breadcrumb p {
-		float: none;
-		width: 100%;
+			& .name_first input {
+				margin-bottom: 10px !important;
+			}
+		}
 	}
 
 	/* crew page */
@@ -838,10 +849,6 @@
 		margin-bottom: 30px;
 	}
 
-	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
-		padding-right: 20px;
-	}
-
 	/* front page */
 	.front-page-extensions-content > .flex-container {
 		& .flex-two {
@@ -861,9 +868,33 @@
 		}
 	}
 
-	/* bbPress */
-	#bbpress-forums .moderator-tools #bbps_support_forum_options form {
-		margin-bottom: 4px;
+	/* newsletter forms */
+	.subscription-form-wrap {
+		& .gform_wrapper {
+
+			& .name_first,
+			.name_last {
+				width: 100% !important;
+			}
+
+			& .has_first_name .name_first input[type="text"] {
+				margin-bottom: 12px !important;
+			}
+
+			& .lists-wrap {
+
+				& .ginput_container_checkbox {
+
+					& .bullet {
+						margin-bottom: 0;
+					}
+
+					& .extended-list-label {
+						display: inline !important;
+					}
+				}
+			}
+		}
 	}
 
 	/* crew page */
@@ -875,45 +906,6 @@
 		font-size: 2rem;
 		line-height: 1.4;
 		margin-top: 10px;
-	}
-
-	/* newsletter */
-	.sidebar .newsletter {
-		padding: 50px 30px 30px;
-	}
-
-	.blog .newsletter .newsletter-title,
-	.single .newsletter .newsletter-title {
-		background-position-x: 24px;
-		font-size: 20px;
-		text-align: right;
-		padding: 20px 20px 20px 125px;
-		margin: -50px -30px 20px;
-	}
-
-	.edd-post-footer .newsletter-wrap .newsletter .newsletter-title {
-		font-size: 20px;
-		text-align: right;
-		padding: 20px 20px 20px 125px;
-		margin: -50px -30px 20px;
-	}
-
-	.newsletter .edd-newsletter-content-wrap .newsletter-name-container,
-	.newsletter .edd-newsletter-content-wrap .newsletter-email-container {
-		margin-bottom: 6px;
-		width: 48%;
-	}
-
-	.newsletter .edd-newsletter-content-wrap .newsletter-submit-container {
-		margin-bottom: 6px;
-	}
-
-	.sidebar .newsletter .newsletter-submit-container {
-		margin-right: 0;
-	}
-
-	.newsletter-title span {
-		display: none !important;
 	}
 
 	.download-grid-item-primary-link,
@@ -1062,6 +1054,70 @@
 			}
 		}
 	}
+
+	/* thank you template */
+	.gray-edd-headshot-content {
+		& .social-buttons {
+			margin-left: 0;
+
+			& div {
+				display: block;
+			}
+		}
+	}
+}
+
+
+@media all and ( max-width: 720px ) {
+
+	/* pricing page */
+	.pricing-table-content {
+		& .pricing-table-column.flex-four {
+			&.free-column .column-content {
+				& .column-description {
+					& .mobile-display-hack {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+@media all and ( max-width: 650px ) {
+
+	/* pricing page */
+	.pricing-table-content {
+		max-width: 400px;
+
+		& .sitting-edd {
+			display: none;
+		}
+
+		& .pricing-table-column.flex-four {
+			width: 100%;
+
+			&.free-column .column-content {
+				& .column-description {
+					margin-top: 0;
+					min-height: auto;
+
+					& .description-header {
+						font-size: 2.4rem;
+					}
+
+					& .mobile-display-hack {
+						display: inline;
+					}
+				}
+			}
+		}
+	}
+
+	.pricing-table-notes {
+		max-width: 400px;
+	}
 }
 
 
@@ -1113,6 +1169,22 @@
 		&.two-col.narrow-grid .download-grid-item,
 		&.three-col .download-grid-item {
 			width: 100%;
+		}
+	}
+
+	/* newsletter forms */
+	.edd-post-footer .subscription-form-wrap {
+		& .newsletter-title span {
+			display: none;
+		}
+	}
+
+	/* blog/search/archive */
+	.blog-posts-display-content {
+		& .section-title-alt {
+			& .subscribe-to-blog {
+				display: inline-block;
+			}
 		}
 	}
 
@@ -1169,7 +1241,7 @@
 
 	/* subscription */
 	#subscription-header-area {
-		& .subscription-wrap {
+		& .subscription-form-container {
 			padding-top: 30px;
 			padding-bottom: 120px;
 		}
@@ -1194,7 +1266,7 @@
 		}
 	}
 
-	/* pricing page */
+	/* FacetWP */
 	.fwp-filter-wrap {
 		& .fwp-filter-container {
 			& .fwp-filter.flex-three {
@@ -1323,6 +1395,35 @@
 		}
 	}
 
+	/*  checkout */
+	.checkout-content #edd_checkout_form_wrap,
+	#edd-recurring-form #edd_checkout_form_wrap {
+		& .edd-stripe-card-radio-item.existing-card-wrapper {
+			& .card-expires-on {
+				background: transparent;
+				color: #999 !important;
+				padding: 0;
+				position: static;
+			}
+			&.selected .card-expires-on,
+			&:first-child.selected .card-expires-on {
+				background: transparent;
+				color: @eddblue;
+			}
+			& .card-is-default {
+				background: transparent;
+				color: inherit;
+				padding: 0;
+				margin: 0;
+			}
+			& .default-card-sep {
+				display: inline !important;
+			}
+		}
+		& .edd-stripe-card-selector {
+		}
+	}
+
 	/* downloads display */
 	.pagination,
 	.edd_pagination {
@@ -1333,108 +1434,38 @@
 		margin-top: 10px;
 	}
 
-	/* bbPress */
-	.bbpress .main .content {
-		width: 100%;
-	}
+	/* blog/search/archive */
+	.blog-posts-display-content {
+		& .continue-search-form {
+			& input {
+				width: 100%;
 
-	.bbpress .sidebar {
-		width: 100%;
-		margin-left: 0;
-	}
-
-	#bbpress-forums div.bbp-search-form #bbp_search {
-		width: 98%;
-		margin-bottom: 10px;
-	}
-
-	#bbpress-forums div.bbp-reply-content {
-		margin-left: 105px;
-	}
-
-	#bbpress-forums div.bbp-breadcrumb p {
-		float: none;
-		width: 100%;
-	}
-
-	#bbpress-forums li.bbp-body div.bbp-reply-content {
-		clear: none !important;
-		margin-left: 0 !important;
-		width: 100% !important;
-		padding: 12px 12px 12px 0 !important;
-		margin-bottom: 20px;
-	}
-
-	#bbpress-forums ul.bbp-action-links-dropdown {
-		left: 189px;
-	}
-
-	.bbp-user-page {
-		.bbpress .main h1 {
-			text-align: center;
-		}
-
-		#bbpress-forums #bbp-single-user-details {
-			width: 100%;
-			float: none;
-		}
-
-		#bbpress-forums #bbp-single-user-details #bbp-user-avatar {
-			width: 100%;
-		}
-
-		#bbp-user-avatar .vcard {
-			display: block;
-			width: 150px;
-			height: 150px;
-			margin: 0 auto;
-			float: none;
-		}
-
-		#bbpress-forums #bbp-single-user-details #bbp-user-navigation {
-			margin-top: 20px;
-			margin-bottom: 20px;
-		}
-
-		#bbpress-forums #bbp-single-user-details #bbp-user-navigation a {
-			text-align: center;
-		}
-
-		.bbp-user-profile,
-		.edd_users_purchases,
-		.rcp_support_status {
-			border: 1px solid #eee;
-			margin-bottom: 25px;
-			padding: 20px;
-		}
-
-		.bbp-user-profile p {
-			margin: 0 0 15px;
-		}
-
-		.bbp-user-profile p:last-child {
-			margin-bottom: 0;
-		}
-
-		.edd_users_purchases h4,
-		.rcp_support_status h4 {
-			margin-top: 0;
+				&[type="search"] {
+					margin-bottom: 6px;
+				}
+			}
 		}
 	}
 
-	#bbpress-forums .moderator-tools #bbps_support_forum_options form {
-		float: none;
-		margin-bottom: 12px;
-	}
+	/* newsletter forms */
+	.subscription-form-wrap {
+		& .gform_wrapper {
+			& .lists-wrap {
+				& .ginput_container.ginput_container_checkbox {
+					& ul.gfield_checkbox li {
+						display: block !important;
+					}
 
-	#bbpress-forums .moderator-tools select#bbps_support_options,
-	#bbpress-forums .moderator-tools #bbps_support_forum_options input[type="submit"] {
-		display: block;
-		width: 100%;
-	}
+					& .extended-list-label {
+						display: none !important;
+					}
+				}
+			}
 
-	#bbpress-forums .moderator-tools select#bbps_support_options {
-		margin-bottom: 4px;
+			& input[type="submit"][id*="gform_submit_button_"] {
+				font-size: 16px !important;
+			}
+		}
 	}
 
 	/* account page */
@@ -1494,6 +1525,37 @@
 		margin-bottom: 30px;
 	}
 
+	#edd_profile_editor_form #edd_profile_emails_wrap,
+	#edd_profile_editor_form .edd-profile-emails {
+		width: 100%;
+		padding: 0 30px;
+	}
+
+	.my-account-tab-content .tab-content #edd-stripe-manage-cards {
+		& .edd-stripe-card-item {
+			& .card-update-form {
+				& input[type="text"],
+				input[type="email"],
+				input[type="password"],
+				input[type="tel"],
+				select {
+					width: 100%;
+					max-width: 100%;
+					margin-bottom: 6px;
+				}
+
+				& .card-expiration-fields > label {
+					display: block;
+				}
+			}
+		}
+	}
+
+	#edd-stripe-manage-cards .edd-stripe-card-item .card-update-form input[type="text"],
+	#edd-stripe-manage-cards .edd-stripe-card-item:nth-child(odd) .card-update-form select {
+
+	}
+
 	/* checkout */
 	#edd_checkout_form_wrap input.edd-input {
 		width: 100% !important;
@@ -1501,6 +1563,13 @@
 
 	#edd_secure_site_wrapper, #ssl-seal {
 		display: none;
+	}
+
+	/* pricing page */
+	.pircing-page-header-content {
+		h1 {
+			font-size: 3rem;
+		}
 	}
 
 	/* post footer */
@@ -1519,30 +1588,6 @@
 
 	.edd-post-footer {
 		margin-bottom: 30px;
-
-		& .newsletter-wrap {
-			padding: 50px 20px 20px;
-
-			& .newsletter .newsletter-title {
-				margin-right: -20px;
-				margin-left: -20px;
-			}
-		}
-	}
-
-	.sidebar .newsletter {
-		padding: 50px 20px 30px;
-
-		& .newsletter-title {
-			margin-right: -20px;
-			margin-left: -20px;
-		}
-	}
-
-	.newsletter .newsletter-name-container,
-	.newsletter .newsletter-email-container,
-	.newsletter .newsletter-submit-container {
-		width: 100% !important;
 	}
 
 	/* comments */
@@ -1622,23 +1667,22 @@
 		}
 	}
 
-	/* newsletter */
-	#footer-newsletter form .nl-email .newsletter-email {
-		width: 55%;
-	}
+	/* large call to action elements */
+	.large-call-to-action-content {
+		padding: 40px 0;
 
-	#footer-newsletter form input[type="submit"] {
-		width: 45%;
-	}
+		& .large-call-to-action-title {
+			font-size: 2rem;
+			margin-bottom: 2rem;
+		}
 
-	/* Flexbox */
-	.flex-container {
-		&.featured-stats {
-			padding: 0;
+		& .large-call-to-action-cta-link .edd-submit.button {
+			font-size: 2rem;
+			padding: 10px 20px;
+			margin-bottom: 2rem;
 
-			& .flex-four {
-				padding: 0;
-				width: 100%;
+			& .fa {
+				margin-right: 1.5rem;
 			}
 		}
 	}
@@ -1714,38 +1758,6 @@
 	#edd-invoices {
 		& .edd-invoices-div input[type="submit"] {
 			font-size: 1.2rem !important;
-		}
-	}
-
-	/* footer newsletter */
-	#footer-newsletter .newsletter-content {
-		& form {
-			& .nl-name {
-				margin-bottom: 0;
-
-				& input[type="text"].nl-first-name {
-					border-radius: 4px 0 0 0;
-					padding-right: 3px;
-				}
-
-				& input[type="text"].nl-last-name {
-					border-left: 1px solid #eaeaea;
-					border-radius: 0 4px 0 0;
-				}
-			}
-
-			& .nl-email {
-				& input[type="email"].newsletter-email {
-					border-radius: 0;
-					border-top: 1px solid #eaeaea;
-					width: 100%;
-				}
-
-				& input[type="submit"].newsletter-submit {
-					border-radius: 0 0 4px 4px;
-					width: 100%;
-				}
-			}
 		}
 	}
 }

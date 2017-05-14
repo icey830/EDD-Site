@@ -115,6 +115,11 @@ function eddwp_remove_bctt_styling() {
 }
 add_action( 'template_redirect', 'eddwp_remove_bctt_styling' );
 
+/**
+ * Remove card management from user profile editor
+ */
+remove_action( 'edd_profile_editor_after', 'edd_stripe_manage_cards' );
+
 
 /**
  * Content formatter
@@ -443,33 +448,21 @@ add_action( 'wp_footer', 'eddwp_facebook_conversion_pixel' );
 
 
 /**
- * Filter the admin reply links to remove extra &nbsp; add by bbPress
+ * Get ID of Gravity Forms newsletter form
  */
-function eddwp_get_reply_admin_links( $retval, $r, $args ) {
-	$retval = str_replace("&nbsp;", '', $retval);
-	echo trim($retval);
-}
-add_filter( 'bbp_get_reply_admin_links', 'eddwp_get_reply_admin_links', 10, 3 );
-
-
-/**
- * Change the bbPress Login Widget if the user is logged in or out
- */
-function eddwp_bbp_login_widget_title( $title, $instance, $id_base ) {
-	if ( ! is_user_logged_in() ) {
-		return $title;
-	} else {
-		return __( 'Logged in as', 'eddwp' );
+function eddwp_newsletter_form_id() {
+	if ( ! class_exists( 'RGFormsModel' ) ) {
+		return;
 	}
+	return RGFormsModel::get_form_id( 'Newsletter Subscribe' );
 }
-add_filter( 'bbp_login_widget_title', 'eddwp_bbp_login_widget_title', 10, 3 );
 
 
 /**
  * Filter the submit button on the dedicated subscription form (Gravity Forms)
  */
-function eddwp_gf_subscription_form_submit_button( $content ) {
-	if ( is_page( 'subscribe' ) && function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
+function eddwp_newsletter_form_submit_button( $content ) {
+	if ( function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
 		$count = mailchimp_subscriber_count()->subscriber_count();
 		$button_text = 'Join ' . $count . ' subscribers!';
 		$content = str_replace( 'Sign me up!', $button_text, $content );
@@ -478,7 +471,50 @@ function eddwp_gf_subscription_form_submit_button( $content ) {
 		return $content;
 	}
 }
-add_filter( 'gform_submit_button', 'eddwp_gf_subscription_form_submit_button' );
+add_filter( 'gform_submit_button_' . eddwp_newsletter_form_id(), 'eddwp_newsletter_form_submit_button' );
+
+
+/**
+ * Prevent newsletter form from jumping to anchor when submitted
+ *
+ * thanks, Andrew
+ */
+add_filter( 'gform_confirmation_anchor_' . eddwp_newsletter_form_id(), '__return_false' );
+
+
+/**
+ * remove Gravity Forms validation message on newsletter form
+ *
+ * thanks, Andrew
+ */
+function eddwp_newsletter_form_validation_message( $validation_message, $form ) {
+	return '<p class="newsletter-validation-error"><i class="fa fa-exclamation-triangle"></i> Please enter your email address below.</p>';
+}
+add_filter( 'gform_validation_message_' . eddwp_newsletter_form_id(), 'eddwp_newsletter_form_validation_message', 10, 2 );
+
+
+/**
+ * Gravity Forms - change spinner
+ *
+ * thanks, Andrew
+ */
+function eddwp_newsletter_form_gform_ajax_spinner_url( $uri, $form ) {
+	return get_stylesheet_directory_uri() . '/assets/svgs/loading.svg';
+}
+add_filter( 'gform_ajax_spinner_url', 'eddwp_newsletter_form_gform_ajax_spinner_url', 10, 2 );
+
+
+/**
+ * Limit 'Gravity Forms - Multiple Forms Instances' to only where it's needed
+ * Watch for real fixes: https://github.com/tyxla/Gravity-Forms-Multiple-Form-Instances
+ */
+function eddwp_selective_gf_multiple_instances() {
+	if ( ! is_single() ) { // only allow plugin to run on single posts
+		global $gravity_forms_multiple_form_instances;
+		remove_filter( 'gform_get_form_filter', array( $gravity_forms_multiple_form_instances, 'gform_get_form_filter' ), 10, 2 );
+	}
+}
+add_action( 'wp', 'eddwp_selective_gf_multiple_instances' );
 
 
 /**
@@ -737,3 +773,25 @@ function eddwp_video_embed_wrapper( $html ) {
 }
 add_filter( 'embed_oembed_html', 'eddwp_video_embed_wrapper', 10, 3 );
 add_filter( 'video_embed_html', 'eddwp_video_embed_wrapper' ); // Jetpack
+
+
+/*
+ * Ouput Perfect Audience conversion tracking script
+ */
+function eddwp_perfect_audience_tracking() {
+?>
+<script type="text/javascript">
+  (function() {
+    window._pa = window._pa || {};
+    <?php if( $session = edd_get_purchase_session() ) : $payment_id = edd_get_purchase_id_by_key( $session['purchase_key'] ); ?>
+    _pa.orderId = "<?php echo $payment_id; ?>";
+    _pa.revenue = "<?php echo edd_get_payment_amount( $payment_id ); ?>";
+    <?php endif; ?>
+    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+    pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.marinsm.com/serve/59022fbfb8627951df0000a1.js";
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+  })();
+</script>
+<?php
+}
+add_action( 'wp_footer', 'eddwp_perfect_audience_tracking' );

@@ -60,13 +60,13 @@ get_header(); ?>
 					<p>Create your own affiliate campaigns to better track the performance of your referral links. Separated campaign data is provided to help you determine which promotion tactics perform best.</p>
 				</div>
 			</div>
-			<div class="become-an-affiliate-content clearfix">
-				<h2 class="become-an-affiliate-title">Start earning cash for referrals!</h2>
-				<div class="become-an-affiliate-cta-link">
+			<div class="large-call-to-action-content clearfix">
+				<h2 class="large-call-to-action-title">Start earning cash for referrals!</h2>
+				<div class="large-call-to-action-cta-link">
 					<a class="edd-submit button blue" href="<?php echo home_url( 'affiliates/join/' ); ?>"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Become an affiliate</a>
 				</div>
 
-				<p class="become-an-affiliate-secondary-links">
+				<p class="large-call-to-action-secondary-links">
 					<span>Read our <a href="#" data-toggle="modal" data-target="#affiliate-agreement">affiliate agreement</a></span>
 				</p>
 			</div>

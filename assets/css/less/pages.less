@@ -240,6 +240,352 @@
 
 
 /* ----------------------------- *
+ * Pricing template (new)
+ * ----------------------------- */
+#pricing-page-header-area {
+	text-align: center;
+}
+
+#pricing-table-area {
+	& .inner {
+		padding-top: 20px
+	}
+
+	& .pricing-table-notes {
+		margin-bottom: 100px;
+	}
+}
+
+.pricing-table-content {
+	& .pricing-table-column.flex-four {
+		width: 25%;
+		display: -webkit-flex;
+		display: flex;
+		flex-direction: column;
+
+		& .column-heading {
+			font-size: 2.4rem;
+			font-weight: 500;
+			text-align: center;
+			padding-top: 24px;
+			padding-bottom: 24px;
+		}
+
+		& .column-content {
+			& .column-price {
+				text-align: center;
+				padding: 15px 30px 16px;
+
+				& .option-price-title {
+					display: block;
+					position: relative;
+						left: -13px;
+					font-size: 13px;
+					font-style: italic;
+				}
+
+				& .option-price {
+					position: relative;
+					font-size: 6rem;
+					line-height: 1;
+
+					& .option-price-sub {
+						font-size: 2rem;
+						vertical-align: super;
+					}
+
+					& .option-price-asterisk {
+						position: absolute;
+							top: 18px;
+							right: -8px;
+						font-size: 13px;
+					}
+				}
+			}
+
+			& .column-description {
+				font-size: 1.4rem;
+				padding: 14px 20px 25px;
+
+				& .pricing-column-list {
+					margin: 0 0 20px 3px;
+					padding: 0;
+					list-style: none;
+
+					& li {
+						padding: 2px 4px;
+
+						&:before {
+							font-family: "FontAwesome";
+							margin-right: 10px;
+						}
+					}
+				}
+			}
+		}
+
+		& .column-cta {
+			padding: 0 30px 30px;
+			margin: auto 0 0;
+
+			& .pricing-cta {
+				display: block;
+			}
+
+			& .pricing-notes {
+				& a {
+					font-size: 13px;
+					color: #777;
+					text-decoration: underline;
+
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+
+		&.free-column {
+			& .column-content {
+				padding: 0;
+
+				& .sitting-edd {
+					position: absolute;
+					top: -25px;
+					left: 12px;
+					z-index: 10;
+				}
+
+				& .column-description {
+					background: @eddgray;
+					margin-top: 87px;
+					padding: 14px 30px 25px 30px;
+					border-radius: 4px 0 0 0;
+
+					& .description-header {
+						font-size: 2.2rem;
+						font-weight: 500;
+						padding: 13px 0 20px;
+					}
+
+					& .description-content {
+						& > p:first-child {
+							color: #777;
+
+							& > strong {
+								color: @eddblue;
+							}
+						}
+					}
+
+					& .pricing-column-list {
+						padding: 0;
+						list-style: none;
+
+						& li {
+							padding: 2px 4px;
+
+							&:before {
+								color: #ccc;
+								content: "\f058";
+							}
+						}
+					}
+				}
+			}
+
+			& .column-cta {
+				background: @eddgray;
+				border-bottom: 4px solid rgba(0,0,0,0.04);
+			}
+		}
+
+		&.starter-package-column {
+			background: @edddarkblue;
+			color: #fff;
+			border-radius: 4px 0 0 0;
+
+			& .column-content {
+				& .column-price {
+					background: rgba(255,255,255,.06);
+
+					& .option-price-title {
+						color: #7990a0;
+						left: 14px;
+					}
+
+					& .option-price-asterisk {
+						color: #7990a0;
+					}
+				}
+
+				& .column-description {
+
+					& > p {
+						color: #7990a0;
+					}
+
+					& .pricing-column-list {
+						padding: 0;
+						list-style: none;
+
+						& li {
+							padding: 2px 4px;
+
+							&:before {
+								color: #7990a0;
+								content: "\f058";
+							}
+						}
+					}
+				}
+			}
+
+			& .column-cta {
+				border-bottom: 4px solid rgba(255,255,255,0.15);
+
+				& a.edd-submit {
+					background: @green;
+
+					&:hover {
+						background: @greenhover;
+					}
+				}
+			}
+		}
+
+		&.core-bundle-column {
+			background: @eddblue;
+			color: #fff;
+
+			& .column-heading {
+			}
+
+			& .column-content {
+				& .column-price {
+					background: @eddbluehover;
+
+					& .option-price-title {
+						color: #afd8f3;
+						left: 18px;
+					}
+
+					& .option-price-asterisk {
+						color: #afd8f3;
+					}
+				}
+
+				& .column-description {
+					& > p {
+						color: #afd8f3;
+					}
+
+					& .pricing-column-list {
+						padding: 0;
+						list-style: none;
+
+						& li {
+							padding: 2px 4px;
+
+							&:before {
+								color: #afd8f3;
+								content: "\f058";
+							}
+						}
+					}
+				}
+			}
+
+			& .column-cta {
+				border-bottom: 4px solid #2386c5;
+
+				& a.edd-submit {
+					background: @green;
+
+					&:hover {
+						background: @greenhover;
+					}
+				}
+			}
+		}
+
+		&.a-la-carte-column {
+			background: @eddgray;
+			border-radius: 0 4px 0 0;
+
+			& .column-content {
+				& .column-price {
+					background: rgba(0,0,0,0.04);
+
+					& .option-price-title {
+						color: #777;
+						left: 12px;
+					}
+
+					& .option-price-asterisk {
+						color: #777;
+					}
+				}
+
+				& .column-description {
+					& > p {
+						color: #777;
+					}
+
+					& .pricing-column-list {
+						padding: 0;
+						list-style: none;
+
+						& li {
+							padding: 2px 4px;
+
+							&:before {
+								color: #ccc;
+								content: "\f058";
+							}
+						}
+					}
+				}
+			}
+
+			& .column-cta {
+				border-bottom: 4px solid rgba(0,0,0,0.04);
+			}
+		}
+	}
+}
+.pricing-table-notes {
+	color: #777;
+	font-size: 1.3rem;
+	max-width: 670px;
+}
+
+.page-section-gray {
+	& .pricing-table-column.flex-four {
+		&.free-column,
+		&.a-la-carte-column {
+			& .column-content {
+				& .column-price {
+					background: rgba(0, 0, 0, 0.02);
+				}
+				& .column-description {
+					background: #fff;
+				}
+			}
+
+			& .column-cta {
+				background: #fff;
+				border-bottom: 4px solid rgba(0,0,0,0.08);
+			}
+		}
+		&.a-la-carte-column {
+			background: #fff;
+		}
+	}
+}
+
+
+/* ----------------------------- *
  * Product Info template
  * ----------------------------- */
 .product-info-content {
@@ -482,6 +828,10 @@
 	& .support-docs-form-container {
 		&.pre-sale-support-form-container .edd-gf-support-tickets-form {
 			margin-top: 0;
+
+			& .edd-gf-support-tickets-form-email {
+				min-height: 110px;
+			}
 		}
 
 		&.refund-support-form-container {
@@ -801,6 +1151,7 @@
 	& .edd_user_commissions,
 	& #edd_user_commissions_overview table,
 	& #edd_commissioned_products_table,
+	& #edd-stripe-manage-cards fieldset,
 	& .rcp-table {
 		font-size: 1.4rem;
 		border-collapse: inherit;
@@ -1081,15 +1432,51 @@
 	& .tab-content {
 		position: relative;
 
-		& input[type="text"],
-		& input[type="email"],
-		& input[type="password"] {
-			background: @eddgray;
-			padding: 10px;
-			width: 300px;
-			outline: none;
-			border: 3px solid @eddgrayhover;
-			border-radius: 3px;
+		& #edd-recurring-form {
+			margin-top: 30px;
+			width: 100%;
+			max-width: 100%;
+
+			& #edd_checkout_form_wrap #edd_cc_fields > legend,
+			#edd_checkout_form_wrap #edd_cc_address > legend {
+				display: block;
+				color: inherit;
+				font-size: 120%;
+				line-height: 1;
+				font-weight: bold;
+				width: 100%;
+				padding: 0;
+				border: none;
+				margin: 0 0 21px;
+			}
+		}
+
+		& .tab-pane,
+		#edd_checkout_form_wrap,
+		#edd-stripe-manage-cards {
+			& input[type="text"],
+			& input[type="email"],
+			& input[type="password"],
+			& input[type="tel"] {
+				background: @eddgray;
+				font-size: 1.6rem;
+				padding: 10px;
+				width: 100%;
+				max-width: 490px;
+				outline: none;
+				border: 3px solid @eddgrayhover;
+				border-radius: 3px;
+			}
+
+			& select {
+				background: @eddgray;
+				font-size: 1.6rem;
+				width: 100%;
+				max-width: 490px;
+				border: 3px solid @eddgrayhover;
+				border-radius: 3px;
+				height: 45px;
+			}
 		}
 
 		& #edd_sl_license_add_site_form {
@@ -1101,8 +1488,10 @@
 			& input[type*="text"] {
 				display: block;
 				background: @eddgray;
+				font-size: 1.6rem;
 				padding: 10px;
-				width: 300px;
+				width: 100%;
+				max-width: 490px;
 				outline: none;
 				border: 3px solid @eddgrayhover;
 				border-radius: 3px;
@@ -1141,25 +1530,20 @@
 				padding: 0;
 				margin: 0;
 
-				& > span[id*="_label"] {
+				& > legend {
 					display: block;
 					background: #f5f5f5;
-					padding: 10px;
-					border-bottom: 3px solid @eddgrayhover;
-					margin-bottom: 30px;
-
-					&:not(:first-of-type) {
-						border-top: 3px solid @eddgrayhover;
-						margin-top: 20px;
-					}
-				}
-
-				& legend {
 					color: #555;
 					font-size: 1.6rem;
 					line-height: 20px;
 					font-weight: 500;
-					margin-bottom: 0;
+					padding: 10px;
+					border-bottom: 3px solid @eddgrayhover;
+					margin-bottom: 30px;
+				}
+
+				&:not(:first-of-type) > legend {
+					border-top: 3px solid @eddgrayhover;
 				}
 
 				& > p,
@@ -1168,7 +1552,7 @@
 					margin-bottom: 0;
 
 					& label {
-						width: 150px;
+						width: 148px;
 						display: inline-block;
 						vertical-align: top;
 						font-weight: 500;
@@ -1197,6 +1581,201 @@
 				& input,
 				& select {
 					margin-bottom: 15px;
+				}
+
+				& #edd_profile_emails_wrap {
+					display: inline-table;
+				}
+			}
+		}
+
+		& #edd-stripe-manage-cards {
+			& > fieldset {
+				background: #fff;
+
+				& legend {
+					display: none;
+				}
+			}
+
+			& .edd-stripe-card-item {
+				position: relative;
+				border: none;
+				border-bottom: 2px solid #eef0f0;
+				border-radius: 0;
+				margin-bottom: 0;
+
+				& .card-brand,
+				.card-last-4 {
+					font-size: 18px;
+					font-weight: 500;
+				}
+
+				.default-card-sep {
+					display: none;
+				}
+
+				& .card-is-default {
+					display: inline-block;
+					background: #a2acb2;
+					color: #fff;
+					font-size: 13px;
+					font-style: normal;
+					line-height: 1;
+					padding: 6px 8px;
+					border-radius: 3px;
+					margin: 0 0 0 6px;
+				}
+
+				& .card-update-form {
+					margin-top: 10px;
+
+					& label {
+						margin-bottom: 6px;
+						font-size: 16px;
+					}
+
+					& .card-address-fields {
+						margin-bottom: 10px;
+					}
+
+					& input[type="text"],
+					input[type="email"],
+					input[type="password"],
+					input[type="tel"] {
+						display: inline-block;
+						width: 48%;
+						max-width: auto;
+					}
+
+					& select {
+						display: inline-block;
+						width: 48%;
+						max-width: auto;
+					}
+
+					& > p:last-child {
+						margin: 10px 0;
+
+						& .edd-stripe-cancel-update {
+							display: inline-block;
+							color: #999;
+							text-decoration: underline;
+							margin-left: 5px;
+
+							&:hover {
+								text-decoration: none;
+							}
+						}
+					}
+				}
+
+				&:nth-child(odd) {
+					background: @eddgray;
+
+					& .card-update-form {
+
+						& input[type="text"],
+						input[type="email"],
+						input[type="password"],
+						input[type="tel"],
+						select {
+							background: #fff;
+							border: 3px solid @eddgrayhover;
+						}
+					}
+				}
+
+				&:nth-child(even) {
+					& .card-update-form {
+
+						& input[type="text"],
+						input[type="email"],
+						input[type="password"],
+						input[type="tel"],
+						select {
+							background: @eddgray;
+							border: 3px solid @eddgrayhover;
+						}
+					}
+				}
+
+				&:last-child {
+					border-bottom: none;
+				}
+
+				& .card-actions {
+					& a {
+						color: #999;
+						text-decoration: underline;
+
+						&:hover {
+							text-decoration: none;
+						}
+					}
+
+					& .card-delete a {
+						color: red;
+					}
+				}
+			}
+
+			& .edd-stripe-add-new-card {
+				& > label {
+					font-size: 20px;
+					padding: 0 10px 15px;
+					border: none;
+					margin: 0 0 5px;
+				}
+
+				& > fieldset {
+					padding: 10px;
+					border: none;
+
+					&#edd_cc_address {
+						margin-bottom: 0;
+					}
+
+					& input[type="text"],
+					input[type="email"],
+					input[type="password"],
+					input[type="tel"] {
+						font-size: 1.6rem;
+						width: 100%;
+						max-width: 490px;
+					}
+
+					& select {
+						display: block;
+						font-size: 1.6rem;
+						border: 3px solid rgba(0,0,0,.05);
+						border-radius: 3px;
+						margin-bottom: 10px;
+						width: 100%;
+						max-width: 490px;
+						height: 45px;
+					}
+
+					& .card-expiration select,
+					.card-expiration .exp-divider {
+						display: inline !important;
+					}
+				}
+			}
+
+			& .edd-stripe-add-card-actions {
+				background: #fff;
+				padding: 20px 10px;
+
+				& #edd-stripe-add-new-cancel {
+					display: inline-block;
+					color: #999;
+					text-decoration: underline;
+					margin-left: 5px;
+
+					&:hover {
+						text-decoration: none;
+					}
 				}
 			}
 		}
@@ -1524,7 +2103,8 @@
 	}
 }
 
-.checkout-content {
+.checkout-content,
+#edd-recurring-form /* Account page update payment details */ {
 	background: #fff;
 	margin: 0 auto;
 	width: 100%;
@@ -1820,6 +2400,113 @@
 	}
 }
 
+/* Shared saved card styles (checkout and Recurring update payment details */
+.checkout-content,
+#edd-recurring-form {
+	& #edd_checkout_form_wrap {
+		& .edd-stripe-card-selector {
+			& .edd-stripe-card-radio-item {
+				position: relative;
+				background: #fafafa;
+				color: #777;
+				font-size: 14px;
+				padding: 0;
+				border: 1px solid #eaeaea;
+				border-radius: 4px;
+				margin-bottom: 10px;
+				cursor: pointer;
+				-webkit-transition: all .2s ease-in-out;
+				-moz-transition: all .2s ease-in-out;
+				-o-transition: all .2s ease-in-out;
+				-ms-transition: all .2s ease-in-out;
+				transition: all .2s ease-in-out;
+
+				& > label {
+					display: block;
+					padding: 15px 15px 15px 40px;
+					margin-bottom: 0;
+					cursor: pointer;
+				}
+
+				&.selected,
+				&:first-child.selected {
+					background: #edf8ff;
+					border-color: @eddblue;
+				}
+
+				&:hover:not(.selected) {
+					border-color: #999;
+				}
+
+				&:nth-child(even) {
+					margin-right: 0;
+				}
+
+				& div.card-label {
+					width: 100%;
+					cursor: pointer;
+				}
+
+				& input[type="radio"] {
+					position: absolute;
+					left: 16px;
+					top: 20px;
+					border: none;
+					margin: 0 5px 0 0;
+				}
+
+				& .card-brand,
+				.card-last-4 {
+					font-size: 16px;
+					font-weight: 500;
+				}
+
+				.default-card-sep {
+					display: none;
+				}
+
+				& .card-is-default {
+					display: inline-block;
+					background: #a2acb2;
+					color: #fff;
+					font-size: 13px;
+					font-style: normal;
+					line-height: 1;
+					padding: 6px 8px;
+					border-radius: 3px;
+					margin: 0 0 0 6px;
+				}
+
+				& .card-expires-on {
+					position: absolute;
+					right: 16px;
+					display: inline-block;
+					background: #a2acb2;
+					color: #fff;
+					font-size: 13px;
+					line-height: 1;
+					padding: 6px 8px;
+					border-radius: 3px;
+					margin: 0 0 2px 0;
+
+					& .default-card-sep {
+						display: none;
+					}
+				}
+
+				&.selected .card-expires-on,
+				&:first-child.selected .card-expires-on {
+					background: @eddblue;
+				}
+			}
+		}
+
+		& .edd-stripe-new-card {
+			position: relative;
+		}
+	}
+}
+
 .edd-wallet-applied-discount {
 	display: block;
 	font-size: .8em;
@@ -1849,26 +2536,6 @@
  * Purchase Confirmation
  * ----------------------------- */
 .purchase-confirmation-content {
-	& .social-buttons {
-		margin-bottom: 10px;
-
-		& div {
-			display: inline-block;
-			margin-right: 10px;
-			vertical-align: top;
-
-			&:nth-child(2) {
-				& iframe {
-					display: inline-block;
-					margin-right: 10px;
-				}
-
-				& br {
-					display: none;
-				}
-			}
-		}
-	}
 
 	& #documentation {
 		& .documentation-list {
@@ -1992,8 +2659,6 @@
 		padding-bottom: 0;
 	}
 }
-
-
 
 #billing_info { // PayPal Pro confirmation
 	& > h3 {
@@ -2307,7 +2972,7 @@
 
 
 /* ----------------------------- *
- * Subscription
+ * Subscribe Page Newsleter
  * ----------------------------- */
 #subscription-header-area {
 	text-align: left;
@@ -2337,203 +3002,33 @@
 		}
 	}
 
-	& .subscription-wrap {
+	& .subscription-form-container {
 		float: right;
 		position: relative;
-		background: @eddblue;
-		color: #fff;
 		padding: 50px 50px 70px;
 		border-radius: 4px 4px 0 0;
 		width: 55%;
+		min-height: 550px;
 
-		& ul,
-		li {
+		& .ginput_container_checkbox {
+			background: rgba(0, 0, 0, .05);
 			list-style: none;
-			padding-left: 0;
-			margin-left: 0;
-		}
-
-		& input {
-			text-indent: 0;
-			padding: 10px !important;
-			border: none;
+			padding: 10px 14px;
 			border-radius: 4px;
-			width: 100%;
 			margin: 0;
 		}
 
-		& h3 {
-			margin-bottom: 1em;
+		.subscription-form-wrap {
+			background: none;
 		}
+	}
 
-		& .gform_wrapper {
-			margin: 0;
-			max-width: 100%;
-
-			& .email-wrap {
-				margin-bottom: 15px;
-			}
-
-			& .name-wrap {
-				margin-bottom: 27px;
-
-				& .ginput_container_name {
-					& > span {
-						padding: 0 !important;
-						margin: 0 !important;
-						width: 48.5%;
-
-						&.name_first {
-							float: left;
-						}
-
-						&.name_last {
-							float: right;
-						}
-
-						& label {
-							display: none;
-						}
-					}
-				}
-			}
-
-			& .email-wrap .gfield_label,
-			.name-wrap .gfield_label {
-				display: none;
-
-				& + .ginput_container {
-					margin-top: 0;
-
-					& input {
-						margin-bottom: 0;
-						width: 100%;
-					}
-				}
-			}
-
-			& .lists-wrap {
-				& .gfield_label {
-					font-size: 1.5rem;
-					font-weight: 400;
-					margin: 20px 0 8px;
-					opacity: .75;
-				}
-
-				& .ginput_container_checkbox {
-					background: rgba(0,0,0,.05);
-					list-style: none;
-					padding: 10px 14px;
-					border-radius: 4px;
-					margin: 0;
-
-					& ul {
-						width: 100%;
-
-						& li {
-							margin-bottom: 6px;
-						}
-					}
-
-					& label {
-						position: relative;
-						font-size: 15px;
-						line-height: 1.625;
-						padding-left: 30px;
-						margin-left: 0;
-						cursor: pointer;
-
-						& .bullet:before {
-							display: block;
-							position: absolute;
-							top: 0;
-							left: 0;
-							color: #b3daf2;
-							font-size: 2.4rem;
-							line-height: 1;
-							font-family: "FontAwesome";
-							content: "\f0c8";
-							width: 25px;
-							height: 24px;
-							padding-left: 1px;
-							margin-left: 1px;
-						}
-					}
-
-					& input[type="checkbox"] {
-						display: none;
-						float: left;
-						outline: none;
-						opacity: 0;
-						filter: alpha(opacity=0);
-						zoom: 1;
-						width: 0;
-
-						&:checked + label {
-							font-weight: 400;
-
-							& span:before {
-								color: @edddarkblue;
-								font-family: "FontAwesome";
-								content: "\f14a";
-							}
-						}
-					}
-				}
-			}
-
-			& .gform_footer {
-				padding: 0;
-				margin-top: 30px;
-
-				& input[type="submit"] {
-					font-size: 2rem;
-					line-height: 1.428571429;
-					padding: 10px 20px !important;
-					width: auto;
-				}
-			}
-		}
-
-		& .gform_confirmation_wrapper {
-			background: rgba(0,0,0,.05);
-			list-style: none;
-			padding: 20px;
-			border-radius: 4px;
-			margin: 0 0 30px;
-		}
-
-		& .subscription-notes {
-			font-size: 1.4rem;
-			opacity: .75;
-			margin: 16px 0 0;
-			max-width: 320px;
-
-			& .fa {
-				margin-right: 6px;
-			}
-		}
-
-		& .subscription-sitting-edd {
-			position: absolute;
-			bottom: -40px;
-			right: 30px;
-		}
-
-		& .subscription-mobile {
-			display: none;
-
-			& p {
-				margin-bottom: 25px;
-			}
-		}
+	& .subscription-notes {
+		margin-top: 16px;
+		max-width: 320px;
 	}
 }
 
-.template-subscribe .footer-area .site-footer .footer-columns {
-	padding-top: 0;
-	border-top: none;
-}
 
 
 /* ----------------------------- *
@@ -2688,40 +3183,6 @@
 	margin-bottom: 0;
 }
 
-.become-an-affiliate-content {
-	text-align: center;
-	padding: 80px 0 30px;
-	border-top: 2px solid #f7f7f7;
-
-	& .become-an-affiliate-title {
-		margin-bottom: 3rem;
-	}
-
-	& .become-an-affiliate-cta-link .edd-submit.button.blue {
-		font-size: 2.4rem;
-		padding: 12px 24px;
-		margin-bottom: 2rem;
-
-		& .fa {
-			margin-right: 1.6rem;
-		}
-	}
-
-	& .become-an-affiliate-secondary-links {
-		color: #999;
-		font-size: 90%;
-
-		& a {
-			color: #999;
-			text-decoration: underline;
-
-			&:hover {
-				text-decoration: none;
-			}
-		}
-	}
-}
-
 /* Gravity Forms */
 .edd-affiliate-registration-form_wrapper.edd-gf-styles_wrapper .gform_body {
 	& .gfield_label {
@@ -2770,24 +3231,6 @@
 	padding: 30px 0;
 	border-top: 2px solid @eddgrayhover;
 	margin-top: 10px;
-}
-
-
-/* ----------------------------- *
- * Free Downloads Thanks
- * ----------------------------- */
-#free-downloads-header-area {
-	& .inner {
-		background: transparent url(./images/mascot/edd-headshot-large.png) no-repeat bottom right;
-
-		& .free-downloads-header {
-			max-width: 68.2%;
-
-			& .section-title-alt {
-				margin-bottom: 30px;
-			}
-		}
-	}
 }
 
 
@@ -2916,7 +3359,7 @@
 	color: #fff;
 
 	& .download-grid-thumb-wrap {
-		background: #3992ca;
+		background: #3986ca;
 	}
 }
 
@@ -3083,6 +3526,26 @@
 
 
 /* ----------------------------- *
+ * Thank You template
+ * ----------------------------- */
+.gray-edd-headshot-content {
+	& .social-buttons {
+		margin: 0 0 10px -14px;
+	}
+}
+
+.visit-the-blog {
+	color: #999;
+	font-size: 90%;
+	text-decoration: underline;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+
+/* ----------------------------- *
  * Generic Page Elements
  * ----------------------------- */
 .page-section-blue {
@@ -3127,6 +3590,20 @@
 	}
 }
 
+.gray-edd-headshot-area {
+	& .inner {
+		background: transparent url(./images/mascot/edd-headshot-large.png) no-repeat bottom right;
+
+		& .gray-edd-headshot-content {
+			max-width: 68.2%;
+
+			& .section-title-alt {
+				margin-bottom: 30px;
+			}
+		}
+	}
+}
+
 .page-section-white {
 	background: #fff;
 
@@ -3158,6 +3635,44 @@
 hr.divider-shortcode {
 	border-top: 3px solid @eddgray;
 	margin: 35px 0;
+}
+
+.large-call-to-action-content {
+	text-align: center;
+	padding: 80px 0 30px;
+	border-top: 2px solid #f7f7f7;
+
+	& .large-call-to-action-title {
+		margin-bottom: 3rem;
+	}
+
+	& .large-call-to-action-cta-link .edd-submit.button {
+		font-size: 2.4rem;
+		padding: 12px 24px;
+		margin-bottom: 2rem;
+
+		& .fa {
+			margin-right: 1.6rem;
+		}
+	}
+
+	& .large-call-to-action-secondary-links {
+		color: #999;
+		font-size: 90%;
+
+		& a {
+			color: #999;
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.mobile-display-hack {
+	display: none;
 }
 
 /* site-wide hero structure */

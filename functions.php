@@ -8,7 +8,7 @@
  * Theme Setup
  * ----------------------------------------------------------- */
 
-define( 'EDD_SITE_VERSION', '2.3.9.3' );
+define( 'EDD_SITE_VERSION', '2.4' );
 define( 'EDD_INC', dirname(__FILE__) . '/includes/' );
 
 
@@ -54,15 +54,8 @@ function edd_register_theme_scripts() {
 
 	$deps = array( 'roboto-font' );
 
-	if ( function_exists( 'is_bbpress' ) ) {
-		if ( is_bbpress() ) {
-			$deps[] = 'bbp-default-bbpress';
-		}
-	}
-
 	// 635 My Account
-	// 65892 bbPress Support Dashboard
-	if ( is_page( 635 ) || is_page( 65892 ) ) {
+	if ( is_page( 635 ) ) {
 		$deps[] = 'bootstrap';
 	}
 
@@ -93,21 +86,12 @@ function edd_register_theme_scripts() {
 	}
 
 	// remove unneeded resources
-	wp_dequeue_style( 'bbp-default-bbpress' );
-	wp_dequeue_style( 'bbp_private_replies_style' );
 	wp_dequeue_style( 'staff-list-custom-css' );
 	wp_dequeue_style( 'sharedaddy' );
 	wp_dequeue_style( 'edd-styles' );
 
-	// load support page bbPress resources
-	if ( class_exists( 'bbPress' ) && is_bbpress() ) {
-		wp_enqueue_style( 'bbp-default-bbpress', trailingslashit( bbPress()->themes_url . 'default' ) . 'css/bbpress.css', array(), bbp_get_version(), 'screen' );
-		wp_enqueue_script( 'bootstrap-select' );
-	}
-
 	// 635 My Account
-	// 65892 bbPress Support Dashboard
-	if ( is_page( 635 ) || is_page( 65892 ) || is_singular( 'download' ) || is_page_template( 'page-templates/template-download-directory.php' ) || is_page_template( 'page-templates/template-purchase-confirmation.php' ) || is_page_template( 'page-templates/template-affiliates-landing.php' ) ) {
+	if ( is_page( 635 ) || is_singular( 'download' ) || is_page_template( 'page-templates/template-download-directory.php' ) || is_page_template( 'page-templates/template-purchase-confirmation.php' ) || is_page_template( 'page-templates/template-affiliates-landing.php' ) ) {
 		wp_enqueue_style( 'bootstrap' );
 		wp_enqueue_script( 'bootstrap-js' );
 	}
