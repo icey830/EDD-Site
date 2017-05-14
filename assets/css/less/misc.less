@@ -602,19 +602,14 @@
 		}
 
 		& #edd-rp-items-wrapper {
-			text-align: left;
+			.flex-container;
 
 			& .edd-rp-item {
+				.flex-item;
 				text-align: left;
 				width: 100%;
 				max-width: 31%;
-				min-height: 485px;
-				margin-right: 3.5%;
-				margin-bottom: 30px;
-
-				&:nth-child(3n+3) {
-					margin-right: 0;
-				}
+				margin-bottom: 3.6rem;
 
 				& .edd-rp-item-title {
 					display: none;
@@ -663,12 +658,14 @@
 					display: block;
 					background: @eddgray;
 					padding: 20px 20px 10px;
+
 				}
 
 				& > form {
 					background: @eddgray;
 					padding: 20px;
 					border-radius: 0 0 4px 4px;
+					margin: auto 0 0;
 
 					& label {
 						font-size: 1.6rem;
@@ -689,14 +686,6 @@
 
 	& .edd-rp-item {
 		max-width: 48%;
-
-		&:nth-child(even) {
-			margin-right: 0;
-		}
-
-		&:nth-child(3n+3) {
-			margin-right: 3.5%;
-		}
 	}
 }
 
