@@ -14,7 +14,7 @@
 					Just getting started?
 				</div>
 				<div class="description-content">
-					<p>Great! Easy Digital Downloads is a <strong>FREE eCommerce plugin</strong> for WordPress. Right out of the box, Easy Digital Downloads features:</p>
+					<p>Great! Easy Digital Downloads is a <strong>FREE eCommerce plugin</strong> for WordPress. Right out of the box, Easy Digital Downloads <span class="mobile-display-hack">includes the following </span>features:</p>
 					<ul class="pricing-column-list edd-features-list">
 						<li><strong>shopping cart</strong> system</li>
 						<li><strong>customer management</strong> tools</li>
