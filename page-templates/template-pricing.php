@@ -27,7 +27,7 @@ get_header(); ?>
 			</div>
 			<div class="edd-feature flex-two">
 				<h4>Do I have to pay extra for support?</h4>
-				<p>Easy Digital Downloads support is free for all users. You may open a support ticket at any time. Extension support, however, requires a valid extension license key. License keys are issued at the time of purchase.</p>
+				<p>Easy Digital Downloads support is free for all users. You may open a <a href="<?php echo home_url( '/support/' ); ?>">support ticket</a> at any time. Extension support, however, requires a valid extension license key. License keys are issued at the time of purchase.</p>
 			</div>
 			<div class="edd-feature flex-two">
 				<h4>What are the license keys used for?</h4>
@@ -47,7 +47,7 @@ get_header(); ?>
 			</div>
 			<div class="edd-feature flex-two">
 				<h4>How are product bundles licensed?</h4>
-				<p>Our <a href="<?php echo home_url( '/downloads/core-extensions-bundle' ); ?>">Core Extensions Bundle</a> comes with unlimited license keys for all included extensions. Other product bundles, as well as the <a href="<?php echo home_url( '/starter-package' ); ?>">Starter Package</a>, come with single site license keys for included extensions.</p>
+				<p>Our <a href="<?php echo home_url( '/downloads/core-extensions-bundle/' ); ?>">Core Extensions Bundle</a> comes with unlimited license keys for all included extensions. Other product bundles, as well as the <a href="<?php echo home_url( '/starter-package/' ); ?>">Starter Package</a>, come with single site license keys for included extensions.</p>
 			</div>
 			<div class="edd-feature flex-two">
 				<h4>Can I request a refund?</h4>
@@ -62,7 +62,7 @@ get_header(); ?>
 			</div>
 
 			<p class="large-call-to-action-secondary-links">
-				<span>or ask a <a href="<?php echo home_url( '/pre-sale-question' ); ?>">pre-sale question</a></span>
+				<span>or ask a <a href="<?php echo home_url( '/pre-sale-question/' ); ?>">pre-sale question</a></span>
 			</p>
 		</div>
 	</div>
