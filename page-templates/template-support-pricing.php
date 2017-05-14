@@ -10,34 +10,46 @@ get_header(); ?>
 	<div id="support-pricing-table-area" class="features-page-section page-section-white full-width">
 		<div class="inner">
 			<div class="support-pricing-table-content clearfix">
-				<h2 class="section-title-alt">Priority Support</h2>
-				<div class="flex-container">
-					<div class="yearly-support support-type flex-two">
-						<h2 class="support-type-title">Yearly Access <span>Recommended</span></h2>
-						<div class="support-type-info">
-							<div class="support-type-price">
-								<span class="support-price">$299</span>
-							</div>
-							<div class="support-type-description">
-								Get yearly access to Priority Support and always be at the front of the queue. We will provide technical support and even log into your site to solve problems. As a paid member, your responses will be answered as rapidly as possible.
-							</div>
-							<div class="support-type-cta">
-								<a class="button edd-submit blue" href="/support/register/?level=1">Sign up for yearly support</a>
-							</div>
+				<div class="support-pricing-options-container flex-container">
+					<div class="support-type-information support-type flex-three">
+						<h1>Priority Support</h1>
+						<p>Always be at the front of the support queue with Easy Digital Downloads Priority Support. We will provide technical support, in-depth troubleshooting, and even log into your site to help solve problems.</p>
+						<p>Sign up for yearly or 45-day access to Priority Support and we'll help you take your business to the next level.</p>
+					</div>
+					<div class="yearly-support support-type flex-three">
+						<h2 class="support-type-title">Yearly Access</h2>
+						<div class="support-type-price">
+							<span class="recommended-price">Recommended</span>
+							<span class="support-price">$299</span>
+						</div>
+						<div class="support-type-description">
+							<ul class="pricing-column-list">
+								<li>precedence over free support</li>
+								<li>log into your site for troubleshooting</li>
+								<li>in-depth technical assistance</li>
+								<li>1 year access</li>
+								<li>60% savings over 45 day support</li>
+							</ul>
+						</div>
+						<div class="support-type-cta">
+							<a class="button edd-submit darkblue" href="/support/register/?level=1"><i class="fa fa-life-ring" aria-hidden="true"></i><span>Get </span>yearly priority support</a>
 						</div>
 					</div>
-					<div class="fortyfive-day-support support-type flex-two">
+					<div class="fortyfive-day-support support-type flex-three">
 						<h2 class="support-type-title">45 Day Access</h2>
-						<div class="support-type-info">
-							<div class="support-type-price">
-								<span class="support-price">$99</span>
-							</div>
-							<div class="support-type-description">
-								Get access to 45 days of in-depth setup assistance, trouble shooting, and access to Priority Support.
-							</div>
-							<div class="support-type-cta">
-								<a class="button edd-submit blue" href="/support/register/?level=2">Sign up for 45 days<span> of priority support</span></a>
-							</div>
+						<div class="support-type-price">
+							<span class="support-price">$99</span>
+						</div>
+						<div class="support-type-description">
+							<ul class="pricing-column-list">
+								<li>precedence over free support</li>
+								<li>log into your site for troubleshooting</li>
+								<li>in-depth technical assistance</li>
+								<li>45 day access</li>
+							</ul>
+						</div>
+						<div class="support-type-cta">
+							<a class="button edd-submit blue" href="/support/register/?level=2"><i class="fa fa-life-ring" aria-hidden="true"></i><span>Get </span>45-day priority support</a>
 						</div>
 					</div>
 				</div>

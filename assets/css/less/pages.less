@@ -240,6 +240,7 @@
 
 
 /* ----------------------------- *
+<<<<<<< HEAD
  * Pricing template (new)
  * ----------------------------- */
 #pricing-page-header-area {
@@ -587,6 +588,9 @@
 
 /* ----------------------------- *
  * Product Info template
+=======
+ * Product Version template (Download Directory)
+>>>>>>> @{-1}
  * ----------------------------- */
 .product-info-content {
 	& .product-info-list {
@@ -619,13 +623,13 @@
 	}
 
 	& .product-version {
-		display: block;
 		font-size: 1.3rem;
 		display: inline-block;
 		line-height: 1;
+		margin: auto 0 0;
 
 		& .changelog-link {
-			display: block;
+			display: inline-block;
 			background: #a2acb2;
 			color: #fff;
 			padding: 4px 8px;
@@ -642,7 +646,7 @@
 		}
 
 		& span {
-			display: block;
+			display: inline-block;
 			background: @eddgrayhover;
 			padding: 4px 8px;
 			border-radius: 3px;
@@ -2883,55 +2887,135 @@
  * ----------------------------- */
 .support-pricing-table-content {
 	padding-bottom: 40px;
-}
 
-.support-type {
-	background: @eddgray;
-	padding: 30px;
-	border-radius: 4px;
-}
+	& .support-type {
+		width: 33.33333%;
 
-.yearly-support {
-	float: left;
-}
+		&.support-type-information {
+			display: block;
+			padding: 0 40px 0 0;
 
-.fortyfive-day-support {
-	float: right;
-	background: #fff;
-}
+			& h1 {
+				margin-bottom: 1em;
+			}
+		}
 
-.support-type-title {
-	font-size: 2.6rem;
-	font-weight: 500;
-}
+		&.yearly-support {
+			background: @edddarkblue;
+			color: #fff;
+			border-radius: 4px 0 0 4px;
 
-.support-type-title span {
-	display: inline-block;
-	background: #a2acb2;
-	color: #fff;
-	padding: 8px 10px 6px;
-	font-size: 1.1rem;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	border-radius: 4px;
-	vertical-align: text-top;
-	margin-left: 10px;
-	line-height: 1;
-	margin-top: 4px;
-}
+			& .support-type-title {
+				color: #fff;
+			}
 
-.support-type-price {
-	margin-bottom: 20px;
+			& .support-type-price {
+				background: rgba(255,255,255,0.06);
 
-	& span {
-		color: #777;
-		font-size: 5rem;
-		margin-bottom: 20px;
+				& .recommended-price {
+					display: block;
+					position: relative;
+						left: 12px;
+					color: #afd8f3;
+					font-size: 13px;
+					font-style: italic;
+					margin: 0;
+				}
+			}
+
+			& .support-type-description {
+				color: #fff;
+
+				& .pricing-column-list {
+					& li {
+						&:before {
+							color: #7990a0;
+							content: "\f058";
+						}
+					}
+				}
+			}
+		}
+
+		&.fortyfive-day-support {
+			background: @eddblue;
+			color: #fff;
+			border-radius: 0 4px 4px 0;
+
+			& .support-type-price {
+				background: @eddbluehover;
+
+				& span {
+					top: 13px;
+				}
+			}
+
+			& .support-type-description {
+				& .pricing-column-list {
+					& li {
+						&:before {
+							color: #afd8f3;
+							content: "\f058";
+						}
+					}
+				}
+			}
+		}
+
+		& .support-type-title {
+			font-size: 2.6rem;
+			font-weight: 500;
+			text-align: center;
+			padding: 24px 0;
+		}
+
+		& .support-type-price {
+			text-align: center;
+			padding: 16px 30px;
+			min-height: 105px;
+
+			& span {
+				position: relative;
+				font-size: 6rem;
+				line-height: 1;
+				margin-bottom: 20px;
+			}
+		}
+
+		& .support-type-description {
+			font-size: 14px;
+			padding: 30px 30px 0;
+			margin-bottom: 20px;
+
+			& .pricing-column-list {
+				margin: 0 0 20px 3px;
+				padding: 0;
+				list-style: none;
+
+				& li {
+					padding: 2px 4px;
+
+					&:before {
+						font-family: "FontAwesome";
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+
+		& .support-type-cta {
+			padding: 0 30px 30px;
+			margin: auto 0 0;
+
+			& a {
+				background: @green;
+
+				&:hover {
+					background: @greenhover;
+				}
+			}
+		}
 	}
-}
-
-.support-type-description {
-	margin-bottom: 20px;
 }
 
 
