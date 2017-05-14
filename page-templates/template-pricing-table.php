@@ -36,7 +36,7 @@
 		<div class="column-content">
 			<div class="column-price">
 				<span class="option-price-title">Packages as low as</span>
-				<span class="option-price">$108<span class="option-price-sub">.50</span></span>
+				<span class="option-price">$108<span class="option-price-sub">.50</span><span class="option-price-asterisk">&#42;</span></span>
 			</div>
 			<div class="column-description">
 				<p>Use the Starter Package to build <em>your</em> ideal eCommerce platform.</p>
@@ -59,14 +59,14 @@
 		</div>
 		<div class="column-content">
 			<div class="column-price">
-				<span class="option-price-title">Unlimited licenses</span>
-				<span class="option-price">$799<span class="option-price-sub">.00</span></span>
+				<span class="option-price-title">Unlimited license keys</span>
+				<span class="option-price">$799<span class="option-price-sub">.00</span><span class="option-price-asterisk">&#42;</span></span>
 			</div>
 			<div class="column-description">
-				<p>Need unlimited licenses for our most prominant extensions? Go this route.</p>
+				<p>Looking for unlimited license keys for our most prominant extensions?</p>
 				<ul class="pricing-column-list">
 					<li>created by <em>our</em> developers</li>
-					<li><strong>unlimited license</strong> usage</li>
+					<li><strong>unlimited license key</strong> usage</li>
 					<?php
 					// how many products in the Core Extensions Bundle?
 					$core_bundle = get_post_meta( 121068, '_edd_bundled_products' );
@@ -89,7 +89,7 @@
 		<div class="column-content">
 			<div class="column-price">
 				<span class="option-price-title">Starting from</span>
-				<span class="option-price">$19<span class="option-price-sub">.00</span></span>
+				<span class="option-price">$19<span class="option-price-sub">.00</span><span class="option-price-asterisk">&#42;</span></span>
 			</div>
 			<div class="column-description">
 				<p>Purchase individual extensions that meet <em>your</em> business needs.</p>
@@ -105,4 +105,7 @@
 			<a class="pricing-cta edd-submit button blue" href="<?php echo home_url( '/downloads/' ); ?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Browse all extensions</a>
 		</div>
 	</div>
+</div>
+<div class="pricing-table-notes">
+	<p>&#42; Easy Digital Downloads is a <strong>FREE</strong>, full-featured eCommerce plugin. "Extensions" are additional, <em>optional</em> WordPress plugins that <em>extend the functionality</em> of Easy Digital Downloads. While some extensions are free, the Starter Package, Core Bundle, and most of our à la carte options require a fee for licensing and support.</p>
 </div>

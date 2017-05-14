@@ -2,7 +2,7 @@
  * theme JS
  */
 (function ($) {
-	"use strict"; 
+	"use strict";
 
 	$(function () {
 
@@ -117,7 +117,7 @@
 				parent.find('.toggle-content').hide();
 				el.removeClass('active');
 			}
-			else 
+			else
 			{
 				parent.find('.toggle-content').show();
 				el.addClass('active');
@@ -140,13 +140,22 @@
 			$('.toggle-keys-container').slideToggle();
 			return false;
 		});
-		
+
 
 		// Click to show support form
 		$( ".edd-support-ticket-link" ).on('click', function() {
 			$(this).parents( ".edd-docs-link-wrap" ).siblings( ".support-docs-form-container" ).slideDown();
 			$( ".ginput_container_text input" ).focus();
 			return false;
+		});
+
+
+		// Pricing page
+		$( "#see-pricing" ).click( function() {
+			$( 'html, body' ).animate( {
+				scrollTop: $( "#pricing-page-header-area" ).offset().top
+			}, 500 );
+			event.preventDefault();
 		});
 
 	});
