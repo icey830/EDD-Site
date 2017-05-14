@@ -27,8 +27,8 @@ get_header(); ?>
 								<li>precedence over free support</li>
 								<li>log into your site for troubleshooting</li>
 								<li>in-depth technical assistance</li>
-								<li>1 year access</li>
-								<li>60% savings over 45 day support</li>
+								<li>1-year access</li>
+								<li>60% savings over 45-day support</li>
 							</ul>
 						</div>
 						<div class="support-type-cta">
@@ -36,7 +36,7 @@ get_header(); ?>
 						</div>
 					</div>
 					<div class="fortyfive-day-support support-type flex-three">
-						<h2 class="support-type-title">45 Day Access</h2>
+						<h2 class="support-type-title">45-Day Access</h2>
 						<div class="support-type-price">
 							<span class="support-price">$99</span>
 						</div>
@@ -45,7 +45,7 @@ get_header(); ?>
 								<li>precedence over free support</li>
 								<li>log into your site for troubleshooting</li>
 								<li>in-depth technical assistance</li>
-								<li>45 day access</li>
+								<li>45-day access</li>
 							</ul>
 						</div>
 						<div class="support-type-cta">
