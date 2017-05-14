@@ -275,6 +275,23 @@
 			}
 		}
 	}
+
+	/* support pricing */
+	.support-pricing-table-content {
+		max-width: 750px;
+		margin: 0 auto;
+
+		.support-type {
+			&.support-type-information {
+				padding: 0;
+				width: 100%;
+			}
+			&.yearly-support,
+			&.fortyfive-day-support {
+				width: 50%;
+			}
+		}
+	}
 }
 
 
@@ -945,6 +962,27 @@
 		margin-left: 0;
 	}
 
+	/* support pricing */
+	.support-pricing-table-content {
+		.support-type {
+			&.yearly-support,
+			&.fortyfive-day-support {
+				border-radius: 4px;
+				margin: 0 auto 30px;
+				width: 100%;
+				max-width: 450px;
+
+				& .support-type-cta a span {
+					display: none;
+				}
+			}
+
+			&.fortyfive-day-support {
+				margin-bottom: 0;
+			}
+		}
+	}
+
 	/* recommended products */
 	#recommended-products .download-grid-item {
 		width: 100%;
@@ -984,11 +1022,6 @@
 
 	.crew-member.crew-part-time {
 		width: 100% !important;
-	}
-
-	/* support pricing */
-	.support-type-cta span {
-		display: none;
 	}
 
 	/* Invoices */
