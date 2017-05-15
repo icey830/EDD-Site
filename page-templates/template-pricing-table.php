@@ -59,11 +59,11 @@
 		</div>
 		<div class="column-content">
 			<div class="column-price">
-				<span class="option-price-title">Unlimited license keys</span>
+				<span class="option-price-title">Unlimited license activations</span>
 				<span class="option-price">$799<span class="option-price-sub">.00</span><span class="option-price-asterisk">&#42;</span></span>
 			</div>
 			<div class="column-description">
-				<p>Looking for unlimited license keys for our most prominant extensions?</p>
+				<p>Hey, agencies and freelancers. This bundle is <em>perfect</em> for client work!</p>
 				<ul class="pricing-column-list">
 					<li>created by <em>our</em> developers</li>
 					<li><strong>unlimited license key</strong> usage</li>
@@ -88,7 +88,7 @@
 		</div>
 		<div class="column-content">
 			<div class="column-price">
-				<span class="option-price-title">Starting from</span>
+				<span class="option-price-title">Extensions starting from</span>
 				<span class="option-price">$19<span class="option-price-sub">.00</span><span class="option-price-asterisk">&#42;</span></span>
 			</div>
 			<div class="column-description">
