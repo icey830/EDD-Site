@@ -392,7 +392,7 @@ function eddwp_related_posts_by_tag() {
 				<ul class="related-articles-list">
 					<?php while ( $related->have_posts() ) { $related->the_post(); ?>
 						<li class="related-article">
-							<span class="related-article-title"><a href="<? the_permalink()?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></span>
+							<span class="related-article-title"><a href="<?php echo get_the_permalink()?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></span>
 						</li>
 					<?php } ?>
 				</ul>
