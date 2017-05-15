@@ -23,7 +23,7 @@ get_header(); ?>
 		<div class="features-grid-content-sections flex-container">
 			<div class="edd-feature flex-two">
 				<h4>Do I have to purchase additional extensions?</h4>
-				<p>No. Several members of the community use Easy Digital Downloads for free with no extensions. We advise that you analyze the needs of <em>your</em> business to decide whether or not you need additional functionality.</p>
+				<p>No. Extensions are entirely optional but do help to dramatically extend the functionality of your eCommerce store. Analyze the needs of your business to decide whether or not you need additional functionality.</p>
 			</div>
 			<div class="edd-feature flex-two">
 				<h4>Do I have to pay extra for support?</h4>
