@@ -65,7 +65,7 @@
 			<div class="column-description">
 				<p>Hey, agencies and freelancers. This bundle is <em>perfect</em> for client work!</p>
 				<ul class="pricing-column-list">
-					<li>created by <em>our</em> developers</li>
+					<li>includes all primary extensions</li>
 					<li><strong>unlimited license key</strong> usage</li>
 					<?php
 					// how many products in the Core Extensions Bundle?
