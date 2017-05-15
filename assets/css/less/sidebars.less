@@ -23,15 +23,16 @@
 		}
 	}
 
-	& .widget:not(:last-child) {
-		margin-bottom: 45px;
+	& .widget {
+		margin-bottom: 60px;
 	}
 
 	& .widget-title {
-		margin: 0;
-		margin-bottom: 10px;
 		font-size: 18px;
 		font-weight: 500;
+		padding-bottom: 10px;
+		border-bottom: 3px solid #f7f7f7;
+		margin-bottom: 20px;
 	}
 
 	& select {
@@ -43,51 +44,64 @@
 	margin-bottom: 45px;
 }
 
+
 /* cart widget */
-.widget_edd_cart_widget .edd-cart {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+.widget_edd_cart_widget {
 
-	& .edd-cart-item,
-	.edd-cart-number-of-items {
-		font-size: 13px;
-	}
+	& .widget-title {
 
-	& .edd-cart-item-quantity {
-		margin-left: 10px;
-	}
-
-	& .edd-cart-number-of-items {
-		margin-bottom: 10px;
-	}
-
-	& .edd-cart-item {
-		& .edd-cart-item-title {
-			display: block;
-		}
-
-		& .edd-cart-item-separator {
-			display: none;
+		&:before {
+			font-family: "FontAwesome";
+			content: "\f07a";
+			margin-right: 8px;
 		}
 	}
 
-	& .edd-cart-meta.edd_total {
-		font-weight: 400;
-		padding-left: 0;
-		margin: 10px 0;
+	& .edd-cart {
+		margin: 0;
+		padding: 0;
+		list-style: none;
 
-		& span {
-			color: @green;
-			font-weight: 500;
+		& .edd-cart-item,
+		.edd-cart-number-of-items {
+			font-size: 13px;
 		}
-	}
 
-	& .cart_item.edd_subtotal {
-		padding: 10px 0;
-		border: 1px solid #f2f2f2;
-		border-width: 1px 0;
-		margin: 15px 0;
+		& .edd-cart-item-quantity {
+			margin-left: 10px;
+		}
+
+		& .edd-cart-number-of-items {
+			margin-bottom: 10px;
+		}
+
+		& .edd-cart-item {
+			& .edd-cart-item-title {
+				display: block;
+			}
+
+			& .edd-cart-item-separator {
+				display: none;
+			}
+		}
+
+		& .edd-cart-meta.edd_total {
+			font-weight: 400;
+			padding-left: 0;
+			margin: 10px 0;
+
+			& span {
+				color: @green;
+				font-weight: 500;
+			}
+		}
+
+		& .cart_item.edd_subtotal {
+			padding: 10px 0;
+			border: 1px solid #f2f2f2;
+			border-width: 1px 0;
+			margin: 15px 0;
+		}
 	}
 }
 
@@ -102,15 +116,45 @@
 	}
 }
 
+/* related articles */
+.related-articles {
+	& .widget-title {
+
+		& .fa {
+			font-size: 90%;
+			margin-right: 8px;
+		}
+	}
+
+	& ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		& li {
+			border-bottom: 1px dotted @eddgray;
+
+			&:last-child {
+				border-bottom-width: 0;
+			}
+
+			& a {
+				display: block;
+				line-height: 1.4;
+				padding: 8px 10px 8px 0;
+
+				&:hover {
+				}
+			}
+		}
+	}
+}
+
 
 /* ----------------------------- *
  * Download Sidebar
  * ----------------------------- */
 .download-sidebar {
-	& .widget:not(:last-child) {
-		margin-bottom: 45px;
-	}
-
 	& .download-access {
 		background: @eddblue;
 		background: -moz-linear-gradient(5deg, @eddbluehover 57%, @eddbluehover 57%, @eddbluehover 57%);
@@ -307,7 +351,7 @@
 .sidebar .subscription-form-wrap {
 	padding: 30px;
 	border-radius: 4px;
-	margin-bottom: 50px;
+	margin-bottom: 60px;
 
 	& .newsletter-title {
 		margin-bottom: 16px;
