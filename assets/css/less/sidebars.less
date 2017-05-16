@@ -38,6 +38,12 @@
 	& select {
 		max-width: 100%;
 	}
+
+	& ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
 }
 
 .single-download .sidebar .download-info-section:not(:last-child) {
@@ -49,7 +55,6 @@
 .widget_edd_cart_widget {
 
 	& .widget-title {
-
 		&:before {
 			font-family: "FontAwesome";
 			content: "\f07a";
@@ -57,48 +62,61 @@
 		}
 	}
 
+	& .edd-cart-number-of-items {
+		display: none;
+	}
+
 	& .edd-cart {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-
-		& .edd-cart-item,
-		.edd-cart-number-of-items {
-			font-size: 13px;
-		}
-
-		& .edd-cart-item-quantity {
-			margin-left: 10px;
-		}
-
-		& .edd-cart-number-of-items {
-			margin-bottom: 10px;
-		}
-
 		& .edd-cart-item {
+			position: relative;
+			font-size: 13px;
+			padding-bottom: 10px;
+			border-bottom: 1px dotted @eddgrayhover;
+
+
 			& .edd-cart-item-title {
 				display: block;
+				font-size: 14px;
+				font-weight: 500;
 			}
 
 			& .edd-cart-item-separator {
 				display: none;
 			}
+
+			& .edd-cart-item-quantity {
+				margin-left: -3px;
+			}
+
+			& .edd-remove-from-cart {
+				position: absolute;
+					right: 0;
+					bottom: 6px;
+				color: #777;
+				font-size: 12px;
+			}
 		}
 
 		& .edd-cart-meta.edd_total {
-			font-weight: 400;
+			background: none;
+			font-size: 2rem;
+			font-weight: 500;
 			padding-left: 0;
 			margin: 10px 0;
 
 			& span {
 				color: @green;
-				font-weight: 500;
 			}
 		}
 
+		& .cart_item.edd_checkout a {
+			display: inline-block;
+		}
+
 		& .cart_item.edd_subtotal {
-			padding: 10px 0;
-			border: 1px solid #f2f2f2;
+			padding: 10px 0 20px;
+			border-style: solid;
+			border-color: #f2f2f2;
 			border-width: 1px 0;
 			margin: 15px 0;
 		}
@@ -127,10 +145,6 @@
 	}
 
 	& ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-
 		& li {
 			border-bottom: 1px dotted @eddgray;
 
