@@ -613,34 +613,36 @@
 		}
 	}
 
-	& .product-version {
-		font-size: 1.3rem;
-		display: inline-block;
-		line-height: 1;
-		margin: auto 0 0;
-
-		& .changelog-link {
+	& .product-info-list-item {
+		& .product-version {
+			font-size: 1.3rem;
 			display: inline-block;
-			background: #a2acb2;
-			color: #fff;
-			padding: 4px 8px;
-			border-radius: 3px;
-			-webkit-transition: background .2s ease-in-out;
-			-moz-transition: background .2s ease-in-out;
-			-o-transition: background .2s ease-in-out;
-			-ms-transition: background .2s ease-in-out;
-			transition: background .2s ease-in-out;
+			line-height: 1;
+			margin: auto 0 0;
 
-			&:hover {
-				background: @eddblue;
+			& .changelog-link {
+				display: inline-block;
+				background: #a2acb2;
+				color: #fff;
+				padding: 4px 8px;
+				border-radius: 3px;
+				-webkit-transition: background .2s ease-in-out;
+				-moz-transition: background .2s ease-in-out;
+				-o-transition: background .2s ease-in-out;
+				-ms-transition: background .2s ease-in-out;
+				transition: background .2s ease-in-out;
+
+				&:hover {
+					background: @eddblue;
+				}
 			}
-		}
 
-		& span {
-			display: inline-block;
-			background: @eddgrayhover;
-			padding: 4px 8px;
-			border-radius: 3px;
+			& span {
+				display: inline-block;
+				background: @eddgrayhover;
+				padding: 4px 8px;
+				border-radius: 3px;
+			}
 		}
 	}
 }
