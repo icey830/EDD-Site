@@ -11,5 +11,7 @@
 			eddwp_newsletter_form( $args );
 
 			dynamic_sidebar( 'blog-sidebar' );
+
+			eddwp_related_posts_by_tag();
 		?>
 	</aside><!-- /.sidebar -->

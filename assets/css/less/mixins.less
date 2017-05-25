@@ -29,9 +29,16 @@
 }
 
 .flex-item {
+	display: -webkit-flex;
+	display: flex;
 	position: relative;
 	-webkit-justify-content: space-between;
 	justify-content: space-between;
 	-webkit-flex-flow: column;
 	flex-flow: column nowrap;
+	flex-direction: column;
+
+	& > *:last-child {
+		margin: 0 0 auto;
+	}
 }

@@ -93,13 +93,6 @@
 		}
 
 
-		// mod action links for bbPress topics
-		$('.bbp-action-links-dropdown-toggle').on('click', function() {
-			var container = $(this).parent();
-			$('.fa-caret-up, .bbp-action-links-dropdown', container).slideToggle();
-		});
-
-
 		// Load the mobile nav menu
 		$('.fa.menu-toggle').on('click', function() {
 			$('#primary').slideToggle();
@@ -149,29 +142,6 @@
 		});
 
 
-		// Support
-		$('#wp-admin-bar-assigned_tickets').click(function(){
-			$('#TB_overlay, #TB_window').toggle();
-			return false;
-		});
-
-		$('#TB_overlay').click(function() {
-			$('#TB_overlay, #TB_window').toggle();
-			return false;
-		});
-
-
-		// Forums
-		$('#bbp-forum-289 .bbp-forum-title').on('click', function() {
-			$('.bbp-forums-list', this.parent).slideToggle();
-			return false;
-		});
-
-		$('#bbp-forum-3560 .bbp-forum-title').on('click', function() {
-			$('#bbp-forum-3560 .bbp-forums-list', this.parent).slideToggle();
-			return false;
-		});
-
 		// Click to show support form
 		$( ".edd-support-ticket-link" ).on('click', function() {
 			$(this).parents( ".edd-docs-link-wrap" ).siblings( ".support-docs-form-container" ).slideDown();
@@ -179,5 +149,27 @@
 			return false;
 		});
 
+
+		// Pricing page
+		$( "#see-pricing" ).click( function() {
+			$( 'html, body' ).animate( {
+				scrollTop: $( "#pricing-page-header-area" ).offset().top
+			}, 500 );
+			event.preventDefault();
+		});
+
 	});
 }(jQuery));
+
+function eddwp_send_ga_action( type, category, action, label ) {
+	if (typeof ga !== 'undefined') {
+		ga('send', {
+			hitType      : type,
+			eventCategory: category,
+			eventAction  : action,
+			eventLabel   : label,
+		});
+	}
+
+	return true;
+}

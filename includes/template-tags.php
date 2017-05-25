@@ -349,7 +349,7 @@ function eddwp_newsletter_form( $args = array() ) {
 			<?php if ( $args['description'] ) { ?>
 				<p class="newsletter-description"><?php echo $args['description_content']; ?></p>
 			<?php } ?>
-			<?php gravity_form( eddwp_newsletter_form_id(), false, false, false, '', true, $args['tabindex'] ); ?>
+			<?php if ( function_exists( 'gravity_form' ) ) { gravity_form( eddwp_newsletter_form_id(), false, false, false, '', true, $args['tabindex'] ); } ?>
 			<?php if ( $args['notes'] ) { ?>
 				<div class="subscription-notes">
 					<?php echo $args['notes_content']; ?>
@@ -358,6 +358,50 @@ function eddwp_newsletter_form( $args = array() ) {
 		</div>
 	</div>
 	<?php
+}
+
+
+/**
+ * Single post sidebar related posts
+ */
+function eddwp_related_posts_by_tag() {
+	global $post;
+	$orig_post = $post;
+
+	$tags = wp_get_post_tags( $post->ID );
+
+	if ( $tags ) {
+		$tag_ids = array();
+
+		foreach( $tags as $individual_tag ) {
+			$tag_ids[] = $individual_tag->term_id;
+		}
+
+		$args = array(
+			'tag__in'          => $tag_ids,
+			'post__not_in'     => array( $post->ID ),
+			'posts_per_page'   => 4,
+			'caller_get_posts' =>1
+		);
+		$related = new wp_query( $args );
+
+		if ( $related->have_posts() ) {
+			?>
+			<aside class="widget related-articles">
+				<h3 class="widget-title"><i class="fa fa-tags" aria-hidden="true"></i>Related Articles</h3>
+				<ul class="related-articles-list">
+					<?php while ( $related->have_posts() ) { $related->the_post(); ?>
+						<li class="related-article">
+							<span class="related-article-title"><a href="<?php echo get_the_permalink()?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></span>
+						</li>
+					<?php } ?>
+				</ul>
+			</aside>
+			<?php
+		}
+	}
+	$post = $orig_post;
+	wp_reset_query();
 }
 
 

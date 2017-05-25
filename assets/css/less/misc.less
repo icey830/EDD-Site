@@ -174,14 +174,14 @@
  * EDD Newsletter form
  * ----------------------------- */
 .subscription-form-wrap {
-	color: #fff;
-	font-size: 1.4rem;
-	line-height: 24px;
-
 	background: @eddblue;
 	background: -moz-linear-gradient(5deg, @eddbluehover 73%, @eddbluehover 73%, @eddbluehover 73%);
 	background: -webkit-linear-gradient(5deg, @eddbluehover 73%, @eddbluehover 73%, @eddblue 73%);
 	background: linear-gradient(5deg, @eddbluehover 73%, @eddbluehover 73%, @eddblue 73%);
+	color: #fff;
+	font-size: 1.4rem;
+	line-height: 24px;
+
 
 	& svg {
 		width: 16px;
@@ -533,7 +533,6 @@
 			& > p {
 				color: #777;
 				font-size: 1.5rem;
-				min-height: 65px;
 				margin-bottom: 10px;
 			}
 		}
@@ -602,19 +601,16 @@
 		}
 
 		& #edd-rp-items-wrapper {
-			text-align: left;
+			.flex-container;
 
 			& .edd-rp-item {
+				.flex-item;
+				background: @eddgray;
 				text-align: left;
+				border-radius: 4px;
+				margin-bottom: 3.6rem;
 				width: 100%;
 				max-width: 31%;
-				min-height: 485px;
-				margin-right: 3.5%;
-				margin-bottom: 30px;
-
-				&:nth-child(3n+3) {
-					margin-right: 0;
-				}
 
 				& .edd-rp-item-title {
 					display: none;
@@ -631,15 +627,12 @@
 				}
 
 				& .edd_cart_item_image {
-					margin-top: 6px;
-
 					& img {
 						border-radius: 4px 4px 0 0;
 					}
 				}
 
 				& .edd-rp-item-title-wrap {
-					background: @eddgray;
 					padding: 20px 20px 0;
 
 					& .edd-rp-item-title-alt {
@@ -649,26 +642,21 @@
 				}
 
 				& .rp-short-description {
-					background: @eddgray;
 					color: #777;
 					font-size: 1.5rem;
 					padding: 10px 20px 0;
-
-					& p {
-						min-height: 60px;
-					}
 				}
 
 				& .edd_price {
 					display: block;
-					background: @eddgray;
 					padding: 20px 20px 10px;
+
 				}
 
 				& > form {
-					background: @eddgray;
 					padding: 20px;
 					border-radius: 0 0 4px 4px;
+					margin: auto 0 0 !important;
 
 					& label {
 						font-size: 1.6rem;
@@ -689,14 +677,6 @@
 
 	& .edd-rp-item {
 		max-width: 48%;
-
-		&:nth-child(even) {
-			margin-right: 0;
-		}
-
-		&:nth-child(3n+3) {
-			margin-right: 3.5%;
-		}
 	}
 }
 

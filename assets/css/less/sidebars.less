@@ -23,19 +23,26 @@
 		}
 	}
 
-	& .widget:not(:last-child) {
-		margin-bottom: 45px;
+	& .widget {
+		margin-bottom: 60px;
 	}
 
 	& .widget-title {
-		margin: 0;
-		margin-bottom: 10px;
 		font-size: 18px;
 		font-weight: 500;
+		padding-bottom: 10px;
+		border-bottom: 3px solid #f7f7f7;
+		margin-bottom: 20px;
 	}
 
 	& select {
 		max-width: 100%;
+	}
+
+	& ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
 	}
 }
 
@@ -43,51 +50,76 @@
 	margin-bottom: 45px;
 }
 
+
 /* cart widget */
-.widget_edd_cart_widget .edd-cart {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+.widget_edd_cart_widget {
 
-	& .edd-cart-item,
-	.edd-cart-number-of-items {
-		font-size: 13px;
-	}
-
-	& .edd-cart-item-quantity {
-		margin-left: 10px;
+	& .widget-title {
+		&:before {
+			font-family: "FontAwesome";
+			content: "\f07a";
+			margin-right: 8px;
+		}
 	}
 
 	& .edd-cart-number-of-items {
-		margin-bottom: 10px;
+		display: none;
 	}
 
-	& .edd-cart-item {
-		& .edd-cart-item-title {
-			display: block;
+	& .edd-cart {
+		& .edd-cart-item {
+			position: relative;
+			font-size: 13px;
+			padding-bottom: 10px;
+			border-bottom: 1px dotted @eddgrayhover;
+
+
+			& .edd-cart-item-title {
+				display: block;
+				font-size: 14px;
+				font-weight: 500;
+			}
+
+			& .edd-cart-item-separator {
+				display: none;
+			}
+
+			& .edd-cart-item-quantity {
+				margin-left: -3px;
+			}
+
+			& .edd-remove-from-cart {
+				position: absolute;
+					right: 0;
+					bottom: 6px;
+				color: #777;
+				font-size: 12px;
+			}
 		}
 
-		& .edd-cart-item-separator {
-			display: none;
-		}
-	}
-
-	& .edd-cart-meta.edd_total {
-		font-weight: 400;
-		padding-left: 0;
-		margin: 10px 0;
-
-		& span {
-			color: @green;
+		& .edd-cart-meta.edd_total {
+			background: none;
+			font-size: 2rem;
 			font-weight: 500;
-		}
-	}
+			padding-left: 0;
+			margin: 10px 0;
 
-	& .cart_item.edd_subtotal {
-		padding: 10px 0;
-		border: 1px solid #f2f2f2;
-		border-width: 1px 0;
-		margin: 15px 0;
+			& span {
+				color: @green;
+			}
+		}
+
+		& .cart_item.edd_checkout a {
+			display: inline-block;
+		}
+
+		& .cart_item.edd_subtotal {
+			padding: 10px 0 20px;
+			border-style: solid;
+			border-color: #f2f2f2;
+			border-width: 1px 0;
+			margin: 15px 0;
+		}
 	}
 }
 
@@ -102,32 +134,57 @@
 	}
 }
 
+/* related articles */
+.related-articles {
+	& .widget-title {
+
+		& .fa {
+			font-size: 90%;
+			margin-right: 8px;
+		}
+	}
+
+	& ul {
+		& li {
+			border-bottom: 1px dotted @eddgray;
+
+			&:last-child {
+				border-bottom-width: 0;
+			}
+
+			& a {
+				display: block;
+				line-height: 1.4;
+				padding: 8px 10px 8px 0;
+
+				&:hover {
+				}
+			}
+		}
+	}
+}
+
 
 /* ----------------------------- *
  * Download Sidebar
  * ----------------------------- */
 .download-sidebar {
-	& .widget:not(:last-child) {
-		margin-bottom: 45px;
-	}
-
 	& .download-access {
 		background: @eddblue;
+		background: -moz-linear-gradient(5deg, @eddbluehover 57%, @eddbluehover 57%, @eddbluehover 57%);
+		background: -webkit-linear-gradient(5deg, @eddbluehover 57%, @eddbluehover 57%, @eddblue 57%);
+		background: linear-gradient(5deg, @eddbluehover 57%, @eddbluehover 57%, @eddblue 57%);
 		color: #fff;
 		border-radius: 4px;
 
 		& .pricing-header {
-			background: rgba(0,0,0,.1) url('images/mascot/edd-headshot.png') no-repeat 22px bottom;
-			text-align: right;
-			padding: 18px 30px;
-			border-bottom: 1px solid #215b95;
+			padding: 30px 30px 0;
 
 			& .widget-title {
-				font-size: 2rem;
-				font-weight: 400;
-				padding: 0;
-				border: none;
-				margin: 0;
+				font-size: 2.4rem;
+				padding-bottom: 0;
+				border-bottom: none;
+				margin-bottom: 0;
 			}
 		}
 
@@ -310,7 +367,7 @@
 .sidebar .subscription-form-wrap {
 	padding: 30px;
 	border-radius: 4px;
-	margin-bottom: 50px;
+	margin-bottom: 60px;
 
 	& .newsletter-title {
 		margin-bottom: 16px;
