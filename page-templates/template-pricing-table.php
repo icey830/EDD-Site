@@ -25,7 +25,7 @@
 			</div>
 		</div>
 		<div class="column-cta">
-			<a class="pricing-cta edd-submit button blue" href="<?php echo get_theme_mod( 'eddwp_download_core' ); ?>"><i class="fa fa-cloud-download"></i>Download for FREE</a>
+			<a onClick="eddwp_send_ga_action( 'event', 'pricing_page', 'download_core', 'Download Core' )" class="pricing-cta edd-submit button blue" href="<?php echo get_theme_mod( 'eddwp_download_core' ); ?>"><i class="fa fa-cloud-download"></i>Download for FREE</a>
 		</div>
 	</div>
 
@@ -49,7 +49,7 @@
 			</div>
 		</div>
 		<div class="column-cta">
-			<a class="pricing-cta edd-submit button blue" href="<?php echo home_url( '/starter-package/' ); ?>"><i class="fa fa-cogs" aria-hidden="true"></i>Build custom package</a>
+			<a onClick="eddwp_send_ga_action( 'event', 'pricing_page', 'starter_package', 'Starter Package' )" class="pricing-cta edd-submit button blue" href="<?php echo home_url( '/starter-package/' ); ?>"><i class="fa fa-cogs" aria-hidden="true"></i>Build custom package</a>
 		</div>
 	</div>
 
@@ -78,7 +78,7 @@
 			</div>
 		</div>
 		<div class="column-cta">
-			<a class="pricing-cta edd-submit button darkblue" href="<?php echo home_url( '/downloads/core-extensions-bundle/' ); ?>"><i class="fa fa-eye" aria-hidden="true"></i>Review bundle details</a>
+			<a onClick="eddwp_send_ga_action( 'event', 'pricing_page', 'core_extensions', 'Core Extensions Bundle' )" class="pricing-cta edd-submit button darkblue" href="<?php echo home_url( '/downloads/core-extensions-bundle/' ); ?>"><i class="fa fa-eye" aria-hidden="true"></i>Review bundle details</a>
 		</div>
 	</div>
 
@@ -102,7 +102,7 @@
 			</div>
 		</div>
 		<div class="column-cta">
-			<a class="pricing-cta edd-submit button blue" href="<?php echo home_url( '/downloads/' ); ?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Browse all extensions</a>
+			<a onClick="eddwp_send_ga_action( 'event', 'pricing_page', 'browse_all', 'Browse All Extensions' )" class="pricing-cta edd-submit button blue" href="<?php echo home_url( '/downloads/' ); ?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Browse all extensions</a>
 		</div>
 	</div>
 </div>

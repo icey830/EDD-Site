@@ -349,7 +349,7 @@ function eddwp_newsletter_form( $args = array() ) {
 			<?php if ( $args['description'] ) { ?>
 				<p class="newsletter-description"><?php echo $args['description_content']; ?></p>
 			<?php } ?>
-			<?php gravity_form( eddwp_newsletter_form_id(), false, false, false, '', true, $args['tabindex'] ); ?>
+			<?php if ( function_exists( 'gravity_form' ) ) { gravity_form( eddwp_newsletter_form_id(), false, false, false, '', true, $args['tabindex'] ); } ?>
 			<?php if ( $args['notes'] ) { ?>
 				<div class="subscription-notes">
 					<?php echo $args['notes_content']; ?>
