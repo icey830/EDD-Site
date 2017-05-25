@@ -160,3 +160,16 @@
 
 	});
 }(jQuery));
+
+function edd_send_ga_action( type, category, action, label ) {
+	if (typeof ga !== 'undefined') {
+		ga('send', {
+			hitType      : type,
+			eventCategory: category,
+			eventAction  : action,
+			eventLabel   : label,
+		});
+	}
+
+	return true;
+}
