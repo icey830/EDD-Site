@@ -161,7 +161,7 @@
 	});
 }(jQuery));
 
-function edd_send_ga_action( type, category, action, label ) {
+function eddwp_send_ga_action( type, category, action, label ) {
 	if (typeof ga !== 'undefined') {
 		ga('send', {
 			hitType      : type,
