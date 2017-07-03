@@ -115,7 +115,7 @@
 			<div class="column-price">
 				<span class="option-price-title">Packages as low as</span>
 				<?php if ( $starter_package_discounted ) { ?>
-					<span class="option-price-strike"><?php echo edd_currency_filter( $sp_price_float ); ?></span>
+					<span class="option-price-strike">$<?php echo number_format( $sp_price_float, 2 ); ?></span>
 				<?php } ?>
 				<span class="option-price">$<?php echo $sp_price_int; ?><span class="option-price-sub"><?php echo $sp_price_dec; ?></span><span class="option-price-asterisk">&#42;</span></span>
 			</div>
