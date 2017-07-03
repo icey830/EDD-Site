@@ -57,6 +57,21 @@ function eddwp_customize_register( $wp_customize ) {
 		}
 	}
 
+	/**
+	 * Allow arbitrary HTML controls
+	 */
+	class EDDWP_Customizer_HTML extends WP_Customize_Control {
+		public $content = '';
+		public function render_content() {
+			if ( isset( $this->label ) ) {
+				echo '<hr><h3 class="settings-heading">' . $this->label . '</h3>';
+			}
+			if ( isset( $this->description ) ) {
+				echo '<div class="description customize-control-description settings-description">' . $this->description . '</div>';
+			}
+		}
+	}
+
 
 	/** =============
 	 * direct links
@@ -100,10 +115,72 @@ function eddwp_customize_register( $wp_customize ) {
 
 
 	/** =============
+	 * sales promotion
+	 */
+	$wp_customize->add_section( 'eddwp_sales_promotion', array(
+		'title'         => 'Sales Promotion',
+	) );
+
+	// Starter Package settings
+	$wp_customize->add_setting( 'eddwp_starter_package_settings', array() );
+	$wp_customize->add_control( new EDDWP_Customizer_HTML( $wp_customize, 'eddwp_starter_package_settings', array(
+		'section'     => 'eddwp_sales_promotion',
+		'priority'    => 10,
+		'label'       => 'Starter Package settings',
+		'description' => 'Not much is needed as the Starter Package stands alone. But when needed, random settings for the page can be found here.'
+	) ) );
+
+	// Starter Package discount percentage
+	$wp_customize->add_setting( 'eddwp_starter_package_discount_percentage', array(
+		'default'           => '30',
+		'sanitize_callback' => 'eddwp_sanitize_integer'
+	) );
+	$wp_customize->add_control( new EDDWP_WP_Customize_Text_Control( $wp_customize, 'eddwp_starter_package_discount_percentage', array(
+		'label'     => 'Starter Package Discount Percentage',
+		'section'   => 'eddwp_sales_promotion',
+		'description' => 'This is just a visual display of the discount percentage applied to the Starter Package products. It\'s here simply so changing this doesn\'t require site updates. Product fields still have to be adjusted manually in the form when this value changes.',
+		'priority'  => 11,
+	) ) );
+
+	// Active discount adjustments
+	$wp_customize->add_setting( 'eddwp_active_discount_adjustment', array() );
+	$wp_customize->add_control( new EDDWP_Customizer_HTML( $wp_customize, 'eddwp_active_discount_adjustment', array(
+		'section'     => 'eddwp_sales_promotion',
+		'priority'    => 20,
+		'label'       => 'Active discount adjustments',
+		'description' => 'We only run one major promotion at a time. During this period, the presence of an active discount code in the "Active discount code" field below will trigger the settings below it.',
+	) ) );
+
+	// Active discount code
+	$wp_customize->add_setting( 'eddwp_active_discount_code', array(
+		'default'           => null,
+		'sanitize_callback' => 'eddwp_sanitize_textarea_lite'
+	) );
+	$wp_customize->add_control( new EDDWP_WP_Customize_Text_Control( $wp_customize, 'eddwp_active_discount_code', array(
+		'label'       => 'Active discount code',
+		'section'     => 'eddwp_sales_promotion',
+		'description' => 'The status of this discount code triggers the settings below. As in, if this code is active, the rest of the settings in this section will go into effect. That means a scheduled discount code can be entered here, and its effects will be automated based on start and end dates.',
+		'priority'    => 21,
+	) ) );
+
+	// Alternate Click to Tweet text
+	$wp_customize->add_setting( 'eddwp_alt_ctt_text_purchase_confirmation', array(
+		'default'           => 'I just saved big on @eddwp extensions! Check it out! #WordPress',
+		'sanitize_callback' => 'eddwp_sanitize_textarea',
+	) );
+	$wp_customize->add_control( new EDDWP_WP_Customize_Textarea_Control( $wp_customize, 'eddwp_alt_ctt_text_purchase_confirmation', array(
+		'label'         => 'Purchase Confirmation CTT text',
+		'section'       => 'eddwp_sales_promotion',
+		'description'   => 'This text will override the default "Click To Tweet" text on the Purchase Confirmation page if there is an active discount code in the "Active discount code" setting above.',
+		'priority'      => 22,
+	) ) );
+
+
+	/** =============
 	 * Purchase Confirmation
 	 */
 	$wp_customize->add_section( 'eddwp_purchase_confirmation_settings', array(
-		'title'         => 'Purchase Confirmation Settings',
+		'title'         => 'Purchase Confirmation',
 	) );
 
 	// show Click to Tweet
@@ -139,30 +216,6 @@ function eddwp_customize_register( $wp_customize ) {
 		'label'     => 'URL attached to the tweet',
 		'section'   => 'eddwp_purchase_confirmation_settings',
 		'priority'  => 30,
-	) ) );
-
-	// Click to Tweet discount code
-	$wp_customize->add_setting( 'eddwp_ctt_discount_code_purchase_confirmation', array(
-		'default'           => null,
-		'sanitize_callback' => 'eddwp_sanitize_textarea_lite'
-	) );
-	$wp_customize->add_control( new EDDWP_WP_Customize_Text_Control( $wp_customize, 'eddwp_ctt_discount_code_purchase_confirmation', array(
-		'label'       => 'Discount Code',
-		'section'     => 'eddwp_purchase_confirmation_settings',
-		'description' => 'If you want the tweet text to change based on the use of a specific discount code, enter the discount code here. Leave blank to disable.',
-		'priority'    => 31,
-	) ) );
-
-	// Alternate Click to Tweet text
-	$wp_customize->add_setting( 'eddwp_alt_ctt_text_purchase_confirmation', array(
-		'default'           => 'I just saved big on @eddwp extensions! Check it out! #WordPress',
-		'sanitize_callback' => 'eddwp_sanitize_textarea',
-	) );
-	$wp_customize->add_control( new EDDWP_WP_Customize_Textarea_Control( $wp_customize, 'eddwp_alt_ctt_text_purchase_confirmation', array(
-		'label'         => 'DISCOUNT: Click to Tweet Text',
-		'section'       => 'eddwp_purchase_confirmation_settings',
-		'description'   => 'This text will override the above "Click to Tweet Text" if there is a VALID discount code in the "Discount Code" section, meaning it can disable itself if the entered discount is no longer valid.',
-		'priority'      => 32,
 	) ) );
 
 	// show cross-site promotions
@@ -225,28 +278,10 @@ function eddwp_customize_register( $wp_customize ) {
 
 
 	/** =============
-	 * Theme Settings
-	 */
-	$wp_customize->add_section( 'eddwp_theme_settings', array(
-		'title'         => 'Various Theme Settings',
-	) );
-
-	// Starter Package discount percentage
-	$wp_customize->add_setting( 'eddwp_starter_package_discount_percentage', array(
-		'default'           => '30',
-		'sanitize_callback' => 'eddwp_sanitize_integer'
-	) );
-	$wp_customize->add_control( new EDDWP_WP_Customize_Text_Control( $wp_customize, 'eddwp_starter_package_discount_percentage', array(
-		'label'     => 'Starter Package Discount Percentage',
-		'section'   => 'eddwp_theme_settings',
-		'priority'  => 30,
-	) ) );
-
-	/** =============
 	 * Support Page
 	 */
 	$wp_customize->add_section( 'eddwp_support_page_settings', array(
-		'title'         => 'Support Page Settings',
+		'title'         => 'Support Page',
 	) );
 
 	// Show Customer Notice
@@ -465,6 +500,7 @@ function eddwp_customizer_styles() { ?>
 		.customize-control-image + .customize-control-checkbox { margin-top: 12px; }
 		#customize-control-eddwp_empty_cart_downloads_count input,
 		#customize-control-eddwp_starter_package_discount_percentage input { width: 50px; }
+		#customize-controls #customize-theme-controls .description.settings-description { margin-bottom: 0; }
 	</style>
 <?php }
 add_action( 'customize_controls_print_styles', 'eddwp_customizer_styles' );

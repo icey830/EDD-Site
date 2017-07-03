@@ -34,8 +34,8 @@ if ( 1 == get_theme_mod( 'eddwp_click_to_tweet_purchase_confirmation' ) ) :
 	);
 
 	// adjust text based on discount code
-	if ( filter_var( $edd_receipt_args['discount'], FILTER_VALIDATE_BOOLEAN ) && isset( $user['discount'] ) && $user['discount'] != 'none' && '' != get_theme_mod( 'eddwp_ctt_discount_code_purchase_confirmation' ) ) :
-		$discount_code = get_theme_mod( 'eddwp_ctt_discount_code_purchase_confirmation' );
+	if ( filter_var( $edd_receipt_args['discount'], FILTER_VALIDATE_BOOLEAN ) && isset( $user['discount'] ) && $user['discount'] != 'none' && '' != get_theme_mod( 'eddwp_active_discount_code' ) ) :
+		$discount_code = get_theme_mod( 'eddwp_active_discount_code' );
 		$discount_id   = edd_get_discount_id_by_code( $discount_code );
 		if ( edd_is_discount_active( $discount_id, '', false ) ) :
 			$the_discounts = array_map( 'trim', explode( ',', $user['discount'] ) );

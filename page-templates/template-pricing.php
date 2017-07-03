@@ -5,7 +5,12 @@
  * the template for displaying EDD pricing information
  */
 
-get_header(); ?>
+get_header();
+
+// get the active discount code ID (used when we run special sales with a discount)
+$discount_code   = get_theme_mod( 'eddwp_active_discount_code', 0 );
+$discount_id     = edd_get_discount_id_by_code( $discount_code );
+?>
 
 <div id="pricing-page-header-area" class="page-section-white full-width">
 	<div class="inner">
@@ -18,6 +23,16 @@ get_header(); ?>
 
 <div id="pricing-table-area" class="page-section-white full-width">
 	<div class="inner">
+		<?php
+		// is there currently a sale?
+		if ( edd_is_discount_active( $discount_id, '', false ) && edd_is_discount_started( $discount_id, false ) ) {
+			?>
+			<div class="pricing-page-sale-notice-wrap">
+				<span class="pricing-page-sale-notice">Use the code <span><?php echo $discount_code; ?></span> at checkout to save <?php echo edd_get_discount_amount( $discount_id ); ?>% on your purchase!</span>
+			</div>
+			<?php
+		}
+		?>
 		<?php get_template_part( 'page-templates/template', 'pricing-table' ); ?>
 		<h2 class="section-title-alt">Pricing and licensing FAQs</h2>
 		<div class="features-grid-content-sections flex-container">
