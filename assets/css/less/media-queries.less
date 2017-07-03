@@ -90,6 +90,27 @@
 	}
 
 	/* pricing page */
+	#pricing-table-area .inner .pricing-page-sale-notice-wrap {
+		position: static;
+		margin: 0 auto;
+		max-width: 550px;
+
+		& .pricing-page-sale-notice {
+			background: @eddblue;
+			color: #fff;
+			line-height: 1.4;
+			width: 100% !important;
+			margin: -20px auto 70px;
+			border-radius: 4px;
+
+			& span {
+				color: inherit;
+				font-size: 130%;
+				text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+			}
+		}
+	}
+
 	.pricing-table-content {
 		max-width: 750px;
 		margin: 0 auto;
@@ -1148,6 +1169,10 @@
 
 
 @media all and ( max-width: 650px ) {
+
+	.pricing-page-sale-notice {
+		max-width: 400px;
+	}
 
 	/* pricing page */
 	.pricing-table-content {

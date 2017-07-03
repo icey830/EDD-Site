@@ -240,7 +240,7 @@
 
 
 /* ----------------------------- *
- * Pricing template (new)
+ * Pricing template (new) w/ pricing table
  * ----------------------------- */
 #pricing-page-header-area {
 	text-align: center;
@@ -248,7 +248,29 @@
 
 #pricing-table-area {
 	& .inner {
-		padding-top: 20px
+		padding-top: 20px;
+
+		& .pricing-page-sale-notice-wrap {
+			position: absolute;
+			right: 30px;
+			top: -18px;
+
+			& .pricing-page-sale-notice {
+				display: block;
+				color: #777;
+				font-size: 1.4rem;
+				line-height: 1;
+				text-align: center;
+				padding: 14px 10px;
+				border-radius: 4px 4px 0 0;
+				width: 550px;
+
+				& span {
+					color: @green;
+					font-weight: 500;
+				}
+			}
+		}
 	}
 
 	& .pricing-table-notes {
@@ -263,6 +285,47 @@
 		display: flex;
 		flex-direction: column;
 
+		&.active-sale-column {
+			& .column-content {
+				& .column-price {
+					& .option-price-title {
+						margin-bottom: 10px;
+					}
+
+					& .option-price-strike {
+						font-size: 18px;
+						text-decoration: line-through;
+					}
+
+					& .option-price {
+						font-size: 4.5rem;
+
+						& .option-price-asterisk {
+							top: 10px;
+						}
+					}
+				}
+			}
+
+			&.starter-package-column {
+				& .option-price-strike {
+					color: #7990a0;
+				}
+			}
+
+			&.core-bundle-column {
+				& .option-price-strike {
+					color: #afd8f3;
+				}
+			}
+
+			&.a-la-carte-column {
+				& .option-price-strike {
+					color: #777;
+				}
+			}
+		}
+
 		& .column-heading {
 			font-size: 2.4rem;
 			font-weight: 500;
@@ -275,6 +338,7 @@
 			& .column-price {
 				text-align: center;
 				padding: 15px 30px 16px;
+				min-height: 112px;
 
 				& .option-price-title {
 					display: block;
