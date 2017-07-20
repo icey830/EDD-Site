@@ -630,7 +630,9 @@ function eddwp_get_number_of_downloads() {
  * standard login form template
  */
 function eddwp_login_form() {
-	echo edd_login_form();
+	
+	$redirect = isset( $_GET['redirect'] ) ? sanitize_text_field( $_GET['redirect'] ) : '';
+	echo edd_login_form( $redirect );
 }
 
 
