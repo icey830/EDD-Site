@@ -29,11 +29,25 @@ if ( !empty( $suggestion_data ) && is_array( $suggestion_data ) ) :
 							?>
 						</div>
 						<div class="download-grid-item-cta recommended-products-cta">
-							<?php if ( !edd_has_variable_prices( get_the_ID() ) ) : ?>
-								<?php edd_price( get_the_ID() ); ?>
-							<?php endif; ?>
-
 							<?php
+							if ( ! edd_has_variable_prices( get_the_ID() ) ) :
+								edd_price( get_the_ID() );
+								$activations = get_post_meta( get_the_ID(), 'ecpt_licenseactivations', true );
+								?>
+								<span class="edd-bundle-price-label">
+									<?php
+									if ( empty( $activations ) ) :
+										echo 'Unlimited Sites';
+									elseif ( '1' === $activations ) :
+										echo 'Single Site';
+									else :
+										echo $activations . ' Sites';
+									endif;
+									?>
+								</span>
+								<?php
+							endif;
+
 							echo edd_get_purchase_link( array(
 								'download_id' => get_the_ID(),
 								'price'       => false,
