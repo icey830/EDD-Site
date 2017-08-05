@@ -552,6 +552,13 @@
 				text-align: center;
 				margin-bottom: 2.5rem;
 			}
+
+			& .globe-icon {
+				margin-top: 0;
+				width: 100%;
+				max-width: 500px;
+				margin: 0 auto;
+			}
 		}
 	}
 
@@ -918,19 +925,17 @@
 
 	/* front page */
 	.front-page-extensions-content > .flex-container {
-		& .flex-two {
+		& > .flex-two {
 			width: 100%;
-		}
 
-		& .featured-extension {
-			text-align: center;
-			margin-bottom: 3rem;
-			float: left;
-			width: 30%;
-			margin-right: 5%;
+			& > .flex-two .featured-extension {
+				margin-bottom: 3rem;
+				width: 100%;
+				margin-right: 5%;
 
-			&:last-of-type {
-				margin-right: 0;
+				&:last-of-type {
+					margin-right: 0;
+				}
 			}
 		}
 	}
