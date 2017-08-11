@@ -12,7 +12,7 @@
  */
 ?>
 
-	<?php if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page( 'subscribe' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
+	<?php if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page( 'subscribe' ) && ! is_page_template( 'page-templates/template-barebones.php' ) && ! is_page_template( 'page-templates/template-starter-package.php' ) ) : ?>
 		<div id="footer-newsletter" class="page-section-darkblue full-width">
 			<div class="inner">
 				<div class="newsletter-content clearfix">
@@ -34,7 +34,7 @@
 		<div class="inner">
 			<div class="site-footer">
 				<?php if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
-					<?php if ( ! is_404() && ! is_page( 'subscribe' ) ) : ?>
+					<?php if ( ! is_404() && ! is_page( 'subscribe' ) && ! is_page_template( 'page-templates/template-starter-package.php' ) ) : ?>
 						<img class="sitting-edd" src="<?php echo get_template_directory_uri(); ?>/images/mascot/edd-sitting.png" />
 					<?php endif; ?>
 					<?php if ( ! is_page( array( 130 ) ) ) : ?>
