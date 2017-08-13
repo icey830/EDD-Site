@@ -1,0 +1,807 @@
+/*
+ * support form styles
+ */
+
+/* ----------------------------- *
+ * Self Help Support Template
+ * ----------------------------- */
+.self-help-support-page {
+	& .edd-gf-self-help-support {
+		& > .gform_body > .gform_page > .gform_page_fields {
+			min-height: 400px;
+
+			& > ul > li {
+				position: relative;
+				margin-bottom: 40px !important;
+
+				&:not(.self-help-full-width-field) {
+					max-width: 722px;
+				}
+
+				&.self-help-hide-label {
+					& > label {
+						display: none;
+					}
+				}
+
+				& .section-title-alt {
+					font-weight: 500;
+				}
+
+				.ginput_container {
+					*display: inline-block;
+					height: 1%;
+				}
+
+				.ginput_container:after {
+					content: "";
+					display: block;
+					clear: both;
+					visibility: hidden;
+					font-size: 0;
+					height: 0;
+				}
+
+				& > label { /* main form field labels */
+					display: block;
+					font-family: @font-family;
+					font-size: 2.4rem;
+					line-height: 1.4;
+					font-weight: 500;
+					padding: 0;
+					margin: 0 0 .4em !important;
+				}
+
+				& > .gfield_description {
+					font-size: 15px !important;
+					color: #777;
+					max-width: 722px;
+				}
+			}
+
+			& ul li input[type="radio"] + label,
+			ul li input[type="checkbox"] + label {
+				&:hover {
+					color: #555;
+				}
+			}
+
+			& ul li input[type="radio"]:checked + label,
+			ul li input[type="checkbox"]:checked + label {
+				font-weight: 400 !important;
+			}
+
+			& li.helpscout-docs {
+				& input.medium {
+					max-width: 357px !important;
+				}
+
+				& .docs-search-wrap {
+					& .docs-search-resources {
+						& > *[class*="flex-"] {
+							margin-bottom: 0;
+
+							&:first-child {
+								background: #edf8ff;
+								padding: 20px;
+								border: 2px solid #e1f1fb;
+								border-radius: 4px;
+								margin: 40px 0 0;
+								width: 65.63636%;
+
+								&:before {
+									content: "Please review the articles to begin troubleshooting";
+									display: block;
+									font-family: @font-family;
+									font-size: 2.4rem;
+									line-height: 1.4;
+									font-weight: 500;
+									margin-bottom: 20px;
+								}
+
+								& li {
+									list-style-type: disc !important;
+									list-style-position: inside !important;
+
+									& a {
+										&:hover {
+											text-decoration: underline;
+										}
+									}
+								}
+							}
+
+							&:last-child {
+								padding: 62px 0 0;
+								width: 31%;
+
+								& > p {
+									font-size: 15px !important;
+									color: #777;
+								}
+
+								& > *:last-child {
+									margin: 0 0 auto !important;
+								}
+							}
+
+							& > h4 {
+								font-size: 2.4rem;
+								margin-bottom: 20px;
+							}
+						}
+					}
+
+					& .results-found {
+						font-size: 15px !important;
+						color: #777;
+					}
+				}
+			}
+
+			& .self-help-resources {
+				font-size: 15px;
+
+				& > div[class*="flex-"] {
+					margin-bottom: 0;
+
+					&:first-child {
+						background: #edf8ff;
+						padding: 20px;
+						border: 2px solid #e1f1fb;
+						border-radius: 4px;
+						width: 65.63636%;
+
+						& > .self-help-support-faq-section-text {
+							font-size: 1.6rem;
+							line-height: 1.4;
+							font-weight: 500;
+							margin: 0 0 .6em;
+						}
+
+						& .self-help-support-faq-toggle-group {
+							& .self-help-support-faq-toggle {
+								display: inline-block;
+								border-bottom: 1px dotted @lightblue;
+								margin-bottom: 25px;
+
+								&:hover {
+									border-bottom: 1px solid;
+								}
+							}
+
+							& .self-help-support-faq-container {
+								display: none;
+							}
+
+							& ul.self-help-support-faq-container {
+								margin: 0 0 25px 16px !important;
+							}
+
+							&:last-child {
+								& > .self-help-support-faq-toggle {
+									margin-bottom: 0;
+								}
+
+								& > .self-help-support-faq-container {
+									margin-top: 25px;
+								}
+							}
+						}
+					}
+
+					&:last-child {
+						padding: 22px 0 0;
+						width: 31%;
+
+						& > ul {
+							margin: 0 0 0 15px !important;
+							padding: 0;
+
+							& li {
+								font-size: 1.4rem;
+
+								& a {
+									color: #777;
+									line-height: 1.4;
+									text-decoration: underline;
+
+									&:hover {
+										text-decoration: none;
+									}
+								}
+							}
+						}
+
+						& > *:last-child {
+							margin-bottom: auto !important;
+						}
+					}
+
+					& > h4 {
+						font-size: 2.4rem;
+						margin-bottom: 20px;
+					}
+				}
+
+				& .edd-submit {
+					display: inline-block;
+					font-size: 1.6rem;
+					max-width: 300px;
+				}
+
+				& > p {
+					margin-bottom: 20px;
+				}
+
+				& > ul, ol {
+					margin: 0 0 20px;
+					padding: 0;
+				}
+
+				& > *:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			& .self-help-show-next-button {
+				margin-bottom: 15px !important;
+			}
+
+			& .self-help-name-email {
+				&.self-help-name {
+					margin-bottom: 0 !important;
+				}
+
+				&.self-help-email {
+					margin-top: 10px !important;
+
+					& .gfield_label {
+						display: none !important;
+					}
+				}
+
+				& .ginput_container_name,
+				.ginput_container_email {
+					& > span > label {
+						display: none !important;
+					}
+				}
+			}
+		}
+
+		& .gfield_required {
+			color: #b33838;
+			font-size: 80%;
+			margin-left: 4px;
+		}
+
+		& .self-help-enhanced-radio-checkbox {
+			& .gfield_radio,
+			.gfield_checkbox {
+				& input[type="radio"],
+				input[type="checkbox"] {
+					display: none;
+
+					& + label {
+						color: #555;
+						font-size: 1.6rem;
+						font-weight: 400;
+						padding-left: 2px;
+						margin: 0 !important;
+						width: 100%;
+						transition: all .2s;
+						-moz-transition: all .2s;
+						-webkit-transition: all .2s;
+						cursor: pointer;
+
+						&:before {
+							color: #ccc;
+							font-size: 21px;
+							line-height: 1.2;
+							font-family: "FontAwesome";
+							content: "\f058";
+							margin-right: 6px;
+							transition: all .2s;
+							-moz-transition: all .2s;
+							-webkit-transition: all .2s;
+							vertical-align: bottom;
+						}
+
+						&:hover {
+							&:before {
+								color: #ccc;
+							}
+						}
+					}
+
+					&:checked + label {
+						color: #555;
+
+						&:before {
+							display: inline-block;
+							color: @green;
+							font-family: "FontAwesome";
+							content: "\f058";
+						}
+					}
+				}
+			}
+		}
+
+		/* Support Type Selection */
+		& .self-help-support-type {
+			& ul.gfield_radio {
+				.flex-container;
+				width: 100% !important;
+
+				& li {
+					.flex-item;
+					box-sizing: border-box;
+					width: 100%;
+					max-width: 31%;
+
+					& input[type="radio"] {
+						display: none;
+
+						&:checked + label {
+							color: #555;
+							border: 2px solid @eddblue;
+
+							&:hover {
+								border: 2px solid @eddblue;
+							}
+
+							&:after {
+								color: @green;
+							}
+						}
+					}
+
+					& label {
+						display: block;
+						color: #777;
+						font-size: 14px;
+						font-size: 1.4rem;
+						padding: 20px !important;
+						border: 2px solid #eaeaea;
+						border-radius: 4px;
+						margin: 0 !important;
+						max-width: 100% !important;
+						-webkit-transition: border .2s;
+						-moz-transition: border .2s;
+						transition: border .2s;
+						cursor: pointer;
+
+						& > span {
+							display: block;
+							color: #555;
+							font-family: @font-family;
+							font-size: 1.8rem;
+							line-height: 1.4;
+							font-weight: 500;
+							padding: 0;
+							margin: 0 0 .4em;
+						}
+
+						&:hover {
+							border: 2px solid #ccc;
+
+							&:after {
+								color: #ccc;
+							}
+						}
+
+						&:after {
+							display: inline-block;
+							color: #ccc;
+							font-size: 21px;
+							line-height: 1.2;
+							font-family: "FontAwesome";
+							content: "\f058";
+							margin-right: 10px;
+							position: absolute;
+							top: 10px;
+							right: 6px;
+							-webkit-transition: color .2s;
+							-moz-transition: color .2s;
+							transition: color .2s;
+						}
+					}
+				}
+			}
+		}
+
+		/* Technical Issues Support Type */
+		& .self-help-technical-issues-extension {
+			& > label:before {
+				/* content: "2"; */
+			}
+
+			& .gfield_radio {
+				& li {
+					display: inline-block;
+					margin: 0 10px 0 0;
+					min-width: 55px;
+
+					& label {
+						max-width: 100% !important;
+					}
+				}
+			}
+		}
+
+		/* Account/Billing Support Type */
+
+		/* Pre-sale Questions Support Type */
+
+		& .self-help-resources-page .gform_page_footer {
+			/* will show via JS once a specific form field is checked */
+			display: none;
+		}
+	}
+}
+
+
+/* ----------------------------- *
+ * Support Page Template
+ * ----------------------------- */
+.support-page {
+	& .support-section {
+		margin-bottom: 33px;
+
+		& .support-section-link {
+			display: block;
+			padding: 20px;
+			border: 2px solid @eddgrayhover;
+			border-radius: 4px;
+			box-sizing: border-box;
+			transition: border .2s;
+			-moz-transition: border .2s;
+			-webkit-transition: border .2s;
+
+			&:hover {
+				border: 2px solid @eddblue;
+			}
+
+			& .support-section-title {
+				color: #333;
+				font-weight: 500;
+				margin: 0 0 .4em;
+			}
+
+			& .support-section-description {
+				color: #999;
+				font-size: 14px;
+				font-size: 1.4rem;
+			}
+		}
+
+		&.special-section .support-section-link {
+			border: 2px solid #ccc;
+
+			&:hover {
+				border: 2px solid @eddblue;
+			}
+		}
+	}
+
+	& .support-title-wrap {
+		text-align: center;
+		margin: 0 !important;
+		max-width: 100% !important;
+
+		& .support-title {
+			font-size: 3rem;
+			margin: 0 0 1em;
+		}
+	}
+
+	& .edd-docs-link-wrap {
+		text-align: center;
+		margin-bottom: 50px;
+
+		& a {
+			min-width: 240px;
+		}
+
+		& .button-break {
+			display: inline-block;
+			width: 6px;
+		}
+
+		& .edd-support-ticket-link {
+			padding: 10px;
+			min-width: 240px;
+		}
+	}
+
+	& .support-docs-form-container {
+		&.pre-sale-support-form-container .edd-gf-support-tickets-form {
+			margin-top: 0;
+
+			& .edd-gf-support-tickets-form-email {
+				min-height: 110px;
+			}
+		}
+
+		&.refund-support-form-container {
+			margin-top: 20px;
+		}
+
+		& .gform_confirmation_wrapper.edd-gf-support-tickets-form {
+			margin-top: 40px;
+		}
+	}
+
+	& .standard-support-form-container {
+		display: none; /* click .edd-support-ticket-link to open (display: block;) */
+
+		&:not(.pre-sale-support-form-container) {
+			border-top: 3px solid @eddgray;
+		}
+	}
+
+	& .edd-gf-support-docs {
+		text-align: center;
+
+		& .helpscout-docs {
+			& label {
+				display: none !important;
+			}
+
+			& input[type="text"] {
+				background: @eddgray;
+				font-size: 24px !important;
+				padding: 10px !important;
+				border: 3px solid @eddgrayhover;
+				border-radius: 4px;
+				width: 100% !important;
+				max-width: 520px !important;
+			}
+		}
+
+		& span.results-found {
+			font-size: 18px;
+			display: block;
+			padding-top: 10px;
+			margin: 0 auto;
+			color: #999;
+		}
+	}
+
+	& .gform_wrapper,
+	.gform_wrapper .gform_page_footer {
+		border: none;
+		margin: 0;
+		width: 100%;
+		max-width: 100%;
+	}
+
+	& .gform_wrapper {
+		& .edd-gf-support-tickets-form {
+			margin: 60px 0 100px;
+
+			& input[type="text"],
+			input[type="url"],
+			input[type="email"],
+			input[type="tel"],
+			input[type="number"],
+			input[type="password"],
+			textarea {
+				padding: 10px !important;
+				margin-bottom: 0 !important;
+				width: 100% !important;
+			}
+
+			& .ginput_container label,
+			.top_label .gfield_description {
+				color: #666;
+				font-size: 1.5rem;
+			}
+
+			& ul.gfield_checkbox li input[type=checkbox]:checked+label,
+			ul.gfield_radio li input[type=radio]:checked+label {
+				font-weight: 500;
+			}
+
+			& .top_label {
+				& .gfield.edd-gf-support-tickets-form-email {
+					& .gfield_description {
+						font-size: 1.6rem;
+						padding: 15px 20px !important;
+						margin-top: 20px;
+						width: 100%;
+						-webkit-transition: all .2s ease-in-out;
+						-moz-transition: all .2s ease-in-out;
+						-o-transition: all .2s ease-in-out;
+						-ms-transition: all .2s ease-in-out;
+						transition: all .2s ease-in-out;
+					}
+
+					&:hover .gfield_description {
+						background: #ffffe0;
+					}
+				}
+
+				& .gfield_label {
+					font: 500 24px/1.4 @font-family;
+					margin: 0;
+				}
+
+				& .gfield.edd-gf-support-tickets-form-email .gfield_label {
+					display: none;
+				}
+
+				& .edd-gf-support-tickets-form-subject .gfield_label {
+					margin-bottom: 10px;
+				}
+			}
+
+			& [class*="edd-gf-support-tickets-form-"] {
+				padding-left: 0;
+				margin-bottom: 30px;
+			}
+
+			& .gfield.edd-gf-support-tickets-form-name {
+				margin-bottom: 15px;
+			}
+
+			& .gfield.edd-gf-support-tickets-form-email {
+				padding: 5px 0 30px;
+				border-bottom: 3px solid @eddgray;
+			}
+
+			& .edd-gf-support-tickets-form-email .gfield_description {
+				background: #f1f1f1;
+				color: #777;
+				font-size: 13px;
+				line-height: 1.6;
+				padding: 10px !important;
+				border-radius: 4px;
+			}
+
+			& .edd-gf-support-tickets-form-subject {
+				margin-bottom: 10px;
+			}
+
+			& .edd-gf-support-tickets-form-subject li {
+				display: inline-block;
+				width: 48.5%;
+			}
+
+			& .gsection {
+				padding: 0;
+				border: none;
+				margin: 0;
+			}
+
+			& .gsection h2 {
+				display: none;
+			}
+
+			& .gsection .gsection_description {
+				width: 100%;
+			}
+
+			& .edd-gf-divider {
+				clear: both;
+				color: @eddgray;
+				text-align: center;
+				padding: 0;
+				border: none;
+				border-top: 4px solid @eddgray;
+				margin: 0 0 20px;
+				height: 1px;
+			}
+
+			& .edd-gf-divider:after {
+				content: "\f078";
+				font-family: 'FontAwesome';
+				display: inline-block;
+				position: relative;
+				top: -25px;
+				font-size: 30px;
+				padding: 0 10px;
+				background: white;
+			}
+		}
+
+		& .gform_page_footer {
+			text-align: center;
+		}
+
+		& .edd-gf-support-form,
+		.edd-gf-pre-sale-question-form,
+		.edd-gf-refund-request-form {
+			margin-right: auto;
+			margin-left: auto;
+			max-width: 780px;
+		}
+
+		& .edd-gf-support-form {
+			& .gform_page_footer {
+				padding-top: 40px;
+				border-top: 3px solid @eddgrayhover;
+
+				& img {
+					display: block;
+					max-width: 40px;
+					margin: 10px auto;
+					clear: both
+				}
+			}
+		}
+
+		& .show-contact-form-wrap a,
+		.gform_page_footer input[type="button"],
+		.gform_page_footer input[type="submit"] {
+			padding: 10px;
+			margin-right: 0 !important;
+			min-width: 208px;
+		}
+
+		& .edd-gf-support-tickets-form-subject ul.gfield_radio li input[type="radio"]:checked+label,
+		.edd-gf-support-tickets-form-subject ul.gfield_checkbox li input[type="checkbox"]:checked+label {
+			color: #666;
+		}
+
+		& .edd-gf-support-tickets-form .gfield_radio {
+			margin-left: 0 !important;
+		}
+
+		& .edd-gf-support-tickets-form .docs-support-link {
+			background: #ffffe0;
+			padding: 15px 20px;
+			border-radius: 4px;
+			margin: 30px 0 30px !important;
+		}
+
+		& .edd-gf-support-tickets-form .gform_footer input[type="submit"] {
+			font-size: 18px;
+			padding: 10px;
+			min-width: 208px;
+		}
+	}
+}
+
+.support-page:not(.self-help-support-page) {
+	& .gform_wrapper .docs-search-results {
+		text-align: left;
+		padding-left: 0;
+		border: 3px solid @eddgrayhover;
+		border-radius: 4px;
+		margin: 30px auto !important;
+		max-width: 700px;
+
+		&:before {
+			content: "Please review our complete list of suggestions to proceed.";
+			display: block;
+			background: @eddgray;
+			color: #999;
+			font-size: 18px;
+			padding: 10px 20px;
+			border-bottom: 3px solid #f1f1f1;
+		}
+
+		& li {
+			list-style: none !important;
+
+			&.article {
+				border-bottom: 1px solid #f1f1f1;
+				margin: 0;
+
+				& a {
+					display: block;
+					font-size: 18px;
+					padding: 10px 20px;
+
+					&:hover {
+						background: @eddgray;
+						color: @eddblue;
+					}
+				}
+			}
+		}
+	}
+}

@@ -149,6 +149,33 @@
 			return false;
 		});
 
+		// Self Help Support
+		// Select option to show support search form
+		$( ".self-help-issue-select select").on('change', function() {
+			var selected = this.value;
+			if ( selected == "I do not see my issue" ) {
+				$( ".ginput_container_text input" ).focus();
+			}
+		});
+
+		// Self Help Support
+		// prevent support page Next button from showing after Help Scout doc search runs
+		$( '.self-help-show-next-button input[type="checkbox"]' ).on('change', function () {
+			var checked      = $(this).is( ':checked' );
+			var gform_footer = $(this).parents( '.gform_page_fields' ).siblings( '.gform_page_footer' );
+			if ( checked ) {
+				gform_footer.show();
+			} else {
+				gform_footer.hide();
+			}
+		});
+
+		// Self Help Support
+		// toggle display of extended FAQ output
+		$( ".self-help-support-faq-toggle" ).on('click', function(e) {
+			e.preventDefault();
+			$(this).siblings( ".self-help-support-faq-container" ).slideToggle();
+		});
 
 		// Pricing page
 		$( "#see-pricing" ).click( function() {

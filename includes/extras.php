@@ -795,3 +795,31 @@ function eddwp_perfect_audience_tracking() {
 <?php
 }
 add_action( 'wp_footer', 'eddwp_perfect_audience_tracking' );
+
+
+/*
+ * Adjust HTML output for Gravity Forms Help Scout Search
+ */
+function eddwp_gf_helpscout_docs_results_output( $results ) {
+
+	if ( ! is_page_template( 'page-templates/template-self-help-support.php' ) ) {
+		return $results;
+	}
+
+	ob_start();
+	?>
+	<div class="flex-two">
+		<h4>Additional resources</h4>
+		<p>In addition to those articles, we have a site fully dedicated to documentation for Easy Digital Downloads as well as its extensions and themes. Be sure to browse the articles if you don't see what you're looking for.</p>
+		<a class="edd-submit button blue" href="http://docs.easydigitaldownloads.com/" target="_blank">View Full Documentation</a>
+	</div>
+	<?php
+	$extra_output = ob_get_clean();
+
+	$results['limit']              = 10;
+	$results['template']['before'] = '<div class="docs-search-resources flex-container"><ul class="docs-search-results flex-two">';
+	$results['template']['after']  = '</ul>' . $extra_output . '</div>';
+
+	return $results;
+}
+add_filter( 'gf_helpscout_docs_script_settings', 'eddwp_gf_helpscout_docs_results_output' );
