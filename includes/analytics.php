@@ -73,7 +73,7 @@ function edd_page_header_scripts() {
 						a.appendChild(r);
 					})(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
 				</script>
-				<?
+				<?php
 				break;
 
 		}
