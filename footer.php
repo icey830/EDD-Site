@@ -19,7 +19,7 @@
 					<?php
 						$args = array(
 							'heading_content'     => 'Easy Digital Downloads Email Newsletter',
-							'description_content' => 'Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads.',
+							'description_content' => 'Join <strong>70,000+</strong> subscribers in receiving Easy Digital Downloads news and updates!',
 							'notes'               => false,
 							'tabindex'            => 40
 						);

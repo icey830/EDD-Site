@@ -29,7 +29,7 @@ get_header(); ?>
 								<?php
 									$args = array(
 										'heading_content'     => '<span>Easy Digital Downloads </span>Email Newsletter',
-										'description_content' => 'If you enjoyed that content or found it useful for your business, consider entering your name and email address below to receive Easy Digital Downloads news and updates directly to your inbox!',
+										'description_content' => 'If you enjoyed that content or found it useful for your business, consider entering your name and email address to join <strong>70,000+</strong> subscribers in receiving Easy Digital Downloads news and updates!',
 										'tabindex'            => 20
 									);
 									eddwp_newsletter_form( $args );
