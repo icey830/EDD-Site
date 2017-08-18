@@ -425,24 +425,24 @@ function eddwp_facebook_conversion_pixel() {
 
 	$payment_id = edd_get_purchase_id_by_key( $session['purchase_key'] );
 	$total = edd_get_payment_amount( $payment_id );
-?>
-<!-- Facebook Conversion Code for EDD Checkout Success -->
-<script>(function() {
-  var _fbq = window._fbq || (window._fbq = []);
-  if (!_fbq.loaded) {
-	var fbds = document.createElement('script');
-	fbds.async = true;
-	fbds.src = '//connect.facebook.net/en_US/fbds.js';
-	var s = document.getElementsByTagName('script')[0];
-	s.parentNode.insertBefore(fbds, s);
-	_fbq.loaded = true;
-  }
-})();
-window._fbq = window._fbq || [];
-window._fbq.push(['track', '6023481255100', {'value':'<?php echo $total; ?>','currency':'USD'}]);
-</script>
-<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6023481255100&amp;cd[value]=<?php echo $total; ?>&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
-<?php
+	?>
+	<!-- Facebook Conversion Code for EDD Checkout Success -->
+	<script>(function() {
+	  var _fbq = window._fbq || (window._fbq = []);
+	  if (!_fbq.loaded) {
+		var fbds = document.createElement('script');
+		fbds.async = true;
+		fbds.src = '//connect.facebook.net/en_US/fbds.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(fbds, s);
+		_fbq.loaded = true;
+	  }
+	})();
+	window._fbq = window._fbq || [];
+	window._fbq.push(['track', '6023481255100', {'value':'<?php echo $total; ?>','currency':'USD'}]);
+	</script>
+	<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6023481255100&amp;cd[value]=<?php echo $total; ?>&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+	<?php
 }
 add_action( 'wp_footer', 'eddwp_facebook_conversion_pixel' );
 
@@ -463,8 +463,10 @@ function eddwp_newsletter_form_id() {
  */
 function eddwp_newsletter_form_submit_button( $content ) {
 	if ( function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
-		$count = mailchimp_subscriber_count()->subscriber_count();
-		$button_text = 'Join ' . $count . ' subscribers!';
+		// temporary adjustment - https://github.com/easydigitaldownloads/EDD-Site/issues/1173
+		// $count = mailchimp_subscriber_count()->subscriber_count();
+		// $button_text = 'Join ' . $count . ' subscribers!';
+		$button_text = 'Sign me up today!';
 		$content = str_replace( 'Sign me up!', $button_text, $content );
 		return $content;
 	} else {

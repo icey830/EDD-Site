@@ -22,15 +22,10 @@ the_post();
 			</div>
 			<div class="subscription-form-wrap subscription-form-container">
 				<div class="subscription-form">
-					<div class="subscription-mobile">
-						<h3>Stay Connected With Easy Digital Downloads</h3>
-						<p>By signing up to the newsletter, you will be the first to know about the latest <strong>updates and exclusive promotions</strong> for Easy Digital Downloads and its extensions and themes.</p>
-					</div>
-					<p>Enter your best email address, your name, and selections for any additional updates you would like to receive.</p>
 					<?php
 						$args = array(
-							'heading'     => false,
-							'description' => false
+							'heading_content' => 'Join <strong>70,000+</strong> subscribers!',
+							'description_content' => 'Enter your best email address, your name, and selections for any additional updates you would like to receive.'
 						);
 						eddwp_newsletter_form( $args );
 					?>
