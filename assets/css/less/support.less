@@ -24,6 +24,39 @@
 					}
 				}
 
+				& .self-help-right-align {
+					position: absolute;
+					right: 0;
+					max-width: 325px;
+					background: #f7f7f7;
+					padding: 20px;
+					border: 2px solid #eaeaea;
+					border-radius: 4px;
+
+					& .self-help-tips-heading {
+						display: block;
+						font-size: 1.8rem;
+						font-weight: 500;
+						margin-bottom: 15px;
+					}
+
+					& > p {
+						color: #777;
+						font-size: 1.4rem;
+						margin-bottom: 15px;
+
+						& a {
+							color: #777;
+							line-height: 1.4;
+							text-decoration: underline;
+
+							&:hover {
+								text-decoration: none;
+							}
+						}
+					}
+				}
+
 				& .section-title-alt {
 					font-weight: 500;
 				}
@@ -174,10 +207,6 @@
 								display: none;
 							}
 
-							& ul.self-help-support-faq-container {
-								margin: 0 0 25px 16px !important;
-							}
-
 							&:last-child {
 								& > .self-help-support-faq-toggle {
 									margin-bottom: 0;
@@ -228,6 +257,10 @@
 					display: inline-block;
 					font-size: 1.6rem;
 					max-width: 300px;
+
+					&:not(:last-child) {
+						margin-bottom: 25px;
+					}
 				}
 
 				& > p {
@@ -239,6 +272,10 @@
 					padding: 0;
 				}
 
+				& ul.self-help-support-faq-container {
+					margin: 0 0 16px 16px !important;
+				}
+
 				& > *:last-child {
 					margin-bottom: 0;
 				}
@@ -246,6 +283,27 @@
 
 			& .self-help-show-next-button {
 				margin-bottom: 15px !important;
+
+				& .gfield_radio,
+				.gfield_checkbox {
+					& input[type="radio"],
+					input[type="checkbox"] {
+						display: none;
+					}
+
+					& label {
+						color: #777;
+						line-height: 1.4;
+						text-decoration: underline;
+						margin-left: 0 !important;
+						cursor: pointer;
+
+						&:hover {
+							color: #777;
+							text-decoration: none;
+						}
+					}
+				}
 			}
 
 			& .self-help-name-email {
@@ -439,6 +497,10 @@
 			/* will show via JS once a specific form field is checked */
 			display: none;
 		}
+	}
+
+	&.support-page .gform_wrapper .gform_page_footer {
+		text-align: left;
 	}
 }
 
