@@ -185,7 +185,8 @@
 						border-radius: 4px;
 						width: 65.63636%;
 
-						& ul:not(.self-help-support-faq-container) {
+						& ul:not(.self-help-support-faq-container),
+						ol:not(.self-help-support-faq-container) {
 							margin: 0 0 16px 32px !important;
 						}
 
@@ -349,18 +350,61 @@
 			}
 		}
 
-		& .extension-list .chosen-container .chosen-single {
-			padding: 10px !important;
-			background: @eddgray;
-			border: 3px solid @eddgrayhover;
-			border-radius: 4px !important;
-			box-shadow: none !important;
-			outline: none;
-			height: 47px !important;
-			font-size: inherit !important;
+		& .extension-list .chosen-container {
+			& .chosen-single {
+				padding: 10px !important;
+				background: @eddgray;
+				border: 3px solid @eddgrayhover;
+				border-radius: 4px !important;
+				box-shadow: none !important;
+				outline: none;
+				height: 47px !important;
+				font-size: inherit !important;
 
-			& > div {
-				display: none;
+				& > div {
+					display: none;
+				}
+			}
+
+			&.chosen-with-drop .chosen-single {
+				border-radius: 4px 4px 0 0 !important;
+			}
+
+			& .chosen-drop {
+				border-width: 0 3px 3px 3px;
+				border-style: solid;
+				border-color: @eddgrayhover;
+				box-shadow: none !important;
+
+				& .chosen-search {
+					background: #edf8ff;
+					padding: 0 !important;
+					border-width: 0 0 2px;
+					border-style: solid;
+					border-color: @eddgrayhover;
+
+					& input[type="text"] {
+						background: url('images/chosen-sprite.png') no-repeat 280px -12px !important;
+						clip-path: inset(10px 1px 3px 1px) !important;
+						padding: 0 !important;
+						margin: 0 8px;
+						height: 40px;
+						max-width: 331px;
+					}
+				}
+
+				& .chosen-results {
+					padding: 0 !important;
+					margin: 0 !important;
+
+					& > li {
+						padding: 5px 10px !important;
+					}
+
+					& .gf_placeholder {
+						display: none;
+					}
+				}
 			}
 		}
 
