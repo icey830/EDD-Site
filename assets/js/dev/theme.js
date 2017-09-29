@@ -151,11 +151,8 @@
 
 		// Self Help Support
 		// Select option to show support search form
-		$( ".self-help-issue-select select").on('change', function() {
-			var selected = this.value;
-			if ( selected == "I do not see my issue" ) {
-				$( ".ginput_container_text input" ).focus();
-			}
+		$( ".self-help-issue-select select" ).on('change', function() {
+			$(this).parents( '.gfield' ).siblings( '.helpscout-docs' ).find('.ginput_container_text input').focus();
 		});
 
 		// Self Help Support

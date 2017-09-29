@@ -78,24 +78,17 @@
 				& > label { /* main form field labels */
 					display: block;
 					font-family: @font-family;
-					font-size: 2.4rem;
+					font-size: 2rem;
 					line-height: 1.4;
 					font-weight: 500;
 					padding: 0;
-					margin: 0 0 .4em !important;
+					margin: 0 0 .2em !important;
 				}
 
 				& > .gfield_description {
-					font-size: 15px !important;
+					font-size: 14px !important;
 					color: #777;
 					max-width: 722px;
-				}
-			}
-
-			& ul li input[type="radio"] + label,
-			ul li input[type="checkbox"] + label {
-				&:hover {
-					color: #555;
 				}
 			}
 
@@ -110,6 +103,16 @@
 				}
 
 				& .docs-search-wrap {
+					& .no-docs-results {
+						background: #ffffe0;
+						color: #555;
+						padding: 20px;
+						border: 2px solid #f7f7c1;
+						border-radius: 4px;
+						margin: 20px 0 0;
+						width: 65.63636%;
+					}
+
 					& .docs-search-resources {
 						& > *[class*="flex-"] {
 							margin-bottom: 0;
@@ -126,7 +129,7 @@
 									content: "Please review the articles to begin troubleshooting";
 									display: block;
 									font-family: @font-family;
-									font-size: 2.4rem;
+									font-size: 2rem;
 									line-height: 1.4;
 									font-weight: 500;
 									margin-bottom: 20px;
@@ -149,7 +152,7 @@
 								width: 31%;
 
 								& > p {
-									font-size: 15px !important;
+									font-size: 14px !important;
 									color: #777;
 								}
 
@@ -159,14 +162,14 @@
 							}
 
 							& > h4 {
-								font-size: 2.4rem;
-								margin-bottom: 20px;
+								font-size: 2rem;
+								margin-bottom: 15px;
 							}
 						}
 					}
 
 					& .results-found {
-						font-size: 15px !important;
+						font-size: 14px !important;
 						color: #777;
 					}
 				}
@@ -184,6 +187,10 @@
 						border: 2px solid #e1f1fb;
 						border-radius: 4px;
 						width: 65.63636%;
+
+						& p {
+							margin: 0 0 20px;
+						}
 
 						& ul:not(.self-help-support-faq-container),
 						ol:not(.self-help-support-faq-container) {
@@ -210,10 +217,6 @@
 
 							& .self-help-support-faq-container {
 								display: none;
-
-								& p {
-									margin: 0 0 25px;
-								}
 							}
 
 							&:last-child {
@@ -257,8 +260,8 @@
 					}
 
 					& > h4 {
-						font-size: 2.4rem;
-						margin-bottom: 20px;
+						font-size: 2rem;
+						margin-bottom: 15px;
 					}
 				}
 
@@ -383,12 +386,25 @@
 					border-style: solid;
 					border-color: @eddgrayhover;
 
+					&:after {
+						display: inline-block;
+						color: #555;
+						font-size: 15px;
+						line-height: 1.2;
+						font-family: "FontAwesome";
+						content: "\f002";
+						margin-right: 10px;
+						position: absolute;
+						top: 11px;
+						right: 0;
+					}
+
 					& input[type="text"] {
-						background: url('images/chosen-sprite.png') no-repeat 280px -12px !important;
+						background: none;
 						clip-path: inset(10px 1px 3px 1px) !important;
+						height: 40px;
 						padding: 0 !important;
 						margin: 0 8px;
-						height: 40px;
 						max-width: 331px;
 					}
 				}
@@ -483,7 +499,6 @@
 						display: none;
 
 						&:checked + label {
-							color: #555;
 							border: 2px solid @eddblue;
 
 							&:hover {
@@ -581,6 +596,45 @@
 
 	&.support-page .gform_wrapper .gform_page_footer {
 		text-align: left;
+	}
+}
+
+.self-help-open-ticket {
+	& .gform_page_fields {
+		margin: 0 auto;
+		max-width: 722px;
+
+		& .ginput_container_fileupload [id*="extensions_message_"] {
+			display: block;
+			font-size: 14px;
+			color: #777;
+			padding-top: 5px;
+		}
+	}
+
+	&:not(.self-help-full-width-field) {
+		max-width: 100%;
+	}
+
+	& .gform_page_footer {
+		text-align: center !important;
+
+		& .gform_previous_button {
+			position: absolute;
+			bottom: 30px;
+			background: none !important;
+			color: #777 !important;
+			font-size: .875em !important;
+			line-height: 1.4;
+			text-decoration: underline !important;
+			padding: 0 !important;
+			margin-left: 0 !important;
+			cursor: pointer;
+
+			&:hover {
+				text-decoration: none !important;
+			}
+		}
 	}
 }
 
