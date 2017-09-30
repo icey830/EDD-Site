@@ -187,6 +187,14 @@
 	}
 
 	/* support docs/form */
+	.self-help-support-page {
+		& .edd-gf-self-help-support {
+			& .self-help-support-type ul.gfield_radio li label {
+				min-height: 140px;
+			}
+		}
+	}
+
 	.support-page .support-section-link {
 		min-height: 175px;
 	}
@@ -914,6 +922,52 @@
 }
 
 
+@media all and ( max-width: 820px ) {
+
+	/* support docs/form */
+	.self-help-support-page {
+		& .edd-gf-self-help-support {
+			& > .gform_body > .gform_page > .gform_page_fields > ul > li {
+				margin-bottom: 25px !important;
+			}
+
+			& .self-help-support-type ul.gfield_radio li {
+				margin-bottom: 15px !important;
+				max-width: 100%;
+
+				&:last-child {
+					margin-bottom: 0 !important;
+				}
+
+				& label {
+					padding: 10px 15px !important;
+					min-height: auto;
+					min-width: 100% !important;
+				}
+			}
+
+			& > .gform_body > .gform_page > .gform_page_fields .self-help-resources > div[class*="flex-"],
+			& > .gform_body > .gform_page > .gform_page_fields li.helpscout-docs .docs-search-wrap .docs-search-resources > *[class*="flex-"] {
+				width: 100% !important;
+
+				&:last-child {
+					padding-top: 30px;
+				}
+			}
+
+			& > .gform_body > .gform_page > .gform_page_fields li.helpscout-docs .docs-search-wrap .no-docs-results {
+				width: 100%;
+			}
+		}
+
+		& .gform_wrapper .helpscout-docs input:not([type='radio']):not([type='checkbox']):not([type='image']):not([type='file']) {
+			font-size: inherit !important;
+			line-height: inherit !important;
+		}
+	}
+}
+
+
 @media all and ( max-width: 768px ) {
 
 	/* structure */
@@ -1216,6 +1270,23 @@
 
 	.pricing-table-notes {
 		max-width: 400px;
+	}
+
+	/* support docs/form */
+	.self-help-support-page {
+		& .edd-gf-self-help-support {
+			& .ginput_complex.ginput_container.ginput_container_email .ginput_left,
+			.ginput_complex.ginput_container.ginput_container_email .ginput_right,
+			.ginput_complex.ginput_container.ginput_container_name .name_first,
+			.ginput_complex.ginput_container.ginput_container_name .name_last {
+				float: none !important;
+				width: 100% !important;
+			}
+
+			& .ginput_complex.ginput_container.ginput_container_name .name_last input {
+				margin-bottom: 0 !important;
+			}
+		}
 	}
 }
 

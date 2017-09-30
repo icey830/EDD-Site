@@ -809,7 +809,7 @@ function eddwp_gf_helpscout_docs_results_output( $results ) {
 	ob_start();
 	?>
 	<div class="no-docs-results alert">
-		<p>Oops! It looks like there are no suggestions for your issue. Please consider adjusting your phrasing. You may also visit the documentation to view our full knowledge base.</p>
+		<p>Oops! It looks like there are no suggestions for your issue. Please consider adjusting your phrasing. You may also click the button below to browse our documentation.</p>
 		<a class="edd-submit button blue" href="http://docs.easydigitaldownloads.com/" target="_blank">View Full Documentation</a>
 	</div>
 	<?php
@@ -820,7 +820,7 @@ function eddwp_gf_helpscout_docs_results_output( $results ) {
 	<div class="flex-two">
 		<h4>Additional resources</h4>
 		<p>In addition to those articles, we have a site fully dedicated to documentation for Easy Digital Downloads as well as its extensions and themes. Be sure to browse the articles if you don't see what you're looking for.</p>
-		<a class="edd-submit button blue" href="http://docs.easydigitaldownloads.com/" target="_blank">View Full Documentation</a>
+		<a class="edd-submit button blue" href="http://docs.easydigitaldownloads.com/" target="_blank">View full documentation</a>
 	</div>
 	<?php
 	$extra_output = ob_get_clean();

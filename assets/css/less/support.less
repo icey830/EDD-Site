@@ -12,7 +12,12 @@
 
 			& > ul > li {
 				position: relative;
-				margin-bottom: 40px !important;
+				margin-bottom: 30px !important;
+
+				& > .section-title-alt {
+					padding-bottom: 10px;
+					margin-bottom: 10px;
+				}
 
 				&:not(.self-help-full-width-field) {
 					max-width: 722px;
@@ -109,7 +114,7 @@
 						padding: 20px;
 						border: 2px solid #f7f7c1;
 						border-radius: 4px;
-						margin: 20px 0 0;
+						margin: 30px 0 0;
 						width: 65.63636%;
 					}
 
@@ -122,7 +127,7 @@
 								padding: 20px;
 								border: 2px solid #e1f1fb;
 								border-radius: 4px;
-								margin: 40px 0 0;
+								margin: 30px 0 0;
 								width: 65.63636%;
 
 								&:before {
@@ -148,7 +153,7 @@
 							}
 
 							&:last-child {
-								padding: 62px 0 0;
+								padding: 52px 0 0;
 								width: 31%;
 
 								& > p {
@@ -229,6 +234,12 @@
 								}
 							}
 						}
+
+
+
+						& > *:last-child {
+							margin-bottom: 0;
+						}
 					}
 
 					&:last-child {
@@ -286,7 +297,7 @@
 
 				& .self-help-support-faq-container {
 					background: #fff;
-					padding: 20px;
+					padding: 15px;
 					border-radius: 4px;
 					border: 1px solid #e1f1fb;
 					margin: 0 0 20px !important;
@@ -307,25 +318,29 @@
 			}
 
 			& .self-help-show-next-button {
-				margin-bottom: 15px !important;
+				margin: 0 !important;
 
 				& .gfield_radio,
 				.gfield_checkbox {
-					& input[type="radio"],
-					input[type="checkbox"] {
-						display: none;
-					}
+					& li {
+						margin-bottom: 0 !important;
 
-					& label {
-						color: #777;
-						line-height: 1.4;
-						text-decoration: underline;
-						margin-left: 0 !important;
-						cursor: pointer;
+						& input[type="radio"],
+						input[type="checkbox"] {
+							display: none;
+						}
 
-						&:hover {
+						& label {
 							color: #777;
-							text-decoration: none;
+							line-height: 1.4;
+							text-decoration: underline;
+							margin-left: 0 !important;
+							cursor: pointer;
+
+							&:hover {
+								color: #777;
+								text-decoration: none;
+							}
 						}
 					}
 				}
@@ -363,6 +378,7 @@
 				outline: none;
 				height: 47px !important;
 				font-size: inherit !important;
+				line-height: inherit !important;
 
 				& > div {
 					display: none;
@@ -492,6 +508,7 @@
 				& li {
 					.flex-item;
 					box-sizing: border-box;
+					margin-bottom: 0;
 					width: 100%;
 					max-width: 31%;
 
@@ -596,6 +613,16 @@
 
 	&.support-page .gform_wrapper .gform_page_footer {
 		text-align: left;
+
+		& input[id*="gform_submit"],
+		input[id*="gform_next_button"] {
+			display: inline-block !important;
+		}
+	}
+
+	& .gform_ajax_spinner {
+		position: absolute;
+		padding: 12px 0 0 10px !important;
 	}
 }
 
@@ -604,11 +631,25 @@
 		margin: 0 auto;
 		max-width: 722px;
 
-		& .ginput_container_fileupload [id*="extensions_message_"] {
-			display: block;
-			font-size: 14px;
-			color: #777;
-			padding-top: 5px;
+		& .ginput_container_fileupload {
+			& [id*="extensions_message_"] {
+				display: block;
+				font-size: 14px;
+				color: #777;
+				padding-top: 5px;
+			}
+
+			& .gform_button_select_files {
+				background: #555;
+				color: #fff;
+				transition: all .2s;
+				-moz-transition: all .2s;
+				-webkit-transition: all .2s;
+
+				&:hover {
+					background: #444;
+				}
+			}
 		}
 	}
 
@@ -618,8 +659,10 @@
 
 	& .gform_page_footer {
 		text-align: center !important;
+		padding-top: 0 !important;
 
 		& .gform_previous_button {
+			display: none !important; /* Search is broken after going back */
 			position: absolute;
 			bottom: 30px;
 			background: none !important;
