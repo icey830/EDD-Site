@@ -7,7 +7,7 @@ endif;
 /**
  * This template is used to display the download history of the current user.
  */
-$purchases = edd_get_users_purchases( get_current_user_id(), 20, true, 'any' );
+$purchases = edd_get_users_purchases( get_current_user_id(), 20, true, 'publish' );
 if ( $purchases ) :
 	do_action( 'edd_before_download_history' ); ?>
 	<table id="edd_user_history" class="edd-table">
