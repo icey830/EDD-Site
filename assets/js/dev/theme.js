@@ -182,6 +182,14 @@
 			event.preventDefault();
 		});
 
+		$( "input[name='input_1']").on('change', function() {
+			eddwp_send_ga_action( 'event', 'Support', 'supportStart', 'Started Support Flow' );
+		});
+
+		$( "#gform_next_button_31_30" ).on('click', function() {
+			eddwp_send_ga_action( 'event', 'Support', 'supportSubmit', 'Started Submission' );
+		});
+
 	});
 }(jQuery));
 
