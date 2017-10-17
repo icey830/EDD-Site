@@ -194,8 +194,8 @@
 }(jQuery));
 
 function eddwp_send_ga_action( type, category, action, label ) {
-	if (typeof ga !== 'undefined') {
-		ga('send', {
+	if (typeof __gaTracker !== 'undefined') {
+		__gaTracker('send', {
 			hitType      : type,
 			eventCategory: category,
 			eventAction  : action,

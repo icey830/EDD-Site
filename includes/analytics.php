@@ -33,8 +33,8 @@ function edd_analytics_events() {
 
 		foreach ( $actions as $action ) {
 			?>
-			<script>if (typeof ga !== 'undefined') {
-					ga('send', {
+			<script>if (typeof __gaTracker !== 'undefined') {
+					__gaTracker('send', {
 						hitType      : "<?php echo $action['type']; ?>",
 						eventCategory: "<?php echo $action['category']; ?>",
 						eventAction  : "<?php echo $action['action']; ?>",
