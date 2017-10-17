@@ -182,11 +182,11 @@
 			event.preventDefault();
 		});
 
-		body.on('change', 'input[name="input_1"]', function() {
+		body.on('change', '.self-help-ga-trigger-start', function() {
 			eddwp_send_ga_action( 'event', 'Support', 'supportStart', 'Started Support Flow' );
 		});
 
-		body.on('click', '"#gform_next_button_31_30"', function() {
+		body.on('click', '.self-help-ga-trigger-open-ticket', function() {
 			eddwp_send_ga_action( 'event', 'Support', 'supportSubmit', 'Started Submission' );
 		});
 
