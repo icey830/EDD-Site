@@ -182,12 +182,12 @@
 			event.preventDefault();
 		});
 
-		$( "input[name='input_1']").on('change', function() {
+		body.on('change', '.self-help-ga-trigger-start', function() {
 			eddwp_send_ga_action( 'event', 'Support', 'supportStart', 'Started Support Flow' );
 		});
 
-		$( "#gform_next_button_31_30" ).on('click', function() {
-			eddwp_send_ga_action( 'event', 'Support', 'supportSubmit', 'Started Submission' );
+		body.on('click', '.self-help-resources-page .gform_next_button', function() {
+			eddwp_send_ga_action( 'event', 'Support', 'supportNext', 'Started Submission' );
 		});
 
 	});
