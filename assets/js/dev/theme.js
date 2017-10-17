@@ -182,7 +182,7 @@
 			event.preventDefault();
 		});
 
-		body.on('change', '.self-help-ga-trigger-start', function() {
+		body.on('change', '.self-help-ga-trigger-start input[name="input_1"]', function() {
 			eddwp_send_ga_action( 'event', 'Support', 'supportStart', 'Started Support Flow' );
 		});
 
