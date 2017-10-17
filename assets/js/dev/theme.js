@@ -182,6 +182,14 @@
 			event.preventDefault();
 		});
 
+		body.on('change', '.self-help-ga-trigger-start', function() {
+			eddwp_send_ga_action( 'event', 'Support', 'supportStart', 'Started Support Flow' );
+		});
+
+		body.on('click', '.self-help-ga-trigger-open-ticket', function() {
+			eddwp_send_ga_action( 'event', 'Support', 'supportSubmit', 'Started Submission' );
+		});
+
 	});
 }(jQuery));
 
