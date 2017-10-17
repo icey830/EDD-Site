@@ -186,8 +186,8 @@
 			eddwp_send_ga_action( 'event', 'Support', 'supportStart', 'Started Support Flow' );
 		});
 
-		body.on('click', '.self-help-ga-trigger-open-ticket', function() {
-			eddwp_send_ga_action( 'event', 'Support', 'supportSubmit', 'Started Submission' );
+		body.on('click', '.self-help-resources-page .gform_next_button', function() {
+			eddwp_send_ga_action( 'event', 'Support', 'supportNext', 'Started Submission' );
 		});
 
 	});
