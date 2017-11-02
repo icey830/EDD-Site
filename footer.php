@@ -72,7 +72,7 @@
 								// do not show on checkout
 								if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) :
 									?>
-									&nbsp;&middot;&nbsp;a project by <a href="<?php echo home_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.
+									&nbsp;&middot;&nbsp;a <a href="http://sandhillsdev.com">Sandhills Development</a> project.
 									<?php
 									// EDD social profiles
 									$args = array(
