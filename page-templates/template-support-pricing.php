@@ -26,7 +26,6 @@ get_header(); ?>
 							<ul class="pricing-column-list">
 								<li>precedence over free support</li>
 								<li>log into your site for troubleshooting</li>
-								<li>in-depth technical assistance</li>
 								<li>1-year access</li>
 								<li>60% savings over 45-day support</li>
 							</ul>
@@ -44,7 +43,6 @@ get_header(); ?>
 							<ul class="pricing-column-list">
 								<li>precedence over free support</li>
 								<li>log into your site for troubleshooting</li>
-								<li>in-depth technical assistance</li>
 								<li>45-day access</li>
 							</ul>
 						</div>
