@@ -227,33 +227,29 @@
 		}
 	}
 
-	/* account */
-	.my-account-tabs,
-	.tabbed-template-tabs {
-		width: 30%;
-	}
+	/* My Account page / Affiliate Area / Purchase Confirmation */
+	.my-account-content,
+	#affwp-affiliate-dashboard,
+	.purchase-confirmation-content {
 
-	.my-account-tab-content,
-	.tabbed-template-tab-content {
-		width: 65%;
-	}
+		& .my-account-tabs,
+		.tabbed-template-tabs,
+		#affwp-affiliate-dashboard-tabs {
+			width: 25%;
+		}
 
-	.my-account-tab-content .tab-content {
-		& #edd_profile_editor_form {
-			& fieldset > p label {
-				display: block;
+		& .my-account-tab-content,
+		.tabbed-template-tab-content,
+		.affwp-tab-content {
+			width: 70%;
+		}
+
+		.my-account-tab-content .tab-content {
+			& #edd_profile_editor_form {
+				& fieldset > p label {
+					display: block;
+				}
 			}
-		}
-	}
-
-	/* affiliates */
-	#affwp-affiliate-dashboard {
-		& #affwp-affiliate-dashboard-tabs {
-			width: 30%;
-		}
-
-		& .affwp-tab-content {
-			width: 65%;
 		}
 
 		& #affwp-affiliate-dashboard-creatives {
@@ -739,35 +735,30 @@
 		display: none;
 	}
 
-	/* 404 page */
-	.content-404 {
-		padding: 10px;
-		margin-top: 20px;
-	}
-
-	/* account */
-	.my-account-tabs,
-	.tabbed-template-tabs,
-	.my-account-tab-content,
-	.tabbed-template-tab-content {
-		width: 100%;
-	}
-
-	.my-account-tabs,
-	.tabbed-template-tabs {
-		margin-bottom: 30px !important;
-	}
-
-	/* affiliates */
-	#affwp-affiliate-dashboard {
-		& #affwp-affiliate-dashboard-tabs,
+	/* My Account page / Affiliate Area / Purchase Confirmation */
+	.my-account-content,
+	#affwp-affiliate-dashboard,
+	.purchase-confirmation-content {
+		& .my-account-tabs,
+		.tabbed-template-tabs,
+		.my-account-tab-content,
+		.tabbed-template-tab-content,
+		#affwp-affiliate-dashboard-tabs,
 		.affwp-tab-content {
 			width: 100%;
 		}
 
-		& #affwp-affiliate-dashboard-tabs {
+		& .my-account-tabs,
+		.tabbed-template-tabs,
+		#affwp-affiliate-dashboard-tabs {
 			margin-bottom: 30px !important;
 		}
+	}
+
+	/* 404 page */
+	.content-404 {
+		padding: 10px;
+		margin-top: 20px;
 	}
 
 	/* extension search results */
@@ -1634,92 +1625,91 @@
 		}
 	}
 
-	/* account page */
-	.my-account-tab-content .license-key-notice ul li.flex-two {
-		margin-bottom: 20px;
-		width: 100%;
-	}
-
-	.my-account-tabs .nav-tabs,
-	.tabbed-template-tabs .nav-tabs {
-		& li {
+	/* My Account page / Affiliate Area / Purchase Confirmation */
+	.my-account-content,
+	#affwp-affiliate-dashboard,
+	.purchase-confirmation-content {
+		& .my-account-tab-content .license-key-notice ul li.flex-two {
+			margin-bottom: 20px;
 			width: 100%;
 		}
 
-		& li:nth-child(odd) {
-			border-right: none;
-		}
-	}
+		& .my-account-tabs .nav-tabs,
+		.tabbed-template-tabs .nav-tabs {
+			& li {
+				width: 100%;
+			}
 
-	.my-account-tab-content .tab-content #edd_profile_editor_form fieldset {
-		& > p label,
-		& > div label {
-			display: block;
-			font-size: 120%;
-			margin-bottom: 5px;
+			& li:nth-child(odd) {
+				border-right: none;
+			}
+		}
+
+		& .my-account-tab-content .tab-content #edd_profile_editor_form fieldset {
+			& > p label,
+			& > div label {
+				display: block;
+				font-size: 120%;
+				margin-bottom: 5px;
+				width: 100%;
+			}
+
+			& #edd_profile_editor_submit {
+				width: 100%;
+			}
+		}
+
+		& #account-page #edd_profile_editor_form fieldset input[type="text"],
+		#account-page #edd_profile_editor_form fieldset input[type="email"],
+		#account-page #edd_profile_editor_form fieldset input[type="password"],
+		#account-page #edd_profile_editor_form fieldset select {
+			width: 100% !important;
+			margin-bottom: 10px !important;
+		}
+
+		& #account-page #edd_profile_editor_form p#edd_profile_display_name_wrap {
+			margin-bottom: 10px;
+		}
+
+		& #edd_profile_editor_form #edd_address_country {
+			margin-bottom: 25px;
+		}
+
+		& #edd_profile_editor_form fieldset input[type="text"],
+		#edd_profile_editor_form fieldset input[type="email"],
+		#edd_profile_editor_form fieldset input[type="password"] {
+			margin-bottom: 30px;
+		}
+
+		& #edd_profile_editor_form p#edd_profile_display_name_wrap {
+			margin-bottom: 30px;
+		}
+
+		& #edd_profile_editor_form #edd_profile_emails_wrap,
+		#edd_profile_editor_form .edd-profile-emails {
 			width: 100%;
+			padding: 0 30px;
 		}
 
-		& #edd_profile_editor_submit {
-			width: 100%;
-		}
-	}
+		& .my-account-tab-content .tab-content #edd-stripe-manage-cards {
+			& .edd-stripe-card-item {
+				& .card-update-form {
+					& input[type="text"],
+					input[type="email"],
+					input[type="password"],
+					input[type="tel"],
+					select {
+						width: 100%;
+						max-width: 100%;
+						margin-bottom: 6px;
+					}
 
-	#account-page #edd_profile_editor_form fieldset input[type="text"],
-	#account-page #edd_profile_editor_form fieldset input[type="email"],
-	#account-page #edd_profile_editor_form fieldset input[type="password"],
-	#account-page #edd_profile_editor_form fieldset select {
-		width: 100% !important;
-		margin-bottom: 10px !important;
-	}
-
-	#account-page #edd_profile_editor_form p#edd_profile_display_name_wrap {
-		margin-bottom: 10px;
-	}
-
-	#edd_profile_editor_form #edd_address_country {
-		margin-bottom: 25px;
-	}
-
-	#edd_profile_editor_form fieldset input[type="text"],
-	#edd_profile_editor_form fieldset input[type="email"],
-	#edd_profile_editor_form fieldset input[type="password"] {
-		margin-bottom: 30px;
-	}
-
-	#edd_profile_editor_form p#edd_profile_display_name_wrap {
-		margin-bottom: 30px;
-	}
-
-	#edd_profile_editor_form #edd_profile_emails_wrap,
-	#edd_profile_editor_form .edd-profile-emails {
-		width: 100%;
-		padding: 0 30px;
-	}
-
-	.my-account-tab-content .tab-content #edd-stripe-manage-cards {
-		& .edd-stripe-card-item {
-			& .card-update-form {
-				& input[type="text"],
-				input[type="email"],
-				input[type="password"],
-				input[type="tel"],
-				select {
-					width: 100%;
-					max-width: 100%;
-					margin-bottom: 6px;
-				}
-
-				& .card-expiration-fields > label {
-					display: block;
+					& .card-expiration-fields > label {
+						display: block;
+					}
 				}
 			}
 		}
-	}
-
-	#edd-stripe-manage-cards .edd-stripe-card-item .card-update-form input[type="text"],
-	#edd-stripe-manage-cards .edd-stripe-card-item:nth-child(odd) .card-update-form select {
-
 	}
 
 	/* checkout */
