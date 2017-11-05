@@ -78,13 +78,15 @@ if ( class_exists( 'EDD_All_Access' ) ) {
 			?>
 		</div>
 		<div class="pricing-info">
-			<?php
-				if ( $aa_has_access['success'] ) {
-					?>
-					<p class="all-access-terms">As an <?php echo $aa_pass_title; ?> customer, you can download this <?php echo $download_type; ?> by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>" target="_blank">your account</a>.</p>
-					<?php
-				}
-			?>
+			<?php if ( $aa_has_access['success'] ) { ?>
+				<p class="all-access-terms">
+					<?php if ( ! $is_all_access ) { ?>
+						As an <?php echo $aa_pass_title; ?> customer, you can download this <?php echo $download_type; ?> by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>" target="_blank">your account</a>.
+					<?php } else { ?>
+						You're already an <?php echo $aa_pass_title; ?> customer, you can renew your access pass by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>" target="_blank">your account</a>.
+					<?php } ?>
+				</p>
+			<?php } ?>
 			<div class="pricing">
 				<?php
 				if ( ! $is_3rd_party || ( $is_3rd_party && $is_wporg ) ) {
@@ -99,7 +101,7 @@ if ( class_exists( 'EDD_All_Access' ) ) {
 			<div class="terms clearfix">
 				<p>
 					<?php
-					if ( ! $aa_has_access['success'] ) {
+					if ( ! $aa_has_access['success'] && ! $is_all_access ) {
 						echo '<i class="fa fa-info-circle"></i>';
 
 						// terms for paid downloads
@@ -127,13 +129,18 @@ if ( class_exists( 'EDD_All_Access' ) ) {
 						if ( $is_unlicensed ) {
 							printf( 'This %1$s is not subject to our licensing terms as it is distributed and maintained by a 3rd party.', $download_type );
 						}
+					} elseif ( $is_all_access ) {
+						
+						// actual All Access passes
+						echo '<i class="fa fa-info-circle"></i> ' . get_the_title() . ' purchases are billed yearly. You may cancel a subscription at any time. ';
+						printf( 'Support and updates for included extensions are subject to valid license. %1$s.', '<a href="' . $license . '" target="_blank">View terms</a>' );
 					}
 					?>
 				</p>
 			</div>
 		</div>
 	</div>
-	<?php if ( ! $is_3rd_party ) { ?>
+	<?php if ( ! $is_3rd_party && ! $is_all_access ) { ?>
 		<div class="download-details download-info-section">
 			<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
 			<div class="author clearfix">
@@ -245,12 +252,12 @@ if ( class_exists( 'EDD_All_Access' ) ) {
 			<?php } ?>
 		</div>
 	<?php } ?>
-	<?php if ( ! $is_bundle ) {
-		$core_extensions = home_url( '/downloads/core-extensions-bundle/' );
+	<?php if ( $is_theme || $is_unlicensed || $is_wporg || $is_3rd_party ) {
+		$all_access_pass = home_url( '/downloads/all-access-pass/' );
 		?>
 		<div class="core-extensions download-info-section">
-			<h3 class="widget-title">Core Extensions</h3>
-			<p>Receive the best discount EDD has to offer when you purchase our Core Extensions Bundle. <a href="<?php echo $core_extensions; ?>">Learn more</a>.</p>
+			<h3 class="widget-title">All Access Pass</h3>
+			<p>Receive the best discount Easy Digital Downloads has to offer when you purchase our All Access Pass. <a href="<?php echo $all_access_pass; ?>">Learn more</a>.</p>
 		</div>
 	<?php } ?>
 	<?php
