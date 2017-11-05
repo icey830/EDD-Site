@@ -103,7 +103,7 @@ if ( class_exists( 'EDD_All_Access' ) ) {
 							if ( $is_bundle ) {
 								echo 'This subscription is billed yearly and can be cancelled at any time. ';
 							} else {
-								echo 'All price options are billed yearly. You may cancel your subscription at any time. ';
+								echo 'All purchase options are billed yearly. You may cancel your subscription at any time. ';
 							}
 							printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
 						} elseif ( $is_extension && ! $recurring && ! $is_unlicensed ) { // safety net
