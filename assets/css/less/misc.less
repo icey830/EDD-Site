@@ -683,6 +683,50 @@
 
 
 /* ----------------------------- *
+ * All Access
+ * ----------------------------- */
+.edd_all_access_download_form {
+	margin-bottom: 0 !important;
+
+	& .edd_all_access_price_options {
+		/*
+		 * If a customer is viewing the purchase button for one of our
+		 * variable price products, but already has access to it because
+		 * of an Access Pass, hide the price options. They're unnecessary
+		 * as all price options for a specific product deliver the same
+		 * product file.
+		 */
+		display: none;
+	}
+}
+
+.sidebar {
+	& .all-access-terms,
+	.edd-aa-buy-instructions,
+	.edd-aa-login-wrapper {
+		font-size: 1.4rem;
+		line-height: 1.4;
+		margin-bottom: 20px;
+
+		& a {
+			color: #fff;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+
+	&:not(.has-aa-access) {
+		& .terms {
+			border-top: 2px solid rgba(255,255,255,.1);
+			padding-top: 20px;
+		}
+	}
+}
+
+
+/* ----------------------------- *
  * Recurring Payments
  * ----------------------------- */
 .eddr-cart-item-notice {
