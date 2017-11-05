@@ -2268,7 +2268,7 @@
 			}
 
 			&:not(:last-child) {
-				border-bottom: 2px solid @eddgrayhover;
+				border-bottom: 1px solid @eddgrayhover;
 			}
 
 			& a {
@@ -2330,6 +2330,12 @@
 		}
 
 		table.affwp-table td {
+			border-width: 1px 0 0;
+			border-style: solid;
+			border-color: #eef0f0;
+		}
+
+		table.affwp-table tr:first-child > td {
 			border-width: 2px 0 0;
 			border-style: solid;
 			border-color: #eef0f0;
