@@ -217,7 +217,7 @@ if ( is_user_logged_in() ) : ?>
 
 								<!-- Purchases -->
 								<div class="tab-pane active purchases-tab-pane" id="purchases">
-									<h3>Your Purchase History</h3>
+									<h3>Your purchase history</h3>
 									<p>All purchases below were completed with the following email address: <strong><?php echo $current_user->user_email; ?></strong>. If you have trouble locating purchases, please <a href="<?php echo home_url( 'support' ); ?>">contact support</a> for assistance.</p>
 									<?php
 									if ( isset( $_GET['payment_id'] ) && is_numeric( $_GET['payment_id'] ) ) {
@@ -230,7 +230,7 @@ if ( is_user_logged_in() ) : ?>
 
 								<!-- License keys -->
 								<div class="tab-pane license-keys-tab-pane" id="license-keys">
-									<h3>Manage Your License Keys</h3>
+									<h3>Manage your license keys</h3>
 									<?php if ( class_exists( 'edd_software_licensing' ) && edd_software_licensing()->get_license_keys_of_user() ) { ?>
 										<p>Below you will find all license keys for you previous purchases. Use the <strong>Manage Sites</strong> links to authorize specific URLs for your license keys. Use the <strong>Extend License</strong> or <strong>Renew License</strong> links to adjust the terms of your license keys.</p>
 										<?php if ( ! empty( $license_keys ) ) { ?>
@@ -256,7 +256,7 @@ if ( is_user_logged_in() ) : ?>
 															$the_key = get_post_meta( $key->ID, '_edd_sl_key', true );
 															?>
 															<div class="expired-key-item flex-two">
-																<span class="licensed-product-title"><?php echo $the_title; ?></span><br>
+																<span class="licensed-product-title"><?php echo $the_title; ?></span>
 																<div class="license-actions">
 																	<span class="licensed-product-key"><?php echo $the_key; ?></span><br>
 																	<a href="<?php echo home_url( '/checkout/?edd_license_key=' ) . $the_key; ?>">Renew license</a>
@@ -329,8 +329,6 @@ if ( is_user_logged_in() ) : ?>
 
 								<!-- All Access -->
 								<div class="tab-pane all-access-tab-pane" id="all-access">
-									<h3>Yup</h3>
-									<p>Nope.</p>
 									<?php
 										$aa_customer = new EDD_Customer( get_current_user_id(), true );
 										$user_has_access_pass = $aa_customer->get_meta( 'all_access_passes' );
@@ -344,21 +342,21 @@ if ( is_user_logged_in() ) : ?>
 
 								<!-- Subscriptions -->
 								<div class="tab-pane subscriptions-tab-pane" id="subscriptions">
-									<h3>Manage Your Subscriptions</h3>
+									<h3>Manage your subscriptions</h3>
 									<p>Use the tools below to view subscription details, manage all of your product subscriptions, and view invoices.</p>
 									<?php echo do_shortcode( '[edd_subscriptions]' ); ?>
 								</div>
 
 								<!-- Downloads -->
 								<div class="tab-pane downloads-tab-pane" id="downloads">
-									<h3>Your Download History</h3>
+									<h3>Your download history</h3>
 									<p>Below you will find a complete history of your file downloads.</p>
 									<?php echo do_shortcode( '[download_history]' ); ?>
 								</div>
 
 								<!-- Profile -->
 								<div class="tab-pane profile-editor-tab-pane" id="profile">
-									<h3>Edit Your Profile Information</h3>
+									<h3>Edit your profile information</h3>
 									<p>Use the form below to edit the information saved in your user profile. Select information will be used to auto-complete the checkout form for your next purchase.</p>
 									<?php edd_get_template_part( 'shortcode', 'profile-editor' ); ?>
 								</div>
@@ -366,7 +364,7 @@ if ( is_user_logged_in() ) : ?>
 								<!-- Stripe payment methods -->
 								<?php if ( ! empty( $existing_cards ) ) { ?>
 									<div class="tab-pane payment-methods-tab-pane" id="payment-methods">
-										<h3>Your Saved Payment Methods</h3>
+										<h3>Your saved payment methods</h3>
 										<p>Manage your saved cards using the tools below. Edit, delete, or set cards as default for use when making purchases.</p>
 										<?php if ( function_exists( 'edd_stripe_manage_cards' ) ) { edd_stripe_manage_cards(); } ?>
 									</div>
@@ -374,7 +372,7 @@ if ( is_user_logged_in() ) : ?>
 
 								<!-- Commissions -->
 								<div class="tab-pane commissions-tab-pane" id="commissions">
-									<h3>Commissions Overview</h3>
+									<h3>Commissions overview</h3>
 									<?php if( function_exists( 'eddc_user_commissions_overview' ) ) { echo eddc_user_commissions_overview(); } ?>
 									<?php //if( function_exists( 'eddc_user_commissions_graph' ) ) { echo eddc_user_commissions_graph(); } ?>
 									<h3>Detailed Commissions Information</h3>
@@ -387,7 +385,7 @@ if ( is_user_logged_in() ) : ?>
 
 								<!-- Support subscription -->
 								<div class="tab-pane support-subscription-tab-pane" id="support">
-									<h3>Your Support Subscription</h3>
+									<h3>Your support subscription</h3>
 									<p>See the details of your support subscription below.</p>
 									<?php
 										echo do_shortcode( '[subscription_details]' );

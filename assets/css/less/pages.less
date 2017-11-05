@@ -1196,7 +1196,7 @@
 
 				& .card-is-default {
 					display: inline-block;
-					background: #a2acb2;
+					background: @green;
 					color: #fff;
 					font-size: 13px;
 					font-style: normal;
@@ -1268,6 +1268,72 @@
 /* full account page content area */
 .my-account-content,
 .purchase-confirmation-content {
+
+	/* account page tables (shared) */
+	& #edd_user_history,
+	& #edd_sl_license_keys,
+	& #edd_sl_license_sites,
+	& .edd_sl_table,
+	& #edd_profile_editor_form,
+	& .edd_user_commissions,
+	& #edd_user_commissions_overview table,
+	& #edd_commissioned_products_table,
+	& #edd-stripe-manage-cards fieldset,
+	& .rcp-table,
+	& #edd_all_access_pass_details,
+	& #affwp-affiliate-dashboard .affwp-table,
+	& #edd_purchase_receipt,
+	& #edd_subscription_receipt,
+	& #edd_purchase_receipt_products {
+		background-color: transparent;
+		font-size: 1.4rem;
+		border-collapse: inherit;
+		border-spacing: 0;
+		border: 3px solid @eddgrayhover;
+		border-radius: 4px;
+		max-width: 100%;
+		width: 100%;
+
+		& thead {
+			text-align: left;
+
+			& th {
+				background: @eddgray;
+				font-weight: 500;
+				line-height: 20px;
+				text-align: left;
+				padding: 12px 10px 14px;
+				border: none;
+				vertical-align: top;
+			}
+		}
+
+		& tbody {
+			& tr:first-child > td {
+				border-width: 2px 0 0;
+				border-style: solid;
+				border-color: @eddgrayhover;
+			}
+
+			& td {
+				line-height: 20px;
+				text-align: left;
+				padding: 12px 10px;
+				border-width: 1px 0 0;
+				border-style: solid;
+				border-color: @eddgrayhover;
+				vertical-align: top;
+			}
+
+			& > tr:nth-child(even) > td {
+				background: @eddgray;
+			}
+		}
+
+		& > tbody > tr:last-child > td {
+			border-bottom: none;
+		}
+	}
 
 	/* account page tabs */
 	& .my-account-tabs,
@@ -1440,72 +1506,6 @@
 				}
 			}
 
-			/* main content tables in tab content areas */
-			& #edd_user_history,
-			& #edd_sl_license_keys,
-			& #edd_sl_license_sites,
-			& .edd_sl_table,
-			& #edd_profile_editor_form,
-			& .edd_user_commissions,
-			& #edd_user_commissions_overview table,
-			& #edd_commissioned_products_table,
-			& #edd-stripe-manage-cards fieldset,
-			& .rcp-table,
-			& #edd_all_access_pass_details,
-			& #affwp-affiliate-dashboard .affwp-table,
-			& #edd_purchase_receipt,
-			& #edd_subscription_receipt,
-			& #edd_purchase_receipt_products {
-				background-color: transparent;
-				font-size: 1.4rem;
-				border-collapse: inherit;
-				border-spacing: 0;
-				border: 3px solid @eddgrayhover;
-				border-radius: 4px;
-				max-width: 100%;
-				width: 100%;
-
-				& thead {
-					text-align: left;
-
-					& th {
-						background: @eddgray;
-						font-weight: 500;
-						line-height: 20px;
-						text-align: left;
-						padding: 12px 10px 14px;
-						border: none;
-						vertical-align: top;
-					}
-				}
-
-				& tbody {
-					& tr:first-child > td {
-						border-width: 2px 0 0;
-						border-style: solid;
-						border-color: @eddgrayhover;
-					}
-
-					& td {
-						line-height: 20px;
-						text-align: left;
-						padding: 12px 10px;
-						border-width: 1px 0 0;
-						border-style: solid;
-						border-color: @eddgrayhover;
-						vertical-align: top;
-					}
-
-					& > tr:nth-child(even) > td {
-						background: @eddgray;
-					}
-				}
-
-				& > tbody > tr:last-child > td {
-					border-bottom: none;
-				}
-			}
-
 
 			/* ----------------------------- *
  			 * Purchases content
@@ -1663,6 +1663,38 @@
 			& #all-access {
 				& #edd_all_access_pass_details.edd_all_access_table {
 					& tbody > tr {
+						&.edd_all_access_status_row {
+							& .edd-aa-status-value > span {
+								display: inline-block;
+								background: #a2acb2;
+								color: #fff;
+								font-size: 12px;
+								line-height: 1;
+								padding: 4px 8px;
+								border-radius: 3px;
+								margin: 0 0 2px 0;
+								vertical-align: middle;
+
+								&.edd-aa-active-status {
+									background: @green;
+								}
+
+								&.edd-aa-renewed-status,
+								&.edd-aa-upcoming-status,
+								&.edd-aa-upgraded-status {
+									background: @eddblue;
+								}
+
+								&.edd-aa-expired-status {
+									background: #d05c5c;
+								}
+							}
+
+							& .row-value {
+								padding-bottom: 10px;
+							}
+						}
+
 						& > td {
 							border-width: 1px 0 0;
 							border-style: solid;

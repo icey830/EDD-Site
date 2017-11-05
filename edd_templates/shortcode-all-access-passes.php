@@ -12,6 +12,9 @@ if ( is_user_logged_in() ):
 	if ( $customer_all_access_passes ) :
 		?>
 
+		<h3>Manage your All Access Passes</h3>
+		<p>Below you will find your purchased All Access Passes. Use the <strong>View full details</strong> link to see the details for a specific purchase.</p>
+
 		<table id="edd_user_history">
 			<thead>
 			<tr class="edd_purchase_row">
@@ -66,7 +69,7 @@ if ( is_user_logged_in() ):
 									'price_id' => $all_access_pass->price_id,
 								), home_url( 'your-account/#tab-all-access' ) );
 
-								echo '<a href="' . esc_url( $view_single_aa_pass_url ) . '">' . __( 'View Full Details', 'edd-all-access' ) . '</a>';
+								echo '<a href="' . esc_url( $view_single_aa_pass_url ) . '">' . __( 'View full details', 'edd-all-access' ) . '</a>';
 
 								?></span>
 					</td>
