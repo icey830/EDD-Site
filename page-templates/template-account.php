@@ -334,8 +334,11 @@ if ( is_user_logged_in() ) : ?>
 										$user_has_access_pass = $aa_customer->get_meta( 'all_access_passes' );
 										if ( $user_has_access_pass ) {
 											echo do_shortcode( '[edd_aa_customer_passes]' );
+											?>
+											<a class="edd-submit button blue" href="<?php echo home_url( '/your-account/all-access-pass/' ); ?>"><i class="fa fa-gift"></i>Access your downloads</a>
+											<?php
 										} else {
-											echo 'No passes';
+											echo 'You have not made any All Access purchases.';
 										}
 									?>
 								</div>
