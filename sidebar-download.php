@@ -23,6 +23,10 @@ elseif ( $is_theme ) :
 	$download_type = 'theme';
 elseif ( $is_bundle ) :
 	$download_type = 'bundle';
+elseif ( $is_all_access ) :
+	$download_type = 'all-access';
+else :
+	$download_type = 'extension';
 endif;
 $license = get_theme_mod( 'eddwp_terms_link' );
 
