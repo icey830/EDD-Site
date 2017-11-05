@@ -6,6 +6,7 @@
 $is_extension  = has_term( 'extensions', 'download_category', get_the_ID() );
 $is_theme      = has_term( 'themes', 'download_category', get_the_ID() );
 $is_bundle     = has_term( 'bundles', 'download_category', get_the_ID() );
+$is_all_access = has_term( 'all-access', 'download_category', get_the_ID() );
 $has_license   = get_post_meta( get_the_ID(), '_edd_sl_enabled', true );
 
 $is_3rd_party  = has_term( '3rd-party', 'download_category', get_the_ID() );
@@ -41,24 +42,46 @@ if ( $variable_pricing ) {
 } elseif ( ! $variable_pricing && $single_recurring ) {
 	$recurring = true;
 }
+
+// check for All Access access to this product
+$aa_has_access['success'] = false;
+if ( class_exists( 'EDD_All_Access' ) ) {
+	$aa_has_access = edd_all_access_check( array( 'download_id' => get_the_ID() ) );
+	if ( $aa_has_access['success'] ) {
+		$aa_pass_title = get_the_title( $aa_has_access['all_access_pass']->download_id );
+	}
+}
 ?>
 
-<aside class="sidebar download-sidebar">
+<aside class="sidebar download-sidebar<?php echo $aa_has_access['success'] ? ' has-aa-access' : '' ; ?>">
 	<div class="download-access download-info-section">
 		<div class="pricing-header">
 			<?php
-			if ( ! $is_3rd_party && ! $is_unlicensed ) {
+			if ( $aa_has_access['success'] ) {
 				?>
-				<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Pricing</h3>
+				<h3 class="widget-title"><i class="fa fa-gift"></i> You have access!</h3>
 				<?php
 			} else {
-				?>
-				<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
-				<?php
+				if ( ! $is_3rd_party && ! $is_unlicensed && ! $is_theme ) {
+					?>
+					<h3 class="widget-title">Purchase <?php echo $is_all_access ? 'Access' : ucfirst( $download_type ); ?></h3>
+					<?php
+				} else {
+					?>
+					<h3 class="widget-title">Download <?php echo ucfirst( $download_type ); ?></h3>
+					<?php
+				}
 			}
 			?>
 		</div>
 		<div class="pricing-info">
+			<?php
+				if ( $aa_has_access['success'] ) {
+					?>
+					<p class="all-access-terms">As an <?php echo $aa_pass_title; ?> customer, you can download this <?php echo $download_type; ?> by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>" target="_blank">your account</a>.</p>
+					<?php
+				}
+			?>
 			<div class="pricing">
 				<?php
 				if ( ! $is_3rd_party || ( $is_3rd_party && $is_wporg ) ) {
@@ -72,33 +95,35 @@ if ( $variable_pricing ) {
 			</div>
 			<div class="terms clearfix">
 				<p>
-					<i class="fa fa-info-circle"></i>
 					<?php
+					if ( ! $aa_has_access['success'] ) {
+						echo '<i class="fa fa-info-circle"></i>';
 
-					// terms for paid downloads
-					if ( class_exists( 'EDD_Recurring' ) && $recurring ) {
-						if ( $is_bundle ) {
-							echo 'This subscription is billed yearly and can be cancelled at any time. ';
-						} else {
-							echo 'All price options are billed yearly. You may cancel your subscription at any time. ';
+						// terms for paid downloads
+						if ( class_exists( 'EDD_Recurring' ) && $recurring ) {
+							if ( $is_bundle ) {
+								echo 'This subscription is billed yearly and can be cancelled at any time. ';
+							} else {
+								echo 'All purchase options are billed yearly. You may cancel your subscription at any time. ';
+							}
+							printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
+						} elseif ( $is_extension && ! $recurring && ! $is_unlicensed ) { // safety net
+
+							// this should never happen
+							printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
 						}
-						printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
-					} elseif ( $is_extension && ! $recurring && ! $is_unlicensed ) { // safety net
 
-						// this should never happen
-						printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
-					}
+						// terms for free or external downloads
+						if ( $is_theme && ! $is_3rd_party ) {
+							printf( 'Downloading this %1$s grants you a lifetime license for support and updates.', $download_type );
+						} elseif ( $is_theme && $is_3rd_party ) {
+							printf( 'This %1$s is maintained and supported by %2$s.', $download_type, $developer );
+						}
 
-					// terms for free or external downloads
-					if ( $is_theme && ! $is_3rd_party ) {
-						printf( 'Downloading this %1$s grants you a lifetime license for support and updates.', $download_type );
-					} elseif ( $is_theme && $is_3rd_party ) {
-						printf( 'This %1$s is maintained and supported by %2$s.', $download_type, $developer );
-					}
-
-					// unlicensed downloads (like .org, iTunes, etc.)
-					if ( $is_unlicensed ) {
-						printf( 'This %1$s is not subject to our licensing terms as it is distributed and maintained by a 3rd party.', $download_type );
+						// unlicensed downloads (like .org, iTunes, etc.)
+						if ( $is_unlicensed ) {
+							printf( 'This %1$s is not subject to our licensing terms as it is distributed and maintained by a 3rd party.', $download_type );
+						}
 					}
 					?>
 				</p>
