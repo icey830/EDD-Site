@@ -2,7 +2,6 @@
 /**
  * download sidebar (NOT widgetized... for now)
  */
-
 $is_extension  = has_term( 'extensions', 'download_category', get_the_ID() );
 $is_theme      = has_term( 'themes', 'download_category', get_the_ID() );
 $is_bundle     = has_term( 'bundles', 'download_category', get_the_ID() );
