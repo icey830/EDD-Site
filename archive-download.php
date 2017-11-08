@@ -67,13 +67,13 @@ the_post();
 						<?php
 							$bundle_promotion = array(
 								0 => array(
-									'url'   => home_url( '/downloads/core-extensions-bundle' ),
+									'url'   => home_url( '/downloads/all-access-pass/' ),
 									'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/core-extensions-bundle-featured.png',
-									'title' => 'Core Extensions Bundle',
-									'desc'  => 'With the Core Extensions Bundle, get over $3,000 worth of extensions for only $799.',
+									'title' => 'All Access Pass',
+									'desc'  => 'With the All Access Pass, get over $3,000 worth of extensions for only $999.',
 								),
 								1 => array(
-									'url'   => home_url( '/starter-package' ),
+									'url'   => home_url( '/starter-package/' ),
 									'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/starter-package-featured.png',
 									'title' => 'Extension Starter Package',
 									'desc'  => 'Build your own extension starter package and automatically save ' . get_theme_mod( 'eddwp_starter_package_discount_percentage', '30' ) . '% on your order.',
