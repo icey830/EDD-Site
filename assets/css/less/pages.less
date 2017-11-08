@@ -2244,30 +2244,81 @@
  * ----------------------------- */
 #all-access-downloads-area {
 	& .all-access-downloads {
-		& .download-grid .download-grid-item {
-			display: block;
+		& .download-grid-item {
+			background: #fff;
+			border: 2px solid @eddgrayhover;	
 		}
-
-		& .download-grid-thumb-wrap {
-			float: left;
-			width: 27%;
-
-			& img {
-				border-radius: 4px 0 0 4px;
-			}
-		}
-
+		
 		& .download-grid-item-info {
-			float: right;
-			width: 73%;
-
+			padding-bottom: 10px; 
+			
 			& h4.download-grid-title {
-				font-size: 1.6rem;
+				font-size: 1.8rem;
 				margin: 0 0 10px;
 			}
 
 			& > p {
+				font-size: 1.4rem;
 				margin-bottom: 0;
+			}
+			
+			& small {
+				color: #a2acb2;
+				margin-left: 4px;
+			}
+		}
+		
+		& .download-grid-item-actions {
+			color: #aaa;
+			font-size: 1.4rem;
+			font-weight: 500;
+			padding: 0 20px 20px;
+			margin: auto 0 0;
+			
+			& .edd_download_purchase_form,
+			.edd_purchase_submit_wrapper {
+				display: inline;
+			}
+			
+			a {
+				display: inline-block;
+				color: #777;
+				text-decoration: underline;
+				
+				&:first-child {
+				color: @eddblue;
+				}
+				
+				&:hover {
+					text-decoration: none;
+				}
+				
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+			
+			& .modal-body {
+				font-weight: 400;
+				color: #555;
+			}
+			
+			& .edd_price_options {
+				display: none;
+			}
+			
+			& .button.edd-submit.edd-all-access-btn {
+				background: none;
+				padding: 0;
+				
+				& span {
+					color: @eddblue !important;
+					text-decoration: underline;
+	
+					&:hover {
+						text-decoration: none;
+					}
+				}
 			}
 		}
 	}

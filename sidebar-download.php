@@ -81,9 +81,9 @@ if ( class_exists( 'EDD_All_Access' ) ) {
 			<?php if ( $aa_has_access['success'] ) { ?>
 				<p class="all-access-terms">
 					<?php if ( ! $is_all_access ) { ?>
-						As an <?php echo $aa_pass_title; ?> customer, you can download this <?php echo $download_type; ?> by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>" target="_blank">your account</a>.
+						As an <?php echo $aa_pass_title; ?> customer, you can download this <?php echo $download_type; ?> by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>">your account</a>.
 					<?php } else { ?>
-						You're already an <?php echo $aa_pass_title; ?> customer, you can renew your access pass by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>" target="_blank">your account</a>.
+						You're already an <?php echo $aa_pass_title; ?> customer, you can renew your access pass by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>">your account</a>.
 					<?php } ?>
 				</p>
 			<?php } ?>

@@ -15,20 +15,20 @@ the_post();
 				<div class="entry-header">
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 				</div>
-				<section class="download-grid two-col clearfix">
+				<section class="download-grid three-col">
 					<?php
-					$extension_args = array(
+					$all_extensions_args = array(
 						'post_type'      => 'download',
 						'paged'          => get_query_var( 'paged' ),
-						'posts_per_page' => 45,
+						'posts_per_page' => 9,
 						'order'          => isset( $_GET['display'] ) ? 'DESC' : 'ASC',
-						'orderby'        => isset( $_GET['display'] ) ? 'date' : 'menu_order',
+						'orderby'        => isset( $_GET['display'] ) ? 'date' : 'title',
 						'tax_query'      => array(
 							'relation'   => 'AND',
 							array(
 								'taxonomy' => 'download_category',
 								'field'    => 'slug',
-								'terms'    => array( 'extensions', 'bundles' ),
+								'terms'    => array( 'extensions' ),
 							),
 							array(
 								'taxonomy' => 'download_category',
@@ -38,29 +38,47 @@ the_post();
 							),
 						),
 					);
-					$extensions = new WP_Query( $extension_args );
+					$all_extensions = new WP_Query( $all_extensions_args );
 
-					while ( $extensions->have_posts() ) : $extensions->the_post();
+					while ( $all_extensions->have_posts() ) : $all_extensions->the_post();
 						?>
 						<div class="download-grid-item">
-							<div class="download-grid-thumb-wrap">
-								<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-									<?php the_post_thumbnail( 'thumbnail', array( 'class' => 'all-access-download-thumb' ) ); ?>
-								</a>
-							</div>
 							<div class="download-grid-item-info">
 								<?php
+								$version = get_post_meta( get_the_ID(), '_edd_sl_version', true );
 								the_title( sprintf(
 									'<h4 class="download-grid-title"><a href="%s">',
 									home_url( '/downloads/' . $post->post_name ) ),
-									'</a></h4>'
+									' <small>' . $version . '</small></a></h4>'
 								);
 								$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
 								echo $short_desc;
 								?>
 							</div>
 							<div class="download-grid-item-actions">
-								Download!
+								<?php
+									$download_button = edd_get_purchase_link( array( 'download_id' => get_the_ID(), 'style' => 'plain' ) );
+									$doc_url = get_post_meta( get_the_ID(), 'ecpt_documentationlink', true );
+								?>
+								<?php echo $download_button; ?><?php echo $version ? ' | <a href="#" class="changelog-link" title="View Changelog" data-toggle="modal" data-target="#show-changelog-' . get_the_ID() . '">Changelog</a>' : ''; echo $doc_url ? ' | <a href="' . $doc_url . '">Documentation</a>' : ''; ?>
+								<?php $changelog  = stripslashes( get_post_meta( get_the_ID(), '_edd_sl_changelog', true ) ); ?>
+								<!-- Changelog Modal -->
+								<div class="changelog-modal modal fade" id="show-changelog-<?php echo get_the_ID(); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel-<?php echo get_the_ID(); ?>">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h5 class="modal-title" id="myModalLabel"><?php the_title(); ?> Changelog</h5>
+											</div>
+											<div class="modal-body">
+												<?php echo wpautop( $changelog ); ?>
+											</div>
+											<div class="modal-footer">
+												<a href="#" data-dismiss="modal">Close</a>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 						<?php
@@ -69,7 +87,7 @@ the_post();
 					?>
 					<div class="download-grid-item flex-grid-cheat"></div>
 					<div class="download-grid-item flex-grid-cheat"></div>
-				</section><!-- .download-grid three-col -->
+				</section>
 				<?php
 				$big = 999999999;
 				$links = paginate_links( array(
@@ -83,10 +101,6 @@ the_post();
 					<?php echo $links; ?>
 				</div>
 				<?php wp_reset_postdata(); ?>
-				<div class="third-party-extensions-section">
-					<p>View more extensions built by talented developers from the EDD community.</p>
-					<a class="edd-submit button blue" href="<?php echo home_url( '3rd-party-extensions' ); ?>"><i class="fa fa-plug"></i>3rd Party Extensions</a>
-				</div>
 			</div>
 		</div>
 	</div>

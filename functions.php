@@ -91,7 +91,7 @@ function edd_register_theme_scripts() {
 	wp_dequeue_style( 'edd-styles' );
 
 	// 635 My Account
-	if ( is_page( 635 ) || is_singular( 'download' ) || is_page_template( 'page-templates/template-download-directory.php' ) || is_page_template( 'page-templates/template-purchase-confirmation.php' ) || is_page_template( 'page-templates/template-affiliates-landing.php' ) ) {
+	if ( is_page( 635 ) || is_singular( 'download' ) || is_page_template( 'page-templates/template-download-directory.php' ) || is_page_template( 'page-templates/template-purchase-confirmation.php' ) || is_page_template( 'page-templates/template-affiliates-landing.php' ) || is_page_template( 'page-templates/template-all-access-pass.php' ) ) {
 		wp_enqueue_style( 'bootstrap' );
 		wp_enqueue_script( 'bootstrap-js' );
 	}
