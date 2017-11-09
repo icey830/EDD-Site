@@ -76,7 +76,7 @@ if ( class_exists( 'EDD_All_Access' ) ) {
 				}
 			}
 			?>
-		</div>
+		</div> s
 		<div class="pricing-info">
 			<?php if ( $aa_has_access['success'] ) { ?>
 				<p class="all-access-terms">
