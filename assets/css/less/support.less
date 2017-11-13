@@ -317,7 +317,8 @@
 				}
 			}
 
-			& .self-help-show-next-button {
+			& .self-help-show-next-button,
+			.self-help-hide-checkbox-radio {
 				margin: 0 !important;
 
 				& .gfield_radio,
@@ -352,11 +353,15 @@
 				}
 
 				&.self-help-email {
-					margin-top: 10px !important;
+					margin: 10px 0 0 !important;
 
 					& .gfield_label {
 						display: none !important;
 					}
+				}
+
+				&.self-help-cc-email-checkbox.self-help-hide-checkbox-radio {
+					margin: 0 0 30px !important;
 				}
 
 				& .ginput_container_name,
