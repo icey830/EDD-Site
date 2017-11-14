@@ -1236,6 +1236,25 @@
 	}
 }
 
+#edd_checkout_cart {
+	border-collapse: inherit;
+	border: 1px solid @eddgrayhover;
+	border-width: 0 1px 1px 0;
+
+	& .renew-existing-sub-warning td:last-child {
+		background: #fcf8e3;
+		text-align: left;
+		font-size: 1.4rem;
+		line-height: 1.6;
+		padding: 6px 22px;
+
+		& em {
+			font-style: normal;
+			font-weight: 500;
+		}
+	}
+}
+
 .edd-wallet-applied-discount {
 	display: block;
 	font-size: .8em;
@@ -2246,12 +2265,12 @@
 	& .all-access-downloads {
 		& .download-grid-item {
 			background: #fff;
-			border: 2px solid @eddgrayhover;	
+			border: 2px solid @eddgrayhover;
 		}
-		
+
 		& .download-grid-item-info {
-			padding-bottom: 10px; 
-			
+			padding-bottom: 10px;
+
 			& h4.download-grid-title {
 				font-size: 1.8rem;
 				margin: 0 0 10px;
@@ -2261,60 +2280,60 @@
 				font-size: 1.4rem;
 				margin-bottom: 0;
 			}
-			
+
 			& small {
 				color: #a2acb2;
 				margin-left: 4px;
 			}
 		}
-		
+
 		& .download-grid-item-actions {
 			color: #aaa;
 			font-size: 1.4rem;
 			font-weight: 500;
 			padding: 0 20px 20px;
 			margin: auto 0 0;
-			
+
 			& .edd_download_purchase_form,
 			.edd_purchase_submit_wrapper {
 				display: inline;
 			}
-			
+
 			a {
 				display: inline-block;
 				color: #777;
 				text-decoration: underline;
-				
+
 				&:first-child {
 				color: @eddblue;
 				}
-				
+
 				&:hover {
 					text-decoration: none;
 				}
-				
+
 				&:last-child {
 					margin-right: 0;
 				}
 			}
-			
+
 			& .modal-body {
 				font-weight: 400;
 				color: #555;
 			}
-			
+
 			& .edd_price_options {
 				display: none;
 			}
-			
+
 			& .button.edd-submit.edd-all-access-btn {
 				background: none;
 				padding: 0;
-				
+
 				& span {
 					color: @eddblue !important;
 					text-decoration: underline;
-	
+
 					&:hover {
 						text-decoration: none;
 					}
