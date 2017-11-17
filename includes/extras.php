@@ -27,6 +27,42 @@ function eddwp_is_checkout() {
 
 
 /**
+ * Check to see if Recurring Payments is activated
+ */
+function eddwp_recurring_is_activated() {
+	return class_exists( 'EDD_Recurring' );
+}
+
+
+/**
+ * Check to see if All Access is activated
+ */
+function eddwp_aa_is_activated() {
+	return class_exists( 'EDD_All_Access' );
+}
+
+
+/**
+ * Check to see if current user has All Access Pass, also get the title
+ *
+ * @param $download_id integer ID of the download the user may have access to
+ *
+ * @return array
+ */
+function eddwp_user_has_aa( $download_id = 0 ) {
+	if ( ! eddwp_aa_is_activated() || 0 == $download_id ) {
+		return false;
+	}
+
+	$aa_has_access = edd_all_access_check( array( 'download_id' => $download_id ) );
+	if ( $aa_has_access['success'] ) {
+		$aa_title = get_the_title( $aa_has_access['all_access_pass']->download_id );
+		return array( true, $aa_title );
+	}
+}
+
+
+/**
  * Separate regular comments from pings
  */
 function eddwp_get_comments_only_count( $count ) {

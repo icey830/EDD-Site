@@ -2271,6 +2271,36 @@
  * ----------------------------- */
 #all-access-downloads-area {
 	& .all-access-downloads {
+		& .has-all-access-description {
+			max-width: 722px;
+		}
+		
+		& .fwp-filter-wrap {
+			background: @eddblue url('images/mascot/edd-starter-package-header.png') no-repeat right bottom;
+			padding: 29px 20px 27px;
+			margin-bottom: 40px;
+			min-height: 100px;
+			
+			& .fwp-filter-help-text {
+				float: left;
+				display: inline-block;
+				color: #fff;
+				font-size: 2rem;
+				font-style: normal;
+				line-height: 42px;
+				vertical-align: middle;
+				margin: 0 20px 0 0;
+			}
+			
+			& .fwp-filter-container {
+				float: left;
+				
+				.fwp-filter {
+					min-width: 353px;
+				}
+			}
+		}
+		
 		& .download-grid-item {
 			background: #fff;
 			border: 2px solid @eddgrayhover;
