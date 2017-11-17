@@ -30,7 +30,7 @@ endif;
 $license = get_theme_mod( 'eddwp_terms_link' );
 
 // check for recurring pricing
-if ( class_exists( 'EDD_Recurring' ) ) {
+if ( eddwp_recurring_is_activated() ) {
 	$single_recurring = EDD_Recurring()->is_recurring( get_the_ID() );
 }
 $variable_pricing = edd_has_variable_prices( get_the_ID() );
@@ -47,20 +47,16 @@ if ( $variable_pricing ) {
 }
 
 // check for All Access access to this product
-$aa_has_access['success'] = false;
-if ( class_exists( 'EDD_All_Access' ) ) {
-	$aa_has_access = edd_all_access_check( array( 'download_id' => get_the_ID() ) );
-	if ( $aa_has_access['success'] ) {
-		$aa_pass_title = get_the_title( $aa_has_access['all_access_pass']->download_id );
-	}
-}
+$aa_check    = eddwp_user_has_aa( get_the_ID() );
+$aa_has_pass = $aa_check[0] ? true : false;
+$aa_title    = $aa_check[0] ? $aa_check[1] : '';
 ?>
 
-<aside class="sidebar download-sidebar<?php echo $aa_has_access['success'] ? ' has-aa-access' : '' ; ?>">
+<aside class="sidebar download-sidebar<?php echo $aa_has_pass ? ' has-aa-access' : '' ; ?>">
 	<div class="download-access download-info-section">
 		<div class="pricing-header">
 			<?php
-			if ( $aa_has_access['success'] ) {
+			if ( $aa_has_pass ) {
 				?>
 				<h3 class="widget-title"><i class="fa fa-gift"></i> You have access!</h3>
 				<?php
@@ -78,12 +74,12 @@ if ( class_exists( 'EDD_All_Access' ) ) {
 			?>
 		</div>
 		<div class="pricing-info">
-			<?php if ( $aa_has_access['success'] ) { ?>
+			<?php if ( $aa_has_pass ) { ?>
 				<p class="all-access-terms">
 					<?php if ( ! $is_all_access ) { ?>
-						As an <?php echo $aa_pass_title; ?> customer, you can download this <?php echo $download_type; ?> by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>">your account</a>.
+						As an <?php echo $aa_title; ?> customer, you can download this <?php echo $download_type; ?> by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>">your account</a>.
 					<?php } else { ?>
-						You're already an <?php echo $aa_pass_title; ?> customer, you can renew your access pass by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>">your account</a>.
+						You're already an <?php echo $aa_title; ?> customer, you can renew your access pass by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>">your account</a>.
 					<?php } ?>
 				</p>
 			<?php } ?>
@@ -101,11 +97,11 @@ if ( class_exists( 'EDD_All_Access' ) ) {
 			<div class="terms clearfix">
 				<p>
 					<?php
-					if ( ! $aa_has_access['success'] && ! $is_all_access ) {
+					if ( ! $aa_has_pass && ! $is_all_access ) {
 						echo '<i class="fa fa-info-circle"></i>';
 
 						// terms for paid downloads
-						if ( class_exists( 'EDD_Recurring' ) && $recurring ) {
+						if ( eddwp_recurring_is_activated() && $recurring ) {
 							if ( $is_bundle ) {
 								echo 'This subscription is billed yearly and can be cancelled at any time. ';
 							} else {
@@ -130,7 +126,7 @@ if ( class_exists( 'EDD_All_Access' ) ) {
 							printf( 'This %1$s is not subject to our licensing terms as it is distributed and maintained by a 3rd party.', $download_type );
 						}
 					} elseif ( $is_all_access ) {
-						
+
 						// actual All Access passes
 						echo '<i class="fa fa-info-circle"></i> ' . get_the_title() . ' purchases are billed yearly. You may cancel a subscription at any time. ';
 						printf( 'Support and updates for included extensions are subject to valid license. %1$s.', '<a href="' . $license . '" target="_blank">View terms</a>' );
