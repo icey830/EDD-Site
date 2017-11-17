@@ -70,7 +70,7 @@ the_post();
 									'url'   => home_url( '/downloads/all-access-pass/' ),
 									'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/core-extensions-bundle-featured.png',
 									'title' => 'All Access Pass',
-									'desc'  => 'With the All Access Pass, get over $3,000 worth of extensions for only $999.',
+									'desc'  => 'With the All Access Pass, get over $3,000 worth of extensions for only $899.',
 								),
 								1 => array(
 									'url'   => home_url( '/starter-package/' ),
