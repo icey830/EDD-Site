@@ -175,11 +175,15 @@ if ( is_user_logged_in() ) : ?>
 								<li><a href="#license-keys" data-toggle="tab"<?php echo $has_expired_licenses; ?>><i class="fa fa-key" aria-hidden="true"></i>License Keys</a></li>
 
 								<!-- All Access -->
+								<?php if ( eddwp_aa_is_activated() ) { ?>
 								<li><a href="#all-access" data-toggle="tab"><i class="fa fa-gift" aria-hidden="true"></i>All Access Passes</a></li>
+								<?php } ?>
 
 								<!-- Subscriptions -->
+								<?php if ( eddwp_recurring_is_activated() ) { ?>
 								<?php $payment_info_update = ! empty( $failing_subs ) ? ' class="account-tab-highlight"' : ''; ?>
 								<li><a href="#subscriptions" data-toggle="tab"<?php echo $payment_info_update; ?>><i class="fa fa-repeat" aria-hidden="true"></i>Subscriptions</a></li>
+								<?php } ?>
 
 								<!-- Downloads -->
 								<li><a href="#downloads" data-toggle="tab"><i class="fa fa-cloud-download" aria-hidden="true"></i>Downloads</a></li>
@@ -328,6 +332,7 @@ if ( is_user_logged_in() ) : ?>
 								</div>
 
 								<!-- All Access -->
+								<?php if ( eddwp_aa_is_activated() ) { ?>
 								<div class="tab-pane all-access-tab-pane" id="all-access">
 									<?php
 										$aa_customer = new EDD_Customer( get_current_user_id(), true );
@@ -342,6 +347,7 @@ if ( is_user_logged_in() ) : ?>
 										}
 									?>
 								</div>
+								<?php } ?>
 
 								<!-- Subscriptions -->
 								<div class="tab-pane subscriptions-tab-pane" id="subscriptions">
