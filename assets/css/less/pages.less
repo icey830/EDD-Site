@@ -1688,35 +1688,42 @@
  			 * All Access Pass content
  			 * ----------------------------- */
 			& #all-access {
+				& .edd-aa-status-value > span,
+				.edd_all_access_pass_status > span {
+					display: inline-block;
+					background: #a2acb2;
+					color: #fff;
+					text-align: center;
+					font-size: 12px;
+					line-height: 1;
+					padding: 4px 8px;
+					border-radius: 3px;
+					margin: 0 0 2px 0;
+					min-width: 68px;
+					vertical-align: middle;
+
+					& a {
+						color: #fff;
+					}
+
+					&.edd-aa-active-status {
+						background: @green;
+					}
+
+					&.edd-aa-renewed-status,
+					&.edd-aa-upcoming-status,
+					&.edd-aa-upgraded-status {
+						background: @eddblue;
+					}
+
+					&.edd-aa-expired-status {
+						background: #d05c5c;
+					}
+				}
+
 				& #edd_all_access_pass_details.edd_all_access_table {
 					& tbody > tr {
 						&.edd_all_access_status_row {
-							& .edd-aa-status-value > span {
-								display: inline-block;
-								background: #a2acb2;
-								color: #fff;
-								font-size: 12px;
-								line-height: 1;
-								padding: 4px 8px;
-								border-radius: 3px;
-								margin: 0 0 2px 0;
-								vertical-align: middle;
-
-								&.edd-aa-active-status {
-									background: @green;
-								}
-
-								&.edd-aa-renewed-status,
-								&.edd-aa-upcoming-status,
-								&.edd-aa-upgraded-status {
-									background: @eddblue;
-								}
-
-								&.edd-aa-expired-status {
-									background: #d05c5c;
-								}
-							}
-
 							& .row-value {
 								padding-bottom: 10px;
 							}
@@ -2274,13 +2281,13 @@
 		& .has-all-access-description {
 			max-width: 722px;
 		}
-		
+
 		& .fwp-filter-wrap {
 			background: @eddblue url('images/mascot/edd-starter-package-header.png') no-repeat right bottom;
 			padding: 29px 20px 27px;
 			margin-bottom: 40px;
 			min-height: 100px;
-			
+
 			& .fwp-filter-help-text {
 				float: left;
 				display: inline-block;
@@ -2291,16 +2298,16 @@
 				vertical-align: middle;
 				margin: 0 20px 0 0;
 			}
-			
+
 			& .fwp-filter-container {
 				float: left;
-				
+
 				.fwp-filter {
 					min-width: 353px;
 				}
 			}
 		}
-		
+
 		& .download-grid-item {
 			background: #fff;
 			border: 2px solid @eddgrayhover;

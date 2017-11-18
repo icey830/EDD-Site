@@ -154,7 +154,7 @@ if ( is_user_logged_in() ) {
 									'payment_id' => $latest_payment_id,
 									'download_id' => $all_access_pass->download_id,
 									'price_id' => $all_access_pass->price_id,
-								) );
+								), home_url( 'your-account/#tab-all-access' ) );
 
 								echo '<span class="edd-aa-' . $aa_status . '-status">' . $aa_status_label . ' <a href="' . $view_latest_aa_pass_url . '">' . __( '(View Current)', 'edd-all-access' ) . '</a></span>';
 
@@ -176,7 +176,7 @@ if ( is_user_logged_in() ) {
 									'payment_id' => $latest_payment_id,
 									'download_id' => $all_access_pass->download_id,
 									'price_id' => $all_access_pass->price_id,
-								) );
+								), home_url( 'your-account/#tab-all-access' ) );
 
 								echo '<span class="edd-aa-' . $aa_status . '-status">' . $aa_status_label . ' <a href="' . $view_latest_aa_pass_url . '">' . __( '(View Current)', 'edd-all-access' ) . '</a></span>';
 
@@ -190,7 +190,7 @@ if ( is_user_logged_in() ) {
 									'payment_id' => $upgraded_all_access_pass->payment_id,
 									'download_id' => $upgraded_all_access_pass->download_id,
 									'price_id' => $upgraded_all_access_pass->price_id,
-								) );
+								), home_url( 'your-account/#tab-all-access' ) );
 
 								echo '<span class="edd-aa-' . $aa_status . '-status"><a href="' . $view_upgraded_aa_pass_url . '">' . $aa_status_label . '</a></span>';
 							}elseif ( 'expired' == $aa_status ) {

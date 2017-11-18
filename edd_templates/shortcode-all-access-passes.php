@@ -50,7 +50,11 @@ if ( is_user_logged_in() ):
 						<span class="edd_all_access_pass_name"><?php echo get_the_title( $all_access_pass->download_id ); ?></span>
 					</td>
 					<td>
-						<span class="edd_all_access_pass_status"><?php echo edd_all_access_get_status_label( $all_access_pass->status ); ?></span>
+						<?php
+							$pass_status = edd_all_access_get_status_label( $all_access_pass->status );
+							$status_label = '<span class="edd-aa-' . lcfirst( $pass_status ) . '-status">' . $pass_status . '</span>';
+						?>
+						<span class="edd_all_access_pass_status"><?php echo $status_label; ?></span>
 					</td>
 					<td>
 						<span class="edd_all_access_pass_start_date"><?php echo date( 'M d, Y', $all_access_pass->start_time ); ?></span>
