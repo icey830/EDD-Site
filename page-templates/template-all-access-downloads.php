@@ -1,8 +1,8 @@
 <?php
 /**
- * Template Name: All Access Pass
+ * Template Name: All Access Downloads
  *
- * The template for displaying all downloads for All Access Pass members
+ * The template for displaying all downloads for All Access members
  */
 
 get_header();
@@ -21,11 +21,11 @@ if ( class_exists( 'EDD_All_Access' ) ) {
 				<div class="entry-header">
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 				</div>
-				
+
 				<?php if ( is_user_logged_in() && $aa_has_access['success'] ) : ?>
-				
+
 					<p class="has-all-access-description">Thanks for being an All Access Pass customer! Below, we've compiled a list of all the extensions you have access to. From here, you can download any extension, view its documentation, or even read its changelog. You may also view access pass details on <a href="<?php echo home_url( 'your-account/#tab-all-access' ); ?>">your account page</a>.</p>
-				
+
 					<?php
 					if ( function_exists( 'FWP' ) ) { ?>
 						<div class="fwp-filter-wrap clearfix">
@@ -39,17 +39,17 @@ if ( class_exists( 'EDD_All_Access' ) ) {
 						<?php echo facetwp_display( 'template', 'all_access_downloads' );
 						echo facetwp_display( 'pager' );
 					} else {
-						include( 'edd_templates/template-all-access-pass-grid.php' );
+						include( 'edd_templates/template-all-access-downloads-grid.php' );
 						eddwp_paginate_links();
 					}
 					?>
-				
+
 				<?php else :  ?>
-				
+
 					<?php
-						echo do_shortcode( '[edd_aa_all_access id="1006666"]' );	
+						echo do_shortcode( '[edd_aa_all_access id="1006666"]' );
 					?>
-				
+
 				<?php endif;  ?>
 			</div>
 		</div>
