@@ -1,0 +1,247 @@
+/*
+ * single downloads template (enhanced)
+ */
+
+
+/* ----------------------------- *
+ * Structure
+ * ----------------------------- */
+.single-download {
+
+	& .download-landing-title {
+		font-size: 4rem;
+		text-align: center;
+		margin: 0 0 10px;
+	}
+
+	& .download-landing-title-description {
+		font-size: 1.8rem;
+		text-align: center;
+		margin-bottom: 50px;
+	}
+}
+
+.download-description-area {
+
+	& .inner {
+		padding-top: 50px;
+		padding-bottom: 80px;
+	}
+
+	& .entry-content {
+		margin-bottom: 0;
+	}
+
+	& .download-landing {
+		min-height: 700px;
+		margin: 0;
+
+		& .entry-header {
+			text-align: center;
+			margin-bottom: 30px;
+
+			& .download-featured-image {
+
+				& .featured-img {
+					border: 1px solid rgba(0,0,0,.08) !important;
+					border-radius: 4px;
+					box-shadow: 3px 3px rgba(0,0,0,.1);
+					margin-bottom: 15px;
+				}
+			}
+		}
+
+		& .entry-content {
+			margin-bottom: 0;
+
+			& .download-long-description {
+				font-size: 1.8rem;
+				line-height: 1.8;
+				max-width: 750px;
+				margin: 0 auto;
+
+				& .download-meta {
+					display: block;
+					color: #777;
+					font-size: 1.5rem;
+					margin-bottom: 20px;
+					border-bottom: 3px solid #f7f7f7;
+					padding-bottom: 13px;
+
+					& .download-meta-group {
+						display: inline-block;
+						margin-right: 16px;
+
+						& .download-meta-value {
+							color: #555;
+							font-weight: 500;
+
+							& .fa {
+								margin-left: 8px;
+							}
+
+							&.download-starting-price {
+								color: @green;
+								font-size: 120%;
+							}
+						}
+					}
+				}
+
+				& .download-description-content {
+					position: relative;
+					overflow: hidden;
+
+					& [id*="gallery-"] {
+						display: none;
+					}
+
+					& .gradient {
+						background: transparent url('images/reveal-content-gradient.png') repeat-x;
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						width: 100%;
+						height: 35px;
+					}
+				}
+
+				& .read-full-description {
+					background: #fff;
+					color: #333;
+					text-align: center;
+					padding: 30px 0 0;
+
+					& .see-full-description {
+						display: inline-block;
+					}
+				}
+
+				& .download-purchase-details {
+					text-align: center;
+					padding-top: 10px;
+
+					& a {
+						color: #999;
+						text-decoration: underline;
+						font-size: 90%;
+
+						&:hover {
+							text-decoration: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.download-screenshots-area {
+
+	& .inner {
+		padding-bottom: 20px;
+	}
+
+	& .download-screenshots {
+
+		& .screenshots-header {
+			text-align: center;
+			margin: 0 auto 30px;
+		}
+
+		& [id*="gallery-"].gallery {
+			background: transparent;
+
+			&.gallery-columns-2,
+			&.gallery-columns-3,
+			&.gallery-columns-4,
+			&.gallery-columns-5,
+			&.gallery-columns-6 {
+
+				& .gallery-item {
+					width: 20% !important;
+				}
+
+				& br {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.download-purchase-area {
+
+	& .download-purchase-details {
+		font-size: 1.8rem;
+		line-height: 1.8;
+		margin: 0 auto 30px;
+		max-width: 750px;
+
+		& .download-terms {
+			font-size: 1.8rem;
+			margin-bottom: 50px;
+		}
+
+		& .download-pricing {
+			font-size: 1.8rem;
+			line-height: 1.8;
+			padding: 30px 50px 50px;
+			border-radius: 4px;
+			margin: 0 auto 30px;
+			max-width: 400px;
+
+			& .edd_price_options {
+
+				& ul {
+					margin: 0;
+					padding: 0;
+					list-style: none;
+				}
+
+				& label {
+					display: block;
+					position: relative;
+					font-size: 1.6rem;
+					font-weight: 400;
+					cursor: pointer;
+
+					& .edd_price_option_name {
+						display: inline-block;
+						font-size: 2rem;
+						padding-left: 5px;
+						margin-left: 6px;
+						width: 100px;
+					}
+
+					& .edd_price_option_price {
+						float: none;
+						display: inline-block;
+						font-size: 3.4rem;
+						font-weight: 500;
+						padding-left: 5px;
+					}
+
+					& .radio-button:before {
+						display: block;
+						position: absolute;
+						top: 0;
+						left: 0;
+						color: #ccc;
+						font-family: "FontAwesome";
+						content: "\f10c";
+						font-size: 3.4rem;
+						width: 20px;
+						height: 20px;
+					}
+
+					&.selected .radio-button:before {
+						color: @green;
+						font-family: "FontAwesome";
+						content: "\f058";
+					}
+				}
+			}
+		}
+	}
+}
