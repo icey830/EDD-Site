@@ -2,9 +2,9 @@
 global $post;
 
 // check for All Access access to this product
-$aa_check    = eddwp_user_has_aa( get_the_ID() );
-$aa_has_pass = $aa_check[0] ? true : false;
-$aa_title    = $aa_check[0] ? $aa_check[1] : '';
+$aa_check      = eddwp_user_has_aa_access( get_the_ID() );
+$aa_has_access = $aa_check[0] ? true : false;
+$aa_title      = $aa_check[0] ? $aa_check[1] : '';
 
 if ( function_exists( 'edd_rp_get_suggestions' ) ) {
 	$suggestion_data = edd_rp_get_suggestions( $post->ID );
@@ -18,10 +18,9 @@ if ( !empty( $suggestion_data ) && is_array( $suggestion_data ) ) :
 		<div class="recommended-products-wrap">
 			<h5 class="recommended-products-header">
 				<?php
-					if ( $aa_has_pass ) {
+					if ( $aa_has_access ) {
 						printf( 'Users who purchased %s, also purchased:', get_the_title() );
 					} else {
-						$get_aap = eddwp_user_has_aa( get_the_ID() );
 						printf( 'Gain access to these related extensions and %s more by purchasing %s',
 							/* there are 3 extensions on this page */
 							eddwp_get_number_of_downloads() - 3,
@@ -48,6 +47,16 @@ if ( !empty( $suggestion_data ) && is_array( $suggestion_data ) ) :
 								echo $short_desc;
 							?>
 						</div>
+						<?php
+						if ( $aa_has_access ) {
+							?>
+							<div class="download-grid-item-info-has-access">
+								<h3 class="you-have-access-title"><i class="fa fa-gift"></i> You have access!</h3>
+								<p>Thanks to your <strong><?php echo $aa_title; ?></strong> purchase, you can instantly download <strong><?php echo get_the_title( get_the_ID() ); ?></strong> by clicking the button below.</p>
+							</div>
+							<?php
+						}
+						?>
 						<div class="download-grid-item-cta recommended-products-cta">
 							<?php if ( !edd_has_variable_prices( get_the_ID() ) ) : ?>
 								<?php edd_price( get_the_ID() ); ?>

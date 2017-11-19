@@ -5,7 +5,7 @@
 $is_extension  = has_term( 'extensions', 'download_category', get_the_ID() );
 $is_theme      = has_term( 'themes', 'download_category', get_the_ID() );
 $is_bundle     = has_term( 'bundles', 'download_category', get_the_ID() );
-$is_all_access = has_term( 'all-access', 'download_category', get_the_ID() );
+$is_all_access = get_post_meta( get_the_ID(), '_edd_all_access_enabled', true );
 $has_license   = get_post_meta( get_the_ID(), '_edd_sl_enabled', true );
 
 $is_3rd_party  = has_term( '3rd-party', 'download_category', get_the_ID() );
@@ -47,16 +47,16 @@ if ( $variable_pricing ) {
 }
 
 // check for All Access access to this product
-$aa_check    = eddwp_user_has_aa( get_the_ID() );
-$aa_has_pass = $aa_check[0] ? true : false;
-$aa_title    = $aa_check[0] ? $aa_check[1] : '';
+$aa_check      = eddwp_user_has_aa_access( get_the_ID() );
+$aa_has_access = $aa_check[0] ? true : false;
+$aa_title      = $aa_check[0] ? $aa_check[1] : '';
 ?>
 
-<aside class="sidebar download-sidebar<?php echo $aa_has_pass ? ' has-aa-access' : '' ; ?>">
+<aside class="sidebar download-sidebar<?php echo $aa_has_access ? ' has-aa-access' : '' ; ?>">
 	<div class="download-access download-info-section">
 		<div class="pricing-header">
 			<?php
-			if ( $aa_has_pass ) {
+			if ( $aa_has_access ) {
 				?>
 				<h3 class="widget-title"><i class="fa fa-gift"></i> You have access!</h3>
 				<?php
@@ -74,9 +74,9 @@ $aa_title    = $aa_check[0] ? $aa_check[1] : '';
 			?>
 		</div>
 		<div class="pricing-info">
-			<?php if ( $aa_has_pass ) { ?>
+			<?php if ( $aa_has_access ) { ?>
 				<p class="all-access-terms">
-					<?php if ( ! $is_all_access ) { ?>
+					<?php if ( eddwp_user_has_aa_access( get_the_ID() ) ) { ?>
 						As an <?php echo $aa_title; ?> customer, you can download this <?php echo $download_type; ?> by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>">your account</a>.
 					<?php } else { ?>
 						You're already an <?php echo $aa_title; ?> customer, you can renew your access pass by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>">your account</a>.
@@ -97,7 +97,7 @@ $aa_title    = $aa_check[0] ? $aa_check[1] : '';
 			<div class="terms clearfix">
 				<p>
 					<?php
-					if ( ! $aa_has_pass && ! $is_all_access ) {
+					if ( false == $aa_has_access ) {
 						echo '<i class="fa fa-info-circle"></i>';
 
 						// terms for paid downloads
