@@ -660,7 +660,7 @@ function eddwp_get_number_of_extensions() {
 /**
  * rotating promotions for download grids
  */
-function eddwp_download_gird_promotions() {
+function eddwp_download_grid_promotions() {
 	$bundle_promotion = array(
 		0 => array(
 			'url'   => home_url( '/downloads/all-access-pass/' ),
