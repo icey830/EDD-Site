@@ -656,6 +656,48 @@ function eddwp_get_number_of_extensions() {
 	return $total;
 }
 
+
+/**
+ * rotating promotions for download grids
+ */
+function eddwp_download_gird_promotions() {
+	$bundle_promotion = array(
+		0 => array(
+			'url'   => home_url( '/downloads/all-access-pass/' ),
+			'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/core-extensions-bundle-featured.png',
+			'title' => 'All Access Pass',
+			'desc'  => 'With the All Access Pass, get over $3,000 worth of extensions for only $899.',
+		),
+		1 => array(
+			'url'   => home_url( '/starter-package/' ),
+			'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/starter-package-featured.png',
+			'title' => 'Extension Starter Package',
+			'desc'  => 'Build your own extension starter package and automatically save ' . get_theme_mod( 'eddwp_starter_package_discount_percentage', '30' ) . '% on your order.',
+		)
+	);
+	$num = rand( 0, 1 );
+	ob_start();
+	?>
+	<div id="extensions-bundle-promotion" class="download-grid-item extensions-bundle-promotion">
+		<div class="download-grid-thumb-wrap">
+			<a class="promotion-image-link" href="<?php echo $bundle_promotion[ $num ]['url']; ?>" title="<?php echo $bundle_promotion[ $num ]['title']; ?>">
+				<img class="download-grid-thumb" src="<?php echo $bundle_promotion[ $num ]['image']; ?>"  alt="<?php echo $bundle_promotion[ $num ]['title']; ?>">
+			</a>
+		</div>
+		<div class="download-grid-item-info">
+			<h4 class="download-grid-title"><?php echo $bundle_promotion[ $num ]['title']; ?></h4>
+			<p><?php echo $bundle_promotion[ $num ]['desc']; ?></p>
+		</div>
+		<div class="download-grid-item-cta">
+			<a class="download-grid-item-primary-link button green" href="<?php echo $bundle_promotion[ $num ]['url']; ?>">More Information</a>
+		</div>
+	</div>
+	<?php
+	$promotion = ob_get_clean();
+	return $promotion;
+}
+
+
 /**
  * standard login form template
  */
