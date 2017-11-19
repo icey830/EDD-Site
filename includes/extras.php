@@ -85,6 +85,12 @@ add_action( 'template_redirect', 'eddwp_aa_redirects' );
 
 
 /**
+ * hide FacetWP filter counts
+ */
+add_filter( 'facetwp_facet_dropdown_show_counts', '__return_false' );
+
+
+/**
  * Separate regular comments from pings
  */
 function eddwp_get_comments_only_count( $count ) {
