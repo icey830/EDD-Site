@@ -188,7 +188,7 @@ body {
 		}
 	}
 
-	.download-grid-item-info {
+	& .download-grid-item-info {
 		font-size: 1.4rem;
 		padding: 20px;
 
@@ -197,7 +197,23 @@ body {
 		}
 	}
 
-	.download-grid-item-cta:not(.recommended-products-cta) {
+	& .download-grid-item-info-has-access {
+		font-size: 1.4rem;
+		padding: 0 20px 20px;
+
+		& .you-have-access-title {
+			color: @edddarkblue;
+			font-size: 1.8rem;
+		}
+
+		& > p {
+			color: #777;
+			font-size: 1.4rem;
+			margin-bottom: 0;
+		}
+	}
+
+	& .download-grid-item-cta:not(.recommended-products-cta) {
 		bottom: 0;
 		padding: 0 20px 30px;
 	}
