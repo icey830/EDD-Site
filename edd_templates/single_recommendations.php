@@ -22,14 +22,13 @@ if ( !empty( $suggestion_data ) && is_array( $suggestion_data ) ) :
 						printf( 'Users who purchased %s, also purchased:', get_the_title() );
 					} else {
 						printf( 'Gain access to these related extensions and %s more by purchasing %s',
-							/* there are 3 extensions on this page */
-							eddwp_get_number_of_downloads() - 3,
+							eddwp_get_number_of_downloads() - 2,
 							'<a href="' . home_url( '/downloads/all-access-pass/' ) . '">All Access Pass</a>'
 						);
 					}
 				?>
 			</h5>
-			<div id="recommended-products" class="download-grid two-col narrow-grid">
+			<div id="recommended-products" class="download-grid two-col narrow-grid stray-downloads">
 				<?php while ( $suggested_downloads->have_posts() ) : ?>
 					<?php $suggested_downloads->the_post();	?>
 					<div class="download-grid-item">

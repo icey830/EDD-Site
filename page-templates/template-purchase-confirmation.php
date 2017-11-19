@@ -96,7 +96,9 @@ get_header();
 							<div class="tab-pane recommendations-tab-pane" id="recommendations">
 								<h3>Extension Recommendations</h3>
 								<p>Based on your purchase, we've created a list of extensions that may help you customize your eCommerce business even more. Take a look and <a href="<?php echo home_url( '/support/' ); ?>">let us know</a> if you have any questions.</p>
-								<?php echo eddwp_rp_shortcode( 4 ); ?>
+								<div class="stray-downloads">
+									<?php echo eddwp_rp_shortcode( 4 ); ?>
+								</div>
 							</div><!-- /.tab-pane -->
 						</div>
 					</div>
