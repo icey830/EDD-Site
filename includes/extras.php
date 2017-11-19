@@ -43,13 +43,13 @@ function eddwp_aa_is_activated() {
 
 
 /**
- * Check to see if current user has All Access Pass, also get the title
+ * Check to see if current user has specific All Access Pass, also get the title
  *
  * @param $download_id integer ID of the download the user may have access to
  *
  * @return array
  */
-function eddwp_user_has_aa( $download_id = 0 ) {
+function eddwp_user_has_aa_access( $download_id = 0 ) {
 	if ( ! eddwp_aa_is_activated() || 0 == $download_id ) {
 		return false;
 	}
@@ -60,6 +60,28 @@ function eddwp_user_has_aa( $download_id = 0 ) {
 		return array( true, $aa_title );
 	}
 }
+
+
+/**
+ * All Access redirects
+ */
+function eddwp_aa_redirects() {
+
+	if ( eddwp_aa_is_activated() ) {
+
+		// Has the user purchased any All Access products?
+		$user_has_aa = edd_has_user_purchased( get_current_user_id(), edd_all_access_get_all_access_downloads() );
+
+		// from the All Access Downloads page, redirect logged out and non-pass holders
+		if ( ! is_user_logged_in() || ( is_user_logged_in() && false === $user_has_aa ) ) {
+			if ( is_page_template( 'page-templates/template-all-access-downloads.php' ) ) {
+				wp_redirect( site_url( '/downloads/all-access-pass/' ) );
+				exit;
+			}
+		}
+	}
+}
+add_action( 'template_redirect', 'eddwp_aa_redirects' );
 
 
 /**

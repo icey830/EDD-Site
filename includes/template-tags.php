@@ -317,7 +317,7 @@ function eddwp_rp_shortcode( $count = 6 ) {
 		$ids = '167,28530';
 	endif;
 
-	return do_shortcode( '[recommended_products ids="' . $ids . '" user="true" count="' . $count . '"]' );
+	return do_shortcode( '[recommended_products ids="' . $ids . '" user="false" count="' . $count . '"]' );
 }
 
 
@@ -630,7 +630,7 @@ function eddwp_get_number_of_downloads() {
  * standard login form template
  */
 function eddwp_login_form() {
-	
+
 	$redirect = isset( $_GET['redirect'] ) ? sanitize_text_field( $_GET['redirect'] ) : '';
 	echo edd_login_form( $redirect );
 }

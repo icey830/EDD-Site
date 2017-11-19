@@ -42,7 +42,9 @@ the_post();
 					<div class="recommended-products-thanks clearfix">
 						<h2 class="section-title-alt">Don't leave just yet! There's more.</h2>
 						<p class="recommended-products-thanks-intro">Based on your past activity, we've created a list of extensions that you may find useful. Have a look! If you're just getting started, we also have a handy tool for building a <a href="<?php echo home_url( '/starter-package/' ); ?>">custom starter package</a>.</p>
-						<?php echo eddwp_rp_shortcode( 6 ); ?>
+						<div class="stray-downloads">
+							<?php echo eddwp_rp_shortcode( 6 ); ?>
+						</div>
 					</div>
 				</div>
 			</div>

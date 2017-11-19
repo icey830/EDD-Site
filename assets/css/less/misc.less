@@ -533,8 +533,6 @@
 
 			& > p {
 				color: #777;
-				font-size: 1.5rem;
-				margin-bottom: 10px;
 			}
 		}
 
@@ -544,10 +542,6 @@
 			& .edd_all_access_download_form .edd-submit {
 				margin-bottom: 20px;
 			}
-		}
-
-		& .edd-aa-login-purchase-area {
-			display: none;
 		}
 	}
 }
@@ -704,6 +698,13 @@
 		 * as all price options for a specific product deliver the same
 		 * product file.
 		 */
+		display: none;
+	}
+}
+
+/* "stray downloads" means random download grid output */
+.stray-downloads {
+	& .edd-aa-login-purchase-area {
 		display: none;
 	}
 }
