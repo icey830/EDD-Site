@@ -97,7 +97,7 @@ $aa_title      = $aa_check[0] ? $aa_check[1] : '';
 			<div class="terms clearfix">
 				<p>
 					<?php
-					if ( false == $aa_has_access ) {
+					if ( false == $is_all_access && ! $aa_has_access ) {
 						echo '<i class="fa fa-info-circle"></i>';
 
 						// terms for paid downloads

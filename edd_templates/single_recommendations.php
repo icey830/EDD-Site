@@ -47,7 +47,9 @@ if ( !empty( $suggestion_data ) && is_array( $suggestion_data ) ) :
 							?>
 						</div>
 						<?php
-						if ( $aa_has_access ) {
+						// check again for access to the RP products
+						$aa_rp_check = eddwp_user_has_aa_access( get_the_ID() );
+						if ( $aa_rp_check[0] ) {
 							?>
 							<div class="download-grid-item-info-has-access">
 								<h3 class="you-have-access-title"><i class="fa fa-gift"></i> You have access!</h3>
