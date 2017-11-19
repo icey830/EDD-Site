@@ -71,7 +71,7 @@ $popular = new WP_Query( $pop_query ); ?>
 
 				<section class="download-grid three-col clearfix">
 
-					<?php echo eddwp_download_gird_promotions(); ?>
+					<?php echo eddwp_download_grid_promotions(); ?>
 
 					<?php if ( $extensions->have_posts() ) : ?>
 

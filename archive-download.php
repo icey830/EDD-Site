@@ -63,7 +63,7 @@ the_post();
 					?>
 				</div>
 				<section class="download-grid three-col clearfix">
-					<?php echo eddwp_download_gird_promotions(); ?>
+					<?php echo eddwp_download_grid_promotions(); ?>
 					<?php
 						$extension_args = array(
 							'post_type'      => 'download',

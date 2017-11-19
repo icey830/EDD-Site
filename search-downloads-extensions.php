@@ -124,7 +124,7 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 					?>
 				</div>
 				<section class="download-grid three-col clearfix">
-					<?php echo eddwp_download_gird_promotions(); ?>
+					<?php echo eddwp_download_grid_promotions(); ?>
 					<?php
 
 						// search results
