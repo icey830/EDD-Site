@@ -37,7 +37,7 @@
 	$sp_price        = $sp_price_float;
 
 	// Core Extensions Bundle price
-	$ceb_price_float = edd_get_download_price( 121068 );
+	$ceb_price_float = edd_get_download_price( 1036062 ); // Live - 1150319 // Staging - 1046254 // Sean's Local - 1036062
 	$ceb_price       = $ceb_price_float;
 
 	// lowest À la carte extension price
@@ -73,7 +73,7 @@
 		$alc_price          = $alc_price_float - $alc_discount_total;
 	}
 
-	// break down the Core Extensions Bundle price (for display use)
+	// break down the All Access Pass price (for display use)
 	$ceb_price_int = substr( number_format( $ceb_price, 2 ), 0, -3 );
 	$ceb_price_dec = substr( number_format( $ceb_price, 2 ), -3 );
 
@@ -136,7 +136,7 @@
 
 	<div class="core-bundle-column pricing-table-column flex-four<?php echo $discount_valid ? ' active-sale-column' : ''; ?>">
 		<div class="column-heading enhanced">
-			Core Bundle
+			All Access Pass
 		</div>
 		<div class="column-content">
 			<div class="column-price">
@@ -147,22 +147,17 @@
 				<span class="option-price">$<?php echo $ceb_price_int; ?><span class="option-price-sub"><?php echo $ceb_price_dec; ?></span><span class="option-price-asterisk">&#42;</span></span>
 			</div>
 			<div class="column-description">
-				<p>Hey, agencies and freelancers. This bundle is <em>perfect</em> for client work!</p>
+				<p>Hey, agencies and freelancers. This option is <em>perfect</em> for client work!</p>
 				<ul class="pricing-column-list">
-					<li>includes all primary extensions</li>
+					<li>includes all official extensions</li>
 					<li><strong>unlimited license key</strong> usage</li>
-					<?php
-					// how many products in the Core Extensions Bundle?
-					$core_bundle = get_post_meta( 121068, '_edd_bundled_products' );
-					$bundle_count = count( $core_bundle[0] );
-					?>
-					<li><strong><?php echo $bundle_count; ?> extensions</strong> included</li>
-					<li>discounted over 75%</li>
+					<li><strong><?php echo eddwp_get_number_of_extensions(); ?> extensions</strong> included</li>
+					<li>thousands in savings</li>
 				</ul>
 			</div>
 		</div>
 		<div class="column-cta">
-			<a onClick="eddwp_send_ga_action( 'event', 'pricing_page', 'core_extensions', 'Core Extensions Bundle' )" class="pricing-cta edd-submit button darkblue" href="<?php echo home_url( '/downloads/core-extensions-bundle/' ); ?>"><i class="fa fa-eye" aria-hidden="true"></i>Review bundle details</a>
+			<a onClick="eddwp_send_ga_action( 'event', 'pricing_page', 'all_access_pass', 'All Access Pass' )" class="pricing-cta edd-submit button darkblue" href="<?php echo home_url( '/downloads/all-access-pass/' ); ?>"><i class="fa fa-gift" aria-hidden="true"></i>All Access Pass details</a>
 		</div>
 	</div>
 
@@ -194,5 +189,5 @@
 	</div>
 </div>
 <div class="pricing-table-notes">
-	<p>&#42; Easy Digital Downloads is a <strong>FREE</strong>, full-featured eCommerce plugin. "Extensions" are additional, <em>optional</em> WordPress plugins that <em>extend the functionality</em> of Easy Digital Downloads. While some extensions are free, the Starter Package, Core Bundle, and most of our à la carte options require a fee for licensing and support.</p>
+	<p>&#42; Easy Digital Downloads is a <strong>FREE</strong>, full-featured eCommerce plugin. "Extensions" are additional, <em>optional</em> WordPress plugins that <em>extend the functionality</em> of Easy Digital Downloads. While some extensions are free, the Starter Package, All Access Pass, and most of our à la carte options require a fee for licensing and support.</p>
 </div>
