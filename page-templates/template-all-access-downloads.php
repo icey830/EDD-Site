@@ -13,7 +13,7 @@ the_post();
 		<div class="inner">
 			<div class="edd-downloads all-access-downloads">
 				<div class="entry-header">
-					<h2 class="entry-title"><?php the_title(); ?> <a href="<?php echo home_url( 'subscribe' ); ?>" class="page-title-button"><i class="fa fa-user" aria-hidden="true"></i> Visit your account page</a></h2>
+					<h2 class="section-title-alt"><?php the_title(); ?> <a href="<?php echo home_url( 'subscribe' ); ?>" class="page-title-button"><i class="fa fa-user" aria-hidden="true"></i> Visit your account page</a></h2>
 				</div>
 
 				<p class="has-all-access-description">Thanks for being an All Access Pass customer! Below, we've compiled a list of all the extensions you have access to. From here, you can download any extension, view its documentation, or even read its changelog.</p>
