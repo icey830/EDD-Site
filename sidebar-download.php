@@ -107,11 +107,11 @@ $aa_title      = $aa_check[0] ? $aa_check[1] : '';
 							} else {
 								echo 'All purchase options are billed yearly. You may cancel your subscription at any time. ';
 							}
-							printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
+							printf( '%1$s subject to yearly license for support and updates. %2$s.', 'all-access' == $download_type ? 'Access pass' : ucfirst( $download_type ) . 's', '<a href="' . $license . '" target="_blank">View terms</a>' );
 						} elseif ( $is_extension && ! $recurring && ! $is_unlicensed ) { // safety net
 
 							// this should never happen
-							printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
+							printf( '%1$s subject to yearly license for support and updates. %2$s.',  'all-access' == $download_type ? 'Access pass' : ucfirst( $download_type ) . 's', '<a href="' . $license . '" target="_blank">View terms</a>' );
 						}
 
 						// terms for free or external downloads
