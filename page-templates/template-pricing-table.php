@@ -36,9 +36,10 @@
 	$sp_price_float  = 108.50;
 	$sp_price        = $sp_price_float;
 
-	// Core Extensions Bundle price
-	$ceb_price_float = edd_get_download_price( 1036062 ); // Live - 1150319 // Staging - 1046254 // Sean's Local - 1036062
-	$ceb_price       = $ceb_price_float;
+	// All Access Pass price
+	$aap_path        = get_page_by_path( 'all-access-pass', OBJECT, 'download' ); // get the All Access Pass post object
+	$aap_price_float = edd_get_download_price( $aap_path->ID );
+	$aap_price       = $aap_price_float;
 
 	// lowest À la carte extension price
 	$alc_price_float = 19.00;
@@ -65,17 +66,17 @@
 	$sp_price_int = substr( number_format( $sp_price, 2 ), 0, -3 );
 	$sp_price_dec = substr( number_format( $sp_price, 2 ), -3 );
 
-	// apply discount to CEB & À la carte if necessary
+	// apply discount to All Access Pass & À la carte if necessary
 	if ( $discount_valid ) {
-		$ceb_discount_total = $ceb_price_float * ( $discount_value / 100 );
-		$ceb_price          = $ceb_price_float - $ceb_discount_total;
+		$aap_discount_total = $aap_price_float * ( $discount_value / 100 );
+		$aap_price          = $aap_price_float - $aap_discount_total;
 		$alc_discount_total = $alc_price_float * ( $discount_value / 100 );
 		$alc_price          = $alc_price_float - $alc_discount_total;
 	}
 
 	// break down the All Access Pass price (for display use)
-	$ceb_price_int = substr( number_format( $ceb_price, 2 ), 0, -3 );
-	$ceb_price_dec = substr( number_format( $ceb_price, 2 ), -3 );
+	$aap_price_int = substr( number_format( $aap_price, 2 ), 0, -3 );
+	$aap_price_dec = substr( number_format( $aap_price, 2 ), -3 );
 
 	// break down the lowest À la carte extension price (for display use)
 	$alc_price_int = substr( number_format( $alc_price, 2 ), 0, -3 );
@@ -142,9 +143,9 @@
 			<div class="column-price">
 				<span class="option-price-title">Unlimited license activations</span>
 				<?php if ( $discount_valid ) { ?>
-					<span class="option-price-strike"><?php echo edd_currency_filter( $ceb_price_float ); ?></span>
+					<span class="option-price-strike"><?php echo edd_currency_filter( $aap_price_float ); ?></span>
 				<?php } ?>
-				<span class="option-price">$<?php echo $ceb_price_int; ?><span class="option-price-sub"><?php echo $ceb_price_dec; ?></span><span class="option-price-asterisk">&#42;</span></span>
+				<span class="option-price">$<?php echo $aap_price_int; ?><span class="option-price-sub"><?php echo $aap_price_dec; ?></span><span class="option-price-asterisk">&#42;</span></span>
 			</div>
 			<div class="column-description">
 				<p>Hey, agencies and freelancers. This option is <em>perfect</em> for client work!</p>
