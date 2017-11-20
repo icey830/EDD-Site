@@ -27,6 +27,70 @@ function eddwp_is_checkout() {
 
 
 /**
+ * Check to see if Recurring Payments is activated
+ */
+function eddwp_recurring_is_activated() {
+	return class_exists( 'EDD_Recurring' );
+}
+
+
+/**
+ * Check to see if All Access is activated
+ */
+function eddwp_aa_is_activated() {
+	return class_exists( 'EDD_All_Access' );
+}
+
+
+/**
+ * Check to see if current user has specific All Access Pass, also get the title
+ *
+ * @param $download_id integer ID of the download the user may have access to
+ *
+ * @return array
+ */
+function eddwp_user_has_aa_access( $download_id = 0 ) {
+	if ( ! eddwp_aa_is_activated() || 0 == $download_id ) {
+		return false;
+	}
+
+	$aa_has_access = edd_all_access_check( array( 'download_id' => $download_id ) );
+	if ( $aa_has_access['success'] ) {
+		$aa_title = get_the_title( $aa_has_access['all_access_pass']->download_id );
+		return array( true, $aa_title );
+	}
+}
+
+
+/**
+ * All Access redirects
+ */
+function eddwp_aa_redirects() {
+
+	if ( eddwp_aa_is_activated() ) {
+
+		// Has the user purchased any All Access products?
+		$user_has_aa = edd_has_user_purchased( get_current_user_id(), edd_all_access_get_all_access_downloads() );
+
+		// from the All Access Downloads page, redirect logged out and non-pass holders
+		if ( ! is_user_logged_in() || ( is_user_logged_in() && false === $user_has_aa ) ) {
+			if ( is_page_template( 'page-templates/template-all-access-downloads.php' ) ) {
+				wp_redirect( site_url( '/downloads/all-access-pass/' ) );
+				exit;
+			}
+		}
+	}
+}
+add_action( 'template_redirect', 'eddwp_aa_redirects' );
+
+
+/**
+ * hide FacetWP filter counts
+ */
+add_filter( 'facetwp_facet_dropdown_show_counts', '__return_false' );
+
+
+/**
  * Separate regular comments from pings
  */
 function eddwp_get_comments_only_count( $count ) {

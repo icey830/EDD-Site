@@ -174,7 +174,16 @@
 			$(this).siblings( ".self-help-support-faq-container" ).slideToggle();
 		});
 
-		// Pricing page
+		// Self Help Support
+		// Google Analytics events
+		body.on('change', '.self-help-ga-trigger-start input[name="input_1"]', function() {
+			eddwp_send_ga_action( 'event', 'Support', 'supportStart', 'Started Support Flow' );
+		});
+		body.on('click', '.self-help-resources-page .gform_next_button', function() {
+			eddwp_send_ga_action( 'event', 'Support', 'supportNext', 'Started Submission' );
+		});
+
+		// Pricing page Click/Scroll effect
 		$( "#see-pricing" ).click( function() {
 			$( 'html, body' ).animate( {
 				scrollTop: $( "#pricing-page-header-area" ).offset().top
@@ -182,12 +191,12 @@
 			event.preventDefault();
 		});
 
-		body.on('change', '.self-help-ga-trigger-start input[name="input_1"]', function() {
-			eddwp_send_ga_action( 'event', 'Support', 'supportStart', 'Started Support Flow' );
-		});
-
-		body.on('click', '.self-help-resources-page .gform_next_button', function() {
-			eddwp_send_ga_action( 'event', 'Support', 'supportNext', 'Started Submission' );
+		// Enhanced Downloads Click/Scroll effect
+		$( "#see-purchase-details" ).click( function() {
+			$( 'html, body' ).animate( {
+				scrollTop: $( "#download-purchase-area" ).offset().top
+			}, 500 );
+			event.preventDefault();
 		});
 
 	});

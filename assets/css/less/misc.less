@@ -533,13 +533,15 @@
 
 			& > p {
 				color: #777;
-				font-size: 1.5rem;
-				margin-bottom: 10px;
 			}
 		}
 
 		& .download-grid-item-cta {
 			padding: 0 20px;
+
+			& .edd_all_access_download_form .edd-submit {
+				margin-bottom: 20px;
+			}
 		}
 	}
 }
@@ -683,6 +685,32 @@
 
 
 /* ----------------------------- *
+ * All Access
+ * ----------------------------- */
+.edd_all_access_download_form {
+	margin-bottom: 0 !important;
+
+	& .edd_all_access_price_options {
+		/*
+		 * If a customer is viewing the purchase button for one of our
+		 * variable price products, but already has access to it because
+		 * of an Access Pass, hide the price options. They're unnecessary
+		 * as all price options for a specific product deliver the same
+		 * product file.
+		 */
+		display: none;
+	}
+}
+
+/* "stray downloads" means random download grid output */
+.stray-downloads {
+	& .edd-aa-login-purchase-area {
+		display: none;
+	}
+}
+
+
+/* ----------------------------- *
  * Software Licensing
  * ----------------------------- */
 .edd-sl-renewal-details.edd-sl-renewal-details-cart {
@@ -718,25 +746,75 @@
 	}
 }
 
-#edd_subscription_receipt {
-	font-size: 1.4rem;
-	border-collapse: inherit;
-	border-spacing: none;
-	border: 3px solid @eddgrayhover;
-	border-radius: 4px;
-	width: 100%;
+.sidebar {
+	& .all-access-terms,
+	.edd-aa-buy-instructions,
+	.edd-aa-login-wrapper {
+		font-size: 1.4rem;
+		line-height: 1.4;
+		margin-bottom: 20px;
 
-	& td, th {
-		text-align: left;
-		padding: 10px;
-		border-bottom: 1px solid #eee;
-		width: 100px;
+		& a {
+			color: #fff;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
 	}
 
-	& th {
-		background: @eddgray;
-		font-weight: 500;
+	&:not(.has-aa-access) {
+		& .terms {
+			border-top: 2px solid rgba(255,255,255,.1);
+			padding-top: 20px;
+		}
 	}
+
+	& .edd-aa-buy-wrapper {
+		& .or-all-access {
+			display: block;
+			color: #c4dff0;
+			font-size: 1.4rem;
+			margin: 20px 0;
+			text-align: center;
+
+			& span {
+				font-weight: 500;
+				margin: 0 3px;
+			}
+		}
+
+		& .or-all-access-title {
+			display: block;
+			font-size: 2.4rem;
+			font-weight: 500;
+			margin-bottom: 20px;
+
+			& .fa {
+				margin-right: 8px;
+			}
+		}
+
+		& .or-all-access-content a {
+			color: #afd8f3;
+		}
+	}
+
+	& .edd-aa-login-wrapper,
+	.all-access-terms {
+		& a {
+			color: #afd8f3;
+		}
+	}
+}
+
+
+/* ----------------------------- *
+ * Recurring Payments
+ * ----------------------------- */
+.eddr-cart-item-notice {
+	font-size: .75em;
+	color: #999;
 }
 
 
@@ -871,198 +949,6 @@ div.sharedaddy .sd-content {
 	}
 }
 
-#affwp-affiliate-dashboard {
-	& #affwp-affiliate-dashboard-tabs {
-		float: left;
-		width: 20%;
-		border: 3px solid @eddgrayhover;
-		border-radius: 4px;
-		margin-bottom: 30px;
-
-		& li {
-			padding: 0;
-			margin: 0;
-			width: 100%;
-
-			&.active {
-				font-weight: 500;
-
-				& a {
-					background: @eddgray;
-				}
-			}
-
-			&:not(:last-child) {
-				border-bottom: 3px solid @eddgrayhover;
-			}
-
-			& a {
-				display: block;
-				color: #555;
-				font-size: 1.4rem;
-				padding: 8px;
-
-				&:hover {
-					background: @eddgray;
-				}
-
-				&:before {
-					display: inline-block;
-					font-family: "fontawesome";
-					text-align: center;
-					margin-right: 5px;
-					min-width: 25px;
-				}
-			}
-
-			&:nth-child(1) a:before { // Affiliate URLs
-				content: "\f0c1";
-			}
-
-			&:nth-child(2) a:before { // Statistics
-				content: "\f200";
-			}
-
-			&:nth-child(3) a:before { // Graphs
-				content: "\f201";
-			}
-
-			&:nth-child(4) a:before { // Referrals
-				content: "\f08e";
-			}
-
-			&:nth-child(5) a:before { // Visits
-				content: "\f015";
-			}
-
-			&:nth-child(6) a:before { // Creatives
-				content: "\f1c5";
-			}
-
-			&:nth-child(7) a:before { // Settings
-				content: "\f1de";
-			}
-		}
-	}
-
-	& .affwp-tab-content {
-		float: right;
-		width: 75%;
-
-		& h4:first-child {
-			color: #555;
-			font-size: 2.6rem;
-		}
-
-		& input[type="text"],
-		input[type="email"] {
-			background: @eddgray;
-			padding: 10px;
-			outline: none;
-			border: 3px solid #eaeaea;
-			border-radius: 3px;
-		}
-
-		& .affwp-table {
-			font-size: 1.4rem;
-			border-collapse: inherit;
-			border: 3px solid @eddgrayhover;
-			border-radius: 4px;
-
-			& th,
-			td {
-				line-height: 20px;
-				padding: 12px 10px;
-			}
-
-			& th {
-				font-weight: 500;
-			}
-		}
-
-		& #affwp-generate-ref-url {
-			max-width: 500px;
-
-			& .affwp-referral-url-wrap {
-				margin-bottom: 20px;
-
-				& > label {
-					font-weight: 500;
-					width: 100%;
-				}
-
-				& .description {
-					color: #777;
-					font-size: 1.4rem;
-					font-style: italic;
-				}
-			}
-
-			& #affwp-referral-url {
-				background: #CFE8CF;
-				border-color: #B5D6B5;
-			}
-
-			& .affwp-base-url-wrap {
-				& label {
-					font-size: 2rem;
-					font-weight: 500;
-					margin-bottom: 15px;
-				}
-
-				& input[type="submit"] {
-					font-size: 1.6rem;
-					padding: 10px 14px;
-				}
-			}
-		}
-	}
-
-	& #affwp-graphs-filter {
-		& select {
-			background: @eddgray;
-			border: 3px solid @eddgrayhover;
-			height: 40px;
-			margin-left: 0;
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
-			box-sizing: border-box;
-		}
-	}
-
-	& #affwp-affiliate-dashboard-creatives {
-		& > h4 + p {
-			padding-bottom: 20px;
-			border-bottom: 3px solid @eddgray;
-			margin-bottom: 30px;
-		}
-
-		& .affwp-creative-desc {
-			float: right;
-			font-size: 1.8rem;
-			font-weight: 500;
-
-			& ~ p:last-of-type {
-				font-size: 1.4rem;
-				font-weight: 500;
-				margin-bottom: 4px;
-			}
-		}
-
-		& pre {
-			background: @eddgray;
-			padding: 10px 15px;
-			border: 3px solid @eddgrayhover;
-			border-radius: 4px;
-
-			& code {
-				font-size: 1.3rem !important;
-				line-height: 1.625;
-			}
-		}
-	}
-}
-
 
 /* ----------------------------- *
  * Simple Lightbox
@@ -1151,12 +1037,12 @@ div.sharedaddy .sd-content {
 	}
 
 	& .fwp-filter-container {
-		& .fwp-filter.flex-three,
+		& .fwp-filter,
 		.facetwp-facet {
 			margin-bottom: 0;
 		}
 
-		& .fwp-filter.flex-three {
+		& .fwp-filter {
 			width: 33.33333%;
 
 			& .fs-wrap {

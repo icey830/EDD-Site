@@ -105,7 +105,7 @@ function eddwp_post_byline() {
  */
 function eddwp_post_byline_lite() {
 	?>
-	<div class="post-meta post-meta-lite clearfix">
+	<div class="post-meta post-meta-lite">
 		<span class="entry-date">published on <span><?php echo get_the_date(); ?></span></span>
 	</div>
 	<?php
@@ -602,7 +602,7 @@ function eddwp_social_networking_follow() {
 }
 
 /**
- * Get the total number of non-third party extensions
+ * Get the total number of non-third party downloads
  */
 function eddwp_get_number_of_downloads() {
  	$total = get_transient( 'eddwp_get_number_of_downloads' );
@@ -627,10 +627,82 @@ function eddwp_get_number_of_downloads() {
 }
 
 /**
+ * Get the total number of non-third party extensions
+ */
+function eddwp_get_number_of_extensions() {
+ 	$total = get_transient( 'eddwp_get_number_of_extensions' );
+	if ( empty( $total ) ) {
+		$download_count = wp_count_posts( 'download' )->publish;
+		$exclude        = 0;
+
+		$themes    = get_term( 1617, 'download_category' ); // Themes
+		if ( ! empty( $themes ) && ! is_wp_error( $themes ) ) {
+			$exclude += $themes->count;
+		}
+
+		$bundles    = get_term( 1524, 'download_category' ); // Bundles
+		if ( ! empty( $bundles ) && ! is_wp_error( $bundles ) ) {
+			$exclude += $bundles->count;
+		}
+
+		$thirdparty = get_term( 1536, 'download_category' ); // Third Party
+		if ( ! empty( $thirdparty ) && ! is_wp_error( $thirdparty ) ) {
+			$exclude += $thirdparty->count;
+		}
+
+		$total = $download_count - $exclude;
+		set_transient( 'eddwp_get_number_of_extensions', $total, 60 * 60 * 24 );
+	}
+	return $total;
+}
+
+
+/**
+ * rotating promotions for download grids
+ */
+function eddwp_download_grid_promotions() {
+	$bundle_promotion = array(
+		0 => array(
+			'url'   => home_url( '/downloads/all-access-pass/' ),
+			'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/core-extensions-bundle-featured.png',
+			'title' => 'All Access Pass',
+			'desc'  => 'With the All Access Pass, get over $3,000 worth of extensions for only $899.',
+		),
+		1 => array(
+			'url'   => home_url( '/starter-package/' ),
+			'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/starter-package-featured.png',
+			'title' => 'Extension Starter Package',
+			'desc'  => 'Build your own extension starter package and automatically save ' . get_theme_mod( 'eddwp_starter_package_discount_percentage', '30' ) . '% on your order.',
+		)
+	);
+	$num = rand( 0, 1 );
+	ob_start();
+	?>
+	<div id="extensions-bundle-promotion" class="download-grid-item extensions-bundle-promotion">
+		<div class="download-grid-thumb-wrap">
+			<a class="promotion-image-link" href="<?php echo $bundle_promotion[ $num ]['url']; ?>" title="<?php echo $bundle_promotion[ $num ]['title']; ?>">
+				<img class="download-grid-thumb" src="<?php echo $bundle_promotion[ $num ]['image']; ?>"  alt="<?php echo $bundle_promotion[ $num ]['title']; ?>">
+			</a>
+		</div>
+		<div class="download-grid-item-info">
+			<h4 class="download-grid-title"><?php echo $bundle_promotion[ $num ]['title']; ?></h4>
+			<p><?php echo $bundle_promotion[ $num ]['desc']; ?></p>
+		</div>
+		<div class="download-grid-item-cta">
+			<a class="download-grid-item-primary-link button green" href="<?php echo $bundle_promotion[ $num ]['url']; ?>">More Information</a>
+		</div>
+	</div>
+	<?php
+	$promotion = ob_get_clean();
+	return $promotion;
+}
+
+
+/**
  * standard login form template
  */
 function eddwp_login_form() {
-	
+
 	$redirect = isset( $_GET['redirect'] ) ? sanitize_text_field( $_GET['redirect'] ) : '';
 	echo edd_login_form( $redirect );
 }

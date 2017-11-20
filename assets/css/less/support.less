@@ -689,7 +689,196 @@
 
 
 /* ----------------------------- *
- * Support Page Template
+ * Support Pricing page (priority support)
+ * ----------------------------- */
+.support-pricing-table-content {
+	padding-bottom: 40px;
+
+	& .support-type {
+		width: 33.33333%;
+
+		&.support-type-information {
+			display: block;
+			padding: 0 40px 0 0;
+
+			& h1 {
+				margin-bottom: 1em;
+			}
+		}
+
+		&.yearly-support {
+			background: @edddarkblue;
+			color: #fff;
+			border-radius: 4px 0 0 4px;
+
+			& .support-type-title {
+				color: #fff;
+			}
+
+			& .support-type-price {
+				background: rgba(255,255,255,0.06);
+
+				& .recommended-price {
+					display: block;
+					position: relative;
+					left: 12px;
+					color: #afd8f3;
+					font-size: 13px;
+					font-style: italic;
+					margin: 0;
+				}
+			}
+
+			& .support-type-description {
+				color: #fff;
+
+				& .pricing-column-list {
+					margin: 0 0 0 3px;
+
+					& li {
+						&:before {
+							color: #7990a0;
+							content: "\f058";
+						}
+					}
+				}
+			}
+		}
+
+		&.fortyfive-day-support {
+			background: @eddblue;
+			color: #fff;
+			border-radius: 0 4px 4px 0;
+
+			& .support-type-price {
+				background: @eddbluehover;
+
+				& span {
+					top: 13px;
+				}
+			}
+
+			& .support-type-description {
+				& .pricing-column-list {
+					& li {
+						&:before {
+							color: #afd8f3;
+							content: "\f058";
+						}
+					}
+				}
+			}
+		}
+
+		& .support-type-title {
+			font-size: 2.6rem;
+			font-weight: 500;
+			text-align: center;
+			padding: 24px 0;
+		}
+
+		& .support-type-price {
+			text-align: center;
+			padding: 16px 30px;
+			min-height: 105px;
+
+			& span {
+				position: relative;
+				font-size: 6rem;
+				line-height: 1;
+				margin-bottom: 20px;
+			}
+		}
+
+		& .support-type-description {
+			font-size: 14px;
+			padding: 30px 30px 0;
+			margin-bottom: 20px;
+
+			& .pricing-column-list {
+				margin: 0 0 20px 3px;
+				padding: 0;
+				list-style: none;
+
+				& li {
+					padding: 2px 4px;
+
+					&:before {
+						font-family: "FontAwesome";
+						margin-right: 10px;
+					}
+				}
+			}
+		}
+
+		& .support-type-cta {
+			padding: 0 30px 30px;
+			margin: auto 0 0;
+
+			& a {
+				display: block;
+				background: @green;
+
+				&:hover {
+					background: @greenhover;
+				}
+			}
+		}
+	}
+
+	& .pricing-table-notes {
+		float: right;
+		max-width: 66.63%;
+
+		& .fa {
+			margin-right: 4px;
+		}
+	}
+}
+
+
+/* ----------------------------- *
+ * Register for Support
+ * ----------------------------- */
+.rcp_form {
+	& label {
+		width: 180px;
+	}
+
+	& input[type="text"],
+	input[type="password"],
+	input[type="email"] {
+		background: #fff;
+		border: 1px solid #ccc;
+		padding: 6px 8px;
+		margin-top: 10px;
+		width: 350px;
+
+		&:focus {
+			border: 1px solid @eddblue;
+			outline: none;
+			-webkit-box-shadow: 0px 0px 3px rgba(40,149,217,0.4);
+			box-shadow: 0px 0px 3px rgba(40,149,217,0.4);
+		}
+	}
+
+	& #rcp_payment_gateways {
+		margin: 20px 0;
+	}
+
+	& #rcp_payment_gateways label {
+		width: 280px;
+	}
+}
+
+.card-expiry-month,
+.card-expiry-year {
+	width: auto !important;
+}
+
+
+/* ----------------------------- *
+ * Support Page Template (old support template)
  * ----------------------------- */
 .support-page {
 	& .support-section {

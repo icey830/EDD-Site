@@ -18,7 +18,7 @@ get_header(); ?>
 							Category: <span class="queried-term"><?php single_cat_title(); ?></span>
 							<?php
 							if ( is_category( 'developer-notes' ) ) :
-								echo' &nbsp;<a href="https://easydigitaldownloads.com/development/" class="subscribe-to-blog" target="_blank"><i class="fa fa-code" aria-hidden="true"></i> Visit our development blog!</a>';
+								echo' &nbsp;<a href="https://easydigitaldownloads.com/development/" class="page-title-button" target="_blank"><i class="fa fa-code" aria-hidden="true"></i> Visit our development blog!</a>';
 							endif;
 
 						elseif ( is_tag() ) :
