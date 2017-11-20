@@ -658,38 +658,26 @@ function eddwp_get_number_of_extensions() {
 
 
 /**
- * rotating promotions for download grids
+ * promotions for download grids
  */
 function eddwp_download_grid_promotions() {
-	$bundle_promotion = array(
-		0 => array(
-			'url'   => home_url( '/downloads/all-access-pass/' ),
-			'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/core-extensions-bundle-featured.png',
-			'title' => 'All Access Pass',
-			'desc'  => 'With the All Access Pass, get over $3,000 worth of extensions for only $899.',
-		),
-		1 => array(
-			'url'   => home_url( '/starter-package/' ),
-			'image' => trailingslashit( get_stylesheet_directory_uri() ) . 'images/starter-package-featured.png',
-			'title' => 'Extension Starter Package',
-			'desc'  => 'Build your own extension starter package and automatically save ' . get_theme_mod( 'eddwp_starter_package_discount_percentage', '30' ) . '% on your order.',
-		)
-	);
-	$num = rand( 0, 1 );
+	$aap_path = get_page_by_path( 'all-access-pass', OBJECT, 'download' );
+	$aap_id   = $aap_path->ID;
+	$aap_desc = get_post_meta( $aap_id, 'ecpt_shortdescription', true );
 	ob_start();
 	?>
 	<div id="extensions-bundle-promotion" class="download-grid-item extensions-bundle-promotion">
 		<div class="download-grid-thumb-wrap">
-			<a class="promotion-image-link" href="<?php echo $bundle_promotion[ $num ]['url']; ?>" title="<?php echo $bundle_promotion[ $num ]['title']; ?>">
-				<img class="download-grid-thumb" src="<?php echo $bundle_promotion[ $num ]['image']; ?>"  alt="<?php echo $bundle_promotion[ $num ]['title']; ?>">
+			<a class="promotion-image-link" href="<?php echo get_permalink( $aap_id ); ?>" title="<?php echo the_title_attribute( '', '', true, $aap_id ); ?>">
+				<?php echo get_the_post_thumbnail( $aap_id, 'full', array( 'class' => 'download-grid-thumb' ) ); ?>
 			</a>
 		</div>
 		<div class="download-grid-item-info">
-			<h4 class="download-grid-title"><?php echo $bundle_promotion[ $num ]['title']; ?></h4>
-			<p><?php echo $bundle_promotion[ $num ]['desc']; ?></p>
+			<h4 class="download-grid-title"><a href="<?php echo get_permalink( $aap_id ); ?>"><?php echo get_the_title( $aap_id ); ?></a></h4>
+			<?php echo $aap_desc; ?>
 		</div>
 		<div class="download-grid-item-cta">
-			<a class="download-grid-item-primary-link button green" href="<?php echo $bundle_promotion[ $num ]['url']; ?>">More Information</a>
+			<a class="download-grid-item-primary-link button blue" href="<?php echo get_permalink( $aap_id ); ?>">More Information</a>
 		</div>
 	</div>
 	<?php
