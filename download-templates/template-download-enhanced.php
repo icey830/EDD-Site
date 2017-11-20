@@ -241,7 +241,7 @@ if ( $variable_pricing ) {
 						</p>
 					</div>
 					<div class="download-purchase">
-						<?php echo edd_get_purchase_link( array( 'download_id' => get_the_ID() ) ); ?>
+						<?php echo edd_get_purchase_link( array( 'download_id' => get_the_ID(), 'direct' => true, 'text' => 'Give me access' ) ); ?>
 					</div>
 				</div>
 			</div>

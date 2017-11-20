@@ -248,9 +248,23 @@
 		& .download-purchase {
 			text-align: center;
 
-			& .edd-add-to-cart {
+			& .edd-add-to-cart,
+			.edd_go_to_checkout {
 				font-size: 2rem;
 				padding: 10px 20px;
+				min-width: 270px;
+			}
+
+			& .edd-cart-added-alert {
+				display: inline-block;
+				color: #777;
+				font-size: 1.4rem;
+				margin: 13px 0 0 6px;
+				left: unset;
+
+				& svg {
+					color: @green;
+				}
 			}
 		}
 
