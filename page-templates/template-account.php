@@ -343,7 +343,18 @@ if ( is_user_logged_in() ) : ?>
 											<a class="edd-submit button blue" href="<?php echo home_url( '/your-account/all-access-downloads/' ); ?>"><i class="fa fa-gift"></i>Access your downloads</a>
 											<?php
 										} else {
-											echo 'You have not made any All Access purchases.';
+											$aap_path = get_page_by_path( 'all-access-pass', OBJECT, 'download' );
+											$aap_id   = $aap_path->ID;
+											?>
+											<div class="no-all-access-account-wrap">
+												<h3>Oops! It looks like you don't have access... yet.</h3>
+												<p>Perhaps you haven't seen our <em>best</em> deal on Easy Digital Downloads extensions. With a single subscription, you can gain access to every single extension we sell, as well as all future extensions. It's that simple.</p>
+												<h3>All extensions. Unlimited sites. No hassle.</h3>
+												<p>No more managing multiple extension licenses or trying to decide which extension is the best investment for you or your client. Having access to every extension not only allows you to make better business decisions, but you'll also have the luxury of using a single master license key for every extension.</p>
+												<p>Intrigued? Great! Take some time to learn more about <a href="<?php echo get_permalink( $aap_id ) ?>"><?php echo get_the_title( $aap_id ); ?></a>. If you've already heard enough, click the button below to gain access now and start downloading extensions within minutes.</p>
+												<?php echo edd_get_purchase_link( array( 'download_id' => $aap_id, 'direct' => true, 'text' => 'Give me access!' ) ); ?>
+											</div>
+											<?php
 										}
 									?>
 								</div>
