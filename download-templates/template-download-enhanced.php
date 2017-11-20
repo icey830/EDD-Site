@@ -185,7 +185,7 @@ if ( $variable_pricing ) {
 					<?php
 					echo do_shortcode( $matches[0] );
 					if ( $is_all_access ) {
-						$ext_count = eddwp_get_number_of_downloads() - 10;
+						$ext_count = eddwp_get_number_of_extensions() - 10;
 						?>
 						<div class="download-screenshots-notes"><i class="fa fa-info-circle"></i> <?php echo $the_download_title; ?> contains the above extensions plus <a href="<?php echo home_url( 'downloads' ); ?>"><?php echo $ext_count; ?> more extensions</a>.</div>
 						<?php
