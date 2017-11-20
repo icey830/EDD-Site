@@ -234,14 +234,34 @@ if ( $variable_pricing ) {
 							} elseif ( $is_all_access ) {
 
 								// actual All Access passes
-								echo get_the_title() . ' purchases are billed yearly. You may cancel your subscription at any time. ';
-								printf( 'Support and updates for included extensions are subject to valid license. %1$s.', '<a href="' . $license . '" target="_blank">View terms</a>' );
+								printf( 'Your %s awaits! Complete your purchase now and start downloading extensions within minutes. If you have questions or concerns, feel free to %s.',
+									$the_download_title,
+									'<a href="' . home_url( 'support' ) . '" target="_blank">ask a pre-sale question</a>'
+								);
 							}
 							?>
 						</p>
 					</div>
 					<div class="download-purchase">
 						<?php echo edd_get_purchase_link( array( 'download_id' => get_the_ID(), 'direct' => true, 'text' => 'Give me access!' ) ); ?>
+					</div>
+				</div>
+				<div class="features-grid-content-sections flex-container">
+					<div class="edd-feature flex-two">
+						<h4>Will I have a license key for each extension?</h4>
+						<p>When you purchase <?php echo $the_download_title; ?>, your will be given a license key that works for every single one of the included extensions. This "master license" works for all extensions and unlimited site activations!</p>
+					</div>
+					<div class="edd-feature flex-two">
+						<h4>Will I receive technical support for all extensions?</h4>
+						<p>Absolutely. Purchasing <?php echo $the_download_title; ?> grants you a 1-year license key for every extension we sell. As long as your license key is in good standing, we will provide extension support at no additional charge.</p>
+					</div>
+					<div class="edd-feature flex-two">
+						<h4>What happens if I do not renew my license?</h4>
+						<p>Your license key is subscription-based and will <em>automatically</em> renew every year. If you decide to cancel, you may still use the extensions but you will not receive updates or support once the license key expires.</p>
+					</div>
+					<div class="edd-feature flex-two">
+						<h4>Can I request a refund?</h4>
+						<p>For our protection, no refunds are allowed for <?php echo $the_download_title; ?>. For more information about refunds, licenses, subscriptions, and other matters pertaining to your purchase, view our <a href="<?php echo get_theme_mod( 'eddwp_terms_link' ); ?>">terms and conditions</a>.</p>
 					</div>
 				</div>
 			</div>
