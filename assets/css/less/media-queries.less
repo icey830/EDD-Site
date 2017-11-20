@@ -51,6 +51,13 @@
 		width: 27%;
 	}
 
+	/* single download */
+	.download-description-area {
+		& div[class*="featured-image-stacked"] {
+			display: none;
+		}
+	}
+
 	/* front page */
 	#front-page-hero {
 		text-align: center;
@@ -535,6 +542,18 @@
 		margin-left: 0;
 	}
 
+	/* single download */
+	.download-description-area {
+		& .download-long-description {
+			max-width: inherit !important;
+		}
+	}
+	.download-purchase-area {
+		& .download-purchase-details {
+			max-width: inherit !important;
+		}
+	}
+
 	/* front page */
 	.integrations-wrap {
 		padding: 20px 0;
@@ -969,6 +988,58 @@
 
 	.blog:not(.single) .site-container .content .hentry {
 		margin-bottom: 30px;
+	}
+
+	/* single download */
+	.single-download {
+		& .download-landing-title {
+			font-size: 3rem;
+		}
+
+		& .entry-content h2 {
+			font-size: 2rem;
+		}
+
+		& .download-landing-title-description {
+			font-size: 1.6rem;
+			line-height: 1.625;
+			margin-bottom: 30px !important;
+		}
+	}
+
+	.download-description-area {
+		& .download-landing .entry-content .download-long-description {
+			font-size: 1.6rem;
+			line-height: 1.625;
+
+			& .download-purchase-details {
+				margin-top: 40px;
+
+				& .download-terms .download-landing-title-description {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	.download-screenshots-area {
+		& .download-screenshots .download-screenshots-notes {
+			margin-bottom: 0;
+		}
+	}
+
+	.download-purchase-area {
+		& .download-landing-details {
+			& .download-purchase-details {
+				& .download-terms .download-landing-title-description {
+					margin-bottom: 0 !important;
+
+					& .download-landing-title-description {
+						margin-bottom: 0 !important;;
+					}
+				}
+			}
+		}
 	}
 
 	/* front page */
@@ -1535,6 +1606,44 @@
 
 	.menu-download {
 		display: none;
+	}
+
+	/* single download */
+	.single-download {
+		& .download-landing-title {
+			font-size: 2.4rem;
+		}
+
+		& .download-landing-title-description {
+			margin-bottom: 20px !important;
+		}
+	}
+
+	.download-description-area {
+		& .download-landing .entry-header {
+			margin-bottom: 10px;
+		}
+	}
+
+	.download-screenshots-area {
+
+		& .download-screenshots {
+
+			& [id*="gallery-"].gallery {
+
+				&.gallery-columns-2,
+				&.gallery-columns-3,
+				&.gallery-columns-4,
+				&.gallery-columns-5,
+				&.gallery-columns-6 {
+
+					& .gallery-item {
+						width: 50% !important;
+						margin-bottom: 6px !important;
+					}
+				}
+			}
+		}
 	}
 
 	/* front page */

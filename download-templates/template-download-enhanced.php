@@ -62,7 +62,7 @@ if ( $variable_pricing ) {
 	<div class="download-description-area page-section-white full-width">
 		<div class="inner">
 
-			<div class="site-container download-landing">
+			<div class="download-landing">
 
 				<article class="single-download-entry hentry" id="post-<?php echo get_the_ID(); ?>">
 					<div class="entry-header">
@@ -203,7 +203,7 @@ if ( $variable_pricing ) {
 				<div class="download-purchase-details">
 					<h2 id="purchase-details" class="download-landing-title">Purchase <?php echo $the_download_title; ?></h2>
 					<div class="download-terms download-landing-title-description clearfix">
-						<p>
+						<p class="download-landing-title-description">
 							<?php
 							if ( false == $is_all_access && ! $aa_has_access ) {
 								// terms for paid downloads
@@ -234,7 +234,7 @@ if ( $variable_pricing ) {
 							} elseif ( $is_all_access ) {
 
 								// actual All Access passes
-								echo get_the_title() . ' purchases are billed yearly. You may cancel a subscription at any time. ';
+								echo get_the_title() . ' purchases are billed yearly. You may cancel your subscription at any time. ';
 								printf( 'Support and updates for included extensions are subject to valid license. %1$s.', '<a href="' . $license . '" target="_blank">View terms</a>' );
 							}
 							?>
