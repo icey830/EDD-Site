@@ -187,7 +187,7 @@ if ( $variable_pricing ) {
 					if ( $is_all_access ) {
 						$ext_count = eddwp_get_number_of_downloads() - 10;
 						?>
-						<div class="download-screenshots-notes"><i class="fa fa-info-circle"></i> <?php echo $the_download_title; ?> contains the above extensions plus <?php echo $ext_count; ?> more extensions.</div>
+						<div class="download-screenshots-notes"><i class="fa fa-info-circle"></i> <?php echo $the_download_title; ?> contains the above extensions plus <a href="<?php echo home_url( 'downloads' ); ?>"><?php echo $ext_count; ?> more extensions</a>.</div>
 						<?php
 					}
 					?>
@@ -248,12 +248,20 @@ if ( $variable_pricing ) {
 				</div>
 				<div class="features-grid-content-sections flex-container">
 					<div class="edd-feature flex-two">
-						<h4>Will I have a license key for each extension?</h4>
-						<p>When you purchase <?php echo $the_download_title; ?>, you will be given a license key that works for every single one of the included extensions. This "master license" works for all extensions and unlimited site activations!</p>
+						<h4>Can I upgrade my extensions to the <?php echo $the_download_title; ?>?</h4>
+						<p>Yes! From your account page, simply click "View Upgrades" on any license key. Your upgrade purchase will be automatically discounted by the total amount you have spent in the last 365 days.</p>
 					</div>
 					<div class="edd-feature flex-two">
 						<h4>Will I receive technical support for all extensions?</h4>
 						<p>Absolutely. Purchasing <?php echo $the_download_title; ?> grants you a 1-year license key for every extension we sell. As long as your license key is in good standing, we will provide extension support at no additional charge.</p>
+					</div>
+					<div class="edd-feature flex-two">
+						<h4>Will I have a license key for each extension?</h4>
+						<p>When you purchase <?php echo $the_download_title; ?>, you will be given a license key that works for every single one of the included extensions. This "master license" works for all extensions and unlimited site activations!</p>
+					</div>
+					<div class="edd-feature flex-two">
+						<h4>Can I use these extensions for my client sites?</h4>
+						<p>Yes! The All Access Pass grants you unlimited activations for every extension in our catalogue and permits you to use the extensions on any number of client sites.</p>
 					</div>
 					<div class="edd-feature flex-two">
 						<h4>What happens if I do not renew my license?</h4>
@@ -261,7 +269,7 @@ if ( $variable_pricing ) {
 					</div>
 					<div class="edd-feature flex-two">
 						<h4>Can I request a refund?</h4>
-						<p>For our protection, no refunds are allowed for <?php echo $the_download_title; ?>. For more information about refunds, licenses, subscriptions, and other matters pertaining to your purchase, view our <a href="<?php echo get_theme_mod( 'eddwp_terms_link' ); ?>">terms and conditions</a>.</p>
+						<p>For our protection, no refunds are allowed for <?php echo $the_download_title; ?>. For more information about refunds, licenses, subscriptions, and other matters pertaining to your purchase, view our <a href="<?php echo get_theme_mod( 'eddwp_terms_link' ); ?>" target="_blank">terms and conditions</a>.</p>
 					</div>
 				</div>
 			</div>
