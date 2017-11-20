@@ -197,7 +197,7 @@ if ( $variable_pricing ) {
 	</div>
 	<?php } ?>
 
-	<div class="download-purchase-area page-section-white full-width">
+	<div id="download-purchase-area" class="download-purchase-area page-section-white full-width">
 		<div class="inner">
 			<div class="download-landing-details">
 				<div class="download-purchase-details">

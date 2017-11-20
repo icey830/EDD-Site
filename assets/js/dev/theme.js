@@ -194,7 +194,7 @@
 		// Enhanced Downloads Click/Scroll effect
 		$( "#see-purchase-details" ).click( function() {
 			$( 'html, body' ).animate( {
-				scrollTop: $( "#purchase-details" ).offset().top
+				scrollTop: $( "#download-purchase-area" ).offset().top
 			}, 500 );
 			event.preventDefault();
 		});
