@@ -147,7 +147,7 @@ if ( $variable_pricing ) {
 								<?php the_content(); ?>
 							</div>
 							<div class="download-purchase-details">
-								<a id="see-purchase-details" class="edd-submit button blue" href="#purchase-details">See purchase details</a>
+								<a id="see-purchase-details" class="edd-submit button blue" href="#purchase-details"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i> Skip to purchase details</a>
 							</div>
 						</div>
 					</div>
