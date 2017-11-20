@@ -249,7 +249,7 @@ if ( $variable_pricing ) {
 				<div class="features-grid-content-sections flex-container">
 					<div class="edd-feature flex-two">
 						<h4>Will I have a license key for each extension?</h4>
-						<p>When you purchase <?php echo $the_download_title; ?>, your will be given a license key that works for every single one of the included extensions. This "master license" works for all extensions and unlimited site activations!</p>
+						<p>When you purchase <?php echo $the_download_title; ?>, you will be given a license key that works for every single one of the included extensions. This "master license" works for all extensions and unlimited site activations!</p>
 					</div>
 					<div class="edd-feature flex-two">
 						<h4>Will I receive technical support for all extensions?</h4>

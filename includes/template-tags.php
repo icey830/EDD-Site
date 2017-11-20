@@ -105,7 +105,7 @@ function eddwp_post_byline() {
  */
 function eddwp_post_byline_lite() {
 	?>
-	<div class="post-meta post-meta-lite clearfix">
+	<div class="post-meta post-meta-lite">
 		<span class="entry-date">published on <span><?php echo get_the_date(); ?></span></span>
 	</div>
 	<?php
