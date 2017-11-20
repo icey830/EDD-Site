@@ -317,7 +317,7 @@ function eddwp_rp_shortcode( $count = 6 ) {
 		$ids = '167,28530';
 	endif;
 
-	return do_shortcode( '[recommended_products ids="' . $ids . '" user="false" count="' . $count . '"]' );
+	return do_shortcode( '[recommended_products ids="' . $ids . '" user="true" count="' . $count . '"]' );
 }
 
 
