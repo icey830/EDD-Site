@@ -79,12 +79,22 @@ if ( is_user_logged_in() ) : ?>
 
 					<h2 class="section-title-alt">Your Account</h2>
 
-					<?php // TODO: reverse conditional before going live ?>
-					<?php if ( edd_has_user_purchased( get_current_user_id(), $aap->ID ) ) { ?>
-					<div class="upgrade-to-aa">
-						<i class="fa fa-gift" aria-hidden="true"></i> <span class="upgrade-to-aa-message">Upgrade to our <a href="<?php echo get_permalink( $aap->ID ); ?>" class="aa-pass-link"><?php echo get_the_title( $aap->ID ); ?></a> and automatically receive <span class="discount-amount"><?php echo edd_currency_filter( edd_format_amount( eddwp_edd_all_access_upgrade_discount() ) ); ?></span> off your purchase! <a href="#" class="upgrade-to-aa-link">Click here to upgrade!</a></span>
-					</div>
-					<?php } ?>
+					<?php
+						// Has the user purchased All Access Pass already? If not, go HAM.
+						if ( ! edd_has_user_purchased( get_current_user_id(), $aap->ID ) ) {
+							$discount_amount = eddwp_edd_all_access_upgrade_discount();
+							?>
+							<div class="upgrade-to-aa">
+								<i class="fa fa-gift" aria-hidden="true"></i>
+								<?php if ( eddwp_get_edd_all_access_upgrade_link() && 0.00 !== $discount_amount ) { ?>
+									<span class="upgrade-to-aa-message">Upgrade to our <a href="<?php echo get_permalink( $aap->ID ); ?>" class="aa-pass-link"><?php echo get_the_title( $aap->ID ); ?></a> and automatically receive <span class="discount-amount"><?php echo edd_currency_filter( edd_format_amount( $discount_amount ) ); ?></span> off your purchase! &nbsp;<a href="<?php echo eddwp_get_edd_all_access_upgrade_link(); ?>" class="upgrade-to-aa-link">Click here to upgrade!</a>&nbsp;</span>
+								<?php } else { ?>
+									<span class="upgrade-to-aa-message">Purchase our <a href="<?php echo get_permalink( $aap->ID ); ?>" class="aa-pass-link"><?php echo get_the_title( $aap->ID ); ?></a> and instantly gain access to every extension we have! <a href="<?php echo add_query_arg( array( 'edd_action' => 'add_to_cart', 'download_id' => $aap->ID ), edd_get_checkout_uri() ); ?>" class="upgrade-to-aa-link">&nbsp;Click here to purchase!&nbsp;</a></span>
+								<?php } ?>
+							</div>
+							<?php
+						}
+					?>
 
 					<?php
 					$subscriber = new EDD_Recurring_Subscriber( get_current_user_id(), true );
