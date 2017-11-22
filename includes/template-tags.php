@@ -725,3 +725,54 @@ function eddwp_blog_categories() {
 	</div>
 	<?php
 }
+
+
+/**
+ * get customer's value within last 365 days for AAP upgrade discount
+ */
+function eddwp_edd_all_access_upgrade_discount() {
+
+	$discount  = 0.00;
+	$customer  = new EDD_Customer( get_current_user_id(), true );
+
+	if( ! $customer->purchase_value > 0 ) {
+		return $discount;
+	}
+
+	$now = current_time( 'timestamp' );
+
+	foreach( $customer->get_payments( array( 'publish', 'edd_subscription' ) ) as $payment ) {
+
+		if( ! $payment->total > 0 ) {
+			continue; // Skip free payments
+		}
+
+		if( 'publish' !== $payment->status && 'edd_subscription' !== $payment->status ) {
+			continue; // Skip anything that is a renewal or not complete
+		}
+
+		$datediff   = $now - strtotime( $payment->date, $now );
+		$days_since = floor( $datediff / ( 60 * 60 * 24 ) );
+
+		if( $days_since > 365 ) {
+			continue; // We will only count payments made within the last 365 days
+		}
+
+		foreach( $payment->cart_details as $item ) {
+
+			if( ! $item['price'] > 0 ) {
+				continue; // Skip free items and 100% discounted items
+			}
+
+			$discount += ( $item['price'] - $item['tax'] ); // Add the purchase price to the discount
+
+		}
+
+	}
+
+	if( $discount >= 899 ) {
+		$discount = 898.00; // Min purchase price of $1.00
+	}
+
+	return $discount;
+}

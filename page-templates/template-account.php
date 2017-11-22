@@ -7,6 +7,9 @@
 global $rcp_load_css, $rcp_load_scripts, $current_user, $edd_sl_renew_all;
 $rcp_load_css = $rcp_load_scripts = true;
 
+// All Access Pass post object
+$aap = get_page_by_path( 'all-access-pass', OBJECT, 'download' );
+
 get_header();
 
 if ( is_user_logged_in() ) : ?>
@@ -75,6 +78,13 @@ if ( is_user_logged_in() ) : ?>
 					?>
 
 					<h2 class="section-title-alt">Your Account</h2>
+
+					<?php // TODO: reverse conditional before going live ?>
+					<?php if ( edd_has_user_purchased( get_current_user_id(), $aap->ID ) ) { ?>
+					<div class="upgrade-to-aa">
+						<i class="fa fa-gift" aria-hidden="true"></i> <span class="upgrade-to-aa-message">Upgrade to our <a href="<?php echo get_permalink( $aap->ID ); ?>" class="aa-pass-link"><?php echo get_the_title( $aap->ID ); ?></a> and automatically receive <span class="discount-amount"><?php echo edd_currency_filter( edd_format_amount( eddwp_edd_all_access_upgrade_discount() ) ); ?></span> off your purchase! <a href="#" class="upgrade-to-aa-link">Click here to upgrade!</a></span>
+					</div>
+					<?php } ?>
 
 					<?php
 					$subscriber = new EDD_Recurring_Subscriber( get_current_user_id(), true );
@@ -343,16 +353,14 @@ if ( is_user_logged_in() ) : ?>
 											<a class="edd-submit button blue" href="<?php echo home_url( '/your-account/all-access-downloads/' ); ?>"><i class="fa fa-gift"></i>Access your downloads</a>
 											<?php
 										} else {
-											$aap_path = get_page_by_path( 'all-access-pass', OBJECT, 'download' );
-											$aap_id   = $aap_path->ID;
 											?>
 											<div class="no-all-access-account-wrap">
 												<h3>Oops! It looks like you don't have access... yet.</h3>
 												<p>Perhaps you haven't seen our <em>best</em> deal on Easy Digital Downloads extensions. With a single subscription, you can gain access to every single extension we sell, as well as all future extensions. It's that simple.</p>
 												<h3>All extensions. Unlimited sites. No hassle.</h3>
 												<p>No more managing multiple extension licenses or trying to decide which extension is the best investment for you or your client. Having access to every extension not only allows you to make better business decisions, but you'll also have the luxury of using a single master license key for every extension.</p>
-												<p>Intrigued? Great! Take some time to learn more about <a href="<?php echo get_permalink( $aap_id ) ?>"><?php echo get_the_title( $aap_id ); ?></a>. If you've already heard enough, click the button below to gain access now and start downloading extensions within minutes.</p>
-												<?php echo edd_get_purchase_link( array( 'download_id' => $aap_id, 'direct' => true, 'text' => 'Give me access!' ) ); ?>
+												<p>Intrigued? Great! Take some time to learn more about <a href="<?php echo get_permalink( $aap->ID ) ?>"><?php echo get_the_title( $aap->ID ); ?></a>. If you've already heard enough, click the button below to gain access now and start downloading extensions within minutes.</p>
+												<?php echo edd_get_purchase_link( array( 'download_id' => $aap->ID, 'direct' => true, 'text' => 'Give me access!' ) ); ?>
 											</div>
 											<?php
 										}
