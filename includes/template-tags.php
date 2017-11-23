@@ -749,6 +749,7 @@ function eddwp_edd_all_access_upgrade_discount() {
 		'start_date' => $year_ago,
 		'end_date'   => $now,
 		'fields'     => 'ids',
+		'post__in'   => explode( ',', $customer->payment_ids ),
 	);
 	$payments = new EDD_Payments_Query( $args );
 	$payments = $payments->get_payments();
@@ -759,15 +760,7 @@ function eddwp_edd_all_access_upgrade_discount() {
 			continue; // Skip free payments
 		}
 
-		foreach( $payment->cart_details as $item ) {
-
-			if( ! $item['price'] > 0 ) {
-				continue; // Skip free items and 100% discounted items
-			}
-
-			$discount += ( $item['price'] - $item['tax'] ); // Add the purchase price to the discount
-
-		}
+		$discount += $payment->total;
 
 	}
 
