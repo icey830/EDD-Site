@@ -760,6 +760,10 @@ function eddwp_edd_all_access_upgrade_discount() {
 			continue; // Skip free payments
 		}
 
+		if ( false !== strpos( $payment->gateway, 'manual' ) ) {
+			continue; // skip manual purchases
+		}
+
 		$discount += $payment->total;
 
 	}
