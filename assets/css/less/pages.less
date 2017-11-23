@@ -2285,6 +2285,60 @@
 	}
 }
 
+.upgrade-to-aa {
+	position: relative;
+	background: @eddblue url('images/mascot/edd-starter-package-header.png') no-repeat right bottom;
+	color: #fff;
+	padding: 20px 30px;
+	margin-bottom: 50px;
+	border-radius: 4px;
+
+	& .fa {
+		position: absolute;
+			top: 17px;
+			left: 20px;
+		font-size: 3rem;
+		margin-right: 8px;
+	}
+
+	& .upgrade-to-aa-message {
+		padding-left: 30px;
+
+		& .aa-pass-link {
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		& .aa-pass-link,
+		.discount-amount {
+			color: #fff;
+			text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+		}
+
+		& .upgrade-to-aa-link {
+			background: @edddarkblue;
+			color: #fff;
+			padding: 4px;
+			margin-left: 6px;
+			border-radius: 4px;
+			display: inline;
+			text-decoration: none !important;
+			-webkit-transition: all .2s ease-in-out;
+			-moz-transition: all .2s ease-in-out;
+			-o-transition: all .2s ease-in-out;
+			-ms-transition: all .2s ease-in-out;
+			transition: all .2s ease-in-out;
+
+			&:hover {
+				background: @edddarkbluehover;
+			}
+		}
+	}
+}
+
 
 /* ----------------------------- *
  * All Access Pass downloads page

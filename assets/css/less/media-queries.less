@@ -39,6 +39,7 @@
 
 	/* structure */
 	.site-container {
+		padding: 0 30px;
 		max-width: none;
 	}
 
@@ -301,13 +302,28 @@
 	.bctt-purchase-confirmation .bctt-click-to-tweet {
 		background-position-x: 490px;
 	}
-}
 
-@media all and ( max-width: 1160px ) {
+	& .upgrade-to-aa {
+		& .upgrade-to-aa-message {
+			& .upgrade-to-aa-link {
+				display: inline;
+				background: none;
+				text-decoration: underline !important;
+				text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+				padding: 0;
+				margin-left: 0;
+				-webkit-transition: all .2s ease-in-out;
+				-moz-transition: all .2s ease-in-out;
+				-o-transition: all .2s ease-in-out;
+				-ms-transition: all .2s ease-in-out;
+				transition: all .2s ease-in-out;
 
-	/* structure */
-	.site-container {
-		padding: 0 30px;
+				&:hover {
+					background: none;
+					text-decoration: none !important;
+				}
+			}
+		}
 	}
 }
 
@@ -376,6 +392,20 @@
 		& .pricing-table-notes {
 			float: none;
 			max-width: 100%;
+		}
+	}
+
+	& .upgrade-to-aa {
+		& .fa {
+			position: static;
+			top: 17px;
+			left: 20px;
+			font-size: 2rem;
+			margin-right: 0;
+		}
+
+		& .upgrade-to-aa-message {
+			padding-left: 6px;
 		}
 	}
 }

@@ -725,3 +725,90 @@ function eddwp_blog_categories() {
 	</div>
 	<?php
 }
+
+
+/**
+ * get customer's value within last 365 days for AAP upgrade discount
+ */
+function eddwp_edd_all_access_upgrade_discount() {
+
+	$discount  = 0.00;
+	$customer  = new EDD_Customer( get_current_user_id(), true );
+
+	if( ! $customer->purchase_value > 0 ) {
+		return $discount;
+	}
+
+	$now      = current_time( 'timestamp' );
+	$year_ago = strtotime( '-1 year', $now );
+
+	$args = array(
+		'status'     => array( 'publish', 'edd_subscription' ),
+		'number'     => -1,
+		'user'       => get_current_user_id(),
+		'start_date' => $year_ago,
+		'end_date'   => $now,
+		'fields'     => 'ids',
+		'post__in'   => explode( ',', $customer->payment_ids ),
+	);
+	$payments = new EDD_Payments_Query( $args );
+	$payments = $payments->get_payments();
+
+	foreach( $payments as $payment ) {
+
+		if( ! $payment->total > 0 ) {
+			continue; // Skip free payments
+		}
+
+		$discount += $payment->total;
+
+	}
+
+	if( $discount >= 899 ) {
+		$discount = 898.00; // Min purchase price of $1.00
+	}
+
+	return $discount;
+}
+
+
+/*
+ * get customer's All Access Pass upgrade link
+ */
+function eddwp_get_edd_all_access_upgrade_link() {
+
+	// get a license key from the user (we don't care which one gets upgraded)
+	$license_args = array(
+		'posts_per_page' => 1,
+		'post_type'      => 'edd_license',
+		'post_status'    => 'publish',
+		'fields'         => 'ids',
+		'meta_query'     => array(
+			'relation' => 'AND',
+			array(
+				'key'     => '_edd_sl_user_id',
+				'value'   => get_current_user_id(),
+				'compare' => '='
+			),
+			array(
+				'key'     => '_edd_sl_status',
+				'value'   => 'expired',
+				'compare' => '!='
+			),
+		),
+	);
+	$license_keys  = get_posts( $license_args );
+
+	// bail if there are no licenses
+	if ( empty( $license_keys ) ) {
+		return false;
+	}
+
+	// get the ID of the license key
+	$license_id = $license_keys[0];
+
+	// build the upgrade link using the license ID and the upgrade ID (set in Custom Functions)
+	$url = edd_sl_get_license_upgrade_url( $license_id, eddwp_get_all_access_pass_id() );
+
+	return $url;
+}
