@@ -739,23 +739,24 @@ function eddwp_edd_all_access_upgrade_discount() {
 		return $discount;
 	}
 
-	$now = current_time( 'timestamp' );
+	$now      = current_time( 'timestamp' );
+	$year_ago = strtotime( '-1 year', $now );
 
-	foreach( $customer->get_payments( array( 'publish', 'edd_subscription' ) ) as $payment ) {
+	$args = array(
+		'status'     => array( 'publish', 'edd_subscription' ),
+		'number'     => -1,
+		'user'       => get_current_user_id(),
+		'start_date' => $year_ago,
+		'end_date'   => $now,
+		'fields'     => 'ids',
+	);
+	$payments = new EDD_Payments_Query( $args );
+	$payments = $payments->get_payments();
+
+	foreach( $payments as $payment ) {
 
 		if( ! $payment->total > 0 ) {
 			continue; // Skip free payments
-		}
-
-		if( 'publish' !== $payment->status && 'edd_subscription' !== $payment->status ) {
-			continue; // Skip anything that is a renewal or not complete
-		}
-
-		$datediff   = $now - strtotime( $payment->date, $now );
-		$days_since = floor( $datediff / ( 60 * 60 * 24 ) );
-
-		if( $days_since > 365 ) {
-			continue; // We will only count payments made within the last 365 days
 		}
 
 		foreach( $payment->cart_details as $item ) {
