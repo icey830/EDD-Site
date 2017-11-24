@@ -62,9 +62,9 @@ get_header(); ?>
 					'name'      => 'Amazon',
 					'slug'      => '/amazon-s3',
 				),
-				'envato'        => array(
-					'name'      => 'Envato',
-					'slug'      => '/edd-envato-integration',
+				'convertkit'    => array(
+					'name'      => 'ConvertKit',
+					'slug'      => '/convertkit',
 				),
 			);
 			foreach ( $integrations as $item ) :
