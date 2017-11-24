@@ -49,18 +49,6 @@ get_header();
 						<?php
 					endforeach;
 				?>
-				<div class="crew-member flex-two">
-					<div class="crew-member-name">
-						Chris Christoff <span class="crew-member-urls"><a href="http://www.chriscct7.com/"><i class="fa fa-link"></i></a>&nbsp;&middot;&nbsp;<a href="https://twitter.com/chriscct7"><i class="fa fa-twitter"></i></a></span>
-					</div>
-					<div class="crew-member-info">
-						<?php
-						echo get_avatar( 1032, 120, '', '', array( 'class' => 'crew-avatar alignright' ) );
-						$enhanced_bio = get_user_meta( 1032, 'enhanced_bio', true );
-						echo wpautop( $enhanced_bio );
-						?>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

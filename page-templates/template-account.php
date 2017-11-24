@@ -7,6 +7,9 @@
 global $rcp_load_css, $rcp_load_scripts, $current_user, $edd_sl_renew_all;
 $rcp_load_css = $rcp_load_scripts = true;
 
+// All Access Pass post object
+$aap = get_page_by_path( 'all-access-pass', OBJECT, 'download' );
+
 get_header();
 
 if ( is_user_logged_in() ) : ?>
@@ -75,6 +78,23 @@ if ( is_user_logged_in() ) : ?>
 					?>
 
 					<h2 class="section-title-alt">Your Account</h2>
+
+					<?php
+						// Has the user purchased All Access Pass already? If not, go HAM.
+						if ( ! edd_has_user_purchased( get_current_user_id(), $aap->ID ) ) {
+							$discount_amount = eddwp_edd_all_access_upgrade_discount();
+							?>
+							<div class="upgrade-to-aa">
+								<i class="fa fa-gift" aria-hidden="true"></i>
+								<?php if ( eddwp_get_edd_all_access_upgrade_link() && 0.00 !== $discount_amount ) { ?>
+									<span class="upgrade-to-aa-message">Upgrade to our <a href="<?php echo get_permalink( $aap->ID ); ?>" class="aa-pass-link"><?php echo get_the_title( $aap->ID ); ?></a> and automatically receive <span class="discount-amount"><?php echo edd_currency_filter( edd_format_amount( $discount_amount ) ); ?></span> off your purchase! <a href="<?php echo eddwp_get_edd_all_access_upgrade_link(); ?>" class="upgrade-to-aa-link">Click here to upgrade</a></span>
+								<?php } else { ?>
+									<span class="upgrade-to-aa-message">Purchase our <a href="<?php echo get_permalink( $aap->ID ); ?>" class="aa-pass-link"><?php echo get_the_title( $aap->ID ); ?></a> and instantly gain access to every extension we have! <a href="<?php echo add_query_arg( array( 'edd_action' => 'add_to_cart', 'download_id' => $aap->ID ), edd_get_checkout_uri() ); ?>" class="upgrade-to-aa-link">Click here to purchase</a></span>
+								<?php } ?>
+							</div>
+							<?php
+						}
+					?>
 
 					<?php
 					$subscriber = new EDD_Recurring_Subscriber( get_current_user_id(), true );
@@ -166,38 +186,62 @@ if ( is_user_logged_in() ) : ?>
 							</script>
 
 							<ul class="nav nav-tabs nav-append-content<?php echo $is_affiliate; ?>">
-								<li class="active"><a href="#purchases" data-toggle="tab"><i class="fa fa-usd"></i>Purchases</a></li>
-								<?php $has_expired_licenses = ! empty( $license_keys ) ? ' class="account-tab-highlight"' : ''; ?>
-								<li><a href="#license-keys" data-toggle="tab"<?php echo $has_expired_licenses; ?>><i class="fa fa-key"></i>License Keys</a></li>
 
+								<!-- Purchases -->
+								<li class="active"><a href="#purchases" data-toggle="tab"><i class="fa fa-usd" aria-hidden="true"></i>Purchases</a></li>
+
+								<!-- License keys -->
+								<?php $has_expired_licenses = ! empty( $license_keys ) ? ' class="account-tab-highlight"' : ''; ?>
+								<li><a href="#license-keys" data-toggle="tab"<?php echo $has_expired_licenses; ?>><i class="fa fa-key" aria-hidden="true"></i>License Keys</a></li>
+
+								<!-- All Access -->
+								<?php if ( eddwp_aa_is_activated() ) { ?>
+								<li><a href="#all-access" data-toggle="tab"><i class="fa fa-gift" aria-hidden="true"></i>All Access Passes</a></li>
+								<?php } ?>
+
+								<!-- Subscriptions -->
+								<?php if ( eddwp_recurring_is_activated() ) { ?>
 								<?php $payment_info_update = ! empty( $failing_subs ) ? ' class="account-tab-highlight"' : ''; ?>
-								<li><a href="#subscriptions" data-toggle="tab"<?php echo $payment_info_update; ?>><i class="fa fa-repeat"></i>Subscriptions</a></li>
-								<li><a href="#downloads" data-toggle="tab"><i class="fa fa-cloud-download"></i>Downloads</a></li>
-								<li><a href="#profile" data-toggle="tab"><i class="fa fa-user"></i>Profile</a></li>
+								<li><a href="#subscriptions" data-toggle="tab"<?php echo $payment_info_update; ?>><i class="fa fa-repeat" aria-hidden="true"></i>Subscriptions</a></li>
+								<?php } ?>
+
+								<!-- Downloads -->
+								<li><a href="#downloads" data-toggle="tab"><i class="fa fa-cloud-download" aria-hidden="true"></i>Downloads</a></li>
+
+								<!-- Profile -->
+								<li><a href="#profile" data-toggle="tab"><i class="fa fa-user" aria-hidden="true"></i>Profile</a></li>
+
+								<!-- Stripe payment methods -->
 								<?php
 								if ( function_exists( 'edd_stripe_get_existing_cards' ) ) {
 									$existing_cards = edd_stripe_get_existing_cards( get_current_user_id() );
 								}
 								?>
 								<?php if ( ! empty( $existing_cards ) ) { ?>
-									<li><a href="#payment-methods" data-toggle="tab"><i class="fa fa-credit-card" aria-hidden="true"></i>Payment Methods</a></li>
+									<li><a href="#payment-methods" data-toggle="tab"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>Payment Methods</a></li>
 								<?php } ?>
+
+								<!-- Commissions -->
 								<?php if ( defined( 'EDD_COMMISSIONS_VERSION' ) && eddc_user_has_commissions() ) { ?>
-									<li><a href="#commissions" data-toggle="tab"><i class="fa fa-money"></i>Commissions</a></li>
+									<li><a href="#commissions" data-toggle="tab"><i class="fa fa-money" aria-hidden="true"></i>Commissions</a></li>
 								<?php } ?>
-								<li><a href="#support" data-toggle="tab"><i class="fa fa-wrench"></i>Support Subscription</a></li>
+
+								<!-- Support subscription -->
+								<li><a href="#support" data-toggle="tab"><i class="fa fa-wrench" aria-hidden="true"></i>Support Subscription</a></li>
 							</ul>
 							<?php if ( ! empty( $is_affiliate ) ) { ?>
 								<ul class="affiliates-list">
-									<li><a class="affiliates-tab" href="<?php echo home_url( '/your-account/affiliate-area/' ); ?>"><i class="fa fa-thumbs-o-up"></i>Affiliates</a></li>
+									<li><a class="affiliates-tab" href="<?php echo home_url( '/your-account/affiliate-area/' ); ?>"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Affiliates</a></li>
 								</ul>
 							<?php } ?>
 						</div>
 
 						<div class="my-account-tab-content">
 							<div class="tab-content">
+
+								<!-- Purchases -->
 								<div class="tab-pane active purchases-tab-pane" id="purchases">
-									<h3>Your Purchase History</h3>
+									<h3>Your purchase history</h3>
 									<p>All purchases below were completed with the following email address: <strong><?php echo $current_user->user_email; ?></strong>. If you have trouble locating purchases, please <a href="<?php echo home_url( 'support' ); ?>">contact support</a> for assistance.</p>
 									<?php
 									if ( isset( $_GET['payment_id'] ) && is_numeric( $_GET['payment_id'] ) ) {
@@ -206,9 +250,11 @@ if ( is_user_logged_in() ) : ?>
 										echo do_shortcode( '[purchase_history]' );
 									}
 									?>
-								</div><!-- /.tab-pane -->
+								</div>
+
+								<!-- License keys -->
 								<div class="tab-pane license-keys-tab-pane" id="license-keys">
-									<h3>Manage Your License Keys</h3>
+									<h3>Manage your license keys</h3>
 									<?php if ( class_exists( 'edd_software_licensing' ) && edd_software_licensing()->get_license_keys_of_user() ) { ?>
 										<p>Below you will find all license keys for you previous purchases. Use the <strong>Manage Sites</strong> links to authorize specific URLs for your license keys. Use the <strong>Extend License</strong> or <strong>Renew License</strong> links to adjust the terms of your license keys.</p>
 										<?php if ( ! empty( $license_keys ) ) { ?>
@@ -234,7 +280,7 @@ if ( is_user_logged_in() ) : ?>
 															$the_key = get_post_meta( $key->ID, '_edd_sl_key', true );
 															?>
 															<div class="expired-key-item flex-two">
-																<span class="licensed-product-title"><?php echo $the_title; ?></span><br>
+																<span class="licensed-product-title"><?php echo $the_title; ?></span>
 																<div class="license-actions">
 																	<span class="licensed-product-key"><?php echo $the_key; ?></span><br>
 																	<a href="<?php echo home_url( '/checkout/?edd_license_key=' ) . $the_key; ?>">Renew license</a>
@@ -303,31 +349,68 @@ if ( is_user_logged_in() ) : ?>
 									<?php } else { ?>
 										<p>You currently have no licenses.</p>
 									<?php } ?>
-								</div><!-- /.tab-pane -->
+								</div>
+
+								<!-- All Access -->
+								<?php if ( eddwp_aa_is_activated() ) { ?>
+								<div class="tab-pane all-access-tab-pane" id="all-access">
+									<?php
+										$aa_customer = new EDD_Customer( get_current_user_id(), true );
+										$user_has_access_pass = $aa_customer->get_meta( 'all_access_passes' );
+										if ( $user_has_access_pass ) {
+											echo do_shortcode( '[edd_aa_customer_passes]' );
+											?>
+											<a class="edd-submit button blue" href="<?php echo home_url( '/your-account/all-access-downloads/' ); ?>"><i class="fa fa-gift"></i>Access your downloads</a>
+											<?php
+										} else {
+											?>
+											<div class="no-all-access-account-wrap">
+												<h3>Oops! It looks like you don't have access... yet.</h3>
+												<p>Perhaps you haven't seen our <em>best</em> deal on Easy Digital Downloads extensions. With a single subscription, you can gain access to every single extension we sell, as well as all future extensions. It's that simple.</p>
+												<h3>All extensions. Unlimited sites. No hassle.</h3>
+												<p>No more managing multiple extension licenses or trying to decide which extension is the best investment for you or your client. Having access to every extension not only allows you to make better business decisions, but you'll also have the luxury of using a single master license key for every extension.</p>
+												<p>Intrigued? Great! Take some time to learn more about <a href="<?php echo get_permalink( $aap->ID ) ?>"><?php echo get_the_title( $aap->ID ); ?></a>. If you've already heard enough, click the button below to gain access now and start downloading extensions within minutes.</p>
+												<?php echo edd_get_purchase_link( array( 'download_id' => $aap->ID, 'direct' => true, 'text' => 'Give me access!' ) ); ?>
+											</div>
+											<?php
+										}
+									?>
+								</div>
+								<?php } ?>
+
+								<!-- Subscriptions -->
 								<div class="tab-pane subscriptions-tab-pane" id="subscriptions">
-									<h3>Manage Your Subscriptions</h3>
+									<h3>Manage your subscriptions</h3>
 									<p>Use the tools below to view subscription details, manage all of your product subscriptions, and view invoices.</p>
 									<?php echo do_shortcode( '[edd_subscriptions]' ); ?>
-								</div><!-- /.tab-pane -->
+								</div>
+
+								<!-- Downloads -->
 								<div class="tab-pane downloads-tab-pane" id="downloads">
-									<h3>Your Download History</h3>
+									<h3>Your download history</h3>
 									<p>Below you will find a complete history of your file downloads.</p>
 									<?php echo do_shortcode( '[download_history]' ); ?>
-								</div><!-- /.tab-pane -->
+								</div>
+
+								<!-- Profile -->
 								<div class="tab-pane profile-editor-tab-pane" id="profile">
-									<h3>Edit Your Profile Information</h3>
+									<h3>Edit your profile information</h3>
 									<p>Use the form below to edit the information saved in your user profile. Select information will be used to auto-complete the checkout form for your next purchase.</p>
 									<?php edd_get_template_part( 'shortcode', 'profile-editor' ); ?>
-								</div><!-- /.tab-pane -->
+								</div>
+
+								<!-- Stripe payment methods -->
 								<?php if ( ! empty( $existing_cards ) ) { ?>
 									<div class="tab-pane payment-methods-tab-pane" id="payment-methods">
-										<h3>Your Saved Payment Methods</h3>
+										<h3>Your saved payment methods</h3>
 										<p>Manage your saved cards using the tools below. Edit, delete, or set cards as default for use when making purchases.</p>
 										<?php if ( function_exists( 'edd_stripe_manage_cards' ) ) { edd_stripe_manage_cards(); } ?>
-									</div><!-- /.tab-pane -->
+									</div>
 								<?php } ?>
+
+								<!-- Commissions -->
 								<div class="tab-pane commissions-tab-pane" id="commissions">
-									<h3>Commissions Overview</h3>
+									<h3>Commissions overview</h3>
 									<?php if( function_exists( 'eddc_user_commissions_overview' ) ) { echo eddc_user_commissions_overview(); } ?>
 									<?php //if( function_exists( 'eddc_user_commissions_graph' ) ) { echo eddc_user_commissions_graph(); } ?>
 									<h3>Detailed Commissions Information</h3>
@@ -336,15 +419,17 @@ if ( is_user_logged_in() ) : ?>
 										if( function_exists( 'eddc_user_product_list' ) ) { echo eddc_user_product_list(); }
 										if( function_exists( 'eddc_user_commissions' ) ) { echo eddc_user_commissions(); }
 									?>
-								</div><!-- /.tab-pane -->
+								</div>
+
+								<!-- Support subscription -->
 								<div class="tab-pane support-subscription-tab-pane" id="support">
-									<h3>Your Support Subscription</h3>
+									<h3>Your support subscription</h3>
 									<p>See the details of your support subscription below.</p>
 									<?php
 										echo do_shortcode( '[subscription_details]' );
 										echo do_shortcode( '[card_details]' );
 									?>
-								</div><!-- /.tab-pane -->
+								</div>
 							</div>
 						</div>
 

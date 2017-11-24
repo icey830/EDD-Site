@@ -12,14 +12,14 @@
  */
 ?>
 
-	<?php if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page( 'subscribe' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
+	<?php if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page( 'subscribe' ) && ! is_page_template( 'page-templates/template-barebones.php' ) && ! is_page_template( 'page-templates/template-starter-package.php' ) ) : ?>
 		<div id="footer-newsletter" class="page-section-darkblue full-width">
 			<div class="inner">
 				<div class="newsletter-content clearfix">
 					<?php
 						$args = array(
 							'heading_content'     => 'Easy Digital Downloads Email Newsletter',
-							'description_content' => 'Be the first to know about the latest updates and exclusive promotions from Easy Digital Downloads.',
+							'description_content' => 'Join <strong>70,000+</strong> subscribers in receiving Easy Digital Downloads news and updates!',
 							'notes'               => false,
 							'tabindex'            => 40
 						);
@@ -34,7 +34,7 @@
 		<div class="inner">
 			<div class="site-footer">
 				<?php if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
-					<?php if ( ! is_404() && ! is_page( 'subscribe' ) ) : ?>
+					<?php if ( ! is_404() && ! is_page( 'subscribe' ) && ! is_page_template( 'page-templates/template-starter-package.php' ) ) : ?>
 						<img class="sitting-edd" src="<?php echo get_template_directory_uri(); ?>/images/mascot/edd-sitting.png" />
 					<?php endif; ?>
 					<?php if ( ! is_page( array( 130 ) ) ) : ?>
@@ -72,7 +72,7 @@
 								// do not show on checkout
 								if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) :
 									?>
-									&nbsp;&middot;&nbsp;a project by <a href="<?php echo home_url( '/the-crew/' ); ?>">Pippin Williamson and Friends</a>.
+									&nbsp;&middot;&nbsp;a <a href="http://sandhillsdev.com">Sandhills Development</a> project.
 									<?php
 									// EDD social profiles
 									$args = array(

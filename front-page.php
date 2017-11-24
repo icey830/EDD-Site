@@ -95,7 +95,7 @@ get_header(); ?>
 			<div class="features-grid-content-sections flex-container">
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-tag"></i>Discount Codes</h6>
-					<p>Easily create discounts codes to encourage customers to buy more. Discounts can be offered at flat or percentage rates and include settings for expiration, maximum uses, and more.</p>
+					<p>Easily create discount codes to encourage customers to buy more. Discounts can be offered at flat or percentage rates and include settings for expiration, maximum uses, and more.</p>
 				</div>
 				<div class="edd-feature flex-two">
 					<h6><i class="fa fa-shopping-cart"></i>Full Shopping Cart</h6>

@@ -33,9 +33,9 @@ get_header();
 					<div class="tabbed-template-tabs">
 						<ul class="nav nav-tabs nav-append-content purchase-confirmation-tabs">
 							<li class="active"><a href="#purchase-details" data-toggle="tab"><i class="fa fa-list" aria-hidden="true"></i>Purchase Details</a></li>
-							<li><a href="#documentation" data-toggle="tab"><i class="fa fa-file-text-o" aria-hidden="true"></i>Documentation</a></li>
+							<li><a href="#documentation" data-toggle="tab"><i class="fa fa-file-text" aria-hidden="true"></i>Documentation</a></li>
 							<?php if ( function_exists( 'edd_rp_get_suggestions' ) ) { ?>
-								<li><a href="#recommendations" data-toggle="tab"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>Recommendations</a></li>
+								<li><a href="#recommendations" data-toggle="tab"><i class="fa fa-thumbs-up" aria-hidden="true"></i>Recommendations</a></li>
 							<?php } ?>
 						</ul>
 						<ul class="your-account-link-list">
@@ -96,7 +96,9 @@ get_header();
 							<div class="tab-pane recommendations-tab-pane" id="recommendations">
 								<h3>Extension Recommendations</h3>
 								<p>Based on your purchase, we've created a list of extensions that may help you customize your eCommerce business even more. Take a look and <a href="<?php echo home_url( '/support/' ); ?>">let us know</a> if you have any questions.</p>
-								<?php echo eddwp_rp_shortcode( 4 ); ?>
+								<div class="stray-downloads">
+									<?php echo eddwp_rp_shortcode( 4 ); ?>
+								</div>
 							</div><!-- /.tab-pane -->
 						</div>
 					</div>

@@ -13,7 +13,7 @@ get_header(); ?>
 				<div class="support-pricing-options-container flex-container">
 					<div class="support-type-information support-type flex-three">
 						<h1>Priority Support</h1>
-						<p>Always be at the front of the support queue with Easy Digital Downloads Priority Support. We will provide technical support, in-depth troubleshooting, and even log into your site to help solve problems.</p>
+						<p>Always be at the front of the support queue with Priority Support. Expect faster response times over free support, allowing you run your business more efficiently.</p>
 						<p>Sign up for yearly or 45-day access to Priority Support and we'll help you take your business to the next level.</p>
 					</div>
 					<div class="yearly-support support-type flex-three">
@@ -24,10 +24,8 @@ get_header(); ?>
 						</div>
 						<div class="support-type-description">
 							<ul class="pricing-column-list">
-								<li>precedence over free support</li>
-								<li>log into your site for troubleshooting</li>
-								<li>in-depth technical assistance</li>
-								<li>1-year access</li>
+								<li>Always ahead of free support</li>
+								<li>Yearly access</li>
 								<li>60% savings over 45-day support</li>
 							</ul>
 						</div>
@@ -42,9 +40,7 @@ get_header(); ?>
 						</div>
 						<div class="support-type-description">
 							<ul class="pricing-column-list">
-								<li>precedence over free support</li>
-								<li>log into your site for troubleshooting</li>
-								<li>in-depth technical assistance</li>
+								<li>Always ahead of free support</li>
 								<li>45-day access</li>
 							</ul>
 						</div>
@@ -52,6 +48,9 @@ get_header(); ?>
 							<a class="button edd-submit blue" href="/support/register/?level=2"><i class="fa fa-life-ring" aria-hidden="true"></i><span>Get </span>45-day priority support</a>
 						</div>
 					</div>
+				</div>
+				<div class="pricing-table-notes">
+					<p><i class="fa fa-info-circle"></i> Priority Support does not give you access to custom development services. The primary purpose of Priority Support is to provide faster assistance over free support.</p>
 				</div>
 			</div>
 		</div>

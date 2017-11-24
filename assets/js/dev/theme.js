@@ -149,11 +149,52 @@
 			return false;
 		});
 
+		// Self Help Support
+		// Select option to show support search form
+		$( ".self-help-issue-select select" ).on('change', function() {
+			$(this).parents( '.gfield' ).siblings( '.helpscout-docs' ).find('.ginput_container_text input').focus();
+		});
 
-		// Pricing page
+		// Self Help Support
+		// prevent support page Next button from showing after Help Scout doc search runs
+		$( '.self-help-show-next-button input[type="checkbox"]' ).on('change', function () {
+			var checked      = $(this).is( ':checked' );
+			var gform_footer = $(this).parents( '.gform_page_fields' ).siblings( '.gform_page_footer' );
+			if ( checked ) {
+				gform_footer.show();
+			} else {
+				gform_footer.hide();
+			}
+		});
+
+		// Self Help Support
+		// toggle display of extended FAQ output
+		$( ".self-help-support-faq-toggle" ).on('click', function(e) {
+			e.preventDefault();
+			$(this).siblings( ".self-help-support-faq-container" ).slideToggle();
+		});
+
+		// Self Help Support
+		// Google Analytics events
+		body.on('change', '.self-help-ga-trigger-start input[name="input_1"]', function() {
+			eddwp_send_ga_action( 'event', 'Support', 'supportStart', 'Started Support Flow' );
+		});
+		body.on('click', '.self-help-resources-page .gform_next_button', function() {
+			eddwp_send_ga_action( 'event', 'Support', 'supportNext', 'Started Submission' );
+		});
+
+		// Pricing page Click/Scroll effect
 		$( "#see-pricing" ).click( function() {
 			$( 'html, body' ).animate( {
 				scrollTop: $( "#pricing-page-header-area" ).offset().top
+			}, 500 );
+			event.preventDefault();
+		});
+
+		// Enhanced Downloads Click/Scroll effect
+		$( "#see-purchase-details" ).click( function() {
+			$( 'html, body' ).animate( {
+				scrollTop: $( "#download-purchase-area" ).offset().top
 			}, 500 );
 			event.preventDefault();
 		});
@@ -162,8 +203,8 @@
 }(jQuery));
 
 function eddwp_send_ga_action( type, category, action, label ) {
-	if (typeof ga !== 'undefined') {
-		ga('send', {
+	if (typeof __gaTracker !== 'undefined') {
+		__gaTracker('send', {
 			hitType      : type,
 			eventCategory: category,
 			eventAction  : action,

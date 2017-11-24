@@ -132,7 +132,8 @@
 		& .edd-submit.button.blue {
 			font-size: 2rem;
 			padding: 10px 20px;
-			margin: 0 auto 1.5rem;
+			margin: 0 0 1.5rem;
+			max-width: 313px;
 		}
 	}
 }
@@ -140,34 +141,34 @@
 .extension-pricing-content {
 	& .stripe-payment-gateway-pricing {
 		background: @eddblue;
+		background: -moz-linear-gradient(5deg, @eddbluehover 57%, @eddbluehover 57%);
+		background: -webkit-linear-gradient(5deg, @eddbluehover 57%,  @eddblue 57%);
+		background: linear-gradient(5deg, @eddbluehover 57%,  @eddblue 57%);
 		border-radius: 4px;
 		margin-bottom: 20px;
 		max-width: 400px;
 
 		& .pricing-header {
-			background: rgba(0,0,0,0.1) url('images/mascot/edd-headshot.png') no-repeat 22px bottom;
-			text-align: right;
-			padding: 20px 35px;
-			border-bottom: 1px solid #215b95;
+			padding: 30px 30px 0;
 
 			& .add-on-title {
-				margin: 0;
+				font-size: 2.4rem;
+				line-height: 1.4;
+				font-weight: 500;
+				padding-bottom: 0;
+				border-bottom: none;
+				margin-bottom: 0;
 
 				& a {
 					color: #fff;
-					font-size: 2rem;
-					line-height: 1.4;
-					font-weight: 400;
-					padding: 0;
 					border: none;
-					margin: 0;
 				}
 			}
 		}
 
 		& .pricing-info {
 			color: #fff;
-			padding: 30px;
+			padding: 20px 30px 30px;
 
 			& .pricing {
 				margin-bottom: 1.387em;
@@ -367,10 +368,10 @@
 
 			& .column-description {
 				font-size: 1.4rem;
-				padding: 14px 20px 25px;
+				padding: 14px 26px 25px;
 
 				& .pricing-column-list {
-					margin: 0 0 20px 3px;
+					margin: 0 0 20px 0;
 					padding: 0;
 					list-style: none;
 
@@ -814,1393 +815,6 @@
 
 
 /* ----------------------------- *
- * Support Page Template
- * ----------------------------- */
-.support-page {
-	& .support-section {
-		margin-bottom: 33px;
-
-		& .support-section-link {
-			display: block;
-			padding: 20px;
-			border: 2px solid @eddgrayhover;
-			border-radius: 4px;
-			box-sizing: border-box;
-			-webkit-transition: border .2s;
-			-moz-transition: border .2s;
-			transition: border .2s;
-
-			&:hover {
-				border: 2px solid @eddblue;
-			}
-
-			& .support-section-title {
-				color: #333;
-				font-weight: 500;
-				margin: 0 0 .4em;
-			}
-
-			& .support-section-description {
-				color: #999;
-				font-size: 14px;
-				font-size: 1.4rem;
-			}
-		}
-
-		&.special-section .support-section-link {
-			border: 2px solid #ccc;
-
-			&:hover {
-				border: 2px solid @eddblue;
-			}
-		}
-	}
-
-	& .support-title-wrap {
-		text-align: center;
-		margin: 0 !important;
-		max-width: 100% !important;
-
-		& .support-title {
-			font-size: 3rem;
-			margin: 0 0 1em;
-		}
-	}
-
-	& .edd-docs-link-wrap {
-		text-align: center;
-		margin-bottom: 50px;
-
-		& a {
-			min-width: 240px;
-		}
-
-		& .button-break {
-			display: inline-block;
-			width: 6px;
-		}
-
-		& .edd-support-ticket-link {
-			padding: 10px;
-			min-width: 240px;
-		}
-	}
-
-	& .support-docs-form-container {
-		&.pre-sale-support-form-container .edd-gf-support-tickets-form {
-			margin-top: 0;
-
-			& .edd-gf-support-tickets-form-email {
-				min-height: 110px;
-			}
-		}
-
-		&.refund-support-form-container {
-			margin-top: 20px;
-		}
-
-		& .gform_confirmation_wrapper.edd-gf-support-tickets-form {
-			margin-top: 40px;
-		}
-	}
-
-	& .standard-support-form-container {
-		display: none; /* click .edd-support-ticket-link to open (display: block;) */
-
-		&:not(.pre-sale-support-form-container) {
-			border-top: 3px solid @eddgray;
-		}
-	}
-
-	& .edd-gf-support-docs {
-		text-align: center;
-
-		& .helpscout-docs {
-			& label {
-				display: none !important;
-			}
-
-			& input[type="text"] {
-				background: @eddgray;
-				font-size: 24px !important;
-				padding: 10px !important;
-				border: 3px solid @eddgrayhover;
-				border-radius: 4px;
-				width: 100% !important;
-				max-width: 520px !important;
-			}
-		}
-
-		& span.results-found {
-			font-size: 18px;
-			display: block;
-			padding-top: 10px;
-			margin: 0 auto;
-			color: #999;
-		}
-	}
-
-	& .gform_wrapper .docs-search-results {
-		text-align: left;
-		padding-left: 0;
-		border: 3px solid @eddgrayhover;
-		border-radius: 4px;
-		margin: 30px auto !important;
-		max-width: 700px;
-
-		&:before {
-			content: "Please review our complete list of suggestions to proceed.";
-			display: block;
-			background: @eddgray;
-			color: #999;
-			font-size: 18px;
-			padding: 10px 20px;
-			border-bottom: 3px solid #f1f1f1;
-		}
-
-		& li {
-			list-style: none !important;
-
-			&.article {
-				border-bottom: 1px solid #f1f1f1;
-				margin: 0;
-
-				& a {
-					display: block;
-					font-size: 18px;
-					padding: 10px 20px;
-
-					&:hover {
-						background: @eddgray;
-						color: @eddblue;
-					}
-				}
-			}
-		}
-	}
-
-	& .gform_wrapper,
-	.gform_wrapper .gform_page_footer {
-		border: none;
-		margin: 0;
-		width: 100%;
-		max-width: 100%;
-	}
-
-	& .gform_wrapper {
-		& .edd-gf-support-tickets-form {
-			margin: 60px 0 100px;
-
-			& input[type="text"],
-			input[type="url"],
-			input[type="email"],
-			input[type="tel"],
-			input[type="number"],
-			input[type="password"],
-			textarea {
-				padding: 10px !important;
-				margin-bottom: 0 !important;
-				width: 100% !important;
-			}
-
-			& .ginput_container label,
-			.top_label .gfield_description {
-				color: #666;
-				font-size: 1.5rem;
-			}
-
-			& ul.gfield_checkbox li input[type=checkbox]:checked+label,
-			ul.gfield_radio li input[type=radio]:checked+label {
-				font-weight: 500;
-			}
-
-			& .top_label {
-				& .gfield.edd-gf-support-tickets-form-email {
-					& .gfield_description {
-						font-size: 1.6rem;
-						padding: 15px 20px !important;
-						margin-top: 20px;
-						width: 100%;
-						-webkit-transition: all .2s ease-in-out;
-						-moz-transition: all .2s ease-in-out;
-						-o-transition: all .2s ease-in-out;
-						-ms-transition: all .2s ease-in-out;
-						transition: all .2s ease-in-out;
-					}
-
-					&:hover .gfield_description {
-						background: #ffffe0;
-					}
-				}
-
-				& .gfield_label {
-					font: 500 24px/1.4 @font-family;
-					margin: 0;
-				}
-
-				& .gfield.edd-gf-support-tickets-form-email .gfield_label {
-					display: none;
-				}
-
-				& .edd-gf-support-tickets-form-subject .gfield_label {
-					margin-bottom: 10px;
-				}
-			}
-
-			& [class*="edd-gf-support-tickets-form-"] {
-				padding-left: 0;
-				margin-bottom: 30px;
-			}
-
-			& .gfield.edd-gf-support-tickets-form-name {
-				margin-bottom: 15px;
-			}
-
-			& .gfield.edd-gf-support-tickets-form-email {
-				padding: 5px 0 30px;
-				border-bottom: 3px solid @eddgray;
-			}
-
-			& .edd-gf-support-tickets-form-email .gfield_description {
-				background: #f1f1f1;
-				color: #777;
-				font-size: 13px;
-				line-height: 1.6;
-				padding: 10px !important;
-				border-radius: 4px;
-			}
-
-			& .edd-gf-support-tickets-form-subject {
-				margin-bottom: 10px;
-			}
-
-			& .edd-gf-support-tickets-form-subject li {
-				display: inline-block;
-				width: 48.5%;
-			}
-
-			& .gsection {
-				padding: 0;
-				border: none;
-				margin: 0;
-			}
-
-			& .gsection h2 {
-				display: none;
-			}
-
-			& .gsection .gsection_description {
-				width: 100%;
-			}
-
-			& .edd-gf-divider {
-				clear: both;
-				color: @eddgray;
-				text-align: center;
-				padding: 0;
-				border: none;
-				border-top: 4px solid @eddgray;
-				margin: 0 0 20px;
-				height: 1px;
-			}
-
-			& .edd-gf-divider:after {
-				content: "\f078";
-				font-family: 'FontAwesome';
-				display: inline-block;
-				position: relative;
-				top: -25px;
-				font-size: 30px;
-				padding: 0 10px;
-				background: white;
-			}
-		}
-
-		& .gform_page_footer {
-			text-align: center;
-		}
-
-		& .edd-gf-support-form,
-		.edd-gf-pre-sale-question-form,
-		.edd-gf-refund-request-form {
-			margin-right: auto;
-			margin-left: auto;
-			max-width: 780px;
-		}
-
-		& .edd-gf-support-form {
-			& .gform_page_footer {
-				padding-top: 40px;
-				border-top: 3px solid @eddgrayhover;
-
-				& img {
-					display: block;
-					max-width: 40px;
-					margin: 10px auto;
-					clear: both
-				}
-			}
-		}
-
-		& .show-contact-form-wrap a,
-		.gform_page_footer input[type="button"],
-		.gform_page_footer input[type="submit"] {
-			padding: 10px;
-			margin-right: 0 !important;
-			min-width: 208px;
-		}
-
-		& .edd-gf-support-tickets-form-subject ul.gfield_radio li input[type="radio"]:checked+label,
-		.edd-gf-support-tickets-form-subject ul.gfield_checkbox li input[type="checkbox"]:checked+label {
-			color: #666;
-		}
-
-		& .edd-gf-support-tickets-form .gfield_radio {
-			margin-left: 0 !important;
-		}
-
-		& .edd-gf-support-tickets-form .docs-support-link {
-			background: #ffffe0;
-			padding: 15px 20px;
-			border-radius: 4px;
-			margin: 30px 0 30px !important;
-		}
-
-		& .edd-gf-support-tickets-form .gform_footer input[type="submit"] {
-			font-size: 18px;
-			padding: 10px;
-			min-width: 208px;
-		}
-	}
-}
-
-
-/* ----------------------------- *
- * My Account
- * ----------------------------- */
-
-/* EDD Wallet */
-.my-account-info {
-	font-size: 1.4rem;
-	margin-bottom: 20px;
-
-	& .edd-account-info {
-		font-size: 90%;
-		margin-bottom: 6px;
-
-		& .account-info-label {
-			display: block;
-			font-weight: 500;
-			margin-right: 6px;
-		}
-	}
-
-	& .edd-wallet-value {
-		font-weight: 500;
-		color: @green;
-	}
-}
-
-/* full account page content wrap */
-.my-account-content {
-
-	& #edd_user_history,
-	& #edd_sl_license_keys,
-	& #edd_sl_license_sites,
-	& .edd_sl_table,
-	& #edd_profile_editor_form,
-	& .edd_user_commissions,
-	& #edd_user_commissions_overview table,
-	& #edd_commissioned_products_table,
-	& #edd-stripe-manage-cards fieldset,
-	& .rcp-table {
-		font-size: 1.4rem;
-		border-collapse: inherit;
-		border: 3px solid @eddgrayhover;
-		border-radius: 4px;
-
-		& th {
-			vertical-align: top;
-		}
-	}
-
-	& .edd-manage-license-back {
-		text-decoration: underline;
-		padding: 0;
-
-		&:hover {
-			text-decoration: none;
-		}
-	}
-}
-
-/* tabs / content */
-.my-account-tabs,
-.tabbed-template-tabs {
-	float: left;
-	width: 20%;
-
-	& .nav-tabs.nav-append-content,
-	.affiliates-list,
-	.your-account-link-list {
-		list-style: none;
-		font-size: 14px;
-		font-size: 1.4rem;
-		padding: 0;
-		border: 3px solid @eddgrayhover;
-		border-radius: 4px;
-		margin: 0;
-
-		&.is-affiliate,
-		&.purchase-confirmation-tabs {
-			border-radius: 4px 4px 0 0;
-		}
-
-		& li {
-			float: none;
-			margin-bottom: 0;
-
-			& a {
-				display: block;
-				background: none;
-				color: #555;
-				padding: 10px 10px 10px 6px;
-				border: none;
-				width: 100%;
-				border: 3px solid @eddgrayhover;
-				border-width: 0 0 3px;
-				border-radius: 0;
-
-				&:hover {
-					background: @eddgray;
-					border: 3px solid @eddgrayhover;
-					border-width: 0 0 3px;
-				}
-
-				&.account-tab-highlight {
-					background: #fcf8e3;
-
-					&:hover {
-						background: #f9f5df;
-					}
-				}
-
-				& .fa {
-					display: inline-block;
-					text-align: center;
-					margin-right: 5px;
-					min-width: 25px;
-				}
-			}
-
-			&:last-child a {
-				border-bottom: none;
-			}
-		}
-
-		& li.active a {
-			background: @eddgray;
-			border: 3px solid @eddgrayhover;
-			border-width: 0 0 3px;
-
-			&:hover {
-				background: @eddgray;
-				border: 3px solid @eddgrayhover;
-				border-width: 0 0 3px;
-			}
-
-			&.has-expired-licenses {
-				background: #fcf8e3;
-			}
-		}
-
-		& li.active:last-of-type a {
-			border-bottom: none;
-
-			&:hover {
-				border-bottom: none;
-			}
-		}
-	}
-
-	& .affiliates-list,
-	.your-account-link-list {
-		border-top: none;
-		border-radius: 0 0 4px 4px;
-	}
-}
-
-.update-subscription-info {
-	padding: 20px 30px;
-	margin-bottom: 50px;
-
-	& .fa {
-		font-size: 110%;
-		margin-right: 8px;
-	}
-
-	& a {
-		text-decoration: underline;
-
-		&:hover {
-			text-decoration: none;
-		}
-	}
-
-	& .failing-subs {
-
-		& .failing-sub-header {
-			display: block;
-			font-size: 20px;
-			font-size: 2rem;
-			font-weight: 500;
-			padding-bottom: 20px;
-			border-bottom: 3px solid rgba(0,0,0,0.05);
-			margin-bottom: 20px;
-		}
-
-		& ul {
-			list-style-type: none;
-			margin: 0;
-			padding: 0;
-		}
-	}
-}
-
-.my-account-tab-content,
-.tabbed-template-tab-content {
-	float: right;
-	width: 75%;
-
-	& .license-key-notice {
-		background: #fcf8e3;
-		padding: 20px 30px 30px;
-		border: none;
-		border-radius: 4px 4px 0 0;
-
-		& .expired-key-toggle {
-			display: inline-block;
-			text-decoration: underline;
-
-			&:hover {
-				text-decoration: none;
-			}
-		}
-
-		& .toggle-keys-container {
-			display: none;
-		}
-
-		& .section-title-alt {
-			border-color: rgba(0,0,0,.05);
-			margin-bottom: 20px;
-
-			& .fa {
-				margin-right: 10px;
-			}
-
-			&.renew-all-title {
-				margin-top: 20px;
-			}
-		}
-
-		& .expired-keys {
-			margin: 0 0 10px;
-
-			& .expired-key-item {
-				.flex-item;
-				margin-bottom: 20px;
-
-				& .licensed-product-title {
-					font-weight: 500;
-				}
-
-				& .licensed-product-key {
-					font-size: 90%;
-					color: #777;
-				}
-
-				& .license-actions {
-					font-size: 90%;
-
-					& a {
-						text-decoration: underline;
-
-						&:hover {
-							text-decoration: none;
-						}
-					}
-				}
-			}
-		}
-	}
-
-	& .renew-all-licenses {
-		background: #fcf8e3;
-		padding: 0 30px 30px;
-		border-radius: 0 0 4px 4px;
-		margin: -20px 0 30px;
-
-		&.no-expired {
-			background: #edf8ff;
-			padding: 20px 30px 30px;
-			border-radius: 4px;
-			margin-top: 0;
-
-			& h4.section-title-alt {
-				border-bottom-color: #d1dfe8;
-				margin-bottom: 30px;
-
-				& .fa {
-					margin-right: 10px;
-				}
-			}
-		}
-
-		& #edd-sl-renew-all {
-			& select {
-				display: block;
-				border: 3px solid rgba(0,0,0,.05);
-				border-radius: 3px;
-				margin-bottom: 10px;
-				max-width: 300px;
-				height: 30px;
-			}
-
-			& p {
-				margin-bottom: 0;
-			}
-
-			& input[type="submit"] {
-				min-width: 100px;
-			}
-		}
-
-		& p {
-			margin-bottom: 15px;
-		}
-
-		&:not(.no-expired) > p:first-child {
-			padding-top: 20px;
-			border-top: 3px solid rgba(0,0,0,.05);
-		}
-
-		&:not(.no-expired).two-or-less {
-			margin-top: -40px;
-		}
-	}
-
-	& .tab-content {
-		position: relative;
-
-		& #edd-recurring-form {
-			margin-top: 30px;
-			width: 100%;
-			max-width: 100%;
-
-			& #edd_checkout_form_wrap #edd_cc_fields > legend,
-			#edd_checkout_form_wrap #edd_cc_address > legend {
-				display: block;
-				color: inherit;
-				font-size: 120%;
-				line-height: 1;
-				font-weight: bold;
-				width: 100%;
-				padding: 0;
-				border: none;
-				margin: 0 0 21px;
-			}
-		}
-
-		& .tab-pane,
-		#edd_checkout_form_wrap,
-		#edd-stripe-manage-cards {
-			& input[type="text"],
-			& input[type="email"],
-			& input[type="password"],
-			& input[type="tel"] {
-				background: @eddgray;
-				font-size: 1.6rem;
-				padding: 10px;
-				width: 100%;
-				max-width: 490px;
-				outline: none;
-				border: 3px solid @eddgrayhover;
-				border-radius: 3px;
-			}
-
-			& select {
-				background: @eddgray;
-				font-size: 1.6rem;
-				width: 100%;
-				max-width: 490px;
-				border: 3px solid @eddgrayhover;
-				border-radius: 3px;
-				height: 45px;
-			}
-		}
-
-		& #edd_sl_license_add_site_form {
-			& > div > span {
-				display: block;
-				margin-bottom: 10px;
-			}
-
-			& input[type*="text"] {
-				display: block;
-				background: @eddgray;
-				font-size: 1.6rem;
-				padding: 10px;
-				width: 100%;
-				max-width: 490px;
-				outline: none;
-				border: 3px solid @eddgrayhover;
-				border-radius: 3px;
-				margin-bottom: 10px;
-			}
-		}
-
-		& #subscriptions-tab {
-			& #edd_user_history {
-				& > tbody > tr > td:last-child a {
-					font-size: 90%;
-				}
-			}
-
-			& > a {
-				display: inline-block;
-			}
-
-			& > h3:last-of-type:not(:only-of-type) {
-				color: #999;
-				font-size: 1.6rem;
-				font-weight: 400;
-				margin: 20px 0 30px;
-
-				& em {
-					color: #555;
-					font-style: normal;
-					font-weight: 500;
-				}
-			}
-		}
-
-		& #edd_profile_editor_form {
-			& fieldset {
-				border: none;
-				padding: 0;
-				margin: 0;
-
-				& > legend {
-					display: block;
-					background: #f5f5f5;
-					color: #555;
-					font-size: 1.6rem;
-					line-height: 20px;
-					font-weight: 500;
-					padding: 10px;
-					border-bottom: 3px solid @eddgrayhover;
-					margin-bottom: 30px;
-				}
-
-				&:not(:first-of-type) > legend {
-					border-top: 3px solid @eddgrayhover;
-				}
-
-				& > p,
-				& > div {
-					padding: 0 30px;
-					margin-bottom: 0;
-
-					& label {
-						width: 148px;
-						display: inline-block;
-						vertical-align: top;
-						font-weight: 500;
-					}
-
-					&:last-of-type {
-						margin-bottom: 15px;
-					}
-
-					&#edd_profile_submit_wrap {
-						background: @eddgray;
-						padding: 30px !important;
-						border-top: 3px solid @eddgrayhover;
-						margin: 20px 0 0;
-
-						& #edd_profile_editor_submit {
-							margin-bottom: 0;
-						}
-					}
-
-					&.edd_password_change_notice {
-						margin: 10px 0 20px;
-					}
-				}
-
-				& input,
-				& select {
-					margin-bottom: 15px;
-				}
-
-				& #edd_profile_emails_wrap {
-					display: inline-table;
-				}
-			}
-		}
-
-		& #edd-stripe-manage-cards {
-			& > fieldset {
-				background: #fff;
-
-				& legend {
-					display: none;
-				}
-			}
-
-			& .edd-stripe-card-item {
-				position: relative;
-				border: none;
-				border-bottom: 2px solid #eef0f0;
-				border-radius: 0;
-				margin-bottom: 0;
-
-				& .card-brand,
-				.card-last-4 {
-					font-size: 18px;
-					font-weight: 500;
-				}
-
-				.default-card-sep {
-					display: none;
-				}
-
-				& .card-is-default {
-					display: inline-block;
-					background: #a2acb2;
-					color: #fff;
-					font-size: 13px;
-					font-style: normal;
-					line-height: 1;
-					padding: 6px 8px;
-					border-radius: 3px;
-					margin: 0 0 0 6px;
-				}
-
-				& .card-update-form {
-					margin-top: 10px;
-
-					& label {
-						margin-bottom: 6px;
-						font-size: 16px;
-					}
-
-					& .card-address-fields {
-						margin-bottom: 10px;
-					}
-
-					& input[type="text"],
-					input[type="email"],
-					input[type="password"],
-					input[type="tel"] {
-						display: inline-block;
-						width: 48%;
-						max-width: auto;
-					}
-
-					& select {
-						display: inline-block;
-						width: 48%;
-						max-width: auto;
-					}
-
-					& > p:last-child {
-						margin: 10px 0;
-
-						& .edd-stripe-cancel-update {
-							display: inline-block;
-							color: #999;
-							text-decoration: underline;
-							margin-left: 5px;
-
-							&:hover {
-								text-decoration: none;
-							}
-						}
-					}
-				}
-
-				&:nth-child(odd) {
-					background: @eddgray;
-
-					& .card-update-form {
-
-						& input[type="text"],
-						input[type="email"],
-						input[type="password"],
-						input[type="tel"],
-						select {
-							background: #fff;
-							border: 3px solid @eddgrayhover;
-						}
-					}
-				}
-
-				&:nth-child(even) {
-					& .card-update-form {
-
-						& input[type="text"],
-						input[type="email"],
-						input[type="password"],
-						input[type="tel"],
-						select {
-							background: @eddgray;
-							border: 3px solid @eddgrayhover;
-						}
-					}
-				}
-
-				&:last-child {
-					border-bottom: none;
-				}
-
-				& .card-actions {
-					& a {
-						color: #999;
-						text-decoration: underline;
-
-						&:hover {
-							text-decoration: none;
-						}
-					}
-
-					& .card-delete a {
-						color: red;
-					}
-				}
-			}
-
-			& .edd-stripe-add-new-card {
-				& > label {
-					font-size: 20px;
-					padding: 0 10px 15px;
-					border: none;
-					margin: 0 0 5px;
-				}
-
-				& > fieldset {
-					padding: 10px;
-					border: none;
-
-					&#edd_cc_address {
-						margin-bottom: 0;
-					}
-
-					& input[type="text"],
-					input[type="email"],
-					input[type="password"],
-					input[type="tel"] {
-						font-size: 1.6rem;
-						width: 100%;
-						max-width: 490px;
-					}
-
-					& select {
-						display: block;
-						font-size: 1.6rem;
-						border: 3px solid rgba(0,0,0,.05);
-						border-radius: 3px;
-						margin-bottom: 10px;
-						width: 100%;
-						max-width: 490px;
-						height: 45px;
-					}
-
-					& .card-expiration select,
-					.card-expiration .exp-divider {
-						display: inline !important;
-					}
-				}
-			}
-
-			& .edd-stripe-add-card-actions {
-				background: #fff;
-				padding: 20px 10px;
-
-				& #edd-stripe-add-new-cancel {
-					display: inline-block;
-					color: #999;
-					text-decoration: underline;
-					margin-left: 5px;
-
-					&:hover {
-						text-decoration: none;
-					}
-				}
-			}
-		}
-
-		& .rcp-table {
-			font-size: 1.4rem !important;
-
-			& th {
-				background: #f5f5f5;
-			}
-
-			& th,
-			& td {
-				padding: 12px 10px;
-				border: none;
-			}
-		}
-	}
-}
-
-#edd_user_history,
-.affiliate-stats table,
-#account-page .rcp-table,
-.edd_sl_table {
-	max-width: 100%;
-	background-color: transparent;
-	border-collapse: collapse;
-	border-spacing: 0;
-	width: 100%;
-}
-
-#edd_user_history thead th,
-.affiliate-stats table thead th,
-#account-page .rcp-table thead th,
-.edd_sl_table thead th {
-	vertical-align: bottom;
-	background: #f5f5f5;
-	line-height: 20px;
-	text-align: left;
-	padding: 12px 10px;
-	padding-bottom: 14px;
-}
-
-#edd_user_history tbody > tr:nth-child(odd) > td,
-#edd_user_history tbody > tr:nth-child(odd) > th,
-#account-page .rcp-table tbody > tr:nth-child(odd) > td,
-#account-page .rcp-table tbody > tr:nth-child(odd) > th,
-.edd_sl_table tbody > tr:nth-child(odd) > th {
-	background-color: transparent;
-}
-
-#edd_user_history td,
-.affiliate-stats table td,
-#account-page .rcp-table td,
-.edd_sl_table td {
-	padding: 12px 10px;
-	border-top: 2px solid #eef0f0;
-	line-height: 20px;
-	text-align: left;
-	vertical-align: top;
-}
-
-#account-page .subscriptions-tab-pane a:nth-child(3) {
-	display: inline-block;
-	margin-bottom: 20px;
-}
-
-#account-page .subscriptions-tab-pane h3:nth-child(4) {
-	font-size: 1.6rem;
-	font-weight: 400;
-	margin-bottom: 16px;
-
-	& em {
-		font-size: 1.8rem;
-		font-weight: 500;
-		font-style: normal;
-	}
-}
-
-#account-page .downloads-tab-pane .edd_download_file .edd_download_file_link:first-child br {
-	display: none;
-}
-
-#account-page .commissions-tab-pane .edd-select {
-	border: 3px solid #eaeaea;
-	border-radius: 3px;
-	margin-bottom: 10px;
-	height: 40px;
-	max-width: 300px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
-#account-page .profile-editor-tab-pane .edd-select {
-	border: 3px solid @eddgrayhover;
-	border-radius: 3px;
-	width: 300px;
-	height: 45px;
-}
-
-#account-page table.rcp-table th {
-	vertical-align: top;
-}
-
-#account-page .rcp-table:first-child {
-	margin-bottom: 30px;
-}
-
-#edd_user_history tbody > tr:nth-child(even) > td,
-#edd_user_history tbody > tr.selected-row > td,
-#edd_user_history tbody > tr:nth-child(even) > th,
-#edd_user_history tbody > tr.selected-row > th,
-#account-page .rcp-table tbody > tr:nth-child(even) > td,
-#account-page .rcp-table tbody > tr.selected-row > td,
-#account-page .rcp-table tbody > tr:nth-child(even) > th,
-#account-page .rcp-table tbody > tr.selected-row > th,
-.edd_sl_table tbody > tr:nth-child(even) > td,
-.edd_sl_table tbody > tr.selected-row > td,
-.edd_sl_table tbody > tr:nth-child(even) > th,
-.edd_sl_table tbody > tr.selected-row > th {
-	background: @eddgray;
-}
-
-.edd_user_commissions,
-#edd_user_commissions_overview table,
-#edd_commissioned_products_table {
-	border-collapse: collapse;
-	background: transparent;
-	text-align: left;
-	border-spacing: 0;
-	margin-bottom: 10px;
-	width: 100%;
-	max-width: 100%;
-
-	& thead {
-		text-align: left;
-
-		& th {
-			background: #f5f5f5;
-			text-align: left;
-			vertical-align: bottom;
-			padding: 12px 10px;
-			padding-bottom: 14px;
-			line-height: 20px;
-		}
-	}
-
-	& tbody {
-		& td {
-			padding: 12px 10px;
-			border-top: 2px solid #eef0f0;
-			line-height: 20px;
-			text-align: left;
-			vertical-align: top;
-		}
-
-		& > tr:nth-child(even) > td {
-			background: @eddgray;
-		}
-	}
-}
-
-#edd_user_commissions_overview {
-	margin-bottom: 30px;
-
-	& > h3 {
-		display: none;
-	}
-}
-
-#eddc-dashboard-graphs {
-	margin-bottom: 30px;
-
-	& h4 {
-		font-size: 2.4rem;
-	}
-
-	& #edd-graphs-filter {
-		& select {
-			background: @eddgray;
-			border: 3px solid @eddgrayhover;
-			height: 40px;
-			margin-left: 0;
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
-			box-sizing: border-box;
-		}
-	}
-}
-
-#edd_commissioned_products_table {
-	margin-bottom: 30px;
-}
-
-#edd_user_commissions_unpaid_total,
-#edd_user_commissions_paid_total,
-#edd_user_commissions_revoked_total {
-	font-size: 1.8rem;
-	font-weight: 500;
-	margin: 0 0 20px;
-}
-
-#edd_commissions_unpaid_pagination,
-#edd_commissions_paid_pagination {
-	display: block;
-	padding: 10px 0 30px;
-	*display: inline-block;
-	height: 1%;
-
-	& .current, .page-numbers {
-		background: @eddgray;
-		color: @edddarkblue;
-		border: none;
-		border-radius: 3px;
-		padding: 1px 8px;
-		font-weight: normal;
-		margin-right: 5px;
-		float: left;
-		display: block;
-		-webkit-transition: none;
-		-moz-transition: none;
-		-o-transition: none;
-		-ms-transition: none;
-		transition: none;
-	}
-
-	& .current, .page-numbers:hover {
-		background: @eddblue;
-		color: #fff;
-		-webkit-transition: none;
-		-moz-transition: none;
-		-o-transition: none;
-		-ms-transition: none;
-		transition: none;
-	}
-
-	&:after {
-		content: "";
-		display: block;
-		clear: both;
-		visibility: hidden;
-		font-size: 0;
-		height: 0;
-	}
-}
-
-#account-page .edd_sl_license_row input.edd_sl_license_key {
-	background: none;
-	color: #777;
-	font-size: 14px;
-	font-size: 1.4rem;
-	font-style: italic;
-	font-weight: 400;
-	padding: 0;
-	border: none;
-}
-
-#loginform,
-#passwordreset {
-	max-width: 380px;
-	margin: 40px auto 0;
-
-	& label {
-		font-weight: 400;
-	}
-}
-
-#loginform fieldset,
-#passwordreset fieldset {
-	width: 100%;
-	border: none;
-}
-
-#loginform fieldset input[type="text"],
-#passwordreset fieldset input[type="text"],
-#loginform fieldset input[type="password"] {
-	background: @eddgray;
-	padding: 10px;
-	width: 100%;
-	outline: none;
-	margin: 0 0 10px;
-	border: 3px solid @eddgrayhover;
-	border-radius: 3px;
-}
-
-#loginform input[type="checkbox"] {
-	margin-bottom: 13px;
-}
-
-#loginform input[type="submit"] {
-	display: block;
-}
-
-.lost-password-link {
-	display: inline-block;
-	color: #777;
-	font-size: 1.4rem;
-	text-decoration: underline;
-	margin-top: 10px;
-
-	&:hover {
-		color: #777;
-		text-decoration: none;
-	}
-}
-
-/* standard EDD login form */
-#edd_login_form {
-	max-width: 380px;
-	margin: 40px auto 0;
-
-	& fieldset {
-		width: 100%;
-		border: none;
-
-		& > legend {
-			display: none;
-		}
-
-		& > p {
-			margin-bottom: 0;
-
-			& label {
-				font-weight: 400;
-			}
-		}
-
-		& input[type="text"],
-		input[type="password"] {
-			background: @eddgray;
-			padding: 10px;
-			width: 100%;
-			outline: none;
-			margin: 0 0 10px;
-			border: 3px solid @eddgrayhover;
-			border-radius: 3px;
-		}
-	}
-
-	& input[type="checkbox"] {
-		margin-bottom: 13px;
-	}
-
-	& input[type="submit"] {
-		display: block;
-	}
-
-	& .edd-lost-password a {
-		display: inline-block;
-		color: #777;
-		font-size: 1.4rem;
-		text-decoration: underline;
-		margin-top: 10px;
-
-		&:hover {
-			color: #777;
-			text-decoration: none;
-		}
-	}
-}
-
-
-/* ----------------------------- *
  * Checkout
  * ----------------------------- */
 .edd-checkout .site-footer .flex-container .flex-two {
@@ -2237,6 +851,14 @@
 		border-collapse: inherit;
 		border: 1px solid @eddgrayhover;
 		border-width: 0 1px 1px 0;
+
+		& .renew-existing-sub-warning td:last-child {
+			background: #fcf8e3;
+			font-size: 1.4rem;
+			line-height: 1.6;
+			text-align: left;
+			padding: 8px 22px;
+		}
 	}
 
 	& #edd_checkout_cart .edd_cart_item_image img {
@@ -2582,7 +1204,7 @@
 
 				& .card-is-default {
 					display: inline-block;
-					background: #a2acb2;
+					background: @green;
 					color: #fff;
 					font-size: 13px;
 					font-style: normal;
@@ -2622,6 +1244,25 @@
 	}
 }
 
+#edd_checkout_cart {
+	border-collapse: inherit;
+	border: 1px solid @eddgrayhover;
+	border-width: 0 1px 1px 0;
+
+	& .renew-existing-sub-warning td:last-child {
+		background: #fcf8e3;
+		text-align: left;
+		font-size: 1.4rem;
+		line-height: 1.6;
+		padding: 6px 22px;
+
+		& em {
+			font-style: normal;
+			font-weight: 500;
+		}
+	}
+}
+
 .edd-wallet-applied-discount {
 	display: block;
 	font-size: .8em;
@@ -2648,14 +1289,1518 @@
 
 
 /* ----------------------------- *
+ * My Account page / Affiliate Area / Purchase Confirmation
+ * ----------------------------- */
+
+/* full account page content area */
+.my-account-content,
+.purchase-confirmation-content {
+
+	/* account page tables (shared) */
+	& #edd_user_history,
+	& #edd_sl_license_keys,
+	& #edd_sl_license_sites,
+	& .edd_sl_table,
+	& #edd_profile_editor_form,
+	& .edd_user_commissions,
+	& #edd_user_commissions_overview table,
+	& #edd_commissioned_products_table,
+	& #edd-stripe-manage-cards fieldset,
+	& .rcp-table,
+	& #edd_all_access_pass_details,
+	& #affwp-affiliate-dashboard .affwp-table,
+	& #edd_purchase_receipt,
+	& #edd_subscription_receipt,
+	& #edd_purchase_receipt_products {
+		background-color: transparent;
+		font-size: 1.4rem;
+		border-collapse: inherit;
+		border-spacing: 0;
+		border: 3px solid @eddgrayhover;
+		border-radius: 4px;
+		max-width: 100%;
+		width: 100%;
+
+		& thead {
+			text-align: left;
+
+			& th {
+				background: @eddgray;
+				font-weight: 500;
+				line-height: 20px;
+				text-align: left;
+				padding: 12px 10px 14px;
+				border: none;
+				vertical-align: top;
+			}
+		}
+
+		& tbody {
+			& tr:first-child > td {
+				border-width: 2px 0 0;
+				border-style: solid;
+				border-color: @eddgrayhover;
+			}
+
+			& td {
+				line-height: 20px;
+				text-align: left;
+				padding: 12px 10px;
+				border-width: 1px 0 0;
+				border-style: solid;
+				border-color: @eddgrayhover;
+				vertical-align: top;
+			}
+
+			& > tr:nth-child(even) > td {
+				background: @eddgray;
+			}
+		}
+
+		& > tbody > tr:last-child > td {
+			border-bottom: none;
+		}
+	}
+
+	/* account page tabs */
+	& .my-account-tabs,
+	.tabbed-template-tabs {
+		float: left;
+		width: 20%;
+
+		& .nav-tabs.nav-append-content,
+		.affiliates-list,
+		.your-account-link-list {
+			list-style: none;
+			font-size: 14px;
+			font-size: 1.4rem;
+			padding: 0;
+			border: 3px solid @eddgrayhover;
+			border-radius: 4px;
+			margin: 0;
+
+			&.is-affiliate,
+			&.purchase-confirmation-tabs {
+				border-radius: 4px 4px 0 0;
+				border-bottom-width: 1px;
+			}
+
+			& li {
+				float: none;
+				margin-bottom: 0;
+
+				& a {
+					display: block;
+					background: none;
+					color: #555;
+					padding: 10px 10px 10px 6px;
+					border: none;
+					width: 100%;
+					border-width: 0 0 1px;
+					border-style: solid;
+					border-color: @eddgrayhover;
+					border-radius: 0;
+
+					&:hover {
+						background: @eddgray;
+						border-width: 0 0 1px;
+						border-style: solid;
+						border-color: @eddgrayhover;
+					}
+
+					&.account-tab-highlight {
+						&:after {
+							float: right;
+							color: #d05c5c;
+							font-family: FontAwesome;
+							content: "\f071";
+						}
+					}
+
+					& .fa {
+						display: inline-block;
+						text-align: center;
+						margin-right: 5px;
+						min-width: 25px;
+
+						/* specific icon tweaks */
+						&.fa-credit-card-alt {
+							font-size: 90%;
+						}
+					}
+				}
+
+				&:last-child a {
+					border-bottom: none;
+				}
+			}
+
+			& li.active a {
+				background: @eddgray;
+				font-weight: 500;
+				border-width: 0 0 1px;
+				border-style: solid;
+				border-color: @eddgrayhover;
+
+				&:hover {
+					background: @eddgray;
+					border-width: 0 0 1px;
+					border-style: solid;
+					border-color: @eddgrayhover;
+				}
+
+				&.has-expired-licenses {
+					background: #fcf8e3;
+				}
+
+				& .fa {
+					color: @eddblue;
+				}
+			}
+
+			& li.active:last-of-type a {
+				border-bottom: none;
+
+				&:hover {
+					border-bottom: none;
+				}
+			}
+		}
+
+		& .affiliates-list,
+		.your-account-link-list {
+			border-top: none;
+			border-radius: 0 0 4px 4px;
+		}
+
+		/* EDD Wallet */
+		& .my-account-info {
+			font-size: 1.4rem;
+			margin-bottom: 20px;
+
+			& .edd-account-info {
+				font-size: 90%;
+				margin-bottom: 6px;
+
+				& .account-info-label {
+					display: block;
+					font-weight: 500;
+					margin-right: 6px;
+				}
+			}
+
+			& .edd-wallet-value {
+				font-weight: 500;
+				color: @green;
+			}
+		}
+	}
+
+	/* account page content column */
+	& .my-account-tab-content,
+	.tabbed-template-tab-content {
+		float: right;
+		width: 75%;
+
+		& .tab-content {
+			position: relative;
+
+			/* shared content column element styles */
+			& .tab-pane,
+			#edd_checkout_form_wrap,
+			#edd-stripe-manage-cards {
+				& input[type="text"],
+				& input[type="email"],
+				& input[type="password"],
+				& input[type="tel"] {
+					background: @eddgray;
+					font-size: 1.6rem;
+					padding: 10px;
+					width: 100%;
+					max-width: 490px;
+					outline: none;
+					border: 3px solid @eddgrayhover;
+					border-radius: 3px;
+				}
+
+				& select {
+					background: @eddgray;
+					font-size: 1.6rem;
+					width: 100%;
+					max-width: 490px;
+					border: 3px solid @eddgrayhover;
+					border-radius: 3px;
+					height: 45px;
+				}
+			}
+
+
+			/* ----------------------------- *
+ 			 * Purchases content
+ 			 * ----------------------------- */
+ 			/* no styles needed */
+
+
+			/* ----------------------------- *
+ 			 * License Keys content
+ 			 * ----------------------------- */
+			& #license-keys {
+				& .license-key-notice {
+					background: #fcf8e3;
+					padding: 20px 30px 30px;
+					border: none;
+					border-radius: 4px 4px 0 0;
+
+					& .expired-key-toggle {
+						display: inline-block;
+						text-decoration: underline;
+
+						&:hover {
+							text-decoration: none;
+						}
+					}
+
+					& .toggle-keys-container {
+						display: none;
+					}
+
+					& .section-title-alt {
+						border-color: rgba(0,0,0,.05);
+						margin-bottom: 20px;
+
+						& .fa {
+							margin-right: 10px;
+						}
+
+						&.renew-all-title {
+							margin-top: 20px;
+						}
+					}
+
+					& .expired-keys {
+						margin: 0 0 10px;
+
+						& .expired-key-item {
+							.flex-item;
+							margin-bottom: 20px;
+
+							& .licensed-product-title {
+								font-weight: 500;
+							}
+
+							& .licensed-product-key {
+								font-size: 90%;
+								color: #777;
+							}
+
+							& .license-actions {
+								font-size: 90%;
+
+								& a {
+									text-decoration: underline;
+
+									&:hover {
+										text-decoration: none;
+									}
+								}
+							}
+						}
+					}
+				}
+
+				& .renew-all-licenses {
+					background: #fcf8e3;
+					padding: 0 30px 30px;
+					border-radius: 0 0 4px 4px;
+					margin: -20px 0 30px;
+
+					&.no-expired {
+						background: #edf8ff;
+						padding: 20px 30px 30px;
+						border-radius: 4px;
+						margin-top: 0;
+
+						& h4.section-title-alt {
+							border-bottom-color: #d1dfe8;
+							margin-bottom: 30px;
+
+							& .fa {
+								margin-right: 10px;
+							}
+						}
+					}
+
+					& #edd-sl-renew-all {
+						& select {
+							display: block;
+							border: 3px solid rgba(0,0,0,.05);
+							border-radius: 3px;
+							margin-bottom: 10px;
+							max-width: 300px;
+							height: 30px;
+						}
+
+						& p {
+							margin-bottom: 0;
+						}
+
+						& input[type="submit"] {
+							min-width: 100px;
+						}
+					}
+
+					& p {
+						margin-bottom: 15px;
+					}
+
+					&:not(.no-expired) > p:first-child {
+						padding-top: 20px;
+						border-top: 3px solid rgba(0,0,0,.05);
+					}
+
+					&:not(.no-expired).two-or-less {
+						margin-top: -40px;
+					}
+				}
+
+				& #edd_sl_license_add_site_form {
+					& > div > span {
+						display: block;
+						margin-bottom: 10px;
+					}
+
+					& input[type*="text"] {
+						display: block;
+						background: @eddgray;
+						font-size: 1.6rem;
+						padding: 10px;
+						width: 100%;
+						max-width: 490px;
+						outline: none;
+						border: 3px solid @eddgrayhover;
+						border-radius: 3px;
+						margin-bottom: 10px;
+					}
+				}
+			}
+
+
+			/* ----------------------------- *
+ 			 * All Access Pass content
+ 			 * ----------------------------- */
+			& #all-access {
+				& .edd-aa-status-value > span,
+				.edd_all_access_pass_status > span {
+					display: inline-block;
+					background: #a2acb2;
+					color: #fff;
+					text-align: center;
+					font-size: 12px;
+					line-height: 1;
+					padding: 4px 8px;
+					border-radius: 3px;
+					margin: 0 0 2px 0;
+					min-width: 68px;
+					vertical-align: middle;
+
+					& a {
+						color: #fff;
+					}
+
+					&.edd-aa-active-status {
+						background: @green;
+					}
+
+					&.edd-aa-renewed-status,
+					&.edd-aa-upcoming-status,
+					&.edd-aa-upgraded-status {
+						background: @eddblue;
+					}
+
+					&.edd-aa-expired-status {
+						background: #d05c5c;
+					}
+				}
+
+				& #edd_all_access_pass_details.edd_all_access_table {
+					& tbody > tr {
+						&.edd_all_access_status_row {
+							& .row-value {
+								padding-bottom: 10px;
+							}
+						}
+
+						& > td {
+							border-width: 1px 0 0;
+							border-style: solid;
+							border-color: @eddgrayhover;
+
+							&.row-label {
+								font-weight: 500;
+							}
+						}
+
+						&:first-child > td {
+							border-width: 2px 0 0;
+							border-style: solid;
+							border-color: @eddgrayhover;
+						}
+
+						&:nth-child(even) > td {
+							background: transparent;
+						}
+					}
+				}
+
+				& .no-all-access-account-wrap {
+					& h3 .fa {
+						margin-right: 8px;
+					}
+
+					& .edd-add-to-cart-label:before {
+						font-family: "FontAwesome";
+						content: "\f06b";
+						margin-right: 1rem;
+					}
+				}
+			}
+
+
+			/* ----------------------------- *
+ 			 * Subscriptions content
+ 			 * ----------------------------- */
+			& #subscriptions {
+
+				/* update subscription payment info */
+				& #edd-recurring-form {
+					margin-top: 30px;
+					width: 100%;
+					max-width: 100%;
+
+					& #edd_checkout_form_wrap #edd_cc_fields > legend,
+					#edd_checkout_form_wrap #edd_cc_address > legend {
+						display: block;
+						color: inherit;
+						font-size: 120%;
+						line-height: 1;
+						font-weight: bold;
+						width: 100%;
+						padding: 0;
+						border: none;
+						margin: 0 0 21px;
+					}
+				}
+			}
+
+
+			/* ----------------------------- *
+ 			 * Downloads content
+ 			 * ----------------------------- */
+ 			/* no styles needed */
+
+
+			/* ----------------------------- *
+ 			 * Profile content
+ 			 * ----------------------------- */
+ 			& #profile {
+				& #edd_profile_editor_form {
+					& fieldset {
+						border: none;
+						padding: 0;
+						margin: 0;
+
+						& > legend {
+							display: block;
+							background: #f5f5f5;
+							color: #555;
+							font-size: 1.6rem;
+							line-height: 20px;
+							font-weight: 500;
+							padding: 10px;
+							border-bottom: 3px solid @eddgrayhover;
+							margin-bottom: 30px;
+						}
+
+						&:not(:first-of-type) > legend {
+							border-top: 3px solid @eddgrayhover;
+						}
+
+						& > p,
+						& > div {
+							padding: 0 30px;
+							margin-bottom: 0;
+
+							& label {
+								width: 148px;
+								display: inline-block;
+								vertical-align: top;
+								font-weight: 500;
+							}
+
+							&:last-of-type {
+								margin-bottom: 15px;
+							}
+
+							&#edd_profile_submit_wrap {
+								background: @eddgray;
+								padding: 30px !important;
+								border-top: 3px solid @eddgrayhover;
+								margin: 20px 0 0;
+
+								& #edd_profile_editor_submit {
+									margin-bottom: 0;
+								}
+							}
+
+							&.edd_password_change_notice {
+								margin: 10px 0 20px;
+							}
+						}
+
+						& input,
+						& select {
+							margin-bottom: 15px;
+						}
+
+						& #edd_profile_emails_wrap {
+							display: inline-table;
+						}
+					}
+				}
+ 			}
+
+
+			/* ----------------------------- *
+ 			 * Payment Methods content
+ 			 * ----------------------------- */
+ 			& #payment-methods {
+				& #edd-stripe-manage-cards {
+					& > fieldset {
+						background: #fff;
+
+						& legend {
+							display: none;
+						}
+					}
+
+					& .edd-stripe-card-item {
+						position: relative;
+						border: none;
+						border-bottom: 2px solid #eef0f0;
+						border-radius: 0;
+						margin-bottom: 0;
+
+						& .card-brand,
+						.card-last-4 {
+							font-size: 18px;
+							font-weight: 500;
+						}
+
+						.default-card-sep {
+							display: none;
+						}
+
+						& .card-is-default {
+							display: inline-block;
+							background: #a2acb2;
+							color: #fff;
+							font-size: 13px;
+							font-style: normal;
+							line-height: 1;
+							padding: 6px 8px;
+							border-radius: 3px;
+							margin: 0 0 0 6px;
+						}
+
+						& .card-update-form {
+							margin-top: 10px;
+
+							& label {
+								margin-bottom: 6px;
+								font-size: 16px;
+							}
+
+							& .card-address-fields {
+								margin-bottom: 10px;
+							}
+
+							& input[type="text"],
+							input[type="email"],
+							input[type="password"],
+							input[type="tel"] {
+								display: inline-block;
+								width: 48%;
+								max-width: auto;
+							}
+
+							& select {
+								display: inline-block;
+								width: 48%;
+								max-width: auto;
+							}
+
+							& > p:last-child {
+								margin: 10px 0;
+
+								& .edd-stripe-cancel-update {
+									display: inline-block;
+									color: #999;
+									text-decoration: underline;
+									margin-left: 5px;
+
+									&:hover {
+										text-decoration: none;
+									}
+								}
+							}
+						}
+
+						&:nth-child(odd) {
+							background: @eddgray;
+
+							& .card-update-form {
+
+								& input[type="text"],
+								input[type="email"],
+								input[type="password"],
+								input[type="tel"],
+								select {
+									background: #fff;
+									border: 3px solid @eddgrayhover;
+								}
+							}
+						}
+
+						&:nth-child(even) {
+							& .card-update-form {
+
+								& input[type="text"],
+								input[type="email"],
+								input[type="password"],
+								input[type="tel"],
+								select {
+									background: @eddgray;
+									border: 3px solid @eddgrayhover;
+								}
+							}
+						}
+
+						&:last-child {
+							border-bottom: none;
+						}
+
+						& .card-actions {
+							& a {
+								color: #999;
+								text-decoration: underline;
+
+								&:hover {
+									text-decoration: none;
+								}
+							}
+
+							& .card-delete a {
+								color: red;
+							}
+						}
+					}
+
+					& .edd-stripe-add-new-card {
+						& > label {
+							font-size: 20px;
+							padding: 0 10px 15px;
+							border: none;
+							margin: 0 0 5px;
+						}
+
+						& > fieldset {
+							padding: 10px;
+							border: none;
+
+							&#edd_cc_address {
+								margin-bottom: 0;
+							}
+
+							& input[type="text"],
+							input[type="email"],
+							input[type="password"],
+							input[type="tel"] {
+								font-size: 1.6rem;
+								width: 100%;
+								max-width: 490px;
+							}
+
+							& select {
+								display: block;
+								font-size: 1.6rem;
+								border: 3px solid rgba(0,0,0,.05);
+								border-radius: 3px;
+								margin-bottom: 10px;
+								width: 100%;
+								max-width: 490px;
+								height: 45px;
+							}
+
+							& .card-expiration select,
+							.card-expiration .exp-divider {
+								display: inline !important;
+							}
+						}
+					}
+
+					& .edd-stripe-add-card-actions {
+						background: #fff;
+						padding: 20px 10px;
+
+						& #edd-stripe-add-new-cancel {
+							display: inline-block;
+							color: #999;
+							text-decoration: underline;
+							margin-left: 5px;
+
+							&:hover {
+								text-decoration: none;
+							}
+						}
+					}
+				}
+ 			}
+
+
+			/* ----------------------------- *
+ 			 * Commissions content
+ 			 * ----------------------------- */
+ 			& #commissions {
+				& #edd_user_commissions_overview {
+					margin-bottom: 30px;
+
+					& > h3 {
+						display: none;
+					}
+				}
+
+				& #eddc-dashboard-graphs {
+					margin-bottom: 30px;
+
+					& h4 {
+						font-size: 2.4rem;
+					}
+
+					& #edd-graphs-filter {
+						& select {
+							background: @eddgray;
+							border: 3px solid @eddgrayhover;
+							height: 40px;
+							margin-left: 0;
+							-webkit-box-sizing: border-box;
+							-moz-box-sizing: border-box;
+							box-sizing: border-box;
+						}
+					}
+				}
+
+				& #edd_commissioned_products_table {
+					margin-bottom: 30px;
+				}
+
+				& #edd_user_commissions_unpaid_total,
+				#edd_user_commissions_paid_total,
+				#edd_user_commissions_revoked_total {
+					font-size: 1.8rem;
+					font-weight: 500;
+					margin: 0 0 20px;
+				}
+
+				& #edd_commissions_unpaid_pagination,
+				#edd_commissions_paid_pagination {
+					display: block;
+					padding: 10px 0 30px;
+					*display: inline-block;
+					height: 1%;
+
+					& .current, .page-numbers {
+						background: @eddgray;
+						color: @edddarkblue;
+						border: none;
+						border-radius: 3px;
+						padding: 1px 8px;
+						font-weight: normal;
+						margin-right: 5px;
+						float: left;
+						display: block;
+						-webkit-transition: none;
+						-moz-transition: none;
+						-o-transition: none;
+						-ms-transition: none;
+						transition: none;
+					}
+
+					& .current, .page-numbers:hover {
+						background: @eddblue;
+						color: #fff;
+						-webkit-transition: none;
+						-moz-transition: none;
+						-o-transition: none;
+						-ms-transition: none;
+						transition: none;
+					}
+
+					&:after {
+						content: "";
+						display: block;
+						clear: both;
+						visibility: hidden;
+						font-size: 0;
+						height: 0;
+					}
+				}
+ 			}
+
+
+			/* ----------------------------- *
+ 			 * Support Subscription (RCP) content
+ 			 * ----------------------------- */
+ 			& #support {
+				& [id*="rcp-"].rcp-table {
+					font-size: 1.4rem !important;
+					border-radius: 4px;
+					border-collapse: initial !important;
+
+					& th {
+						border: none;
+					}
+				}
+ 			}
+		}
+	}
+
+	#account-page .subscriptions-tab-pane a:nth-child(3) {
+		display: inline-block;
+		margin-bottom: 20px;
+	}
+
+	#account-page .subscriptions-tab-pane h3:nth-child(4) {
+		font-size: 1.6rem;
+		font-weight: 400;
+		margin-bottom: 16px;
+
+		& em {
+			font-size: 1.8rem;
+			font-weight: 500;
+			font-style: normal;
+		}
+	}
+
+	#account-page .downloads-tab-pane .edd_download_file .edd_download_file_link:first-child br {
+		display: none;
+	}
+
+	#account-page .commissions-tab-pane .edd-select {
+		border: 3px solid #eaeaea;
+		border-radius: 3px;
+		margin-bottom: 10px;
+		height: 40px;
+		max-width: 300px;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	#account-page .profile-editor-tab-pane .edd-select {
+		border: 3px solid @eddgrayhover;
+		border-radius: 3px;
+		width: 300px;
+		height: 45px;
+	}
+
+	#account-page table.rcp-table th {
+		vertical-align: top;
+	}
+
+	#account-page .rcp-table:first-child {
+		margin-bottom: 30px;
+	}
+
+	#edd_user_history tbody > tr:nth-child(even) > td,
+	#edd_user_history tbody > tr.selected-row > td,
+	#edd_user_history tbody > tr:nth-child(even) > th,
+	#edd_user_history tbody > tr.selected-row > th,
+	#account-page .rcp-table tbody > tr:nth-child(even) > td,
+	#account-page .rcp-table tbody > tr.selected-row > td,
+	#account-page .rcp-table tbody > tr:nth-child(even) > th,
+	#account-page .rcp-table tbody > tr.selected-row > th,
+	.edd_sl_table tbody > tr:nth-child(even) > td,
+	.edd_sl_table tbody > tr.selected-row > td,
+	.edd_sl_table tbody > tr:nth-child(even) > th,
+	.edd_sl_table tbody > tr.selected-row > th {
+		background: @eddgray;
+	}
+
+	#account-page .edd_sl_license_row input.edd_sl_license_key {
+		background: none;
+		color: #777;
+		font-size: 14px;
+		font-size: 1.4rem;
+		font-style: italic;
+		font-weight: 400;
+		padding: 0;
+		border: none;
+	}
+}
+
+.update-subscription-info {
+	padding: 20px 30px;
+	margin-bottom: 50px;
+
+	& .fa {
+		font-size: 110%;
+		margin-right: 8px;
+	}
+
+	& a {
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	& .failing-subs {
+
+		& .failing-sub-header {
+			display: block;
+			font-size: 20px;
+			font-size: 2rem;
+			font-weight: 500;
+			padding-bottom: 20px;
+			border-bottom: 3px solid rgba(0,0,0,0.05);
+			margin-bottom: 20px;
+		}
+
+		& ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+
+.upgrade-to-aa {
+	position: relative;
+	background: @eddblue url('images/mascot/edd-starter-package-header.png') no-repeat right bottom;
+	color: #fff;
+	padding: 20px 30px;
+	margin-bottom: 50px;
+	border-radius: 4px;
+
+	& .fa {
+		position: absolute;
+			top: 17px;
+			left: 20px;
+		font-size: 3rem;
+		margin-right: 8px;
+	}
+
+	& .upgrade-to-aa-message {
+		padding-left: 30px;
+
+		& .aa-pass-link {
+			text-decoration: underline;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		& .aa-pass-link,
+		.discount-amount {
+			color: #fff;
+			text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+		}
+
+		& .upgrade-to-aa-link {
+			background: @edddarkblue;
+			color: #fff;
+			padding: 4px;
+			margin-left: 6px;
+			border-radius: 4px;
+			display: inline;
+			text-decoration: none !important;
+			-webkit-transition: all .2s ease-in-out;
+			-moz-transition: all .2s ease-in-out;
+			-o-transition: all .2s ease-in-out;
+			-ms-transition: all .2s ease-in-out;
+			transition: all .2s ease-in-out;
+
+			&:hover {
+				background: @edddarkbluehover;
+			}
+		}
+	}
+}
+
+
+/* ----------------------------- *
+ * All Access Pass downloads page
+ * ----------------------------- */
+#all-access-downloads-area {
+	& .all-access-downloads {
+		& .has-all-access-description {
+			font-size: 14px !important;
+			color: #777;
+			max-width: 722px;
+		}
+
+		& .fwp-filter-wrap {
+			background: @eddblue url('images/mascot/edd-starter-package-header.png') no-repeat right bottom;
+			padding: 29px 20px 27px;
+			margin-bottom: 40px;
+			min-height: 100px;
+
+			& .fwp-filter-help-text {
+				float: left;
+				display: inline-block;
+				color: #fff;
+				font-size: 2rem;
+				font-style: normal;
+				line-height: 42px;
+				vertical-align: middle;
+				margin: 0 20px 0 0;
+			}
+
+			& .fwp-filter-container {
+				float: left;
+
+				.fwp-filter {
+					min-width: 353px;
+				}
+			}
+		}
+
+		& .download-grid-item {
+			background: #fff;
+			border: 2px solid @eddgrayhover;
+		}
+
+		& .download-grid-item-info {
+			padding-bottom: 10px;
+
+			& h4.download-grid-title {
+				font-size: 1.8rem;
+				margin: 0 0 10px;
+			}
+
+			& > p {
+				font-size: 1.4rem;
+				margin-bottom: 0;
+			}
+
+			& small {
+				color: #a2acb2;
+				margin-left: 4px;
+			}
+		}
+
+		& .download-grid-item-actions {
+			color: #aaa;
+			font-size: 1.4rem;
+			font-weight: 500;
+			padding: 0 20px 20px;
+			margin: auto 0 0;
+
+			& .edd_download_purchase_form,
+			.edd_purchase_submit_wrapper {
+				display: inline;
+			}
+
+			a {
+				display: inline-block;
+				color: #777;
+				text-decoration: underline;
+
+				&:first-child {
+				color: @eddblue;
+				}
+
+				&:hover {
+					text-decoration: none;
+				}
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+
+			& .modal-body {
+				font-weight: 400;
+				color: #555;
+			}
+
+			& .edd_price_options {
+				display: none;
+			}
+
+			& .button.edd-submit.edd-all-access-btn {
+				display: contents;
+				background: none;
+				padding: 0;
+
+				& span {
+					display: inline-block;
+					color: @eddblue !important;
+					text-decoration: underline;
+					font-size: 1.4rem !important;
+					font-weight: 500 !important;
+
+					&:hover {
+						text-decoration: none;
+					}
+				}
+			}
+		}
+
+		& .pagination {
+			padding: 0;
+			margin: 0;
+		}
+	}
+}
+
+
+/* ----------------------------- *
+ * Affiliate Area content
+ * ----------------------------- */
+#affwp-affiliate-dashboard {
+	& #affwp-affiliate-dashboard-tabs {
+		float: left;
+		width: 20%;
+		border: 3px solid @eddgrayhover;
+		border-radius: 4px;
+		margin-bottom: 30px;
+
+		& li {
+			padding: 0;
+			margin: 0;
+			width: 100%;
+
+			&.active {
+				font-weight: 500;
+
+				& a {
+					background: @eddgray;
+
+					&:before {
+						color: @eddblue;
+					}
+				}
+			}
+
+			&:not(:last-child) {
+				border-bottom: 1px solid @eddgrayhover;
+			}
+
+			& a {
+				display: block;
+				color: #555;
+				font-size: 1.4rem;
+				padding: 8px;
+
+				&:hover {
+					background: @eddgray;
+				}
+
+				&:before {
+					display: inline-block;
+					font-family: "fontawesome";
+					line-height: 1;
+					text-align: center;
+					margin-right: 5px;
+					min-width: 25px;
+				}
+			}
+
+			&:nth-child(1) a:before { // Affiliate URLs
+				content: "\f0c1";
+			}
+
+			&:nth-child(2) a:before { // Statistics
+				content: "\f200";
+			}
+
+			&:nth-child(3) a:before { // Graphs
+				content: "\f201";
+			}
+
+			&:nth-child(4) a:before { // Referrals
+				content: "\f08e";
+			}
+
+			&:nth-child(5) a:before { // Visits
+				content: "\f015";
+			}
+
+			&:nth-child(6) a:before { // Creatives
+				content: "\f1c5";
+			}
+
+			&:nth-child(7) a:before { // Settings
+				content: "\f1de";
+			}
+		}
+	}
+
+	& .affwp-tab-content {
+		float: right;
+		width: 75%;
+
+		table.affwp-table th {
+			border: none;
+		}
+
+		table.affwp-table td {
+			border-width: 1px 0 0;
+			border-style: solid;
+			border-color: #eef0f0;
+		}
+
+		table.affwp-table tr:first-child > td {
+			border-width: 2px 0 0;
+			border-style: solid;
+			border-color: #eef0f0;
+		}
+
+		& h4:first-child {
+			color: #555;
+			font-size: 2.6rem;
+		}
+
+		& input[type="text"],
+		input[type="email"] {
+			background: @eddgray;
+			padding: 10px;
+			outline: none;
+			border: 3px solid #eaeaea;
+			border-radius: 3px;
+		}
+
+		& .affwp-table {
+			font-size: 1.4rem;
+			border-collapse: inherit;
+			border: 3px solid @eddgrayhover;
+			border-radius: 4px;
+
+			& th,
+			td {
+				line-height: 20px;
+				padding: 12px 10px;
+			}
+
+			& th {
+				font-weight: 500;
+			}
+		}
+
+		& #affwp-generate-ref-url {
+			max-width: 500px;
+
+			& .affwp-referral-url-wrap {
+				margin-bottom: 20px;
+
+				& > label {
+					font-weight: 500;
+					width: 100%;
+				}
+
+				& .description {
+					color: #777;
+					font-size: 1.4rem;
+					font-style: italic;
+				}
+			}
+
+			& #affwp-referral-url {
+				background: #CFE8CF;
+				border-color: #B5D6B5;
+			}
+
+			& .affwp-base-url-wrap {
+				& label {
+					font-size: 2rem;
+					font-weight: 500;
+					margin-bottom: 15px;
+				}
+
+				& input[type="submit"] {
+					font-size: 1.6rem;
+					padding: 10px 14px;
+				}
+			}
+		}
+	}
+
+	& #affwp-graphs-filter {
+		& select {
+			background: @eddgray;
+			border: 3px solid @eddgrayhover;
+			height: 40px;
+			margin-left: 0;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+	}
+
+	& #affwp-affiliate-dashboard-creatives {
+		.affwp-creative {
+			border-bottom: 2px solid #eee;
+			margin-bottom: 30px;
+			padding-bottom: 30px;
+		}
+
+		& > h4 + p {
+			padding-bottom: 20px;
+			border-bottom: 3px solid @eddgray;
+			margin-bottom: 30px;
+		}
+
+		& .affwp-creative-desc {
+			float: right;
+			font-size: 1.8rem;
+			font-weight: 500;
+
+			& ~ p:last-of-type {
+				font-size: 1.4rem;
+				font-weight: 500;
+				margin-bottom: 4px;
+			}
+		}
+
+		& pre {
+			background: @eddgray;
+			padding: 10px 15px;
+			border: 3px solid @eddgrayhover;
+			border-radius: 4px;
+
+			& code {
+				font-size: 1.3rem !important;
+				line-height: 1.625;
+			}
+		}
+	}
+}
+
+
+/* ----------------------------- *
  * Purchase Confirmation
  * ----------------------------- */
 .purchase-confirmation-content {
-
 	& #documentation {
 		& .documentation-list {
 			list-style-position: inside;
 			margin: 0 0 30px 0;
+		}
+	}
+
+	& .cross-promote-sales {
+		margin-bottom: 30px;
+
+		& > p {
+			margin-bottom: 15px;
+
+			& em {
+				font-style: normal;
+				font-size: 120%;
+				font-weight: 500;
+			}
+		}
+
+		& .sale-sites {
+
+			& img {
+				float: left;
+			}
+
+			& p {
+				margin-bottom: 0;
+			}
+
+			& .sale-site {
+				display: inline-block;
+				background: #fafafa;
+				color: #777;
+				font-size: 14px;
+				padding: 15px;
+				border: 3px solid @eddgrayhover;
+				border-radius: 4px;
+				margin-bottom: 0;
+				width: 48%;
+				-webkit-transition: all .2s ease-in-out;
+				-moz-transition: all .2s ease-in-out;
+				-o-transition: all .2s ease-in-out;
+				-ms-transition: all .2s ease-in-out;
+				transition: all .2s ease-in-out;
+
+				& img {
+					margin-right: 15px;
+				}
+
+				& h6 {
+					color: #555;
+				}
+
+				&:hover {
+					border-color: @eddblue;
+				}
+			}
+		}
+	}
+
+	/* main receipt information */
+	& #purchase-details #edd_purchase_receipt {
+
+		& tbody > tr {
+			& > td {
+				border-width: 1px 0 0;
+				border-style: solid;
+				border-color: @eddgrayhover;
+			}
+
+			&:first-child > td {
+				border-width: 2px 0 0;
+				border-style: solid;
+				border-color: @eddgrayhover;
+			}
+
+			&:nth-child(even) > td {
+				background: transparent;
+			}
+		}
+
+		& .edd_license_keys {
+			background: @eddgray;
+		}
+
+		& .edd_license_key {
+			& td:first-child {
+				font-weight: 500;
+			}
+
+			& .edd_sl_license_key {
+				word-break: break-word;
+			}
+		}
+	}
+
+	/* purchased product listing */
+	#edd_purchase_receipt_products {
+
+		& td .edd_purchase_receipt_product_name {
+			font-weight: 500;
+		}
+
+		& ul {
+			margin-bottom: 0;
+			padding-bottom: 0;
 		}
 	}
 
@@ -2717,65 +2862,19 @@
 	}
 }
 
-#edd_purchase_receipt {
-	font-size: 1.4rem;
-	border-collapse: inherit;
-	border-spacing: none;
-	border: 3px solid @eddgrayhover;
-	border-radius: 4px;
-	width: 100%;
 
-	& td, th {
-		padding: 10px;
-		border-bottom: 1px solid #eee;
-		width: 100px;
+/* ----------------------------- *
+ * PayPal Checkout Receipt
+ * ----------------------------- */
+#billing_info {
+	margin-bottom: 2em;
+	font-size: 1.6rem;
+	line-height: 1.7;
+
+	& strong {
+		font-size: 3rem;
 	}
 
-	& th {
-		background: @eddgray;
-		font-weight: 500;
-	}
-
-	& .edd_license_key td {
-		padding: 10px;
-	}
-
-	& .edd_sl_license_key {
-		word-break: break-word;
-	}
-}
-
-#edd_purchase_receipt_products {
-	font-size: 1.4rem;
-	border-collapse: inherit;
-	border-spacing: none;
-	border: 3px solid @eddgrayhover;
-	border-radius: 4px;
-	width: 100%;
-
-	& td, th {
-		padding: 10px;
-		border-bottom: 1px solid #eee;
-		width: 100px;
-	}
-
-	& th {
-		background: @eddgray;
-		text-align: left;
-		font-weight: 500;
-	}
-
-	& td .edd_purchase_receipt_product_name {
-		font-weight: 500;
-	}
-
-	& ul {
-		margin-bottom: 0;
-		padding-bottom: 0;
-	}
-}
-
-#billing_info { // PayPal Pro confirmation
 	& > h3 {
 		margin-bottom: 20px;
 	}
@@ -2789,79 +2888,11 @@
 		}
 	}
 
-	~ #order_summary {
+	& ~ #order_summary {
 		border-collapse: inherit;
 		border: 3px solid @eddgrayhover;
 		border-radius: 4px;
 	}
-}
-
-.cross-promote-sales {
-	margin-bottom: 30px;
-
-	& > p {
-		margin-bottom: 15px;
-
-		& em {
-			font-style: normal;
-			font-size: 120%;
-			font-weight: 500;
-		}
-	}
-
-	& .sale-sites {
-
-		& img {
-			float: left;
-		}
-
-		& p {
-			margin-bottom: 0;
-		}
-
-		& .sale-site {
-			display: inline-block;
-			background: #fafafa;
-			color: #777;
-			font-size: 14px;
-			padding: 15px;
-			border: 3px solid @eddgrayhover;
-			border-radius: 4px;
-			margin-bottom: 0;
-			width: 48%;
-			-webkit-transition: all .2s ease-in-out;
-			-moz-transition: all .2s ease-in-out;
-			-o-transition: all .2s ease-in-out;
-			-ms-transition: all .2s ease-in-out;
-			transition: all .2s ease-in-out;
-
-			& img {
-				margin-right: 15px;
-			}
-
-			& h6 {
-				color: #555;
-			}
-
-			&:hover {
-				border-color: @eddblue;
-			}
-		}
-	}
-}
-
-
-/* ----------------------------- *
- * PayPal Checkout Receipt
- * ----------------------------- */
-#billing_info {
-	margin-bottom: 2em;
-	font-size: 1.6rem;
-	line-height: 1.7;
-}
-
-#billing_info strong {
-	font-size: 3rem;
 }
 
 #order_summary {
@@ -2943,6 +2974,114 @@
 
 
 /* ----------------------------- *
+ * Login forms
+ * ----------------------------- */
+#loginform,
+#passwordreset {
+	max-width: 380px;
+	margin: 40px auto 0;
+
+	& label {
+		font-weight: 400;
+	}
+}
+
+#loginform fieldset,
+#passwordreset fieldset {
+	width: 100%;
+	border: none;
+}
+
+#loginform fieldset input[type="text"],
+#passwordreset fieldset input[type="text"],
+#loginform fieldset input[type="password"] {
+	background: @eddgray;
+	padding: 10px;
+	width: 100%;
+	outline: none;
+	margin: 0 0 10px;
+	border: 3px solid @eddgrayhover;
+	border-radius: 3px;
+}
+
+#loginform input[type="checkbox"] {
+	margin-bottom: 13px;
+}
+
+#loginform input[type="submit"] {
+	display: block;
+}
+
+.lost-password-link {
+	display: inline-block;
+	color: #777;
+	font-size: 1.4rem;
+	text-decoration: underline;
+	margin-top: 10px;
+
+	&:hover {
+		color: #777;
+		text-decoration: none;
+	}
+}
+
+/* standard EDD login form */
+#edd_login_form {
+	max-width: 380px;
+	margin: 40px auto 0;
+
+	& fieldset {
+		width: 100%;
+		border: none;
+
+		& > legend {
+			display: none;
+		}
+
+		& > p {
+			margin-bottom: 0;
+
+			& label {
+				font-weight: 400;
+			}
+		}
+
+		& input[type="text"],
+		input[type="password"] {
+			background: @eddgray;
+			padding: 10px;
+			width: 100%;
+			outline: none;
+			margin: 0 0 10px;
+			border: 3px solid @eddgrayhover;
+			border-radius: 3px;
+		}
+	}
+
+	& input[type="checkbox"] {
+		margin-bottom: 13px;
+	}
+
+	& input[type="submit"] {
+		display: block;
+	}
+
+	& .edd-lost-password a {
+		display: inline-block;
+		color: #777;
+		font-size: 1.4rem;
+		text-decoration: underline;
+		margin-top: 10px;
+
+		&:hover {
+			color: #777;
+			text-decoration: none;
+		}
+	}
+}
+
+
+/* ----------------------------- *
  * The Crew
  * ----------------------------- */
 .crew-type-header {
@@ -2994,180 +3133,6 @@
 
 
 /* ----------------------------- *
- * Support Pricing
- * ----------------------------- */
-.support-pricing-table-content {
-	padding-bottom: 40px;
-
-	& .support-type {
-		width: 33.33333%;
-
-		&.support-type-information {
-			display: block;
-			padding: 0 40px 0 0;
-
-			& h1 {
-				margin-bottom: 1em;
-			}
-		}
-
-		&.yearly-support {
-			background: @edddarkblue;
-			color: #fff;
-			border-radius: 4px 0 0 4px;
-
-			& .support-type-title {
-				color: #fff;
-			}
-
-			& .support-type-price {
-				background: rgba(255,255,255,0.06);
-
-				& .recommended-price {
-					display: block;
-					position: relative;
-						left: 12px;
-					color: #afd8f3;
-					font-size: 13px;
-					font-style: italic;
-					margin: 0;
-				}
-			}
-
-			& .support-type-description {
-				color: #fff;
-
-				& .pricing-column-list {
-					& li {
-						&:before {
-							color: #7990a0;
-							content: "\f058";
-						}
-					}
-				}
-			}
-		}
-
-		&.fortyfive-day-support {
-			background: @eddblue;
-			color: #fff;
-			border-radius: 0 4px 4px 0;
-
-			& .support-type-price {
-				background: @eddbluehover;
-
-				& span {
-					top: 13px;
-				}
-			}
-
-			& .support-type-description {
-				& .pricing-column-list {
-					& li {
-						&:before {
-							color: #afd8f3;
-							content: "\f058";
-						}
-					}
-				}
-			}
-		}
-
-		& .support-type-title {
-			font-size: 2.6rem;
-			font-weight: 500;
-			text-align: center;
-			padding: 24px 0;
-		}
-
-		& .support-type-price {
-			text-align: center;
-			padding: 16px 30px;
-			min-height: 105px;
-
-			& span {
-				position: relative;
-				font-size: 6rem;
-				line-height: 1;
-				margin-bottom: 20px;
-			}
-		}
-
-		& .support-type-description {
-			font-size: 14px;
-			padding: 30px 30px 0;
-			margin-bottom: 20px;
-
-			& .pricing-column-list {
-				margin: 0 0 20px 3px;
-				padding: 0;
-				list-style: none;
-
-				& li {
-					padding: 2px 4px;
-
-					&:before {
-						font-family: "FontAwesome";
-						margin-right: 10px;
-					}
-				}
-			}
-		}
-
-		& .support-type-cta {
-			padding: 0 30px 30px;
-			margin: auto 0 0;
-
-			& a {
-				display: block;
-				background: @green;
-
-				&:hover {
-					background: @greenhover;
-				}
-			}
-		}
-	}
-}
-
-
-/* ----------------------------- *
- * Register for Support
- * ----------------------------- */
-.rcp_form label {
-	width: 180px;
-
-}
-
-.rcp_form input[type="text"], .rcp_form input[type="password"], .rcp_form input[type="email"] {
-	background: #fff;
-	border: 1px solid #ccc;
-	padding: 6px 8px;
-	margin-top: 10px;
-	width: 350px;
-
-	&:focus {
-		border: 1px solid @eddblue;
-		outline: none;
-		-webkit-box-shadow: 0px 0px 3px rgba(40,149,217,0.4);
-		box-shadow: 0px 0px 3px rgba(40,149,217,0.4);
-	}
-}
-
-.rcp_form #rcp_payment_gateways {
-	margin: 20px 0;
-}
-
-.rcp_form #rcp_payment_gateways label {
-	width: 280px;
-}
-
-.card-expiry-month, .card-expiry-year {
-	width: auto !important;
-}
-
-
-/* ----------------------------- *
  * Subscribe Page Newsleter
  * ----------------------------- */
 #subscription-header-area {
@@ -3201,7 +3166,7 @@
 	& .subscription-form-container {
 		float: right;
 		position: relative;
-		padding: 50px 50px 70px;
+		padding: 30px 50px 70px;
 		border-radius: 4px 4px 0 0;
 		width: 55%;
 		min-height: 550px;
@@ -3404,16 +3369,6 @@
 
 
 /* ----------------------------- *
- * Affiliate Area
- * ----------------------------- */
-.affwp-creative {
-	border-bottom: 2px solid #eee;
-	margin-bottom: 30px;
-	padding-bottom: 30px;
-}
-
-
-/* ----------------------------- *
  * Partners
  * ----------------------------- */
 .edd-partners {
@@ -3550,24 +3505,6 @@
 	background: @eddblue;
 }
 
-#extensions-bundle-promotion.download-grid-item {
-	background: @eddblue;
-	color: #fff;
-
-	& .download-grid-thumb-wrap {
-		background: #3986ca;
-	}
-}
-
-#extensions-bundle-promotion.download-grid-item .download-grid-thumb {
-	border: none;
-}
-
-#extensions-bundle-promotion.download-grid-item .green-button {
-	padding: 8px 18px;
-	font-size: 18px;
-}
-
 .edd-downloads .third-party-extensions-section {
 	text-align: center;
 	padding: 30px 0;
@@ -3583,7 +3520,8 @@
 }
 
 .featured-download-info .edd-add-to-cart.edd-submit.button.blue,
-.featured-download-info .edd_go_to_checkout.button.blue.edd-submit {
+.featured-download-info .edd_go_to_checkout.button.blue.edd-submit,
+.featured-download-info .edd-all-access-btn.button.blue.edd-submit {
 	background: @edddarkblue;
 	font-size: 20px;
 	padding: 10px 20px;
@@ -3766,6 +3704,32 @@
 	font-weight: 500;
 	padding-bottom: 20px;
 	margin-bottom: 50px;
+}
+
+.page-title-button {
+	display: inline-block;
+	background: #a2acb2;
+	color: #fff;
+	font-size: 13px;
+	line-height: 1;
+	padding: 6px 8px;
+	border-radius: 3px;
+	margin: 0 0 2px 0;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	vertical-align: middle;
+
+	& .fa {
+		margin-right: 3px;
+	}
+
+	&:hover {
+		background: @eddblue;
+		color: #fff;
+	}
 }
 
 [class*="page-section-"] h1.section-title-alt {

@@ -27,6 +27,70 @@ function eddwp_is_checkout() {
 
 
 /**
+ * Check to see if Recurring Payments is activated
+ */
+function eddwp_recurring_is_activated() {
+	return class_exists( 'EDD_Recurring' );
+}
+
+
+/**
+ * Check to see if All Access is activated
+ */
+function eddwp_aa_is_activated() {
+	return class_exists( 'EDD_All_Access' );
+}
+
+
+/**
+ * Check to see if current user has specific All Access Pass, also get the title
+ *
+ * @param $download_id integer ID of the download the user may have access to
+ *
+ * @return array
+ */
+function eddwp_user_has_aa_access( $download_id = 0 ) {
+	if ( ! eddwp_aa_is_activated() || 0 == $download_id ) {
+		return false;
+	}
+
+	$aa_has_access = edd_all_access_check( array( 'download_id' => $download_id ) );
+	if ( $aa_has_access['success'] ) {
+		$aa_title = get_the_title( $aa_has_access['all_access_pass']->download_id );
+		return array( true, $aa_title );
+	}
+}
+
+
+/**
+ * All Access redirects
+ */
+function eddwp_aa_redirects() {
+
+	if ( eddwp_aa_is_activated() ) {
+
+		// Has the user purchased any All Access products?
+		$user_has_aa = edd_has_user_purchased( get_current_user_id(), edd_all_access_get_all_access_downloads() );
+
+		// from the All Access Downloads page, redirect logged out and non-pass holders
+		if ( ! is_user_logged_in() || ( is_user_logged_in() && false === $user_has_aa ) ) {
+			if ( is_page_template( 'page-templates/template-all-access-downloads.php' ) ) {
+				wp_redirect( site_url( '/downloads/all-access-pass/' ) );
+				exit;
+			}
+		}
+	}
+}
+add_action( 'template_redirect', 'eddwp_aa_redirects' );
+
+
+/**
+ * hide FacetWP filter counts
+ */
+add_filter( 'facetwp_facet_dropdown_show_counts', '__return_false' );
+
+
+/**
  * Separate regular comments from pings
  */
 function eddwp_get_comments_only_count( $count ) {
@@ -425,24 +489,24 @@ function eddwp_facebook_conversion_pixel() {
 
 	$payment_id = edd_get_purchase_id_by_key( $session['purchase_key'] );
 	$total = edd_get_payment_amount( $payment_id );
-?>
-<!-- Facebook Conversion Code for EDD Checkout Success -->
-<script>(function() {
-  var _fbq = window._fbq || (window._fbq = []);
-  if (!_fbq.loaded) {
-	var fbds = document.createElement('script');
-	fbds.async = true;
-	fbds.src = '//connect.facebook.net/en_US/fbds.js';
-	var s = document.getElementsByTagName('script')[0];
-	s.parentNode.insertBefore(fbds, s);
-	_fbq.loaded = true;
-  }
-})();
-window._fbq = window._fbq || [];
-window._fbq.push(['track', '6023481255100', {'value':'<?php echo $total; ?>','currency':'USD'}]);
-</script>
-<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6023481255100&amp;cd[value]=<?php echo $total; ?>&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
-<?php
+	?>
+	<!-- Facebook Conversion Code for EDD Checkout Success -->
+	<script>(function() {
+	  var _fbq = window._fbq || (window._fbq = []);
+	  if (!_fbq.loaded) {
+		var fbds = document.createElement('script');
+		fbds.async = true;
+		fbds.src = '//connect.facebook.net/en_US/fbds.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(fbds, s);
+		_fbq.loaded = true;
+	  }
+	})();
+	window._fbq = window._fbq || [];
+	window._fbq.push(['track', '6023481255100', {'value':'<?php echo $total; ?>','currency':'USD'}]);
+	</script>
+	<noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6023481255100&amp;cd[value]=<?php echo $total; ?>&amp;cd[currency]=USD&amp;noscript=1" /></noscript>
+	<?php
 }
 add_action( 'wp_footer', 'eddwp_facebook_conversion_pixel' );
 
@@ -463,8 +527,10 @@ function eddwp_newsletter_form_id() {
  */
 function eddwp_newsletter_form_submit_button( $content ) {
 	if ( function_exists( 'mailchimp_subscriber_count' ) && mailchimp_subscriber_count()->subscriber_count() ) {
-		$count = mailchimp_subscriber_count()->subscriber_count();
-		$button_text = 'Join ' . $count . ' subscribers!';
+		// temporary adjustment - https://github.com/easydigitaldownloads/EDD-Site/issues/1173
+		// $count = mailchimp_subscriber_count()->subscriber_count();
+		// $button_text = 'Join ' . $count . ' subscribers!';
+		$button_text = 'Sign me up today!';
 		$content = str_replace( 'Sign me up!', $button_text, $content );
 		return $content;
 	} else {
@@ -795,3 +861,41 @@ function eddwp_perfect_audience_tracking() {
 <?php
 }
 add_action( 'wp_footer', 'eddwp_perfect_audience_tracking' );
+
+
+/*
+ * Adjust HTML output for Gravity Forms Help Scout Search
+ */
+function eddwp_gf_helpscout_docs_results_output( $results ) {
+
+	if ( ! is_page_template( 'page-templates/template-self-help-support.php' ) ) {
+		return $results;
+	}
+
+	ob_start();
+	?>
+	<div class="no-docs-results alert">
+		<p>Oops! It looks like there are no suggestions for your issue. Please consider adjusting your phrasing. You may also click the button below to browse our documentation.</p>
+		<a class="edd-submit button blue" href="http://docs.easydigitaldownloads.com/" target="_blank">View Full Documentation</a>
+	</div>
+	<?php
+	$no_results_extra_output = ob_get_clean();
+
+	ob_start();
+	?>
+	<div class="flex-two">
+		<h4>Additional resources</h4>
+		<p>In addition to those articles, we have a site fully dedicated to documentation for Easy Digital Downloads as well as its extensions and themes. Be sure to browse the articles if you don't see what you're looking for.</p>
+		<a class="edd-submit button blue" href="http://docs.easydigitaldownloads.com/" target="_blank">View full documentation</a>
+	</div>
+	<?php
+	$extra_output = ob_get_clean();
+
+	$results['limit']                    = 10;
+	$results['text']['no_results_found'] = $no_results_extra_output;
+	$results['template']['before']       = '<div class="docs-search-resources flex-container"><ul class="docs-search-results flex-two">';
+	$results['template']['after']        = '</ul>' . $extra_output . '</div>';
+
+	return $results;
+}
+add_filter( 'gf_helpscout_docs_script_settings', 'eddwp_gf_helpscout_docs_results_output' );

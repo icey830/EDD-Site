@@ -18,7 +18,7 @@ if ( ! is_user_logged_in() ) :
 				<input name="edd_user_pass" id="edd_user_pass" class="edd-password edd-required edd-input" type="password" placeholder="Password"/>
 			</p>
 			<p class="edd-login-remember">
-				<label><input name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Remember my password', 'easy-digital-downloads' ); ?></label>
+				<label><input name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Remember me', 'easy-digital-downloads' ); ?></label>
 			</p>
 			<p class="edd-login-submit">
 				<input type="hidden" name="edd_redirect" value="<?php echo esc_url( $edd_login_redirect ); ?>"/>

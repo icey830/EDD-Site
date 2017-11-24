@@ -105,7 +105,7 @@ function eddwp_post_byline() {
  */
 function eddwp_post_byline_lite() {
 	?>
-	<div class="post-meta post-meta-lite clearfix">
+	<div class="post-meta post-meta-lite">
 		<span class="entry-date">published on <span><?php echo get_the_date(); ?></span></span>
 	</div>
 	<?php
@@ -602,7 +602,7 @@ function eddwp_social_networking_follow() {
 }
 
 /**
- * Get the total number of non-third party extensions
+ * Get the total number of non-third party downloads
  */
 function eddwp_get_number_of_downloads() {
  	$total = get_transient( 'eddwp_get_number_of_downloads' );
@@ -627,10 +627,70 @@ function eddwp_get_number_of_downloads() {
 }
 
 /**
+ * Get the total number of non-third party extensions
+ */
+function eddwp_get_number_of_extensions() {
+ 	$total = get_transient( 'eddwp_get_number_of_extensions' );
+	if ( empty( $total ) ) {
+		$download_count = wp_count_posts( 'download' )->publish;
+		$exclude        = 0;
+
+		$themes    = get_term( 1617, 'download_category' ); // Themes
+		if ( ! empty( $themes ) && ! is_wp_error( $themes ) ) {
+			$exclude += $themes->count;
+		}
+
+		$bundles    = get_term( 1524, 'download_category' ); // Bundles
+		if ( ! empty( $bundles ) && ! is_wp_error( $bundles ) ) {
+			$exclude += $bundles->count;
+		}
+
+		$thirdparty = get_term( 1536, 'download_category' ); // Third Party
+		if ( ! empty( $thirdparty ) && ! is_wp_error( $thirdparty ) ) {
+			$exclude += $thirdparty->count;
+		}
+
+		$total = $download_count - $exclude;
+		set_transient( 'eddwp_get_number_of_extensions', $total, 60 * 60 * 24 );
+	}
+	return $total;
+}
+
+
+/**
+ * promotions for download grids
+ */
+function eddwp_download_grid_promotions() {
+	$aap_path = get_page_by_path( 'all-access-pass', OBJECT, 'download' );
+	$aap_id   = $aap_path->ID;
+	$aap_desc = get_post_meta( $aap_id, 'ecpt_shortdescription', true );
+	ob_start();
+	?>
+	<div id="extensions-bundle-promotion" class="download-grid-item extensions-bundle-promotion">
+		<div class="download-grid-thumb-wrap">
+			<a class="promotion-image-link" href="<?php echo get_permalink( $aap_id ); ?>" title="<?php echo the_title_attribute( '', '', true, $aap_id ); ?>">
+				<?php echo get_the_post_thumbnail( $aap_id, 'full', array( 'class' => 'download-grid-thumb' ) ); ?>
+			</a>
+		</div>
+		<div class="download-grid-item-info">
+			<h4 class="download-grid-title"><a href="<?php echo get_permalink( $aap_id ); ?>"><?php echo get_the_title( $aap_id ); ?></a></h4>
+			<?php echo $aap_desc; ?>
+		</div>
+		<div class="download-grid-item-cta">
+			<a class="download-grid-item-primary-link button blue" href="<?php echo get_permalink( $aap_id ); ?>">More Information</a>
+		</div>
+	</div>
+	<?php
+	$promotion = ob_get_clean();
+	return $promotion;
+}
+
+
+/**
  * standard login form template
  */
 function eddwp_login_form() {
-	
+
 	$redirect = isset( $_GET['redirect'] ) ? sanitize_text_field( $_GET['redirect'] ) : '';
 	echo edd_login_form( $redirect );
 }
@@ -664,4 +724,95 @@ function eddwp_blog_categories() {
 
 	</div>
 	<?php
+}
+
+
+/**
+ * get customer's value within last 365 days for AAP upgrade discount
+ */
+function eddwp_edd_all_access_upgrade_discount() {
+
+	$discount  = 0.00;
+	$customer  = new EDD_Customer( get_current_user_id(), true );
+
+	if( ! $customer->purchase_value > 0 ) {
+		return $discount;
+	}
+
+	$now      = current_time( 'timestamp' );
+	$year_ago = strtotime( '-1 year', $now );
+
+	$args = array(
+		'status'     => array( 'publish', 'edd_subscription' ),
+		'number'     => -1,
+		'user'       => get_current_user_id(),
+		'start_date' => $year_ago,
+		'end_date'   => $now,
+		'fields'     => 'ids',
+		'post__in'   => explode( ',', $customer->payment_ids ),
+	);
+	$payments = new EDD_Payments_Query( $args );
+	$payments = $payments->get_payments();
+
+	foreach( $payments as $payment ) {
+
+		if( ! $payment->total > 0 ) {
+			continue; // Skip free payments
+		}
+
+		if ( false !== strpos( $payment->gateway, 'manual' ) ) {
+			continue; // skip manual purchases
+		}
+
+		$discount += $payment->total;
+
+	}
+
+	if( $discount >= 899 ) {
+		$discount = 898.00; // Min purchase price of $1.00
+	}
+
+	return $discount;
+}
+
+
+/*
+ * get customer's All Access Pass upgrade link
+ */
+function eddwp_get_edd_all_access_upgrade_link() {
+
+	// get a license key from the user (we don't care which one gets upgraded)
+	$license_args = array(
+		'posts_per_page' => 1,
+		'post_type'      => 'edd_license',
+		'post_status'    => 'publish',
+		'fields'         => 'ids',
+		'meta_query'     => array(
+			'relation' => 'AND',
+			array(
+				'key'     => '_edd_sl_user_id',
+				'value'   => get_current_user_id(),
+				'compare' => '='
+			),
+			array(
+				'key'     => '_edd_sl_status',
+				'value'   => 'expired',
+				'compare' => '!='
+			),
+		),
+	);
+	$license_keys  = get_posts( $license_args );
+
+	// bail if there are no licenses
+	if ( empty( $license_keys ) ) {
+		return false;
+	}
+
+	// get the ID of the license key
+	$license_id = $license_keys[0];
+
+	// build the upgrade link using the license ID and the upgrade ID (set in Custom Functions)
+	$url = edd_sl_get_license_upgrade_url( $license_id, eddwp_get_all_access_pass_id() );
+
+	return $url;
 }

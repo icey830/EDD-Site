@@ -2,10 +2,10 @@
 /**
  * download sidebar (NOT widgetized... for now)
  */
-
 $is_extension  = has_term( 'extensions', 'download_category', get_the_ID() );
 $is_theme      = has_term( 'themes', 'download_category', get_the_ID() );
 $is_bundle     = has_term( 'bundles', 'download_category', get_the_ID() );
+$is_all_access = get_post_meta( get_the_ID(), '_edd_all_access_enabled', true );
 $has_license   = get_post_meta( get_the_ID(), '_edd_sl_enabled', true );
 
 $is_3rd_party  = has_term( '3rd-party', 'download_category', get_the_ID() );
@@ -22,11 +22,15 @@ elseif ( $is_theme ) :
 	$download_type = 'theme';
 elseif ( $is_bundle ) :
 	$download_type = 'bundle';
+elseif ( $is_all_access ) :
+	$download_type = 'all-access';
+else :
+	$download_type = 'extension';
 endif;
 $license = get_theme_mod( 'eddwp_terms_link' );
 
 // check for recurring pricing
-if ( class_exists( 'EDD_Recurring' ) ) {
+if ( eddwp_recurring_is_activated() ) {
 	$single_recurring = EDD_Recurring()->is_recurring( get_the_ID() );
 }
 $variable_pricing = edd_has_variable_prices( get_the_ID() );
@@ -41,24 +45,44 @@ if ( $variable_pricing ) {
 } elseif ( ! $variable_pricing && $single_recurring ) {
 	$recurring = true;
 }
+
+// check for All Access access to this product
+$aa_check      = eddwp_user_has_aa_access( get_the_ID() );
+$aa_has_access = $aa_check[0] ? true : false;
+$aa_title      = $aa_check[0] ? $aa_check[1] : '';
 ?>
 
-<aside class="sidebar download-sidebar">
+<aside class="sidebar download-sidebar<?php echo $aa_has_access ? ' has-aa-access' : '' ; ?>">
 	<div class="download-access download-info-section">
 		<div class="pricing-header">
 			<?php
-			if ( ! $is_3rd_party && ! $is_unlicensed ) {
+			if ( $aa_has_access ) {
 				?>
-				<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Pricing</h3>
+				<h3 class="widget-title"><i class="fa fa-gift"></i> You have access!</h3>
 				<?php
 			} else {
-				?>
-				<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
-				<?php
+				if ( ! $is_3rd_party && ! $is_unlicensed && ! $is_theme ) {
+					?>
+					<h3 class="widget-title">Purchase <?php echo $is_all_access ? 'Access' : ucfirst( $download_type ); ?></h3>
+					<?php
+				} else {
+					?>
+					<h3 class="widget-title">Download <?php echo ucfirst( $download_type ); ?></h3>
+					<?php
+				}
 			}
 			?>
 		</div>
 		<div class="pricing-info">
+			<?php if ( $aa_has_access ) { ?>
+				<p class="all-access-terms">
+					<?php if ( eddwp_user_has_aa_access( get_the_ID() ) ) { ?>
+						As an <?php echo $aa_title; ?> customer, you can download this <?php echo $download_type; ?> by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>">your account</a>.
+					<?php } else { ?>
+						You're already an <?php echo $aa_title; ?> customer, you can renew your access pass by clicking the button below. To view your All Access Pass details, visit <a href="<?php echo home_url( '/your-account/#tab-all-access' ); ?>">your account</a>.
+					<?php } ?>
+				</p>
+			<?php } ?>
 			<div class="pricing">
 				<?php
 				if ( ! $is_3rd_party || ( $is_3rd_party && $is_wporg ) ) {
@@ -72,40 +96,47 @@ if ( $variable_pricing ) {
 			</div>
 			<div class="terms clearfix">
 				<p>
-					<i class="fa fa-info-circle"></i>
 					<?php
+					if ( false == $is_all_access && ! $aa_has_access ) {
+						echo '<i class="fa fa-info-circle"></i>';
 
-					// terms for paid downloads
-					if ( class_exists( 'EDD_Recurring' ) && $recurring ) {
-						if ( $is_bundle ) {
-							echo 'This subscription is billed yearly and can be cancelled at any time. ';
-						} else {
-							echo 'All price options are billed yearly. You may cancel your subscription at any time. ';
+						// terms for paid downloads
+						if ( eddwp_recurring_is_activated() && $recurring ) {
+							if ( $is_bundle ) {
+								echo 'This subscription is billed yearly and can be cancelled at any time. ';
+							} else {
+								echo 'All purchase options are billed yearly. You may cancel your subscription at any time. ';
+							}
+							printf( '%1$s subject to yearly license for support and updates. %2$s.', 'all-access' == $download_type ? 'Access pass' : ucfirst( $download_type ) . 's', '<a href="' . $license . '" target="_blank">View terms</a>' );
+						} elseif ( $is_extension && ! $recurring && ! $is_unlicensed ) { // safety net
+
+							// this should never happen
+							printf( '%1$s subject to yearly license for support and updates. %2$s.',  'all-access' == $download_type ? 'Access pass' : ucfirst( $download_type ) . 's', '<a href="' . $license . '" target="_blank">View terms</a>' );
 						}
-						printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
-					} elseif ( $is_extension && ! $recurring && ! $is_unlicensed ) { // safety net
 
-						// this should never happen
-						printf( '%1$ss subject to yearly license for support and updates. %2$s.', ucfirst( $download_type ), '<a href="' . $license . '" target="_blank">View terms</a>' );
-					}
+						// terms for free or external downloads
+						if ( $is_theme && ! $is_3rd_party ) {
+							printf( 'Downloading this %1$s grants you a lifetime license for support and updates.', $download_type );
+						} elseif ( $is_theme && $is_3rd_party ) {
+							printf( 'This %1$s is maintained and supported by %2$s.', $download_type, $developer );
+						}
 
-					// terms for free or external downloads
-					if ( $is_theme && ! $is_3rd_party ) {
-						printf( 'Downloading this %1$s grants you a lifetime license for support and updates.', $download_type );
-					} elseif ( $is_theme && $is_3rd_party ) {
-						printf( 'This %1$s is maintained and supported by %2$s.', $download_type, $developer );
-					}
+						// unlicensed downloads (like .org, iTunes, etc.)
+						if ( $is_unlicensed ) {
+							printf( 'This %1$s is not subject to our licensing terms as it is distributed and maintained by a 3rd party.', $download_type );
+						}
+					} elseif ( $is_all_access ) {
 
-					// unlicensed downloads (like .org, iTunes, etc.)
-					if ( $is_unlicensed ) {
-						printf( 'This %1$s is not subject to our licensing terms as it is distributed and maintained by a 3rd party.', $download_type );
+						// actual All Access passes
+						echo '<i class="fa fa-info-circle"></i> ' . get_the_title() . ' purchases are billed yearly. You may cancel a subscription at any time. ';
+						printf( 'Support and updates for included extensions are subject to valid license. %1$s.', '<a href="' . $license . '" target="_blank">View terms</a>' );
 					}
 					?>
 				</p>
 			</div>
 		</div>
 	</div>
-	<?php if ( ! $is_3rd_party ) { ?>
+	<?php if ( ! $is_3rd_party && ! $is_all_access ) { ?>
 		<div class="download-details download-info-section">
 			<h3 class="widget-title"><?php echo ucfirst( $download_type ); ?> Details</h3>
 			<div class="author clearfix">
@@ -217,12 +248,12 @@ if ( $variable_pricing ) {
 			<?php } ?>
 		</div>
 	<?php } ?>
-	<?php if ( ! $is_bundle ) {
-		$core_extensions = home_url( '/downloads/core-extensions-bundle/' );
+	<?php if ( $is_theme || $is_unlicensed || $is_wporg || $is_3rd_party ) {
+		$all_access_pass = home_url( '/downloads/all-access-pass/' );
 		?>
 		<div class="core-extensions download-info-section">
-			<h3 class="widget-title">Core Extensions</h3>
-			<p>Receive the best discount EDD has to offer when you purchase our Core Extensions Bundle. <a href="<?php echo $core_extensions; ?>">Learn more</a>.</p>
+			<h3 class="widget-title">All Access Pass</h3>
+			<p>Receive the best discount Easy Digital Downloads has to offer when you purchase our All Access Pass. <a href="<?php echo $all_access_pass; ?>">Learn more</a>.</p>
 		</div>
 	<?php } ?>
 	<?php

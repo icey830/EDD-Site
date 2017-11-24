@@ -11,7 +11,7 @@ get_header(); ?>
 		<div class="inner">
 			<div class="blog-posts-display-content clearfix">
 
-				<h2 class="section-title-alt">Most recent posts &nbsp;<a href="<?php echo home_url( 'subscribe' ); ?>" class="subscribe-to-blog"><i class="fa fa-envelope" aria-hidden="true"></i> Sign up for email updates!</a></h2>
+				<h2 class="section-title-alt">Most recent posts &nbsp;<a href="<?php echo home_url( 'subscribe' ); ?>" class="page-title-button"><i class="fa fa-envelope" aria-hidden="true"></i> Sign up for email updates!</a></h2>
 
 				<div class="continue-search-form">
 					<?php get_search_form(); ?>

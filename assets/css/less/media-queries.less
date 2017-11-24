@@ -39,6 +39,7 @@
 
 	/* structure */
 	.site-container {
+		padding: 0 30px;
 		max-width: none;
 	}
 
@@ -49,6 +50,13 @@
 	.sidebar {
 		margin-left: 4.5%;
 		width: 27%;
+	}
+
+	/* single download */
+	.download-description-area {
+		& div[class*="featured-image-stacked"] {
+			display: none;
+		}
 	}
 
 	/* front page */
@@ -187,6 +195,14 @@
 	}
 
 	/* support docs/form */
+	.self-help-support-page {
+		& .edd-gf-self-help-support {
+			& .self-help-support-type ul.gfield_radio li label {
+				min-height: 140px;
+			}
+		}
+	}
+
 	.support-page .support-section-link {
 		min-height: 175px;
 	}
@@ -219,33 +235,29 @@
 		}
 	}
 
-	/* account */
-	.my-account-tabs,
-	.tabbed-template-tabs {
-		width: 30%;
-	}
+	/* My Account page / Affiliate Area / Purchase Confirmation */
+	.my-account-content,
+	#affwp-affiliate-dashboard,
+	.purchase-confirmation-content {
 
-	.my-account-tab-content,
-	.tabbed-template-tab-content {
-		width: 65%;
-	}
+		& .my-account-tabs,
+		.tabbed-template-tabs,
+		#affwp-affiliate-dashboard-tabs {
+			width: 25%;
+		}
 
-	.my-account-tab-content .tab-content {
-		& #edd_profile_editor_form {
-			& fieldset > p label {
-				display: block;
+		& .my-account-tab-content,
+		.tabbed-template-tab-content,
+		.affwp-tab-content {
+			width: 70%;
+		}
+
+		.my-account-tab-content .tab-content {
+			& #edd_profile_editor_form {
+				& fieldset > p label {
+					display: block;
+				}
 			}
-		}
-	}
-
-	/* affiliates */
-	#affwp-affiliate-dashboard {
-		& #affwp-affiliate-dashboard-tabs {
-			width: 30%;
-		}
-
-		& .affwp-tab-content {
-			width: 65%;
 		}
 
 		& #affwp-affiliate-dashboard-creatives {
@@ -282,10 +294,6 @@
 			& .subscription-form {
 				max-width: 630px;
 				margin: 0 auto;
-
-				& .subscription-mobile {
-					display: block;
-				}
 			}
 		}
 	}
@@ -294,13 +302,28 @@
 	.bctt-purchase-confirmation .bctt-click-to-tweet {
 		background-position-x: 490px;
 	}
-}
 
-@media all and ( max-width: 1160px ) {
+	& .upgrade-to-aa {
+		& .upgrade-to-aa-message {
+			& .upgrade-to-aa-link {
+				display: inline;
+				background: none;
+				text-decoration: underline !important;
+				text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+				padding: 0;
+				margin-left: 0;
+				-webkit-transition: all .2s ease-in-out;
+				-moz-transition: all .2s ease-in-out;
+				-o-transition: all .2s ease-in-out;
+				-ms-transition: all .2s ease-in-out;
+				transition: all .2s ease-in-out;
 
-	/* structure */
-	.site-container {
-		padding: 0 30px;
+				&:hover {
+					background: none;
+					text-decoration: none !important;
+				}
+			}
+		}
 	}
 }
 
@@ -340,7 +363,7 @@
 	}
 
 	/* purchase confirmation */
-	.cross-promote-sales {
+	.purchase-confirmation-content .cross-promote-sales {
 		& .sale-site.flex-two {
 			width: 100%;
 
@@ -364,6 +387,25 @@
 			&.fortyfive-day-support {
 				width: 50%;
 			}
+		}
+
+		& .pricing-table-notes {
+			float: none;
+			max-width: 100%;
+		}
+	}
+
+	& .upgrade-to-aa {
+		& .fa {
+			position: static;
+			top: 17px;
+			left: 20px;
+			font-size: 2rem;
+			margin-right: 0;
+		}
+
+		& .upgrade-to-aa-message {
+			padding-left: 6px;
 		}
 	}
 }
@@ -530,6 +572,18 @@
 		margin-left: 0;
 	}
 
+	/* single download */
+	.download-description-area {
+		& .download-long-description {
+			max-width: inherit !important;
+		}
+	}
+	.download-purchase-area {
+		& .download-purchase-details {
+			max-width: inherit !important;
+		}
+	}
+
 	/* front page */
 	.integrations-wrap {
 		padding: 20px 0;
@@ -551,6 +605,15 @@
 			&.featured-stats {
 				text-align: center;
 				margin-bottom: 2.5rem;
+				margin: 0 auto 2.5rem;
+				max-width: 600px;
+			}
+
+			& .globe-icon {
+				margin-top: 0;
+				width: 100%;
+				max-width: 500px;
+				margin: 0 auto;
 			}
 		}
 	}
@@ -721,35 +784,30 @@
 		display: none;
 	}
 
-	/* 404 page */
-	.content-404 {
-		padding: 10px;
-		margin-top: 20px;
-	}
-
-	/* account */
-	.my-account-tabs,
-	.tabbed-template-tabs,
-	.my-account-tab-content,
-	.tabbed-template-tab-content {
-		width: 100%;
-	}
-
-	.my-account-tabs,
-	.tabbed-template-tabs {
-		margin-bottom: 30px !important;
-	}
-
-	/* affiliates */
-	#affwp-affiliate-dashboard {
-		& #affwp-affiliate-dashboard-tabs,
+	/* My Account page / Affiliate Area / Purchase Confirmation */
+	.my-account-content,
+	#affwp-affiliate-dashboard,
+	.purchase-confirmation-content {
+		& .my-account-tabs,
+		.tabbed-template-tabs,
+		.my-account-tab-content,
+		.tabbed-template-tab-content,
+		#affwp-affiliate-dashboard-tabs,
 		.affwp-tab-content {
 			width: 100%;
 		}
 
-		& #affwp-affiliate-dashboard-tabs {
+		& .my-account-tabs,
+		.tabbed-template-tabs,
+		#affwp-affiliate-dashboard-tabs {
 			margin-bottom: 30px !important;
 		}
+	}
+
+	/* 404 page */
+	.content-404 {
+		padding: 10px;
+		margin-top: 20px;
 	}
 
 	/* extension search results */
@@ -893,13 +951,59 @@
 	}
 
 	/* purchase confirmation */
-	.cross-promote-sales {
+	.purchase-confirmation-content .cross-promote-sales {
 		& .sale-site.flex-two {
 			width: 47%;
 
 			&:nth-child(1) {
 				margin-bottom: 0;
 			}
+		}
+	}
+}
+
+
+@media all and ( max-width: 820px ) {
+
+	/* support docs/form */
+	.self-help-support-page {
+		& .edd-gf-self-help-support {
+			& > .gform_body > .gform_page > .gform_page_fields > ul > li {
+				margin-bottom: 25px !important;
+			}
+
+			& .self-help-support-type ul.gfield_radio li {
+				margin-bottom: 15px !important;
+				max-width: 100%;
+
+				&:last-child {
+					margin-bottom: 0 !important;
+				}
+
+				& label {
+					padding: 10px 15px !important;
+					min-height: auto;
+					min-width: 100% !important;
+				}
+			}
+
+			& > .gform_body > .gform_page > .gform_page_fields .self-help-resources > div[class*="flex-"],
+			& > .gform_body > .gform_page > .gform_page_fields li.helpscout-docs .docs-search-wrap .docs-search-resources > *[class*="flex-"] {
+				width: 100% !important;
+
+				&:last-child {
+					padding-top: 30px;
+				}
+			}
+
+			& > .gform_body > .gform_page > .gform_page_fields li.helpscout-docs .docs-search-wrap .no-docs-results {
+				width: 100%;
+			}
+		}
+
+		& .gform_wrapper .helpscout-docs input:not([type='radio']):not([type='checkbox']):not([type='image']):not([type='file']) {
+			font-size: inherit !important;
+			line-height: inherit !important;
 		}
 	}
 }
@@ -916,21 +1020,76 @@
 		margin-bottom: 30px;
 	}
 
-	/* front page */
-	.front-page-extensions-content > .flex-container {
-		& .flex-two {
-			width: 100%;
+	/* single download */
+	.single-download {
+		& .download-landing-title {
+			font-size: 3rem;
 		}
 
-		& .featured-extension {
-			text-align: center;
-			margin-bottom: 3rem;
-			float: left;
-			width: 30%;
-			margin-right: 5%;
+		& .entry-content h2 {
+			font-size: 2rem;
+		}
 
-			&:last-of-type {
-				margin-right: 0;
+		& .download-landing-title-description {
+			font-size: 1.6rem;
+			line-height: 1.625;
+			margin-bottom: 30px !important;
+		}
+	}
+
+	.download-description-area {
+		& .download-landing .entry-content .download-long-description {
+			font-size: 1.6rem;
+			line-height: 1.625;
+
+			& .download-purchase-details {
+				margin-top: 40px;
+
+				& .download-terms .download-landing-title-description {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	.download-screenshots-area {
+		& .download-screenshots .download-screenshots-notes {
+			margin-bottom: 0;
+		}
+	}
+
+	.download-purchase-area {
+		& .download-landing-details {
+			& .download-purchase-details {
+				& .download-terms .download-landing-title-description {
+					margin-bottom: 0 !important;
+
+					& .download-landing-title-description {
+						margin-bottom: 0 !important;;
+					}
+				}
+			}
+		}
+	}
+
+	/* front page */
+	.front-page-extensions-content > .flex-container {
+		& > .flex-two {
+			width: 100%;
+
+			& .featured-extensions {
+				margin: 0 auto;
+				max-width: 560px;
+			}
+
+			& > .flex-two .featured-extension {
+				margin-bottom: 3rem;
+				width: 100%;
+				margin-right: 5%;
+
+				&:last-of-type {
+					margin-right: 0;
+				}
 			}
 		}
 	}
@@ -1072,6 +1231,11 @@
 				margin-bottom: 0;
 			}
 		}
+
+		& .pricing-table-notes {
+			margin-top: 30px;
+			max-width: 450px;
+		}
 	}
 
 	/* recommended products */
@@ -1128,7 +1292,7 @@
 		background-position-x: right;
 	}
 
-	.cross-promote-sales {
+	.purchase-confirmation-content .cross-promote-sales {
 		& .sale-site.flex-two {
 			width: 100%;
 
@@ -1205,10 +1369,40 @@
 	.pricing-table-notes {
 		max-width: 400px;
 	}
+
+	/* support docs/form */
+	.self-help-support-page {
+		& .edd-gf-self-help-support {
+			& .ginput_complex.ginput_container.ginput_container_email .ginput_left,
+			.ginput_complex.ginput_container.ginput_container_email .ginput_right,
+			.ginput_complex.ginput_container.ginput_container_name .name_first,
+			.ginput_complex.ginput_container.ginput_container_name .name_last {
+				float: none !important;
+				width: 100% !important;
+			}
+
+			& .ginput_complex.ginput_container.ginput_container_name .name_last input {
+				margin-bottom: 0 !important;
+			}
+		}
+	}
 }
 
 
 @media all and ( max-width: 600px ) {
+
+	/* shared */
+	.page-title-button {
+		display: inline-block !important;
+	}
+
+	/* single download */
+	.download-purchase-area {
+		& .download-purchase-details .download-purchase .edd-cart-added-alert {
+			position: static;
+			display: block;
+		}
+	}
 
 	/* front page */
 	#front-page-hero .inner {
@@ -1263,15 +1457,6 @@
 	.edd-post-footer .subscription-form-wrap {
 		& .newsletter-title span {
 			display: none;
-		}
-	}
-
-	/* blog/search/archive */
-	.blog-posts-display-content {
-		& .section-title-alt {
-			& .subscribe-to-blog {
-				display: inline-block;
-			}
 		}
 	}
 
@@ -1461,6 +1646,44 @@
 		display: none;
 	}
 
+	/* single download */
+	.single-download {
+		& .download-landing-title {
+			font-size: 2.4rem;
+		}
+
+		& .download-landing-title-description {
+			margin-bottom: 20px !important;
+		}
+	}
+
+	.download-description-area {
+		& .download-landing .entry-header {
+			margin-bottom: 10px;
+		}
+	}
+
+	.download-screenshots-area {
+
+		& .download-screenshots {
+
+			& [id*="gallery-"].gallery {
+
+				&.gallery-columns-2,
+				&.gallery-columns-3,
+				&.gallery-columns-4,
+				&.gallery-columns-5,
+				&.gallery-columns-6 {
+
+					& .gallery-item {
+						width: 50% !important;
+						margin-bottom: 6px !important;
+					}
+				}
+			}
+		}
+	}
+
 	/* front page */
 	.front-page-extensions-content > .flex-container {
 		& .flex-two {
@@ -1545,92 +1768,91 @@
 		}
 	}
 
-	/* account page */
-	.my-account-tab-content .license-key-notice ul li.flex-two {
-		margin-bottom: 20px;
-		width: 100%;
-	}
-
-	.my-account-tabs .nav-tabs,
-	.tabbed-template-tabs .nav-tabs {
-		& li {
+	/* My Account page / Affiliate Area / Purchase Confirmation */
+	.my-account-content,
+	#affwp-affiliate-dashboard,
+	.purchase-confirmation-content {
+		& .my-account-tab-content .license-key-notice ul li.flex-two {
+			margin-bottom: 20px;
 			width: 100%;
 		}
 
-		& li:nth-child(odd) {
-			border-right: none;
-		}
-	}
+		& .my-account-tabs .nav-tabs,
+		.tabbed-template-tabs .nav-tabs {
+			& li {
+				width: 100%;
+			}
 
-	.my-account-tab-content .tab-content #edd_profile_editor_form fieldset {
-		& > p label,
-		& > div label {
-			display: block;
-			font-size: 120%;
-			margin-bottom: 5px;
+			& li:nth-child(odd) {
+				border-right: none;
+			}
+		}
+
+		& .my-account-tab-content .tab-content #edd_profile_editor_form fieldset {
+			& > p label,
+			& > div label {
+				display: block;
+				font-size: 120%;
+				margin-bottom: 5px;
+				width: 100%;
+			}
+
+			& #edd_profile_editor_submit {
+				width: 100%;
+			}
+		}
+
+		& #account-page #edd_profile_editor_form fieldset input[type="text"],
+		#account-page #edd_profile_editor_form fieldset input[type="email"],
+		#account-page #edd_profile_editor_form fieldset input[type="password"],
+		#account-page #edd_profile_editor_form fieldset select {
+			width: 100% !important;
+			margin-bottom: 10px !important;
+		}
+
+		& #account-page #edd_profile_editor_form p#edd_profile_display_name_wrap {
+			margin-bottom: 10px;
+		}
+
+		& #edd_profile_editor_form #edd_address_country {
+			margin-bottom: 25px;
+		}
+
+		& #edd_profile_editor_form fieldset input[type="text"],
+		#edd_profile_editor_form fieldset input[type="email"],
+		#edd_profile_editor_form fieldset input[type="password"] {
+			margin-bottom: 30px;
+		}
+
+		& #edd_profile_editor_form p#edd_profile_display_name_wrap {
+			margin-bottom: 30px;
+		}
+
+		& #edd_profile_editor_form #edd_profile_emails_wrap,
+		#edd_profile_editor_form .edd-profile-emails {
 			width: 100%;
+			padding: 0 30px;
 		}
 
-		& #edd_profile_editor_submit {
-			width: 100%;
-		}
-	}
+		& .my-account-tab-content .tab-content #edd-stripe-manage-cards {
+			& .edd-stripe-card-item {
+				& .card-update-form {
+					& input[type="text"],
+					input[type="email"],
+					input[type="password"],
+					input[type="tel"],
+					select {
+						width: 100%;
+						max-width: 100%;
+						margin-bottom: 6px;
+					}
 
-	#account-page #edd_profile_editor_form fieldset input[type="text"],
-	#account-page #edd_profile_editor_form fieldset input[type="email"],
-	#account-page #edd_profile_editor_form fieldset input[type="password"],
-	#account-page #edd_profile_editor_form fieldset select {
-		width: 100% !important;
-		margin-bottom: 10px !important;
-	}
-
-	#account-page #edd_profile_editor_form p#edd_profile_display_name_wrap {
-		margin-bottom: 10px;
-	}
-
-	#edd_profile_editor_form #edd_address_country {
-		margin-bottom: 25px;
-	}
-
-	#edd_profile_editor_form fieldset input[type="text"],
-	#edd_profile_editor_form fieldset input[type="email"],
-	#edd_profile_editor_form fieldset input[type="password"] {
-		margin-bottom: 30px;
-	}
-
-	#edd_profile_editor_form p#edd_profile_display_name_wrap {
-		margin-bottom: 30px;
-	}
-
-	#edd_profile_editor_form #edd_profile_emails_wrap,
-	#edd_profile_editor_form .edd-profile-emails {
-		width: 100%;
-		padding: 0 30px;
-	}
-
-	.my-account-tab-content .tab-content #edd-stripe-manage-cards {
-		& .edd-stripe-card-item {
-			& .card-update-form {
-				& input[type="text"],
-				input[type="email"],
-				input[type="password"],
-				input[type="tel"],
-				select {
-					width: 100%;
-					max-width: 100%;
-					margin-bottom: 6px;
-				}
-
-				& .card-expiration-fields > label {
-					display: block;
+					& .card-expiration-fields > label {
+						display: block;
+					}
 				}
 			}
 		}
-	}
-
-	#edd-stripe-manage-cards .edd-stripe-card-item .card-update-form input[type="text"],
-	#edd-stripe-manage-cards .edd-stripe-card-item:nth-child(odd) .card-update-form select {
-
 	}
 
 	/* checkout */
