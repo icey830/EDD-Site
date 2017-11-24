@@ -45,6 +45,10 @@ $discount_id     = edd_get_discount_id_by_code( $discount_code );
 				<p>Easy Digital Downloads support is free for all users. You may open a <a href="<?php echo home_url( '/support/' ); ?>">support ticket</a> at any time. Extension support, however, requires a valid extension license key. License keys are issued at the time of purchase.</p>
 			</div>
 			<div class="edd-feature flex-two">
+				<h4>Will Easy Digital Downloads and its extensions work with WordPress.com?</h4>
+				<p>Yes. However, you must have a Business plan with WordPress.com, which supports third-party plugins. If you do not have a Business plan, Easy Digital Downloads and its extensions cannot be used.</p>
+			</div>
+			<div class="edd-feature flex-two">
 				<h4>What are the license keys used for?</h4>
 				<p>License keys simply connect your site to ours, allowing us to send you automatic updates if your license key is in good standing. Likewise, we provide extension support for valid license key holders.</p>
 			</div>
