@@ -22,7 +22,7 @@ if ( !empty( $suggestion_data ) && is_array( $suggestion_data ) ) :
 						printf( 'Users who purchased %s, also purchased:', get_the_title() );
 					} else {
 						printf( 'Gain access to these related extensions and %s more by purchasing %s',
-							eddwp_get_number_of_downloads() - 2,
+							eddwp_get_number_of_extensions() - 2,
 							'<a href="' . home_url( '/downloads/all-access-pass/' ) . '">All Access Pass</a>'
 						);
 					}
