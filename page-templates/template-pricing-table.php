@@ -37,8 +37,8 @@
 	$sp_price        = $sp_price_float;
 
 	// All Access Pass price
-	$aap_path        = get_page_by_path( 'all-access-pass', OBJECT, 'download' ); // get the All Access Pass post object
-	$aap_price_float = edd_get_download_price( $aap_path->ID );
+	$aap_id          = eddwp_get_post_id_by_slug( 'all-access-pass' );
+	$aap_price_float = edd_get_download_price( $aap_id );
 	$aap_price       = $aap_price_float;
 
 	// lowest À la carte extension price

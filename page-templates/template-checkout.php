@@ -34,30 +34,12 @@ endif;
 							the_content();
 						else :
 							?>
-							<p>If this appears to be in error, please clear your browser cookies and try again. If you're interested in extensions for your EDD store, have a look at these popular choices.</p>
+							<p>If this appears to be in error, please clear your browser cookies and try again. If you're interested in extensions for your Easy Digital Downloads store, we've got you covered!</p>
 							<section class="download-grid two-col narrow-grid clearfix">
 								<?php
-								$extension_args = array(
-									'post_type'      => 'download',
-									'paged'          => get_query_var( 'paged' ),
-									'posts_per_page' => 2,
-									'order'          => isset( $_GET['display'] ) ? 'DESC' : 'ASC',
-									'orderby'        => isset( $_GET['display'] ) ? 'date' : 'menu_order',
-									'tax_query'      => array(
-										'relation'       => 'AND',
-										array(
-											'taxonomy' => 'download_category',
-											'field'    => 'slug',
-											'terms'    => 'extensions',
-										),
-										array(
-											'taxonomy' => 'download_tag',
-											'field'    => 'slug',
-											'terms'    => 'featured',
-										),
-									),
-								);
-								$extensions = new WP_Query( $extension_args );
+								$aap_id     = eddwp_get_post_id_by_slug( 'all-access-pass' );
+								$rp_id      = eddwp_get_post_id_by_slug( 'recurring-payments' );
+								$extensions = new WP_Query( array( 'post_type' => 'download', 'post__in' => array( $aap_id, $rp_id ) ) );
 
 								while ( $extensions->have_posts() ) : $extensions->the_post();
 									?>
@@ -88,32 +70,14 @@ endif;
 								?>
 								<div class="download-grid-item flex-grid-cheat"></div>
 							</section>
-							<p>Or perhaps you'd like an official EDD theme to power your store?</p>
+							<p>Or perhaps you'd like an official Easy Digital Downloads theme to power your store? Give these a try for <strong>FREE</strong> to see how our official themes extract the most value from our ecosystem.</p>
 							<section class="download-grid two-col narrow-grid clearfix">
 								<?php
-								$extension_args = array(
-									'post_type'      => 'download',
-									'paged'          => get_query_var( 'paged' ),
-									'posts_per_page' => 2,
-									'order'          => isset( $_GET['display'] ) ? 'DESC' : 'ASC',
-									'orderby'        => isset( $_GET['display'] ) ? 'date' : 'menu_order',
-									'tax_query'      => array(
-										'relation'     => 'AND',
-										array(
-											'taxonomy' => 'download_category',
-											'field'    => 'slug',
-											'terms'    => 'themes',
-										),
-										array(
-											'taxonomy' => 'download_tag',
-											'field'    => 'slug',
-											'terms'    => 'featured',
-										),
-									),
-								);
-								$extensions = new WP_Query( $extension_args );
+								$themedd_id = eddwp_get_post_id_by_slug( 'themedd' );
+								$vendd_id   = eddwp_get_post_id_by_slug( 'vendd' );
+								$themes     = new WP_Query( array( 'post_type' => 'download', 'post__in' => array( $themedd_id, $vendd_id ) ) );
 
-								while ( $extensions->have_posts() ) : $extensions->the_post();
+								while ( $themes->have_posts() ) : $themes->the_post();
 									?>
 									<div class="download-grid-item">
 										<div class="download-grid-thumb-wrap">
@@ -142,7 +106,7 @@ endif;
 								?>
 								<div class="download-grid-item flex-grid-cheat"></div>
 							</section>
-							<p>Be sure to check out our <a href="<?php echo home_url( '/downloads/' ); ?>" title="Easy Digital Downloads Extensions">Extensions</a> and <a href="<?php echo home_url( '/themes/' ); ?>" title="Easy Digital Downloads Themes">Themes</a> pages for more.</p>
+							<p>For more options, check out our <a href="<?php echo home_url( '/downloads/' ); ?>" title="Easy Digital Downloads Extensions">full extensions catalogue</a> and <a href="<?php echo home_url( '/themes/' ); ?>" title="Easy Digital Downloads Themes">theme recommendations</a>.</p>
 						<?php
 						endif;
 						?>
