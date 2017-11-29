@@ -15,7 +15,8 @@ get_header(); ?>
 			<div class="hero-info">
 				<div class="site-headline hero-headline">
 					<span class="hero-subtitle hero-subtitle">Say hello to the easiest way to</span>
-					<h1 class="hero-title hero-title"><?php bloginfo( 'description' ); ?></h1>
+					<h1 class="hero-title"><?php bloginfo( 'description' ); ?></h1>
+					<p class="hero-title-description">From eBooks, to WordPress plugins, to PDF files and more, we make selling digital products a breeze.</p>
 				</div>
 				<p class="hero-cta">
 					<a class="hero-primary-cta-button" href="<?php echo get_theme_mod( 'eddwp_download_core' ); ?>"><i class="fa fa-cloud-download"></i>Download</a><br>
