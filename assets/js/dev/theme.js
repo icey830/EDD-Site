@@ -39,6 +39,14 @@
 			header_cart_total.html (response.cart_quantity);
 		});
 
+		// header call to actions
+		body.on('click', '#front-page-hero .hero-primary-cta-button', function() {
+			eddwp_send_ga_action( 'event', 'cta', 'download', 'Download Core' );
+		});
+
+		body.on('click', '#front-page-hero .hero-secondary-cta-link', function() {
+			eddwp_send_ga_action( 'event', 'cta', 'download', 'Download Core' );
+		});
 
 		// Simple Notices remove notice
 		$('.remove-notice').on('click', function() {
