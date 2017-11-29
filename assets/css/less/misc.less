@@ -903,11 +903,13 @@ div.sharedaddy .sd-content {
 		border-radius: 4px;
 
 		& .rcp-total,
-		.rcp-recurring-total {
+		.rcp-recurring-total,
+		td[data-th*="Subscription"],
+		td[data-th*="Amount"] {
 			& th,
 			td {
 				background: none;
-				border: 0;
+				border: 0 !important;
 			}
 		}
 	}
