@@ -899,3 +899,20 @@ function eddwp_gf_helpscout_docs_results_output( $results ) {
 	return $results;
 }
 add_filter( 'gf_helpscout_docs_script_settings', 'eddwp_gf_helpscout_docs_results_output' );
+
+
+/*
+ * Adjust login message on Priority Support sign up form (RCP)
+ */
+function eddwp_support_registration_message( $translated_text ) {
+
+	// default login link text
+	$rcp_login_link = '<a href="%s">Log in</a> if you wish to renew an existing subscription.';
+
+	if ( $translated_text == $rcp_login_link ) {
+		$translated_text = '<a href="%s">Log in</a> if you wish to renew an existing subscription. Usernames <strong>cannot</strong> contain any spaces or capital letters.';
+	}
+
+	return $translated_text;
+}
+add_filter( 'gettext', 'eddwp_support_registration_message', 20 );

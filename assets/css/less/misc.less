@@ -862,12 +862,19 @@ div.sharedaddy .sd-content {
 /* ----------------------------- *
  * Restrict Content Pro
  * ----------------------------- */
-.page-content h3.rcp_header {
-	margin: 40px 0 10px;
-}
-
 .entry-content #rcp_registration_form {
 	padding: 0;
+
+	& .rcp_login_link {
+		& > p:first-child {
+			background: @eddgray;
+			color: #777;
+			font-size: 1.4rem;
+			padding: 10px;
+			border-radius: 4px;
+			margin: 25px 0;
+		}
+	}
 
 	& .rcp_subscription_fieldset {
 		margin-bottom: 30px;
@@ -894,6 +901,24 @@ div.sharedaddy .sd-content {
 		border-collapse: inherit;
 		border: 3px solid @eddgrayhover;
 		border-radius: 4px;
+
+		& tbody {
+			& td {
+				border-bottom: 1px solid @eddgray;
+				border-radius: initial;
+			}
+		}
+
+		& .rcp-total {
+			& th {
+				background: none;
+				border: 0;
+			}
+
+			& td {
+				color: @green;
+			}
+		}
 	}
 
 	& .rcp_payment_gateways label {
