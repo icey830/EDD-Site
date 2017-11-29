@@ -67,7 +67,7 @@ function eddwp_user_has_aa_access( $download_id = 0 ) {
  */
 function eddwp_aa_redirects() {
 
-	if ( eddwp_aa_is_activated() ) {
+	if ( eddwp_edd_is_activated() && eddwp_aa_is_activated() ) {
 
 		// Has the user purchased any All Access products?
 		$user_has_aa = edd_has_user_purchased( get_current_user_id(), edd_all_access_get_all_access_downloads() );
@@ -335,7 +335,7 @@ function eddwp_user_must_update_payment_info() {
 
 	$failing_subs = array();
 
-	if ( class_exists( 'EDD_Recurring' ) && is_user_logged_in() ) {
+	if ( eddwp_edd_is_activated() && class_exists( 'EDD_Recurring' ) && is_user_logged_in() ) {
 		$subscriber = new EDD_Recurring_Subscriber( get_current_user_id(), true );
 		$failing_subs = $subscriber->get_subscriptions( 0, 'failing' );
 	}
