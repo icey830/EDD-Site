@@ -661,8 +661,7 @@ function eddwp_get_number_of_extensions() {
  * promotions for download grids
  */
 function eddwp_download_grid_promotions() {
-	$aap_path = get_page_by_path( 'all-access-pass', OBJECT, 'download' );
-	$aap_id   = $aap_path->ID;
+	$aap_id   = eddwp_get_post_id_by_slug( 'all-access-pass' );
 	$aap_desc = get_post_meta( $aap_id, 'ecpt_shortdescription', true );
 	ob_start();
 	?>
@@ -815,4 +814,26 @@ function eddwp_get_edd_all_access_upgrade_link() {
 	$url = edd_sl_get_license_upgrade_url( $license_id, eddwp_get_all_access_pass_id() );
 
 	return $url;
+}
+
+
+/*
+ * Given a post object's slug, return its post ID
+ *
+ * @param string $slug The slug of desired post object
+ * @param string $post_type The post type being requested
+ *
+ * @return ID of post based on provided slug, or Stripe post ID if slug is no good
+ */
+function eddwp_get_post_id_by_slug( $slug = '', $post_type = 'download' ) {
+
+	$object_path = get_page_by_path( $slug, OBJECT, $post_type );
+
+	if ( empty( $slug ) || is_null( $object_path ) ) {
+		return 167; // Stripe as a fallback
+	}
+
+	$post_id = $object_path->ID;
+
+	return $post_id;
 }

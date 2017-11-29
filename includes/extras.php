@@ -67,7 +67,7 @@ function eddwp_user_has_aa_access( $download_id = 0 ) {
  */
 function eddwp_aa_redirects() {
 
-	if ( eddwp_aa_is_activated() ) {
+	if ( eddwp_edd_is_activated() && eddwp_aa_is_activated() ) {
 
 		// Has the user purchased any All Access products?
 		$user_has_aa = edd_has_user_purchased( get_current_user_id(), edd_all_access_get_all_access_downloads() );
@@ -335,7 +335,7 @@ function eddwp_user_must_update_payment_info() {
 
 	$failing_subs = array();
 
-	if ( class_exists( 'EDD_Recurring' ) && is_user_logged_in() ) {
+	if ( eddwp_edd_is_activated() && class_exists( 'EDD_Recurring' ) && is_user_logged_in() ) {
 		$subscriber = new EDD_Recurring_Subscriber( get_current_user_id(), true );
 		$failing_subs = $subscriber->get_subscriptions( 0, 'failing' );
 	}
@@ -480,6 +480,9 @@ add_filter( 'gform_admin_pre_render_16', 'edd_wp_gravity_form_download_options' 
  * Facebook tracking pixel
  */
 function eddwp_facebook_conversion_pixel() {
+	if ( ! eddwp_edd_is_activated() ) {
+		return;
+	}
 	if ( function_exists( 'edd_is_success_page' ) && ! edd_is_success_page() ) {
 		return;
 	}
@@ -845,20 +848,23 @@ add_filter( 'video_embed_html', 'eddwp_video_embed_wrapper' ); // Jetpack
  * Ouput Perfect Audience conversion tracking script
  */
 function eddwp_perfect_audience_tracking() {
-?>
-<script type="text/javascript">
-  (function() {
-    window._pa = window._pa || {};
-    <?php if( $session = edd_get_purchase_session() ) : $payment_id = edd_get_purchase_id_by_key( $session['purchase_key'] ); ?>
-    _pa.orderId = "<?php echo $payment_id; ?>";
-    _pa.revenue = "<?php echo edd_get_payment_amount( $payment_id ); ?>";
-    <?php endif; ?>
-    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
-    pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.marinsm.com/serve/59022fbfb8627951df0000a1.js";
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
-  })();
-</script>
-<?php
+	if ( ! eddwp_edd_is_activated() ) {
+		return;
+	}
+	?>
+	<script type="text/javascript">
+	  (function() {
+	    window._pa = window._pa || {};
+	    <?php if( $session = edd_get_purchase_session() ) : $payment_id = edd_get_purchase_id_by_key( $session['purchase_key'] ); ?>
+	    _pa.orderId = "<?php echo $payment_id; ?>";
+	    _pa.revenue = "<?php echo edd_get_payment_amount( $payment_id ); ?>";
+	    <?php endif; ?>
+	    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+	    pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.marinsm.com/serve/59022fbfb8627951df0000a1.js";
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+	  })();
+	</script>
+	<?php
 }
 add_action( 'wp_footer', 'eddwp_perfect_audience_tracking' );
 
@@ -899,3 +905,20 @@ function eddwp_gf_helpscout_docs_results_output( $results ) {
 	return $results;
 }
 add_filter( 'gf_helpscout_docs_script_settings', 'eddwp_gf_helpscout_docs_results_output' );
+
+
+/*
+ * Adjust login message on Priority Support sign up form (RCP)
+ */
+function eddwp_support_registration_message( $translated_text ) {
+
+	// default login link text
+	$rcp_login_link = '<a href="%s">Log in</a> if you wish to renew an existing subscription.';
+
+	if ( $translated_text == $rcp_login_link ) {
+		$translated_text = '<a href="%s">Log in</a> if you wish to renew an existing subscription. Usernames <strong>cannot</strong> contain any spaces or capital letters.';
+	}
+
+	return $translated_text;
+}
+add_filter( 'gettext', 'eddwp_support_registration_message', 20 );

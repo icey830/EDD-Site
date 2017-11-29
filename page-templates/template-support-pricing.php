@@ -30,7 +30,7 @@ get_header(); ?>
 							</ul>
 						</div>
 						<div class="support-type-cta">
-							<a class="button edd-submit darkblue" href="/support/register/?level=1"><i class="fa fa-life-ring" aria-hidden="true"></i><span>Get </span>yearly priority support</a>
+							<a class="button edd-submit darkblue" href="<?php echo home_url( '/support/register/?level=1' ); ?>"><i class="fa fa-life-ring" aria-hidden="true"></i><span>Get </span>yearly priority support</a>
 						</div>
 					</div>
 					<div class="fortyfive-day-support support-type flex-three">
@@ -45,7 +45,7 @@ get_header(); ?>
 							</ul>
 						</div>
 						<div class="support-type-cta">
-							<a class="button edd-submit blue" href="/support/register/?level=2"><i class="fa fa-life-ring" aria-hidden="true"></i><span>Get </span>45-day priority support</a>
+							<a class="button edd-submit blue" href="<?php echo home_url( '/support/register/?level=2' ); ?>"><i class="fa fa-life-ring" aria-hidden="true"></i><span>Get </span>45-day priority support</a>
 						</div>
 					</div>
 				</div>
