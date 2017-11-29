@@ -480,6 +480,9 @@ add_filter( 'gform_admin_pre_render_16', 'edd_wp_gravity_form_download_options' 
  * Facebook tracking pixel
  */
 function eddwp_facebook_conversion_pixel() {
+	if ( ! eddwp_edd_is_activated() ) {
+		return;
+	}
 	if ( function_exists( 'edd_is_success_page' ) && ! edd_is_success_page() ) {
 		return;
 	}
@@ -845,20 +848,23 @@ add_filter( 'video_embed_html', 'eddwp_video_embed_wrapper' ); // Jetpack
  * Ouput Perfect Audience conversion tracking script
  */
 function eddwp_perfect_audience_tracking() {
-?>
-<script type="text/javascript">
-  (function() {
-    window._pa = window._pa || {};
-    <?php if( $session = edd_get_purchase_session() ) : $payment_id = edd_get_purchase_id_by_key( $session['purchase_key'] ); ?>
-    _pa.orderId = "<?php echo $payment_id; ?>";
-    _pa.revenue = "<?php echo edd_get_payment_amount( $payment_id ); ?>";
-    <?php endif; ?>
-    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
-    pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.marinsm.com/serve/59022fbfb8627951df0000a1.js";
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
-  })();
-</script>
-<?php
+	if ( ! eddwp_edd_is_activated() ) {
+		return;
+	}
+	?>
+	<script type="text/javascript">
+	  (function() {
+	    window._pa = window._pa || {};
+	    <?php if( $session = edd_get_purchase_session() ) : $payment_id = edd_get_purchase_id_by_key( $session['purchase_key'] ); ?>
+	    _pa.orderId = "<?php echo $payment_id; ?>";
+	    _pa.revenue = "<?php echo edd_get_payment_amount( $payment_id ); ?>";
+	    <?php endif; ?>
+	    var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+	    pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.marinsm.com/serve/59022fbfb8627951df0000a1.js";
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+	  })();
+	</script>
+	<?php
 }
 add_action( 'wp_footer', 'eddwp_perfect_audience_tracking' );
 
