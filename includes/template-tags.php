@@ -822,6 +822,8 @@ function eddwp_get_edd_all_access_upgrade_link() {
  *
  * @param string $slug The slug of desired post object
  * @param string $post_type The post type being requested
+ *
+ * @return ID of post based on provided slug, or Stripe post ID if slug is no good
  */
 function eddwp_get_post_id_by_slug( $slug = '', $post_type = 'download' ) {
 
