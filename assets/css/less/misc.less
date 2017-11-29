@@ -903,9 +903,12 @@ div.sharedaddy .sd-content {
 		border-radius: 4px;
 
 		& tbody {
-			& td {
-				border-bottom: 1px solid @eddgray;
-				border-radius: initial;
+			& tr:noth(:last-child) {
+				& td,
+				th {
+					border-bottom: 1px solid @eddgray;
+					border-radius: initial;
+				}
 			}
 		}
 
