@@ -902,12 +902,16 @@ div.sharedaddy .sd-content {
 		border: 3px solid @eddgrayhover;
 		border-radius: 4px;
 
-		& .rcp-total,
-		.rcp-recurring-total {
-			& th,
-			td {
-				background: none;
-				border: 0;
+		& tbody {
+			& tr:not(:first-child) {
+				& .rcp-total,
+				.rcp-recurring-total {
+					& th,
+					td {
+						background: none;
+						border: 0;
+					}
+				}
 			}
 		}
 	}
