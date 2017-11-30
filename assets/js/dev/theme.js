@@ -45,7 +45,7 @@
 		});
 
 		body.on('click', '#front-page-hero .hero-secondary-cta-link', function() {
-			eddwp_send_ga_action( 'event', 'cta', 'demo', 'Download Core' );
+			eddwp_send_ga_action( 'event', 'cta', 'demo', 'View Demo' );
 		});
 
 		// Simple Notices remove notice
