@@ -20,38 +20,48 @@ function eddwp_display_notice() {
 
 	/// this displays the notification area if the user has not read it before
 	global $user_ID;
-	$notice_args = array('post_type' => 'notices', 'posts_per_page' => 1, 'meta_key' => '_enabled', 'meta_value' => '1');
-	$notices = get_posts($notice_args);
-	if($notices) :
-		foreach ($notices as $notice) {
 
-			$icon = strtolower(str_replace(' ', '_', get_post_meta($notice->ID, '_icon', true)));
-			$logged_in_only = get_post_meta($notice->ID, '_notice_for_logged_in_only', true);
+	$notice_args = array(
+		'post_type'      => 'notices',
+		'posts_per_page' => 1,
+		'meta_key'       => '_enabled',
+		'meta_value'     => '1',
+	);
+	$notices = get_posts( $notice_args );
+
+	if ( $notices ) :
+		foreach ( $notices as $notice ) {
+
+			$icon = strtolower( str_replace(' ', '_', get_post_meta( $notice->ID, '_icon', true ) ) );
+			$logged_in_only = get_post_meta( $notice->ID, '_notice_for_logged_in_only', true );
 
 			$can_view = false;
-			if( $logged_in_only == 'All' ) {
+			if ( $logged_in_only == 'All' ) {
 				$can_view = true;
-			} else if( $logged_in_only == 'Logged In' && is_user_logged_in() ) {
+			} else if ( $logged_in_only == 'Logged In' && is_user_logged_in() ) {
 				$can_view = true;
-			} else if( $logged_in_only == 'Logged Out' && !is_user_logged_in() ) {
+			} else if ( $logged_in_only == 'Logged Out' && !is_user_logged_in() ) {
 				$can_view = true;
 			}
 
-			if($can_view) {
-				if(pippin_check_notice_is_read($notice->ID, $user_ID) != true) { ?>
+			if ( $can_view ) {
+				if ( pippin_check_notice_is_read( $notice->ID, $user_ID ) != true ) {
+					?>
 					<div id="notification-area" class="snp-hidden full-width">
 						<div class="inner">
 
 							<div class="notice-content clearfix">
 
-								<svg id="announcement" width="32px" height="32px">
-									<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-announcement'; ?>"></use>
-								</svg>
+								<?php
+								$get_icon = get_post_meta( $notice->ID, 'ecpt_fa_icon', true );
+								$the_icon = $get_icon ? $get_icon : 'bullhorn';
+								?>
+								<i class="fa fa-<?php echo $the_icon; ?>" aria-hidden="true"></i>
 
 								<?php echo do_shortcode( wpautop( $notice->post_content ) ); ?>
 							</div>
 
-							<?php if(!get_post_meta($notice->ID, '_hide_close', true)) { ?>
+							<?php if ( ! get_post_meta( $notice->ID, '_hide_close', true ) ) { ?>
 								<a class="remove-notice" href="#" id="remove-notice" rel="<?php echo $notice->ID; ?>">
 									<svg width="24px" height="24px">
 										<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-remove'; ?>"></use>
@@ -61,7 +71,8 @@ function eddwp_display_notice() {
 
 						</div>
 					</div>
-				<?php }
+					<?php
+				}
 			}
 		}
 	endif;
