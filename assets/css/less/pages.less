@@ -1053,29 +1053,35 @@
 			}
 
 			& #edd_terms,
-			& > [id*="-terms-wrap"] > [id*="_terms"] > p /* Terms Per Product terms display */ {
-				background: #fff;
-				color: #555;
-				font-size: 1.4rem;
-				padding: 14px 16px;
-				border: 1px solid @eddgrayhover;
-				border-radius: 4px;
-				margin: 8px 0;
-				max-height: 300px;
-				overflow: scroll;
-
-				& p,
-				& ul,
-				& ol {
-					margin-bottom: 20px;
-				}
-
-				&:not([style*="none"]) + #edd_show_terms {
-					border-radius: 0 0 3px 3px;
-				}
-
-				& > div:not(:empty) {
+			& > [id*="-terms-wrap"] {
+				&:not(:last-child) /* Multiple Terms Per Product displays */ {
 					margin-bottom: 10px;
+				}
+
+				& > [id*="_terms"] > p /* Terms Per Product terms display */ {
+					background: #fff;
+					color: #555;
+					font-size: 1.4rem;
+					padding: 14px 16px;
+					border: 1px solid @eddgrayhover;
+					border-radius: 4px;
+					margin: 8px 0;
+					max-height: 300px;
+					overflow: scroll;
+
+					& p,
+					& ul,
+					& ol {
+						margin-bottom: 20px;
+					}
+
+					&:not([style*="none"]) + #edd_show_terms {
+						border-radius: 0 0 3px 3px;
+					}
+
+					& > div:not(:empty) {
+						margin-bottom: 10px;
+					}
 				}
 			}
 
