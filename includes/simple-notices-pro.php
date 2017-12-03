@@ -62,10 +62,8 @@ function eddwp_display_notice() {
 							</div>
 
 							<?php if ( ! get_post_meta( $notice->ID, '_hide_close', true ) ) { ?>
-								<a class="remove-notice" href="#" id="remove-notice" rel="<?php echo $notice->ID; ?>">
-									<svg width="24px" height="24px">
-										<use xlink:href="<?php echo get_stylesheet_directory_uri() . '/images/svg-defs.svg#icon-remove'; ?>"></use>
-									</svg>
+								<a class="remove-notice" href="#" id="remove-notice" rel="<?php echo $notice->ID; ?>" title="Dismiss notice">
+									<i class="fa fa-times" aria-hidden="true"></i>
 								</a>
 							<?php } ?>
 
