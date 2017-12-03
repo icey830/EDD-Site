@@ -3,7 +3,6 @@
  * miscellaneous theme functions
  */
 
-
 /* ----------------------------------------------------------- *
  * Misc
  * ----------------------------------------------------------- */
@@ -431,11 +430,33 @@ add_action( 'edd_after_cc_expiration', 'eddwp_add_security_info' );
  * Add heading to checkout form submit button
  */
 function eddwp_complete_purchase_heading() {
-	?>
-	<h3 class="complete-purchase-title">Complete Purchase</h3>
-	<?php
+	echo '<h3 class="complete-purchase-title">Complete Purchase</h3>';
 }
 add_action( 'edd_purchase_form_before_submit', 'eddwp_complete_purchase_heading', 1 );
+
+
+/**
+ * Reposition Recurring/Stripe notice for updating payment method for all subs
+ */
+global $edd_recurring_stripe;
+remove_action( 'edd_after_cc_fields', array( $edd_recurring_stripe, 'after_cc_fields' ) );
+add_action( 'edd_purchase_form_before_submit', array( $edd_recurring_stripe, 'after_cc_fields' ), 1 );
+
+
+/**
+ * Reposition EDD core checkout terms and Terms Per Product to be siblings
+ */
+
+	// remove EDD core checkout terms output
+	remove_action( 'edd_purchase_form_before_submit', 'edd_terms_agreement' );
+	// remove Per Product Terms terms output
+	global $edd_terms_per_product;
+	remove_action( 'edd_purchase_form_before_submit', array( $edd_terms_per_product, 'product_terms' ) );
+
+	// add EDD core checkout terms back
+	add_action( 'edd_purchase_form_before_submit', 'edd_terms_agreement', 996 );
+	// add Per Product Terms terms back
+	add_action( 'edd_purchase_form_before_submit', array( $edd_terms_per_product, 'product_terms' ), 997 );
 
 
 /**
