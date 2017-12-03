@@ -1017,9 +1017,10 @@
 	}
 
 	& #edd_checkout_form_wrap .edd-alert-warn {
-		background: #fcf8e3;
 		color: #555;
-		padding: 20px;
+		font-size: 1.4rem;
+		line-height: 1.4;
+		padding: 10px 18px;
 		border: none;
 		border-radius: 4px;
 
@@ -1029,95 +1030,110 @@
 
 		& label {
 			display: inline;
-			line-height: 1.6;
-			font-weight: 500;
 			margin: 0;
 		}
 	}
 
-	& #edd_terms {
-		background: @eddgray;
-		color: #555;
-		font-size: 13px;
-		font-size: 1.3rem;
-		padding: 14px 16px;
-		border: 3px solid @eddgrayhover;
-		border-radius: 4px 4px 4px 0;
+	& #edd_purchase_submit {
 		margin-bottom: 0;
-		max-height: 300px;
-		overflow: scroll;
 
-		& p,
-		& ul,
-		& ol {
-			margin-bottom: 20px;
-		}
-	}
-
-	& #edd_show_terms {
-		background: @eddgrayhover;
-		font-size: 15px;
-		font-size: 1.5rem;
-		padding: 4px 10px 4px 20px;
-		border-radius: 3px;
-		margin-bottom: 28px;
-		max-width: 122px;
-
-		& a {
-			color: #666;
-
-			&:before {
-				font-family: "FontAwesome";
-			}
-		}
-	}
-
-	& #edd_terms:not([style*="none"]) + #edd_show_terms {
-		border-radius: 0 0 3px 3px;
-	}
-
-	& #edd_purchase_submit label {
-		font-weight: 400;
-	}
-
-	& #edd_final_total_wrap {
-		text-align: center;
-	}
-
-	& #edd_checkout_form_wrap #edd_final_total_wrap {
-		margin-top: 20px;
-
-		& strong,
-		span {
-			font-size: 24px;
-		}
-
-		& strong {
+		& label {
+			font-size: 1.4rem;
 			font-weight: 400;
 		}
 
-		& span {
-			color: @green;
-			font-weight: 500;
+		& #edd_terms_agreement {
+			background: #f7f7f7 !important;
+			padding: 10px 18px !important;
+			border-radius: 4px;
+			margin-bottom: 20px;
 
-			&.edd_recurring_trial_total_sep {
-				display: none;
+			& label {
+				font-size: 14px;
 			}
 
-			&.edd_recurring_trial_total_note {
-				display: block;
-				color: #777;
-				font-size: 1.6rem;
-				font-weight: 400;
-				margin-top: 10px;
+			& #edd_terms,
+			& > [id*="-terms-wrap"] > [id*="_terms"] > p /* Terms Per Product terms display */ {
+				background: #fff;
+				color: #555;
+				font-size: 1.4rem;
+				padding: 14px 16px;
+				border: 1px solid @eddgrayhover;
+				border-radius: 4px;
+				margin: 8px 0;
+				max-height: 300px;
+				overflow: scroll;
+
+				& p,
+				& ul,
+				& ol {
+					margin-bottom: 20px;
+				}
+
+				&:not([style*="none"]) + #edd_show_terms {
+					border-radius: 0 0 3px 3px;
+				}
+
+				& > div:not(:empty) {
+					margin-bottom: 10px;
+				}
+			}
+
+			& > [id*="-terms-wrap"] > [id*="_terms"]:not([style*="none"]) + [id*="edd_show_"] > .edd_per_product_terms_links {
+				border-radius: 0 0 3px 3px;
+			}
+
+			& #edd_show_terms,
+			.edd_per_product_terms_links {
+				display: inline-block;
+				color: #666;
+				font-size: 1.4rem;
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+
+				& a {
+					color: #666;
+				}
+			}
+
+			& .edd_per_product_terms_links {
+				color: #666;
 			}
 		}
 
+		& #edd_final_total_wrap {
+			text-align: center;
+			margin-top: 20px;
 
-	}
+			& strong,
+			span {
+				font-size: 24px;
+			}
 
-	& #edd_checkout_form_wrap #edd_purchase_submit {
-		margin-bottom: 0;
+			& strong {
+				font-weight: 400;
+			}
+
+			& span {
+				color: @green;
+				font-weight: 500;
+
+				&.edd_recurring_trial_total_sep {
+					display: none;
+				}
+
+				&.edd_recurring_trial_total_note {
+					display: block;
+					color: #777;
+					font-size: 1.6rem;
+					font-weight: 400;
+					margin-top: 10px;
+				}
+			}
+		}
 	}
 
 	& #edd-purchase-button {
