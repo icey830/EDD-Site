@@ -42,29 +42,7 @@ endif;
 								$extensions = new WP_Query( array( 'post_type' => 'download', 'post__in' => array( $aap_id, $rp_id ) ) );
 
 								while ( $extensions->have_posts() ) : $extensions->the_post();
-									?>
-									<div class="download-grid-item">
-										<div class="download-grid-thumb-wrap">
-											<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-												<?php eddwp_downloads_grid_thumbnail(); ?>
-											</a>
-										</div>
-										<div class="download-grid-item-info">
-											<?php
-											the_title( sprintf(
-												'<h4 class="download-grid-title"><a href="%s">',
-												home_url( '/downloads/' . $post->post_name ) ),
-												'</a></h4>'
-											);
-											$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
-											echo $short_desc;
-											?>
-										</div>
-										<div class="download-grid-item-cta">
-											<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
-										</div>
-									</div>
-								<?php
+									echo eddwp_download_grid_item_markup();
 								endwhile;
 								wp_reset_postdata();
 								?>
@@ -78,36 +56,14 @@ endif;
 								$themes     = new WP_Query( array( 'post_type' => 'download', 'post__in' => array( $themedd_id, $vendd_id ) ) );
 
 								while ( $themes->have_posts() ) : $themes->the_post();
-									?>
-									<div class="download-grid-item">
-										<div class="download-grid-thumb-wrap">
-											<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-												<?php eddwp_downloads_grid_thumbnail(); ?>
-											</a>
-										</div>
-										<div class="download-grid-item-info">
-											<?php
-											the_title( sprintf(
-												'<h4 class="download-grid-title"><a href="%s">',
-												home_url( '/downloads/' . $post->post_name ) ),
-												'</a></h4>'
-											);
-											$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
-											echo $short_desc;
-											?>
-										</div>
-										<div class="download-grid-item-cta">
-											<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
-										</div>
-									</div>
-								<?php
+									echo eddwp_download_grid_item_markup();
 								endwhile;
 								wp_reset_postdata();
 								?>
 								<div class="download-grid-item flex-grid-cheat"></div>
 							</section>
 							<p>For more options, check out our <a href="<?php echo home_url( '/downloads/' ); ?>" title="Easy Digital Downloads Extensions">full extensions catalogue</a> and <a href="<?php echo home_url( '/themes/' ); ?>" title="Easy Digital Downloads Themes">theme recommendations</a>.</p>
-						<?php
+							<?php
 						endif;
 						?>
 					</div>

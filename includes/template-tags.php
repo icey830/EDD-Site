@@ -658,6 +658,40 @@ function eddwp_get_number_of_extensions() {
 
 
 /**
+ * download grid item structure, like for download archive
+ */
+function eddwp_download_grid_item_markup() {
+	global $post;
+	ob_start();
+	?>
+	<div class="download-grid-item">
+		<div class="download-grid-thumb-wrap">
+			<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
+				<?php eddwp_downloads_grid_thumbnail(); ?>
+			</a>
+		</div>
+		<div class="download-grid-item-info">
+			<?php
+				the_title( sprintf(
+					'<h4 class="download-grid-title"><a href="%s">',
+					home_url( '/downloads/' . $post->post_name ) ),
+					'</a></h4>'
+				);
+				$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
+				echo $short_desc;
+			?>
+		</div>
+		<div class="download-grid-item-cta">
+			<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
+		</div>
+	</div>
+	<?php
+	$download_grid = ob_get_clean();
+	return $download_grid;
+}
+
+
+/**
  * promotions for download grids
  */
 function eddwp_download_grid_promotions() {

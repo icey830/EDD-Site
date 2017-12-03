@@ -59,7 +59,7 @@ $popular = new WP_Query( $pop_query ); ?>
 	<div class="edd-no-search-results-area full-width">
 		<div class="inner">
 			<div class="edd-no-search-results">
-				Oops! <strong><?php echo get_userdata( get_query_var( 'author' ) )->display_name; ?></strong> has no extensions. Try browsing the popular add-ons below.
+				Oops! <strong><?php echo get_userdata( get_query_var( 'author' ) )->display_name; ?></strong> has no extensions. Try browsing the popular extensions below.
 			</div>
 		</div>
 	</div>
@@ -71,67 +71,26 @@ $popular = new WP_Query( $pop_query ); ?>
 
 				<section class="download-grid three-col clearfix">
 
-					<?php echo eddwp_download_grid_promotions(); ?>
+					<?php
+					echo eddwp_download_grid_promotions();
 
-					<?php if ( $extensions->have_posts() ) : ?>
+					if ( $extensions->have_posts() ) :
 
-						<?php while ( $extensions->have_posts() ) : $extensions->the_post(); ?>
-							<div class="download-grid-item">
-								<div class="download-grid-thumb-wrap">
-									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-										<?php eddwp_downloads_grid_thumbnail(); ?>
-									</a>
-								</div>
-								<div class="download-grid-item-info">
-									<?php
-										the_title( sprintf(
-											'<h4 class="download-grid-title"><a href="%s">',
-											home_url( '/downloads/' . $post->post_name ) ),
-											'</a></h4>'
-										);
-										$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
-										echo $short_desc;
-									?>
-								</div>
-								<div class="download-grid-item-cta">
-									<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
-								</div>
-							</div>
-						<?php endwhile; wp_reset_postdata(); ?>
-						<div class="download-grid-item flex-grid-cheat"></div>
-						<div class="download-grid-item flex-grid-cheat"></div>
+						while ( $extensions->have_posts() ) : $extensions->the_post();
+							echo eddwp_download_grid_item_markup();
+						endwhile; wp_reset_postdata();
 
-					<?php else :
+					else :
 
 						while ( $popular->have_posts() ) : $popular->the_post();
-							?>
-							<div class="download-grid-item">
-								<div class="download-grid-thumb-wrap">
-									<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-										<?php eddwp_downloads_grid_thumbnail(); ?>
-									</a>
-								</div>
-								<div class="download-grid-item-info">
-									<?php
-									the_title( sprintf(
-										'<h4 class="download-grid-title"><a href="%s">',
-										home_url( '/downloads/' . $post->post_name ) ),
-										'</a></h4>'
-									);
-									$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
-									echo $short_desc;
-									?>
-								</div>
-								<div class="download-grid-item-cta">
-									<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
-								</div>
-							</div>
-							<?php
-						endwhile; wp_reset_postdata(); ?>
-						<div class="download-grid-item flex-grid-cheat"></div>
-						<div class="download-grid-item flex-grid-cheat"></div>
+							echo eddwp_download_grid_item_markup();
+						endwhile; wp_reset_postdata();
 
-					<?php endif; ?>
+					endif;
+					?>
+
+					<div class="download-grid-item flex-grid-cheat"></div>
+					<div class="download-grid-item flex-grid-cheat"></div>
 
 				</section>
 

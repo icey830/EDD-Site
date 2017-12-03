@@ -124,64 +124,20 @@ if ( empty( $_GET['s'] ) && $wp_query->is_main_query() ) {
 					?>
 				</div>
 				<section class="download-grid three-col clearfix">
-					<?php echo eddwp_download_grid_promotions(); ?>
 					<?php
+						echo eddwp_download_grid_promotions();
 
 						// search results
 						if ( $s_query->have_posts() ) :
 							while ( $s_query->have_posts() ) : $s_query->the_post();
-								?>
-								<div class="download-grid-item">
-									<div class="download-grid-thumb-wrap">
-										<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-											<?php eddwp_downloads_grid_thumbnail(); ?>
-										</a>
-									</div>
-									<div class="download-grid-item-info">
-										<?php
-											the_title( sprintf(
-												'<h4 class="download-grid-title"><a href="%s">',
-												home_url( '/downloads/' . $post->post_name ) ),
-												'</a></h4>'
-											);
-											$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
-											echo $short_desc;
-										?>
-									</div>
-									<div class="download-grid-item-cta">
-										<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
-									</div>
-								</div>
-								<?php
+								echo eddwp_download_grid_item_markup();
 							endwhile;
 							wp_reset_postdata();
 
 						// no search results
 						else :
 							while ( $popular->have_posts() ) : $popular->the_post();
-								?>
-								<div class="download-grid-item">
-									<div class="download-grid-thumb-wrap">
-										<a href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">
-											<?php eddwp_downloads_grid_thumbnail(); ?>
-										</a>
-									</div>
-									<div class="download-grid-item-info">
-										<?php
-										the_title( sprintf(
-											'<h4 class="download-grid-title"><a href="%s">',
-											home_url( '/downloads/' . $post->post_name ) ),
-											'</a></h4>'
-										);
-										$short_desc = get_post_meta( get_the_ID(), 'ecpt_shortdescription', true );
-										echo $short_desc;
-										?>
-									</div>
-									<div class="download-grid-item-cta">
-										<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
-									</div>
-								</div>
-							<?php
+								echo eddwp_download_grid_item_markup();
 							endwhile;
 							wp_reset_postdata();
 						endif;
