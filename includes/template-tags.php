@@ -662,6 +662,7 @@ function eddwp_get_number_of_extensions() {
  */
 function eddwp_download_grid_item_markup() {
 	global $post;
+	$aa_check = eddwp_user_has_aa_access( get_the_ID() );
 	ob_start();
 	?>
 	<div class="download-grid-item">
@@ -682,7 +683,15 @@ function eddwp_download_grid_item_markup() {
 			?>
 		</div>
 		<div class="download-grid-item-cta">
-			<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>">More Information</a>
+			<?php
+			if ( $aa_check[0] ) {
+				echo edd_get_purchase_link( array( 'download_id' => get_the_ID(), 'style' => 'plain' ) );
+			} else {
+				?>
+				<a class="download-grid-item-primary-link button" href="<?php echo home_url( '/downloads/' . $post->post_name ); ?>" title="<?php get_the_title(); ?>"><i class="fa fa-info-circle" aria-hidden="true"></i>More Information</a>
+				<?php
+			}
+			?>
 		</div>
 	</div>
 	<?php
@@ -697,20 +706,33 @@ function eddwp_download_grid_item_markup() {
 function eddwp_download_grid_promotions() {
 	$aap_id   = eddwp_get_post_id_by_slug( 'all-access-pass' );
 	$aap_desc = get_post_meta( $aap_id, 'ecpt_shortdescription', true );
+	$aap_alld = get_post_meta( $aap_id, '_edd_all_access_receipt_settings', true );
+	$aa_check = eddwp_user_has_aa_access( get_the_ID() );
 	ob_start();
 	?>
 	<div id="extensions-bundle-promotion" class="download-grid-item extensions-bundle-promotion">
 		<div class="download-grid-thumb-wrap">
-			<a class="promotion-image-link" href="<?php echo get_permalink( $aap_id ); ?>" title="<?php echo the_title_attribute( '', '', true, $aap_id ); ?>">
+			<a class="promotion-image-link" href="<?php echo $aa_check[0] ? esc_url( $aap_alld['link_url'] ) : get_permalink( $aap_id ); ?>" title="<?php echo the_title_attribute( '', '', true, $aap_id ); ?>">
 				<?php echo get_the_post_thumbnail( $aap_id, 'full', array( 'class' => 'download-grid-thumb' ) ); ?>
 			</a>
 		</div>
 		<div class="download-grid-item-info">
-			<h4 class="download-grid-title"><a href="<?php echo get_permalink( $aap_id ); ?>"><?php echo get_the_title( $aap_id ); ?></a></h4>
-			<?php echo $aap_desc; ?>
+			<?php
+			if ( $aa_check[0] ) {
+				?>
+				<h4 class="download-grid-title"><a href="<?php echo esc_url( $aap_alld['link_url'] ); ?>">You've got access!</a></h4>
+				<p>Visit the All Access Pass Downloads page to download extensions, view documentation, and see extension changelogs all in one place.</p>
+				<?php
+			} else {
+				?>
+				<h4 class="download-grid-title"><a href="<?php echo get_permalink( $aap_id ); ?>"><i class="fa fa-gift" aria-hidden="true"></i><?php echo get_the_title( $aap_id ); ?></a></h4>
+				<?php
+				echo $aap_desc;
+			}
+			?>
 		</div>
 		<div class="download-grid-item-cta">
-			<a class="download-grid-item-primary-link button blue" href="<?php echo get_permalink( $aap_id ); ?>">More Information</a>
+			<a class="download-grid-item-primary-link button blue" href="<?php echo $aa_check[0] ? esc_url( $aap_alld['link_url'] ) : get_permalink( $aap_id ); ?>"><?php echo $aa_check[0] ? '<i class="fa fa-gift" aria-hidden="true"></i>Access your downloads' : 'More Information'; ?></a>
 		</div>
 	</div>
 	<?php

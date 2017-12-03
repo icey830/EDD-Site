@@ -154,14 +154,32 @@ body {
 						color: @edddarkbluehover;
 					}
 				}
+
+				& .fa {
+					margin-right: 6px;
+				}
 			}
 		}
 
 		& .download-grid-item-cta {
 			margin: auto 0 0;
 
-			& .download-grid-item-primary-link {
+			& .download-grid-item-primary-link,
+			.edd-all-access-btn {
 				display: inline-block;
+				line-height: 1.625;
+			}
+
+			& .edd-add-to-cart:before {
+				font-family: "FontAwesome";
+				content: "\f06b";
+				margin-right: 10px;
+			}
+
+			& .edd-all-access-btn:before {
+				font-family: "FontAwesome";
+				content: "\f0ed";
+				margin-right: 10px;
 			}
 		}
 	}
