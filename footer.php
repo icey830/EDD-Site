@@ -84,11 +84,6 @@
 								endif;
 							?>
 						</p>
-						<?php if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
-							<a class="godaddy-partner" href="https://garage.godaddy.com/wordpress-plugin-partner-program/directory/?cvosrc=advocacy.evangelism.WP3" rel="nofollow">
-								<img src="https://garage.godaddy.com/wp-content/uploads/badges/godaddy-plugin-partner-program-badge.svg" title="GoDaddy Plugin Program Partner" alt="GoDaddy Plugin Program Partner"/>
-							</a>
-						<?php endif; ?>
 					</div>
 					<?php if ( ! is_page_template( 'page-templates/template-checkout.php' ) && ! is_page_template( 'page-templates/template-barebones.php' ) ) : ?>
 						<div class="site-info flex-two">
